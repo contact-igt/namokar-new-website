@@ -1,0 +1,40 @@
+# Upload exclusions for `vercel deploy` from this folder. When this file exists the CLI uses it
+# instead of .gitignore, so everything that must not leave this computer is listed here too.
+# Keep in step with .gitignore. Approved media is served from /private-assets, which is
+# deliberately NOT excluded; pending files are never packaged into a function (next.config.ts)
+# and are refused at request time (src/app/media/[file]/route.ts).
+
+# Local build and preview output (a preview build contains pending media)
+.next
+.next-*
+node_modules
+.env*
+.vercel
+*.tsbuildinfo
+.DS_Store
+
+# Raw client originals (patients, live surgery, staff, GPS metadata)
+/*.[mM][oO][vV]
+/*.[mM]4[vV]
+/*.[mM][pP]4
+/*.[aA][vV][iI]
+/*.[mM][kK][vV]
+/*.[hH][eE][iI][cC]
+/*.[hH][eE][iI][fF]
+/*.[jJ][pP][gG]
+/*.[jJ][pP][eE][gG]
+/*.[pP][nN][gG]
+/*.[tT][iI][fF]
+/*.[tT][iI][fF][fF]
+/*.[dD][nN][gG]
+/*.[wW][eE][bB][pP]
+/raw-media
+/raw
+/originals
+/source-media
+/client-media
+/incoming
+
+# Review package, screenshots, contact sheets and AI-art originals: not needed to run the site
+/docs
+/assets-src

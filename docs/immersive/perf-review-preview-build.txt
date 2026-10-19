@@ -1,0 +1,10 @@
+== mobile 390 (4x CPU slowdown, Fast-4G-like network)
+/                                  LCP 1276ms (IMG.hero-img) | FCP 784ms | TTFB 3ms | CLS 0.000 | TBT~6ms | click→paint 17m
+/stitchless-cataract-surgery       LCP 908ms (IMG.page-hero-img) | FCP 816ms | TTFB 2ms | CLS 0.000 | TBT~8ms | click→paint
+/glaucoma-management               LCP 1048ms (IMG.page-hero-img) | FCP 784ms | TTFB 3ms | CLS 0.000 | TBT~9ms | click→pain
+/eye-plastic-reconstructive-surgery LCP 956ms (IMG.page-hero-img) | FCP 796ms | TTFB 3ms | CLS 0.015 | TBT~12ms | click→pai
+== desktop 1440 (no throttling)
+/                                  LCP 76ms (IMG.hero-img) | FCP 28ms | TTFB 2ms | CLS 0.000 | TBT~0ms | click→paint 6ms | 
+/stitchless-cataract-surgery       LCP 44ms (IMG.page-hero-img) | FCP 32ms | TTFB 3ms | CLS 0.000 | TBT~0ms | click→paint n
+/glaucoma-management               LCP 28ms (IMG.page-hero-img) | FCP 28ms | TTFB 2ms | CLS 0.000 | TBT~0ms | click→paint n
+/eye-plastic-reconstructive-surgery LCP 40ms (IMG.page-hero-img) | FCP 28ms | TTFB 2ms | CLS 0.000 | TBT~0ms | click→paint 

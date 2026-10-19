@@ -1,0 +1,155 @@
+{
+ "mode": "launch-simulation",
+ "rows": [
+  {
+   "path": "/",
+   "title": "Namokar Eye & Oculoplasty Centre | Eye Care in Ashok Vihar, Delhi",
+   "titleLen": 65,
+   "descLen": 147,
+   "h1": 1,
+   "schema": "WebSite, MedicalClinic, WebPage, FAQPage",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/about-us",
+   "title": "About Us | Namokar Eye & Oculoplasty Centre",
+   "titleLen": 43,
+   "descLen": 147,
+   "h1": 1,
+   "schema": "AboutPage, MedicalClinic, BreadcrumbList",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/dr-poonam-jain",
+   "title": "Dr. Poonam Jain | Senior Ophthalmologist in Ashok Vihar, Delhi",
+   "titleLen": 62,
+   "descLen": 157,
+   "h1": 1,
+   "schema": "ProfilePage, Physician, FAQPage, BreadcrumbList",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/contact-us",
+   "title": "Contact Us | Namokar Eye & Oculoplasty Centre",
+   "titleLen": 45,
+   "descLen": 140,
+   "h1": 1,
+   "schema": "ContactPage, MedicalClinic, FAQPage, BreadcrumbList",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/our-services",
+   "title": "Our Services | Namokar Eye & Oculoplasty Centre",
+   "titleLen": 47,
+   "descLen": 155,
+   "h1": 1,
+   "schema": "CollectionPage, ItemList, FAQPage, BreadcrumbList",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/international-patients",
+   "title": "International Patients | Namokar Eye & Oculoplasty Centre",
+   "titleLen": 57,
+   "descLen": 155,
+   "h1": 1,
+   "schema": "WebPage, BreadcrumbList",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/testimonials",
+   "title": "Patient Reviews | Namokar Eye & Oculoplasty Centre",
+   "titleLen": 50,
+   "descLen": 100,
+   "h1": 1,
+   "schema": "BreadcrumbList",
+   "robots": "noindex, nofollow"
+  },
+  {
+   "path": "/blogs",
+   "title": "Health Articles | Namokar Eye & Oculoplasty Centre",
+   "titleLen": 50,
+   "descLen": 106,
+   "h1": 1,
+   "schema": "BreadcrumbList",
+   "robots": "noindex, nofollow"
+  },
+  {
+   "path": "/privacy-policy",
+   "title": "Privacy Policy (draft for review) | Namokar Eye & Oculoplasty Centre",
+   "titleLen": 68,
+   "descLen": 107,
+   "h1": 1,
+   "schema": "BreadcrumbList",
+   "robots": "noindex, nofollow"
+  },
+  {
+   "path": "/terms-and-conditions",
+   "title": "Terms and Conditions (draft for review) | Namokar Eye & Oculoplasty Centre",
+   "titleLen": 74,
+   "descLen": 113,
+   "h1": 1,
+   "schema": "BreadcrumbList",
+   "robots": "noindex, nofollow"
+  },
+  {
+   "path": "/stitchless-cataract-surgery",
+   "title": "Cataract Surgery | Namokar Eye & Oculoplasty Centre",
+   "titleLen": 51,
+   "descLen": 158,
+   "h1": 1,
+   "schema": "MedicalWebPage, FAQPage, BreadcrumbList",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/eyelid-surgery-blepharoplasty",
+   "title": "Eyelid Surgery (Blepharoplasty) | Namokar Eye & Oculoplasty Centre",
+   "titleLen": 66,
+   "descLen": 158,
+   "h1": 1,
+   "schema": "MedicalWebPage, FAQPage, BreadcrumbList",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/glaucoma-management",
+   "title": "Glaucoma Management | Namokar Eye & Oculoplasty Centre",
+   "titleLen": 54,
+   "descLen": 155,
+   "h1": 1,
+   "schema": "MedicalWebPage, FAQPage, BreadcrumbList",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/aesthetic-oculofacial",
+   "title": "Aesthetic Oculoplasty | Namokar Eye & Oculoplasty Centre",
+   "titleLen": 56,
+   "descLen": 152,
+   "h1": 1,
+   "schema": "MedicalWebPage, FAQPage, BreadcrumbList",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/eye-plastic-reconstructive-surgery",
+   "title": "Reconstructive Oculoplasty | Namokar Eye & Oculoplasty Centre",
+   "titleLen": 61,
+   "descLen": 157,
+   "h1": 1,
+   "schema": "MedicalWebPage, FAQPage, BreadcrumbList",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/comprehensive-eye-examinations",
+   "title": "Comprehensive Eye Examinations | Namokar Eye & Oculoplasty Centre",
+   "titleLen": 65,
+   "descLen": 144,
+   "h1": 1,
+   "schema": "MedicalWebPage, FAQPage, BreadcrumbList",
+   "robots": "index, follow"
+  }
+ ],
+ "warnings": [
+  "/privacy-policy: title is 68 chars (may be truncated): Privacy Policy (draft for review) | Namokar Eye & Oculoplasty Centre",
+  "/terms-and-conditions: title is 74 chars (may be truncated): Terms and Conditions (draft for review) | Namokar Eye & Oculoplasty Centre",
+  "/eyelid-surgery-blepharoplasty: title is 66 chars (may be truncated): Eyelid Surgery (Blepharoplasty) | Namokar Eye & Oculoplasty Centre"
+ ],
+ "failures": []
+}

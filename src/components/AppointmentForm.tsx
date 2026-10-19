@@ -1,0 +1,222 @@
+"use client";
+
+import { useRef, useState, useSyncExternalStore } from "react";
+import {
+  type FieldErrors,
+  type FieldName,
+  SERVICE_OPTIONS,
+  dateBounds,
+  validate,
+} from "@/lib/appointment";
+import { SITE, TEL_HREF } from "@/config/site";
+
+type Status = "idle" | "submitting" | "success" | "error";
+
+const ORDER: FieldName[] = ["name", "phone", "service", "preferredDate", "consent"];
+
+const SERVER_MESSAGES: Record<string, string> = {
+  rate_limited: "Too many requests from this connection. Please wait a few minutes, or call the centre.",
+  not_configured: "Online requests are not available right now. Please call the centre.",
+  disabled: "Online requests are not available right now. Please call the centre.",
+  rejected: "Your request could not be sent. Please clear any automatically filled fields and try again, or call the centre.",
+  delivery_failed: "We could not pass your request on just now. Please try again, or call the centre.",
+};
+
+/**
+ * Appointment enquiry. Shows confirmation only after the server reports that the
+ * enquiry was accepted. Collects no medical details.
+ */
+export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | null }) {
+  const [status, setStatus] = useState<Status>("idle");
+  const [errors, setErrors] = useState<FieldErrors>({});
+  const [formError, setFormError] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+  const summaryRef = useRef<HTMLDivElement>(null);
+  // The current date is read on the client only: it must not be baked into the prerendered page.
+  const dateKey = useSyncExternalStore(
+    () => () => {},
+    () => {
+      const b = dateBounds();
+      return `${b.min}|${b.max}`;
+    },
+    () => "",
+  );
+  const [min, max] = dateKey ? dateKey.split("|") : [undefined, undefined];
+
+  const focusSummary = () => requestAnimationFrame(() => summaryRef.current?.focus());
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (status === "submitting") return;
+    const fd = new FormData(e.currentTarget);
+    const raw = {
+      name: String(fd.get("name") ?? ""),
+      phone: String(fd.get("phone") ?? ""),
+      service: String(fd.get("service") ?? ""),
+      preferredDate: String(fd.get("preferredDate") ?? ""),
+      consent: fd.get("consent") === "on",
+      hp_check: String(fd.get("hp_check") ?? ""),
+    };
+
+    const local = validate(raw);
+    if (!local.ok) {
+      setErrors(local.errors);
+      setFormError("");
+      setStatus("error");
+      focusSummary();
+      return;
+    }
+
+    setErrors({});
+    setFormError("");
+    setStatus("submitting");
+    try {
+      const res = await fetch("/api/appointment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(raw),
+      });
+      const data = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        code?: string;
+        errors?: FieldErrors;
+      };
+      if (res.ok && data.ok === true) {
+        setStatus("success");
+        formRef.current?.reset();
+        focusSummary();
+        return;
+      }
+      if (res.status === 422 && data.errors) {
+        setErrors(data.errors);
+      } else {
+        setFormError(
+          SERVER_MESSAGES[data.code ?? ""] ??
+            "Something went wrong. Please try again, or call the centre.",
+        );
+      }
+      setStatus("error");
+      focusSummary();
+    } catch {
+      setFormError("We could not reach the server. Please check your connection and try again, or call the centre.");
+      setStatus("error");
+      focusSummary();
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className="form-note form-note--ok" role="status" tabIndex={-1} ref={summaryRef}>
+        <h3 className="h3">Your request has been received</h3>
+        <p>
+          Thank you. This is a request only, <strong>not a confirmed appointment</strong>.
+          The centre may contact you on the number you gave to discuss a suitable time.
+        </p>
+        <p>
+          If you need to speak to someone sooner, please call{" "}
+          <a href={TEL_HREF} className="text-link">{SITE.phone.display}</a>.
+        </p>
+        <button type="button" className="btn btn--secondary" onClick={() => setStatus("idle")}>
+          Send another request
+        </button>
+      </div>
+    );
+  }
+
+  const errorList = ORDER.filter((f) => errors[f]);
+  const fieldProps = (f: FieldName) => ({
+    "aria-invalid": errors[f] ? (true as const) : undefined,
+    "aria-describedby": errors[f] ? `${f}-error` : undefined,
+  });
+
+  return (
+    <form ref={formRef} onSubmit={onSubmit} noValidate className="form" aria-busy={status === "submitting"}>
+      {status === "error" && (errorList.length > 0 || formError) && (
+        <div className="form-note form-note--err" role="alert" tabIndex={-1} ref={summaryRef}>
+          <p className="form-note-title">
+            {errorList.length > 0 ? "Please check the following:" : "Your request was not sent."}
+          </p>
+          {formError && <p>{formError}</p>}
+          {errorList.length > 0 && (
+            <ul>
+              {errorList.map((f) => (
+                <li key={f}>
+                  <a href={`#${f}`}>{errors[f]}</a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+
+      <div className="field">
+        <label htmlFor="name">Full name</label>
+        <input id="name" name="name" type="text" autoComplete="name" maxLength={80} required {...fieldProps("name")} />
+        {errors.name && <p id="name-error" className="field-error">{errors.name}</p>}
+      </div>
+
+      <div className="field">
+        <label htmlFor="phone">Phone number</label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          inputMode="tel"
+          autoComplete="tel"
+          maxLength={20}
+          placeholder="98765 43210"
+          required
+          {...fieldProps("phone")}
+        />
+        {errors.phone && <p id="phone-error" className="field-error">{errors.phone}</p>}
+      </div>
+
+      <div className="field">
+        <label htmlFor="service">Reason for visit <span className="opt">(optional)</span></label>
+        <select id="service" name="service" defaultValue="" {...fieldProps("service")}>
+          {SERVICE_OPTIONS.map((o) => (
+            <option key={o.value} value={o.value}>{o.label}</option>
+          ))}
+        </select>
+        {errors.service && <p id="service-error" className="field-error">{errors.service}</p>}
+      </div>
+
+      <div className="field">
+        <label htmlFor="preferredDate">Preferred day <span className="opt">(optional)</span></label>
+        <input id="preferredDate" name="preferredDate" type="date" min={min} max={max} {...fieldProps("preferredDate")} />
+        <p className="hint">The centre cannot promise this day. It helps when planning a time.</p>
+        {errors.preferredDate && <p id="preferredDate-error" className="field-error">{errors.preferredDate}</p>}
+      </div>
+
+      {/* Honeypot: hidden from people and assistive technology */}
+      <div className="hp" aria-hidden="true">
+        <label htmlFor="hp_check">Leave this field empty</label>
+        <input id="hp_check" name="hp_check" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
+      <div className="field field--check">
+        <input id="consent" name="consent" type="checkbox" {...fieldProps("consent")} />
+        <label htmlFor="consent">
+          I agree that Namokar Eye &amp; Oculoplasty Centre may contact me on this number
+          about my enquiry.
+        </label>
+      </div>
+      {errors.consent && <p id="consent-error" className="field-error">{errors.consent}</p>}
+
+      <p className="hint">
+        Please do not include medical history, diagnoses or reports. The details you enter
+        are sent to the centre so that it can respond to your enquiry.
+        {privacyUrl && (
+          <>
+            {" "}
+            <a href={privacyUrl} className="text-link">Read the privacy notice</a>.
+          </>
+        )}
+      </p>
+
+      <button type="submit" className="btn btn--primary" disabled={status === "submitting"}>
+        {status === "submitting" ? "Sending…" : status === "error" ? "Try again" : "Send request"}
+      </button>
+    </form>
+  );
+}

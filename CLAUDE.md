@@ -1,0 +1,32 @@
+@AGENTS.md
+
+# Namokar Eye & Oculoplasty Centre: project rules
+
+Scope: the full public site: home, about, doctor, services overview and six service pages, international patients, testimonials, blogs, contact, legal drafts and error pages. The route list and indexing state live in `src/config/routes.ts`; deliverable docs are in `docs/full-site-build/`.
+
+**Mobile first.** Design at 375–390px, check 320, 430, 768, 1024, 1440. No horizontal scroll, tap targets ≥ 44px, one `<h1>`.
+
+**Colour tokens** (`src/app/globals.css`), from the approved orange-and-charcoal logo: brand orange `#D66B1F` (rules, numerals, small accents), dark orange `#A9440D` (buttons and orange text, 6:1 with white), graphite `#243238`, porcelain `#F7F9FA`, orange tint `#FFF2E8`, line `#E5E9EA`. Orange stays at roughly 5–8% of the interface; no blue, aqua or gradients. Headlines use Manrope, UI and body use Inter (no serif). Hospital photography leads the hero. Radius 6–8px. Keep WCAG AA.
+
+**Claims.** Never add years of experience, NABH, ratings, review counts, patient outcomes, awards, other doctors, hours, WhatsApp or socials unless the client has approved them (`docs/NAMOKAR_CONTENT_VERIFICATION.md`). Phone, links and address live only in `src/config/site.ts`.
+
+**Images and video.** Every photograph and video is declared in `src/config/assets.ts` with its source and approval status, kept in `/private-assets` and served only through `/media/<file>`, which 404s unless the asset is approved (or the server variable `ASSET_PREVIEW=on` is set for client review, never in production). Render photographs only with `AssetImage` and always provide a fallback; never leave an empty frame. Do not set `approved: true` without recorded sign-off in `docs/NAMOKAR_CONTENT_VERIFICATION.md`. Two labelled AI concept images (provenance in `assets-src/ai-generated/PROVENANCE.md`) are also pending. No stock or AI faces, no fake interiors. Icons are functional only.
+
+**Motion.** Transform/opacity only, honour `prefers-reduced-motion`, no autoplay carousels.
+
+**Checks before saying done:** `npm run lint`, `npx tsc --noEmit`, `npm run build`, then look at real screenshots.
+
+**Booking and contact.** Appointment buttons use `BookButton`: "Book a Consultation" (to the form) only when online requests exist, otherwise "Call to Book an Appointment". Online requests need BOTH `APPOINTMENT_FORM_ENABLED=on` and `APPOINTMENT_WEBHOOK_URL` on the server (`src/lib/booking.ts`); there is no public flag. Never show success unless `/api/appointment` returned ok. Email, WhatsApp, opening hours and the map pin are unset in `src/config/site.ts` on purpose.
+
+
+**Working folder.** The project sits in an iCloud-synced folder, which creates duplicate " 2" files (see `docs/DEV_ENVIRONMENT.md`). Move it outside iCloud when convenient; run builds with no concurrent dev server editing the same files.
+
+**Pages and review state.** Every page is `reviewed: false` in `src/config/routes.ts` and noindex until its content sign-off is recorded. Service copy is general information that still needs clinician review (`src/content/services.ts`). Add articles only to `src/content/articles.ts` and reviews only to `src/content/testimonials.ts`, with the required review and consent fields; never generate them. Legal pages are review-only templates. Run `node scripts/qa-crawl.mjs <url>`, `node scripts/check-canonicals.mjs <url>` and `node scripts/check-media-exposure.mjs <url> --build-dir .next` against a default production build before any release. Raw originals never live in this folder (see `docs/PRELAUNCH_SECURITY_REPORT.md`).
+
+**Videos.** All videos come from `src/content/videos.ts`. Local footage follows the media registry; YouTube entries default to `approved: false` and render only when approved (or in the local preview), click-to-load via youtube-nocookie. Never hard-code a video ID in a page. `/videos` is hidden (404) until at least 3 videos are approved.
+
+**SEO and answer engines.** Metadata for every page comes from `pageMeta()` in `src/lib/seo.ts`; structured data from `src/lib/schema.ts` through `<JsonLd>`, emitted only when `ALLOW_INDEXING=on`. A page is indexable only if `ALLOW_INDEXING` is on, it is `reviewed`, and `contentReady()` is true (`src/config/routes.ts`). Legacy redirects live in `src/config/redirects.ts`. Run `node scripts/seo-audit.mjs <url>` after a default build; strategy and audit documents are in `docs/seo-aeo/`. Never add telephone, hours, ratings, reviews, `sameAs`, images or credentials to markup until the client approves them.
+
+**Clinical figures and motion.** Every diagram or interactive explainer is declared in `src/config/figures.ts` (`approved: false` until a named clinician signs it off) and placed only through `<ClinicalFigure id heading intro>`, which renders nothing for a pending figure; `FigureHost` maps the id to the component and code-splits each figure (a server-side dynamic import in `ClinicalFigure` triggered a Next dev-overlay error and is not used). Figures are original vector art drawn in code: no AI imagery, no photographs of people or results, no outcome claims; their wording is in `docs/immersive/FIGURE_TEXT_FOR_REVIEW.md`. Motion: CSS for simple states; `motion/mini` only for genuinely sequenced interaction; never import `motion/react` in code that ships on every page (it cost 52 KB gzipped); never wrap routes in `<ViewTransition>` (it delayed the first paint 0.4 s); honour `prefers-reduced-motion`; transform and opacity only; controls at least 44 px; hover effects on a fine pointer only. Re-run `docs/immersive/qa-scripts/immersive-qa.mjs` against a review-preview build after changing a figure.
+
+**Local review and the treatment explorer.** Pending photographs, videos and figures render cleanly in the local review (no per-image labels); the only marker is `ReviewBadge` and the private index at `/review` (`src/app/review/page.tsx`), which answer only when `ASSET_PREVIEW=on` and the request is local (`previewRequestAllowed` in `src/config/assets.ts`, also `src/proxy.ts`). Review servers must listen on 127.0.0.1 only (`npm run dev:preview`, `npm run start:preview`): a Host header can be forged, so never run the preview with `-H 0.0.0.0`. The homepage "Find care" section is `TreatmentExplorer` fed by `src/lib/treatments.ts` (candidate photographs per treatment, brand card when none is cleared); keep every label a real link and never make anything hover-only. Test with `docs/ui-refinement/qa-scripts/treatment-matrix.mjs`. Details: `docs/ui-refinement/`.

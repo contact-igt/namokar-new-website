@@ -1,0 +1,118 @@
+[
+ {
+  "w": 390,
+  "step": "next → slide 1",
+  "tab": 0,
+  "heading": "Specialist Eye Care, Centred Around You."
+ },
+ {
+  "w": 390,
+  "step": "next → slide 2",
+  "tab": 1,
+  "heading": "Cataract Care, Explained Clearly."
+ },
+ {
+  "w": 390,
+  "step": "next → slide 3",
+  "tab": 2,
+  "heading": "Eye Check-Ups to Glaucoma Care."
+ },
+ {
+  "w": 390,
+  "step": "next → slide 4",
+  "tab": 3,
+  "heading": "Specialist Care for Your Eyelids."
+ },
+ {
+  "w": 390,
+  "step": "next from 4 wraps to 1",
+  "tab": 0
+ },
+ {
+  "w": 390,
+  "step": "previous from 1 wraps to 4",
+  "tab": 3
+ },
+ {
+  "w": 390,
+  "step": "tab 2 click",
+  "tab": 1,
+  "heading": "Cataract Care, Explained Clearly."
+ },
+ {
+  "w": 390,
+  "step": "ArrowRight on track from 2",
+  "tab": 2
+ },
+ {
+  "w": 390,
+  "step": "manual scroll to slide 4",
+  "tab": 3,
+  "heading": "Specialist Care for Your Eyelids."
+ },
+ {
+  "w": 390,
+  "step": "layout",
+  "horizontalOverflow": 0,
+  "minTapTarget": 44,
+  "consoleErrors": 0
+ },
+ {
+  "w": 1440,
+  "step": "next → slide 1",
+  "tab": 0,
+  "heading": "Specialist Eye Care, Centred Around You."
+ },
+ {
+  "w": 1440,
+  "step": "next → slide 2",
+  "tab": 1,
+  "heading": "Cataract Care, Explained Clearly."
+ },
+ {
+  "w": 1440,
+  "step": "next → slide 3",
+  "tab": 2,
+  "heading": "Eye Check-Ups to Glaucoma Care."
+ },
+ {
+  "w": 1440,
+  "step": "next → slide 4",
+  "tab": 3,
+  "heading": "Specialist Care for Your Eyelids."
+ },
+ {
+  "w": 1440,
+  "step": "next from 4 wraps to 1",
+  "tab": 0
+ },
+ {
+  "w": 1440,
+  "step": "previous from 1 wraps to 4",
+  "tab": 3
+ },
+ {
+  "w": 1440,
+  "step": "tab 2 click",
+  "tab": 1,
+  "heading": "Cataract Care, Explained Clearly."
+ },
+ {
+  "w": 1440,
+  "step": "ArrowRight on track from 2",
+  "tab": 2
+ },
+ {
+  "w": 1440,
+  "step": "manual scroll to slide 4",
+  "tab": 3,
+  "heading": "Specialist Care for Your Eyelids."
+ },
+ {
+  "w": 1440,
+  "step": "layout",
+  "horizontalOverflow": 0,
+  "minTapTarget": 44,
+  "consoleErrors": 0
+ }
+]

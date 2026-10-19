@@ -1,0 +1,13 @@
+== mobile 390 (4x CPU slowdown, Fast-4G-like network)
+/                                  LCP 924ms (H2.hero-title) | FCP 820ms | TTFB 2ms | CLS 0.000 | TBT~5ms | click→pa
+/our-services                      LCP 812ms (H1.page-title) | FCP 812ms | TTFB 2ms | CLS 0.001 | TBT~2ms | click→pa
+/stitchless-cataract-surgery       LCP 812ms (P.page-lead) | FCP 812ms | TTFB 5ms | CLS 0.001 | TBT~1ms | click→pain
+/glaucoma-management               LCP 820ms (H1.page-title) | FCP 820ms | TTFB 2ms | CLS 0.001 | TBT~4ms | click→pa
+/contact-us                        LCP 808ms (P.page-lead) | FCP 808ms | TTFB 2ms | CLS 0.000 | TBT~6ms | click→pain
+== desktop 1440 (no throttling)
+/                                  LCP 28ms (IMG.) | FCP 28ms | TTFB 2ms | CLS 0.000 | TBT~0ms | click→paint 7ms | ~
+/our-services                      LCP 28ms (H1.page-title) | FCP 28ms | TTFB 2ms | CLS 0.000 | TBT~0ms | click→pain
+/stitchless-cataract-surgery       LCP 32ms (P.) | FCP 32ms | TTFB 2ms | CLS 0.000 | TBT~0ms | click→paint nullms | 
+/glaucoma-management               LCP 32ms (H1.page-title) | FCP 32ms | TTFB 3ms | CLS 0.000 | TBT~0ms | click→pain
+/contact-us                        LCP 28ms (H1.page-title) | FCP 28ms | TTFB 2ms | CLS 0.000 | TBT~0ms | click→pain
+/                                        JS 161 KB gzip/brotli (encoded) in 15 files, CSS 14 KB

@@ -1,0 +1,444 @@
+{
+ "total": 73,
+ "failed": 0,
+ "results": [
+  {
+   "area": "cataract/desktop",
+   "name": "eye diagram: choosing Cornea shows its definition",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "eye diagram: clouded lens toggle",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "eye diagram: Enter on a focused part button",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "lens compare: keyboard moves the slider",
+   "ok": true,
+   "detail": "50% -> 52%"
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "lens compare: drag sets the divider",
+   "ok": true,
+   "detail": "cut=20%"
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "lens compare: severity changes blur",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "lens designs: tab changes the description",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "lens designs: astigmatism tab",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "steps: starts at step 1 and does not move by itself",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "steps: still step 1 after 3.5 s (no autoplay)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "steps: Next goes to step 2",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "steps: Previous goes back to step 1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "steps: Play advances by itself",
+   "ok": true,
+   "detail": "Step 2 of 4"
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "steps: Pause holds the step",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "steps: keyboard Enter on step 4 button",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "steps: Replay offered at the end",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "all figure controls are at least 44 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/desktop",
+   "name": "no console errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "eye diagram: choosing Cornea shows its definition",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "eye diagram: clouded lens toggle",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "eye diagram: Enter on a focused part button",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "lens compare: keyboard moves the slider",
+   "ok": true,
+   "detail": "50% -> 52%"
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "lens compare: tap sets the divider",
+   "ok": true,
+   "detail": "cut=20%"
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "lens compare: severity changes blur",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "lens designs: tab changes the description",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "lens designs: astigmatism tab",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "steps: starts at step 1 and does not move by itself",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "steps: still step 1 after 3.5 s (no autoplay)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "steps: Next goes to step 2",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "steps: Previous goes back to step 1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "steps: Play advances by itself",
+   "ok": true,
+   "detail": "Step 2 of 4"
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "steps: Pause holds the step",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "steps: keyboard Enter on step 4 button",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "steps: Replay offered at the end",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "all figure controls are at least 44 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "cataract/mobile",
+   "name": "no console errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "/glaucoma-management/desktop",
+   "name": "glaucomaFlow: \"Drainage slowed\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "/glaucoma-management/desktop",
+   "name": "sideVision: \"Advanced narrowing\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "/comprehensive-eye-examinations/desktop",
+   "name": "examParts: \"The back of the eye\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "/eyelid-surgery-blepharoplasty/desktop",
+   "name": "eyelidPosition: \"Drooping\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "/eye-plastic-reconstructive-surgery/desktop",
+   "name": "tearPathway: \"Puncta\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "/eye-plastic-reconstructive-surgery/desktop",
+   "name": "lidMalposition: \"Turning in\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "/aesthetic-oculofacial/desktop",
+   "name": "checklist: untick a question",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "/aesthetic-oculofacial/desktop",
+   "name": "static question list replaced by the checklist",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "desktop figures",
+   "name": "controls at least 44 px (aesthetic page)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "desktop figures",
+   "name": "no console errors across all pages",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "/glaucoma-management/mobile",
+   "name": "glaucomaFlow: \"Drainage slowed\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "/glaucoma-management/mobile",
+   "name": "sideVision: \"Advanced narrowing\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "/comprehensive-eye-examinations/mobile",
+   "name": "examParts: \"The back of the eye\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "/eyelid-surgery-blepharoplasty/mobile",
+   "name": "eyelidPosition: \"Drooping\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "/eye-plastic-reconstructive-surgery/mobile",
+   "name": "tearPathway: \"Puncta\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "/eye-plastic-reconstructive-surgery/mobile",
+   "name": "lidMalposition: \"Turning in\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "/aesthetic-oculofacial/mobile",
+   "name": "checklist: untick a question",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "/aesthetic-oculofacial/mobile",
+   "name": "static question list replaced by the checklist",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "mobile figures",
+   "name": "controls at least 44 px (aesthetic page)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "mobile figures",
+   "name": "no console errors across all pages",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "reduced motion",
+   "name": "CSS transitions are off (under 1 ms)",
+   "ok": true,
+   "detail": "1e-05s"
+  },
+  {
+   "area": "reduced motion",
+   "name": "parallax is off",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "reduced motion",
+   "name": "steps still work (picture changes without animation)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "reduced motion",
+   "name": "no scale transform left on the animated lens",
+   "ok": true,
+   "detail": "matrix(1, 0, 0, 1, 0, 0)"
+  },
+  {
+   "area": "reduced motion",
+   "name": "no console errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "parallax",
+   "name": "desktop pointer: enabled on the About hero photograph",
+   "ok": true,
+   "detail": "1 wrappers, transform matrix(1.1, 0, 0, 1.1, 0, -8.8)"
+  },
+  {
+   "area": "parallax",
+   "name": "touch device: disabled",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "page entrance/normal",
+   "name": "first page of a visit is not animated",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "page entrance/normal",
+   "name": "client-side navigation marks the new page",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "page entrance/normal",
+   "name": "animation is on",
+   "ok": true,
+   "detail": "page-enter"
+  },
+  {
+   "area": "page entrance/normal",
+   "name": "heading present after navigation",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "page entrance/normal",
+   "name": "no console errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "page entrance/reduced motion",
+   "name": "first page of a visit is not animated",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "page entrance/reduced motion",
+   "name": "client-side navigation marks the new page",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "page entrance/reduced motion",
+   "name": "animation is off",
+   "ok": true,
+   "detail": "none"
+  },
+  {
+   "area": "page entrance/reduced motion",
+   "name": "heading present after navigation",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "page entrance/reduced motion",
+   "name": "no console errors",
+   "ok": true,
+   "detail": ""
+  }
+ ]
+}

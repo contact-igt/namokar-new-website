@@ -1,0 +1,28 @@
+{
+  "name": "namokar-eye-care",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "dev:preview": "ASSET_PREVIEW=on next dev -H 127.0.0.1 -p 3100",
+    "start:preview": "ASSET_PREVIEW=on next start -H 127.0.0.1 -p 3106",
+    "build:preview": "ASSET_PREVIEW=on next build"
+  },
+  "dependencies": {
+    "motion": "^14.3.0",
+    "next": "16.4.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.1",
+    "typescript": "^5"
+  }
+}

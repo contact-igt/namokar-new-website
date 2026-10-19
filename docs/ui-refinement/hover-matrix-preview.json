@@ -1,0 +1,614 @@
+{
+ "total": 94,
+ "failed": 0,
+ "rows": [
+  {
+   "title": "Cataract Surgery",
+   "href": "/stitchless-cataract-surgery",
+   "summary": "Careful assessment of your vision and a clear discussion of your treatment options.",
+   "image": "hospital-ot-modern-a.webp",
+   "alt": "An operation theatre with an operating table, operating microscope, surgical console and a clock panel on the wall"
+  },
+  {
+   "title": "Glaucoma Management",
+   "href": "/glaucoma-management",
+   "summary": "Assessment and regular follow-up, because glaucoma needs long-term monitoring.",
+   "image": "dr-poonam-jain-slit.webp",
+   "alt": "Dr. Poonam Jain seated beside a slit-lamp examination unit in a consultation room"
+  },
+  {
+   "title": "Comprehensive Eye Examinations",
+   "href": "/comprehensive-eye-examinations",
+   "summary": "Routine check-ups and examinations for specific eye concerns, explained in plain language.",
+   "image": "hospital-chart-door.webp",
+   "alt": "A wooden examination-room door with an eye-chart screen beside it"
+  },
+  {
+   "title": "Eyelid Surgery (Blepharoplasty)",
+   "href": "/eyelid-surgery-blepharoplasty",
+   "summary": "Assessment of heavy or drooping eyelids, for both functional and cosmetic reasons.",
+   "image": "dr-poonam-jain-standing.webp",
+   "alt": "Dr. Poonam Jain standing in her consultation room with her arms folded"
+  },
+  {
+   "title": "Aesthetic Oculoplasty",
+   "href": "/aesthetic-oculofacial",
+   "summary": "Considered care for heavy eyelids, under-eye bags and age-related changes around the eyes.",
+   "image": "dr-poonam-jain-blazer.webp",
+   "alt": "Dr. Poonam Jain in a grey jacket standing in a consultation room"
+  },
+  {
+   "title": "Reconstructive Oculoplasty",
+   "href": "/eye-plastic-reconstructive-surgery",
+   "summary": "Treatment for drooping eyelids (ptosis), eyelid malposition and tear-drainage problems.",
+   "image": "hospital-ot-modern-c.webp",
+   "alt": "An operation theatre from a corner, with shelving, a trolley, the operating table and the microscope"
+  }
+ ],
+ "results": [
+  {
+   "area": "desktop",
+   "name": "six treatment links present",
+   "ok": true,
+   "detail": "6"
+  },
+  {
+   "area": "desktop",
+   "name": "Cataract Surgery: hover shows its title",
+   "ok": true,
+   "detail": "Cataract Surgery"
+  },
+  {
+   "area": "desktop",
+   "name": "Cataract Surgery: preview CTA points to /stitchless-cataract-surgery",
+   "ok": true,
+   "detail": "/stitchless-cataract-surgery"
+  },
+  {
+   "area": "desktop",
+   "name": "Cataract Surgery: label is not covered by anything",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "desktop",
+   "name": "Cataract Surgery: image visible and loaded",
+   "ok": true,
+   "detail": "616x493 nat=748 alt=\"An operation theatre with an operating t\""
+  },
+  {
+   "area": "desktop",
+   "name": "Glaucoma Management: hover shows its title",
+   "ok": true,
+   "detail": "Glaucoma Management"
+  },
+  {
+   "area": "desktop",
+   "name": "Glaucoma Management: preview CTA points to /glaucoma-management",
+   "ok": true,
+   "detail": "/glaucoma-management"
+  },
+  {
+   "area": "desktop",
+   "name": "Glaucoma Management: label is not covered by anything",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "desktop",
+   "name": "Glaucoma Management: image visible and loaded",
+   "ok": true,
+   "detail": "617x493 nat=748 alt=\"Dr. Poonam Jain seated beside a slit-lam\""
+  },
+  {
+   "area": "desktop",
+   "name": "Comprehensive Eye Examinations: hover shows its title",
+   "ok": true,
+   "detail": "Comprehensive Eye Examinations"
+  },
+  {
+   "area": "desktop",
+   "name": "Comprehensive Eye Examinations: preview CTA points to /comprehensive-eye-examinations",
+   "ok": true,
+   "detail": "/comprehensive-eye-examinations"
+  },
+  {
+   "area": "desktop",
+   "name": "Comprehensive Eye Examinations: label is not covered by anything",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "desktop",
+   "name": "Comprehensive Eye Examinations: image visible and loaded",
+   "ok": true,
+   "detail": "617x493 nat=748 alt=\"A wooden examination-room door with an e\""
+  },
+  {
+   "area": "desktop",
+   "name": "Eyelid Surgery (Blepharoplasty): hover shows its title",
+   "ok": true,
+   "detail": "Eyelid Surgery (Blepharoplasty)"
+  },
+  {
+   "area": "desktop",
+   "name": "Eyelid Surgery (Blepharoplasty): preview CTA points to /eyelid-surgery-blepharoplasty",
+   "ok": true,
+   "detail": "/eyelid-surgery-blepharoplasty"
+  },
+  {
+   "area": "desktop",
+   "name": "Eyelid Surgery (Blepharoplasty): label is not covered by anything",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "desktop",
+   "name": "Eyelid Surgery (Blepharoplasty): image visible and loaded",
+   "ok": true,
+   "detail": "617x493 nat=748 alt=\"Dr. Poonam Jain standing in her consulta\""
+  },
+  {
+   "area": "desktop",
+   "name": "Aesthetic Oculoplasty: hover shows its title",
+   "ok": true,
+   "detail": "Aesthetic Oculoplasty"
+  },
+  {
+   "area": "desktop",
+   "name": "Aesthetic Oculoplasty: preview CTA points to /aesthetic-oculofacial",
+   "ok": true,
+   "detail": "/aesthetic-oculofacial"
+  },
+  {
+   "area": "desktop",
+   "name": "Aesthetic Oculoplasty: label is not covered by anything",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "desktop",
+   "name": "Aesthetic Oculoplasty: image visible and loaded",
+   "ok": true,
+   "detail": "617x493 nat=748 alt=\"Dr. Poonam Jain in a grey jacket standin\""
+  },
+  {
+   "area": "desktop",
+   "name": "Reconstructive Oculoplasty: hover shows its title",
+   "ok": true,
+   "detail": "Reconstructive Oculoplasty"
+  },
+  {
+   "area": "desktop",
+   "name": "Reconstructive Oculoplasty: preview CTA points to /eye-plastic-reconstructive-surgery",
+   "ok": true,
+   "detail": "/eye-plastic-reconstructive-surgery"
+  },
+  {
+   "area": "desktop",
+   "name": "Reconstructive Oculoplasty: label is not covered by anything",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "desktop",
+   "name": "Reconstructive Oculoplasty: image visible and loaded",
+   "ok": true,
+   "detail": "617x493 nat=748 alt=\"An operation theatre from a corner, with\""
+  },
+  {
+   "area": "desktop",
+   "name": "six different pictures (no repeated image)",
+   "ok": true,
+   "detail": "6 distinct"
+  },
+  {
+   "area": "desktop",
+   "name": "preview stays when the pointer moves into it",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "desktop",
+   "name": "rapid sweep leaves the correct preview (no stale image)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "desktop",
+   "name": "exactly one image is visible after the sweep",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "desktop",
+   "name": "click Cataract Surgery → /stitchless-cataract-surgery",
+   "ok": true,
+   "detail": "/stitchless-cataract-surgery"
+  },
+  {
+   "area": "desktop",
+   "name": "click Glaucoma Management → /glaucoma-management",
+   "ok": true,
+   "detail": "/glaucoma-management"
+  },
+  {
+   "area": "desktop",
+   "name": "click Comprehensive Eye Examinations → /comprehensive-eye-examinations",
+   "ok": true,
+   "detail": "/comprehensive-eye-examinations"
+  },
+  {
+   "area": "desktop",
+   "name": "click Eyelid Surgery (Blepharoplasty) → /eyelid-surgery-blepharoplasty",
+   "ok": true,
+   "detail": "/eyelid-surgery-blepharoplasty"
+  },
+  {
+   "area": "desktop",
+   "name": "click Aesthetic Oculoplasty → /aesthetic-oculofacial",
+   "ok": true,
+   "detail": "/aesthetic-oculofacial"
+  },
+  {
+   "area": "desktop",
+   "name": "click Reconstructive Oculoplasty → /eye-plastic-reconstructive-surgery",
+   "ok": true,
+   "detail": "/eye-plastic-reconstructive-surgery"
+  },
+  {
+   "area": "desktop",
+   "name": "preview CTA click navigates",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "desktop",
+   "name": "keyboard Tab moves the preview through all six",
+   "ok": true,
+   "detail": "Cataract Surgery > Glaucoma Management > Comprehensive Eye Examinations > Eyelid Surgery (Blepharoplasty) > Aesthetic Oc"
+  },
+  {
+   "area": "desktop",
+   "name": "focus-visible ring on a label (keyboard)",
+   "ok": true,
+   "detail": "solid"
+  },
+  {
+   "area": "desktop",
+   "name": "keyboard Enter navigates",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "desktop",
+   "name": "no console errors or warnings",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "touch 375",
+   "name": "card layout, no hover-only preview panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "touch 375",
+   "name": "no horizontal page overflow",
+   "ok": true,
+   "detail": "0"
+  },
+  {
+   "area": "touch 375",
+   "name": "swipeable snap row",
+   "ok": true,
+   "detail": "{\"scroll\":true,\"snap\":\"x mandatory\",\"mode\":\"flex\"}"
+  },
+  {
+   "area": "touch 375",
+   "name": "every card is at least 44 px",
+   "ok": true,
+   "detail": "293"
+  },
+  {
+   "area": "touch 375",
+   "name": "every card shows its own picture",
+   "ok": true,
+   "detail": "6 pictures"
+  },
+  {
+   "area": "touch 375",
+   "name": "swiping moves the row without navigating",
+   "ok": true,
+   "detail": "0 -> 307"
+  },
+  {
+   "area": "touch 375",
+   "name": "first tap on Cataract Surgery navigates",
+   "ok": true,
+   "detail": "/stitchless-cataract-surgery"
+  },
+  {
+   "area": "touch 375",
+   "name": "first tap on Glaucoma Management navigates",
+   "ok": true,
+   "detail": "/glaucoma-management"
+  },
+  {
+   "area": "touch 375",
+   "name": "first tap on Comprehensive Eye Examinations navigates",
+   "ok": true,
+   "detail": "/comprehensive-eye-examinations"
+  },
+  {
+   "area": "touch 375",
+   "name": "first tap on Eyelid Surgery (Blepharoplasty) navigates",
+   "ok": true,
+   "detail": "/eyelid-surgery-blepharoplasty"
+  },
+  {
+   "area": "touch 375",
+   "name": "first tap on Aesthetic Oculoplasty navigates",
+   "ok": true,
+   "detail": "/aesthetic-oculofacial"
+  },
+  {
+   "area": "touch 375",
+   "name": "first tap on Reconstructive Oculoplasty navigates",
+   "ok": true,
+   "detail": "/eye-plastic-reconstructive-surgery"
+  },
+  {
+   "area": "touch 375",
+   "name": "no console errors or warnings",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "touch 390",
+   "name": "card layout, no hover-only preview panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "touch 390",
+   "name": "no horizontal page overflow",
+   "ok": true,
+   "detail": "0"
+  },
+  {
+   "area": "touch 390",
+   "name": "swipeable snap row",
+   "ok": true,
+   "detail": "{\"scroll\":true,\"snap\":\"x mandatory\",\"mode\":\"flex\"}"
+  },
+  {
+   "area": "touch 390",
+   "name": "every card is at least 44 px",
+   "ok": true,
+   "detail": "300"
+  },
+  {
+   "area": "touch 390",
+   "name": "every card shows its own picture",
+   "ok": true,
+   "detail": "6 pictures"
+  },
+  {
+   "area": "touch 390",
+   "name": "swiping moves the row without navigating",
+   "ok": true,
+   "detail": "0 -> 314"
+  },
+  {
+   "area": "touch 390",
+   "name": "first tap on Cataract Surgery navigates",
+   "ok": true,
+   "detail": "/stitchless-cataract-surgery"
+  },
+  {
+   "area": "touch 390",
+   "name": "first tap on Glaucoma Management navigates",
+   "ok": true,
+   "detail": "/glaucoma-management"
+  },
+  {
+   "area": "touch 390",
+   "name": "first tap on Comprehensive Eye Examinations navigates",
+   "ok": true,
+   "detail": "/comprehensive-eye-examinations"
+  },
+  {
+   "area": "touch 390",
+   "name": "first tap on Eyelid Surgery (Blepharoplasty) navigates",
+   "ok": true,
+   "detail": "/eyelid-surgery-blepharoplasty"
+  },
+  {
+   "area": "touch 390",
+   "name": "first tap on Aesthetic Oculoplasty navigates",
+   "ok": true,
+   "detail": "/aesthetic-oculofacial"
+  },
+  {
+   "area": "touch 390",
+   "name": "first tap on Reconstructive Oculoplasty navigates",
+   "ok": true,
+   "detail": "/eye-plastic-reconstructive-surgery"
+  },
+  {
+   "area": "touch 390",
+   "name": "no console errors or warnings",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "touch 430",
+   "name": "card layout, no hover-only preview panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "touch 430",
+   "name": "no horizontal page overflow",
+   "ok": true,
+   "detail": "0"
+  },
+  {
+   "area": "touch 430",
+   "name": "swipeable snap row",
+   "ok": true,
+   "detail": "{\"scroll\":true,\"snap\":\"x mandatory\",\"mode\":\"flex\"}"
+  },
+  {
+   "area": "touch 430",
+   "name": "every card is at least 44 px",
+   "ok": true,
+   "detail": "300"
+  },
+  {
+   "area": "touch 430",
+   "name": "every card shows its own picture",
+   "ok": true,
+   "detail": "6 pictures"
+  },
+  {
+   "area": "touch 430",
+   "name": "swiping moves the row without navigating",
+   "ok": true,
+   "detail": "0 -> 314"
+  },
+  {
+   "area": "touch 430",
+   "name": "first tap on Cataract Surgery navigates",
+   "ok": true,
+   "detail": "/stitchless-cataract-surgery"
+  },
+  {
+   "area": "touch 430",
+   "name": "first tap on Glaucoma Management navigates",
+   "ok": true,
+   "detail": "/glaucoma-management"
+  },
+  {
+   "area": "touch 430",
+   "name": "first tap on Comprehensive Eye Examinations navigates",
+   "ok": true,
+   "detail": "/comprehensive-eye-examinations"
+  },
+  {
+   "area": "touch 430",
+   "name": "first tap on Eyelid Surgery (Blepharoplasty) navigates",
+   "ok": true,
+   "detail": "/eyelid-surgery-blepharoplasty"
+  },
+  {
+   "area": "touch 430",
+   "name": "first tap on Aesthetic Oculoplasty navigates",
+   "ok": true,
+   "detail": "/aesthetic-oculofacial"
+  },
+  {
+   "area": "touch 430",
+   "name": "first tap on Reconstructive Oculoplasty navigates",
+   "ok": true,
+   "detail": "/eye-plastic-reconstructive-surgery"
+  },
+  {
+   "area": "touch 430",
+   "name": "no console errors or warnings",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "touch 768",
+   "name": "card layout, no hover-only preview panel",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "touch 768",
+   "name": "no horizontal page overflow",
+   "ok": true,
+   "detail": "0"
+  },
+  {
+   "area": "touch 768",
+   "name": "grid of cards",
+   "ok": true,
+   "detail": "{\"scroll\":false,\"snap\":\"x mandatory\",\"mode\":\"grid\"}"
+  },
+  {
+   "area": "touch 768",
+   "name": "every card is at least 44 px",
+   "ok": true,
+   "detail": "345"
+  },
+  {
+   "area": "touch 768",
+   "name": "every card shows its own picture",
+   "ok": true,
+   "detail": "6 pictures"
+  },
+  {
+   "area": "touch 768",
+   "name": "first tap on Cataract Surgery navigates",
+   "ok": true,
+   "detail": "/stitchless-cataract-surgery"
+  },
+  {
+   "area": "touch 768",
+   "name": "first tap on Glaucoma Management navigates",
+   "ok": true,
+   "detail": "/glaucoma-management"
+  },
+  {
+   "area": "touch 768",
+   "name": "first tap on Comprehensive Eye Examinations navigates",
+   "ok": true,
+   "detail": "/comprehensive-eye-examinations"
+  },
+  {
+   "area": "touch 768",
+   "name": "first tap on Eyelid Surgery (Blepharoplasty) navigates",
+   "ok": true,
+   "detail": "/eyelid-surgery-blepharoplasty"
+  },
+  {
+   "area": "touch 768",
+   "name": "first tap on Aesthetic Oculoplasty navigates",
+   "ok": true,
+   "detail": "/aesthetic-oculofacial"
+  },
+  {
+   "area": "touch 768",
+   "name": "first tap on Reconstructive Oculoplasty navigates",
+   "ok": true,
+   "detail": "/eye-plastic-reconstructive-surgery"
+  },
+  {
+   "area": "touch 768",
+   "name": "no console errors or warnings",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "reduced motion",
+   "name": "transitions and the info animation are off",
+   "ok": true,
+   "detail": "0s / none"
+  },
+  {
+   "area": "reduced motion",
+   "name": "preview still switches",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "area": "reduced motion",
+   "name": "no console errors",
+   "ok": true,
+   "detail": ""
+  }
+ ]
+}

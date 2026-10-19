@@ -1,0 +1,101 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# ---------------------------------------------------------------------------
+# CONFIDENTIAL CLIENT MEDIA AND REVIEW MATERIAL (added 18 Oct 2026)
+# Raw originals from the clinic's shoots (patients, live surgery, staff, doctor,
+# GPS metadata) must never be committed or uploaded. Keep originals outside this
+# folder; only derivatives declared in src/config/assets.ts belong in the project.
+# Bracket classes make these rules independent of letter case (macOS ignorecase).
+# ---------------------------------------------------------------------------
+# Raw video and photograph originals dropped in the project root
+/*.[mM][oO][vV]
+/*.[mM]4[vV]
+/*.[mM][pP]4
+/*.[aA][vV][iI]
+/*.[mM][kK][vV]
+/*.[hH][eE][iI][cC]
+/*.[hH][eE][iI][fF]
+/*.[jJ][pP][gG]
+/*.[jJ][pP][eE][gG]
+/*.[pP][nN][gG]
+/*.[tT][iI][fF]
+/*.[tT][iI][fF][fF]
+/*.[dD][nN][gG]
+/*.[cC][rR]2
+/*.[nN][eE][fF]
+/*.[aA][rR][wW]
+/*.[wW][eE][bB][pP]
+# Conventional homes for raw originals, if they are ever placed inside the project
+/raw-media/
+/raw/
+/originals/
+/source-media/
+/client-media/
+/incoming/
+
+# Client-review package images and every generated screenshot or contact sheet.
+# They show pending photographs (including identifiable staff), held footage frames and
+# third-party material. The written documents (*.md) remain trackable.
+/docs/client-approval/screenshots/
+/docs/client-approval/thumbs/
+/docs/**/screenshots/
+/docs/**/contact-sheet/
+/docs/**/contact-sheets/
+/docs/**/demos/
+
+# Preview and optimiser output that may contain copies of pending media
+/.next-preview/
+/.next*/
+/.vercel-preview/
+
+# ---------------------------------------------------------------------------
+# GITHUB REPOSITORY EXCLUSIONS (added 19 Oct 2026)
+# Every photograph and video in /private-assets is pending client approval (only the logo,
+# in /public/images, is approved), so none of it is committed. A fresh clone shows the brand
+# fallbacks until the approved files are restored from the client's private store.
+# ---------------------------------------------------------------------------
+/private-assets/
+/assets-src/
+# iCloud duplicate files ("name 2.ext")
+* [0-9].*
+* [0-9]
