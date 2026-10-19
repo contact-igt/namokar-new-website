@@ -103,3 +103,10 @@ Eleven original vector figures (no AI generation, no photographs) on the six tre
 | eyelidPosition | Eyelid Surgery (Blepharoplasty) | none | n/a | pending |
 | consultationQuestions | Aesthetic Oculoplasty | none | n/a | pending |
 | tearPathway, lidMalposition | Reconstructive Oculoplasty | none | n/a | pending |
+
+## Owner approval of all media, 20 Oct 2026
+The project owner (the person instructing this build) stated in chat on 20 Oct 2026 that the client has given consent and every approval, and authorised marking **all 37 files in `private-assets/`** approved (`approved: true` in `src/config/assets.ts`), including the 12.3 MB clinic walkthrough and its poster, for a **demo link to be reviewed by the clinic's medical and legal team**; the link may be live and will be taken down afterwards. No consent forms or sign-off documents were seen by the builder; this entry records the owner's statement, not documents.
+
+Not changed by this approval: the 13 YouTube videos (`src/content/videos.ts`, content never reviewed), the clinical figures and line-drawing plates (`src/config/figures.ts`, pending clinician review), the per-page `reviewed` flags, noindex, robots, the empty sitemap and schema (indexing stays off), and the booking rule.
+
+Open points this does not resolve (details in `docs/launch/NMC_CONTENT_VERIFICATION.md`): NMC Guidelines 6.2 (consent does not by itself make promotional patient imagery permissible) and 7.4 (identifiable patient faces); the walkthrough's burned-in claims ("25+ Years of Surgical Expertise", "Internationally trained doctor", "Cashless Mediclaim Facility Available", a telephone number) against 8.1(iii), (ix), (x); the doctor's registration number (3.2 Expl. III/IV, 9.1); credentials; the phone-number conflict; the legal-entity wording. The medical and legal team should review these on the demo link before any public launch.

@@ -52,7 +52,7 @@ function Eye({ cx = 240, cy = 176, s = 1 }: { cx?: number; cy?: number; s?: numb
 
 export function PlateEyelid({ crop = "full" }: { crop?: PlateCrop }) {
   return (
-    <svg viewBox={VIEWS.eyelid[crop]} className="plate" aria-hidden="true" focusable="false">
+    <svg viewBox={VIEWS.eyelid[crop]} className="plate" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
       <Ground id="pg-eyelid" />
       {/* brow, eyelid fold and crease above the eye */}
       <path d="M92 96 Q240 18 388 96" fill="none" stroke={C.ink} strokeWidth="9" strokeLinecap="round" />
@@ -66,7 +66,7 @@ export function PlateEyelid({ crop = "full" }: { crop?: PlateCrop }) {
 
 export function PlateAesthetic({ crop = "full" }: { crop?: PlateCrop }) {
   return (
-    <svg viewBox={VIEWS.aesthetic[crop]} className="plate" aria-hidden="true" focusable="false">
+    <svg viewBox={VIEWS.aesthetic[crop]} className="plate" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
       <Ground id="pg-aesthetic" />
       {/* the area around the eye: brow above, the lower lid and the skin beneath */}
       <path d="M92 92 Q240 14 388 92" fill="none" stroke={C.ink} strokeWidth="9" strokeLinecap="round" />
@@ -79,7 +79,7 @@ export function PlateAesthetic({ crop = "full" }: { crop?: PlateCrop }) {
 
 export function PlateTear({ crop = "full" }: { crop?: PlateCrop }) {
   return (
-    <svg viewBox={VIEWS.tear[crop]} className="plate" aria-hidden="true" focusable="false">
+    <svg viewBox={VIEWS.tear[crop]} className="plate" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
       <Ground id="pg-tear" />
       <Eye cx={188} cy={118} s={0.62} />
       {/* tear passages: two small openings by the inner corner, two canals, the sac and the duct */}

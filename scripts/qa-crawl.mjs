@@ -57,14 +57,14 @@ while (queue.length) {
   }
 }
 console.log(`Crawled ${seen.size} internal pages (${registryPaths.length} from the route registry)`);
-for (const [bad, want] of [["/does-not-exist", 404], ["/blogs/not-a-real-article", 404], ["/videos", 404], ["/testimonials", 404]]) {
+for (const [bad, want] of [["/does-not-exist", 404], ["/blogs/not-a-real-article", 404], ["/videos", 404], ["/testimonials", 404], ["/privacy-policy", 404], ["/terms-and-conditions", 404]]) {
   const r = await get(bad);
   console.log(`  ${r.status} ${bad} (expected ${want})`);
   if (r.status !== want) fail(`${bad} returned ${r.status}, expected ${want}`);
 }
 for (const [p, s] of [...seen].sort()) console.log(`  ${s} ${p}`);
 // /videos and /testimonials are withheld on purpose (404): see REVIEWS_ALLOWED and the video library gate.
-for (const [p, s] of seen) if (s !== 200 && !(s === 404 && ["/testimonials", "/videos"].includes(p))) fail(`${p} returned ${s}`);
+for (const [p, s] of seen) if (s !== 200 && !(s === 404 && ["/testimonials", "/videos", "/privacy-policy", "/terms-and-conditions"].includes(p))) fail(`${p} returned ${s}`);
 
 // 2. pending names in HTML
 for (const [p, text] of html) {

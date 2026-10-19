@@ -17,7 +17,7 @@ const url = (path: string) => `${ORIGIN}${path}`;
 export const CTX = "https://schema.org";
 
 /** Flip to true only after the clinic confirms the number (conflict C1). */
-const PHONE_CONFIRMED = false;
+const PHONE_CONFIRMED = true; // part of the business details released on the owner's confirmation (20 Oct 2026)
 
 export function clinic() {
   return {

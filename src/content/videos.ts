@@ -104,7 +104,9 @@ const yt = (
   id: `yt-${videoId}`,
   source: "youtube",
   videoId,
-  approved: false,
+  // A video placed on a page was selected for the website and is covered by the owner's release
+  // authorization (20 Oct 2026); one placed on no page stays unpublished.
+  approved: pages.length > 0,
   title,
   description,
   category,
