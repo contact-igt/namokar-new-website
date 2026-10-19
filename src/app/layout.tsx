@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Suspense } from "react";
 import Header from "@/components/Header";
 import HeaderFallback from "@/components/HeaderFallback";
+import MobileActionBar from "@/components/MobileActionBar";
 import ReviewBadge from "@/components/ReviewBadge";
 import { HOME_DESCRIPTION, HOME_TITLE, SITE } from "@/config/site";
 import { buildNav, robotsFor } from "@/config/routes";
@@ -50,12 +51,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en-IN" data-scroll-behavior="smooth" className={`${manrope.variable} ${inter.variable}`}>
       <body>
         <a href="#main" className="skip-link">Skip to content</a>
+        <ReviewBadge />
         <Suspense fallback={<HeaderFallback />}>
           <Header online={onlineBookingAvailable()} nav={buildNav()} />
         </Suspense>
         {children}
         <Footer />
-        <ReviewBadge />
+        <MobileActionBar online={onlineBookingAvailable()} />
       </body>
     </html>
   );

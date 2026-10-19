@@ -15,4 +15,16 @@ export type Testimonial = {
   consentRecordedOn: string;
 };
 
+/**
+ * Patient reviews and testimonials are NOT published on this website, whatever the patient's
+ * consent. NMC "Guidelines on Ethical Advertising and Public Communication" (Public Notice
+ * R-13014/01/2024-Ethics, 6 Oct 2026): 3.2 Explanation V (no fake, paid or misleading reviews or
+ * testimonials; an RMP shall not request or share testimonials for professional promotion),
+ * 6.2 (consent does not by itself make a testimonial, promotional patient story or success claim
+ * permissible), 8.1(ii), 8.1(v) and 8.1(xi). While this is false the /testimonials page answers
+ * 404 and no link, sitemap entry or markup refers to reviews. Change it only on the written
+ * advice of the clinic's medical or legal adviser.
+ */
+export const REVIEWS_ALLOWED = false;
+
 export const TESTIMONIALS: Testimonial[] = [];

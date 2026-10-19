@@ -28,12 +28,40 @@ export type Figure = {
 };
 
 export const FIGURES = {
+  plateEyelid: {
+    title: "Eyelid picture plate (front of the eye, brow and eyelid crease)",
+    page: "Home explorer, Services, Eyelid Surgery",
+    approved: false,
+    reviewer: null,
+    check: "That the line drawing is a fair, neutral picture of the upper eyelid, crease and brow, and promises no result.",
+  },
+  plateAesthetic: {
+    title: "Aesthetic oculofacial picture plate (the area around the eye)",
+    page: "Home explorer, Services, Aesthetic Oculofacial",
+    approved: false,
+    reviewer: null,
+    check: "That the outlined area around the eye is a fair picture of what the page covers and implies no outcome.",
+  },
+  plateTear: {
+    title: "Tear passage picture plate (openings, canals, sac and duct)",
+    page: "Home explorer, Services, Reconstructive Surgery",
+    approved: false,
+    reviewer: null,
+    check: "Anatomy of the tear drainage path: positions of the openings, canals, sac and duct.",
+  },
   eyeAnatomy: {
     title: "Eye cross-section with a healthy and a clouded lens",
     page: "Cataract Surgery",
     approved: false,
     reviewer: null,
     check: "Labels, proportions and plain-language definitions of cornea, iris, pupil, lens, retina and optic nerve.",
+  },
+  cataractPatterns: {
+    title: "Clear lens and three common patterns of cataract clouding",
+    page: "Cataract Surgery",
+    approved: false,
+    reviewer: null,
+    check: "Matched lens sections, front/back orientation, and the nuclear, cortical and posterior subcapsular clouding regions and wording.",
   },
   lensCompare: {
     title: "Clear and clouded lens: an illustration of how vision can look",
@@ -43,11 +71,11 @@ export const FIGURES = {
     check: "That the blur, fading and glare simulation is a fair, non-alarming illustration and carries the right caveat.",
   },
   lensDesigns: {
-    title: "Replacement lens designs (distance, distance and near, astigmatism)",
+    title: "Replacement lens design terms (monofocal, multifocal, toric, EDOF)",
     page: "Cataract Surgery",
     approved: false,
     reviewer: null,
-    check: "That the three design descriptions are accurate and promise no outcome.",
+    check: "That all four design descriptions and simplified focus drawings are accurate, imply no product availability, and promise no outcome.",
   },
   cataractSteps: {
     title: "Cataract surgery: a general outline in four steps",
@@ -108,6 +136,8 @@ export const FIGURES = {
 } as const satisfies Record<string, Figure>;
 
 export type FigureKey = keyof typeof FIGURES;
+/** The interactive figures placed through ClinicalFigure; the static plates are separate. */
+export type InteractiveKey = Exclude<FigureKey, "plateEyelid" | "plateAesthetic" | "plateTear">;
 
 /** May this figure render right now? */
 export const figureUsable = (key: FigureKey): boolean => FIGURES[key].approved || ASSET_PREVIEW;

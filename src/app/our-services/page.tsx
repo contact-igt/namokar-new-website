@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import { pageMeta, withBrand } from "@/lib/seo";
 import Link from "next/link";
-import AssetImage from "@/components/AssetImage";
+import Image from "next/image";
+import { Plate } from "@/components/clinical/Plates";
+import { treatmentItems, type TreatmentItem } from "@/lib/treatments";
 import BookButton from "@/components/BookButton";
 import CtaBand from "@/components/CtaBand";
 import FaqList from "@/components/FaqList";
 import HelpPanel from "@/components/HelpPanel";
 import { ArrowRightIcon } from "@/components/Icons";
 import PageHero from "@/components/PageHero";
-import { usable } from "@/config/assets";
 import { PAGES } from "@/config/routes";
-import { COVERS } from "@/content/covers";
 import { LINKS, SERVICE_GROUPS, SERVICES, SITE } from "@/config/site";
 import { WHY } from "@/content/why";
 import { onlineBookingAvailable } from "@/lib/booking";
@@ -42,14 +42,26 @@ const FAQS = [
   },
 ];
 
+/** The picture for a treatment: a photograph of the centre, else a line-drawing plate, else none. */
+function Visual({ t, sizes, className }: { t: TreatmentItem; sizes: string; className: string }) {
+  if (t.image) {
+    return (
+      <Image src={t.image.src} alt="" fill sizes={sizes} className={className} style={{ objectPosition: t.image.position }} />
+    );
+  }
+  return t.plate ? <Plate name={t.plate} crop="thumbnail" /> : null;
+}
+
 export default function ServicesPage() {
+  const pics = new Map(treatmentItems().map((t) => [t.id, t]));
+  const has = (k: TreatmentItem["id"]) => Boolean(pics.get(k)?.image || pics.get(k)?.plate);
   const online = onlineBookingAvailable();
   const vision = SERVICES.filter((s) => s.group === "vision");
   const oculo = SERVICES.filter((s) => s.group === "oculoplasty");
 
   return (
     <main id="main">
-      <JsonLd
+      <JsonLd page="services"
         data={[
           webPage({ type: "CollectionPage", path: PAGES.services.path, name: "Our Services", description: metadata.description as string }),
           itemList("Services at Namokar Eye & Oculoplasty Centre", SERVICES.map((s) => ({ name: s.title, path: s.href }))),
@@ -84,19 +96,13 @@ export default function ServicesPage() {
           <ul className="tile-grid">
             {vision.map((s) => (
               <li key={s.key} className="reveal">
-                <Link
-                  href={s.href}
-                  className={`tile${usable(COVERS[s.key].primary.asset) ? " tile--photo" : ""}`}
-                >
-                  {usable(COVERS[s.key].primary.asset) && (
+                <Link href={s.href} className={`tile${has(s.key) ? " tile--photo" : ""}`}>
+                  {has(s.key) && (
                     <span className="tile-photo">
-                      <AssetImage
-                        asset={COVERS[s.key].primary.asset}
-                        alt=""
-                        fill
+                      <Visual
+                        t={pics.get(s.key)!}
                         sizes="(min-width: 960px) 30vw, (min-width: 640px) 45vw, 100vw"
                         className="tile-photo-img"
-                        style={{ objectPosition: COVERS[s.key].primary.position }}
                       />
                     </span>
                   )}
@@ -124,17 +130,10 @@ export default function ServicesPage() {
           <ul className="svc-list">
             {oculo.map((s) => (
               <li key={s.key} className="reveal">
-                <Link href={s.href} className={`svc-row${usable(COVERS[s.key].primary.asset) ? " svc-row--thumb" : ""}`}>
-                  {usable(COVERS[s.key].primary.asset) && (
+                <Link href={s.href} className={`svc-row${has(s.key) ? " svc-row--thumb" : ""}`}>
+                  {has(s.key) && (
                     <span className="svc-thumb">
-                      <AssetImage
-                        asset={COVERS[s.key].primary.asset}
-                        alt=""
-                        fill
-                        sizes="112px"
-                        className="svc-thumb-img"
-                        style={{ objectPosition: COVERS[s.key].primary.position }}
-                      />
+                      <Visual t={pics.get(s.key)!} sizes="112px" className="svc-thumb-img" />
                     </span>
                   )}
                   <span className="svc-row-text">

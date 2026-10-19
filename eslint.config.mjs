@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Read-only reference copy of the older Pages Router project (extracted ZIP): not part of this app.
+    "namokareyecare-website-frontend-main/**",
+    "pixel-eye-2-main/**",
   ]),
 ]);
 

@@ -38,3 +38,8 @@ node_modules
 # Review package, screenshots, contact sheets and AI-art originals: not needed to run the site
 /docs
 /assets-src
+
+# Older reference project (extracted ZIP)
+/namokareyecare-website-frontend-main
+/pixel-eye-2-main
+/pixel-eye-2-main.zip

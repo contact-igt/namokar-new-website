@@ -20,18 +20,25 @@ export default function VideoPlayer({
   v,
   showMeta = false,
   sizes = "(min-width: 960px) 40vw, 100vw",
+  playing,
+  onPlay,
 }: {
   v: PlayerProps;
   showMeta?: boolean;
   sizes?: string;
+  /** Controlled mode (a shelf that allows one player at a time). Omit for a self-contained player. */
+  playing?: boolean;
+  onPlay?: () => void;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
-  const [started, setStarted] = useState(false);
+  const [own, setOwn] = useState(false);
+  const started = playing ?? own;
   const [failed, setFailed] = useState(false);
   const vertical = v.aspect === "9:16";
 
   const start = () => {
-    setStarted(true);
+    setOwn(true);
+    onPlay?.();
     if (v.kind === "local") requestAnimationFrame(() => ref.current?.play().catch(() => {}));
   };
 
@@ -39,13 +46,17 @@ export default function VideoPlayer({
 
   return (
     <figure className={`vp${vertical ? " vp--vertical" : ""}`}>
-      <div className={`vp-frame vp-frame--${vertical ? "v" : "h"}`}>
+      <div className={`vp-frame vp-frame--${vertical ? "v" : "h"}`} style={v.ratio ? { aspectRatio: v.ratio } : undefined}>
         {!started && v.kind === "local" && v.poster && (
           <Image src={v.poster} alt="" fill sizes={sizes} className="vp-poster" />
         )}
         {!started && v.kind === "youtube" && (
-          <div className="vp-yt-poster" aria-hidden="true">
-            <span className="vp-yt-title">{v.title}</span>
+          <div className="vp-thumb" aria-hidden="true">
+            {v.poster ? (
+              <Image src={v.poster} alt="" fill sizes={sizes} className="vp-poster" />
+            ) : (
+              <Image src="/images/namokar-logo.webp" alt="" width={220} height={62} className="vp-thumb-mark" />
+            )}
           </div>
         )}
 
@@ -97,6 +108,10 @@ export default function VideoPlayer({
         )}
       </div>
 
+      {v.sensitive && !started && (
+        <p className="vp-warn">This video may show an eye procedure. Press Play only if you are comfortable.</p>
+      )}
+
       {showMeta ? (
         <figcaption className="vp-cap">
           <span className="vp-cap-cat">{v.category}</span>
@@ -107,6 +122,10 @@ export default function VideoPlayer({
         <figcaption className="vp-cap vp-cap--min">
           {v.title}
           {v.kind === "youtube" && v.language === "hi" && " (in Hindi)"}
+          <span className="vp-dur">
+            {v.duration}
+            {v.hasAudio ? "" : ", no sound"}
+          </span>
         </figcaption>
       )}
 

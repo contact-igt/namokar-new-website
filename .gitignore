@@ -99,3 +99,8 @@ next-env.d.ts
 # iCloud duplicate files ("name 2.ext")
 * [0-9].*
 * [0-9]
+
+# Read-only reference copy of the older Pages Router project (uploaded ZIP). Not part of this app.
+/namokareyecare-website-frontend-main/
+/pixel-eye-2-main/
+/pixel-eye-2-main.zip

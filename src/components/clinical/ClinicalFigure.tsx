@@ -1,4 +1,4 @@
-import { type FigureKey, figureUsable } from "@/config/figures";
+import { type InteractiveKey, figureUsable } from "@/config/figures";
 import FigureHost from "./FigureHost";
 
 /**
@@ -16,7 +16,7 @@ export default function ClinicalFigure({
   intro,
   className = "",
 }: {
-  id: FigureKey;
+  id: InteractiveKey;
   heading: string;
   intro?: string;
   className?: string;

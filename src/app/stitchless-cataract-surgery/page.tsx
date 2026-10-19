@@ -13,6 +13,12 @@ export default function Page() {
       />
 
       <ClinicalFigure
+        id="cataractPatterns"
+        heading="Clear lens and common cataract patterns"
+        intro="Matched drawings show the natural lens and where three common kinds of clouding develop. Your examination determines what applies to your eye."
+      />
+
+      <ClinicalFigure
         id="lensCompare"
         heading="How a clouded lens can change what you see"
         intro="Drag across the picture to compare a clear view with an illustration of clouded vision."
@@ -26,9 +32,9 @@ export default function Page() {
           </div>
           <div className="about-body reveal">
             <p>
-              Artificial lenses come in different designs. Some are made mainly for
-              distance vision, some also help with near vision, and some are designed to
-              correct astigmatism.
+              Artificial lenses come in different designs. Monofocal lenses usually have one main
+              focus; multifocal and extended depth of focus (EDOF) designs aim to cover more than
+              one distance. Toric designs address astigmatism and may overlap with these categories.
             </p>
             <p>
               Which design, if any, suits you depends on your eyes, your daily
@@ -42,8 +48,8 @@ export default function Page() {
 
       <ClinicalFigure
         id="lensDesigns"
-        heading="The three kinds of replacement lens"
-        intro="A simple picture of how each design handles light. The doctor explains which, if any, may suit you."
+        heading="Understanding replacement lens designs"
+        intro="Explore four design terms. They are general categories, not a list of implants confirmed to be available at this centre."
       />
 
       <ClinicalFigure

@@ -1,6 +1,6 @@
 # Figure text for the clinical reviewer
 
-18 Oct 2026. **Nothing here is approved.** This is the exact wording shown by each interactive figure in every control state, taken from the running review preview. Please read each line and mark the figure's row in `FIGURE_PROVENANCE.md` (approve / approve with changes / reject), then record your name, registration number and date in `src/config/figures.ts`.
+Updated 20 Oct 2026. **Nothing here is approved.** This records the wording shown by the interactive figures, including the new cataract comparison and revised replacement-lens explorer. Please read each line and mark the figure's row in `FIGURE_PROVENANCE.md` (approve / approve with changes / reject), then record your name, registration number and date in `src/config/figures.ts`.
 
 Notes: a "Text shown" cell sometimes carries the caption of the other control that was last chosen (for example the lens state), because several controls act together. Two captions appear on every figure: the standard caveat quoted under each section, and the figure's own heading and introduction.
 
@@ -23,6 +23,16 @@ Notes: a "Text shown" cell sometimes carries the caption of the other control th
 
 Caption under every figure: Illustration, not to scale. General information to help you understand an examination or a procedure; it is not a diagnosis, and your doctor explains what applies to your eyes.
 
+### Clear lens and common cataract patterns (new; pending review)
+
+- Figure id: `cataractPatterns` · Page: `/stitchless-cataract-surgery`
+- Introduction: Matched drawings show the natural lens and where three common kinds of clouding develop. Your examination determines what applies to your eye.
+- Matched pair: **Clear natural lens** — “Light passes through a transparent lens.” **Lens with a cataract** — “Clouding of the natural lens can scatter light and affect vision.”
+- **Nuclear sclerotic:** “Clouding develops in the central part of the natural lens.”
+- **Cortical:** “Clouding begins in the outer lens and can extend towards its centre.”
+- **Posterior subcapsular:** “Clouding develops near the back surface of the lens.”
+- Closing note: “These describe where clouding sits in the lens. A person can have more than one pattern.” The diagrams show a simplified side section, with front and back labelled. Verify both the wording and the location of each coloured region.
+
 ### How a clouded lens can change what you see
 
 - Figure id: `lensCompare`  ·  Page: `/stitchless-cataract-surgery`
@@ -36,16 +46,19 @@ Caption under every figure: Illustration, not to scale. General information to h
 
 Caption under every figure: Illustration, not to scale. General information to help you understand an examination or a procedure; it is not a diagnosis, and your doctor explains what applies to your eyes.
 
-### The three kinds of replacement lens
+### Understanding replacement lens designs (revised; pending review)
 
 - Figure id: `lensDesigns`  ·  Page: `/stitchless-cataract-surgery`
-- Introduction shown above the figure: A simple picture of how each design handles light. The doctor explains which, if any, may suit you.
+- Introduction shown above the figure: Explore four design terms. They are general categories, not a list of implants confirmed to be available at this centre.
 
 | Control | Text shown |
 |---|---|
-| Distance | Made mainly for distance vision Light from far away is brought to one sharp focus. Spectacles may still be wanted for reading. Which design, if any, suits you depends on your eyes, your daily activities and your expectations. No lens can promise that you will never need spectacles. |
-| Distance and near | Also helps with near vision The design shares light between two focus points, one for distance and one for near. Which design, if any, suits you depends on your eyes, your daily activities and your expectations. No lens can promise that you will never need spectacles. |
-| Astigmatism | Designed to correct astigmatism Astigmatism means the eye focuses unevenly. This design is built to even it out. Which design, if any, suits you depends on your eyes, your daily activities and your expectations. No lens can promise that you will never need spectacles. |
+| Monofocal | One main focal distance. A monofocal lens has one main focus, often chosen for distance. Spectacles may still be needed for other distances. |
+| Multifocal | More than one focal distance. A multifocal design distributes light across more than one focus. It can involve visual trade-offs, which need an individual discussion. |
+| Toric | Addresses astigmatism. A toric lens is designed to address corneal astigmatism. Toric features can be combined with other lens designs. |
+| EDOF | An extended range of focus. An extended depth of focus design aims to give a continuous range of useful vision. Reading glasses may still be needed. |
+
+Every state also says: “Which design, if any, suits you depends on your eyes, your daily activities and your expectations. These simplified diagrams do not predict your vision. No lens can promise that you will never need spectacles.” The ray paths are conceptual; the clinician should specifically check whether they might imply an inaccurate optical mechanism.
 
 Caption under every figure: Illustration, not to scale. General information to help you understand an examination or a procedure; it is not a diagnosis, and your doctor explains what applies to your eyes.
 

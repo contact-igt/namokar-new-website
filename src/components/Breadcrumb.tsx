@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { breadcrumbs } from "@/lib/schema";
-import JsonLd from "./JsonLd";
 
 /** Breadcrumb: Home / [trail…] / current. */
 export default function Breadcrumb({
@@ -12,13 +10,6 @@ export default function Breadcrumb({
 }) {
   return (
     <nav aria-label="Breadcrumb" className="crumbs">
-      <JsonLd
-        data={breadcrumbs([
-          { name: "Home", path: "/" },
-          ...trail.map((t) => ({ name: t.label, path: t.href })),
-          { name: current },
-        ])}
-      />
       <ol>
         <li>
           <Link href="/">Home</Link>

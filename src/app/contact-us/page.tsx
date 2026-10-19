@@ -74,7 +74,7 @@ const VISIT = [
 export default function ContactPage() {
   return (
     <main id="main">
-      <JsonLd
+      <JsonLd page="contact"
         data={[
           webPage({ type: "ContactPage", path: PAGES.contact.path, name: "Contact Us", description: metadata.description as string, mainEntityId: ids.clinic }),
           clinic(),

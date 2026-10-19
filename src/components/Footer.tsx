@@ -2,13 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { footerMore } from "@/config/routes";
 import { ARTICLES } from "@/content/articles";
-import { TESTIMONIALS } from "@/content/testimonials";
+import { REVIEWS_ALLOWED, TESTIMONIALS } from "@/content/testimonials";
 import { libraryAvailable } from "@/content/videos";
 import { LINKS, MAPS_LINK, SERVICES, SITE, TEL_HREF } from "@/config/site";
 import { PhoneIcon, PinIcon } from "./Icons";
 
 export default function Footer() {
-  const more = footerMore({ articles: ARTICLES.length > 0, testimonials: TESTIMONIALS.length > 0, videos: libraryAvailable() });
+  const more = footerMore({ articles: ARTICLES.length > 0, testimonials: REVIEWS_ALLOWED && TESTIMONIALS.length > 0, videos: libraryAvailable() });
   return (
     <footer className="site-footer">
       <div className="container footer-grid">

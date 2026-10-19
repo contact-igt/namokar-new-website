@@ -4,6 +4,7 @@ import Link from "next/link";
 import AssetImage from "@/components/AssetImage";
 import EditorialImage from "@/components/EditorialImage";
 import FacilityGallery from "@/components/FacilityGallery";
+import RegistrationRow from "@/components/RegistrationRow";
 import BookButton from "@/components/BookButton";
 import CtaBand from "@/components/CtaBand";
 import JsonLd from "@/components/JsonLd";
@@ -53,10 +54,10 @@ const JOURNEY = [
 export default function AboutPage() {
   const online = onlineBookingAvailable();
   const hasHero = usable(ASSETS.reception);
-  const hasPortrait = usable(ASSETS.portrait);
+  const aboutPortrait = usable(ASSETS.portrait) ? ASSETS.portrait : null;
+  const hasPortrait = Boolean(aboutPortrait);
   const gallery = compact([
     photoItem(ASSETS.reception, { title: "Reception", caption: "The first point of contact when you arrive.", position: "42% 50%" }),
-    photoItem(ASSETS.consultation, { title: "Consultation room", caption: "Dr. Poonam Jain beside a slit-lamp examination unit.", position: "60% 40%" }),
     photoItem(ASSETS.otModernB, { title: "Operation theatre", caption: "The operating table, operating microscope and a surgical console.", position: "50% 55%" }),
     photoItem(ASSETS.otModernC, { title: "Theatre, from the corner", caption: "Shelving, a trolley, the operating table and the microscope.", position: "50% 55%" }),
     photoItem(ASSETS.chartDoor, { title: "Examination room", caption: "An eye-chart screen beside an examination room door.", position: "50% 40%" }),
@@ -64,7 +65,7 @@ export default function AboutPage() {
 
   return (
     <main id="main">
-      <JsonLd
+      <JsonLd page="about"
         data={[
           webPage({ type: "AboutPage", path: PAGES.about.path, name: "About Us", description: metadata.description as string, mainEntityId: ids.clinic }),
           clinic(),
@@ -147,7 +148,7 @@ export default function AboutPage() {
           <figure className="doctor-photo reveal">
             {hasPortrait ? (
               <AssetImage
-                asset={ASSETS.portrait}
+                asset={aboutPortrait!}
                 sizes="(min-width: 960px) 44vw, 100vw"
                 className="doctor-img"
               />
@@ -203,6 +204,7 @@ export default function AboutPage() {
                   <dt>MS, Ophthalmology</dt>
                   <dd>Postgraduate surgical degree in ophthalmology</dd>
                 </div>
+                <RegistrationRow />
               </dl>
             </div>
             <div>

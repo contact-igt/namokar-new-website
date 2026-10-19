@@ -2,15 +2,16 @@
 
 import dynamic from "next/dynamic";
 import type { ComponentType } from "react";
-import type { FigureKey } from "@/config/figures";
+import type { InteractiveKey } from "@/config/figures";
 
 /**
  * Maps a figure id to its component, each loaded as its own code-split chunk on the client, so a
  * page that shows one figure does not carry the code of the others. Server-rendered as usual
  * (the figure's markup is in the page HTML) and hydrated when its chunk arrives.
  */
-const FIGURES: Record<FigureKey, ComponentType> = {
+const FIGURES: Record<InteractiveKey, ComponentType> = {
   eyeAnatomy: dynamic(() => import("./EyeDiagram")),
+  cataractPatterns: dynamic(() => import("./CataractPatterns")),
   lensCompare: dynamic(() => import("./LensCompare")),
   lensDesigns: dynamic(() => import("./LensDesigns")),
   cataractSteps: dynamic(() => import("./CataractSteps")),
@@ -23,7 +24,7 @@ const FIGURES: Record<FigureKey, ComponentType> = {
   consultationQuestions: dynamic(() => import("./ConsultationQuestions")),
 };
 
-export default function FigureHost({ id }: { id: FigureKey }) {
+export default function FigureHost({ id }: { id: InteractiveKey }) {
   const Figure = FIGURES[id];
   return <Figure />;
 }

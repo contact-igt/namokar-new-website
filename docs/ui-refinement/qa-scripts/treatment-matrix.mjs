@@ -32,7 +32,7 @@ async function open(ctxOpts) {
     await links.nth(i).hover(); await p.waitForTimeout(450);
     const info = await p.locator(".tx-info-title").textContent();
     const cta = await p.locator(".tx-cta").getAttribute("href");
-    const img = await p.evaluate(() => { const e = document.querySelector('.tx-img[data-active="true"]'); if (!e) return null; const r = e.getBoundingClientRect(); const cs = getComputedStyle(e); return { src: e.currentSrc.split("?")[0] + "|" + (new URL(e.currentSrc).searchParams.get("url") || ""), nat: e.naturalWidth, op: cs.opacity, disp: cs.display, w: Math.round(r.width), h: Math.round(r.height), alt: e.alt }; });
+    const img = await p.evaluate(() => { const e = document.querySelector('.tx-img[data-active="true"]'); if (!e) return null; const r = e.getBoundingClientRect(); const cs = getComputedStyle(e); if (e.tagName !== "IMG") return { src: "plate:" + (e.querySelector("linearGradient")?.id || "?"), nat: 1, op: cs.opacity, disp: cs.display, w: Math.round(r.width), h: Math.round(r.height), alt: "line-drawing plate" }; return { src: e.currentSrc.split("?")[0] + "|" + (new URL(e.currentSrc).searchParams.get("url") || ""), nat: e.naturalWidth, op: cs.opacity, disp: cs.display, w: Math.round(r.width), h: Math.round(r.height), alt: e.alt }; });
     const sum = (await p.locator(".tx-info-sum").textContent()).trim();
     const blocked = await links.nth(i).evaluate((e) => { const r = e.getBoundingClientRect(); const t = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return !e.contains(t); });
     rec("desktop", `${meta[i].title}: hover shows its title`, info === meta[i].title, info);
@@ -95,7 +95,7 @@ for (const [w, h] of [[375, 812], [390, 844], [430, 932], [768, 1024]]) {
   const sizes = await links.evaluateAll((els) => els.map((e) => { const r = e.getBoundingClientRect(); return Math.round(Math.min(r.width, r.height)); }));
   rec(A, "every card is at least 44 px", Math.min(...sizes) >= 44, `${Math.min(...sizes)}`);
   if (!noImages) {
-    const vis = await p.locator(".tx-thumb-img").evaluateAll((els) => els.map((e) => ({ vis: e.getBoundingClientRect().width > 100 })));
+    const vis = await p.locator(".tx-thumb-img, .tx-thumb--plate .plate").evaluateAll((els) => els.map((e) => ({ vis: e.getBoundingClientRect().width > 100 })));
     rec(A, "every card shows its own picture", vis.length === n && vis.every((v) => v.vis), `${vis.length} pictures`);
   }
   // swipe: native scroll of the row by touch drag (only where the row scrolls)

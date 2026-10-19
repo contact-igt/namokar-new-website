@@ -1,0 +1,426 @@
+{
+ "/": [
+  {
+   "file": "hospital-reception.webp",
+   "w": 616,
+   "h": 546,
+   "y": 178,
+   "hidden": false,
+   "people": "staff"
+  },
+  {
+   "file": "hospital-ot-modern-a.webp",
+   "w": 616,
+   "h": 546,
+   "y": 178,
+   "hidden": false,
+   "people": "none"
+  },
+  {
+   "file": "dr-poonam-jain-slit.webp",
+   "w": 616,
+   "h": 546,
+   "y": 178,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "dr-poonam-jain-standing.webp",
+   "w": 616,
+   "h": 546,
+   "y": 178,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "archive-cataract-exam.webp",
+   "w": 616,
+   "h": 493,
+   "y": 930,
+   "hidden": false,
+   "people": "doctor and patient"
+  },
+  {
+   "file": "archive-glaucoma-test.webp",
+   "w": 616,
+   "h": 493,
+   "y": 930,
+   "hidden": false,
+   "people": "staff and patient"
+  },
+  {
+   "file": "archive-exam-overhead.webp",
+   "w": 616,
+   "h": 493,
+   "y": 930,
+   "hidden": false,
+   "people": "doctor and patient"
+  },
+  {
+   "file": "archive-doctor-scrubs.webp",
+   "w": 616,
+   "h": 493,
+   "y": 930,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "hospital-ot-modern-c.webp",
+   "w": 616,
+   "h": 493,
+   "y": 930,
+   "hidden": false,
+   "people": "none"
+  },
+  {
+   "file": "hospital-ot-modern-b.webp",
+   "w": 642,
+   "h": 752,
+   "y": 1916,
+   "hidden": false,
+   "people": "none"
+  },
+  {
+   "file": "hospital-consultation-room.webp",
+   "w": 450,
+   "h": 288,
+   "y": 1916,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "hospital-exterior.webp",
+   "w": 450,
+   "h": 288,
+   "y": 2338,
+   "hidden": false,
+   "people": "none"
+  },
+  {
+   "file": "walkthrough-poster.webp",
+   "w": 760,
+   "h": 428,
+   "y": 3171,
+   "hidden": false,
+   "people": "none"
+  },
+  {
+   "file": "video-ot-tour-poster.webp",
+   "w": 320,
+   "h": 569,
+   "y": 3171,
+   "hidden": false,
+   "people": "none"
+  },
+  {
+   "file": "dr-poonam-jain-portrait.webp",
+   "w": 473,
+   "h": 591,
+   "y": 4074,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "art-iris-macro.webp",
+   "w": 378,
+   "h": 504,
+   "y": 7488,
+   "hidden": false,
+   "people": "none"
+  }
+ ],
+ "/about-us": [
+  {
+   "file": "hospital-reception.webp",
+   "w": 616,
+   "h": 458,
+   "y": 93,
+   "hidden": false,
+   "people": "staff"
+  },
+  {
+   "file": "hospital-exterior.webp",
+   "w": 602,
+   "h": 339,
+   "y": 695,
+   "hidden": false,
+   "people": "none"
+  },
+  {
+   "file": "archive-doctor-portrait.webp",
+   "w": 473,
+   "h": 591,
+   "y": 2106,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "archive-team-doctor.webp",
+   "w": 642,
+   "h": 752,
+   "y": 3659,
+   "hidden": false,
+   "people": "doctor and staff"
+  },
+  {
+   "file": "hospital-consultation-room.webp",
+   "w": 450,
+   "h": 288,
+   "y": 4081,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "hospital-ot-modern-b.webp",
+   "w": 546,
+   "h": 364,
+   "y": 4504,
+   "hidden": false,
+   "people": "none"
+  },
+  {
+   "file": "hospital-ot-modern-c.webp",
+   "w": 546,
+   "h": 364,
+   "y": 4504,
+   "hidden": false,
+   "people": "none"
+  },
+  {
+   "file": "hospital-chart-door.webp",
+   "w": 1120,
+   "h": 747,
+   "y": 4961,
+   "hidden": false,
+   "people": "none"
+  }
+ ],
+ "/dr-poonam-jain": [
+  {
+   "file": "archive-doctor-scrubs.webp",
+   "w": 616,
+   "h": 458,
+   "y": 93,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "dr-poonam-jain-slit.webp",
+   "w": 635,
+   "h": 471,
+   "y": 2001,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "dr-poonam-jain-blazer.webp",
+   "w": 453,
+   "h": 471,
+   "y": 2001,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "video-doctor-scrubs-poster.webp",
+   "w": 320,
+   "h": 569,
+   "y": 2948,
+   "hidden": false,
+   "people": "doctor"
+  }
+ ],
+ "/our-services": [
+  {
+   "file": "archive-cataract-exam.webp",
+   "w": 355,
+   "h": 222,
+   "y": 955,
+   "hidden": false,
+   "people": "doctor and patient"
+  },
+  {
+   "file": "dr-poonam-jain-desk.webp",
+   "w": 355,
+   "h": 222,
+   "y": 955,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "dr-poonam-jain-slit.webp",
+   "w": 355,
+   "h": 222,
+   "y": 955,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "dr-poonam-jain-standing.webp",
+   "w": 112,
+   "h": 84,
+   "y": 1677,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "archive-doctor-portrait.webp",
+   "w": 112,
+   "h": 84,
+   "y": 1823,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "hospital-ot-modern-c.webp",
+   "w": 112,
+   "h": 84,
+   "y": 1968,
+   "hidden": false,
+   "people": "none"
+  }
+ ],
+ "/stitchless-cataract-surgery": [
+  {
+   "file": "archive-cataract-exam.webp",
+   "w": 616,
+   "h": 458,
+   "y": 93,
+   "hidden": false,
+   "people": "doctor and patient"
+  },
+  {
+   "file": "hospital-ot-modern-a.webp",
+   "w": 602,
+   "h": 339,
+   "y": 976,
+   "hidden": false,
+   "people": "none"
+  },
+  {
+   "file": "video-post-cataract-exercise-poster.webp",
+   "w": 360,
+   "h": 640,
+   "y": 7954,
+   "hidden": false,
+   "people": "doctor"
+  }
+ ],
+ "/glaucoma-management": [
+  {
+   "file": "dr-poonam-jain-desk.webp",
+   "w": 616,
+   "h": 458,
+   "y": 118,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "archive-glaucoma-test.webp",
+   "w": 602,
+   "h": 339,
+   "y": 997,
+   "hidden": false,
+   "people": "staff and patient"
+  }
+ ],
+ "/comprehensive-eye-examinations": [
+  {
+   "file": "dr-poonam-jain-slit.webp",
+   "w": 616,
+   "h": 458,
+   "y": 93,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "archive-exam-overhead.webp",
+   "w": 602,
+   "h": 339,
+   "y": 946,
+   "hidden": false,
+   "people": "doctor and patient"
+  }
+ ],
+ "/eyelid-surgery-blepharoplasty": [
+  {
+   "file": "dr-poonam-jain-standing.webp",
+   "w": 616,
+   "h": 458,
+   "y": 93,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "dr-poonam-jain-blazer.webp",
+   "w": 602,
+   "h": 339,
+   "y": 976,
+   "hidden": false,
+   "people": "doctor"
+  }
+ ],
+ "/aesthetic-oculofacial": [
+  {
+   "file": "archive-doctor-portrait.webp",
+   "w": 616,
+   "h": 458,
+   "y": 93,
+   "hidden": false,
+   "people": "doctor"
+  },
+  {
+   "file": "hospital-reception.webp",
+   "w": 602,
+   "h": 339,
+   "y": 976,
+   "hidden": false,
+   "people": "staff"
+  }
+ ],
+ "/eye-plastic-reconstructive-surgery": [
+  {
+   "file": "hospital-ot-modern-c.webp",
+   "w": 616,
+   "h": 458,
+   "y": 118,
+   "hidden": false,
+   "people": "none"
+  },
+  {
+   "file": "hospital-ot-entrance.webp",
+   "w": 602,
+   "h": 339,
+   "y": 1086,
+   "hidden": false,
+   "people": "none"
+  }
+ ],
+ "/international-patients": [
+  {
+   "file": "hospital-exterior.webp",
+   "w": 635,
+   "h": 471,
+   "y": 1925,
+   "hidden": false,
+   "people": "none"
+  },
+  {
+   "file": "hospital-reception.webp",
+   "w": 453,
+   "h": 471,
+   "y": 1925,
+   "hidden": false,
+   "people": "staff"
+  }
+ ],
+ "/contact-us": [
+  {
+   "file": "hospital-exterior.webp",
+   "w": 616,
+   "h": 458,
+   "y": 93,
+   "hidden": false,
+   "people": "none"
+  }
+ ]
+}

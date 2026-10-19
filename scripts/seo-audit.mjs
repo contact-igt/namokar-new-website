@@ -137,7 +137,7 @@ for (const [p, id] of ldRefs) {
   if (!local) fail(p, `JSON-LD @id reference ${id} is not defined on any page`);
 }
 
-const dead = [...status].filter(([p, s]) => s !== 200 && !["/videos"].includes(p));
+const dead = [...status].filter(([p, s]) => s !== 200 && !["/videos", "/testimonials"].includes(p));
 for (const [p, s] of dead) fail(p, `linked or listed route answers ${s}`);
 
 const robotsTxt = await (await fetch(`${base}/robots.txt`)).text();

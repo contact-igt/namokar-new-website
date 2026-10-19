@@ -1,4 +1,4 @@
-import { readFile, stat } from "node:fs/promises";
+import { open, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { ASSET_PREVIEW, assetByFile, forwardedFromElsewhere, isLoopbackHost } from "@/config/assets";
 
@@ -39,7 +39,6 @@ export async function GET(
   const type = TYPES[path.extname(asset.file)] ?? "application/octet-stream";
   // Approved media may be cached; preview-only media must never be.
   const cache = asset.approved ? "public, max-age=3600" : "no-store";
-  const buf = await readFile(full);
 
   const range = request.headers.get("range")?.match(/^bytes=(\d*)-(\d*)$/);
   if (range && (range[1] || range[2])) {
@@ -49,7 +48,16 @@ export async function GET(
     end = Math.min(end, size - 1);
     if (start > end || start >= size)
       return new Response(null, { status: 416, headers: { "Content-Range": `bytes */${size}` } });
-    return new Response(new Uint8Array(buf.subarray(start, end + 1)), {
+    // Read only the requested bytes, so seeking in a video does not load the whole file each time.
+    const length = end - start + 1;
+    const handle = await open(full, "r");
+    const chunk = Buffer.alloc(length);
+    try {
+      await handle.read(chunk, 0, length, start);
+    } finally {
+      await handle.close();
+    }
+    return new Response(new Uint8Array(chunk), {
       status: 206,
       headers: {
         "Content-Type": type,
@@ -61,7 +69,7 @@ export async function GET(
       },
     });
   }
-  return new Response(new Uint8Array(buf), {
+  return new Response(new Uint8Array(await readFile(full)), {
     headers: {
       "Content-Type": type,
       "Content-Length": String(size),

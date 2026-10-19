@@ -4,23 +4,28 @@ import { useState } from "react";
 import { C } from "./EyeBase";
 import Segmented from "./Segmented";
 
-type Design = "distance" | "near" | "astigmatism";
+type Design = "distance" | "near" | "astigmatism" | "edof";
 
 const COPY: Record<Design, { tab: string; title: string; text: string }> = {
   distance: {
-    tab: "Distance",
-    title: "Made mainly for distance vision",
-    text: "Light from far away is brought to one sharp focus. Spectacles may still be wanted for reading.",
+    tab: "Monofocal",
+    title: "One main focal distance",
+    text: "A monofocal lens has one main focus, often chosen for distance. Spectacles may still be needed for other distances.",
   },
   near: {
-    tab: "Distance and near",
-    title: "Also helps with near vision",
-    text: "The design shares light between two focus points, one for distance and one for near.",
+    tab: "Multifocal",
+    title: "More than one focal distance",
+    text: "A multifocal design distributes light across more than one focus. It can involve visual trade-offs, which need an individual discussion.",
   },
   astigmatism: {
-    tab: "Astigmatism",
-    title: "Designed to correct astigmatism",
-    text: "Astigmatism means the eye focuses unevenly. This design is built to even it out.",
+    tab: "Toric",
+    title: "Addresses astigmatism",
+    text: "A toric lens is designed to address corneal astigmatism. Toric features can be combined with other lens designs.",
+  },
+  edof: {
+    tab: "EDOF",
+    title: "An extended range of focus",
+    text: "An extended depth of focus design aims to give a continuous range of useful vision. Reading glasses may still be needed.",
   },
 };
 
@@ -60,6 +65,14 @@ function Rays({ design }: { design: Design }) {
       </g>
     );
   }
+  if (design === "edof") {
+    return (
+      <g {...stroke}>
+        {[75, 120, 165].map((y) => <path key={y} d={`M30 ${y} L226 ${y} L500 ${120 + (y - 120) * 0.15}`} />)}
+        <rect x="492" y="107" width="16" height="26" rx="8" fill={C.orange} stroke="none" opacity="0.45" />
+      </g>
+    );
+  }
   return (
     <g {...stroke}>
       {[70, 170].map((y) => (
@@ -75,7 +88,7 @@ function Rays({ design }: { design: Design }) {
 }
 
 /**
- * The three kinds of replacement lens named on the page, as simple ray diagrams with a plain
+ * Four common replacement lens design terms, as simplified focus concepts with a plain
  * description of each. No brand names, no promises. Pending medical review (src/config/figures.ts).
  */
 export default function LensDesigns() {
@@ -83,7 +96,7 @@ export default function LensDesigns() {
   return (
     <div className="clin-grid">
       <div className="clin-stage">
-        <svg viewBox="0 0 640 240" className="clin-svg" role="img" aria-label={`Ray diagram of a replacement lens: ${COPY[d].title}`}>
+        <svg viewBox="0 0 640 240" className="clin-svg" role="img" aria-label={`Simplified focus illustration for a replacement lens: ${COPY[d].title}`}>
           <rect x="0" y="0" width="640" height="240" fill={C.porcelain} />
           <Lens x={226} />
           <line x1="500" y1="40" x2="500" y2="200" stroke={C.orangeDark} strokeWidth="5" strokeLinecap="round" opacity="0.5" />
@@ -109,7 +122,8 @@ export default function LensDesigns() {
             </div>
           <p className="clin-fine">
             Which design, if any, suits you depends on your eyes, your daily activities and your
-            expectations. No lens can promise that you will never need spectacles.
+            expectations. These simplified diagrams do not predict your vision. No lens can promise
+            that you will never need spectacles.
           </p>
         </div>
       </div>

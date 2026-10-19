@@ -11,13 +11,15 @@ import Parallax from "@/components/motion/Parallax";
 import { ArrowRightIcon, PhoneIcon, PinIcon, PlusIcon } from "@/components/Icons";
 import NamePlate from "@/components/NamePlate";
 import VisitPanel from "@/components/VisitPanel";
-import VideoSection from "@/components/VideoSection";
+import WalkthroughSection from "@/components/WalkthroughSection";
+import VideoShelf from "@/components/VideoShelf";
 import { ASSETS, type Asset, usable } from "@/config/assets";
 import { PAGES } from "@/config/routes";
-import { HOME_DESCRIPTION, HOME_TITLE, LINKS, MAPS_LINK, SERVICES, SITE, TEL_HREF } from "@/config/site";
+import { HOME_DESCRIPTION, HOME_TITLE, LINKS, MAPS_LINK, SITE, TEL_HREF } from "@/config/site";
 import { videosFor } from "@/content/videos";
 import { WHY } from "@/content/why";
 import { onlineBookingAvailable } from "@/lib/booking";
+import { playerProps } from "@/lib/videoProps";
 import { compact, photoItem } from "@/lib/photos";
 import { pageMeta } from "@/lib/seo";
 import { clinic, faqPage, ids, webPage, website } from "@/lib/schema";
@@ -62,22 +64,25 @@ const faqs = (online: boolean) => [
  */
 type HeroCandidate = { asset: Asset; caption: string; position: string };
 const HERO_SHOTS: HeroCandidate[][] = [
+  // 1. The centre: reception, then the street view
   [
     { asset: ASSETS.reception, caption: "Reception at the centre", position: "42% 50%" },
     { asset: ASSETS.exterior, caption: "The centre from the street", position: "50% 45%" },
   ],
+  // 2. Cataract: the operating microscope and surgical console
   [
-    { asset: ASSETS.otModernA, caption: "The operation theatre at the centre.", position: "55% 50%" },
-    { asset: ASSETS.otModernB, caption: "The operating table and microscope in the theatre.", position: "50% 55%" },
+    { asset: ASSETS.otScope, caption: "An operating microscope in the theatre area at the centre.", position: "50% 50%" },
+    { asset: ASSETS.consoleWide, caption: "A surgical console in the theatre area at the centre.", position: "50% 50%" },
   ],
+  // 3. Examinations and glaucoma: the eye chart and a diagnostic instrument
   [
-    { asset: ASSETS.docSlit, caption: "A slit-lamp examination unit.", position: "55% 45%" },
-    { asset: ASSETS.consultation, caption: "A consultation room at the centre", position: "55% 40%" },
-    { asset: ASSETS.chartDoor, caption: "An examination room at the centre.", position: "50% 40%" },
+    { asset: ASSETS.chartDoor, caption: "An eye-chart screen beside an examination room door.", position: "50% 42%" },
+    { asset: ASSETS.archGlaucomaTest, caption: "A pre-examination eye test at the centre.", position: "50% 55%" },
   ],
+  // 4. Specialist oculoplasty: the theatre
   [
-    { asset: ASSETS.docStanding, caption: "A consultation room at the centre.", position: "50% 40%" },
     { asset: ASSETS.otModernC, caption: "An operation theatre at the centre.", position: "50% 55%" },
+    { asset: ASSETS.otModernB, caption: "The operating table and microscope in the theatre.", position: "50% 55%" },
   ],
 ];
 
@@ -101,23 +106,19 @@ function heroShot(candidates: HeroCandidate[], eager: boolean) {
   };
 }
 
-const [feature, ...rest] = SERVICES;
-
 export default function Home() {
   const online = onlineBookingAvailable();
 
   const hasPortrait = usable(ASSETS.portrait);
-  const hasScope = usable(ASSETS.otModernA);
-  const hasIris = usable(ASSETS.artIris);
   const gallery = compact([
-    photoItem(ASSETS.otModernB, { title: "Operation theatre", caption: "The operating table, operating microscope and a surgical console.", position: "50% 55%" }),
-    photoItem(ASSETS.consultation, { title: "Consultation room", caption: "A slit-lamp examination unit and a vision chart screen.", position: "60% 40%" }),
     photoItem(ASSETS.exterior, { title: "The centre from the street", caption: "Namokar Eye & Oculoplasty Centre, Ashok Vihar.", position: "50% 45%" }),
+    photoItem(ASSETS.equipment, { title: "Equipment", caption: "A console with a touch screen in the theatre area.", position: "50% 45%" }),
+    photoItem(ASSETS.otEntrance, { title: "The theatre complex", caption: "The entrance to the operation theatre complex.", position: "50% 50%" }),
   ]);
 
   return (
     <>
-      <JsonLd
+      <JsonLd page="home"
         data={[
           website(),
           clinic(),
@@ -155,15 +156,9 @@ export default function Home() {
           </section>
         )}
 
-        {/* Explore Namokar: walkthrough footage (and further clips when cleared) */}
-        <VideoSection
-          id="explore"
-          dark
-          videos={videosFor("home")}
-          kicker="Explore Namokar"
-          heading="Step Inside Our Centre"
-          lead="Take a look at the spaces and facilities that support your eye care."
-          note="Footage of the centre, without sound. It shows rooms and equipment, not patients."
+        {/* Explore Namokar: the one clinic walkthrough video */}
+        <WalkthroughSection
+          video={videosFor("home").filter((v) => v.source === "local").map(playerProps)[0]}
         />
 
         {/* Doctor */}
@@ -223,59 +218,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Services: one featured, the rest as text links */}
-        <section id="services" className="section section--porcelain" aria-labelledby="services-h">
-          <div className="container services-grid">
-            <div className="section-head reveal">
-              <p className="kicker">What we treat</p>
-              <h2 id="services-h" className="h2">Our specialised services</h2>
-              <p className="lead">
-                Six areas of care, each explained clearly and planned around the
-                individual patient.
-              </p>
-              <Link href={LINKS.allServices} className="btn btn--secondary">
-                View all services <ArrowRightIcon />
-              </Link>
-            </div>
-            <div className="svc-col">
-              <Link href={feature.href} className="svc-feature reveal">
-                {hasScope && (
-                  <AssetImage
-                    asset={ASSETS.otModernA}
-                    alt=""
-                    sizes="(min-width: 960px) 40vw, 100vw"
-                    className="svc-feature-img"
-                    style={{ objectPosition: "50% 50%" }}
-                  />
-                )}
-                <span className="svc-feature-body">
-                  <span className="svc-title">{feature.title}</span>
-                  <span className="svc-blurb">{feature.blurb}</span>
-                  <span className="svc-more">
-                    Learn more <ArrowRightIcon width={18} height={18} />
-                  </span>
-                </span>
-              </Link>
-              <ul className="svc-list">
-                {rest.map((s) => (
-                  <li key={s.key}>
-                    <Link href={s.href} className="svc-row">
-                      <span className="svc-row-text">
-                        <span className="svc-title">{s.title}</span>
-                        <span className="svc-blurb">{s.blurb}</span>
-                      </span>
-                      <ArrowRightIcon className="svc-row-arrow" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
+        {/* Doctor-led video shelf: the clinic's own YouTube videos, one player at a time, click to load */}
+        <VideoShelf
+          videos={videosFor("home").filter((v) => v.source === "youtube").map(playerProps)}
+        />
 
         {/* Oculoplasty */}
         <section id="oculoplasty" className="section section--graphite" aria-labelledby="oculo-h">
-          <div className={`container oculo-grid${hasIris ? "" : " oculo-grid--solo"}`}>
+          <div className="container oculo-grid oculo-grid--solo">
             <div className="oculo-copy">
               <p className="kicker">Oculoplasty</p>
               <h2 id="oculo-h" className="h2">Eyelid care for both function and appearance</h2>
@@ -313,16 +263,6 @@ export default function Home() {
                 a conversation about what you hope to achieve.
               </p>
             </div>
-            {hasIris && (
-              <figure className="oculo-art">
-                <AssetImage
-                  asset={ASSETS.artIris}
-                  sizes="(min-width: 960px) 30vw, 100vw"
-                  className="oculo-img"
-                />
-                <figcaption>Conceptual image</figcaption>
-              </figure>
-            )}
           </div>
         </section>
 

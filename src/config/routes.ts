@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ARTICLES } from "../content/articles";
-import { TESTIMONIALS } from "../content/testimonials";
+import { REVIEWS_ALLOWED, TESTIMONIALS } from "../content/testimonials";
 import { libraryAvailable } from "../content/videos";
 import { LINKS, PRIVACY_URL, SERVICES } from "./site";
 
@@ -38,7 +38,7 @@ export type PageDef = { path: string; label: string; reviewed: boolean; blocker:
 export const PAGES: Record<PageKey, PageDef> = {
   home: { path: LINKS.home, label: "Home", reviewed: false, blocker: "Phone, credentials, address and photographs pending" },
   about: { path: LINKS.about, label: "About Us", reviewed: false, blocker: "Credentials and photographs pending" },
-  doctor: { path: LINKS.doctor, label: "Dr. Poonam Jain", reviewed: false, blocker: "Credential wording, biography and portrait pending" },
+  doctor: { path: LINKS.doctor, label: "Dr. Poonam Jain", reviewed: false, blocker: "Registration (SMR/NMR) number missing (NMC guidelines 6 Oct 2026, 3.2 Expl. III/IV, 9.1); credential wording, biography and portrait pending" },
   services: { path: LINKS.allServices, label: "Our Services", reviewed: false, blocker: "Service scope pending clinician sign-off" },
   cataract: { path: LINKS.cataract, label: "Cataract Surgery", reviewed: false, blocker: "Medical wording pending clinician sign-off" },
   glaucoma: { path: LINKS.glaucoma, label: "Glaucoma Management", reviewed: false, blocker: "Medical wording pending clinician sign-off" },
@@ -71,7 +71,7 @@ export const contentReady = (key: PageKey): boolean => {
     case "videos":
       return libraryAvailable();
     case "testimonials":
-      return TESTIMONIALS.length > 0;
+      return REVIEWS_ALLOWED && TESTIMONIALS.length > 0;
     case "blogs":
       return ARTICLES.length > 0;
     case "privacy":

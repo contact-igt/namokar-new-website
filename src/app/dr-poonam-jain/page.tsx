@@ -3,6 +3,7 @@ import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import AssetImage from "@/components/AssetImage";
 import EditorialImage from "@/components/EditorialImage";
+import RegistrationRow from "@/components/RegistrationRow";
 import BookButton from "@/components/BookButton";
 import CtaBand from "@/components/CtaBand";
 import FaqList from "@/components/FaqList";
@@ -42,12 +43,14 @@ const FAQS = [
 
 export default function DoctorPage() {
   const online = onlineBookingAvailable();
-  const hasPortrait = usable(ASSETS.portrait);
+  // The archive portrait leads when cleared; the earlier standing portrait is the fallback.
+  const lead = [ASSETS.archDoctorScrubs, ASSETS.portrait].find(usable);
+  const hasPortrait = Boolean(lead);
   const hasWork = usable(ASSETS.docSlit) || usable(ASSETS.docBlazer);
 
   return (
     <main id="main">
-      <JsonLd
+      <JsonLd page="doctor"
         data={[
           webPage({ type: "ProfilePage", path: PAGES.doctor.path, name: "Dr. Poonam Jain", description: metadata.description as string, mainEntityId: ids.physician }),
           physician(),
@@ -64,12 +67,12 @@ export default function DoctorPage() {
         media={
           hasPortrait ? (
             <AssetImage
-              asset={ASSETS.portrait}
+              asset={lead!}
               fill
               eager
               sizes="(min-width: 960px) 40vw, 100vw"
               className="page-hero-img"
-              style={{ objectPosition: "50% 30%" }}
+              style={{ objectPosition: lead === ASSETS.portrait ? "50% 30%" : "50% 38%" }}
             />
           ) : undefined
         }
@@ -122,6 +125,7 @@ export default function DoctorPage() {
                   <dt>MS, Ophthalmology</dt>
                   <dd>Postgraduate surgical degree in ophthalmology</dd>
                 </div>
+                <RegistrationRow />
               </dl>
             </div>
             <div>

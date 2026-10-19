@@ -50,10 +50,12 @@ for (const kind of ["desktop", "mobile"]) {
 
   // Lens designs
   f = fig(p, "lensDesigns"); await f.scrollIntoViewIfNeeded();
-  await press(kind, p, f.getByRole("button", { name: "Distance and near" })); await wait(p, 500);
-  rec(A, "lens designs: tab changes the description", (await f.locator(".clin-panel-h").textContent()).includes("near"));
-  await press(kind, p, f.getByRole("button", { name: "Astigmatism" })); await wait(p, 500);
-  rec(A, "lens designs: astigmatism tab", (await f.locator(".clin-panel-h").textContent()).includes("astigmatism"));
+  await press(kind, p, f.getByRole("button", { name: "Multifocal" })); await wait(p, 500);
+  rec(A, "lens designs: multifocal tab changes the description", (await f.locator(".clin-panel-h").textContent()).includes("More than one"));
+  await press(kind, p, f.getByRole("button", { name: "Toric" })); await wait(p, 500);
+  rec(A, "lens designs: toric tab", (await f.locator(".clin-panel-h").textContent()).includes("astigmatism"));
+  await press(kind, p, f.getByRole("button", { name: "EDOF" })); await wait(p, 500);
+  rec(A, "lens designs: EDOF tab", (await f.locator(".clin-panel-h").textContent()).includes("extended range"));
 
   // Cataract steps
   f = fig(p, "cataractSteps"); await f.scrollIntoViewIfNeeded();

@@ -17,8 +17,8 @@ export const HERO_SLIDES = [
   {
     id: "centre",
     tab: "Our centre",
-    heading: "Specialist Eye Care, Centred Around You.",
-    body: "Comprehensive eye care and specialist oculoplasty in Ashok Vihar, New Delhi.",
+    heading: "Comprehensive Eye Care, Centred Around You.",
+    body: "Eye examinations, cataract and glaucoma care, and specialist oculoplasty, at one centre in Ashok Vihar, New Delhi.",
     more: { label: "About the centre", href: LINKS.about },
   },
   {

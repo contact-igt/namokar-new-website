@@ -1,6 +1,6 @@
 # Figure provenance and approval status
 
-18 Oct 2026. Registry: `src/config/figures.ts`. **All 11 figures are pending. None is approved.**
+Updated 20 Oct 2026. Registry: `src/config/figures.ts`. **All clinical figures and the three treatment plates are pending. None is approved.**
 
 ## How they were made
 
@@ -15,8 +15,9 @@
 | Figure id | Page | What it shows | Source | Reviewer must check | Status |
 |---|---|---|---|---|---|
 | `eyeAnatomy` | Cataract | Eye cross-section; seven parts; healthy or clouded lens; light drawn focused or scattered | Original SVG | Labels, proportions, definitions; light-ray simplification | **Pending** |
+| `cataractPatterns` | Cataract | Matched clear/clouded natural lenses and three region-based cataract patterns | Original SVG, 20 Oct 2026 | Front/back orientation, clouding regions, wording and scale caveat | **Pending** |
 | `lensCompare` | Cataract | Drag to compare clear and clouded views of an abstract scene; three strengths (blur, faded colour, glare) | Original SVG and CSS filters | That the simulation is fair and not alarming; caveat wording | **Pending** |
-| `lensDesigns` | Cataract | Ray diagrams: distance, distance and near, astigmatism | Original SVG | Accuracy of each description; no promise | **Pending** |
+| `lensDesigns` | Cataract | Simplified focus illustrations: monofocal, multifocal, toric and EDOF | Original SVG, EDOF state and copy revised 20 Oct 2026 | Accuracy of each description and optical simplification; no availability or outcome promise | **Pending** |
 | `cataractSteps` | Cataract | Four steps: clouded lens, small opening, lens removed, clear lens placed | Original SVG; Motion mini | Order and wording; nothing implies a technique, duration or result | **Pending** |
 | `glaucomaFlow` | Glaucoma | Fluid made, flows through the pupil, drains at the angle; slowed drainage and pressure | Original SVG | Fluid pathway; wording on pressure and the optic nerve; normal-pressure glaucoma noted | **Pending** |
 | `sideVision` | Glaucoma | Side vision narrowing in three stages | Original SVG and CSS | Appropriateness and tone | **Pending** |
@@ -32,7 +33,7 @@ The older page text is already in the medical-claims register (docs/seo-aeo/CONT
 
 - "In a cataract, the lens becomes cloudy." / "With a clear lens, light focuses at one point on the retina." / "With a clouded lens, light is scattered, so it does not focus as sharply on the retina."
 - "A cataract can make vision look blurred or dim, colours look faded or yellowed, and bright light glare. How much, and when, varies from person to person."
-- "Light from far away is brought to one sharp focus. Spectacles may still be wanted for reading." (distance lens) and "The design shares light between two focus points, one for distance and one for near."
+- The four replacement-lens descriptions and the new cataract-pattern wording are transcribed in `FIGURE_TEXT_FOR_REVIEW.md` and need fresh clinical sign-off.
 - "The inside of the front of the eye is kept in balance…" and "In many people with glaucoma, the fluid drains too slowly and the pressure inside the eye rises. Over time, raised pressure can damage the optic nerve. Some people develop glaucoma with pressure in the usual range."
 - "The edge of the upper lid sits near the top of the coloured part of the eye, and the whole pupil is clear." and "Extra skin can hang over the lid edge and rest on the eyelashes…"
 - The four surgery steps (including "A very small opening is made at the edge of the cornea so the surgeon can reach the lens.").

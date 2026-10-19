@@ -29,6 +29,26 @@ export default function VideoSection({
   const [first, ...rest] = videos;
   const vertical = first.aspect === "9:16";
   const fp = playerProps(first);
+  // Two or more vertical videos and no landscape one: heading above, the Shorts side by side.
+  if (vertical && rest.length > 0 && rest.every((v) => v.aspect === "9:16")) {
+    return (
+      <section id={id} className={`section${dark ? " section--graphite" : ""}`} aria-labelledby={`${id}-h`}>
+        <div className="container">
+          <div className="vsec-text vsec-text--wide reveal">
+            <p className="kicker">{kicker}</p>
+            <h2 id={`${id}-h`} className="h2">{heading}</h2>
+            <p className="lead">{lead}</p>
+            {note && <p className="vsec-note">{note}</p>}
+          </div>
+          <div className="vsec-shorts">
+            {videos.map((v) => (
+              <VideoPlayer key={v.id} v={playerProps(v)} sizes="320px" />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
   // A wide lead video with a vertical clip next to it: heading above, the two side by side below,
   // so the vertical clip never sits alone in a half-empty row.
   const duo = !vertical && rest[0]?.aspect === "9:16";

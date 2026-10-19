@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { type PointerEvent, useEffect, useRef, useState } from "react";
 import type { TreatmentItem } from "@/lib/treatments";
+import { Plate } from "./clinical/Plates";
 import { ArrowRightIcon } from "./Icons";
 
 /**
@@ -69,6 +70,10 @@ export default function TreatmentExplorer({ items }: { items: TreatmentItem[] })
                       style={{ objectPosition: t.image.position }}
                     />
                   </span>
+                ) : t.plate ? (
+                  <span className="tx-thumb tx-thumb--plate" aria-hidden="true">
+                    <Plate name={t.plate} crop="card" />
+                  </span>
                 ) : (
                   <span className="tx-thumb tx-thumb--card" aria-hidden="true">
                     <span className="tx-thumb-mark">{t.short}</span>
@@ -100,9 +105,13 @@ export default function TreatmentExplorer({ items }: { items: TreatmentItem[] })
                   data-active={i === active}
                   style={{ objectPosition: t.image.position }}
                 />
+              ) : t.plate ? (
+                <div key={t.id} className="tx-img tx-plate" data-active={i === active} aria-hidden="true">
+                  <Plate name={t.plate} crop="card" />
+                </div>
               ) : null,
             )}
-            {!cur.image && (
+            {!cur.image && !cur.plate && (
               <div className="tx-card" key={cur.id}>
                 <span className="tx-card-kicker">Namokar Eye &amp; Oculoplasty Centre</span>
                 <span className="tx-card-title">{cur.title}</span>

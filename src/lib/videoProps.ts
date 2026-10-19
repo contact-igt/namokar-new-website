@@ -1,4 +1,4 @@
-import { ASSETS, srcOf } from "@/config/assets";
+import { ASSETS, srcOf, usable } from "@/config/assets";
 import { CATEGORY_LABEL, CHANNEL, type VideoItem, previewOnlyVideo } from "@/content/videos";
 
 /** Plain, serialisable description of a playable video for the client player. */
@@ -13,6 +13,9 @@ export type PlayerProps = {
   language: "en" | "hi";
   description: string;
   preview: boolean;
+  sensitive?: boolean;
+  ratio?: string;
+  learn?: { label: string; href: string };
   src?: string;
   poster?: string;
   captions?: string;
@@ -32,6 +35,9 @@ export function playerProps(v: VideoItem): PlayerProps {
     language: v.language,
     description: v.description,
     preview: previewOnlyVideo(v),
+    sensitive: v.sensitive,
+    ratio: v.ratio,
+    learn: v.learnMore,
   };
   if (v.source === "local") {
     return {
@@ -42,9 +48,11 @@ export function playerProps(v: VideoItem): PlayerProps {
       captions: v.captions ? srcOf(ASSETS[v.captions]) : undefined,
     };
   }
+  const thumb = v.thumb && usable(ASSETS[v.thumb]) ? srcOf(ASSETS[v.thumb]) : undefined;
   return {
     ...base,
     kind: "youtube",
+    poster: thumb,
     videoId: v.videoId,
     watchUrl: `https://www.youtube.com/watch?v=${v.videoId}`,
   };

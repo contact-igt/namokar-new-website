@@ -6,7 +6,8 @@ import HelpPanel from "@/components/HelpPanel";
 import PageHero from "@/components/PageHero";
 
 import { LINKS } from "@/config/site";
-import { TESTIMONIALS } from "@/content/testimonials";
+import { notFound } from "next/navigation";
+import { REVIEWS_ALLOWED, TESTIMONIALS } from "@/content/testimonials";
 import { onlineBookingAvailable } from "@/lib/booking";
 
 export const metadata: Metadata = pageMeta("testimonials", {
@@ -15,6 +16,8 @@ export const metadata: Metadata = pageMeta("testimonials", {
 });
 
 export default function TestimonialsPage() {
+  // Withheld from the release: see REVIEWS_ALLOWED (NMC advertising guidelines, 6 Oct 2026).
+  if (!REVIEWS_ALLOWED) notFound();
   const online = onlineBookingAvailable();
   return (
     <main id="main">

@@ -25,7 +25,14 @@ export type Asset = {
   alt: string;
   approved: boolean;
   /** Who is identifiable in it. */
-  people: "none" | "doctor" | "staff" | "doctor and staff";
+  people:
+    | "none"
+    | "doctor"
+    | "staff"
+    | "doctor and staff"
+    | "doctor and patient"
+    | "staff and patient"
+    | "doctor, staff and patient";
   /** Where it came from. Originals are never edited in place. */
   source: string;
   /** What sign-off is outstanding (or who gave it). */
@@ -106,6 +113,30 @@ export const ASSETS = {
     people: "doctor",
     source: "July 2026 shoot, IMG_0033.JPG.",
     approval: "Pending: Dr. Poonam Jain's approval, then client sign-off.",
+  },
+  clinicWalkthrough: {
+    file: "clinic-walkthrough.mp4",
+    kind: "video",
+    width: 1920,
+    height: 1094,
+    alt: "A walk through Namokar Eye & Oculoplasty Centre: the street entrance, reception and examinations with diagnostic instruments, with sound",
+    approved: false,
+    people: "doctor, staff and patient",
+    source:
+      'Project root "namokar .mp4" (84,568,275 bytes, 30.4 s, 2528x1440, HEVC, 60 fps, AAC stereo), kept untouched and git-ignored. Web derivative: H.264 High, 1920x1094, 30 fps, about 3.2 Mbps, AAC 128k, fast-start, 12.3 MB.',
+    approval:
+      "Pending, and the footage needs editing or written sign-off first: it shows identifiable patients being examined, several staff and a second doctor in a white coat; burned-in captions claim \"25+ Years of Surgical Expertise\", \"Internationally trained doctor\", \"Highly Trained Staff\" and \"Advanced Diagnostic Technology\"; the street sign reads \"Cashless Mediclaim Facility Available\" with a telephone number (011-40392563) and \"Senior Eye Surgeon\"; the end card shows a web address. Needs patient and staff consent, Dr. Poonam Jain's approval, client confirmation of each claim, and a check of what the audio says.",
+  },
+  clinicWalkthroughPoster: {
+    file: "clinic-walkthrough-poster.webp",
+    kind: "image",
+    width: 1920,
+    height: 1094,
+    alt: "The street entrance of Namokar Eye & Oculoplasty Centre, with its name on the sign above the door",
+    approved: false,
+    people: "none",
+    source: "Frame at 3.2 s of the walkthrough (street entrance, no caption overlay, no patient). A passer-by is very small in the distance.",
+    approval: "Pending: with the video; the sign reads \"A unit of Kalos Health Care Pvt. Ltd.\": confirm.",
   },
   walkthroughVideo: {
     file: "namokar-walkthrough.mp4",
@@ -359,6 +390,83 @@ export const ASSETS = {
     people: "doctor",
     source: "Frame at 0.8 s of Catract Excercise.m4v.",
     approval: "Pending: with the video.",
+  },
+  archCataractExam: {
+    file: "archive-cataract-exam.webp",
+    kind: "image",
+    width: 2400,
+    height: 1600,
+    alt: "Dr. Poonam Jain examining a patient at a slit-lamp unit in a consultation room",
+    approved: false,
+    people: "doctor and patient",
+    source: "Archive ZIP namokareyecare-website-frontend-main.zip (Oct 2026), public/assets/cataract/cataract-stitchless.JPG (6000x4000). Resized, metadata removed.",
+    approval: "Pending: Dr. Poonam Jain and the patient shown (consent), then client sign-off.",
+  },
+  archExamOverhead: {
+    file: "archive-exam-overhead.webp",
+    kind: "image",
+    width: 1600,
+    height: 2400,
+    alt: "Dr. Poonam Jain examining a patient at a slit-lamp unit; the patient is seen from behind",
+    approved: false,
+    people: "doctor and patient",
+    source: "Archive ZIP namokareyecare-website-frontend-main.zip (Oct 2026), public/assets/Aesthetic/expected_approach_doctor.JPG (6000x4000, duplicate of cataract/why_choose_namokar_doctor.JPG). Rotated upright, resized, metadata removed.",
+    approval: "Pending: Dr. Poonam Jain and the patient shown (consent), then client sign-off.",
+  },
+  archGlaucomaTest: {
+    file: "archive-glaucoma-test.webp",
+    kind: "image",
+    width: 1059,
+    height: 1590,
+    alt: "A staff member and a patient at a pre-examination eye-testing instrument",
+    approved: false,
+    people: "staff and patient",
+    source: "Archive ZIP namokareyecare-website-frontend-main.zip (Oct 2026), public/assets/Gallery/IMG_0009.JPG (1059x1590, web copy: no larger original supplied). Metadata removed.",
+    approval: "Pending: consent of the staff member and the patient, then client sign-off.",
+  },
+  archStaffEquipment: {
+    file: "archive-staff-equipment.webp",
+    kind: "image",
+    width: 1059,
+    height: 1590,
+    alt: "A staff member seated beside an eye-testing instrument in an examination room",
+    approved: false,
+    people: "staff",
+    source: "Archive ZIP namokareyecare-website-frontend-main.zip (Oct 2026), public/assets/Gallery/IMG_0062.JPG (1059x1590, web copy). Metadata removed.",
+    approval: "Pending: consent of the staff member, then client sign-off.",
+  },
+  archDoctorPortrait: {
+    file: "archive-doctor-portrait.webp",
+    kind: "image",
+    width: 1200,
+    height: 1200,
+    alt: "Portrait of Dr. Poonam Jain in a white coat",
+    approved: false,
+    people: "doctor",
+    source: "Archive ZIP namokareyecare-website-frontend-main.zip (Oct 2026), public/assets/Doctors/Main_doctor.png (1200x1200). The image looks retouched: confirm it is her approved portrait. Metadata removed.",
+    approval: "Pending: Dr. Poonam Jain approves this portrait, then client sign-off.",
+  },
+  archDoctorScrubs: {
+    file: "archive-doctor-scrubs.webp",
+    kind: "image",
+    width: 1306,
+    height: 1800,
+    alt: "Dr. Poonam Jain smiling, seated at her desk in navy scrubs",
+    approved: false,
+    people: "doctor",
+    source: "Archive ZIP namokareyecare-website-frontend-main.zip (Oct 2026), public/assets/about/about_doctor.png (1306x1800). Metadata removed.",
+    approval: "Pending: Dr. Poonam Jain approves this portrait, then client sign-off.",
+  },
+  archTeamDoctor: {
+    file: "archive-team-doctor.webp",
+    kind: "image",
+    width: 1500,
+    height: 1000,
+    alt: "Dr. Poonam Jain with members of the centre's team in the waiting area",
+    approved: false,
+    people: "doctor and staff",
+    source: "Archive ZIP namokareyecare-website-frontend-main.zip (Oct 2026), public/assets/Gallery/IMG_0053.JPG (1500x1000, web copy). Metadata removed.",
+    approval: "Pending: written consent of every person shown, then client sign-off.",
   },
 } satisfies Record<string, Asset>;
 

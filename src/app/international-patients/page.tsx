@@ -47,7 +47,7 @@ export default function InternationalPage() {
   const online = onlineBookingAvailable();
   return (
     <main id="main">
-      <JsonLd
+      <JsonLd page="international"
         data={webPage({ path: PAGES.international.path, name: "International and Outstation Patients", description: metadata.description as string })}
       />
       <PageHero

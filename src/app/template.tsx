@@ -14,7 +14,10 @@ let pagesShown = 0;
 export default function Template({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
-    if (pagesShown > 0) ref.current?.classList.add("page-enter");
+    // React Strict Mode replays effects in development. Count each mounted template once.
+    if (!ref.current || ref.current.dataset.pageCounted) return;
+    ref.current.dataset.pageCounted = "true";
+    if (pagesShown > 0) ref.current.classList.add("page-enter");
     pagesShown += 1;
   }, []);
   return <div ref={ref}>{children}</div>;

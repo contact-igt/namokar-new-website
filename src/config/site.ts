@@ -190,3 +190,12 @@ export const SERVICES: ServiceSummary[] = [
 ];
 
 export const serviceByKey = (k: ServiceKey) => SERVICES.find((s) => s.key === k)!;
+
+/**
+ * Dr. Poonam Jain's medical registration (the State Medical Council or the National Medical
+ * Register, and the number). NOT SUPPLIED YET, so nothing is shown and nothing is invented. The
+ * NMC advertising guidelines of 6 Oct 2026 (3.2 Explanations III and IV, 9.1) expect a doctor
+ * directory to show names, recognised qualifications, specialties and registration details, so
+ * the doctor pages must not be published until this is filled in from the doctor's certificate.
+ */
+export const DOCTOR_REGISTRATION: { council: string; number: string } | null = null;

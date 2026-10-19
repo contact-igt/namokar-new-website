@@ -9,6 +9,8 @@ import { onlineBookingAvailable } from "@/lib/booking";
 import { videosFor } from "@/content/videos";
 import VideoSection from "./VideoSection";
 import { usable } from "@/config/assets";
+import { figureUsable } from "@/config/figures";
+import { Plate } from "./clinical/Plates";
 import { COVERS } from "@/content/covers";
 import AssetImage from "./AssetImage";
 import BookButton from "./BookButton";
@@ -45,10 +47,11 @@ export default function ServiceLayout({
   const group = SERVICE_GROUPS[s.group];
   const cover = COVERS[serviceKey];
   const hasCover = usable(cover.primary.asset);
+  const vids = videosFor(serviceKey);
 
   return (
     <main id="main">
-      <JsonLd
+      <JsonLd page={serviceKey}
         data={[
           webPage({
             type: "MedicalWebPage",
@@ -93,6 +96,12 @@ export default function ServiceLayout({
             {c.intro.map((p) => (
               <p key={p}>{p}</p>
             ))}
+            {cover.plate && figureUsable(cover.plate.figure) && (
+              <figure className="about-photo plate-fig">
+                <Plate name={cover.plate.plate} />
+                <figcaption className="plate-cap">{cover.plate.caption}</figcaption>
+              </figure>
+            )}
             {cover.secondary && usable(cover.secondary.asset) && (
               <EditorialImage
                 asset={cover.secondary.asset}
@@ -149,9 +158,9 @@ export default function ServiceLayout({
 
       <VideoSection
         id="watch"
-        videos={videosFor(serviceKey)}
+        videos={vids}
         kicker="Watch"
-        heading="A short video on this topic"
+        heading={vids.length > 1 ? "Videos on this topic" : "A video on this topic"}
         lead="Dr. Poonam Jain's centre shares short videos on its YouTube channel and in its own footage."
         note="Videos are general information, not a substitute for an examination. They complement the written information on this page."
       />
