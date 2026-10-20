@@ -1,6 +1,6 @@
 "use client";
 
-import { type CSSProperties, useId, useState } from "react";
+import { type CSSProperties, useState } from "react";
 import Scene from "./Scene";
 import Segmented from "./Segmented";
 
@@ -19,11 +19,10 @@ const COPY: Record<Stage, string> = {
  */
 export default function SideVision() {
   const [stage, setStage] = useState<Stage>("typical");
-  const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
   return (
     <div className="clin-compare">
       <div className="sv-stage" style={{ "--sv-r": R[stage] } as CSSProperties}>
-        <Scene id={uid} />
+        <Scene />
         <span className="sv-vig" aria-hidden="true" />
       </div>
       <div className="clin-row">

@@ -15,7 +15,10 @@ export default function HeaderFallback() {
           <a href={TEL_HREF} className="header-call header-call--primary" aria-label={`Call ${SITE.phone.display}`}>
             <PhoneIcon width={20} height={20} />
             <span className="call-sm">Call</span>
-            <span className="call-lg">{SITE.phone.display}</span>
+            <span className="call-lg">
+              <span className="call-prefix">Call </span>
+              {SITE.phone.display}
+            </span>
           </a>
         </div>
       </div>

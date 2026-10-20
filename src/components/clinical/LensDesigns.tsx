@@ -1,132 +1,140 @@
 "use client";
 
-import { useState } from "react";
-import { C } from "./EyeBase";
-import Segmented from "./Segmented";
+import Link from "next/link";
+import Image from "next/image";
+import Slider, { type Settings } from "react-slick";
+import { LINKS } from "@/config/site";
+import { ArrowRightIcon } from "../Icons";
 
 type Design = "distance" | "near" | "astigmatism" | "edof";
 
-const COPY: Record<Design, { tab: string; title: string; text: string }> = {
+const ORDER: Design[] = ["distance", "near", "astigmatism", "edof"];
+const IMAGES: Record<Design, string> = {
+  distance: "/images/lens-monofocal.webp",
+  near: "/images/lens-multifocal.webp",
+  astigmatism: "/images/lens-toric.webp",
+  edof: "/images/lens-edof.webp",
+};
+
+/**
+ * One card per design term: a simplified focus drawing, a short tag, a plain description and three
+ * checklist points. Wording only restates the general descriptions; no brand names, no promises.
+ */
+const COPY: Record<
+  Design,
+  { name: string; tag: string; title: string; text: string; points: string[] }
+> = {
   distance: {
-    tab: "Monofocal",
+    name: "Monofocal",
+    tag: "One main focus",
     title: "One main focal distance",
     text: "A monofocal lens has one main focus, often chosen for distance. Spectacles may still be needed for other distances.",
+    points: [
+      "One main point of focus",
+      "Often chosen for distance",
+      "Spectacles may still be needed",
+    ],
   },
   near: {
-    tab: "Multifocal",
+    name: "Multifocal",
+    tag: "More than one focus",
     title: "More than one focal distance",
     text: "A multifocal design distributes light across more than one focus. It can involve visual trade-offs, which need an individual discussion.",
+    points: [
+      "Light shared across more than one focus",
+      "May involve visual trade-offs",
+      "Needs an individual discussion",
+    ],
   },
   astigmatism: {
-    tab: "Toric",
+    name: "Toric",
+    tag: "For astigmatism",
     title: "Addresses astigmatism",
     text: "A toric lens is designed to address corneal astigmatism. Toric features can be combined with other lens designs.",
+    points: [
+      "Designed for corneal astigmatism",
+      "Can be combined with other designs",
+      "Measurements of the eye guide the choice",
+    ],
   },
   edof: {
-    tab: "EDOF",
+    name: "EDOF",
+    tag: "Extended range of focus",
     title: "An extended range of focus",
     text: "An extended depth of focus design aims to give a continuous range of useful vision. Reading glasses may still be needed.",
+    points: [
+      "Aims for a continuous range of useful vision",
+      "Reading glasses may still be needed",
+      "Suitability is decided after examination",
+    ],
   },
 };
 
-/** The lens in side view, with two small supporting loops (haptics). */
-function Lens({ x }: { x: number }) {
-  return (
-    <g>
-      <path d={`M${x} 40 C ${x + 34} 90 ${x + 34} 150 ${x} 200 C ${x - 34} 150 ${x - 34} 90 ${x} 40Z`} fill={C.white} stroke={C.ink} strokeWidth="4" strokeLinejoin="round" />
-      <path d={`M${x} 38 C ${x + 24} 14 ${x + 52} 20 ${x + 54} 44 M${x} 202 C ${x + 24} 226 ${x + 52} 220 ${x + 54} 196`} fill="none" stroke={C.grey} strokeWidth="3" strokeLinecap="round" />
-    </g>
-  );
-}
-
-function Rays({ design }: { design: Design }) {
-  const stroke = { fill: "none", stroke: C.orange, strokeWidth: 3, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
-  if (design === "distance") {
-    return (
-      <g {...stroke}>
-        {[70, 120, 170].map((y) => (
-          <path key={y} d={`M30 ${y} L226 ${y} L500 120`} />
-        ))}
-        <circle cx="500" cy="120" r="7" fill={C.orange} stroke="none" />
-      </g>
-    );
-  }
-  if (design === "near") {
-    return (
-      <g {...stroke}>
-        {[70, 170].map((y) => (
-          <path key={`f${y}`} d={`M30 ${y} L226 ${y} L500 120`} />
-        ))}
-        {[95, 145].map((y) => (
-          <path key={`n${y}`} d={`M30 ${y} L226 ${y} L560 120`} strokeDasharray="1 8" />
-        ))}
-        <circle cx="500" cy="120" r="7" fill={C.orange} stroke="none" />
-        <circle cx="560" cy="120" r="7" fill={C.orange} stroke="none" opacity="0.55" />
-      </g>
-    );
-  }
-  if (design === "edof") {
-    return (
-      <g {...stroke}>
-        {[75, 120, 165].map((y) => <path key={y} d={`M30 ${y} L226 ${y} L500 ${120 + (y - 120) * 0.15}`} />)}
-        <rect x="492" y="107" width="16" height="26" rx="8" fill={C.orange} stroke="none" opacity="0.45" />
-      </g>
-    );
-  }
-  return (
-    <g {...stroke}>
-      {[70, 170].map((y) => (
-        <path key={`v${y}`} d={`M30 ${y} L226 ${y} L500 120`} />
-      ))}
-      {[100, 140].map((y) => (
-        <path key={`h${y}`} d={`M30 ${y} L226 ${y} L500 120`} strokeDasharray="1 8" />
-      ))}
-      <circle cx="500" cy="120" r="7" fill={C.orange} stroke="none" />
-      <path d="M205 70 L247 170 M247 70 L205 170" stroke={C.grey} strokeWidth="2.5" opacity="0.8" />
-    </g>
-  );
-}
-
 /**
- * Four common replacement lens design terms, as simplified focus concepts with a plain
- * description of each. No brand names, no promises. Pending medical review (src/config/figures.ts).
+ * Four common replacement lens design terms as cards. Pending medical review
+ * (src/config/figures.ts); no brand names and no promises.
  */
 export default function LensDesigns() {
-  const [d, setD] = useState<Design>("distance");
+  // Three cards across on a desktop, two on a tablet, one on a phone. Swipe, drag or use the dots;
+  // nothing moves on its own.
+  const settings: Settings = {
+    accessibility: true,
+    arrows: false,
+    dots: true,
+    infinite: true,
+    speed: 520,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      { breakpoint: 1000, settings: { slidesToShow: 2 } },
+      { breakpoint: 680, settings: { slidesToShow: 1 } },
+    ],
+  };
   return (
-    <div className="clin-grid">
-      <div className="clin-stage">
-        <svg viewBox="0 0 640 240" className="clin-svg" role="img" aria-label={`Simplified focus illustration for a replacement lens: ${COPY[d].title}`}>
-          <rect x="0" y="0" width="640" height="240" fill={C.porcelain} />
-          <Lens x={226} />
-          <line x1="500" y1="40" x2="500" y2="200" stroke={C.orangeDark} strokeWidth="5" strokeLinecap="round" opacity="0.5" />
-          <text x="500" y="226" textAnchor="middle" fontSize="22" fontWeight="600" fontFamily="Inter, system-ui, sans-serif" fill={C.soft}>
-            Retina
-          </text>
-          <g key={d} className="clin-fade">
-            <Rays design={d} />
-          </g>
-        </svg>
-      </div>
-      <div className="clin-side">
-        <Segmented
-          label="Lens design"
-          value={d}
-          onChange={setD}
-          options={(Object.keys(COPY) as Design[]).map((k) => ({ value: k, label: COPY[k].tab }))}
-        />
-        <div className="clin-panel" aria-live="polite">
-          <div key={d} className="clin-swap">
-              <h3 className="clin-panel-h">{COPY[d].title}</h3>
-              <p>{COPY[d].text}</p>
+    <div>
+      <div className="fg lens-fg" aria-label="Replacement lens designs">
+        <Slider {...settings}>
+          {ORDER.map((d) => (
+            <div key={d}>
+              <article className="lens-card">
+                <div className="lens-card-fig">
+                  <Image
+                    className="lens-card-image"
+                    src={IMAGES[d]}
+                    alt={`Simplified illustration of how a ${COPY[d].name.toLowerCase()} lens focuses light inside the eye`}
+                    fill
+                    loading="eager"
+                    sizes="(max-width: 680px) 100vw, (max-width: 1000px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="lens-card-body">
+                  <div className="lens-card-top">
+                    <span className="lens-card-name">{COPY[d].name}</span>
+                    <span className="lens-card-tag">{COPY[d].tag}</span>
+                  </div>
+                  <h3 className="lens-card-title">{COPY[d].title}</h3>
+                  <p className="lens-card-text">{COPY[d].text}</p>
+                  <ul className="lens-card-points">
+                    {COPY[d].points.map((pt) => (
+                      <li key={pt}>{pt}</li>
+                    ))}
+                  </ul>
+                  <Link href={LINKS.contact} className="lens-card-cta">
+                    Discuss lens options{" "}
+                    <ArrowRightIcon width={18} height={18} />
+                  </Link>
+                </div>
+              </article>
             </div>
-          <p className="clin-fine">
-            Which design, if any, suits you depends on your eyes, your daily activities and your
-            expectations. These simplified diagrams do not predict your vision. No lens can promise
-            that you will never need spectacles.
-          </p>
-        </div>
+          ))}
+        </Slider>
       </div>
+      <p className="clin-fine lens-fine">
+        Which design, if any, suits you depends on your eyes, your daily
+        activities and your expectations. These simplified diagrams do not
+        predict your vision. No lens can promise that you will never need
+        spectacles.
+      </p>
     </div>
   );
 }

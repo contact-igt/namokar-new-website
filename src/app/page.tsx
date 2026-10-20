@@ -4,6 +4,7 @@ import AssetImage from "@/components/AssetImage";
 import BookButton, { SecondaryContact } from "@/components/BookButton";
 import FacilityGallery from "@/components/FacilityGallery";
 import Hero from "@/components/Hero";
+import HomeAppointmentPopup from "@/components/HomeAppointmentPopup";
 import TreatmentExplorer from "@/components/TreatmentExplorer";
 import { treatmentItems } from "@/lib/treatments";
 import JsonLd from "@/components/JsonLd";
@@ -382,6 +383,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <HomeAppointmentPopup />
     </>
   );
 }

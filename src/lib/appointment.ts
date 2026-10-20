@@ -21,6 +21,9 @@ export type RawValues = {
   service: string;
   preferredDate: string;
   consent: boolean;
+  couponCode?: string;
+  referralCode?: string;
+  message?: string;
   /** Honeypot: real visitors never see or fill this. */
   website?: string;
 };
@@ -31,6 +34,9 @@ export type CleanValues = {
   service: string;
   preferredDate: string; // YYYY-MM-DD or ""
   consent: true;
+  couponCode?: string;
+  referralCode?: string;
+  message?: string;
 };
 
 export type FieldErrors = Partial<Record<FieldName, string>>;
@@ -107,9 +113,13 @@ export function validate(
   if (raw.consent !== true)
     errors.consent = "Please tick the box so the centre can contact you.";
 
+  const couponCode = tidy(raw.couponCode, 40);
+  const referralCode = tidy(raw.referralCode, 40);
+  const message = tidy(raw.message, 300);
+
   if (Object.keys(errors).length || !phone) return { ok: false, errors };
   return {
     ok: true,
-    values: { name, phone, service, preferredDate, consent: true },
+    values: { name, phone, service, preferredDate, consent: true, ...(couponCode && { couponCode }), ...(referralCode && { referralCode }), ...(message && { message }) },
   };
 }

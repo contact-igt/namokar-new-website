@@ -8,11 +8,14 @@ export default function CtaBand({
   lead,
   id,
   online,
+  landmark = false,
 }: {
   heading: string;
   lead: string;
   id: string;
   online: boolean;
+  /** Also print the nearby landmark under the address. */
+  landmark?: boolean;
 }) {
   return (
     <section className="cta" aria-labelledby={id}>
@@ -22,7 +25,10 @@ export default function CtaBand({
           <p className="lead">{lead}</p>
           <p className="cta-place">
             <PinIcon />
-            <span>{SITE.address.lines.join(", ")}</span>
+            <span>
+              {SITE.address.lines.join(", ")}
+              {landmark ? `. ${SITE.address.landmark}.` : ""}
+            </span>
           </p>
           <p className="cta-place">
             <PhoneIcon />

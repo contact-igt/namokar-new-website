@@ -29,24 +29,24 @@ export const metadata: Metadata = pageMeta("about", {
 
 const JOURNEY = [
   {
-    title: "Enquiry and appointment",
-    text: "Contact the centre to ask about arranging a visit. Tell us briefly what is troubling you.",
+    title: "Tell us what is troubling you",
+    text: "Contact the centre and briefly tell the team your concern, so they can help arrange the appropriate consultation.",
   },
   {
     title: "Clinical assessment",
-    text: "Your eyes are examined. Please bring previous prescriptions, eye reports, your current spectacles and a list of your medicines.",
+    text: "Your eyes are examined based on your symptoms and your reason for visiting. Bring previous prescriptions, reports, scans, your current spectacles and your medication list where relevant.",
   },
   {
-    title: "Doctor consultation",
-    text: "The doctor explains the findings in plain language and answers your questions.",
+    title: "Meet the doctor",
+    text: "The doctor reviews the examination findings, listens to your concerns and explains what they mean in understandable language.",
   },
   {
-    title: "Treatment discussion",
-    text: "Where treatment may help, the options are discussed so you can decide at your own pace. Not every patient needs treatment.",
+    title: "Discuss the options",
+    text: "If treatment could help, the available options are explained. Not every patient requires surgery or a procedure.",
   },
   {
-    title: "Recommended follow-up",
-    text: "Where needed, the doctor advises on follow-up. Some conditions, such as glaucoma, need regular monitoring.",
+    title: "Follow-up where needed",
+    text: "Some eye conditions need monitoring or follow-up, such as glaucoma. The doctor will explain what is appropriate for you.",
   },
 ];
 
@@ -57,10 +57,10 @@ export default function AboutPage() {
   const aboutPortrait = usable(ASSETS.portrait) ? ASSETS.portrait : null;
   const hasPortrait = Boolean(aboutPortrait);
   const gallery = compact([
-    photoItem(ASSETS.reception, { title: "Reception", caption: "The first point of contact when you arrive.", position: "42% 50%" }),
-    photoItem(ASSETS.otModernB, { title: "Operation theatre", caption: "The operating table, operating microscope and a surgical console.", position: "50% 55%" }),
-    photoItem(ASSETS.otModernC, { title: "Theatre, from the corner", caption: "Shelving, a trolley, the operating table and the microscope.", position: "50% 55%" }),
-    photoItem(ASSETS.chartDoor, { title: "Examination room", caption: "An eye-chart screen beside an examination room door.", position: "50% 40%" }),
+    photoItem(ASSETS.otModernB, { title: "Operation theatre", caption: "The operating table, with the operating microscope and a surgical console behind it.", position: "50% 55%" }),
+    photoItem(ASSETS.chartDoor, { title: "Examination room", caption: "An eye-chart screen beside an examination room door, used to check how clearly you see.", position: "50% 40%" }),
+    photoItem(ASSETS.archCataractExam, { title: "A detailed eye examination", caption: "Dr. Poonam Jain examining a patient at a slit-lamp, the microscope used to look closely at the front of the eye.", position: "55% 50%" }),
+    photoItem(ASSETS.archTeamDoctor, { title: "Our care team", caption: "Dr. Poonam Jain with members of the team who look after patients, in the waiting area.", position: "50% 40%" }),
   ]);
 
   return (
@@ -73,8 +73,10 @@ export default function AboutPage() {
       />
       <PageHero
         crumb="About Us"
-        title="Care That Begins With Understanding."
-        lead="Get to know the people, facilities and approach behind Namokar Eye & Oculoplasty Centre."
+        long
+        eyebrow="About Namokar Eye & Oculoplasty Centre"
+        title="Eye Care Built Around Understanding, Expertise & Individual Attention"
+        lead="Namokar Eye & Oculoplasty Centre is an eye-care centre in Ashok Vihar, New Delhi, offering comprehensive ophthalmology alongside specialist oculoplasty care led by Dr. Poonam Jain, Senior Ophthalmologist and Oculoplasty Surgeon. Our approach begins with understanding your concern before discussing the next step."
         media={
           hasHero ? (
             <AssetImage
@@ -87,6 +89,7 @@ export default function AboutPage() {
             />
           ) : undefined
         }
+        mediaLabel="Welcome to Namokar"
         mediaCaption="The reception at our Ashok Vihar centre."
         aside={hasHero ? undefined : <FactPanel />}
       />
@@ -96,34 +99,42 @@ export default function AboutPage() {
         <div className="container about-grid">
           <div className="section-head reveal">
             <p className="kicker">About Namokar</p>
-            <h2 id="about-h" className="h2">An eye-care and oculoplasty centre in Ashok Vihar.</h2>
+            <h2 id="about-h" className="h2">Comprehensive Eye Care With a Special Focus on Oculoplasty</h2>
           </div>
           <div className="about-body reveal">
             <EditorialImage
               asset={ASSETS.exterior}
-              caption="The centre in Ashok Vihar, seen from the street."
+              caption=""
               ratio="cinema"
               position="50% 45%"
               sizes="(min-width: 960px) 55vw, 100vw"
             />
             <p>
-              Namokar Eye &amp; Oculoplasty Centre is in {SITE.area}. It offers
-              comprehensive eye care, from routine and condition-led examinations to
-              cataract and glaucoma care, alongside specialist oculoplasty: the care of
-              the eyelids, tear passages and the area around the eyes. The centre has a
-              reception, consultation and examination rooms, and an operation theatre.
+              Namokar Eye &amp; Oculoplasty Centre is located in {SITE.area} and provides
+              comprehensive eye care, including routine and condition-specific eye
+              examinations, cataract care, glaucoma management and other ophthalmic
+              concerns. The centre has a reception, consultation and examination rooms,
+              and an operation theatre.
             </p>
             <p>
-              Care is led by Dr. Poonam Jain, Medical Director and Senior
-              Ophthalmologist. You are examined and advised by the doctor, and the
-              discussion is built around your eyes, your concerns and the options that
-              suit you.
+              A key area of focus at Namokar is oculoplasty, the branch of ophthalmology
+              concerned with the eyelids, tear passages, eye socket and surrounding eye
+              area. This includes both functional concerns, such as drooping eyelids and
+              watering eyes, and aesthetic concerns involving the eyelids and under-eye
+              area.
             </p>
             <p>
-              At each step the findings and options are explained in plain language, so
-              that you can decide about your care at your own pace.
+              Care is led by Dr. Poonam Jain, Medical Director and Senior Ophthalmologist.
+              Consultations are built around understanding your concern, examining your
+              eyes carefully and explaining the available options in clear language.
             </p>
-            <h3 className="areas-h">Areas of care</h3>
+            <p>
+              Our aim is not to rush a patient towards treatment. Where treatment may
+              help, the reason, the alternatives and the next steps are discussed, so that
+              you can make an informed decision at your own pace.
+            </p>
+            <h3 className="areas-h">Eye Care Available at Namokar</h3>
+            <p>Comprehensive ophthalmology and specialist oculoplasty under one centre.</p>
             <ul className="areas">
               {SERVICES.map((s) => (
                 <li key={s.key}>
@@ -158,23 +169,34 @@ export default function AboutPage() {
           </figure>
           <div className="doctor-copy">
             <p className="kicker">Meet your doctor</p>
-            <h2 id="doctor-h" className="h2 h2--xl">Dr. Poonam Jain</h2>
-            <p className="doctor-role">Medical Director &amp; Senior Ophthalmologist</p>
+            <h2 id="doctor-h" className="h2 h2--xl">Meet Dr. Poonam Jain</h2>
+            <p className="doctor-role">
+              Medical Director &bull; Senior Ophthalmologist &bull; Oculoplasty Surgeon
+            </p>
             <p className="lead">
-              Dr. Poonam Jain leads Namokar and has a particular focus on oculoplasty,
-              the specialty that looks after the eyelids, tear passages and the area
-              around the eyes.
+              With 25+ years of experience in ophthalmology and oculoplasty, Dr. Poonam
+              Jain leads clinical care at Namokar Eye &amp; Oculoplasty Centre.
+            </p>
+            <p className="doctor-text">
+              Alongside comprehensive ophthalmology, she has a particular clinical focus
+              on oculoplasty, including functional and aesthetic conditions involving the
+              eyelids, tear passages and surrounding eye area. Her approach is centred on
+              careful evaluation, clear communication and treatment planning based on the
+              individual patient&apos;s needs.
             </p>
             <h3 className="areas-h">Areas of focus</h3>
             <ul className="bullets">
-              <li>Oculoplasty: functional and aesthetic eyelid care</li>
-              <li>Tear-drainage problems and watering eyes</li>
-              <li>Comprehensive eye care as a senior ophthalmologist</li>
+              <li>Functional and aesthetic oculoplasty</li>
+              <li>Ptosis and eyelid-position concerns</li>
+              <li>Watering eyes and tear-drainage disorders</li>
+              <li>Blepharoplasty and eye-area concerns</li>
+              <li>Comprehensive ophthalmology</li>
+              <li>Cataract evaluation and eye care</li>
             </ul>
             <div className="btn-row">
               <BookButton online={online} />
               <Link href={LINKS.doctor} className="text-link">
-                Read the full profile <ArrowRightIcon width={18} height={18} />
+                Read Dr. Poonam Jain&rsquo;s Full Profile <ArrowRightIcon width={18} height={18} />
               </Link>
             </div>
           </div>
@@ -186,10 +208,10 @@ export default function AboutPage() {
         <div className="container train-grid">
           <div className="section-head reveal">
             <p className="kicker">Expertise</p>
-            <h2 id="training-h" className="h2">Qualifications and training</h2>
+            <h2 id="training-h" className="h2">Qualifications &amp; Advanced Training</h2>
             <p className="lead">
-              Dr. Poonam Jain&apos;s qualifications and further training, as they are
-              currently recorded.
+              Dr. Poonam Jain&apos;s medical education and further clinical training
+              include:
             </p>
           </div>
           <div className="train-cols reveal">
@@ -198,32 +220,33 @@ export default function AboutPage() {
               <dl className="cred-rows">
                 <div>
                   <dt>MBBS</dt>
-                  <dd>Bachelor of Medicine and Bachelor of Surgery</dd>
+                  <dd>Maulana Azad Medical College, New Delhi</dd>
                 </div>
                 <div>
                   <dt>MS, Ophthalmology</dt>
-                  <dd>Postgraduate surgical degree in ophthalmology</dd>
+                  <dd>Safdarjung Hospital, New Delhi</dd>
                 </div>
                 <RegistrationRow />
               </dl>
             </div>
             <div>
-              <h3 className="h3">Further training</h3>
+              <h3 className="h3">Advanced training</h3>
               <dl className="cred-rows">
                 <div>
-                  <dt>Fellowship</dt>
-                  <dd>Oculoplasty, Barraquer Institute, Barcelona</dd>
+                  <dt>Fellowship in Oculoplasty</dt>
+                  <dd>Barraquer Institute, Barcelona, Spain</dd>
                 </div>
                 <div>
                   <dt>Observership</dt>
-                  <dd>Wilmer Eye Institute, Johns Hopkins, Baltimore</dd>
+                  <dd>Wilmer Eye Institute, Johns Hopkins, Baltimore, USA</dd>
                 </div>
               </dl>
             </div>
             <p className="fine">
               A fellowship is a period of advanced clinical training. An observership
               means observing clinical practice, and is not a degree or a fellowship.
-              Both are past training, not a current affiliation with those institutions.
+              Both are past training experiences and do not imply a current affiliation
+              with, or endorsement by, these institutions.
             </p>
           </div>
         </div>
@@ -239,11 +262,12 @@ export default function AboutPage() {
         <div className="container">
           <div className="centre-head reveal">
             <div>
-              <p className="kicker">The centre</p>
-              <h2 id="hospital-h" className="h2">Inside Our Centre</h2>
+              <p className="kicker">Our centre</p>
+              <h2 id="hospital-h" className="h2">The People and Spaces Behind Your Care</h2>
             </div>
             <p className="lead">
-              A closer look at the spaces and equipment at the centre.
+              Meet the team and see the actual rooms where patients are welcomed,
+              examined and treated at our Ashok Vihar centre.
             </p>
           </div>
           <FacilityGallery items={gallery} label="Photographs inside the centre" />
@@ -255,8 +279,8 @@ export default function AboutPage() {
         id="about-video"
         videos={videosFor("about")}
         kicker="Look inside"
-        heading="A closer look at the centre"
-        lead="A short tour from the centre's own YouTube channel."
+        heading="Take a Walk Through Namokar"
+        lead="Before your visit, see the reception, consultation spaces, examination areas and other parts of our Ashok Vihar centre."
         note="The video is general information and loads from YouTube only when you press play."
       />
 
@@ -265,7 +289,7 @@ export default function AboutPage() {
         <div className="container why-grid">
           <div className="section-head reveal">
             <p className="kicker">What to expect</p>
-            <h2 id="journey-h" className="h2">A patient-centred approach</h2>
+            <h2 id="journey-h" className="h2">What to Expect When You Visit Namokar</h2>
             <p className="lead">
               A general outline of how a visit usually goes. Each patient&apos;s care
               depends on their own eyes and needs, and no particular outcome can be
@@ -288,9 +312,10 @@ export default function AboutPage() {
 
       <CtaBand
         id="about-cta-h"
-        heading="Take the Next Step Towards Better Eye Care."
-        lead="Contact the centre to plan your visit or arrange an eye consultation."
+        heading="Need Help With an Eye or Eyelid Concern?"
+        lead="Whether you need a routine eye examination, a cataract or glaucoma evaluation, or would like advice about an eyelid, watering-eye or under-eye concern, the first step is a consultation."
         online={online}
+        landmark
       />
     </main>
   );

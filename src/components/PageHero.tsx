@@ -15,7 +15,9 @@ export default function PageHero({
   actions,
   media,
   mediaCaption,
+  mediaLabel,
   aside,
+  long = false,
 }: {
   crumb: string;
   trail?: { label: string; href: string }[];
@@ -25,11 +27,15 @@ export default function PageHero({
   actions?: ReactNode;
   media?: ReactNode;
   mediaCaption?: string;
+  /** Small label above the photo caption; defaults to the page name. */
+  mediaLabel?: string;
   aside?: ReactNode;
+  /** A longer headline and intro: set a little smaller so the copy stays level with the photograph. */
+  long?: boolean;
 }) {
   const side = media ? "photo" : aside ? "aside" : "none";
   return (
-    <section className={`page-hero page-hero--${side}`}>
+    <section className={`page-hero page-hero--${side}${long ? " page-hero--long" : ""}`}>
       <div className="container page-hero-grid">
         <div className="page-hero-copy">
           <Breadcrumb current={crumb} trail={trail} />
@@ -43,7 +49,7 @@ export default function PageHero({
             <Parallax>{media}</Parallax>
             {mediaCaption && (
               <figcaption className="hero-caption">
-                <span className="hero-caption-kicker">{crumb}</span>
+                <span className="hero-caption-kicker">{mediaLabel ?? crumb}</span>
                 <span className="hero-caption-text">{mediaCaption}</span>
               </figcaption>
             )}

@@ -102,6 +102,9 @@ export async function POST(request: Request) {
     service: String(b.service ?? ""),
     preferredDate: String(b.preferredDate ?? ""),
     consent: b.consent === true,
+    couponCode: String(b.couponCode ?? ""),
+    referralCode: String(b.referralCode ?? ""),
+    message: String(b.message ?? ""),
   });
   if (!result.ok) return json({ ok: false, code: "invalid", errors: result.errors }, 422);
 

@@ -13,12 +13,6 @@ export default function Page() {
       />
 
       <ClinicalFigure
-        id="eyeAnatomy"
-        heading="Inside the eye, and where a cataract forms"
-        intro="Compare a clear, healthy lens on the left with a clouded lens on the right, and see how each affects the light entering the eye."
-      />
-
-      <ClinicalFigure
         id="cataractPatterns"
         heading="Clear lens and common cataract patterns"
         intro="Compare a clear natural lens with a lens affected by a cataract, then see where three common patterns of clouding can develop. Your examination determines what applies to your eye."
@@ -60,8 +54,9 @@ export default function Page() {
 
       <ClinicalFigure
         id="cataractSteps"
-        heading="Cataract surgery in four steps"
-        intro="A general outline, at your own pace. Press Play, or step through with Previous and Next."
+        heading="Cataract surgery in 4 simple steps"
+        intro="A simple visual guide to what happens in cataract surgery, one step at a time."
+        showNote={false}
       />
     </ServiceLayout>
   );

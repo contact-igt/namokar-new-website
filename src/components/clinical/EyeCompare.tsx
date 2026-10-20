@@ -21,10 +21,10 @@ export default function EyeCompare() {
       <figure className="eyecmp-panel">
         <Image
           className="eyecmp-img"
-          src="/images/cataract_eye.png"
+          src="/images/cloudy-lens-new.png"
           alt="Eye with a cataract, showing a cloudy lens scattering light"
-          width={1536}
-          height={1024}
+          width={1672}
+          height={941}
           sizes="(min-width: 768px) 50vw, 100vw"
         />
         <figcaption>

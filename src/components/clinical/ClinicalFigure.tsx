@@ -5,8 +5,7 @@ import FigureHost from "./FigureHost";
  * The only way to place a clinical illustration or interactive explainer on a page. Renders
  * nothing for a figure that has not been signed off (the registry in src/config/figures.ts), so a
  * pending diagram can never reach a visitor and the page keeps its plain text. In the local review
- * preview a pending figure renders cleanly; its status is listed at /review. Every figure carries the same
- * plain caveat: an illustration, not to scale, general information only.
+ * preview a pending figure renders cleanly; its status is listed at /review.
  *
  * The figure's component is chosen by `id` in FigureHost, which loads each one as its own chunk.
  */
@@ -15,11 +14,13 @@ export default function ClinicalFigure({
   heading,
   intro,
   className = "",
+  showNote = true,
 }: {
   id: InteractiveKey;
   heading: string;
   intro?: string;
   className?: string;
+  showNote?: boolean;
 }) {
   if (!figureUsable(id)) return null;
   const hid = `fig-${id}-h`;
@@ -33,10 +34,12 @@ export default function ClinicalFigure({
         </div>
         <figure className="clin-fig">
           <FigureHost id={id} />
-          <figcaption className="clin-note">
-            Illustration, not to scale. General information to help you understand an examination or
-            a procedure; it is not a diagnosis, and your doctor explains what applies to your eyes.
-          </figcaption>
+          {showNote && (
+            <figcaption className="clin-note">
+              Illustration, not to scale. General information to help you understand an examination or
+              a procedure; it is not a diagnosis, and your doctor explains what applies to your eyes.
+            </figcaption>
+          )}
         </figure>
       </div>
     </section>
