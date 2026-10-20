@@ -15,13 +15,13 @@ export default function Page() {
       <ClinicalFigure
         id="eyeAnatomy"
         heading="Inside the eye, and where a cataract forms"
-        intro="Choose a part of the eye to see what it does, then switch the lens to see how a clouded lens affects the light entering the eye."
+        intro="Compare a clear, healthy lens on the left with a clouded lens on the right, and see how each affects the light entering the eye."
       />
 
       <ClinicalFigure
         id="cataractPatterns"
         heading="Clear lens and common cataract patterns"
-        intro="Matched drawings show the natural lens and where three common kinds of clouding develop. Your examination determines what applies to your eye."
+        intro="Compare a clear natural lens with a lens affected by a cataract, then see where three common patterns of clouding can develop. Your examination determines what applies to your eye."
       />
 
       <ClinicalFigure

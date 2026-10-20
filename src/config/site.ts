@@ -26,20 +26,18 @@ export const SITE = {
 } as const;
 
 /** Home page title. */
-export const HOME_TITLE = `${SITE.name} | Eye Care in Ashok Vihar, Delhi`;
+export const HOME_TITLE = `Eye Specialist & Oculoplasty Centre in Ashok Vihar, Delhi | Namokar`;
 
 /** Search and social description for the home page; the root layout and the home page both use it. */
 export const HOME_DESCRIPTION =
-  "Comprehensive eye care in Ashok Vihar, New Delhi, with specialist oculoplasty, led by Dr. Poonam Jain, Medical Director and Senior Ophthalmologist.";
+  "Namokar Eye & Oculoplasty Centre in Ashok Vihar, New Delhi, offers comprehensive eye examinations, cataract and glaucoma care, and specialist oculoplasty led by Dr. Poonam Jain. Call to arrange a consultation.";
 
 /**
- * Email and WhatsApp are deliberately unset: the current live site shows no email,
- * and the WhatsApp number has not been approved. Set them (and add them to the
- * verification ledger) to make the Contact page show those actions.
+ * Email is deliberately unset: the current live site shows no email.
  */
 export const CHANNELS = {
   email: null as string | null,
-  whatsapp: null as string | null, // international digits, e.g. "919810419720"
+  whatsapp: "919810157258",
 } as const;
 
 /**

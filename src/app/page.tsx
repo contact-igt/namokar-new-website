@@ -17,7 +17,7 @@ import { ASSETS, type Asset, usable } from "@/config/assets";
 import { PAGES } from "@/config/routes";
 import { HOME_DESCRIPTION, HOME_TITLE, LINKS, MAPS_LINK, SITE, TEL_HREF } from "@/config/site";
 import { videosFor } from "@/content/videos";
-import { WHY } from "@/content/why";
+import { HOME_WHY } from "@/content/why";
 import { onlineBookingAvailable } from "@/lib/booking";
 import { playerProps } from "@/lib/videoProps";
 import { compact, photoItem } from "@/lib/photos";
@@ -47,6 +47,22 @@ const faqs = (online: boolean) => [
     a: "Watering can come from dryness or irritation, infection, or a blocked tear-drainage passage, among other causes. Because treatment depends on the cause, it is best to have persistent watering examined.",
   },
   {
+    q: "What is the difference between an ophthalmologist and an oculoplasty surgeon?",
+    a: "An ophthalmologist diagnoses and treats eye conditions. Oculoplasty is a specialised area within ophthalmology focused on the eyelids, tear passages, eye socket and surrounding structures. Dr. Poonam Jain practises comprehensive ophthalmology with a particular focus on oculoplasty.",
+  },
+  {
+    q: "Does every drooping eyelid require surgery?",
+    a: "No. A drooping eyelid can have different causes. Treatment depends on the cause, severity, effect on vision and individual circumstances. An examination is required before deciding whether treatment is appropriate.",
+  },
+  {
+    q: "Are under-eye bags always treated with surgery?",
+    a: "No. Under-eye concerns vary from person to person. The doctor first evaluates the eyelids, skin, underlying tissues and your concerns before discussing suitable options.",
+  },
+  {
+    q: "Can I come for a general eye check-up even if I don't need surgery?",
+    a: "Yes. Namokar provides comprehensive eye examinations as well as condition-specific and surgical eye care.",
+  },
+  {
     q: "What should I bring to my first visit?",
     a: "Please bring any previous prescriptions and eye reports, your current spectacles, and a list of the medicines you take. After the examination, the doctor will explain the findings and whether any treatment is needed.",
   },
@@ -64,10 +80,10 @@ const faqs = (online: boolean) => [
  */
 type HeroCandidate = { asset: Asset; caption: string; position: string };
 const HERO_SHOTS: HeroCandidate[][] = [
-  // 1. The centre: reception, then the street view
+  // 1. The centre: street view, then reception
   [
-    { asset: ASSETS.reception, caption: "Reception at the centre", position: "42% 50%" },
-    { asset: ASSETS.exterior, caption: "The centre from the street", position: "50% 45%" },
+    { asset: ASSETS.exterior, caption: "Our Ashok Vihar centre, seen from the street.", position: "50% 45%" },
+    { asset: ASSETS.reception, caption: "The reception at our Ashok Vihar centre.", position: "42% 50%" },
   ],
   // 2. Cataract: the operating microscope and surgical console
   [
@@ -111,9 +127,10 @@ export default function Home() {
 
   const hasPortrait = usable(ASSETS.portrait);
   const gallery = compact([
-    photoItem(ASSETS.exterior, { title: "The centre from the street", caption: "Namokar Eye & Oculoplasty Centre, Ashok Vihar.", position: "50% 45%" }),
-    photoItem(ASSETS.equipment, { title: "Equipment", caption: "A console with a touch screen in the theatre area.", position: "50% 45%" }),
-    photoItem(ASSETS.otEntrance, { title: "The theatre complex", caption: "The entrance to the operation theatre complex.", position: "50% 50%" }),
+    photoItem(ASSETS.signboardOlder, { title: "Our eye centre in Ashok Vihar", caption: "Namokar Eye & Oculoplasty Centre on the street in Ashok Vihar, New Delhi, where patients visit for eye examinations and eye care.", position: "50% 40%" }),
+    photoItem(ASSETS.otModernA, { title: "Operation theatre", caption: "The operation theatre, with its operating microscope and operating table for eye procedures.", position: "50% 50%" }),
+    photoItem(ASSETS.archCataractExam, { title: "A detailed eye examination", caption: "A patient being examined at a slit-lamp, the microscope used to look closely at the front of the eye.", position: "55% 50%" }),
+    photoItem(ASSETS.archTeamDoctor, { title: "Our care team", caption: "Dr. Poonam Jain with members of the team who look after patients at the centre.", position: "50% 40%" }),
   ]);
 
   return (
@@ -145,11 +162,13 @@ export default function Home() {
                   <p className="kicker">The centre</p>
                   <h2 id="centre-h" className="h2">Take a Closer Look at Namokar.</h2>
                 </div>
+                <div className="centre-copy">
                 <p className="lead">
-                  Namokar Eye &amp; Oculoplasty Centre is in Ashok Vihar, New Delhi.
-                  The centre has a reception, consultation and examination rooms, and an
-                  operation theatre. Select a photograph to see it larger.
+                  See the actual spaces where consultations, eye examinations and
+                  procedures are carried out at our Ashok Vihar centre. The gallery
+                  moves automatically.
                 </p>
+                </div>
               </div>
               <FacilityGallery items={gallery} label="Photographs of the centre" />
             </div>
@@ -178,10 +197,13 @@ export default function Home() {
             <div className="doctor-copy">
               <p className="kicker">Meet your doctor</p>
               <h2 id="doctor-h" className="h2 h2--xl">Meet Dr. Poonam Jain.</h2>
-              <p className="doctor-role">Medical Director &amp; Senior Ophthalmologist</p>
+              <p className="doctor-role">
+                Medical Director &bull; Senior Ophthalmologist &bull; Oculoplasty Surgeon
+              </p>
               <p className="lead">
-                Dr. Poonam Jain leads Namokar and has a particular focus on oculoplasty,
-                the care of the eyelids, tear passages and the area around the eyes.
+                With 25+ years of experience in eye care, Dr. Poonam Jain leads Namokar
+                Eye &amp; Oculoplasty Centre with a particular focus on oculoplasty, the
+                care of the eyelids, tear passages and the area around the eyes.
               </p>
               <p className="doctor-text">
                 Care at Namokar is doctor-led. You are examined and advised by the
@@ -207,8 +229,9 @@ export default function Home() {
                 </div>
               </dl>
               <div className="btn-row">
-                <Link href={LINKS.doctor} className="btn btn--secondary">
-                  Read the full profile <ArrowRightIcon />
+                {/* Profile page is switched off for now: this opens the contact page. Use LINKS.doctor to restore. */}
+                <Link href={LINKS.contact} className="btn btn--secondary">
+                  Read Dr. Poonam Jain&rsquo;s Full Profile <ArrowRightIcon />
                 </Link>
                 <Link href={LINKS.about} className="text-link">
                   About the centre <ArrowRightIcon width={18} height={18} />
@@ -228,19 +251,20 @@ export default function Home() {
           <div className="container oculo-grid oculo-grid--solo">
             <div className="oculo-copy">
               <p className="kicker">Oculoplasty</p>
-              <h2 id="oculo-h" className="h2">Eyelid care for both function and appearance</h2>
+              <h2 id="oculo-h" className="h2">Specialist Oculoplasty for Function &amp; Appearance</h2>
               <p className="lead">
-                Oculoplasty looks after the eyelids, tear passages and the area around
-                the eyes. Some concerns affect how the eye works, others how it looks,
-                and many involve both.
+                Oculoplasty is a branch of ophthalmology focused on the eyelids, tear
+                passages, eye socket and surrounding eye area. Some concerns affect
+                vision or eye comfort. Others affect appearance. Many involve both.
               </p>
               <div className="oculo-cols">
                 <div>
                   <h3 className="h3">Functional concerns</h3>
                   <ul className="dash-list">
                     <li><strong>Drooping eyelids (ptosis)</strong> that make the eye look tired or affect vision</li>
-                    <li><strong>Watering eyes</strong>, including tear-drainage problems</li>
-                    <li><strong>Eyelid position</strong> concerns, such as lids that turn in or out</li>
+                    <li><strong>Persistent watering</strong> or tear-drainage problems</li>
+                    <li><strong>Eyelids turning inward or outward</strong></li>
+                    <li><strong>Other eyelid-position</strong> concerns</li>
                   </ul>
                   <Link href={LINKS.reconstructive} className="text-link">
                     Reconstructive oculoplasty <ArrowRightIcon width={18} height={18} />
@@ -249,8 +273,9 @@ export default function Home() {
                 <div>
                   <h3 className="h3">Aesthetic concerns</h3>
                   <ul className="dash-list">
-                    <li><strong>Heavy upper eyelids</strong> and loose skin</li>
-                    <li><strong>Eye bags</strong> and tired-looking under-eyes</li>
+                    <li><strong>Heavy upper eyelids</strong></li>
+                    <li><strong>Loose eyelid skin</strong></li>
+                    <li><strong>Under-eye bags</strong></li>
                     <li><strong>Age-related changes</strong> around the eyes</li>
                   </ul>
                   <Link href={LINKS.aesthetic} className="text-link">
@@ -259,8 +284,8 @@ export default function Home() {
                 </div>
               </div>
               <p className="oculo-note">
-                Whether a procedure is suitable is decided only after an examination and
-                a conversation about what you hope to achieve.
+                Dr. Poonam Jain decides whether a procedure is suitable only after
+                examining your eyes and talking through what you hope to achieve.
               </p>
             </div>
           </div>
@@ -271,10 +296,14 @@ export default function Home() {
           <div className="container why-grid">
             <div className="section-head reveal">
               <p className="kicker">Why Namokar</p>
-              <h2 id="why-h" className="h2">Care that starts with listening</h2>
+              <h2 id="why-h" className="h2">Why Patients Choose Namokar</h2>
+              <p className="why-foot">
+                Doctor-led consultations &bull; Ashok Vihar, New Delhi &bull; Comprehensive eye care
+                and oculoplasty under one centre
+              </p>
             </div>
             <ol className="why-list">
-              {WHY.map((w, i) => (
+              {HOME_WHY.map((w, i) => (
                 <li key={w.title} className="why-row">
                   <span className="why-no" aria-hidden="true">0{i + 1}</span>
                   <div>
@@ -316,15 +345,20 @@ export default function Home() {
         <section id="contact" className="cta" aria-labelledby="cta-h">
           <div className="container cta-inner">
             <div>
-              <h2 id="cta-h" className="h2">Schedule an eye consultation</h2>
+              <h2 id="cta-h" className="h2">Have an Eye Concern? Start With a Consultation.</h2>
               <p className="lead">
+                Whether you&rsquo;re looking for a routine eye check-up, cataract evaluation,
+                glaucoma monitoring or advice about an eyelid or watering-eye concern, the
+                first step is an examination.{" "}
                 {online
                   ? "Send a request or call us and we will help you find a suitable time."
                   : "Call us and we will help you find a suitable time."}
               </p>
               <p className="cta-place">
                 <PinIcon />
-                <span>{SITE.address.lines.join(", ")}</span>
+                <span>
+                  {SITE.address.lines.join(", ")}. {SITE.address.landmark}.
+                </span>
               </p>
               <p className="cta-place">
                 <PhoneIcon />

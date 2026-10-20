@@ -17,7 +17,7 @@ export default function WalkthroughSection({ video }: { video: PlayerProps | und
         <div className="wt-head reveal">
           <p className="kicker">Explore Namokar</p>
           <h2 id="explore-h" className="h2">Step Inside Our Centre</h2>
-          <p className="lead">Explore the spaces, facilities and environment where we care for your eyes.</p>
+          <p className="lead">Take a short walkthrough of Namokar Eye &amp; Oculoplasty Centre, from the entrance and reception to the consultation and examination areas.</p>
         </div>
         <div className="wt-stage">
           <VideoPlayer v={video} sizes="(min-width: 1240px) 1100px, 100vw" />

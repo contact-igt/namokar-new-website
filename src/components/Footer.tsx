@@ -34,7 +34,7 @@ export default function Footer() {
           <ul>
             <li><Link href={LINKS.home}>Home</Link></li>
             <li><Link href={LINKS.about}>About Us</Link></li>
-            <li><Link href={LINKS.doctor}>Dr. Poonam Jain</Link></li>
+            {/* <li><Link href={LINKS.doctor}>Dr. Poonam Jain</Link></li> */}
             <li><Link href={LINKS.allServices}>Our Services</Link></li>
             <li><Link href={LINKS.international}>International Patients</Link></li>
             <li><Link href={LINKS.contact}>Contact Us</Link></li>
