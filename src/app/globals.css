@@ -516,7 +516,8 @@ p {
   object-fit: cover;
 }
 /* Homepage banner: the caption floats as a small card, inset from the photograph's edge */
-.hero-shot .hero-caption {
+.hero-shot .hero-caption,
+.page-hero-media .hero-caption {
   left: 12px;
   bottom: 12px;
   display: grid;
@@ -531,6 +532,9 @@ p {
   font-weight: 600;
   line-height: 1.35;
   letter-spacing: -0.005em;
+}
+.page-hero-media .hero-caption {
+  max-width: calc(100% - 24px); /* no slide dots on inner pages */
 }
 .hero-caption-kicker {
   font-size: 0.75rem;
@@ -1936,16 +1940,6 @@ p {
   border-radius: var(--r-lg);
   background: var(--porcelain);
 }
-.page-hero-media::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 64px;
-  height: 5px;
-  background: var(--orange);
-}
 .page-hero-img {
   object-fit: cover;
 }
@@ -2373,13 +2367,12 @@ a.act--primary:hover {
   .page-hero-media {
     aspect-ratio: 7 / 5.2;
   }
-  .page-hero-media::before {
-    width: 88px;
-    height: 6px;
-  }
   .page-hero-media .hero-caption {
-    padding: 10px 18px;
-    font-size: 0.9375rem;
+    left: 20px;
+    bottom: 20px;
+    max-width: min(520px, calc(100% - 40px));
+    padding: 12px 20px 13px 16px;
+    border-left-width: 4px;
   }
   .section--tight {
     padding-top: 72px;

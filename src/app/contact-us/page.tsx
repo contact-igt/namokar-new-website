@@ -97,7 +97,7 @@ export default function ContactPage() {
             />
           ) : undefined
         }
-        mediaCaption="The centre, seen from the street."
+        mediaCaption="Our Ashok Vihar centre, seen from the street."
       />
 
       {/* Contact actions */}

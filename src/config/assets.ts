@@ -19,6 +19,8 @@
 
 export type Asset = {
   file: string;
+  /** Public files are deployed from /public/images instead of the protected media route. */
+  publicFile?: string;
   kind: "image" | "video";
   width: number;
   height: number;
@@ -205,6 +207,7 @@ export const ASSETS = {
   },
   signboardOlder: {
     file: "hospital-signboard-older.webp",
+    publicFile: "hospital.webp",
     kind: "image",
     width: 360,
     height: 360,
@@ -530,7 +533,7 @@ export const previewOnly = (a: Asset): boolean => !a.approved && ASSET_PREVIEW;
 
 /** Public URL. The logo is a normal public file; everything else goes through /media. */
 export const srcOf = (a: Asset): string =>
-  a === ASSETS.logo ? `/images/${a.file}` : `/media/${a.file}`;
+  a.publicFile || a === ASSETS.logo ? `/images/${a.publicFile ?? a.file}` : `/media/${a.file}`;
 
 export const assetByFile = (file: string): Asset | undefined =>
   Object.values(ASSETS).find((a) => a.file === file && a !== ASSETS.logo);

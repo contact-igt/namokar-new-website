@@ -41,7 +41,12 @@ export default function PageHero({
         {media && (
           <figure className="page-hero-media">
             <Parallax>{media}</Parallax>
-            {mediaCaption && <figcaption className="hero-caption">{mediaCaption}</figcaption>}
+            {mediaCaption && (
+              <figcaption className="hero-caption">
+                <span className="hero-caption-kicker">{crumb}</span>
+                <span className="hero-caption-text">{mediaCaption}</span>
+              </figcaption>
+            )}
           </figure>
         )}
         {!media && aside}
