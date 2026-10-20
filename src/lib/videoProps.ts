@@ -1,4 +1,4 @@
-import { ASSETS, srcOf, usable } from "@/config/assets";
+import { ASSETS, srcOf, type AssetKey, usable } from "@/config/assets";
 import { CATEGORY_LABEL, CHANNEL, type VideoItem, previewOnlyVideo } from "@/content/videos";
 
 /** Plain, serialisable description of a playable video for the client player. */
@@ -48,7 +48,8 @@ export function playerProps(v: VideoItem): PlayerProps {
       captions: v.captions ? srcOf(ASSETS[v.captions]) : undefined,
     };
   }
-  const thumb = v.thumb && usable(ASSETS[v.thumb]) ? srcOf(ASSETS[v.thumb]) : undefined;
+  const asset = v.thumb && !v.thumb.startsWith("/images/") ? ASSETS[v.thumb as AssetKey] : undefined;
+  const thumb = v.thumb?.startsWith("/images/") ? v.thumb : asset && usable(asset) ? srcOf(asset) : undefined;
   return {
     ...base,
     kind: "youtube",

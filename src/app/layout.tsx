@@ -9,6 +9,7 @@ import ReviewBadge from "@/components/ReviewBadge";
 import { HOME_DESCRIPTION, HOME_TITLE, SITE } from "@/config/site";
 import { buildNav, robotsFor } from "@/config/routes";
 import { onlineBookingAvailable } from "@/lib/booking";
+import "slick-carousel/slick/slick.css";
 import "./globals.css";
 
 const manrope = Manrope({
