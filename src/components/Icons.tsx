@@ -88,3 +88,11 @@ export const MessageIcon = (p: P) => (
     <path d="M4 5.5h16v10H11l-4.5 3.5v-3.5H4Z" />
   </svg>
 );
+
+export const InfoIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 11v5" />
+    <path d="M12 7.6h.01" />
+  </svg>
+);

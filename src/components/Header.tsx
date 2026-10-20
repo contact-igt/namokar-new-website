@@ -221,7 +221,10 @@ export default function Header({ online, nav }: { online: boolean; nav: NavItem[
           >
             <PhoneIcon width={20} height={20} />
             <span className="call-sm">Call</span>
-            <span className="call-lg">{SITE.phone.display}</span>
+            <span className="call-lg">
+              <span className="call-prefix">Call </span>
+              {SITE.phone.display}
+            </span>
           </a>
 
           {online && <BookButton online className="btn btn--primary header-book" />}

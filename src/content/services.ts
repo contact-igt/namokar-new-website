@@ -34,15 +34,16 @@ const URGENT =
 export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
   cataract: {
     key: "cataract",
-    metaTitle: "Cataract Surgery",
+    metaTitle: "Cataract Surgery in Ashok Vihar, New Delhi",
     metaDescription:
       "General information about cataracts and cataract surgery, and how to arrange an eye examination at Namokar Eye & Oculoplasty Centre in Ashok Vihar, New Delhi.",
     h1: "Cataract surgery, explained clearly.",
     eyebrow: "Stitchless cataract surgery",
-    lead: "Understand what a cataract is, when surgery is considered and what the first consultation involves.",
+    lead: "Understand cataract symptoms, when surgery is considered, lens choices and what the first consultation involves.",
     introHeading: "What is a cataract?",
     intro: [
       "A cataract is a clouding of the eye's natural lens. It usually develops slowly, and it is one of the common reasons that vision becomes blurred or dim as people get older.",
+      "Age-related changes are the most common cause. Cataracts can also be associated with an eye injury, some long-term medicines such as steroids, diabetes or other eye conditions. They can affect one or both eyes, and symptoms may be different in each eye.",
       "Cataract surgery removes the clouded lens and, in most cases, replaces it with a clear artificial lens, called an intraocular lens (IOL). Not everyone with a cataract needs surgery straight away. The decision depends on how much your vision affects your daily life and on what the examination shows.",
     ],
     seekHelp: {
@@ -50,6 +51,8 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
       items: [
         "Vision that looks cloudy, blurred or dim",
         "Glare from bright light or oncoming headlights, especially at night",
+        "Trouble seeing in low light or at night",
+        "Halos around lights or double vision in one eye",
         "Colours that look faded or yellowed",
         "Spectacles that need changing again and again",
         "Reading, driving or recognising faces becoming harder",
@@ -69,15 +72,15 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
       },
       {
         title: "Planning",
-        text: "If you decide to go ahead, measurements of the eye are used to help choose the replacement lens.",
+        text: "If you decide to go ahead, measurements of the eye help plan the operation and choose a replacement lens. The doctor also explains any instructions about medicines, eye drops or contact lenses.",
       },
       {
         title: "Surgery, if you choose it",
-        text: "The centre explains how the operation is arranged and what to do before and afterwards.",
+        text: "The centre explains how the operation is arranged, the benefits and risks in your case, and what to do before and afterwards.",
       },
       {
         title: "Follow-up",
-        text: "The doctor advises on eye drops and check-ups after the operation.",
+        text: "The doctor advises on prescribed eye drops, protecting the eye, returning to daily activities and follow-up checks. Contact the centre promptly if you have worsening pain, redness or a sudden change in vision.",
       },
     ],
     faqs: [
@@ -96,6 +99,14 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
       {
         q: "Is cataract surgery suitable for everyone?",
         a: "Suitability is decided after an examination. Other eye conditions and general health can affect the plan, and every operation carries some risk, which the doctor goes through with you.",
+      },
+      {
+        q: "What happens after cataract surgery?",
+        a: "You are given individual instructions about eye drops, protecting the eye and follow-up. Vision can be blurred at first and improve over time. Do not rub the eye or restart driving, exercise or other activities until the doctor says it is appropriate for you.",
+      },
+      {
+        q: "Can a cataract come back after surgery?",
+        a: "The removed natural lens cannot develop another cataract. Some people later develop clouding of the capsule that holds the replacement lens. If this affects vision, the doctor can assess it and discuss treatment.",
       },
       {
         q: "What should I bring to my first visit?",
