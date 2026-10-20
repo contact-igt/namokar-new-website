@@ -87,7 +87,7 @@ export default function AboutPage() {
             />
           ) : undefined
         }
-        mediaCaption="Reception at the centre"
+        mediaCaption="The reception at our Ashok Vihar centre."
         aside={hasHero ? undefined : <FactPanel />}
       />
 
