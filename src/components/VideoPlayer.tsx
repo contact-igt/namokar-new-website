@@ -122,10 +122,6 @@ export default function VideoPlayer({
         <figcaption className="vp-cap vp-cap--min">
           {v.title}
           {v.kind === "youtube" && v.language === "hi" && " (in Hindi)"}
-          <span className="vp-dur">
-            {v.duration}
-            {v.hasAudio ? "" : ", no sound"}
-          </span>
         </figcaption>
       )}
 

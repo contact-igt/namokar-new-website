@@ -88,7 +88,7 @@ type Common = {
 export type VideoItem = Common &
   (
     | { source: "local"; video: AssetKey; poster: AssetKey; captions?: AssetKey }
-    | { source: "youtube"; videoId: string; approved: boolean; evidence?: Evidence; thumb?: AssetKey }
+    | { source: "youtube"; videoId: string; approved: boolean; evidence?: Evidence; thumb?: AssetKey | `/images/${string}` }
   );
 
 const yt = (
@@ -278,26 +278,26 @@ const OFFICIAL: Record<string, string> = {
 
 /**
  * The cover picture of a YouTube video card. It is a photograph of the centre that fits the topic,
- * NOT a frame from the video (nothing is downloaded from YouTube and no YouTube thumbnail is used),
- * so it carries no text. It is pending approval like every photograph: with none cleared the card
- * shows a clean neutral cover with the logo. Titles are always plain HTML beneath the picture.
+ * Covers are supplied local files. Other covers are approved centre photographs; with none
+ * cleared the card shows a clean neutral cover with the logo. Titles are always plain HTML
+ * beneath the picture.
  */
-const THUMBS: Record<string, AssetKey> = {
-  "0xW4m-m_M8E": "clinicWalkthroughPoster",
-  kX04UgyjkWo: "archCataractExam",
-  D5uIbXIihuc: "otScope",
+const THUMBS: Record<string, AssetKey | `/images/${string}`> = {
+  "0xW4m-m_M8E": "/images/about-thumbnail1.jpg",
+  kX04UgyjkWo: "/images/cataract-thumbnail1.jpg",
+  D5uIbXIihuc: "/images/cataract-thumbnail2.jpg",
   Bt8DUnLJdZA: "otScope",
-  mPDSc3AxoAk: "portrait",
-  SqmpI_G8o5I: "archGlaucomaTest",
-  "0YHUAEUcM2g": "archGlaucomaTest",
-  "82siQa3LgUY": "chartDoor",
-  wtk1RA5bJvk: "chartDoor",
-  ZfZpmkXPa4k: "otModernB",
-  _eoMAt_0dYw: "otModernB",
-  NznjjjSRJ1s: "otModernC",
-  PwZ7FS7ad_U: "otModernC",
-  _urlz_Hk7bM: "docDesk",
-  "Kc4AGn2i-Uk": "docDesk",
+  mPDSc3AxoAk: "/images/why-i-became-an-eye-surgeon.jpg",
+  SqmpI_G8o5I: "/images/glaucoma-thumbnail1-new.jpg",
+  "0YHUAEUcM2g": "/images/glaucoma-thumbnail2-new.jpg",
+  "82siQa3LgUY": "/images/eye-examination-thumbnail1.jpg",
+  wtk1RA5bJvk: "/images/eye-examination-thumnail2.jpg",
+  ZfZpmkXPa4k: "/images/Blepharoplasty-thumbnail1.jpg",
+  _eoMAt_0dYw: "/images/Blepharoplasty-thumbnail2.jpg",
+  NznjjjSRJ1s: "/images/reconstructive-thumbnail1.jpg",
+  PwZ7FS7ad_U: "/images/reconstructive-thumbnail2.jpg",
+  _urlz_Hk7bM: "/images/oculoplasty-thumbnail1.jpg",
+  "Kc4AGn2i-Uk": "/images/oculoplasty-thumnail2.jpg",
 };
 
 const SENSITIVE = new Set(["NznjjjSRJ1s", "ZfZpmkXPa4k"]);
