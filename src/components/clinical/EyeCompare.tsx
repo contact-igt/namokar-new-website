@@ -1,63 +1,32 @@
-import { C, EyeBase, PART_MARK, type EyePart } from "./EyeBase";
+import Image from "next/image";
 
-/**
- * A normal eye and an eye with a cataract, drawn as the same side cross-section so the only
- * difference is the lens: clear on the left, clouded on the right. Pastel-blue panels with coral
- * anatomy (the colours are mapped in globals.css, under .eyecmp) and the main parts labelled.
- * Original vector artwork drawn in code; not to scale; general information only.
- */
-const LABELS: { part: EyePart; text: string }[] = [
-  { part: "cornea", text: "Cornea" },
-  { part: "iris", text: "Iris" },
-  { part: "lens", text: "Lens" },
-  { part: "vitreous", text: "Vitreous" },
-  { part: "retina", text: "Retina" },
-  { part: "nerve", text: "Optic nerve" },
-];
-
-function Eye({ cloud, title }: { cloud: number; title: string }) {
-  return (
-    <svg viewBox="100 40 500 330" className="eyecmp-svg" role="img" aria-label={title}>
-      <EyeBase cloud={cloud}>
-        {LABELS.map(({ part, text }) => {
-          const { at, to } = PART_MARK[part];
-          return (
-            <g key={part} aria-hidden="true">
-              {to && <line x1={at[0]} y1={at[1] + 6} x2={to[0]} y2={to[1]} stroke={C.ink} strokeWidth="2" />}
-              <text
-                x={at[0]}
-                y={at[1]}
-                textAnchor="middle"
-                fontSize="19"
-                fontWeight="700"
-                fontFamily="Inter, system-ui, sans-serif"
-                fill={C.ink}
-                stroke="#FFFFFF"
-                strokeWidth="5"
-                paintOrder="stroke"
-              >
-                {text}
-              </text>
-            </g>
-          );
-        })}
-      </EyeBase>
-    </svg>
-  );
-}
-
+/** Matched supplied illustrations in the established blue comparison-card treatment. */
 export default function EyeCompare() {
   return (
     <div className="eyecmp">
       <figure className="eyecmp-panel">
-        <Eye cloud={0} title="Side cross-section of a normal eye: the lens is clear" />
+        <Image
+          className="eyecmp-img"
+          src="/images/Normal-Eye.png"
+          alt="Normal eye cross-section with a clear lens focusing light on the retina"
+          width={1672}
+          height={941}
+          sizes="(min-width: 768px) 50vw, 100vw"
+        />
         <figcaption>
           <strong>Normal eye</strong>
           <span>The lens is clear, so light passes through and focuses on the retina.</span>
         </figcaption>
       </figure>
       <figure className="eyecmp-panel">
-        <Eye cloud={1} title="Side cross-section of an eye with a cataract: the lens is clouded" />
+        <Image
+          className="eyecmp-img"
+          src="/images/cataract_eye.png"
+          alt="Eye with a cataract, showing a cloudy lens scattering light"
+          width={1536}
+          height={1024}
+          sizes="(min-width: 768px) 50vw, 100vw"
+        />
         <figcaption>
           <strong>Eye with a cataract</strong>
           <span>The lens has become cloudy, so light is scattered and vision can look blurred or dim.</span>

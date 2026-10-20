@@ -1,6 +1,6 @@
 # Archive images and official YouTube Shorts: integration report (19 Oct 2026)
 
-Everything here is **pending approval**. No asset was marked approved, nothing was deployed, indexing is unchanged (noindex, `Disallow: /`, empty sitemap), and no media control was weakened. The new photographs appear only in the loopback-only local review (`npm run dev:preview`, http://127.0.0.1:3100); the default build contains none of them.
+Everything here was pending approval when this report was created. On 20 Oct 2026, the project owner selected `archTeamDoctor` for the homepage centre carousel; that one asset is now approved in `src/config/assets.ts`. The remaining archive assets retain their original status. Indexing is unchanged (noindex, `Disallow: /`, empty sitemap).
 
 ## What was and was not available
 
@@ -24,7 +24,7 @@ Most of the archive is not usable under this project's rules. By my visual revie
 | `archStaffEquipment` | `archive-staff-equipment.webp` 1059x1590 | `Gallery/IMG_0062.JPG`, 1059x1590 | One staff member | Staff consent, client |
 | `archDoctorPortrait` | `archive-doctor-portrait.webp` 1200x1200 | `Doctors/Main_doctor.png`, 1200x1200; looks retouched | Dr. Poonam Jain | Her approval of this portrait, client |
 | `archDoctorScrubs` | `archive-doctor-scrubs.webp` 1306x1800 | `about/about_doctor.png`, 1306x1800 | Dr. Poonam Jain | Her approval, client |
-| `archTeamDoctor` | `archive-team-doctor.webp` 1500x1000 | `Gallery/IMG_0053.JPG`, 1500x1000 | Dr. Poonam Jain and several team members | Written consent of everyone shown, client |
+| `archTeamDoctor` | `archive-team-doctor.webp` 1500x1000 | `Gallery/IMG_0053.JPG`, 1500x1000 | Dr. Poonam Jain and several team members | Approved for the homepage centre carousel by the project owner, 20 Oct 2026 |
 
 Originals were not touched. Derivatives are WebP (quality 82, longest side at most 2400 px), orientation corrected, **all metadata (including any GPS) removed**. Next.js serves the responsive sizes from them through `/media/<file>`, which is 404 unless the asset is approved or the loopback review is on. Three originals are web-compressed copies (about 200 KB each: `IMG_0009`, `IMG_0062`, `IMG_0053`); the clinic should supply full-size files before launch.
 

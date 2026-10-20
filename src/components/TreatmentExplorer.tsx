@@ -44,8 +44,11 @@ export default function TreatmentExplorer({ items }: { items: TreatmentItem[] })
       <div className="container tx-grid">
         <div className="tx-head">
           <p className="kicker">Find care</p>
-          <h2 id="tx-h" className="h2">Choose the care you are looking for.</h2>
-          <p className="tx-lead">Six areas of care, each explained in plain language.</p>
+          <h2 id="tx-h" className="h2">What can we help you with?</h2>
+          <p className="tx-lead">
+            Choose the area closest to your concern. If you&rsquo;re unsure where to begin, start
+            with a comprehensive eye examination and the doctor can guide you after assessment.
+          </p>
         </div>
 
         <ul className="tx-list" role="list">
@@ -69,6 +72,7 @@ export default function TreatmentExplorer({ items }: { items: TreatmentItem[] })
                       className="tx-thumb-img"
                       style={{ objectPosition: t.image.position }}
                     />
+                    {t.image.sourceLabel && <span className="tx-thumb-source">{t.image.sourceLabel}</span>}
                   </span>
                 ) : t.plate ? (
                   <span className="tx-thumb tx-thumb--plate" aria-hidden="true">
@@ -117,6 +121,7 @@ export default function TreatmentExplorer({ items }: { items: TreatmentItem[] })
                 <span className="tx-card-title">{cur.title}</span>
               </div>
             )}
+            {cur.image?.sourceLabel && <span className="tx-source">{cur.image.sourceLabel}</span>}
           </div>
           <div className="tx-info" key={cur.id}>
             <p className="tx-info-title">{cur.title}</p>

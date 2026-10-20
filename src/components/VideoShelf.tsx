@@ -32,8 +32,8 @@ export default function VideoShelf({ videos }: { videos: PlayerProps[] }) {
       <div className="container">
         <div className="vsec-text vsec-text--wide reveal">
           <p className="kicker">From the doctor</p>
-          <h2 id="videos-h" className="h2">Eye Care Videos &amp; Clinic Stories.</h2>
-          <p className="lead">Videos from the centre&rsquo;s own YouTube channel. Choose one, then press Play.</p>
+          <h2 id="videos-h" className="h2">Eye Care, Explained by Dr. Poonam Jain.</h2>
+          <p className="lead">Clear, doctor-led videos about common eye concerns, treatments and life at Namokar. Choose one, then press Play.</p>
         </div>
         <div className="shelf">
           <div className="shelf-stage" data-aspect={cur.aspect}>

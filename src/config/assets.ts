@@ -203,6 +203,17 @@ export const ASSETS = {
     source: "Frame from July 2026 clip IMG_4217.MOV (about 1.8 s). The sign shows the legal entity line \"A unit of Kalos Health Care Pvt. Ltd.\" and a partly visible telephone block that is cropped out of this frame.",
     approval: OWNER_APPROVAL,
   },
+  signboardOlder: {
+    file: "hospital-signboard-older.webp",
+    kind: "image",
+    width: 360,
+    height: 360,
+    alt: "The older signboard above the entrance of Namokar Eye & Oculoplasty Centre",
+    approved: true,
+    people: "none",
+    source: "Supplied by the project owner as public/images/hospital.webp (20 Oct 2026), 360x360 web copy; copied here, the original left in place. The board shows four telephone numbers, \"Residence Cum Clinic\", \"Sr. Consultant Max Hospital\" and the doctor's name with MS.",
+    approval: "Selected by the project owner for the homepage centre carousel, 20 Oct 2026. The older signboard retains its visible phone numbers and affiliation line.",
+  },
   otWide: {
     file: "hospital-ot-wide.webp",
     kind: "image",
@@ -473,10 +484,10 @@ export const ASSETS = {
     width: 1500,
     height: 1000,
     alt: "Dr. Poonam Jain with members of the centre's team in the waiting area",
-    approved: false,
+    approved: true,
     people: "doctor and staff",
     source: "Archive ZIP namokareyecare-website-frontend-main.zip (Oct 2026), public/assets/Gallery/IMG_0053.JPG (1500x1000, web copy). Metadata removed.",
-    approval: OWNER_APPROVAL,
+    approval: "Selected by the project owner for the homepage centre carousel, 20 Oct 2026.",
   },
 } satisfies Record<string, Asset>;
 

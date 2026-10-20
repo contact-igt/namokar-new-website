@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { Suspense } from "react";
 import Header from "@/components/Header";
 import HeaderFallback from "@/components/HeaderFallback";
-import MobileActionBar from "@/components/MobileActionBar";
+import QuickActions from "@/components/QuickActions";
 import ReviewBadge from "@/components/ReviewBadge";
 import { HOME_DESCRIPTION, HOME_TITLE, SITE } from "@/config/site";
 import { buildNav, robotsFor } from "@/config/routes";
@@ -58,7 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </Suspense>
         {children}
         <Footer />
-        <MobileActionBar online={onlineBookingAvailable()} />
+        <QuickActions />
       </body>
     </html>
   );

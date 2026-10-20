@@ -107,6 +107,20 @@ Eleven original vector figures (no AI generation, no photographs) on the six tre
 ## Owner approval of all media, 20 Oct 2026
 The project owner (the person instructing this build) stated in chat on 20 Oct 2026 that the client has given consent and every approval, and authorised marking **all 37 files in `private-assets/`** approved (`approved: true` in `src/config/assets.ts`), including the 12.3 MB clinic walkthrough and its poster, for a **demo link to be reviewed by the clinic's medical and legal team**; the link may be live and will be taken down afterwards. No consent forms or sign-off documents were seen by the builder; this entry records the owner's statement, not documents.
 
+The project owner additionally selected the supplied older exterior signboard (`public/images/hospital.webp`, registered as `signboardOlder`) for the homepage “Take a Closer Look at Namokar” carousel. It is now approved and replaces the previous exterior frame in that five-card carousel. The image visibly retains older phone numbers and a Max Hospital affiliation line.
+
 Not changed by this approval: the 13 YouTube videos (`src/content/videos.ts`, content never reviewed), the clinical figures and line-drawing plates (`src/config/figures.ts`, pending clinician review), the per-page `reviewed` flags, noindex, robots, the empty sitemap and schema (indexing stays off), and the booking rule.
 
 Open points this does not resolve (details in `docs/launch/NMC_CONTENT_VERIFICATION.md`): NMC Guidelines 6.2 (consent does not by itself make promotional patient imagery permissible) and 7.4 (identifiable patient faces); the walkthrough's burned-in claims ("25+ Years of Surgical Expertise", "Internationally trained doctor", "Cashless Mediclaim Facility Available", a telephone number) against 8.1(iii), (ix), (x); the doctor's registration number (3.2 Expl. III/IV, 9.1); credentials; the phone-number conflict; the legal-entity wording. The medical and legal team should review these on the demo link before any public launch.
+
+## Homepage content enhancement (client report, 20 Oct 2026)
+
+Applied to existing homepage sections only (hero, find care, centre, walkthrough, doctor, videos, oculoplasty, why, FAQ, final call, home title and description). Not applied yet, by instruction: a Google reviews section, a separate trust strip, WhatsApp buttons (number to be confirmed), social links in the footer, opening hours.
+
+Figures now shown on the homepage, supplied in the client report as already published on the client's own International Patients page (not yet recorded as signed off here):
+
+- "25+ years" of experience in eye care (hero facts, doctor, why). Earlier ledger entries record a 25+ / 28+ / 30+ conflict: confirm 25+ is the final figure.
+- "10,000+ patients treated" (hero facts, why). No surgery count is shown, by instruction.
+- "Oculoplasty Surgeon" as a descriptor of the doctor.
+
+Open points: confirm both figures and the descriptor in writing; check them against the NMC advertising guidelines (`docs/launch/NMC_CONTENT_VERIFICATION.md`); keep them out of structured data until approved (they are not in `src/lib/schema.ts`). The client report also asks the SEO team to purge old cached copies that still show "28+ years", "500,000 eyes treated", "painless recovery" and old hours: that is a deployment task, not part of this codebase.

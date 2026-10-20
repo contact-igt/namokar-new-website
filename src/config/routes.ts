@@ -100,14 +100,17 @@ export type NavItem = { key: string; label: string; href?: string; children?: Na
 export function buildNav(): NavItem[] {
   return [
     { key: "home", label: "Home", href: PAGES.home.path },
-    {
-      key: "about",
-      label: "About",
-      children: [
-        { label: "About Us", href: PAGES.about.path },
-        { label: "Dr. Poonam Jain", href: PAGES.doctor.path },
-      ],
-    },
+    // The doctor profile page is switched off for now: "About" is a plain link and the
+    // "Dr. Poonam Jain" menu entry is commented out. Restore both to bring it back.
+    { key: "about", label: "About", href: PAGES.about.path },
+    // {
+    //   key: "about",
+    //   label: "About",
+    //   children: [
+    //     { label: "About Us", href: PAGES.about.path },
+    //     { label: "Dr. Poonam Jain", href: PAGES.doctor.path },
+    //   ],
+    // },
     {
       key: "services",
       label: "Services",
