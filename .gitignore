@@ -91,8 +91,11 @@ next-env.d.ts
 # ---------------------------------------------------------------------------
 # GITHUB REPOSITORY EXCLUSIONS (added 19 Oct 2026)
 # Every photograph and video in /private-assets is pending client approval (only the logo,
-# in /public/images, is approved), so none of it is committed. A fresh clone shows the brand
-# fallbacks until the approved files are restored from the client's private store.
+# in /public/images, is approved). On 20 Oct 2026 the owner asked for the 37 web derivatives
+# there to be backed up in the PRIVATE repository (git add -f); they stay unapproved, are never
+# served publicly (/media answers 404 until approved) and must never be made public or deployed
+# without the consent and sign-off recorded in docs/NAMOKAR_CONTENT_VERIFICATION.md. The rule
+# below keeps NEW files out by default: add further ones deliberately with git add -f.
 # ---------------------------------------------------------------------------
 /private-assets/
 /assets-src/

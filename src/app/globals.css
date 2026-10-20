@@ -5107,3 +5107,57 @@ a.act--primary:hover {
     border-radius: var(--r);
   }
 }
+
+/* Normal eye and eye with a cataract (EyeCompare.tsx): pastel-blue panels, coral anatomy */
+.eyecmp {
+  display: grid;
+  gap: 20px;
+}
+.eyecmp-panel {
+  margin: 0;
+  padding: 16px 16px 20px;
+  border-radius: 22px;
+  background: #dcebf6;
+}
+.eyecmp-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  background: #eaf3fa;
+}
+.eyecmp-panel figcaption {
+  display: grid;
+  gap: 4px;
+  margin-top: 14px;
+  color: #243238;
+}
+.eyecmp-panel figcaption strong {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+}
+.eyecmp-panel figcaption span {
+  font-size: 1rem;
+  color: #3d4f58;
+}
+.eyecmp [stroke="#D66B1F"] {
+  stroke: #e58a83;
+}
+.eyecmp [stroke="#A9440D"] {
+  stroke: #d9645f;
+}
+.eyecmp [fill="#FFF2E8"] {
+  fill: #fbe1dd;
+}
+.eyecmp [fill="#FFFBF7"] {
+  fill: #fff6f5;
+}
+.eyecmp [stroke="#243238"] {
+  stroke: #35506b;
+}
+@media (min-width: 768px) {
+  .eyecmp {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+}

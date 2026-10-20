@@ -12,6 +12,10 @@ import { ASSET_PREVIEW } from "./assets";
  *  - Do not set `approved: true` without the named reviewer's written sign-off recorded in
  *    docs/NAMOKAR_CONTENT_VERIFICATION.md and in `reviewer` below.
  *
+ * RELEASE (20 Oct 2026): the project owner stated that the client's medical team approved the
+ * selected illustrations for release, so every figure below is marked approved. No reviewer name,
+ * registration or date was supplied, so `reviewer` stays null rather than being invented.
+ *
  * Every figure here is an ORIGINAL VECTOR illustration drawn in code for this site
  * (src/components/clinical). No AI image generation, no stock art, no photographs of people,
  * patients, results or facilities. Provenance: docs/immersive/FIGURE_PROVENANCE.md.
@@ -28,108 +32,115 @@ export type Figure = {
 };
 
 export const FIGURES = {
+  eyeCompare: {
+    title: "Normal eye and eye with a cataract, side by side (cross-sections)",
+    page: "Cataract Surgery",
+    approved: true,
+    reviewer: null,
+    check: "That the two cross-sections are anatomically comparable and the only difference is the clear versus clouded lens; labels and wording.",
+  },
   plateEyelid: {
     title: "Eyelid picture plate (front of the eye, brow and eyelid crease)",
     page: "Home explorer, Services, Eyelid Surgery",
-    approved: false,
+    approved: true,
     reviewer: null,
     check: "That the line drawing is a fair, neutral picture of the upper eyelid, crease and brow, and promises no result.",
   },
   plateAesthetic: {
     title: "Aesthetic oculofacial picture plate (the area around the eye)",
     page: "Home explorer, Services, Aesthetic Oculofacial",
-    approved: false,
+    approved: true,
     reviewer: null,
     check: "That the outlined area around the eye is a fair picture of what the page covers and implies no outcome.",
   },
   plateTear: {
     title: "Tear passage picture plate (openings, canals, sac and duct)",
     page: "Home explorer, Services, Reconstructive Surgery",
-    approved: false,
+    approved: true,
     reviewer: null,
     check: "Anatomy of the tear drainage path: positions of the openings, canals, sac and duct.",
   },
   eyeAnatomy: {
     title: "Eye cross-section with a healthy and a clouded lens",
     page: "Cataract Surgery",
-    approved: false,
+    approved: true,
     reviewer: null,
     check: "Labels, proportions and plain-language definitions of cornea, iris, pupil, lens, retina and optic nerve.",
   },
   cataractPatterns: {
     title: "Clear lens and three common patterns of cataract clouding",
     page: "Cataract Surgery",
-    approved: false,
+    approved: true,
     reviewer: null,
     check: "Matched lens sections, front/back orientation, and the nuclear, cortical and posterior subcapsular clouding regions and wording.",
   },
   lensCompare: {
     title: "Clear and clouded lens: an illustration of how vision can look",
     page: "Cataract Surgery",
-    approved: false,
+    approved: true,
     reviewer: null,
     check: "That the blur, fading and glare simulation is a fair, non-alarming illustration and carries the right caveat.",
   },
   lensDesigns: {
     title: "Replacement lens design terms (monofocal, multifocal, toric, EDOF)",
     page: "Cataract Surgery",
-    approved: false,
+    approved: true,
     reviewer: null,
     check: "That all four design descriptions and simplified focus drawings are accurate, imply no product availability, and promise no outcome.",
   },
   cataractSteps: {
     title: "Cataract surgery: a general outline in four steps",
     page: "Cataract Surgery",
-    approved: false,
+    approved: true,
     reviewer: null,
     check: "Order and wording of the four steps, and that nothing implies a particular technique, duration or result.",
   },
   glaucomaFlow: {
     title: "How fluid drains from the eye, and how pressure can rise",
     page: "Glaucoma Management",
-    approved: false,
+    approved: true,
     reviewer: null,
     check: "Anatomy of the fluid pathway and the wording about raised pressure and the optic nerve.",
   },
   sideVision: {
     title: "How glaucoma can narrow side vision over time",
     page: "Glaucoma Management",
-    approved: false,
+    approved: true,
     reviewer: null,
     check: "That the narrowing illustration is appropriate, not alarming, and clearly general.",
   },
   examParts: {
     title: "Parts of the eye looked at in an examination",
     page: "Comprehensive Eye Examinations",
-    approved: false,
+    approved: true,
     reviewer: null,
     check: "That each examination step is paired with the right part of the eye.",
   },
   eyelidPosition: {
     title: "Upper eyelid position: typical, drooping, and excess skin",
     page: "Eyelid Surgery (Blepharoplasty)",
-    approved: false,
+    approved: true,
     reviewer: null,
     check: "That the three schematics describe ptosis and excess skin correctly and are not diagnostic.",
   },
   tearPathway: {
     title: "How tears drain, and what a blockage can mean",
     page: "Reconstructive Oculoplasty",
-    approved: false,
+    approved: true,
     reviewer: null,
     check: "Anatomy of the tear drainage system and the wording about blockage and watering.",
   },
   lidMalposition: {
     title: "Eyelid turning inwards (entropion) and outwards (ectropion)",
     page: "Reconstructive Oculoplasty",
-    approved: false,
+    approved: true,
     reviewer: null,
     check: "That both schematics and their one-line descriptions are correct.",
   },
   consultationQuestions: {
     title: "Questions worth asking at any consultation (checklist)",
     page: "Aesthetic Oculoplasty",
-    approved: false,
+    approved: true,
     reviewer: null,
     check: "That the questions are appropriate; this one carries no clinical diagram.",
   },

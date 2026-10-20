@@ -36,30 +36,35 @@ export type PageKey =
 export type PageDef = { path: string; label: string; reviewed: boolean; blocker: string };
 
 export const PAGES: Record<PageKey, PageDef> = {
-  home: { path: LINKS.home, label: "Home", reviewed: false, blocker: "Phone, credentials, address and photographs pending" },
-  about: { path: LINKS.about, label: "About Us", reviewed: false, blocker: "Credentials and photographs pending" },
-  doctor: { path: LINKS.doctor, label: "Dr. Poonam Jain", reviewed: false, blocker: "Registration (SMR/NMR) number missing (NMC guidelines 6 Oct 2026, 3.2 Expl. III/IV, 9.1); credential wording, biography and portrait pending" },
-  services: { path: LINKS.allServices, label: "Our Services", reviewed: false, blocker: "Service scope pending clinician sign-off" },
-  cataract: { path: LINKS.cataract, label: "Cataract Surgery", reviewed: false, blocker: "Medical wording pending clinician sign-off" },
-  glaucoma: { path: LINKS.glaucoma, label: "Glaucoma Management", reviewed: false, blocker: "Medical wording pending clinician sign-off" },
-  exams: { path: LINKS.exams, label: "Comprehensive Eye Examinations", reviewed: false, blocker: "Scope of examinations and medical wording pending" },
-  eyelid: { path: LINKS.eyelid, label: "Eyelid Surgery (Blepharoplasty)", reviewed: false, blocker: "Medical wording pending clinician sign-off" },
-  aesthetic: { path: LINKS.aesthetic, label: "Aesthetic Oculoplasty", reviewed: false, blocker: "Offered treatments (e.g. injectables) not confirmed; wording pending" },
-  reconstructive: { path: LINKS.reconstructive, label: "Reconstructive Oculoplasty", reviewed: false, blocker: "Scope of conditions treated pending clinician sign-off" },
-  international: { path: LINKS.international, label: "International Patients", reviewed: false, blocker: "What help the centre actually offers to travelling patients is unconfirmed" },
-  testimonials: { path: LINKS.testimonials, label: "Patient Reviews", reviewed: false, blocker: "No consented, traceable reviews supplied" },
-  blogs: { path: LINKS.blogs, label: "Health Articles", reviewed: false, blocker: "No clinician-reviewed articles supplied" },
-  videos: { path: "/videos", label: "Eye Care Videos & Insights", reviewed: false, blocker: "No approved videos yet; page is hidden until at least three are approved" },
-  contact: { path: LINKS.contact, label: "Contact Us", reviewed: false, blocker: "Phone number, hours and map pin unconfirmed" },
+  // `reviewed: true` below rests on the project owner's statement (20 Oct 2026) that the client's
+  // medical and legal teams cleared the website content for release; no document was seen.
+  home: { path: LINKS.home, label: "Home", reviewed: true, blocker: "Released on the owner's confirmation" },
+  about: { path: LINKS.about, label: "About Us", reviewed: true, blocker: "Released on the owner's confirmation" },
+  doctor: { path: LINKS.doctor, label: "Dr. Poonam Jain", reviewed: true, blocker: "Released on the owner's confirmation; the registration number has not been supplied, so none is shown (see DOCTOR_REGISTRATION)" },
+  services: { path: LINKS.allServices, label: "Our Services", reviewed: true, blocker: "Released on the owner's confirmation" },
+  cataract: { path: LINKS.cataract, label: "Cataract Surgery", reviewed: true, blocker: "Released on the owner's confirmation" },
+  glaucoma: { path: LINKS.glaucoma, label: "Glaucoma Management", reviewed: true, blocker: "Released on the owner's confirmation" },
+  exams: { path: LINKS.exams, label: "Comprehensive Eye Examinations", reviewed: true, blocker: "Released on the owner's confirmation" },
+  eyelid: { path: LINKS.eyelid, label: "Eyelid Surgery (Blepharoplasty)", reviewed: true, blocker: "Released on the owner's confirmation" },
+  aesthetic: { path: LINKS.aesthetic, label: "Aesthetic Oculoplasty", reviewed: true, blocker: "Released on the owner's confirmation" },
+  reconstructive: { path: LINKS.reconstructive, label: "Reconstructive Oculoplasty", reviewed: true, blocker: "Released on the owner's confirmation" },
+  international: { path: LINKS.international, label: "International Patients", reviewed: true, blocker: "Released on the owner's confirmation" },
+  testimonials: { path: LINKS.testimonials, label: "Patient Reviews", reviewed: false, blocker: "Withheld: no reviews are published (REVIEWS_ALLOWED=false)" },
+  blogs: { path: LINKS.blogs, label: "Health Articles", reviewed: false, blocker: "No articles supplied" },
+  videos: { path: "/videos", label: "Eye Care Videos & Insights", reviewed: true, blocker: "Appears when at least three videos are approved and playable" },
+  contact: { path: LINKS.contact, label: "Contact Us", reviewed: true, blocker: "Released on the owner's confirmation" },
   privacy: { path: LINKS.privacy, label: "Privacy Policy", reviewed: false, blocker: "Legal text not approved" },
   terms: { path: LINKS.terms, label: "Terms and Conditions", reviewed: false, blocker: "Legal text not approved" },
 };
 
 /**
- * Search indexing is off for the whole site until launch. Set the SERVER variable
- * ALLOW_INDEXING=on at launch; pages still need `reviewed: true` to be indexed.
+ * Search indexing: ON for a production deployment on Vercel (VERCEL_ENV=production) and wherever the
+ * SERVER variable ALLOW_INDEXING=on is set; OFF in development, previews and anywhere else, and off
+ * everywhere when ALLOW_INDEXING=off. A page is also indexed only if it is `reviewed` and has content.
  */
-export const ALLOW_INDEXING = process.env.ALLOW_INDEXING === "on";
+export const ALLOW_INDEXING =
+  process.env.ALLOW_INDEXING === "on" ||
+  (process.env.VERCEL_ENV === "production" && process.env.ALLOW_INDEXING !== "off");
 
 /**
  * Is there real content behind the page? An empty reviews or articles page, a video library

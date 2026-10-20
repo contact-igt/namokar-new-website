@@ -28,12 +28,12 @@ export const COVERS: Record<ServiceKey, { primary: Cover; secondary?: Cover; pla
     secondary: { asset: ASSETS.consoleWide, caption: "A surgical console in the theatre area at the centre.", position: "50% 50%" },
   },
   glaucoma: {
-    primary: { asset: ASSETS.archGlaucomaTest, caption: "A pre-examination eye test at the centre.", position: "50% 55%" },
-    secondary: { asset: ASSETS.archStaffEquipment, caption: "An eye-testing instrument in an examination room.", position: "50% 40%" },
+    primary: { asset: ASSETS.archExamOverhead, caption: "A slit-lamp eye examination at the centre.", position: "50% 60%" },
+    secondary: { asset: ASSETS.archGlaucomaTest, caption: "A pre-examination eye test at the centre.", position: "50% 55%" },
   },
   exams: {
     primary: { asset: ASSETS.chartDoor, caption: "An eye-chart screen beside an examination room door.", position: "50% 42%" },
-    secondary: { asset: ASSETS.archExamOverhead, caption: "A slit-lamp eye examination at the centre.", position: "50% 62%" },
+    secondary: { asset: ASSETS.archStaffEquipment, caption: "An eye-testing instrument in an examination room.", position: "50% 40%" },
   },
   eyelid: {
     primary: { asset: ASSETS.otModernB, caption: "An operation theatre at the centre.", position: "55% 55%" },

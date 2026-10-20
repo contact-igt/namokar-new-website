@@ -7,6 +7,12 @@ export default function Page() {
   return (
     <ServiceLayout serviceKey="cataract">
       <ClinicalFigure
+        id="eyeCompare"
+        heading="A normal eye and an eye with a cataract"
+        intro="The same view of the eye twice. The difference is the lens: clear in a normal eye, clouded in an eye with a cataract."
+      />
+
+      <ClinicalFigure
         id="eyeAnatomy"
         heading="Inside the eye, and where a cataract forms"
         intro="Choose a part of the eye to see what it does, then switch the lens to see how a clouded lens affects the light entering the eye."

@@ -47,6 +47,17 @@ export type Asset = {
 export const ASSET_PREVIEW =
   process.env.ASSET_PREVIEW === "on" && process.env.VERCEL_ENV !== "production";
 
+/**
+ * Release authorization (20 Oct 2026): the project owner stated that the client's medical and legal
+ * teams have reviewed and approved the website's content and the selected photographs and the clinic
+ * walkthrough, and authorized publication. It applies ONLY to media placed on a page, i.e. entries
+ * with `approved: true`; an entry with `approved: false` was not selected for the website and stays
+ * unpublished. The owner's statement is the source: no approval document, signatory or date was seen.
+ * See docs/NAMOKAR_CONTENT_VERIFICATION.md and docs/launch/FINAL_RELEASE_STATUS.md.
+ */
+const OWNER_APPROVAL =
+  "Release authorization of 20 Oct 2026 (the project owner's statement that the client's medical and legal teams approved the selected media). Applies only where approved is true.";
+
 export const ASSETS = {
   logo: {
     file: "namokar-logo.webp",
@@ -65,10 +76,10 @@ export const ASSETS = {
     width: 2000,
     height: 1440,
     alt: "The reception area at Namokar Eye & Oculoplasty Centre, with the Namokar logo on the wall behind the desk",
-    approved: false,
+    approved: true,
     people: "staff",
     source: "July 2026 shoot, IMG_4308.heic, cropped on the right to remove a wall QR code.",
-    approval: "Pending: consent of the receptionist, then client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   consultation: {
     file: "hospital-consultation-room.webp",
@@ -79,7 +90,7 @@ export const ASSETS = {
     approved: false,
     people: "doctor",
     source: "July 2026 shoot, IMG_0026.JPG.",
-    approval: "Pending: Dr. Poonam Jain's approval, then client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   theatre: {
     file: "hospital-operation-theatre.webp",
@@ -90,7 +101,7 @@ export const ASSETS = {
     approved: false,
     people: "none",
     source: "July 2026 shoot, IMG_0037.JPG.",
-    approval: "Pending: client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   equipment: {
     file: "hospital-equipment.webp",
@@ -98,10 +109,10 @@ export const ASSETS = {
     width: 1600,
     height: 900,
     alt: "A surgical console with a touchscreen on a trolley in the operation theatre",
-    approved: false,
+    approved: true,
     people: "none",
     source: "Frame from July 2026 clip IMG_4266.MOV. The console's own brand name and a profile label are visible on screen.",
-    approval: "Pending: client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   portrait: {
     file: "dr-poonam-jain-portrait.webp",
@@ -109,10 +120,10 @@ export const ASSETS = {
     width: 1334,
     height: 2000,
     alt: "Dr. Poonam Jain in a white coat, standing beside a chair in a consultation room",
-    approved: false,
+    approved: true,
     people: "doctor",
     source: "July 2026 shoot, IMG_0033.JPG.",
-    approval: "Pending: Dr. Poonam Jain's approval, then client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   clinicWalkthrough: {
     file: "clinic-walkthrough.mp4",
@@ -120,12 +131,11 @@ export const ASSETS = {
     width: 1920,
     height: 1094,
     alt: "A walk through Namokar Eye & Oculoplasty Centre: the street entrance, reception and examinations with diagnostic instruments, with sound",
-    approved: false,
+    approved: true,
     people: "doctor, staff and patient",
     source:
       'Project root "namokar .mp4" (84,568,275 bytes, 30.4 s, 2528x1440, HEVC, 60 fps, AAC stereo), kept untouched and git-ignored. Web derivative: H.264 High, 1920x1094, 30 fps, about 3.2 Mbps, AAC 128k, fast-start, 12.3 MB.',
-    approval:
-      "Pending, and the footage needs editing or written sign-off first: it shows identifiable patients being examined, several staff and a second doctor in a white coat; burned-in captions claim \"25+ Years of Surgical Expertise\", \"Internationally trained doctor\", \"Highly Trained Staff\" and \"Advanced Diagnostic Technology\"; the street sign reads \"Cashless Mediclaim Facility Available\" with a telephone number (011-40392563) and \"Senior Eye Surgeon\"; the end card shows a web address. Needs patient and staff consent, Dr. Poonam Jain's approval, client confirmation of each claim, and a check of what the audio says.",
+    approval: OWNER_APPROVAL,
   },
   clinicWalkthroughPoster: {
     file: "clinic-walkthrough-poster.webp",
@@ -133,10 +143,10 @@ export const ASSETS = {
     width: 1920,
     height: 1094,
     alt: "The street entrance of Namokar Eye & Oculoplasty Centre, with its name on the sign above the door",
-    approved: false,
+    approved: true,
     people: "none",
     source: "Frame at 3.2 s of the walkthrough (street entrance, no caption overlay, no patient). A passer-by is very small in the distance.",
-    approval: "Pending: with the video; the sign reads \"A unit of Kalos Health Care Pvt. Ltd.\": confirm.",
+    approval: OWNER_APPROVAL,
   },
   walkthroughVideo: {
     file: "namokar-walkthrough.mp4",
@@ -147,7 +157,7 @@ export const ASSETS = {
     approved: false,
     people: "none",
     source: "33-second silent cut from July 2026 clips IMG_4306, 4228, 4251, 4259, 4260, 4274, 4266, 4262, 4273. A gloved hand touches the frame edge in two clips.",
-    approval: "Pending: client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   walkthroughPoster: {
     file: "walkthrough-poster.webp",
@@ -158,7 +168,7 @@ export const ASSETS = {
     approved: false,
     people: "none",
     source: "Frame from July 2026 clip IMG_4260.MOV.",
-    approval: "Pending: with the video.",
+    approval: OWNER_APPROVAL,
   },
   artIris: {
     file: "art-iris-macro.webp",
@@ -169,7 +179,7 @@ export const ASSETS = {
     approved: false,
     people: "none",
     source: "AI-generated conceptual image, 15 Oct 2026 (assets-src/ai-generated/PROVENANCE.md). Not a photograph of any patient.",
-    approval: "Pending: client approval of AI artwork.",
+    approval: OWNER_APPROVAL,
   },
   artLens: {
     file: "art-optical-lens.webp",
@@ -180,7 +190,7 @@ export const ASSETS = {
     approved: false,
     people: "none",
     source: "AI-generated conceptual image, 15 Oct 2026 (assets-src/ai-generated/PROVENANCE.md).",
-    approval: "Pending: client approval of AI artwork.",
+    approval: OWNER_APPROVAL,
   },
   exterior: {
     file: "hospital-exterior.webp",
@@ -188,10 +198,10 @@ export const ASSETS = {
     width: 2400,
     height: 1350,
     alt: "The street front of Namokar Eye & Oculoplasty Centre, with its signboard above the entrance",
-    approved: false,
+    approved: true,
     people: "none",
     source: "Frame from July 2026 clip IMG_4217.MOV (about 1.8 s). The sign shows the legal entity line \"A unit of Kalos Health Care Pvt. Ltd.\" and a partly visible telephone block that is cropped out of this frame.",
-    approval: "Pending: client sign-off (and confirmation of the legal-entity line).",
+    approval: OWNER_APPROVAL,
   },
   otWide: {
     file: "hospital-ot-wide.webp",
@@ -202,7 +212,7 @@ export const ASSETS = {
     approved: false,
     people: "none",
     source: "Frame from July 2026 clip IMG_4274.MOV (about 1.0 s).",
-    approval: "Pending: client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   otScope: {
     file: "hospital-ot-scope.webp",
@@ -210,10 +220,10 @@ export const ASSETS = {
     width: 2400,
     height: 1350,
     alt: "An operating microscope and equipment in an operation theatre at the centre",
-    approved: false,
+    approved: true,
     people: "none",
     source: "Frame from July 2026 clip IMG_4259.MOV (about 6.0 s).",
-    approval: "Pending: client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   consoleWide: {
     file: "hospital-console-wide.webp",
@@ -221,10 +231,10 @@ export const ASSETS = {
     width: 2400,
     height: 1350,
     alt: "A surgical console with a touchscreen beside an operating microscope in an operation theatre",
-    approved: false,
+    approved: true,
     people: "none",
     source: "Frame from July 2026 clip IMG_4272.MOV (about 2.0 s). The microscope and console brand names are visible.",
-    approval: "Pending: client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   otEntrance: {
     file: "hospital-ot-entrance.webp",
@@ -232,10 +242,10 @@ export const ASSETS = {
     width: 2400,
     height: 1350,
     alt: "The glass entrance to the operation theatre complex, with a restricted-area sign",
-    approved: false,
+    approved: true,
     people: "none",
     source: "Frame from July 2026 clip IMG_4251.MOV (about 2.0 s).",
-    approval: "Pending: client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   chartDoor: {
     file: "hospital-chart-door.webp",
@@ -243,10 +253,10 @@ export const ASSETS = {
     width: 1100,
     height: 1584,
     alt: "A wooden examination-room door with an eye-chart screen beside it",
-    approved: false,
+    approved: true,
     people: "none",
     source: "Crop of a frame from July 2026 clip IMG_4228.MOV (about 1.5 s).",
-    approval: "Pending: client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   docDesk: {
     file: "dr-poonam-jain-desk.webp",
@@ -254,10 +264,10 @@ export const ASSETS = {
     width: 2400,
     height: 1600,
     alt: "Dr. Poonam Jain seated at her consultation desk, with a computer and a slit-lamp unit behind",
-    approved: false,
+    approved: true,
     people: "doctor",
     source: "July 2026 shoot, IMG_0024.JPG.",
-    approval: "Pending: Dr. Poonam Jain's approval, then client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   docSlit: {
     file: "dr-poonam-jain-slit.webp",
@@ -265,10 +275,10 @@ export const ASSETS = {
     width: 2400,
     height: 1600,
     alt: "Dr. Poonam Jain seated beside a slit-lamp examination unit in a consultation room",
-    approved: false,
+    approved: true,
     people: "doctor",
     source: "July 2026 shoot, IMG_0025.JPG.",
-    approval: "Pending: Dr. Poonam Jain's approval, then client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   docStanding: {
     file: "dr-poonam-jain-standing.webp",
@@ -279,7 +289,7 @@ export const ASSETS = {
     approved: false,
     people: "doctor",
     source: "July 2026 shoot, IMG_0027.JPG.",
-    approval: "Pending: Dr. Poonam Jain's approval, then client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   docBlazer: {
     file: "dr-poonam-jain-blazer.webp",
@@ -287,10 +297,10 @@ export const ASSETS = {
     width: 1334,
     height: 2000,
     alt: "Dr. Poonam Jain in a grey jacket standing in a consultation room",
-    approved: false,
+    approved: true,
     people: "doctor",
     source: "July 2026 shoot, IMG_0032.JPG.",
-    approval: "Pending: Dr. Poonam Jain's approval, then client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   otModernA: {
     file: "hospital-ot-modern-a.webp",
@@ -298,10 +308,10 @@ export const ASSETS = {
     width: 2400,
     height: 1146,
     alt: "An operation theatre with an operating table, operating microscope, surgical console and a clock panel on the wall",
-    approved: false,
+    approved: true,
     people: "none",
     source: "IMG_7483.HEIC. October 2026 file; the original is kept untouched outside the project, in a private media folder. Derivative: sRGB WebP, location and camera metadata stripped, cropped below a ceiling air-handling unit that carries its manufacturer's ISO/CE/QR label (a supplier's marks, not the centre's).",
-    approval: "Pending: client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   otModernB: {
     file: "hospital-ot-modern-b.webp",
@@ -309,10 +319,10 @@ export const ASSETS = {
     width: 2400,
     height: 1086,
     alt: "The same operation theatre from the door side, showing the operating table, operating microscope and a console on a stand",
-    approved: false,
+    approved: true,
     people: "none",
     source: "IMG_7485.HEIC. October 2026 file; the original is kept untouched outside the project, in a private media folder. Derivative: sRGB WebP, location and camera metadata stripped, cropped below a ceiling air-handling unit that carries its manufacturer's ISO/CE/QR label (a supplier's marks, not the centre's).",
-    approval: "Pending: client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   otModernC: {
     file: "hospital-ot-modern-c.webp",
@@ -320,10 +330,10 @@ export const ASSETS = {
     width: 2400,
     height: 1336,
     alt: "An operation theatre from a corner, with shelving, a trolley, the operating table and the microscope",
-    approved: false,
+    approved: true,
     people: "none",
     source: "IMG_7487.HEIC. October 2026 file; the original is kept untouched outside the project, in a private media folder. Derivative: sRGB WebP, location and camera metadata stripped, cropped below a ceiling air-handling unit that carries its manufacturer's ISO/CE/QR label (a supplier's marks, not the centre's).",
-    approval: "Pending: client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   vidOtTour: {
     file: "video-ot-tour.mp4",
@@ -334,7 +344,7 @@ export const ASSETS = {
     approved: false,
     people: "none",
     source: "IMG_7326 (1).MOV (43 s, vertical 4K HEVC, 24 Mbps) re-encoded to 720x1280 H.264, no audio (original has only faint room noise). A masked surgeon is briefly visible through a window and in one room view; a hand opens a door.",
-    approval: "Pending: client sign-off; confirm staff visible are content.",
+    approval: OWNER_APPROVAL,
   },
   vidOtTourPoster: {
     file: "video-ot-tour-poster.webp",
@@ -345,7 +355,7 @@ export const ASSETS = {
     approved: false,
     people: "none",
     source: "Frame at 23 s of IMG_7326 (1).MOV.",
-    approval: "Pending: with the video.",
+    approval: OWNER_APPROVAL,
   },
   vidDoctorScrubs: {
     file: "video-doctor-scrubs.mp4",
@@ -353,10 +363,10 @@ export const ASSETS = {
     width: 720,
     height: 1280,
     alt: "Dr. Poonam Jain in scrubs beside an examination instrument, turning to face the camera, without sound",
-    approved: false,
+    approved: true,
     people: "doctor",
     source: "IMG_7441.MOV (5.8 s, 1080p, rotated) re-encoded to 720x1280 H.264, no audio (room noise only). Her name is on the scrubs.",
-    approval: "Pending: Dr. Poonam Jain's approval, then client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   vidDoctorScrubsPoster: {
     file: "video-doctor-scrubs-poster.webp",
@@ -364,10 +374,10 @@ export const ASSETS = {
     width: 720,
     height: 1280,
     alt: "Dr. Poonam Jain in scrubs beside an examination instrument",
-    approved: false,
+    approved: true,
     people: "doctor",
     source: "Frame at 4.5 s of IMG_7441.MOV.",
-    approval: "Pending: with the video.",
+    approval: OWNER_APPROVAL,
   },
   vidCataractExercise: {
     file: "video-post-cataract-exercise.mp4",
@@ -375,10 +385,10 @@ export const ASSETS = {
     width: 720,
     height: 1280,
     alt: "Dr. Poonam Jain explains when exercise can resume after cataract surgery",
-    approved: false,
+    approved: true,
     people: "doctor",
     source: "Catract Excercise.m4v (77 s, 1080x1920 H.264, 9.8 Mbps) re-encoded to 720x1280 H.264 with AAC audio (speech). Branded with the Namokar logo; includes on-screen text, a patient wearing an eye shield and exercise illustrations that appear to be stock or generated footage (rights unknown). No captions or transcript yet.",
-    approval: "Pending: Dr. Poonam Jain's approval, clinician review of the exercise advice, licensing of the inserted footage, captions.",
+    approval: OWNER_APPROVAL,
   },
   vidCataractExercisePoster: {
     file: "video-post-cataract-exercise-poster.webp",
@@ -386,10 +396,10 @@ export const ASSETS = {
     width: 720,
     height: 1280,
     alt: "Title frame: Cataract surgery? When can you exercise?",
-    approved: false,
+    approved: true,
     people: "doctor",
     source: "Frame at 0.8 s of Catract Excercise.m4v.",
-    approval: "Pending: with the video.",
+    approval: OWNER_APPROVAL,
   },
   archCataractExam: {
     file: "archive-cataract-exam.webp",
@@ -397,10 +407,10 @@ export const ASSETS = {
     width: 2400,
     height: 1600,
     alt: "Dr. Poonam Jain examining a patient at a slit-lamp unit in a consultation room",
-    approved: false,
+    approved: true,
     people: "doctor and patient",
     source: "Archive ZIP namokareyecare-website-frontend-main.zip (Oct 2026), public/assets/cataract/cataract-stitchless.JPG (6000x4000). Resized, metadata removed.",
-    approval: "Pending: Dr. Poonam Jain and the patient shown (consent), then client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   archExamOverhead: {
     file: "archive-exam-overhead.webp",
@@ -408,10 +418,10 @@ export const ASSETS = {
     width: 1600,
     height: 2400,
     alt: "Dr. Poonam Jain examining a patient at a slit-lamp unit; the patient is seen from behind",
-    approved: false,
+    approved: true,
     people: "doctor and patient",
     source: "Archive ZIP namokareyecare-website-frontend-main.zip (Oct 2026), public/assets/Aesthetic/expected_approach_doctor.JPG (6000x4000, duplicate of cataract/why_choose_namokar_doctor.JPG). Rotated upright, resized, metadata removed.",
-    approval: "Pending: Dr. Poonam Jain and the patient shown (consent), then client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   archGlaucomaTest: {
     file: "archive-glaucoma-test.webp",
@@ -419,10 +429,10 @@ export const ASSETS = {
     width: 1059,
     height: 1590,
     alt: "A staff member and a patient at a pre-examination eye-testing instrument",
-    approved: false,
+    approved: true,
     people: "staff and patient",
     source: "Archive ZIP namokareyecare-website-frontend-main.zip (Oct 2026), public/assets/Gallery/IMG_0009.JPG (1059x1590, web copy: no larger original supplied). Metadata removed.",
-    approval: "Pending: consent of the staff member and the patient, then client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   archStaffEquipment: {
     file: "archive-staff-equipment.webp",
@@ -430,10 +440,10 @@ export const ASSETS = {
     width: 1059,
     height: 1590,
     alt: "A staff member seated beside an eye-testing instrument in an examination room",
-    approved: false,
+    approved: true,
     people: "staff",
     source: "Archive ZIP namokareyecare-website-frontend-main.zip (Oct 2026), public/assets/Gallery/IMG_0062.JPG (1059x1590, web copy). Metadata removed.",
-    approval: "Pending: consent of the staff member, then client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   archDoctorPortrait: {
     file: "archive-doctor-portrait.webp",
@@ -444,7 +454,7 @@ export const ASSETS = {
     approved: false,
     people: "doctor",
     source: "Archive ZIP namokareyecare-website-frontend-main.zip (Oct 2026), public/assets/Doctors/Main_doctor.png (1200x1200). The image looks retouched: confirm it is her approved portrait. Metadata removed.",
-    approval: "Pending: Dr. Poonam Jain approves this portrait, then client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   archDoctorScrubs: {
     file: "archive-doctor-scrubs.webp",
@@ -452,10 +462,10 @@ export const ASSETS = {
     width: 1306,
     height: 1800,
     alt: "Dr. Poonam Jain smiling, seated at her desk in navy scrubs",
-    approved: false,
+    approved: true,
     people: "doctor",
     source: "Archive ZIP namokareyecare-website-frontend-main.zip (Oct 2026), public/assets/about/about_doctor.png (1306x1800). Metadata removed.",
-    approval: "Pending: Dr. Poonam Jain approves this portrait, then client sign-off.",
+    approval: OWNER_APPROVAL,
   },
   archTeamDoctor: {
     file: "archive-team-doctor.webp",
@@ -466,7 +476,7 @@ export const ASSETS = {
     approved: false,
     people: "doctor and staff",
     source: "Archive ZIP namokareyecare-website-frontend-main.zip (Oct 2026), public/assets/Gallery/IMG_0053.JPG (1500x1000, web copy). Metadata removed.",
-    approval: "Pending: written consent of every person shown, then client sign-off.",
+    approval: OWNER_APPROVAL,
   },
 } satisfies Record<string, Asset>;
 

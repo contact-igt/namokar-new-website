@@ -12,6 +12,7 @@ import type { InteractiveKey } from "@/config/figures";
 const FIGURES: Record<InteractiveKey, ComponentType> = {
   eyeAnatomy: dynamic(() => import("./EyeDiagram")),
   cataractPatterns: dynamic(() => import("./CataractPatterns")),
+  eyeCompare: dynamic(() => import("./EyeCompare")),
   lensCompare: dynamic(() => import("./LensCompare")),
   lensDesigns: dynamic(() => import("./LensDesigns")),
   cataractSteps: dynamic(() => import("./CataractSteps")),
