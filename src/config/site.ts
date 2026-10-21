@@ -111,11 +111,13 @@ export type ServiceGroupKey = "vision" | "oculoplasty";
 export const SERVICE_GROUPS: Record<ServiceGroupKey, { title: string; blurb: string }> = {
   vision: {
     title: "Comprehensive Vision Care",
-    blurb: "Examination, cataract and glaucoma care.",
+    blurb:
+      "Examination, cataract and glaucoma care. A good place to start for a check-up, a change in your vision or a long-term eye condition.",
   },
   oculoplasty: {
     title: "Oculoplasty & Eye-Area Care",
-    blurb: "The eyelids, tear passages and the area around the eyes.",
+    blurb:
+      "The eyelids, tear passages and the area around the eyes. Care for comfort, function and appearance, planned after a careful examination.",
   },
 };
 
@@ -136,7 +138,7 @@ export const SERVICES: ServiceSummary[] = [
     title: "Cataract Surgery",
     short: "Cataract Surgery",
     blurb:
-      "Careful assessment of your vision and a clear discussion of your treatment options.",
+      "For a clouded lens: careful assessment of your vision, and a clear discussion of when surgery is considered and what your options are.",
     href: LINKS.cataract,
     group: "vision",
   },
@@ -145,7 +147,7 @@ export const SERVICES: ServiceSummary[] = [
     title: "Glaucoma Management",
     short: "Glaucoma",
     blurb:
-      "Assessment and regular follow-up, because glaucoma needs long-term monitoring.",
+      "Glaucoma often has no early symptoms. Assessment, tests chosen by the doctor and regular follow-up, because it needs long-term monitoring.",
     href: LINKS.glaucoma,
     group: "vision",
   },
@@ -154,7 +156,7 @@ export const SERVICES: ServiceSummary[] = [
     title: "Comprehensive Eye Examinations",
     short: "Eye Examinations",
     blurb:
-      "Routine check-ups and examinations for specific eye concerns, explained in plain language.",
+      "A thorough check of how well you see and how healthy your eyes are, from routine check-ups to examinations for specific concerns, explained in plain language.",
     href: LINKS.exams,
     group: "vision",
   },
@@ -163,7 +165,7 @@ export const SERVICES: ServiceSummary[] = [
     title: "Eyelid Surgery (Blepharoplasty)",
     short: "Eyelid Surgery",
     blurb:
-      "Assessment of heavy or drooping eyelids, for both functional and cosmetic reasons.",
+      "Assessment of heavy or drooping eyelids and under-eye bags, for functional and cosmetic reasons, including whether surgery would help.",
     href: LINKS.eyelid,
     group: "oculoplasty",
   },
@@ -172,7 +174,7 @@ export const SERVICES: ServiceSummary[] = [
     title: "Aesthetic Oculoplasty",
     short: "Aesthetic Oculoplasty",
     blurb:
-      "Considered care for heavy eyelids, under-eye bags and age-related changes around the eyes.",
+      "Considered care for heavy eyelids, under-eye bags and age-related changes around the eyes, planned with eye health in mind.",
     href: LINKS.aesthetic,
     group: "oculoplasty",
   },
@@ -181,7 +183,7 @@ export const SERVICES: ServiceSummary[] = [
     title: "Reconstructive Oculoplasty",
     short: "Reconstructive Oculoplasty",
     blurb:
-      "Treatment for drooping eyelids (ptosis), eyelid malposition and tear-drainage problems.",
+      "Assessment and treatment for drooping eyelids (ptosis), eyelid malposition and tear-drainage problems that affect comfort or function.",
     href: LINKS.reconstructive,
     group: "oculoplasty",
   },

@@ -28,15 +28,21 @@ const IMAGES: Record<ServiceKey, Candidate[]> = {
     { asset: ASSETS.otModernB, position: "55% 55%" },
   ],
   glaucoma: [
+    { asset: ASSETS.examEyePressureAi, position: "32% 40%" },
     { asset: ASSETS.archGlaucomaTest, position: "50% 58%" },
     { asset: ASSETS.archStaffEquipment, position: "50% 45%" },
   ],
   exams: [
+    { asset: ASSETS.examFrontEyeAi, position: "40% 40%" },
     { asset: ASSETS.archExamOverhead, position: "50% 62%" },
     { asset: ASSETS.chartDoor, position: "50% 40%" },
   ],
-  eyelid: [{ asset: ASSETS.docSlit, position: "52% 50%" }],
+  eyelid: [
+    { asset: ASSETS.aestheticConsultationAi, position: "62% 35%" },
+    { asset: ASSETS.docSlit, position: "52% 50%" },
+  ],
   aesthetic: [
+    { asset: ASSETS.aestheticOverviewAi, position: "45% 40%" },
     {
       image: {
         src: "/images/oculoplasty-aesthetic-consultation.png",
@@ -48,6 +54,7 @@ const IMAGES: Record<ServiceKey, Candidate[]> = {
     },
   ],
   reconstructive: [
+    { asset: ASSETS.reconstructiveOverviewAi, position: "50% 40%" },
     {
       image: {
         src: "/images/oculoplasty-reconstructive-consultation.png",

@@ -90,7 +90,7 @@ export default function AboutPage() {
           ) : undefined
         }
         mediaLabel="Welcome to Namokar"
-        mediaCaption="The reception at our Ashok Vihar centre."
+        mediaCaption="The reception at our Ashok Vihar centre, where your visit begins."
         aside={hasHero ? undefined : <FactPanel />}
       />
 

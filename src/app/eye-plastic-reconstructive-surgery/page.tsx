@@ -39,13 +39,13 @@ export default function Page() {
       <ClinicalFigure
         id="tearPathway"
         heading="How tears drain, and what a blockage can mean"
-        intro="Choose a part to see what it does, and switch to see what happens when the passage is blocked."
+        intro="Compare normal tear drainage with what can happen when the passage is blocked."
       />
 
       <ClinicalFigure
         id="lidMalposition"
         heading="When an eyelid turns inwards or outwards"
-        intro="Two ways a lid can sit wrongly, beside a typical lid, shown in section."
+        intro="A comparison of a typical eyelid, an inward-turning eyelid (entropion) and an outward-turning eyelid (ectropion)."
       />
     </ServiceLayout>
   );

@@ -1,74 +1,134 @@
-"use client";
+import AssetImage from "@/components/AssetImage";
+import { ASSETS } from "@/config/assets";
 
-import { useState } from "react";
-import { C, EyeBase } from "./EyeBase";
-import Segmented from "./Segmented";
+type Tone = "typical" | "in" | "out";
 
-type Pos = "typical" | "entropion" | "ectropion";
-const COPY: Record<Pos, { title: string; text: string }> = {
-  typical: { title: "A typical lower eyelid", text: "The edge of the lid rests against the eye, and the lashes point away from it." },
-  entropion: { title: "Entropion: turning inwards", text: "An eyelid that turns inwards, so the lashes rub the eye." },
-  ectropion: { title: "Ectropion: turning outwards", text: "An eyelid that turns outwards, away from the eye." },
-};
+const STATES = [
+  {
+    key: "typical" as Tone,
+    title: "Typical",
+    subtitle: "Lower eyelid",
+    asset: ASSETS.eyelidTypicalComparisonAi,
+    lashAsset: ASSETS.eyelidLashesTypicalAi,
+    symptoms: ["Usually no symptoms", "Comfortable eye"],
+    lashes: "Lashes point away from the eye.",
+    treatments: ["No treatment needed", "Regular eye check-ups"],
+    surgery: "No",
+    surgeryNote: "Usually not required",
+  },
+  {
+    key: "in" as Tone,
+    title: "Turning in",
+    subtitle: "Entropion",
+    asset: ASSETS.eyelidEntropionComparisonAi,
+    lashAsset: ASSETS.eyelidLashesEntropionAi,
+    symptoms: ["Irritation and redness", "Foreign-body sensation", "Tearing and discomfort"],
+    lashes: "Lashes point towards the eye and may rub against its surface.",
+    treatments: ["Lubricating drops may give temporary relief", "Corrective surgery may be recommended"],
+    surgery: "May be recommended",
+    surgeryNote: "Depending on symptoms and examination",
+  },
+  {
+    key: "out" as Tone,
+    title: "Turning out",
+    subtitle: "Ectropion",
+    asset: ASSETS.eyelidEctropionComparisonAi,
+    lashAsset: ASSETS.eyelidLashesEctropionAi,
+    symptoms: ["Dryness and irritation", "Excessive watering", "Redness and exposure"],
+    lashes: "The lid turns outward, leaving the eye surface more exposed.",
+    treatments: ["Lubricating drops may be advised", "Treatment of the underlying cause", "Surgery may be recommended"],
+    surgery: "May be recommended",
+    surgeryNote: "Depending on severity and cause",
+  },
+];
 
-const LID: Record<Pos, { m: [number, number]; lash: [number, number]; into: boolean }> = {
-  typical: { m: [240, 304], lash: [-0.75, 0.66], into: false },
-  entropion: { m: [256, 314], lash: [0.66, -0.75], into: false },
-  ectropion: { m: [212, 332], lash: [-0.74, 0.67], into: true },
-};
+function Check({ tone }: { tone: Tone }) {
+  return <span className={`lidcmp-check lidcmp-check--${tone}`} aria-hidden="true">{"\u2713"}</span>;
+}
 
-/** The lower lid in section against the eye (front of the eye at the left). */
-function Scene({ pos }: { pos: Pos }) {
-  const { m: [mx, my], lash: [lx, ly], into } = LID[pos];
-  const body = `M404 376 C ${(404 + mx) / 2 + 30} ${376 + 8} ${mx + 34} ${my + 40} ${mx} ${my}`;
+function HeaderIcon({ tone }: { tone: Tone }) {
   return (
-    <g>
-      <EyeBase />
-      <path d={body} fill="none" stroke={C.ink} strokeWidth="28" strokeLinecap="round" />
-      <path d={body} fill="none" stroke={C.mist} strokeWidth="20" strokeLinecap="round" />
-      {into && <path d={`M404 366 C ${(404 + mx) / 2 + 30} ${366 + 8} ${mx + 40} ${my + 34} ${mx + 8} ${my + 6}`} fill="none" stroke={C.orange} strokeWidth="5" strokeLinecap="round" />}
-      {[-1, 0, 1].map((i) => (
-        <path key={i} d={`M${mx + -ly * i * 8} ${my + lx * i * 8} l${lx * 22} ${ly * 22}`} stroke={C.ink} strokeWidth="3.5" strokeLinecap="round" fill="none" />
-      ))}
-      {pos === "entropion" && <circle cx={mx + 14} cy={my - 16} r="20" fill="none" stroke={C.orangeDark} strokeWidth="3" strokeDasharray="5 5" />}
-    </g>
+    <span className={`lidcmp-head-icon lidcmp-head-icon--${tone}`} aria-hidden="true">
+      {tone === "typical" ? <span className="lidcmp-head-check">{"\u2713"}</span> : (
+        <svg className={`lidcmp-turn-icon lidcmp-turn-icon--${tone}`} viewBox="0 0 32 32">
+          <path d={tone === "in" ? "M25 22c0-8-4-13-10-13-5 0-8 3-8 8" : "M7 22c0-8 4-13 10-13 5 0 8 3 8 8"} />
+          <path d={tone === "in" ? "m4 14 3 4 4-3" : "m28 14-3 4-4-3"} />
+        </svg>
+      )}
+    </span>
   );
 }
 
-/**
- * Two ways a lid can sit wrongly (entropion and ectropion) beside the typical position, drawn
- * in section. The one-line descriptions are the ones already on the page. Pending medical review
- * (src/config/figures.ts).
- */
-export default function LidMalposition() {
-  const [p, setP] = useState<Pos>("typical");
+function RowIcon({ type }: { type: "eye" | "alert" | "lashes" | "care" | "surgery" }) {
+  const paths = {
+    eye: <><path d="M2 12s3.7-6 10-6 10 6 10 6-3.7 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.8"/></>,
+    alert: <><path d="m12 3 9 16H3L12 3Z"/><path d="M12 8v5M12 16h.01"/></>,
+    lashes: <><path d="M3 10q9 7 18 0"/><path d="m6 13-2 3m5-1-1 4m5-3 1 4m3-5 3 3"/></>,
+    care: <><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M5 5l2 2m10 10 2 2M19 5l-2 2M7 17l-2 2"/></>,
+    surgery: <><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="m9 15 8-11m-2 11L7 4"/></>,
+  };
+  return <span className="lidcmp-row-icon" aria-hidden="true"><svg viewBox="0 0 24 24">{paths[type]}</svg></span>;
+}
+
+function LashDirection({ tone, asset, children }: { tone: Tone; asset: (typeof STATES)[number]["lashAsset"]; children: string }) {
   return (
-    <div className="clin-grid">
-      <div className="clin-stage">
-        <svg viewBox="170 120 300 290" className="clin-svg clin-svg--zoom" role="img" aria-label={COPY[p].title}>
-          <g key={p} className="clin-fade">
-            <Scene pos={p} />
-          </g>
-        </svg>
-      </div>
-      <div className="clin-side">
-        <Segmented
-          label="Eyelid position"
-          value={p}
-          onChange={setP}
-          options={[
-            { value: "typical", label: "Typical" },
-            { value: "entropion", label: "Turning in" },
-            { value: "ectropion", label: "Turning out" },
-          ]}
-        />
-        <div className="clin-panel" aria-live="polite">
-          <div key={p} className="clin-swap">
-              <h3 className="clin-panel-h">{COPY[p].title}</h3>
-              <p>{COPY[p].text}</p>
-            </div>
-        </div>
-      </div>
+    <div className="lidcmp-lashes">
+      <AssetImage asset={asset} className={`lidcmp-lash-image lidcmp-lash-image--${tone}`} sizes="150px" />
+      <span>{children}</span>
+    </div>
+  );
+}
+
+export default function LidMalposition() {
+  return (
+    <div className="lidcmp-scroll" tabIndex={0} aria-label="Scrollable eyelid position comparison">
+      <table className="lidcmp">
+        <thead>
+          <tr>
+            <th aria-label="Comparison category" />
+            {STATES.map((state) => (
+              <th className={`lidcmp-head lidcmp-head--${state.key}`} scope="col" key={state.key}>
+                <span className="lidcmp-head-inner">
+                  <HeaderIcon tone={state.key} />
+                  <span><strong>{state.title}</strong><small>{state.subtitle}</small></span>
+                </span>
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><span className="lidcmp-row-heading"><RowIcon type="eye" />Illustration</span></th>
+            {STATES.map((state) => (
+              <td className="lidcmp-picture" key={state.key}>
+                <AssetImage asset={state.asset} sizes="(min-width: 960px) 28vw, 80vw" />
+              </td>
+            ))}
+          </tr>
+          <tr>
+            <th scope="row"><span className="lidcmp-row-heading"><RowIcon type="alert" />Symptoms</span></th>
+            {STATES.map((state) => (
+              <td key={state.key}><ul className="lidcmp-list">{state.symptoms.map((item) => <li key={item}><Check tone={state.key} />{item}</li>)}</ul></td>
+            ))}
+          </tr>
+          <tr>
+            <th scope="row"><span className="lidcmp-row-heading"><RowIcon type="lashes" />How lashes point</span></th>
+            {STATES.map((state) => <td key={state.key}><LashDirection tone={state.key} asset={state.lashAsset}>{state.lashes}</LashDirection></td>)}
+          </tr>
+          <tr>
+            <th scope="row"><span className="lidcmp-row-heading"><RowIcon type="care" />Treatment</span></th>
+            {STATES.map((state) => (
+              <td key={state.key}><ul className="lidcmp-list">{state.treatments.map((item) => <li key={item}><Check tone={state.key} />{item}</li>)}</ul></td>
+            ))}
+          </tr>
+          <tr>
+            <th scope="row"><span className="lidcmp-row-heading"><RowIcon type="surgery" />Need surgery?</span></th>
+            {STATES.map((state) => (
+              <td key={state.key}><div className={`lidcmp-surgery lidcmp-surgery--${state.key}`}><Check tone={state.key} /><span><strong>{state.surgery}</strong><small>{state.surgeryNote}</small></span></div></td>
+            ))}
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }
