@@ -2952,6 +2952,20 @@ a.act--primary:hover {
   font-size: 0.9375rem;
   color: var(--ink-soft);
 }
+/* Numbered information cards (glaucoma page) */
+.tile-no {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--orange);
+}
+.tile--info .tile-title {
+  font-size: 1.1875rem;
+}
+.tile-grid + .callout {
+  margin-top: 24px;
+}
 .svcnav-list--two {
   grid-template-columns: 1fr;
 }
@@ -3456,6 +3470,9 @@ a.act--primary:hover {
   object-fit: cover;
   transition: transform 700ms var(--ease);
 }
+.vp-poster--trim {
+  transform: scale(1.04);
+}
 .vp-video,
 .vp-iframe {
   position: absolute;
@@ -3660,6 +3677,9 @@ a.act--primary:hover {
   .vp-frame:hover .vp-poster {
     transform: scale(1.03);
   }
+  .vp-frame:hover .vp-poster--trim {
+    transform: scale(1.07);
+  }
   .vp-frame:hover .vp-play {
     background: var(--orange-darker);
   }
@@ -3751,6 +3771,362 @@ a.act--primary:hover {
   display: block;
   width: 100%;
   height: auto;
+}
+.tear-pair {
+  display: grid;
+  gap: 20px;
+}
+.tear-pair__item {
+  overflow: hidden;
+  border: 1px solid #f1d9c7;
+  border-radius: var(--r-lg);
+  background: var(--orange-mist);
+  box-shadow: 0 14px 36px rgba(36, 50, 56, 0.07);
+}
+.tear-pair__item h3 {
+  position: relative;
+  margin: 0;
+  padding: 20px 18px 18px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2vw, 1.75rem);
+  text-align: center;
+  color: var(--ink);
+}
+.tear-pair__item h3::after {
+  display: block;
+  width: 44px;
+  height: 2px;
+  margin: 8px auto 0;
+  background: var(--orange);
+  content: "";
+}
+.tear-pair__image {
+  display: block;
+  width: calc(100% - 28px);
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--r-lg);
+}
+.tear-pair__item figcaption {
+  padding: 16px 18px 18px;
+  margin: 0 14px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.lidcmp-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--white);
+  box-shadow: 0 18px 48px rgba(36, 50, 56, 0.06);
+  scrollbar-color: var(--orange) var(--porcelain);
+}
+.lidcmp-scroll:focus-visible {
+  outline: 3px solid rgba(214, 107, 31, 0.3);
+  outline-offset: 3px;
+}
+.lidcmp {
+  width: 100%;
+  min-width: 1080px;
+  border-spacing: 0;
+  border-collapse: separate;
+  table-layout: fixed;
+  color: var(--ink);
+}
+.lidcmp th,
+.lidcmp td {
+  padding: 16px 18px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+.lidcmp tr > :last-child {
+  border-right: 0;
+}
+.lidcmp tbody tr:last-child > * {
+  border-bottom: 0;
+}
+.lidcmp thead th:first-child,
+.lidcmp tbody th {
+  width: 168px;
+}
+.lidcmp thead th:first-child {
+  background: var(--porcelain);
+}
+.lidcmp tbody th {
+  font-size: 0.9375rem;
+  text-align: left;
+  background: #fbfcfc;
+}
+.lidcmp-head-inner,
+.lidcmp-row-heading,
+.lidcmp-row-icon,
+.lidcmp-list li,
+.lidcmp-lashes,
+.lidcmp-surgery {
+  display: flex;
+  align-items: center;
+}
+.lidcmp-head-inner,
+.lidcmp-row-heading {
+  gap: 12px;
+}
+.lidcmp-head-inner {
+  justify-content: center;
+  min-height: 90px;
+  text-align: left;
+}
+.lidcmp-head--typical {
+  background: linear-gradient(135deg, #eef9f0, #e3f3e7);
+}
+.lidcmp-head--in {
+  background: linear-gradient(135deg, #fff8ed, #fff0dc);
+}
+.lidcmp-head--out {
+  background: linear-gradient(135deg, #fff2ef, #ffe4e1);
+}
+.lidcmp-head strong,
+.lidcmp-head small,
+.lidcmp-surgery strong,
+.lidcmp-surgery small {
+  display: block;
+}
+.lidcmp-head strong {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  line-height: 1.15;
+}
+.lidcmp-head small {
+  margin-top: 3px;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.glaucoma-pair__item {
+  background: linear-gradient(180deg, var(--orange-mist), var(--white));
+}
+.glaucoma-pair__frame {
+  display: grid;
+  place-items: center;
+  width: calc(100% - 28px);
+  margin: 0 auto;
+  padding: 18px;
+  border: 1px solid #f1d9c7;
+  border-radius: var(--r-lg);
+  background: var(--white);
+}
+.glaucoma-pair__image {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  border-radius: var(--r);
+  object-fit: contain;
+}
+.glaucoma-pair__item figcaption strong,
+.glaucoma-pair__item figcaption span {
+  display: block;
+}
+.glaucoma-pair__item figcaption strong {
+  margin-bottom: 6px;
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  color: var(--ink);
+}
+.exam-cards {
+  display: grid;
+  gap: 20px;
+}
+.exam-card {
+  overflow: hidden;
+  border: 1px solid #f1d9c7;
+  border-radius: var(--r-lg);
+  background: var(--white);
+  box-shadow: 0 14px 36px rgba(36, 50, 56, 0.07);
+}
+.exam-card__image-wrap {
+  position: relative;
+  overflow: hidden;
+  background: var(--orange-mist);
+}
+.exam-card__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+.exam-card__number {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  background: var(--orange-dark);
+  box-shadow: 0 6px 18px rgba(36, 50, 56, 0.18);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-weight: 800;
+}
+.exam-card__body {
+  padding: 20px 22px 24px;
+}
+.exam-card__body h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+.exam-card__body p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.exam-cards__note {
+  margin: 20px 0 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--orange);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  background: var(--porcelain);
+  color: var(--ink-soft);
+}
+.lidcmp-head-icon {
+  display: grid;
+  flex: 0 0 48px;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--white);
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(36, 50, 56, 0.12);
+  color: var(--white);
+}
+.lidcmp-head-check {
+  font-size: 1.9rem;
+  line-height: 1;
+}
+.lidcmp-turn-icon {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.lidcmp-head-icon--typical,
+.lidcmp-check--typical {
+  background: #55ad5b;
+}
+.lidcmp-head-icon--in,
+.lidcmp-check--in {
+  background: var(--orange);
+}
+.lidcmp-head-icon--out,
+.lidcmp-check--out {
+  background: #ef3f3f;
+}
+.lidcmp-row-icon {
+  flex: 0 0 42px;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #eef3f5;
+  color: var(--ink);
+}
+.lidcmp-row-icon svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.lidcmp-picture {
+  padding: 0 !important;
+  background: #fffaf6;
+}
+.lidcmp-picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+.lidcmp-list {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.lidcmp-list li {
+  gap: 10px;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+.lidcmp-copy {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+.lidcmp-copy .lidcmp-check {
+  margin-top: 0.18em;
+}
+.lidcmp-check {
+  display: grid;
+  flex: 0 0 22px;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 0.8125rem;
+  font-weight: 800;
+}
+.lidcmp-lashes {
+  gap: 12px;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+.lidcmp-lash-image {
+  flex: 0 0 118px;
+  width: 118px;
+  height: 78px;
+  border: 1px solid rgba(36, 50, 56, 0.08);
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center;
+}
+.lidcmp-surgery {
+  gap: 12px;
+  min-height: 58px;
+  padding: 10px 12px;
+  border-radius: var(--r-lg);
+}
+.lidcmp-surgery--typical {
+  background: #edf8ef;
+}
+.lidcmp-surgery--in {
+  background: #fff3e2;
+}
+.lidcmp-surgery--out {
+  background: #ffebe8;
+}
+.lidcmp-surgery strong {
+  font-size: 0.9375rem;
+}
+.lidcmp-surgery small {
+  margin-top: 2px;
+  color: var(--ink-soft);
+  line-height: 1.3;
 }
 .clin-svg--zoom {
   max-height: 440px;
@@ -3983,8 +4359,26 @@ a.act--primary:hover {
   color: var(--ink);
 }
 @media (min-width: 768px) {
+  .exam-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .tear-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .lens-pair {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1100px) {
+  .exam-cards {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .exam-card {
+    grid-column: span 2;
+  }
+  .exam-card:nth-child(4),
+  .exam-card:nth-child(5) {
+    grid-column: span 3;
   }
 }
 
@@ -4286,6 +4680,12 @@ a.act--primary:hover {
   }
 }
 @media (min-width: 960px) {
+  .lidcmp-scroll {
+    overflow-x: visible;
+  }
+  .lidcmp {
+    min-width: 0;
+  }
   .clin-fig {
     padding: 22px;
   }

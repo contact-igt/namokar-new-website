@@ -26,11 +26,23 @@ export const metadata: Metadata = pageMeta("services", {
 const FAQS = [
   {
     q: "Which service do I need?",
-    a: "If you are not sure, a comprehensive eye examination is a sensible place to start. The doctor can then explain what is found and whether any other care would help.",
+    a: "If you are not sure, a comprehensive eye examination is a sensible place to start. Tell the doctor what you have noticed, such as blurred vision, a family history of eye disease, heavy eyelids or watering eyes, and the doctor can explain what is found and whether any other care would help.",
   },
   {
     q: "Is every treatment available at the centre?",
     a: "The centre confirms at the consultation which treatments it offers. This website describes general areas of care and does not promise any particular treatment.",
+  },
+  {
+    q: "What is the difference between eyelid surgery, aesthetic and reconstructive oculoplasty?",
+    a: "Eyelid surgery (blepharoplasty) deals with excess skin or fat on the eyelids. Aesthetic oculoplasty is care for the appearance of the eyelids and eye area, with eye health kept in view. Reconstructive oculoplasty is care for problems that affect how the eyelids or tear passages work, such as a drooping eyelid or a blocked tear duct. They can overlap, and the examination shows which applies to you.",
+  },
+  {
+    q: "Will I need surgery?",
+    a: "Not necessarily. Many visits end with an explanation, glasses, medicine or monitoring. If surgery or another treatment is advised, the doctor explains why, what the options and risks are, and you decide at your own pace.",
+  },
+  {
+    q: "What should I bring to my first visit?",
+    a: "Bring your current glasses, earlier prescriptions and eye reports, and a list of your medicines. If you have diabetes or other health conditions, bring any recent reports too.",
   },
   {
     q: "How do I arrange an appointment?",
@@ -71,7 +83,7 @@ export default function ServicesPage() {
       <PageHero
         crumb="Our Services"
         title="Care for your eyes, and the area around them."
-        lead="Comprehensive eye care first, with specialist oculoplasty for the eyelids, tear passages and the area around the eyes."
+        lead="Comprehensive eye care first, with specialist oculoplasty for the eyelids, tear passages and the area around the eyes. Whatever brings you, care starts with an examination and a clear explanation of your options."
         actions={<BookButton online={online} />}
         aside={<HelpPanel />}
       />
@@ -184,7 +196,7 @@ export default function ServicesPage() {
       <CtaBand
         id="services-cta-h"
         heading="Not sure where to start?"
-        lead="Contact the centre to plan your visit or arrange an eye consultation."
+        lead="Tell the centre what you have noticed and ask about arranging an eye consultation. The doctor will advise which care suits you."
         online={online}
       />
     </main>

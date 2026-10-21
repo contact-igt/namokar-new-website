@@ -110,7 +110,7 @@ export default function ServiceLayout({
                 position={cover.secondary.position}
                 sizes="(min-width: 960px) 50vw, 100vw"
                 className="about-photo"
-                tab={serviceKey !== "aesthetic"}
+                tab={false}
               />
             )}
           </div>

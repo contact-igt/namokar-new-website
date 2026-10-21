@@ -34,12 +34,12 @@ export default function ClinicalFigure({
         </div>
         <figure className="clin-fig">
           <FigureHost id={id} />
-          {showNote && (
+          {/* {showNote && (
             <figcaption className="clin-note">
               Illustration, not to scale. General information to help you understand an examination or
               a procedure; it is not a diagnosis, and your doctor explains what applies to your eyes.
             </figcaption>
-          )}
+          )} */}
         </figure>
       </div>
     </section>

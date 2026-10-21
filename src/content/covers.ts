@@ -24,27 +24,27 @@ export type PlateCover = { plate: PlateName; figure: "plateEyelid" | "plateAesth
 
 export const COVERS: Record<ServiceKey, { primary: Cover; secondary?: Cover; plate?: PlateCover }> = {
   cataract: {
-    primary: { asset: ASSETS.archCataractExam, caption: "A slit-lamp examination in a consultation room at the centre.", position: "50% 45%" },
-    secondary: { asset: ASSETS.consoleWide, caption: "A surgical console in the theatre area at the centre.", position: "50% 50%" },
+    primary: { asset: ASSETS.archCataractExam, caption: "A slit-lamp examination in a consultation room at the centre. Cataract care begins with an examination of the lens and the rest of the eye.", position: "50% 45%" },
+    secondary: { asset: ASSETS.cataractOverviewAi, caption: "", position: "50% 50%" },
   },
   glaucoma: {
-    primary: { asset: ASSETS.archExamOverhead, caption: "A slit-lamp eye examination at the centre.", position: "50% 60%" },
-    secondary: { asset: ASSETS.archGlaucomaTest, caption: "A pre-examination eye test at the centre.", position: "50% 55%" },
+    primary: { asset: ASSETS.archExamOverhead, caption: "A slit-lamp eye examination at the centre. Glaucoma is found through examination and followed with regular check-ups.", position: "50% 60%" },
+    secondary: { asset: ASSETS.archGlaucomaTest, caption: "", position: "50% 55%" },
   },
   exams: {
-    primary: { asset: ASSETS.chartDoor, caption: "An eye-chart screen beside an examination room door.", position: "50% 42%" },
-    secondary: { asset: ASSETS.archStaffEquipment, caption: "An eye-testing instrument in an examination room.", position: "50% 40%" },
+    primary: { asset: ASSETS.chartDoor, caption: "An eye-chart screen beside an examination room door. An examination starts with how well you see.", position: "50% 42%" },
+    secondary: { asset: ASSETS.archStaffEquipment, caption: "", position: "50% 40%" },
   },
   eyelid: {
-    primary: { asset: ASSETS.otModernB, caption: "An operation theatre at the centre.", position: "55% 55%" },
-    plate: { plate: "eyelid", figure: "plateEyelid", caption: "The brow, the crease of the upper eyelid and the eyelid margin. A drawing, not a result." },
+    primary: { asset: ASSETS.otModernB, caption: "The operation theatre at the centre. Surgery is only considered after an examination and a conversation about your options.", position: "55% 55%" },
+    secondary: { asset: ASSETS.blepharoplastyOverviewAi, caption: "", position: "50% 50%" },
   },
   aesthetic: {
-    primary: { asset: ASSETS.docDesk, caption: "Personalized aesthetic oculoplasty care begins with a comprehensive eye-area assessment.", position: "38% 40%" },
-    secondary: { asset: ASSETS.aestheticOverviewAi, caption: "Aesthetic oculoplasty care is explained through a personalized eye-area consultation.", position: "50% 50%" },
+    primary: { asset: ASSETS.docDesk, caption: "Aesthetic oculoplasty care begins with a comprehensive eye-area assessment, where your concerns, your expectations and the health of your eyes are discussed.", position: "38% 40%" },
+    secondary: { asset: ASSETS.aestheticOverviewAi, caption: "", position: "50% 50%" },
   },
   reconstructive: {
-    primary: { asset: ASSETS.otModernC, caption: "An operation theatre at the centre.", position: "50% 55%" },
-    plate: { plate: "tear", figure: "plateTear", caption: "The tear passages: the small openings, the canals, the sac and the duct. A drawing." },
+    primary: { asset: ASSETS.otModernC, caption: "The operation theatre at the centre. Care for the eyelids and tear passages begins with an examination and a clear plan.", position: "50% 55%" },
+    secondary: { asset: ASSETS.reconstructiveOverviewAi, caption: "", position: "50% 50%" },
   },
 };

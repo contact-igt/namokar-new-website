@@ -4,11 +4,13 @@ import ServiceLayout, { serviceMetadata } from "@/components/ServiceLayout";
 export const metadata = serviceMetadata("exams");
 
 const PARTS = [
-  { term: "How well you see", text: "Your vision is checked with and without spectacles." },
+  { term: "Your history and symptoms", text: "The doctor asks about your vision, general health, medicines and family history, which helps to decide what to check." },
+  { term: "How well you see", text: "Your distance and near vision are checked, with and without spectacles, one eye at a time and together." },
   { term: "Spectacle needs", text: "Your eyes are tested to see whether glasses would help, or whether your prescription has changed." },
+  { term: "How your eyes work together", text: "Eye movement and alignment may be checked, because eyes that do not work as a team can cause strain, double vision or headaches." },
   { term: "Eye pressure", text: "The pressure inside the eye may be measured, as part of looking for conditions such as glaucoma." },
-  { term: "The front of the eye", text: "The eyelids, the surface of the eye and the lens are examined." },
-  { term: "The back of the eye", text: "The retina and the optic nerve are looked at, sometimes after drops that widen the pupil." },
+  { term: "The front of the eye", text: "The eyelids, the surface of the eye, the clear front window (cornea) and the lens are examined, which can show dryness, infection, injury or the early clouding of a cataract." },
+  { term: "The back of the eye", text: "The retina and the optic nerve are looked at, sometimes after drops that widen the pupil. This is how changes from conditions such as glaucoma or diabetes can be seen." },
 ];
 
 export default function Page() {
@@ -37,8 +39,8 @@ export default function Page() {
 
       <ClinicalFigure
         id="examParts"
-        heading="Which part of the eye each step looks at"
-        intro="Choose a step to see the part of the eye it is about."
+        heading="What happens during a comprehensive eye examination"
+        intro="Each step checks a different part of your vision and eye health."
       />
     </ServiceLayout>
   );

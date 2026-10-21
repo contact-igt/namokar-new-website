@@ -126,14 +126,17 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
     introHeading: "What is glaucoma?",
     intro: [
       "Glaucoma is a group of eye conditions in which the optic nerve, which carries what the eye sees to the brain, is gradually damaged. Raised pressure inside the eye is a common factor, but it is not the only one.",
+      "Glaucoma is often called the silent thief of sight because it can take side vision slowly and without pain. Left untreated, it can lead to permanent loss of vision.",
       "Glaucoma is usually a long-term condition that is managed rather than cured. Damage to the optic nerve cannot be reversed, so the aim of care is to find glaucoma early and to protect the vision that remains. Treatment and follow-up are planned for each person.",
     ],
     seekHelp: {
       heading: "Who should have regular eye checks",
       items: [
         "Anyone with a close relative who has glaucoma",
-        "People who are getting older, because the risk rises with age",
+        "People over 40, because the risk rises with age",
         "People who are very short-sighted",
+        "People with diabetes or high blood pressure",
+        "People who have been told their eye pressure is high",
         "People who use steroid medicines over a long period, as advised by their doctor",
         "People who have had an injury to the eye",
       ],
@@ -180,6 +183,34 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
         q: "Does glaucoma run in families?",
         a: "Having a close relative with glaucoma raises your own risk, so tell the doctor if someone in your family has it.",
       },
+      {
+        q: "Why is glaucoma called the silent thief of sight?",
+        a: "Because it can reduce side vision slowly, with no pain and no obvious warning. Many people only notice once a good deal of vision has gone, which is why examination matters before symptoms appear.",
+      },
+      {
+        q: "What are the early symptoms?",
+        a: "The common open-angle type usually has none early on. Angle-closure glaucoma can come on suddenly with severe eye pain, blurred vision, halos around lights, headache or sickness, and that needs urgent medical attention.",
+      },
+      {
+        q: "Who is at higher risk?",
+        a: "People over 40, those with a close relative who has glaucoma, people with diabetes or high blood pressure, high eye pressure, high short-sightedness, long-term steroid use or a past eye injury. Having a risk factor does not mean you will develop glaucoma.",
+      },
+      {
+        q: "How is glaucoma diagnosed?",
+        a: "The doctor examines the optic nerve and may check eye pressure, the field of vision, the drainage angle, corneal thickness and use a scan of the nerve. Which tests are needed is the doctor's decision.",
+      },
+      {
+        q: "What treatments are there?",
+        a: "Eye drops, laser treatment or surgery, depending on the type of glaucoma and how far it has gone. Treatment aims to protect the vision you still have. It cannot restore vision already lost.",
+      },
+      {
+        q: "How often are follow-up visits needed?",
+        a: "It depends on the type of glaucoma, how far it has gone and how well it is controlled. The doctor sets a schedule for you and changes it if anything changes.",
+      },
+      {
+        q: "When should I see an eye specialist?",
+        a: "If you have a family history, have been told your eye pressure is high, notice your side vision narrowing, or have not had your eyes checked for some time. Sudden severe eye pain, blurred vision, halos or sickness need urgent attention.",
+      },
     ],
     related: ["exams", "cataract", "reconstructive"],
   },
@@ -190,28 +221,38 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
     metaDescription:
       "What a comprehensive eye examination involves and when to have one, and how to arrange a visit to Namokar Eye & Oculoplasty Centre, Ashok Vihar.",
     h1: "A thorough eye check, explained in plain language.",
-    lead: "An examination looks at how well you see and how healthy your eyes are, and it is where any further care begins.",
+    lead: "An examination looks at how well you see and how healthy your eyes are. It is where any further care begins, explained step by step.",
     introHeading: "What a comprehensive examination is",
     intro: [
-      "A comprehensive eye examination looks at more than your spectacle number. The doctor checks how well you see, how your eyes work together and the health of the structures inside and around the eye.",
-      "It can find conditions such as cataract and glaucoma before they cause obvious symptoms, and it is the starting point for any further tests or treatment. The tests used depend on your symptoms and age and are chosen by the doctor.",
+      "A comprehensive eye examination looks at more than your spectacle number. The doctor checks how well you see, how your eyes work together and the health of the structures inside and around the eye. It is for adults and for children, whether or not they wear glasses.",
+      "Many eye conditions, such as cataract, glaucoma and the eye changes that can come with diabetes, develop slowly and without pain. An examination can find them before they cause obvious symptoms, which is often when they are easiest to manage.",
+      "It is also the starting point for any further tests or treatment. The tests used depend on your symptoms, age and health and are chosen by the doctor, who explains the findings in plain language so that you understand what comes next.",
     ],
     seekHelp: {
       heading: "Reasons to book an eye check",
       items: [
         "A change in your vision, or spectacles that no longer help as they did",
-        "Frequent headaches or tired eyes when reading",
-        "Diabetes, for which regular eye checks are usually advised",
-        "A family history of eye disease",
+        "Frequent headaches, or tired, strained eyes when reading or using screens",
+        "Eyes that water, feel dry or irritated, or look red often",
+        "Seeing floaters or flashes of light, which should be checked promptly",
+        "Diabetes or high blood pressure, for which regular eye checks are usually advised",
+        "A family history of eye disease such as glaucoma",
+        "A child who sits very close to screens, squints, rubs the eyes often or struggles to read",
+        "Being over 40, when changes in near vision and the risk of some eye conditions begin to rise",
         "It has been a long time since your last examination",
       ],
       note: URGENT,
     },
-    journeyLead: "A general outline. The tests used are chosen by the doctor.",
+    journeyLead:
+      "A general outline of a visit. The tests used are chosen by the doctor, and you can ask questions at any point.",
     journey: [
       {
         title: "Before you come",
-        text: "Bring previous prescriptions and eye reports, your current spectacles and a list of your medicines.",
+        text: "Bring previous prescriptions and eye reports, your current spectacles or contact lenses and a list of your medicines. Note down any symptoms and questions you want to raise.",
+      },
+      {
+        title: "Your history and symptoms",
+        text: "The doctor asks about your vision, any symptoms, your general health, medicines and family history, because these shape which tests are useful for you.",
       },
       {
         title: "The examination",
@@ -219,21 +260,29 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
       },
       {
         title: "The doctor's explanation",
-        text: "The findings are explained in plain language, and your questions are answered.",
+        text: "The findings are explained in plain language, and your questions are answered. If glasses would help, you are told what your eyes need.",
       },
       {
         title: "Next steps",
-        text: "If further tests or treatment are advised, the doctor explains why and what to expect.",
+        text: "If further tests or treatment are advised, the doctor explains why, what the options are and what to expect.",
       },
       {
         title: "Review",
-        text: "The doctor tells you when to have your eyes checked again.",
+        text: "The doctor tells you when to have your eyes checked again, which depends on your age, health and what was found.",
       },
     ],
     faqs: [
       {
         q: "How often should I have an eye examination?",
-        a: "It depends on your age, your health and any eye conditions. The doctor will advise you.",
+        a: "It depends on your age, your health and any eye conditions. People with diabetes or a family history of eye disease are usually advised to have checks more regularly. The doctor will advise you.",
+      },
+      {
+        q: "How is a comprehensive examination different from a simple vision test?",
+        a: "A vision test only checks how clearly you see and whether glasses would help. A comprehensive examination also looks at the health of the eye, including the optic nerve and retina, and can find problems that do not yet affect your sight.",
+      },
+      {
+        q: "Can an examination find eye problems before I notice them?",
+        a: "Often, yes. Cataract, glaucoma and some retinal changes can develop slowly without pain or obvious symptoms, so a regular examination is how they are usually found early.",
       },
       {
         q: "Will I need drops that widen the pupil?",
@@ -242,6 +291,14 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
       {
         q: "Is an examination uncomfortable?",
         a: "Most parts are comfortable, though some drops can sting briefly. Tell the team if you are uncomfortable at any point.",
+      },
+      {
+        q: "What should I bring?",
+        a: "Your current glasses or contact lenses, earlier prescriptions and eye reports, and a list of your medicines. If you have diabetes or other health conditions, bring any recent reports too.",
+      },
+      {
+        q: "Should children have their eyes examined?",
+        a: "Yes, if there are signs such as squinting, sitting very close to screens, frequent eye rubbing or difficulty at school, or if there is a family history of eye problems. Children cannot always say that something is wrong with their eyes.",
       },
       {
         q: "How do I arrange one?",
@@ -258,28 +315,37 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
       "General information about eyelid surgery (blepharoplasty) for heavy or drooping eyelids, and how to arrange an assessment at Namokar Eye & Oculoplasty Centre.",
     h1: "Eyelid surgery begins with an assessment.",
     eyebrow: "Blepharoplasty",
-    lead: "Heavy, drooping or baggy eyelids can affect comfort and vision as well as appearance. The first step is to find out why.",
+    lead: "Heavy, drooping or baggy eyelids can affect comfort and vision as well as appearance. The first step is a careful assessment to find out why.",
     introHeading: "What is blepharoplasty?",
     intro: [
-      "Blepharoplasty is surgery on the eyelids. It may be considered when excess skin or fat weighs on the eyelids, either because it affects vision and comfort, or because someone is unhappy with how their eyes look.",
-      "Surgery is only one possible outcome of a consultation. The doctor first examines the eyelids and eyes, explains what is causing the problem, and discusses whether surgery would help, what it can and cannot change, and what the risks are.",
+      "Blepharoplasty is surgery on the eyelids. It removes or repositions excess skin and, where needed, fat from the upper lids, the lower lids or both. It may be considered when this extra tissue weighs on the eyelids, either because it affects vision and comfort, or because someone is unhappy with how their eyes look.",
+      "Eyelid changes are common with age, and some people inherit a tendency to heavy lids or under-eye bags. Because the cause differs from person to person, surgery is only one possible outcome of a consultation. The doctor first examines the eyelids and eyes, explains what is causing the problem, and discusses whether surgery would help, what it can and cannot change, and what the risks are.",
+      "The eyelids protect the eye, so the assessment looks at more than appearance. The doctor considers how well the eyelids close, the tear film and surface of the eye, and your general health and medicines, so that any plan keeps the eye comfortable and safe.",
     ],
     seekHelp: {
       heading: "Reasons to ask for an assessment",
       items: [
         "Eyelids that feel heavy or droop",
         "Upper eyelids that block part of your vision",
+        "Needing to tilt your head back or lift your eyebrows to see clearly",
+        "Eyes that feel tired or strained, especially by the end of the day",
+        "Skin that rests on the lashes or irritates in the eyelid fold",
         "Bags or puffiness under the eyes",
         "One eyelid sitting lower than the other",
         "Eyelid changes that appeared suddenly",
       ],
-      note: "A drooping eyelid that appears suddenly, or comes with double vision or headache, needs prompt medical attention.",
+      note: "A drooping eyelid that appears suddenly, or comes with double vision, headache or eye pain, needs prompt medical attention.",
     },
-    journeyLead: "A general outline. Every step is explained before you decide anything.",
+    journeyLead:
+      "A general outline. Every step is explained before you decide anything, and you can ask questions at any point.",
     journey: [
       {
-        title: "Consultation and examination",
-        text: "The eyelids, the eyes and the surrounding skin are examined.",
+        title: "Consultation and history",
+        text: "The doctor asks what bothers you and why, and about your general health, medicines, any eye or thyroid conditions and any earlier eye or eyelid surgery.",
+      },
+      {
+        title: "Examination",
+        text: "The eyelids, the eyes and the surrounding skin and brow are examined. The doctor checks the position and movement of the eyelids, how well they close and the tear film, and works out whether excess skin, fat, a drooping lid or a combination is involved.",
       },
       {
         title: "What is realistic",
@@ -287,7 +353,7 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
       },
       {
         title: "Risks and alternatives",
-        text: "The possible risks and the alternatives are discussed.",
+        text: "The possible risks and the alternatives, including not having surgery, are discussed.",
       },
       {
         title: "Your decision",
@@ -295,7 +361,7 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
       },
       {
         title: "Planning and aftercare",
-        text: "If you choose surgery, the centre explains how it is arranged, what aftercare involves and what follow-up is advised.",
+        text: "If you choose surgery, the centre explains how it is arranged, what to tell the team beforehand, what aftercare involves and what follow-up is advised.",
       },
     ],
     faqs: [
@@ -304,16 +370,36 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
         a: "They are different. Blepharoplasty removes excess skin or fat. Ptosis surgery adjusts the muscle that lifts the eyelid. An examination shows which, or whether both, are relevant.",
       },
       {
+        q: "Is blepharoplasty only cosmetic?",
+        a: "No. For some people the main reason is functional, such as excess skin that blocks part of the view or makes the eyelids feel heavy. For others it is mainly about appearance, and many have a mixture. The doctor asks about both.",
+      },
+      {
+        q: "Who might be suitable for eyelid surgery?",
+        a: "It depends on what the examination finds, your general health, the health of the eye surface and what you hope to change. Some people are better served by other care, or by no treatment. The doctor explains this after assessing you.",
+      },
+      {
+        q: "Can the upper and lower eyelids be treated together?",
+        a: "Sometimes. The upper lids, lower lids or both may be considered, depending on what is causing the concern. The doctor advises after examining you.",
+      },
+      {
+        q: "Will I have visible scars?",
+        a: "Incisions are usually planned to lie in natural creases where possible, but scarring differs between people and no result can be promised. The doctor explains what to expect in your case.",
+      },
+      {
+        q: "Can eyelid surgery affect dry eyes?",
+        a: "It can sometimes cause temporary dryness or irritation, which is one reason the tear film and eye surface are checked first. Tell the doctor if your eyes are already dry or sore.",
+      },
+      {
         q: "Will the result last for ever?",
         a: "Eyelids continue to age. The doctor explains what to expect over time, and no result can be guaranteed.",
       },
       {
         q: "What are the risks?",
-        a: "All surgery has risks, which can include swelling, bruising, infection and differences between the two sides. The doctor goes through them with you before you decide.",
+        a: "All surgery has risks, which can include swelling, bruising, infection, dryness and differences between the two sides. The doctor goes through them with you before you decide.",
       },
       {
         q: "How long is recovery?",
-        a: "It differs between people and operations. The doctor explains what to expect in your case.",
+        a: "It differs between people and operations. Swelling and bruising are common at first, and your eyes may feel tight or dry. The doctor gives specific aftercare advice and explains what to expect in your case.",
       },
     ],
     related: ["aesthetic", "reconstructive", "exams"],
@@ -386,67 +472,64 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
 
   reconstructive: {
     key: "reconstructive",
-    metaTitle: "Reconstructive Oculoplasty",
+    metaTitle: "Reconstructive Oculoplasty in Ashok Vihar, New Delhi",
     metaDescription:
       "Reconstructive oculoplasty: assessment of drooping eyelids, eyelid malposition and watering eyes at Namokar Eye & Oculoplasty Centre, Ashok Vihar, New Delhi.",
-    h1: "Restoring how the eyelids and tear passages work.",
-    eyebrow: "Eye plastic and reconstructive surgery",
-    lead: "Care for the eyelids, tear passages and the area around the eyes when they are not working or positioned as they should.",
-    introHeading: "What reconstructive oculoplasty looks after",
+    h1: "Restoring eye function, comfort and confidence.",
+    eyebrow: "Reconstructive oculoplasty",
+    lead: "Reconstructive oculoplasty treats medical and functional concerns of the eyelids, tear ducts, eye socket and surrounding eye structures with a focus on safety, comfort and natural restoration.",
+    introHeading: "What is reconstructive oculoplasty?",
     intro: [
-      "Oculoplasty is the specialty that looks after the eyelids, the tear drainage system and the bony socket (orbit) around the eye. Reconstructive oculoplasty focuses on how these structures work and feel, and on restoring a normal position and shape where something has changed.",
-      "Conditions that may be assessed include a drooping upper eyelid (ptosis), eyelids that turn in or out, and watering eyes caused by blocked tear passages. The doctor confirms what can be treated at the centre after examining you, and will say if care elsewhere would suit you better.",
+      "Reconstructive oculoplasty is a specialized eye surgery field that deals with the structures around the eye, including the eyelids, tear ducts, orbit and eye socket.",
+      "It is used to correct functional problems, improve comfort, protect the eye and restore appearance after disease, injury or structural changes.",
     ],
     seekHelp: {
-      heading: "Reasons to have it checked",
+      heading: "Conditions treated",
       items: [
-        "Eyes that water all the time",
-        "An eyelid that droops or sits lower than the other",
-        "Eyelashes that rub against the eye, or an eyelid that turns outwards",
-        "A lump on or near an eyelid that is growing or changing",
-        "Irritation or discomfort around the eyelids that does not settle",
+        "Ptosis or a drooping upper eyelid",
+        "Entropion, where the eyelid turns inward and lashes rub against the eye",
+        "Ectropion, where the eyelid turns outward and may cause watering or irritation",
+        "Dermatochalasis, or excess and sagging eyelid skin",
+        "Watering eyes and tear-duct problems",
+        "Orbital, eye-socket, eyelid and oculoplastic reconstruction concerns",
       ],
       note: "After an eye injury, or if you notice double vision or a change in how the eye sits, seek urgent medical help.",
     },
-    journeyLead: "A general outline. The doctor explains each step.",
+    journeyLead: "Care is planned around eye protection, comfort, vision-related concerns and the cause of the condition.",
     journey: [
       {
-        title: "Examination",
-        text: "The eyelids, the tear passages and the eyes are examined to find the cause of the problem.",
+        title: "Detailed evaluation",
+        text: "The doctor examines eyelid position, eye-surface health, tear drainage, vision-related concerns and your symptoms.",
       },
       {
-        title: "Explanation",
-        text: "The doctor explains what is happening and what could help.",
+        title: "Diagnosis and planning",
+        text: "The plan is based on whether the issue affects comfort, eye protection, vision, appearance or a combination of these.",
       },
       {
-        title: "Options and risks",
-        text: "Treatment options, where there are any, are discussed together with their risks and limits.",
+        title: "Surgical or medical management",
+        text: "Depending on the condition, the doctor may recommend a corrective procedure or another suitable treatment plan.",
       },
       {
-        title: "Your decision",
-        text: "You decide at your own pace.",
-      },
-      {
-        title: "Aftercare and review",
-        text: "The centre explains aftercare and when you will be reviewed.",
+        title: "Recovery and follow-up",
+        text: "Recovery depends on the condition and procedure performed. Follow-up visits help monitor healing and outcome.",
       },
     ],
     faqs: [
       {
         q: "What is ptosis?",
-        a: "Ptosis means the upper eyelid sits lower than normal. It can be present from birth or develop later, and it can sometimes affect vision. An examination is needed to find the cause.",
+        a: "Ptosis is a condition where the upper eyelid droops. It may affect appearance, confidence and, in some cases, the field of vision. Treatment focuses on lifting and correcting eyelid position after an assessment.",
+      },
+      {
+        q: "What are entropion and ectropion?",
+        a: "Entropion is an inward-turning eyelid that can make lashes rub against the eye. Ectropion is an outward-turning eyelid that may cause watering, dryness, irritation and exposure-related discomfort.",
       },
       {
         q: "Why do my eyes keep watering?",
-        a: "Watering can come from dryness or irritation, infection, or blocked tear drainage, among other causes. Treatment depends on the cause, so persistent watering should be examined.",
+        a: "Watering eyes may occur due to tear-drainage issues as well as other causes. Reconstructive oculoplasty includes evaluation and treatment of tear-duct-related problems when appropriate.",
       },
       {
-        q: "Is this surgery cosmetic?",
-        a: "Reconstructive oculoplasty focuses mainly on function and comfort. Appearance often improves as well, but that is not its only purpose.",
-      },
-      {
-        q: "Which conditions are treated at the centre?",
-        a: "The centre confirms what it treats at the consultation. This page lists general areas of assessment only.",
+        q: "Is reconstructive oculoplasty only about appearance?",
+        a: "No. Its focus is function, comfort and eye protection. Appearance may also be considered when planning care for eyelid or surrounding-eye conditions.",
       },
     ],
     related: ["eyelid", "aesthetic", "exams"],

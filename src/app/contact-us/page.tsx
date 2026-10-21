@@ -98,7 +98,7 @@ export default function ContactPage() {
           ) : undefined
         }
         mediaLabel="Visit us"
-        mediaCaption="Our Ashok Vihar centre, seen from the street."
+        mediaCaption="Our Ashok Vihar centre, seen from the street. Call ahead to ask about arranging your visit."
       />
 
       {/* Contact actions */}

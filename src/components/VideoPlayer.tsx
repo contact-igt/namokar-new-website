@@ -35,6 +35,7 @@ export default function VideoPlayer({
   const started = playing ?? own;
   const [failed, setFailed] = useState(false);
   const vertical = v.aspect === "9:16";
+  const posterClass = `vp-poster${v.videoId === "ZfZpmkXPa4k" ? " vp-poster--trim" : ""}`;
 
   const start = () => {
     setOwn(true);
@@ -48,12 +49,12 @@ export default function VideoPlayer({
     <figure className={`vp${vertical ? " vp--vertical" : ""}`}>
       <div className={`vp-frame vp-frame--${vertical ? "v" : "h"}`} style={v.ratio ? { aspectRatio: v.ratio } : undefined}>
         {!started && v.kind === "local" && v.poster && (
-          <Image src={v.poster} alt="" fill sizes={sizes} className="vp-poster" />
+          <Image src={v.poster} alt="" fill sizes={sizes} className={posterClass} />
         )}
         {!started && v.kind === "youtube" && (
           <div className="vp-thumb" aria-hidden="true">
             {v.poster ? (
-              <Image src={v.poster} alt="" fill sizes={sizes} className="vp-poster" />
+              <Image src={v.poster} alt="" fill sizes={sizes} className={posterClass} />
             ) : (
               <Image src="/images/namokar-logo.webp" alt="" width={220} height={62} className="vp-thumb-mark" />
             )}
@@ -107,10 +108,6 @@ export default function VideoPlayer({
           </button>
         )}
       </div>
-
-      {v.sensitive && !started && (
-        <p className="vp-warn">This video may show an eye procedure. Press Play only if you are comfortable.</p>
-      )}
 
       {showMeta ? (
         <figcaption className="vp-cap">

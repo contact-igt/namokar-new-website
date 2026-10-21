@@ -68,7 +68,18 @@ Status "pending" means it is NOT shown in any default build, in `npm run dev` or
 | art-iris-macro.webp | AI concept art | Gamma, 15 Oct 2026 | Client approval of AI art | pending | No |
 | art-optical-lens.webp | AI concept art | Gamma, 15 Oct 2026 | Client approval of AI art | pending | No |
 | aesthetic-oculoplasty-consultation-indian-ai.png | AI-generated editorial consultation image; fictional Indian doctor and patient | OpenAI image generation, 21 Oct 2026 | Project user request, 21 Oct 2026 | approved | Aesthetic Oculoplasty overview |
+| tears-drain.png | Labelled educational illustration of normal tear drainage; no real person | Supplied by project owner, 21 Oct 2026 | Project user request, 21 Oct 2026 | approved | Reconstructive Oculoplasty: Tears drain state |
+| passage-blocked.png | Labelled educational illustration of a blocked tear duct; no real person | Supplied by project owner, 21 Oct 2026 | Project user request, 21 Oct 2026 | approved | Reconstructive Oculoplasty: Passage blocked state |
+| eyelid-typical-comparison-ai.png | AI-generated educational illustration of a typical lower eyelid; no real person | OpenAI image generation, 21 Oct 2026 | Project user request, 21 Oct 2026 | approved | Reconstructive Oculoplasty: eyelid comparison |
+| eyelid-entropion-comparison-ai.png | AI-generated educational illustration of an inward-turning lower eyelid; no real person | OpenAI image generation, 21 Oct 2026 | Project user request, 21 Oct 2026 | approved | Reconstructive Oculoplasty: eyelid comparison |
+| eyelid-ectropion-comparison-ai.png | AI-generated educational illustration of an outward-turning lower eyelid; no real person | OpenAI image generation, 21 Oct 2026 | Project user request, 21 Oct 2026 | approved | Reconstructive Oculoplasty: eyelid comparison |
+| reconstructive-oculoplasty-overview-indian-ai.png | AI-generated editorial consultation image; fictional Indian doctor and patient | OpenAI image generation, 21 Oct 2026 | Project user request, 21 Oct 2026 | approved | Reconstructive Oculoplasty overview |
 | aesthetic-oculoplasty-overview-indian-ai.png | AI-generated editorial consultation image; fictional Indian doctor and patient | OpenAI image generation, 21 Oct 2026 | Project user request, 21 Oct 2026 | approved | Aesthetic Oculoplasty “What is” overview |
+| blepharoplasty-overview-consultation-indian-ai.png | AI-generated editorial consultation image; fictional Indian oculoplastic specialist and adult patient | OpenAI image generation, 21 Oct 2026 | Project user request, 21 Oct 2026 | approved | Blepharoplasty “What is” overview |
+| cataract-overview-consultation-indian-ai.png | AI-generated editorial consultation image; fictional Indian ophthalmic specialist and adult patient | OpenAI image generation, 21 Oct 2026 | Project user request, 21 Oct 2026 | approved | Cataract “What is” overview |
+| upper-eyelid-typical-ai.png | AI-generated educational illustration of a fictional adult's typical upper eyelid | OpenAI image generation, 21 Oct 2026 | Project user request, 21 Oct 2026 | approved | Blepharoplasty: Upper eyelid position |
+| upper-eyelid-drooping-ai.png | AI-generated educational illustration of a fictional adult's drooping upper eyelid | OpenAI image generation, 21 Oct 2026 | Project user request, 21 Oct 2026 | approved | Blepharoplasty: Upper eyelid position |
+| upper-eyelid-excess-skin-ai.png | AI-generated educational illustration of a fictional adult's upper eyelid with excess skin | OpenAI image generation, 21 Oct 2026 | Project user request, 21 Oct 2026 | approved | Blepharoplasty: Upper eyelid position |
 
 How to review or release
 - **Review (never in production):** `npm run dev:preview` or `npm run build:preview` set the server variable `ASSET_PREVIEW=on`. Every pending asset then carries a visible "Preview only: not approved" tag. Plain `npm run dev` does not show them. Never set `ASSET_PREVIEW` in a production environment.
@@ -126,3 +137,15 @@ Figures now shown on the homepage, supplied in the client report as already publ
 - "Oculoplasty Surgeon" as a descriptor of the doctor.
 
 Open points: confirm both figures and the descriptor in writing; check them against the NMC advertising guidelines (`docs/launch/NMC_CONTENT_VERIFICATION.md`); keep them out of structured data until approved (they are not in `src/lib/schema.ts`). The client report also asks the SEO team to purge old cached copies that still show "28+ years", "500,000 eyes treated", "painless recovery" and old hours: that is a deployment task, not part of this codebase.
+
+## Reconstructive eyelid comparison illustrations (21 Oct 2026)
+
+The project owner requested and approved three original AI-generated educational illustrations for the “How lashes point” comparison: a typical lower eyelid, entropion and ectropion. They are explanatory artwork, not patient photographs, before-and-after images or treatment results. Files: `eyelid-lashes-typical-v2.png`, `eyelid-lashes-entropion-v2.png` and `eyelid-lashes-ectropion-v2.png` in `private-assets/`.
+
+## Glaucoma drainage comparison illustrations (21 Oct 2026)
+
+The project owner requested and approved two original AI-generated educational eye cross-sections for the glaucoma drainage explainer: normal aqueous-fluid drainage and slowed drainage with rising pressure. They are explanatory artwork, not patient photographs or treatment results. Files: `glaucoma-drainage-normal-ai.png` and `glaucoma-drainage-slowed-ai.png` in `private-assets/`.
+
+## Comprehensive eye-examination illustrations (21 Oct 2026)
+
+The project owner requested and approved five original AI-generated educational images for the examination-step explainer: visual acuity, refraction, eye-pressure measurement, slit-lamp examination and retinal imaging. Every person depicted is fictional; these are not patient photographs or treatment results. Files: `exam-visual-acuity-ai.png`, `exam-refraction-ai.png`, `exam-eye-pressure-ai.png`, `exam-front-eye-ai.png` and `exam-retina-ai.png` in `private-assets/`.
