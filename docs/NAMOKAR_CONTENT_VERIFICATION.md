@@ -67,6 +67,8 @@ Status "pending" means it is NOT shown in any default build, in `npm run dev` or
 | walkthrough-poster.webp | No one | July clip IMG_4260 | Client | pending | No |
 | art-iris-macro.webp | AI concept art | Gamma, 15 Oct 2026 | Client approval of AI art | pending | No |
 | art-optical-lens.webp | AI concept art | Gamma, 15 Oct 2026 | Client approval of AI art | pending | No |
+| aesthetic-oculoplasty-consultation-indian-ai.png | AI-generated editorial consultation image; fictional Indian doctor and patient | OpenAI image generation, 21 Oct 2026 | Project user request, 21 Oct 2026 | approved | Aesthetic Oculoplasty overview |
+| aesthetic-oculoplasty-overview-indian-ai.png | AI-generated editorial consultation image; fictional Indian doctor and patient | OpenAI image generation, 21 Oct 2026 | Project user request, 21 Oct 2026 | approved | Aesthetic Oculoplasty “What is” overview |
 
 How to review or release
 - **Review (never in production):** `npm run dev:preview` or `npm run build:preview` set the server variable `ASSET_PREVIEW=on`. Every pending asset then carries a visible "Preview only: not approved" tag. Plain `npm run dev` does not show them. Never set `ASSET_PREVIEW` in a production environment.
