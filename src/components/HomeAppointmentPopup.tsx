@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { SERVICE_OPTIONS, validate } from "@/lib/appointment";
 import { CalendarIcon, CloseIcon, PhoneIcon } from "./Icons";
 
@@ -9,6 +10,7 @@ type Status = "idle" | "submitting" | "success" | "error";
 
 /** Home-only appointment prompt. Uses the same validation and endpoint as the contact form. */
 export default function HomeAppointmentPopup() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
@@ -16,6 +18,7 @@ export default function HomeAppointmentPopup() {
   const [serviceOpen, setServiceOpen] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLElement>(null);
+  const submissionIdRef = useRef("");
 
   useEffect(() => {
     const timer = window.setTimeout(() => setOpen(true), 4500);
@@ -75,14 +78,15 @@ export default function HomeAppointmentPopup() {
     }
     setStatus("submitting");
     setError("");
+    if (!submissionIdRef.current) submissionIdRef.current = crypto.randomUUID();
     try {
       const response = await fetch("/api/appointment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(result.values),
+        body: JSON.stringify({ ...result.values, formId: "namokar-home-popup-v1", submissionId: submissionIdRef.current, pageUrl: window.location.href }),
       });
       const payload = (await response.json().catch(() => ({}))) as { ok?: boolean };
-      if (response.ok && payload.ok) setStatus("success");
+      if (response.ok && payload.ok) router.push("/thank-you?form=home");
       else {
         setStatus("error");
         setError("We could not send your request just now. Please call the centre or try again later.");

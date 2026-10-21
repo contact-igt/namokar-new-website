@@ -19,4 +19,5 @@ Next.js 16 (App Router) + React + TypeScript. Read `CLAUDE.md` first: it holds t
 - `src/config/assets.ts` every photo/video with source and approval · `private-assets/` the files (not in `public/`)
 - `src/content/` services, videos, articles, reviews · `docs/` ledgers, QA, media and photography notes
 - Online booking is off unless the server sets `APPOINTMENT_FORM_ENABLED=on` and `APPOINTMENT_WEBHOOK_URL`.
+- Namokar website leads use `INVICTUS_NAMOKAR_LEADS_URL=https://<invictus-api>/api/v1/namokar/website-leads`; the Invictus backend owns the PulseOS token and Sheets mirror.
 - Search indexing is off until the server sets `ALLOW_INDEXING=on` and pages are marked reviewed.

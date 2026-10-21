@@ -241,7 +241,7 @@ export default function ContactPage() {
               </a>
             )}
           </div>
-          {formOn && <AppointmentForm privacyUrl={PRIVACY_URL} />}
+          <AppointmentForm privacyUrl={PRIVACY_URL} />
         </div>
       </section>
 

@@ -1,18 +1,18 @@
 "use client";
 
-import { useRef, useState, useSyncExternalStore } from "react";
+import { useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   type FieldErrors,
   type FieldName,
   SERVICE_OPTIONS,
-  dateBounds,
   validate,
 } from "@/lib/appointment";
 import { SITE, TEL_HREF } from "@/config/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-const ORDER: FieldName[] = ["name", "phone", "service", "preferredDate", "consent"];
+const ORDER: FieldName[] = ["name", "phone", "service", "message", "consent"];
 
 const SERVER_MESSAGES: Record<string, string> = {
   rate_limited: "Too many requests from this connection. Please wait a few minutes, or call the centre.",
@@ -27,22 +27,13 @@ const SERVER_MESSAGES: Record<string, string> = {
  * enquiry was accepted. Collects no medical details.
  */
 export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | null }) {
+  const router = useRouter();
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
   const [formError, setFormError] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
   const summaryRef = useRef<HTMLDivElement>(null);
-  // The current date is read on the client only: it must not be baked into the prerendered page.
-  const dateKey = useSyncExternalStore(
-    () => () => {},
-    () => {
-      const b = dateBounds();
-      return `${b.min}|${b.max}`;
-    },
-    () => "",
-  );
-  const [min, max] = dateKey ? dateKey.split("|") : [undefined, undefined];
-
+  const submissionIdRef = useRef("");
   const focusSummary = () => requestAnimationFrame(() => summaryRef.current?.focus());
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -53,14 +44,18 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
       name: String(fd.get("name") ?? ""),
       phone: String(fd.get("phone") ?? ""),
       service: String(fd.get("service") ?? ""),
-      preferredDate: String(fd.get("preferredDate") ?? ""),
+      preferredDate: "",
+      message: String(fd.get("message") ?? ""),
       consent: fd.get("consent") === "on",
       hp_check: String(fd.get("hp_check") ?? ""),
     };
 
     const local = validate(raw);
-    if (!local.ok) {
-      setErrors(local.errors);
+    const localErrors = local.ok ? {} : local.errors;
+    if (!raw.service) localErrors.service = "Please select a treatment option.";
+    if (!raw.message.trim()) localErrors.message = "Please enter a short message.";
+    if (Object.keys(localErrors).length) {
+      setErrors(localErrors);
       setFormError("");
       setStatus("error");
       focusSummary();
@@ -70,11 +65,12 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
     setErrors({});
     setFormError("");
     setStatus("submitting");
+    if (!submissionIdRef.current) submissionIdRef.current = crypto.randomUUID();
     try {
       const res = await fetch("/api/appointment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(raw),
+        body: JSON.stringify({ ...raw, formId: "namokar-contact-v1", submissionId: submissionIdRef.current, pageUrl: window.location.href }),
       });
       const data = (await res.json().catch(() => ({}))) as {
         ok?: boolean;
@@ -82,9 +78,7 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
         errors?: FieldErrors;
       };
       if (res.ok && data.ok === true) {
-        setStatus("success");
-        formRef.current?.reset();
-        focusSummary();
+        router.push("/thank-you?form=contact");
         return;
       }
       if (res.status === 422 && data.errors) {
@@ -130,7 +124,7 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
   });
 
   return (
-    <form ref={formRef} onSubmit={onSubmit} noValidate className="form" aria-busy={status === "submitting"}>
+    <form ref={formRef} onSubmit={onSubmit} noValidate className="form form--contact" aria-busy={status === "submitting"}>
       {status === "error" && (errorList.length > 0 || formError) && (
         <div className="form-note form-note--err" role="alert" tabIndex={-1} ref={summaryRef}>
           <p className="form-note-title">
@@ -149,32 +143,24 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
         </div>
       )}
 
-      <div className="field">
-        <label htmlFor="name">Full name</label>
-        <input id="name" name="name" type="text" autoComplete="name" maxLength={80} required {...fieldProps("name")} />
-        {errors.name && <p id="name-error" className="field-error">{errors.name}</p>}
+      <div className="form-row">
+        <div className="field">
+          <label htmlFor="name">Full name <span aria-hidden="true">*</span></label>
+          <input id="name" name="name" type="text" autoComplete="name" maxLength={80} placeholder="Enter full name" required {...fieldProps("name")} />
+          {errors.name && <p id="name-error" className="field-error">{errors.name}</p>}
+        </div>
+        <div className="field">
+          <label htmlFor="phone">Mobile number <span aria-hidden="true">*</span></label>
+          <input id="phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" maxLength={20} placeholder="Enter mobile number" required {...fieldProps("phone")} />
+          {errors.phone && <p id="phone-error" className="field-error">{errors.phone}</p>}
+        </div>
       </div>
 
       <div className="field">
-        <label htmlFor="phone">Phone number</label>
-        <input
-          id="phone"
-          name="phone"
-          type="tel"
-          inputMode="tel"
-          autoComplete="tel"
-          maxLength={20}
-          placeholder="98765 43210"
-          required
-          {...fieldProps("phone")}
-        />
-        {errors.phone && <p id="phone-error" className="field-error">{errors.phone}</p>}
-      </div>
-
-      <div className="field">
-        <label htmlFor="service">Reason for visit <span className="opt">(optional)</span></label>
+        <label htmlFor="service">Selected treatment <span aria-hidden="true">*</span></label>
         <select id="service" name="service" defaultValue="" {...fieldProps("service")}>
-          {SERVICE_OPTIONS.map((o) => (
+          <option value="" disabled>Select treatment option</option>
+          {SERVICE_OPTIONS.slice(1).map((o) => (
             <option key={o.value} value={o.value}>{o.label}</option>
           ))}
         </select>
@@ -182,10 +168,9 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
       </div>
 
       <div className="field">
-        <label htmlFor="preferredDate">Preferred day <span className="opt">(optional)</span></label>
-        <input id="preferredDate" name="preferredDate" type="date" min={min} max={max} {...fieldProps("preferredDate")} />
-        <p className="hint">The centre cannot promise this day. It helps when planning a time.</p>
-        {errors.preferredDate && <p id="preferredDate-error" className="field-error">{errors.preferredDate}</p>}
+        <label htmlFor="message">Message <span aria-hidden="true">*</span></label>
+        <textarea id="message" name="message" maxLength={300} required placeholder="Enter your message here…" {...fieldProps("message")} />
+        {errors.message && <p id="message-error" className="field-error">{errors.message}</p>}
       </div>
 
       {/* Honeypot: hidden from people and assistive technology */}
@@ -215,7 +200,7 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
       </p>
 
       <button type="submit" className="btn btn--primary" disabled={status === "submitting"}>
-        {status === "submitting" ? "Sending…" : status === "error" ? "Try again" : "Send request"}
+        {status === "submitting" ? "Sending…" : status === "error" ? "Try again" : "Send message"}
       </button>
     </form>
   );

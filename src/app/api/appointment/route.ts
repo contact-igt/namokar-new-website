@@ -1,19 +1,13 @@
-import { type CleanValues, validate } from "@/lib/appointment";
-import { onlineBookingAvailable, webhookTarget } from "@/lib/booking";
+import { randomUUID } from "crypto";
+import { type FieldErrors, validate } from "@/lib/appointment";
+import { onlineBookingAvailable } from "@/lib/booking";
+import { deliverNamokarLead } from "@/lib/namokar-leads";
 
 /**
  * POST /api/appointment
  *
- * Validates an appointment enquiry and forwards it to a delivery endpoint configured on
- * the SERVER only:
- *   APPOINTMENT_FORM_ENABLED=on  explicit release switch (see src/lib/booking.ts)
- *   APPOINTMENT_WEBHOOK_URL      required; https:// (http:// allowed for localhost only)
- *   APPOINTMENT_WEBHOOK_TOKEN    optional; sent as "Authorization: Bearer <token>"
- * There is no NEXT_PUBLIC_ switch: a public frontend flag cannot enable this route.
- *
- * It never reports success unless that endpoint answered 2xx. With no endpoint
- * configured it answers 503, so the form can never pretend to have delivered anything.
- * Personal details are never logged.
+ * Sends validated submissions server-to-server to Invictus, then to Google Sheets
+ * only as the emergency fallback. Personal details and upstream credentials are never logged.
  */
 
 const MAX_BODY = 4_096;
@@ -33,30 +27,6 @@ function rateLimited(ip: string): boolean {
     for (const [k, v] of hits) if (v.every((t) => now - t >= WINDOW_MS)) hits.delete(k);
   }
   return recent.length > MAX_PER_WINDOW;
-}
-
-async function deliver(values: CleanValues, target: URL): Promise<boolean> {
-  try {
-    const res = await fetch(target, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        ...(process.env.APPOINTMENT_WEBHOOK_TOKEN
-          ? { Authorization: `Bearer ${process.env.APPOINTMENT_WEBHOOK_TOKEN}` }
-          : {}),
-      },
-      body: JSON.stringify({
-        ...values,
-        source: "website-contact-form",
-        receivedAt: new Date().toISOString(),
-      }),
-      signal: AbortSignal.timeout(8_000),
-      redirect: "error",
-    });
-    return res.ok;
-  } catch {
-    return false;
-  }
 }
 
 export async function POST(request: Request) {
@@ -96,6 +66,8 @@ export async function POST(request: Request) {
   if (typeof b.hp_check === "string" && b.hp_check.trim() !== "")
     return json({ ok: false, code: "rejected" }, 400);
 
+  const formId = b.formId === "namokar-home-popup-v1" ? "namokar-home-popup-v1" : b.formId === "namokar-contact-v1" ? "namokar-contact-v1" : null;
+  if (!formId) return json({ ok: false, code: "bad_request" }, 400);
   const result = validate({
     name: String(b.name ?? ""),
     phone: String(b.phone ?? ""),
@@ -107,10 +79,13 @@ export async function POST(request: Request) {
     message: String(b.message ?? ""),
   });
   if (!result.ok) return json({ ok: false, code: "invalid", errors: result.errors }, 422);
+  const errors: FieldErrors = {};
+  if (!result.values.service) errors.service = "Please select a treatment option.";
+  if (formId === "namokar-contact-v1" && !result.values.message) errors.message = "Please enter a short message.";
+  if (Object.keys(errors).length) return json({ ok: false, code: "invalid", errors }, 422);
 
-  const target = webhookTarget();
-  if (!target) return json({ ok: false, code: "not_configured" }, 503);
-
-  const delivered = await deliver(result.values, target);
-  return delivered ? json({ ok: true }, 200) : json({ ok: false, code: "delivery_failed" }, 502);
+  const submissionId = typeof b.submissionId === "string" && /^[0-9a-f-]{36}$/i.test(b.submissionId) ? b.submissionId : randomUUID();
+  const pageUrl = typeof b.pageUrl === "string" && b.pageUrl.length <= 500 ? b.pageUrl : "";
+  const delivered = await deliverNamokarLead({ ...result.values, submissionId, formId, pageUrl });
+  return delivered ? json({ ok: true, delivery: delivered }, 200) : json({ ok: false, code: "delivery_failed" }, 502);
 }

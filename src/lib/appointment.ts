@@ -13,7 +13,7 @@ export const SERVICE_OPTIONS = [
   { value: "exams", label: "Comprehensive Eye Examination" },
 ] as const;
 
-export type FieldName = "name" | "phone" | "service" | "preferredDate" | "consent";
+export type FieldName = "name" | "phone" | "service" | "preferredDate" | "message" | "consent";
 
 export type RawValues = {
   name: string;

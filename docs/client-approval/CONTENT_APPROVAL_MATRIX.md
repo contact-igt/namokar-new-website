@@ -257,7 +257,7 @@ Sources used: (1) the project brief; (2) the clinic's published website namokare
 ### 1.17. Directions link and map
 
 > Get Directions opens a Google Maps search for: Namokar Eye & Oculoplasty Centre, 13A Pocket A Phase 3, Ashok Vihar, Delhi 110052  
-> The Contact page map says: "This map is a search for the centre's address, not a confirmed business pin, so it may not land exactly on the entrance."
+> The Contact page map says: "The map pin uses the position published on the centre's existing website, not a confirmed Google business listing, so it may not land exactly on the entrance."
 
 - **Where it appears:** Contact → Get Directions, Show map; footer
 - **Status:** **Unverified** — not yet checked against a document or the clinic's own records
