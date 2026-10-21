@@ -2243,12 +2243,17 @@ a.act--primary:hover {
 .field label {
   font-weight: 600;
 }
+/* Required-field asterisk */
+.field label > span[aria-hidden="true"] {
+  color: #b42318;
+}
 .opt {
   font-weight: 400;
   color: var(--ink-soft);
 }
 .field input:not([type="checkbox"]),
-.field select {
+.field select,
+.field textarea {
   width: 100%;
   min-height: 52px;
   padding: 10px 14px;
@@ -2259,12 +2264,28 @@ a.act--primary:hover {
   color: var(--ink);
 }
 .field input:focus-visible,
-.field select:focus-visible {
+.field select:focus-visible,
+.field textarea:focus-visible {
   outline: 3px solid var(--ink);
   outline-offset: 2px;
 }
 .field [aria-invalid="true"] {
   border-color: #b42318;
+}
+.field textarea {
+  min-height: 164px;
+  resize: vertical;
+}
+.form--contact {
+  background: #edf8ff;
+  border-color: #cfdeea;
+}
+.form-row {
+  display: grid;
+  gap: 20px;
+}
+.form--contact .btn {
+  justify-self: start;
 }
 .field--check {
   grid-template-columns: 28px 1fr;
@@ -2329,6 +2350,18 @@ a.act--primary:hover {
   opacity: 0.7;
   cursor: progress;
 }
+.thank-you {
+  display: grid;
+  gap: 20px;
+  max-width: 760px;
+  min-height: 52vh;
+  align-content: center;
+}
+.thank-you-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
 @media (min-width: 640px) {
   .page-hero-media {
@@ -2353,6 +2386,9 @@ a.act--primary:hover {
   }
   .form {
     padding: 28px;
+  }
+  .form-row {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -2443,6 +2479,10 @@ a.act--primary:hover {
     grid-template-columns: 5fr 6fr;
     gap: 88px;
     align-items: start;
+  }
+  .req-grid .section-head {
+    position: sticky;
+    top: calc(var(--header-h) + 32px);
   }
   .form {
     padding: 36px;

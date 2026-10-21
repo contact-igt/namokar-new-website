@@ -38,7 +38,7 @@ export default function MapEmbed() {
       <p className="map-note">
         {verified
           ? "Map position from the centre's Google listing."
-          : "This map is a search for the centre's address, not a confirmed business pin, so it may not land exactly on the entrance."}{" "}
+          : "The map pin uses the position published on the centre's existing website, not a confirmed Google business listing, so it may not land exactly on the entrance."}{" "}
         <a href={MAPS_LINK} target="_blank" rel="noopener noreferrer" className="text-link">
           Open in Google Maps<span className="sr-only"> (opens in a new tab)</span>
         </a>
