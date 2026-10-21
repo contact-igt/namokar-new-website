@@ -40,8 +40,8 @@ export const COVERS: Record<ServiceKey, { primary: Cover; secondary?: Cover; pla
     plate: { plate: "eyelid", figure: "plateEyelid", caption: "The brow, the crease of the upper eyelid and the eyelid margin. A drawing, not a result." },
   },
   aesthetic: {
-    primary: { asset: ASSETS.docDesk, caption: "Dr. Poonam Jain at her consultation desk.", position: "38% 40%" },
-    plate: { plate: "aesthetic", figure: "plateAesthetic", caption: "The area around the eye that this care looks at. A drawing, not a result." },
+    primary: { asset: ASSETS.docDesk, caption: "Personalized aesthetic oculoplasty care begins with a comprehensive eye-area assessment.", position: "38% 40%" },
+    secondary: { asset: ASSETS.aestheticOverviewAi, caption: "Aesthetic oculoplasty care is explained through a personalized eye-area consultation.", position: "50% 50%" },
   },
   reconstructive: {
     primary: { asset: ASSETS.otModernC, caption: "An operation theatre at the centre.", position: "50% 55%" },
