@@ -39,6 +39,7 @@ export async function deliverNamokarLead(lead: NamokarLead): Promise<"invictus" 
   const invictus = configuredUrl(process.env.INVICTUS_NAMOKAR_LEADS_URL);
   if (invictus) {
     const accepted = await post(invictus, lead, {
+      "X-Client-Key": process.env.INVICTUS_NAMOKAR_CLIENT_KEY || "namokar",
       // PulseOS accepts leads only from the website server; never expose this in client code.
       ...(process.env.INVICTUS_NAMOKAR_LEADS_TOKEN
         ? { "X-PulseOS-Intake-Token": process.env.INVICTUS_NAMOKAR_LEADS_TOKEN }
