@@ -1,39 +1,22 @@
-"use client";
-
-import { useState } from "react";
 import { MAP, MAPS_LINK } from "@/config/site";
-import { PinIcon } from "./Icons";
 
 /**
- * Click-to-load map: nothing from Google is requested until the visitor asks for it,
- * which keeps the first mobile load light. States plainly whether the map is a verified
- * business pin or only an address search.
+ * The contact page shows the map immediately. It states plainly whether the pin is a
+ * verified business listing or only an address search.
  */
 export default function MapEmbed() {
-  const [shown, setShown] = useState(false);
   const verified = MAP.verifiedPinUrl !== null;
 
   return (
     <div className="map">
       <div className="map-frame">
-        {shown ? (
-          <iframe
-            title="Map showing the location of Namokar Eye & Oculoplasty Centre"
-            src={MAP.embedUrl}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
-        ) : (
-          <div className="map-ph">
-            <PinIcon width={28} height={28} />
-            <p>Ashok Vihar, New Delhi</p>
-            <button type="button" className="btn btn--secondary" onClick={() => setShown(true)}>
-              Show map
-            </button>
-            <p className="map-hint">Loading the map connects to Google.</p>
-          </div>
-        )}
+        <iframe
+          title="Map showing the location of Namokar Eye & Oculoplasty Centre"
+          src={MAP.embedUrl}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
       </div>
       <p className="map-note">
         {verified
