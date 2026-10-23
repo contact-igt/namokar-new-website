@@ -7,6 +7,7 @@ import { SERVICE_OPTIONS, validate } from "@/lib/appointment";
 import { CalendarIcon, CloseIcon, PhoneIcon } from "./Icons";
 
 type Status = "idle" | "submitting" | "success" | "error";
+const SESSION_KEY = "namokar-home-appointment-popup-shown";
 
 /** Home-only appointment prompt. Uses the same validation and endpoint as the contact form. */
 export default function HomeAppointmentPopup() {
@@ -21,7 +22,19 @@ export default function HomeAppointmentPopup() {
   const submissionIdRef = useRef("");
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setOpen(true), 4500);
+    try {
+      if (window.sessionStorage.getItem(SESSION_KEY)) return;
+    } catch {
+      // If storage is unavailable, retain the existing per-page popup behavior.
+    }
+    const timer = window.setTimeout(() => {
+      try {
+        window.sessionStorage.setItem(SESSION_KEY, "1");
+      } catch {
+        // If storage is unavailable, retain the existing per-page popup behavior.
+      }
+      setOpen(true);
+    }, 4500);
     return () => window.clearTimeout(timer);
   }, []);
 
