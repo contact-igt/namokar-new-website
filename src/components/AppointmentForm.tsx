@@ -31,10 +31,11 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
   const [formError, setFormError] = useState("");
-  const formRef = useRef<HTMLFormElement>(null);
-  const summaryRef = useRef<HTMLDivElement>(null);
   const submissionIdRef = useRef("");
-  const focusSummary = () => requestAnimationFrame(() => summaryRef.current?.focus());
+  const focusFirstError = (fieldErrors: FieldErrors) => {
+    const first = ORDER.find((field) => fieldErrors[field]);
+    if (first) requestAnimationFrame(() => document.getElementById(first)?.focus());
+  };
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -58,7 +59,7 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
       setErrors(localErrors);
       setFormError("");
       setStatus("error");
-      focusSummary();
+      focusFirstError(localErrors);
       return;
     }
 
@@ -83,6 +84,7 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
       }
       if (res.status === 422 && data.errors) {
         setErrors(data.errors);
+        focusFirstError(data.errors);
       } else {
         setFormError(
           SERVER_MESSAGES[data.code ?? ""] ??
@@ -90,17 +92,15 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
         );
       }
       setStatus("error");
-      focusSummary();
     } catch {
       setFormError("We could not reach the server. Please check your connection and try again, or call the centre.");
       setStatus("error");
-      focusSummary();
     }
   }
 
   if (status === "success") {
     return (
-      <div className="form-note form-note--ok" role="status" tabIndex={-1} ref={summaryRef}>
+      <div className="form-note form-note--ok" role="status">
         <h3 className="h3">Your request has been received</h3>
         <p>
           Thank you. This is a request only, <strong>not a confirmed appointment</strong>.
@@ -117,32 +117,13 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
     );
   }
 
-  const errorList = ORDER.filter((f) => errors[f]);
   const fieldProps = (f: FieldName) => ({
     "aria-invalid": errors[f] ? (true as const) : undefined,
     "aria-describedby": errors[f] ? `${f}-error` : undefined,
   });
 
   return (
-    <form ref={formRef} onSubmit={onSubmit} noValidate className="form form--contact" aria-busy={status === "submitting"}>
-      {status === "error" && (errorList.length > 0 || formError) && (
-        <div className="form-note form-note--err" role="alert" tabIndex={-1} ref={summaryRef}>
-          <p className="form-note-title">
-            {errorList.length > 0 ? "Please check the following:" : "Your request was not sent."}
-          </p>
-          {formError && <p>{formError}</p>}
-          {errorList.length > 0 && (
-            <ul>
-              {errorList.map((f) => (
-                <li key={f}>
-                  <a href={`#${f}`}>{errors[f]}</a>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      )}
-
+    <form onSubmit={onSubmit} noValidate className="form form--contact" aria-busy={status === "submitting"}>
       <div className="form-row">
         <div className="field">
           <label htmlFor="name">Full name <span aria-hidden="true">*</span></label>
@@ -199,6 +180,7 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
         )}
       </p>
 
+      {formError && <p className="field-error" role="alert">{formError}</p>}
       <button type="submit" className="btn btn--primary" disabled={status === "submitting"}>
         {status === "submitting" ? "Sending…" : status === "error" ? "Try again" : "Send message"}
       </button>
