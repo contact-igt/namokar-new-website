@@ -71,6 +71,7 @@ export async function POST(request: Request) {
   const result = validate({
     name: String(b.name ?? ""),
     phone: String(b.phone ?? ""),
+    email: String(b.email ?? ""),
     service: String(b.service ?? ""),
     preferredDate: String(b.preferredDate ?? ""),
     consent: b.consent === true,
