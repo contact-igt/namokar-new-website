@@ -1,6 +1,6 @@
 import type { CleanValues } from "@/lib/appointment";
 
-export const GOOGLE_SHEETS_FALLBACK_URL = "https://script.google.com/macros/s/AKfycbxmRm8qPkURPx-kYEFqmjQX3tIltfIroCou7gcewvNRk2_FAJo1z9JpBDac_r3vVcH_/exec";
+export const GOOGLE_SHEETS_FALLBACK_URL = "https://script.google.com/macros/s/AKfycbzWm3QoJdqgtRB111V9-O2b9CRnQEAZij2sWtr1OnbOVaB9MVLPV57_13tjTKcWcBNl/exec";
 
 export type NamokarLead = CleanValues & {
   submissionId: string;
