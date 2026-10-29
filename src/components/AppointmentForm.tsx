@@ -12,7 +12,7 @@ import { SITE, TEL_HREF } from "@/config/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-const ORDER: FieldName[] = ["name", "phone", "service", "message", "consent"];
+const ORDER: FieldName[] = ["name", "phone", "email", "service", "message", "consent"];
 
 const SERVER_MESSAGES: Record<string, string> = {
   rate_limited: "Too many requests from this connection. Please wait a few minutes, or call the centre.",
@@ -44,6 +44,7 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
     const raw = {
       name: String(fd.get("name") ?? ""),
       phone: String(fd.get("phone") ?? ""),
+      email: String(fd.get("email") ?? ""),
       service: String(fd.get("service") ?? ""),
       preferredDate: "",
       message: String(fd.get("message") ?? ""),
@@ -134,6 +135,11 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
           <label htmlFor="phone">Mobile number <span aria-hidden="true">*</span></label>
           <input id="phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" maxLength={20} placeholder="Enter mobile number" required {...fieldProps("phone")} />
           {errors.phone && <p id="phone-error" className="field-error">{errors.phone}</p>}
+        </div>
+        <div className="field">
+          <label htmlFor="email">Email <span className="hint">(optional)</span></label>
+          <input id="email" name="email" type="email" inputMode="email" autoComplete="email" maxLength={254} placeholder="Enter email address" {...fieldProps("email")} />
+          {errors.email && <p id="email-error" className="field-error">{errors.email}</p>}
         </div>
       </div>
 

@@ -13,11 +13,12 @@ export const SERVICE_OPTIONS = [
   { value: "exams", label: "Comprehensive Eye Examination" },
 ] as const;
 
-export type FieldName = "name" | "phone" | "service" | "preferredDate" | "message" | "consent";
+export type FieldName = "name" | "phone" | "email" | "service" | "preferredDate" | "message" | "consent";
 
 export type RawValues = {
   name: string;
   phone: string;
+  email?: string;
   service: string;
   preferredDate: string;
   consent: boolean;
@@ -31,6 +32,7 @@ export type RawValues = {
 export type CleanValues = {
   name: string;
   phone: string; // +91XXXXXXXXXX
+  email?: string;
   service: string;
   preferredDate: string; // YYYY-MM-DD or ""
   consent: true;
@@ -97,6 +99,10 @@ export function validate(
   else if (!phone)
     errors.phone = "Please enter a 10-digit number, with the area code if it is a landline. For other numbers, please call the centre.";
 
+  const email = tidy(raw.email, 254).toLowerCase();
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+    errors.email = "Please enter a valid email address.";
+
   const service = tidy(raw.service, 30);
   if (!SERVICE_OPTIONS.some((o) => o.value === service))
     errors.service = "Please choose one of the options listed.";
@@ -120,6 +126,6 @@ export function validate(
   if (Object.keys(errors).length || !phone) return { ok: false, errors };
   return {
     ok: true,
-    values: { name, phone, service, preferredDate, consent: true, ...(couponCode && { couponCode }), ...(referralCode && { referralCode }), ...(message && { message }) },
+    values: { name, phone, service, preferredDate, consent: true, ...(email && { email }), ...(couponCode && { couponCode }), ...(referralCode && { referralCode }), ...(message && { message }) },
   };
 }

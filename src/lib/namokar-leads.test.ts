@@ -7,11 +7,13 @@ test("sends the Namokar tenant key to Invictus", async () => {
   const originalUrl = process.env.INVICTUS_NAMOKAR_LEADS_URL;
   const originalKey = process.env.INVICTUS_NAMOKAR_CLIENT_KEY;
   let headers: Headers | undefined;
+  let payload: { email?: string } | undefined;
 
   process.env.INVICTUS_NAMOKAR_LEADS_URL = "https://invictus.example/api/v1/namokar/website-leads";
   delete process.env.INVICTUS_NAMOKAR_CLIENT_KEY;
   globalThis.fetch = async (_input, init) => {
     headers = new Headers(init?.headers);
+    payload = JSON.parse(String(init?.body));
     return new Response(JSON.stringify({ success: true }), { status: 201 });
   };
 
@@ -21,6 +23,7 @@ test("sends the Namokar tenant key to Invictus", async () => {
       formId: "namokar-contact-v1",
       name: "Test Patient",
       phone: "9876543210",
+      email: "patient@example.com",
       service: "Cataract Surgery",
       preferredDate: "",
       consent: true,
@@ -30,6 +33,7 @@ test("sends the Namokar tenant key to Invictus", async () => {
       pageUrl: "https://www.namokareyecare.com/contact-us",
     }), "invictus");
     assert.equal(headers?.get("X-Client-Key"), "namokar");
+    assert.equal(payload?.email, "patient@example.com");
   } finally {
     globalThis.fetch = originalFetch;
     if (originalUrl === undefined) delete process.env.INVICTUS_NAMOKAR_LEADS_URL;
