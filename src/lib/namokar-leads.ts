@@ -8,6 +8,18 @@ export type NamokarLead = CleanValues & {
   pageUrl: string;
 };
 
+export const formatSheetTimestamp = (date: Date) =>
+  new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Kolkata",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23",
+  }).format(date).replace(",", "");
+
 const configuredUrl = (value: string | undefined): URL | null => {
   if (!value) return null;
   try {
@@ -50,7 +62,7 @@ export async function deliverNamokarLead(lead: NamokarLead): Promise<"invictus" 
 
   const sheetAccepted = await post(new URL(GOOGLE_SHEETS_FALLBACK_URL), {
     form: "Namokar Website Lead",
-    data: { ...lead, deliveryPath: "website-sheet-fallback", receivedAt: new Date().toISOString() },
+    data: { ...lead, deliveryPath: "website-sheet-fallback", receivedAt: formatSheetTimestamp(new Date()) },
   });
   return sheetAccepted ? "sheets" : null;
 }
