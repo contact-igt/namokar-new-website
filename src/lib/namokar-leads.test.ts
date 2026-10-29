@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { deliverNamokarLead } from "./namokar-leads";
+import { deliverNamokarLead, formatSheetTimestamp } from "./namokar-leads";
+
+test("formats Sheet timestamps in India time", () => {
+  assert.equal(formatSheetTimestamp(new Date("2026-10-29T07:46:08.315Z")), "10/29/2026 13:16:08");
+});
 
 test("sends the Namokar tenant key to Invictus", async () => {
   const originalFetch = globalThis.fetch;
