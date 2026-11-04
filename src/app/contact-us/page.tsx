@@ -86,19 +86,19 @@ export default function ContactPage() {
         title="We're Here to Help."
         lead="Contact Namokar Eye & Oculoplasty Centre to plan your visit or arrange an eye consultation."
         media={
-          usable(ASSETS.exterior) ? (
+          usable(ASSETS.contactConsultationNov) ? (
             <AssetImage
-              asset={ASSETS.exterior}
+              asset={ASSETS.contactConsultationNov}
               fill
               eager
               sizes="(min-width: 960px) 58vw, 100vw"
               className="page-hero-img"
-              style={{ objectPosition: "50% 45%" }}
+              style={{ objectPosition: "50% 50%" }}
             />
           ) : undefined
         }
         mediaLabel="Visit us"
-        mediaCaption="Our Ashok Vihar centre, seen from the street. Call ahead to ask about arranging your visit."
+        mediaCaption="A consultation and eye-examination room at our Ashok Vihar centre. Call ahead to arrange your visit."
       />
 
       {/* Contact actions */}

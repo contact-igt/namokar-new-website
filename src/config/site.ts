@@ -16,9 +16,13 @@ export const SITE = {
   // mention a common IVR number that has not been finalised.
   phone: { display: "+91 98104 19720", tel: "+919810419720" },
   address: {
-    lines: ["13A, Pocket A, Phase 3", "Ashok Vihar, Delhi 110052"],
-    landmark: "Near Satyawati College, opposite Madrina Restaurant",
-    street: "13A, Pocket A, Phase 3, Ashok Vihar",
+    lines: [
+      "MIG Flats, Pocket C, near Satyawati College",
+      "Opposite Madrina Restaurant, Pocket A, Phase 3",
+      "Ashok Vihar, Delhi 110052",
+    ],
+    landmark: "",
+    street: "MIG Flats, Pocket C, near Satyawati College, opposite Madrina Restaurant, Pocket A, Phase 3, Ashok Vihar",
     locality: "Delhi",
     postalCode: "110052",
     country: "IN",
@@ -58,12 +62,11 @@ const CENTRE_LATLNG = "28.69490838124772,77.17709117418958";
 export const DIRECTIONS_URL = `https://maps.google.com/?q=${CENTRE_LATLNG}`;
 
 /**
- * Map. `verifiedPinUrl` must be the clinic's Google Business Profile place link; it stays unset
- * until the client supplies it. The embed and the directions link use the position the centre's
- * existing website already publishes.
+ * Map. The clinic's supplied Google Maps place link is used for all directions links.
+ * The embed remains the position published on the centre's existing website.
  */
 export const MAP = {
-  verifiedPinUrl: null as string | null,
+  verifiedPinUrl: "https://maps.app.goo.gl/6VUFVHz9jQva7ai99",
   embedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2711.4522544941547!2d77.17709117418958!3d28.69490838124772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03f35bab0443%3A0x229e9c55781b5cf3!2sClosed%20one!5e1!3m2!1sen!2sin!4v1785770586866!5m2!1sen!2sin",
 } as const;

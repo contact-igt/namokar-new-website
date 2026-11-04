@@ -24,47 +24,29 @@ type Candidate =
 
 const IMAGES: Record<ServiceKey, Candidate[]> = {
   cataract: [
+    { asset: ASSETS.homeTheatreNov, position: "50% 50%" },
     { asset: ASSETS.otModernA, position: "55% 50%" },
     { asset: ASSETS.otModernB, position: "55% 55%" },
   ],
   glaucoma: [
-    { asset: ASSETS.examEyePressureAi, position: "32% 40%" },
+    { asset: ASSETS.homeDiagnosticsNov, position: "50% 50%" },
     { asset: ASSETS.archGlaucomaTest, position: "50% 58%" },
     { asset: ASSETS.archStaffEquipment, position: "50% 45%" },
   ],
   exams: [
-    { asset: ASSETS.examFrontEyeAi, position: "40% 40%" },
     { asset: ASSETS.archExamOverhead, position: "50% 62%" },
     { asset: ASSETS.chartDoor, position: "50% 40%" },
   ],
   eyelid: [
-    { asset: ASSETS.aestheticConsultationAi, position: "62% 35%" },
+    { asset: ASSETS.homeDoctorNov, position: "50% 50%" },
     { asset: ASSETS.docSlit, position: "52% 50%" },
   ],
   aesthetic: [
-    { asset: ASSETS.aestheticOverviewAi, position: "45% 40%" },
-    {
-      image: {
-        src: "/images/oculoplasty-aesthetic-consultation.png",
-        alt: "An eye-care clinician examining a patient at a slit-lamp unit",
-        width: 2000,
-        height: 1333,
-      },
-      position: "50% 52%",
-    },
+    { asset: ASSETS.docSlit, position: "52% 50%" },
   ],
   reconstructive: [
-    { asset: ASSETS.reconstructiveOverviewAi, position: "50% 40%" },
-    {
-      image: {
-        src: "/images/oculoplasty-reconstructive-consultation.png",
-        alt: "Illustration of an eye-care clinician discussing an eye diagram with an adult patient",
-        width: 1536,
-        height: 1024,
-        sourceLabel: "AI-generated illustration",
-      },
-      position: "50% 50%",
-    },
+    { asset: ASSETS.archCataractExam, position: "55% 50%" },
+    { asset: ASSETS.docSlit, position: "52% 50%" },
   ],
 };
 

@@ -83,21 +83,25 @@ type HeroCandidate = { asset: Asset; caption: string; position: string };
 const HERO_SHOTS: HeroCandidate[][] = [
   // 1. The centre: street view, then reception
   [
+    { asset: ASSETS.homeExteriorNov, caption: "Our Ashok Vihar centre, seen from the street.", position: "50% 45%" },
     { asset: ASSETS.exterior, caption: "Our Ashok Vihar centre, seen from the street.", position: "50% 45%" },
     { asset: ASSETS.reception, caption: "The reception at our Ashok Vihar centre.", position: "42% 50%" },
   ],
   // 2. Cataract: the operating microscope and surgical console
   [
+    { asset: ASSETS.homeTheatreNov, caption: "An operation theatre at the centre.", position: "50% 50%" },
     { asset: ASSETS.otScope, caption: "An operating microscope in the theatre area at the centre.", position: "50% 50%" },
     { asset: ASSETS.consoleWide, caption: "A surgical console in the theatre area at the centre.", position: "50% 50%" },
   ],
   // 3. Examinations and glaucoma: the eye chart and a diagnostic instrument
   [
+    { asset: ASSETS.homeDiagnosticsNov, caption: "Diagnostic instruments in an examination room at the centre.", position: "50% 50%" },
     { asset: ASSETS.chartDoor, caption: "An eye-chart screen beside an examination room door.", position: "50% 42%" },
     { asset: ASSETS.archGlaucomaTest, caption: "A pre-examination eye test at the centre.", position: "50% 55%" },
   ],
   // 4. Specialist oculoplasty: the theatre
   [
+    { asset: ASSETS.homeDoctorNov, caption: "Dr. Poonam Jain during an eye examination at the centre.", position: "50% 50%" },
     { asset: ASSETS.otModernC, caption: "An operation theatre at the centre.", position: "50% 55%" },
     { asset: ASSETS.otModernB, caption: "The operating table and microscope in the theatre.", position: "50% 55%" },
   ],
@@ -128,8 +132,8 @@ export default function Home() {
 
   const hasPortrait = usable(ASSETS.portrait);
   const gallery = compact([
-    photoItem(ASSETS.signboardOlder, { title: "Our eye centre in Ashok Vihar", caption: "Namokar Eye & Oculoplasty Centre on the street in Ashok Vihar, New Delhi, where patients visit for eye examinations and eye care.", position: "50% 40%" }),
-    photoItem(ASSETS.otModernA, { title: "Operation theatre", caption: "The operation theatre, with its operating microscope and operating table for eye procedures.", position: "50% 50%" }),
+    photoItem(ASSETS.galleryExteriorNov, { title: "Our eye centre in Ashok Vihar", caption: "Namokar Eye & Oculoplasty Centre on the street in Ashok Vihar, New Delhi, where patients visit for eye examinations and eye care.", position: "50% 50%" }),
+    photoItem(ASSETS.homeTheatreNov, { title: "Operation theatre", caption: "The operation theatre, with its operating microscope and operating table for eye procedures.", position: "50% 50%" }),
     photoItem(ASSETS.archCataractExam, { title: "A detailed eye examination", caption: "A patient being examined at a slit-lamp, the microscope used to look closely at the front of the eye.", position: "55% 50%" }),
     photoItem(ASSETS.archTeamDoctor, { title: "Our care team", caption: "Dr. Poonam Jain with members of the team who look after patients at the centre.", position: "50% 40%" }),
   ]);

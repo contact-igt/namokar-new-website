@@ -80,7 +80,7 @@ export default function InternationalPage() {
         </div>
       </section>
 
-      {(usable(ASSETS.exterior) || usable(ASSETS.reception)) && (
+      {(usable(ASSETS.internationalExteriorNov) || usable(ASSETS.internationalReceptionNov)) && (
         <section id="arrive" className="section" aria-labelledby="arrive-h">
           <div className="container">
             <div className="section-head reveal">
@@ -90,15 +90,15 @@ export default function InternationalPage() {
             </div>
             <div className="pair">
               <EditorialImage
-                asset={ASSETS.exterior}
-                caption="The centre from the street."
+                asset={ASSETS.internationalExteriorNov}
+                caption="The centre entrance from the street."
                 ratio="cinema"
                 position="50% 45%"
                 sizes="(min-width: 960px) 58vw, 100vw"
               />
               <EditorialImage
-                asset={ASSETS.reception}
-                caption="Reception."
+                asset={ASSETS.internationalReceptionNov}
+                caption="The reception desk at the centre entrance."
                 ratio="wide"
                 position="42% 50%"
                 sizes="(min-width: 960px) 40vw, 100vw"
