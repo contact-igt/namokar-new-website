@@ -224,10 +224,7 @@ export default function Header({ online, nav }: { online: boolean; nav: NavItem[
             >
               <PhoneIcon width={20} height={20} />
               <span className="call-sm">Call</span>
-              <span className="call-lg">
-                <span className="call-prefix">Call </span>
-                {SITE.phone.display}
-              </span>
+              <span className="call-lg">Call Us</span>
             </a>
           )}
 

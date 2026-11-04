@@ -29,22 +29,21 @@ export const COVERS: Record<ServiceKey, { primary: Cover; secondary?: Cover; pla
   },
   glaucoma: {
     primary: { asset: ASSETS.archExamOverhead, caption: "A slit-lamp eye examination at the centre. Glaucoma is found through examination and followed with regular check-ups.", position: "50% 60%" },
-    secondary: { asset: ASSETS.archGlaucomaTest, caption: "", position: "50% 55%" },
+    secondary: { asset: ASSETS.archGlaucomaTest, caption: "", position: "50% 18%" },
   },
   exams: {
-    primary: { asset: ASSETS.chartDoor, caption: "An eye-chart screen beside an examination room door. An examination starts with how well you see.", position: "50% 42%" },
+    primary: { asset: ASSETS.homeDiagnosticsNov, caption: "Diagnostic instruments in an examination room at the centre. A comprehensive eye examination checks how well you see and the health of your eyes.", position: "50% 100%" },
     secondary: { asset: ASSETS.archStaffEquipment, caption: "", position: "50% 40%" },
   },
   eyelid: {
-    primary: { asset: ASSETS.otModernB, caption: "The operation theatre at the centre. Surgery is only considered after an examination and a conversation about your options.", position: "55% 55%" },
-    secondary: { asset: ASSETS.blepharoplastyOverviewAi, caption: "", position: "50% 50%" },
+    primary: { asset: ASSETS.homeDoctorNov, caption: "Dr. Poonam Jain carrying out a slit-lamp eye examination at the centre. Eyelid surgery is considered only after an assessment and a conversation about your options.", position: "50% 48%" },
+    secondary: { asset: ASSETS.blepharoplastyOverviewAi, caption: "", position: "50% 0%" },
   },
   aesthetic: {
-    primary: { asset: ASSETS.docDesk, caption: "Aesthetic oculoplasty care begins with a comprehensive eye-area assessment, where your concerns, your expectations and the health of your eyes are discussed.", position: "38% 40%" },
+    primary: { asset: ASSETS.docDesk, caption: "Aesthetic oculoplasty care begins with a comprehensive eye-area assessment, where your concerns, your expectations and the health of your eyes are discussed.", position: "38% 30%" },
     secondary: { asset: ASSETS.aestheticOverviewAi, caption: "", position: "50% 50%" },
   },
   reconstructive: {
-    primary: { asset: ASSETS.otModernC, caption: "The operation theatre at the centre. Care for the eyelids and tear passages begins with an examination and a clear plan.", position: "50% 55%" },
-    secondary: { asset: ASSETS.reconstructiveOverviewAi, caption: "", position: "50% 50%" },
+    primary: { asset: ASSETS.reconstructiveOverviewAi, caption: "Illustration of a reconstructive oculoplasty consultation, where an eye model is used to explain the concern and the options.", position: "50% 50%" },
   },
 };

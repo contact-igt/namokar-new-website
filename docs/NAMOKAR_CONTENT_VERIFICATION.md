@@ -10,7 +10,7 @@ Reviewed 15 Oct 2026. Source for everything below is the published site `namokar
 | MBBS (Maulana Azad Medical College), MS Ophthalmology (Safdarjung Hospital) | Doctor section | Live site only | Needs approval | Confirm |
 | Phone +91 98104 19720 | Header, hero, CTA, footer | Live site and the clinic signboard in the 21 July video (which also shows a second number, 7827455040). Internal notes mention a different common IVR | **Blocker** | Confirm which number is live before launch (edit `SITE.phone`) |
 | Two AI-generated conceptual images (iris macro in the Oculoplasty section, lens still life on the Cataract card) | Oculoplasty section, services | Generated 15 Oct 2026, see `assets-src/ai-generated/PROVENANCE.md` | Needs client approval; the iris image carries a "Conceptual image" label | Approve, or replace with licensed photography |
-| Address 13A, Pocket A, Phase 3, Ashok Vihar, Delhi 110052; near Satyawati College, opposite Madrina Restaurant | CTA, footer, JSON-LD | Live site | Needs check against active listing | Confirm |
+| Address MIG Flats, Pocket C, near Satyawati College, opposite Madrina Restaurant, Pocket A, Phase 3, Ashok Vihar, Delhi 110052 | CTA, footer, JSON-LD | Project owner, 4 Nov 2026 | Selected | Applied in `src/config/site.ts` |
 | Directions link | CTA, footer | Google Maps search built from the address text | Not a verified listing pin | Replace with the clinic's real Maps link |
 | Service links (cataract, aesthetic, reconstructive, glaucoma, all services), About, Contact | Nav, cards, CTAs | Live site URLs | Exist on the live site; not re-checked for content | None |
 | Comprehensive Eye Examinations link | Service card | No dedicated page found | Links to services overview | Provide page if one exists |
@@ -125,6 +125,16 @@ The project owner additionally selected the supplied older exterior signboard (`
 Not changed by this approval: the 13 YouTube videos (`src/content/videos.ts`, content never reviewed), the clinical figures and line-drawing plates (`src/config/figures.ts`, pending clinician review), the per-page `reviewed` flags, noindex, robots, the empty sitemap and schema (indexing stays off), and the booking rule.
 
 Open points this does not resolve (details in `docs/launch/NMC_CONTENT_VERIFICATION.md`): NMC Guidelines 6.2 (consent does not by itself make promotional patient imagery permissible) and 7.4 (identifiable patient faces); the walkthrough's burned-in claims ("25+ Years of Surgical Expertise", "Internationally trained doctor", "Cashless Mediclaim Facility Available", a telephone number) against 8.1(iii), (ix), (x); the doctor's registration number (3.2 Expl. III/IV, 9.1); credentials; the phone-number conflict; the legal-entity wording. The medical and legal team should review these on the demo link before any public launch.
+
+## Homepage banner update (4 Nov 2026)
+
+The project owner supplied and selected four public photographs for the homepage banner: `Copy of DSC06756-200kb.jpg` (centre exterior), `Copy of DSC06997 - Copy-200kb.jpg` (operation theatre), `Copy of DSC07076 - Copy-200kb.jpg` (diagnostics room), and `Copy of DSC06796-200kb.jpg` (Dr. Poonam Jain examining a patient). They are registered as approved homepage assets in `src/config/assets.ts`. The project owner also selected `Copy of DSC06761-200kb.jpg` as the first homepage centre-gallery image. Equipment photographs with readable patient information from the same delivery were not used.
+
+The project owner selected `Copy of DSC06757-200kb.jpg` (street entrance) and `Copy of DSC06769.JPG` (reception desk) for the International Patients page. They are registered as approved public assets in `src/config/assets.ts`.
+
+The project owner selected `Copy of DSC06780-200kb.jpg` (consultation and eye-examination room) for the Contact Us page banner. It is registered as an approved public asset in `src/config/assets.ts`.
+
+The homepage service-hover previews use six distinct clinic photographs instead of AI images: the theatre for cataract, the diagnostics room for glaucoma, an examination-room photograph for examinations, and three different doctor-and-patient or doctor-and-equipment photographs for the oculoplasty services.
 
 ## Homepage content enhancement (client report, 20 Oct 2026)
 

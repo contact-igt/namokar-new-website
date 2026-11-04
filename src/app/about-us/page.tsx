@@ -57,8 +57,8 @@ export default function AboutPage() {
   const aboutPortrait = usable(ASSETS.portrait) ? ASSETS.portrait : null;
   const hasPortrait = Boolean(aboutPortrait);
   const gallery = compact([
-    photoItem(ASSETS.otModernB, { title: "Operation theatre", caption: "The operating table, with the operating microscope and a surgical console behind it.", position: "50% 55%" }),
-    photoItem(ASSETS.chartDoor, { title: "Examination room", caption: "An eye-chart screen beside an examination room door, used to check how clearly you see.", position: "50% 40%" }),
+    photoItem(ASSETS.homeTheatreNov, { title: "Operation theatre", caption: "The operating table, microscope and surgical equipment used for eye procedures.", position: "50% 55%" }),
+    photoItem(ASSETS.homeDiagnosticsNov, { title: "Examination room", caption: "Diagnostic instruments used during a detailed eye examination.", position: "50% 50%" }),
     photoItem(ASSETS.archCataractExam, { title: "A detailed eye examination", caption: "Dr. Poonam Jain examining a patient at a slit-lamp, the microscope used to look closely at the front of the eye.", position: "55% 50%" }),
     photoItem(ASSETS.archTeamDoctor, { title: "Our care team", caption: "Dr. Poonam Jain with members of the team who look after patients, in the waiting area.", position: "50% 40%" }),
   ]);
@@ -103,11 +103,12 @@ export default function AboutPage() {
           </div>
           <div className="about-body reveal">
             <EditorialImage
-              asset={ASSETS.exterior}
+              asset={ASSETS.homeExteriorNov}
               caption=""
               ratio="cinema"
               position="50% 45%"
               sizes="(min-width: 960px) 55vw, 100vw"
+              tab={false}
             />
             <p>
               Namokar Eye &amp; Oculoplasty Centre is located in {SITE.area} and provides

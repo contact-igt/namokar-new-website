@@ -326,16 +326,6 @@ p {
 .header-book {
   display: none;
 }
-/* The word "Call" before the number only where the header has room for it */
-.call-prefix {
-  display: none;
-}
-@media (min-width: 1440px) {
-  .call-prefix {
-    display: inline;
-  }
-}
-
 .menu-toggle {
   display: grid;
   place-items: center;
