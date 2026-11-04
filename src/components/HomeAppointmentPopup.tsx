@@ -100,7 +100,10 @@ export default function HomeAppointmentPopup() {
         body: JSON.stringify({ ...result.values, formId: "namokar-home-popup-v1", submissionId: submissionIdRef.current, pageUrl: window.location.href }),
       });
       const payload = (await response.json().catch(() => ({}))) as { ok?: boolean };
-      if (response.ok && payload.ok) router.push("/thank-you?form=home");
+      if (response.ok && payload.ok) {
+        setOpen(false);
+        router.push("/thank-you?form=home");
+      }
       else {
         setStatus("error");
         setError("We could not send your request just now. Please call the centre or try again later.");
