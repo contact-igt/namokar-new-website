@@ -1,149 +1,94 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import {
   type KeyboardEvent,
   type ReactNode,
   useCallback,
   useEffect,
-  useRef,
   useState,
 } from "react";
-import { LINKS, SITE } from "@/config/site";
-import { HOME_FACTS } from "@/content/why";
+import { LINKS, SITE, TEL_HREF } from "@/config/site";
 import CountUp from "./CountUp";
-import BookButton, { SecondaryContact } from "./BookButton";
-import { ArrowDownIcon, ArrowRightIcon } from "./Icons";
+import { CalendarIcon, PhoneIcon, PinIcon } from "./Icons";
 
 type Shot = { node: ReactNode; caption: string } | null;
 
-/**
- * Four messages, one per photograph. Copy states only what the site already says elsewhere:
- * no outcomes, no claims of equipment, years or accreditation. Each slide links to the page
- * that explains it, so the banner is also an internal-link hub.
- */
-const AUTO_MS = 5000;
+const AUTO_MS = 5500;
 
 export const HERO_SLIDES = [
   {
     id: "centre",
-    tab: "Our centre",
+    tab: "Our Centre",
     label: "Our centre",
-    heading: "Eye Care & Oculoplasty, Led by Dr. Poonam Jain.",
-    body: "From eye examinations, cataract and glaucoma care to specialist treatment for drooping eyelids, watering eyes and under-eye concerns.",
+    badge: "Trusted Eye Care Since 25+ Years",
+    titlePrefix: "Complete Eye Care, With",
+    titleSub: "a ",
+    titleHighlight: "Personal Approach.",
+    body: "From routine eye examinations to cataract, glaucoma and oculoplasty care, every visit starts with a careful assessment.",
+    image: "/images/dr-poonam-jain-slit.webp",
+    imageAlt: "Dr. Poonam Jain conducting a slit-lamp eye examination with a patient",
     more: { label: "About the centre", href: LINKS.about },
   },
   {
     id: "cataract",
     tab: "Cataract",
     label: "Cataract care",
-    heading: "Cataract Care, Explained Clearly.",
-    body: "Careful assessment of your vision and a clear discussion of your treatment options.",
+    badge: "Advanced Micro-Incision Surgery",
+    titlePrefix: "Cataract Care,",
+    titleSub: "",
+    titleHighlight: "Explained Clearly.",
+    body: "Careful assessment of your vision and a clear discussion of your treatment options with premium IOL choices.",
+    image: "/images/banner-slide-cataract.png",
+    imageAlt: "Advanced operating microscope in the theatre at Namokar Eye Centre",
     more: { label: "About cataract surgery", href: LINKS.cataract },
-  },
-  {
-    id: "eye-care",
-    tab: "Eye care",
-    label: "Eye care & glaucoma",
-    heading: "Eye Check-Ups to Glaucoma Care.",
-    body: "Routine eye examinations and regular monitoring for glaucoma, explained plainly.",
-    more: { label: "Eye examinations and glaucoma", href: LINKS.exams },
   },
   {
     id: "oculoplasty",
     tab: "Oculoplasty",
     label: "Specialist oculoplasty",
-    heading: "Specialist Care for Your Eyelids.",
-    body: "Oculoplasty for drooping eyelids, watering eyes, heavy eyelids and under-eye bags.",
-    more: { label: "Oculoplasty care", href: "#oculoplasty" },
+    badge: "Fellowship-Trained Specialist",
+    titlePrefix: "Specialist Eyelid &",
+    titleSub: "",
+    titleHighlight: "Tear-Duct Care.",
+    body: "Care for drooping or heavy eyelids, watering eyes and under-eye concerns, tailored after careful evaluation.",
+    image: "/images/banner-slide-oculoplasty.png",
+    imageAlt: "Dr. Poonam Jain consulting with a patient at Namokar Eye Centre",
+    more: { label: "Explore eyelid care", href: LINKS.eyelid },
   },
 ] as const;
 
-/**
- * Hospital-first banner: four photographs that scroll sideways (swipe or arrow keys),
- * with the matching message beside them. The banner advances by itself every few seconds; it
- * stops while the pointer is over it, while anything inside has focus, while the browser tab is
- * hidden, and always when the visitor prefers reduced motion.
- * `shots` are server-rendered photographs (null when not cleared for use). A slide without a
- * cleared photograph shows a plain brand card; if none is cleared, `panel` replaces the track.
- */
 export default function Hero({
-  shots,
-  panel,
+  shots = [],
   online,
 }: {
-  shots: Shot[];
-  panel: ReactNode;
+  shots?: Shot[];
+  panel?: ReactNode;
   online: boolean;
 }) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const frame = useRef(0);
-  // While a button, tab or key is scrolling the track to a slide, ignore the in-between scroll
-  // positions so the message does not flicker back to the slide being left.
-  const target = useRef<number | null>(null);
-  const unlock = useRef<ReturnType<typeof setTimeout> | null>(null);
   const count = HERO_SLIDES.length;
-  const withPhotos = shots.some(Boolean);
 
   const go = useCallback(
     (to: number) => {
-      const el = trackRef.current;
-      if (!el) return;
-      const i = (to + count) % count;
-      const calm = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-      target.current = i;
-      if (unlock.current) clearTimeout(unlock.current);
-      unlock.current = setTimeout(() => (target.current = null), 1200);
-      el.scrollTo({
-        left: i * el.clientWidth,
-        behavior: calm ? "auto" : "smooth",
-      });
-      setActive(i);
+      setActive((to + count) % count);
     },
     [count],
   );
 
-  // Advance on a timer. It restarts after every change, so a tab click or a swipe always gets
-  // a full interval before the next automatic move.
+  // Auto-advance banner on a timer
   useEffect(() => {
-    if (!withPhotos || paused) return;
+    if (paused) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = setTimeout(() => {
-      if (!document.hidden) go(active + 1);
-    }, AUTO_MS);
-    return () => clearTimeout(id);
-  }, [active, paused, withPhotos, go]);
-
-  // Keep the message in step with a swipe or a trackpad scroll.
-  const onScroll = () => {
-    cancelAnimationFrame(frame.current);
-    frame.current = requestAnimationFrame(() => {
-      const el = trackRef.current;
-      if (!el || !el.clientWidth) return;
-      if (target.current !== null) {
-        if (Math.abs(el.scrollLeft - target.current * el.clientWidth) < 2)
-          target.current = null;
-        return;
+    const timer = setInterval(() => {
+      if (!document.hidden) {
+        setActive((prev) => (prev + 1) % count);
       }
-      const i = Math.round(el.scrollLeft / el.clientWidth);
-      setActive((a) => (a === i ? a : Math.min(count - 1, Math.max(0, i))));
-    });
-  };
-  useEffect(
-    () => () => {
-      cancelAnimationFrame(frame.current);
-      if (unlock.current) clearTimeout(unlock.current);
-    },
-    [],
-  );
-  // A touch or wheel gesture takes over from any scroll the buttons started.
-  const release = () => {
-    target.current = null;
-  };
+    }, AUTO_MS);
+    return () => clearInterval(timer);
+  }, [paused, count]);
 
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.key === "ArrowRight") {
@@ -155,164 +100,238 @@ export default function Hero({
     }
   };
 
-  const more = HERO_SLIDES[active].more;
+  const currentSlide = HERO_SLIDES[active];
 
   return (
-    <>
+    <div className="hero-banner-wrapper">
       <section
-        className={`hero${withPhotos ? "" : " hero--panel"}`}
+        className="hero-banner-section"
         aria-roledescription="carousel"
-        aria-label="Namokar highlights"
+        aria-label="Namokar Highlights and Care Services"
         onPointerEnter={(e) => e.pointerType === "mouse" && setPaused(true)}
         onPointerLeave={() => setPaused(false)}
         onFocus={() => setPaused(true)}
         onBlur={() => setPaused(false)}
+        onKeyDown={onKeyDown}
+        tabIndex={0}
       >
-        <div className="container hero-grid">
-          <div
-            className={`hero-media${withPhotos ? "" : " hero-media--panel"}`}
-          >
-            {withPhotos ? (
-              <>
+        {/* Right Media Column / Visual Slider - Pinned to right edge and bottom */}
+        <div className="hero-banner-visual">
+          <div className="hero-slider-stage">
+            {HERO_SLIDES.map((slide, i) => {
+              const isActive = i === active;
+              return (
                 <div
-                  ref={trackRef}
-                  className="hero-track"
-                  tabIndex={0}
-                  role="group"
-                  aria-label="Photographs. They change by themselves; swipe or use the arrow keys to move on yourself."
-                  onScroll={onScroll}
-                  onKeyDown={onKeyDown}
-                  onPointerDown={release}
-                  onWheel={release}
+                  key={slide.id}
+                  className={`hero-slider-slide ${isActive ? "is-active" : ""}`}
+                  aria-hidden={!isActive}
                 >
-                  {HERO_SLIDES.map((s, i) => (
-                    <figure
-                      key={s.id}
-                      className="hero-shot"
-                      role="group"
-                      aria-roledescription="slide"
-                      aria-label={`${i + 1} of ${count}: ${s.tab}`}
-                    >
-                      {shots[i] ? (
-                        <>
-                          {shots[i]!.node}
-                          <figcaption className="hero-caption">
-                            <span className="hero-caption-kicker">
-                              {s.label}
-                            </span>
-                            <span className="hero-caption-text">
-                              {shots[i]!.caption}
-                            </span>
-                          </figcaption>
-                        </>
-                      ) : (
-                        <div className="hero-card">
-                          <span className="hero-card-kicker">{SITE.name}</span>
-                          <span className="hero-card-title">{s.tab}</span>
-                          <span className="hero-card-place">
-                            Ashok Vihar, New Delhi
-                          </span>
-                        </div>
-                      )}
-                    </figure>
-                  ))}
-                </div>
-                <div
-                  className="hero-dots"
-                  role="group"
-                  aria-label="Choose banner slide"
-                >
-                  {HERO_SLIDES.map((slide, i) => (
-                    <button
-                      key={slide.id}
-                      type="button"
-                      className="hero-dot"
-                      aria-label={`Show ${slide.tab}`}
-                      aria-current={active === i ? "true" : undefined}
-                      onClick={() => go(i)}
+                  {shots[i]?.node ? (
+                    <div className="hero-shot-container">
+                      {shots[i]!.node}
+                    </div>
+                  ) : (
+                    <Image
+                      src={slide.image}
+                      alt={slide.imageAlt}
+                      fill
+                      priority={i === 0}
+                      sizes="(min-width: 1200px) 60vw, (min-width: 768px) 70vw, 100vw"
+                      className="hero-slider-image"
                     />
-                  ))}
+                  )}
                 </div>
-              </>
-            ) : (
-              panel
-            )}
+              );
+            })}
           </div>
+        </div>
 
-          <div className="hero-copy">
-            <h1 className="hero-brand">
-              {SITE.name}
-              <span className="sr-only">
-                {" "}
-                | Eye Care &amp; Oculoplasty Centre in Ashok Vihar, New Delhi
+        {/* Floating Three Dots Pagination (Bottom Right) */}
+        <div
+          className="hero-slider-pagination"
+          role="tablist"
+          aria-label="Slide Selection"
+        >
+          {HERO_SLIDES.map((slide, i) => (
+            <button
+              key={slide.id}
+              type="button"
+              role="tab"
+              className={`hero-slider-dot ${active === i ? "is-active" : ""}`}
+              aria-label={`Slide ${i + 1}: ${slide.tab}`}
+              aria-selected={active === i}
+              onClick={() => go(i)}
+            />
+          ))}
+        </div>
+
+        {/* Main Banner Content Container */}
+        <div className="container hero-banner-container">
+          <div className="hero-banner-content">
+            {/* Top Trust Badge */}
+            <div className="hero-banner-badge">
+              <span className="hero-badge-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  width="14"
+                  height="14"
+                >
+                  <path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6-10-6-10-6Z" />
+                  <circle cx="12" cy="12" r="3" />
+                  <circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none" />
+                </svg>
+              </span>
+              <span className="hero-badge-text">
+                {currentSlide.badge}
+              </span>
+            </div>
+
+            {/* Slide Headline */}
+            <h1 className="hero-banner-heading">
+              {currentSlide.titlePrefix}{" "}
+              {currentSlide.titleSub && (
+                <span className="hero-heading-sub">{currentSlide.titleSub}</span>
+              )}
+              <span className="hero-heading-highlight">
+                {currentSlide.titleHighlight}
               </span>
             </h1>
 
-            <div className="slides">
-              {HERO_SLIDES.map((s, i) => {
-                const isActive = i === active;
-                return (
-                  <div
-                    key={s.id}
-                    className="slide"
-                    data-active={isActive}
-                    role="group"
-                    aria-roledescription="slide"
-                    aria-label={`${i + 1} of ${count}: ${s.tab}`}
-                    aria-hidden={!isActive}
-                    inert={!isActive}
-                  >
-                    <h2 className="hero-title">{s.heading}</h2>
-                    <p className="hero-body">{s.body}</p>
-                  </div>
-                );
-              })}
+            {/* Slide Description */}
+            <p className="hero-banner-body">
+              {currentSlide.body}
+            </p>
+
+            {/* Action Buttons */}
+            <div className="hero-banner-actions">
+              <Link href={`${LINKS.contact}#request`} className="hero-btn-primary">
+                <span className="hero-btn-icon" aria-hidden="true">
+                  <CalendarIcon width={19} height={19} />
+                </span>
+                <span>Book a Consultation</span>
+                <span className="hero-btn-arrow" aria-hidden="true">&rarr;</span>
+              </Link>
+
+              <Link href={LINKS.about} className="hero-btn-secondary">
+                <span className="hero-btn-icon" aria-hidden="true">
+                  <PinIcon width={18} height={18} />
+                </span>
+                <span>Visit Our Centre</span>
+              </Link>
             </div>
 
-            <div className="cta-row">
-              <BookButton online={online} />
-              <SecondaryContact online={online} />
-            </div>
+            {/* Feature Highlights Strip (3 Items) */}
+            <div className="hero-banner-features" role="list">
+              <div className="hero-feature-item" role="listitem">
+                <span className="hero-feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22">
+                    <path d="M2.5 12s3.6-6 9.5-6 9.5 6 9.5 6-3.6 6-9.5 6S2.5 12 2.5 12Z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </span>
+                <span className="hero-feature-text">
+                  Advanced<br />Technology
+                </span>
+              </div>
 
-            <div className="hero-foot">
-              {more.href.startsWith("/") ? (
-                <Link href={more.href} className="text-link">
-                  {more.label}
-                  <ArrowRightIcon width={18} height={18} />
-                </Link>
-              ) : (
-                <a href={more.href} className="text-link">
-                  {more.label}
-                  <ArrowDownIcon width={18} height={18} />
-                </a>
-              )}
+              <div className="hero-feature-sep" aria-hidden="true" />
+
+              <div className="hero-feature-item" role="listitem">
+                <span className="hero-feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                </span>
+                <span className="hero-feature-text">
+                  Expert<br />Doctors
+                </span>
+              </div>
+
+              <div className="hero-feature-sep" aria-hidden="true" />
+
+              <div className="hero-feature-item" role="listitem">
+                <span className="hero-feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7 7-7Z" />
+                  </svg>
+                </span>
+                <span className="hero-feature-text">
+                  Compassionate<br />Care
+                </span>
+              </div>
             </div>
           </div>
+        </div>
+
+        {/* Bottom Decorative Wave Transition */}
+        <div className="hero-banner-wave" aria-hidden="true">
+          <Image
+            src="/images/bg-banner-wave.svg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="hero-wave-svg"
+            priority
+            unoptimized
+          />
         </div>
       </section>
 
-      <div className="stats-band">
-        <div className="container">
-          <div className="stats" role="group" aria-label="At a glance">
-            <ul className="stats-track">
-              {[0, 1].flatMap((copy) =>
-                HOME_FACTS.map((f) => (
-                  <li
-                    key={`${copy}-${f.label}`}
-                    className={copy ? "stat stat--copy" : "stat"}
-                    aria-hidden={copy ? true : undefined}
-                  >
-                    <span className="stat-value">
-                      <CountUp value={f.value} />
-                    </span>
-                    <span className="stat-label">{f.label}</span>
-                  </li>
-                )),
-              )}
-            </ul>
+      {/* Dark Teal Stats Bar with 4 Key Metrics */}
+      <div className="hero-stats-band" role="region" aria-label="Key Facts and Excellence">
+        <div className="container hero-stats-container">
+          <div className="hero-stats-grid">
+            {/* 1. Specialist Fellowship */}
+            <div className="hero-stat-col hero-stat-col--specialist">
+              <span className="hero-stat-badge-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                  <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                </svg>
+              </span>
+              <div className="hero-stat-desc">
+                <span className="hero-stat-sub">Barraquer Institute</span>
+                <strong className="hero-stat-main">Trained Specialist</strong>
+              </div>
+            </div>
+
+            <div className="hero-stat-sep" aria-hidden="true" />
+
+            {/* 2. 25+ Years */}
+            <div className="hero-stat-col">
+              <span className="hero-stat-num">
+                <CountUp value="25+" />
+              </span>
+              <span className="hero-stat-label">Years of Excellence</span>
+            </div>
+
+            <div className="hero-stat-sep" aria-hidden="true" />
+
+            {/* 3. 10,000+ Patients */}
+            <div className="hero-stat-col">
+              <span className="hero-stat-num">
+                <CountUp value="10,000+" />
+              </span>
+              <span className="hero-stat-label">Happy Patients</span>
+            </div>
+
+            <div className="hero-stat-sep" aria-hidden="true" />
+
+            {/* 4. 6 Advanced Facilities */}
+            <div className="hero-stat-col">
+              <span className="hero-stat-num">
+                <CountUp value="6" />
+              </span>
+              <span className="hero-stat-label">Advanced Facilities</span>
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

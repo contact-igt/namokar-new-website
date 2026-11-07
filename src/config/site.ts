@@ -17,12 +17,12 @@ export const SITE = {
   phone: { display: "+91 98104 19720", tel: "+919810419720" },
   address: {
     lines: [
-      "MIG Flats, Pocket C, near Satyawati College",
-      "Opposite Madrina Restaurant, Pocket A, Phase 3",
-      "Ashok Vihar, Delhi 110052",
+      "13 A, Pocket A, Phase 3",
+      "Ashok Vihar, near Satyawati College",
+      "Delhi 110052",
     ],
     landmark: "",
-    street: "MIG Flats, Pocket C, near Satyawati College, opposite Madrina Restaurant, Pocket A, Phase 3, Ashok Vihar",
+    street: "13 A, Pocket A, Phase 3, Ashok Vihar, near Satyawati College",
     locality: "Delhi",
     postalCode: "110052",
     country: "IN",

@@ -211,24 +211,10 @@ export default function Header({ online, nav }: { online: boolean; nav: NavItem[
                 ),
               )}
             </ul>
-            <BookButton online={online} className="btn btn--primary nav-book" onNavigate={closeAll} />
+            <BookButton online className="btn btn--primary nav-book" onNavigate={closeAll} />
           </nav>
 
-          {/* With online requests on, "Book a Consultation" is the header action and the phone stays
-              in the footer, the contact page and the mobile bar. Without them the call button is the action. */}
-          {!online && (
-            <a
-              href={TEL_HREF}
-              className="header-call header-call--primary"
-              aria-label={`Call ${SITE.phone.display}`}
-            >
-              <PhoneIcon width={20} height={20} />
-              <span className="call-sm">Call</span>
-              <span className="call-lg">Call Us</span>
-            </a>
-          )}
-
-          {online && <BookButton online className="btn btn--primary header-book" />}
+          <BookButton online className="btn btn--primary header-book" />
 
           <button
             ref={toggleRef}

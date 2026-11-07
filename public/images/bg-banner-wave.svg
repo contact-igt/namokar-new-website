@@ -1,0 +1,32 @@
+<svg viewBox="0 0 1440 72" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <!-- Elegant terracotta-orange accent wave on the right side -->
+  <path
+    d="M 880 72
+       C 1020 70, 1140 46, 1260 24
+       C 1320 13, 1380 6, 1440 2
+       L 1440 72
+       Z"
+    fill="#d14c07"
+  />
+  <path
+    d="M 1060 72
+       C 1180 58, 1280 32, 1440 8
+       L 1440 72
+       Z"
+    fill="#ea6d20"
+    opacity="0.85"
+  />
+
+  <!-- Main dark oceanic teal base wave flowing into stats bar -->
+  <path
+    d="M 0 26
+       C 70 12, 140 10, 240 22
+       C 340 34, 440 42, 600 44
+       C 760 46, 980 46, 1180 46
+       C 1270 46, 1360 44, 1440 40
+       L 1440 72
+       L 0 72
+       Z"
+    fill="#15333c"
+  />
+</svg>

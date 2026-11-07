@@ -8,6 +8,7 @@ export type PhotoItem = {
   height: number;
   caption: string;
   title?: string;
+  icon?: string;
   position: string;
   preview: boolean;
 };
@@ -15,7 +16,7 @@ export type PhotoItem = {
 /** Returns null when the asset may not be shown, so callers lay out without it. */
 export function photoItem(
   asset: Asset,
-  opts: { caption: string; title?: string; position?: string; alt?: string },
+  opts: { caption: string; title?: string; icon?: string; position?: string; alt?: string },
 ): PhotoItem | null {
   if (!usable(asset)) return null;
   return {
@@ -25,6 +26,7 @@ export function photoItem(
     height: asset.height,
     caption: opts.caption,
     title: opts.title,
+    icon: opts.icon,
     position: opts.position ?? "50% 50%",
     preview: previewOnly(asset),
   };
