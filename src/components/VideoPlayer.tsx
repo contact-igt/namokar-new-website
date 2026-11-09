@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { type ReactNode, useRef, useState } from "react";
 import type { PlayerProps } from "@/lib/videoProps";
 import { ArrowRightIcon } from "./Icons";
 
@@ -23,6 +23,7 @@ export default function VideoPlayer({
   playing,
   onPlay,
   layout = "default",
+  infoFooter,
 }: {
   v: PlayerProps;
   showMeta?: boolean;
@@ -30,7 +31,9 @@ export default function VideoPlayer({
   /** Controlled mode (a shelf that allows one player at a time). Omit for a self-contained player. */
   playing?: boolean;
   onPlay?: () => void;
-  layout?: "default" | "showcase";
+  layout?: "default" | "showcase" | "shelf";
+  /** Existing shelf link, grouped with its caption without affecting other players. */
+  infoFooter?: ReactNode;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [own, setOwn] = useState(false);
@@ -134,8 +137,30 @@ export default function VideoPlayer({
     );
   }
 
+  const captionClass = `vp-cap${showMeta ? "" : " vp-cap--min"}`;
+  const caption = showMeta ? (
+    <>
+      <span className="vp-cap-cat">{v.category}</span>
+      <strong>{v.title}{v.language === "hi" && " (in Hindi)"}</strong>
+      <span>{v.description}</span>
+    </>
+  ) : (
+    <>{v.title}{v.kind === "youtube" && v.language === "hi" && " (in Hindi)"}</>
+  );
+  const playbackNote = v.kind === "youtube" && (
+    <p className="vp-note">
+      {started
+        ? "Playing in YouTube's privacy-enhanced player."
+        : "Pressing play loads YouTube's player (privacy-enhanced mode)."}{" "}
+      <a href={v.watchUrl} target="_blank" rel="noopener noreferrer" className="text-link">
+        Watch on YouTube <ArrowRightIcon width={16} height={16} />
+        <span className="sr-only"> (opens in a new tab)</span>
+      </a>
+    </p>
+  );
+
   return (
-    <figure className={`vp${vertical ? " vp--vertical" : ""}`}>
+    <figure className={`vp${vertical ? " vp--vertical" : ""}${layout === "shelf" ? " vp--shelf" : ""}`}>
       <div className={`vp-frame vp-frame--${vertical ? "v" : "h"}`} style={v.ratio ? { aspectRatio: v.ratio } : undefined}>
         {!started && v.kind === "local" && v.poster && (
           <Image src={v.poster} alt="" fill sizes={sizes} className={posterClass} />
@@ -198,29 +223,17 @@ export default function VideoPlayer({
         )}
       </div>
 
-      {showMeta ? (
-        <figcaption className="vp-cap">
-          <span className="vp-cap-cat">{v.category}</span>
-          <strong>{v.title}{v.language === "hi" && " (in Hindi)"}</strong>
-          <span>{v.description}</span>
+      {layout === "shelf" ? (
+        <figcaption className="vp-info">
+          <div className={captionClass}>{caption}</div>
+          {playbackNote}
+          {infoFooter}
         </figcaption>
       ) : (
-        <figcaption className="vp-cap vp-cap--min">
-          {v.title}
-          {v.kind === "youtube" && v.language === "hi" && " (in Hindi)"}
-        </figcaption>
-      )}
-
-      {v.kind === "youtube" && (
-        <p className="vp-note">
-          {started
-            ? "Playing in YouTube's privacy-enhanced player."
-            : "Pressing play loads YouTube's player (privacy-enhanced mode)."}{" "}
-          <a href={v.watchUrl} target="_blank" rel="noopener noreferrer" className="text-link">
-            Watch on YouTube <ArrowRightIcon width={16} height={16} />
-            <span className="sr-only"> (opens in a new tab)</span>
-          </a>
-        </p>
+        <>
+          <figcaption className={captionClass}>{caption}</figcaption>
+          {playbackNote}
+        </>
       )}
     </figure>
   );

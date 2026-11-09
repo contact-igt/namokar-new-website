@@ -147,7 +147,7 @@ export default function Home() {
           faqPage(PAGES.home.path, faqs(online)),
         ]}
       />
-      <main id="main">
+      <main id="main" data-home-page>
         <Hero
           online={online}
           panel={<VisitPanel />}
@@ -174,7 +174,7 @@ export default function Home() {
                 </p>
                 </div>
               </div>
-              <FacilityGallery items={gallery} label="Photographs of the centre" />
+              <FacilityGallery items={gallery} label="Photographs of the centre" className="centre-gallery" desktopBreakpoint={960} />
             </div>
           </section>
         )}

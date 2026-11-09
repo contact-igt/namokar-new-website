@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import FacilityPhoto from "./FacilityPhoto";
 import Slider, { type Settings } from "react-slick";
 import type { PhotoItem } from "@/lib/photos";
 
@@ -74,6 +74,8 @@ export default function FacilityGallery({
   autoplay,
   infinite,
   slidesToShowDesktop = 3,
+  desktopBreakpoint = 1024,
+  className = "",
 }: {
   items: PhotoItem[];
   label: string;
@@ -81,6 +83,8 @@ export default function FacilityGallery({
   autoplay?: boolean;
   infinite?: boolean;
   slidesToShowDesktop?: number;
+  desktopBreakpoint?: number;
+  className?: string;
 }) {
   const n = items.length;
 
@@ -112,32 +116,17 @@ export default function FacilityGallery({
           { breakpoint: 640, settings: { slidesToShow: 1, slidesToScroll: 1 } },
         ]
       : [
-          { breakpoint: 1024, settings: { slidesToShow: Math.min(2, n), slidesToScroll: 1 } },
+          { breakpoint: desktopBreakpoint, settings: { slidesToShow: Math.min(2, n), slidesToScroll: 1 } },
           { breakpoint: 640, settings: { slidesToShow: 1, slidesToScroll: 1 } },
         ],
   };
 
   return (
-    <div className={`fg ${showArrows ? "fg--with-arrows" : ""}`} aria-label={label}>
+    <div className={`fg ${showArrows ? "fg--with-arrows" : ""} ${className}`} aria-label={label}>
       <Slider {...settings}>
         {items.map((it) => (
           <div key={it.src} className="fg-item">
-            <article className="fg-card">
-              <span className="fg-frame">
-                <Image
-                  src={it.src}
-                  alt={it.alt}
-                  fill
-                  sizes="(min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  className="fg-img"
-                  style={{ objectPosition: it.position }}
-                />
-              </span>
-              <div className="fg-cap">
-                <strong className="fg-title">{it.title ?? it.caption}</strong>
-                {it.title ? <p className="fg-desc">{it.caption}</p> : null}
-              </div>
-            </article>
+            <FacilityPhoto item={it} />
           </div>
         ))}
       </Slider>

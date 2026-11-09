@@ -89,9 +89,20 @@
 .story :global(main#main .tx-frame) { border-radius: var(--r-lg) var(--story-curve) var(--r-lg) var(--story-curve); }
 .story :global(main#main .tx-thumb) { border-radius: 40px var(--r-lg) var(--r-lg) var(--r-lg); }
 .story :global(main#main .tx-info) { box-shadow: none; }
-.story :global(main#main #centre .centre-head) { gap: 24px; margin-bottom: 36px; }
+.story :global(main#main #centre .centre-head) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  max-width: 760px;
+  margin-bottom: 36px;
+  align-items: start;
+}
 .story :global(main#main #centre .fg-card) { border: 0; border-radius: 0; box-shadow: none; background: none; }
-.story :global(main#main #centre .fg-frame) { border-radius: 52px var(--r-lg) var(--r-lg) var(--r-lg); }
+.story :global(main#main :is(#centre, #hospital) .centre-gallery .fg-frame) {
+  aspect-ratio: 3 / 2;
+  border-radius: var(--r-lg);
+}
+.story :global(main#main :is(#centre, #hospital) .centre-gallery .fg-img) { object-fit: cover; }
 .story :global(main#main #centre .fg-cap) { padding-inline: 0; }
 .story :global(main#main #explore .wt-head) { margin: 0; text-align: left; align-items: start; }
 .story :global(main#main #explore .wt-head .lead) { margin-inline: 0; }
@@ -111,9 +122,49 @@
 .story :global(main#main[data-about-page] #doctor .doctor-grid) { padding: 0; }
 .story :global(main#main #doctor .doctor-kicker-wrap) { margin-bottom: 28px; }
 .story :global(main#main #doctor .doctor-training-block) { margin-top: 48px; padding: 32px; }
-.story :global(main#main #videos .vsec-text--wide) { max-width: none; margin: 0 0 36px; text-align: left; }
+.story :global(main#main #videos .vsec-text--wide) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  max-width: 760px;
+  margin: 0 0 36px;
+  text-align: left;
+}
 .story :global(main#main #videos .vsec-text--wide .lead) { margin-inline: 0; }
 .story :global(main#main #videos .shelf) { gap: 36px; }
+.story :global(main#main[data-home-page] #videos .vp--shelf) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: none;
+}
+.story :global(main#main[data-home-page] #videos .vp--shelf .vp-frame) {
+  width: 100%;
+  aspect-ratio: 16 / 9 !important;
+  border-radius: var(--r-lg);
+}
+.story :global(main#main[data-home-page] #videos .vp--shelf.vp--vertical .vp-poster) { object-fit: contain; }
+.story :global(main#main[data-home-page] #videos .vp-info) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: center;
+  gap: 14px;
+  min-width: 0;
+  padding: 8px 0 8px 24px;
+  border-left: 2px solid var(--orange);
+}
+.story :global(main#main[data-home-page] #videos .vp-info .shelf-learn) { margin: 0; }
+.story :global(main#main[data-home-page] #videos .vp-info .vp-note .text-link) {
+  display: flex;
+  width: fit-content;
+  margin-top: 12px;
+}
+.story :global(main#main[data-home-page] #doctor .doctor-copy) { gap: 16px; }
+.story :global(main#main[data-home-page] #doctor .cred-rows) { margin-block: 8px; }
+.story :global(main#main[data-home-page] #doctor .cred-rows > div) { padding-block: 16px; }
+.story :global(main#main[data-home-page] #doctor .btn-row) { gap: 16px 24px; margin-top: 8px; }
 .story :global(main#main #oculoplasty .oculo-copy) { max-width: none; }
 .story :global(main#main #why .why-row) { padding-block: 24px; }
 .story :global(main#main #faq .faq-grid) { gap: 36px; }
@@ -122,11 +173,20 @@
    group the existing facility photographs into two unequal editorial spreads. */
 .story :global(main#main[data-about-page] #about .about-note) { margin: 0; }
 .story :global(main#main[data-about-page] #about .about-services) { border-radius: var(--r-lg) 48px var(--r-lg) var(--r-lg); }
-.story :global(main#main[data-about-page] #hospital .fg-card) { margin-top: 0; }
-.story :global(main#main[data-about-page] #hospital .fg-frame) { border-radius: 0; }
-.story :global(main#main[data-about-page] #hospital .fg-card:nth-child(2) .fg-frame),
-.story :global(main#main[data-about-page] #hospital .fg-card:nth-child(3) .fg-frame) {
-  border-radius: var(--r-lg) 72px var(--r-lg) var(--r-lg);
+.story :global(main#main[data-about-page] #hospital .centre-head) {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  max-width: 760px;
+  align-items: start;
+}
+.story :global(main#main[data-about-page] #hospital .fg) {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+}
+.story :global(main#main[data-about-page] #hospital .fg-card) {
+  grid-column: auto;
+  grid-row: auto;
+  margin: 0;
 }
 .story :global(main#main[data-about-page] #about-video > .container) {
   border: 0;
@@ -189,8 +249,8 @@
   .story :global(main#main .stat:not(:nth-child(4))) { border-right: 1px solid var(--line); }
   .story :global(main#main .pair) { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 40px; align-items: start; }
   .story :global(main#main .pair .ed:nth-child(even)) { margin-top: 56px; }
-  .story :global(main#main[data-about-page] #hospital .fg) { gap: 32px 40px; }
-  .story :global(main#main[data-about-page] #hospital .fg-card:nth-child(even)) { margin-top: 56px; }
+  .story :global(main#main[data-about-page] #hospital .fg) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+  .story :global(main#main[data-home-page] #doctor .cred-rows > div) { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 16px; }
   .story :global(main#main .related-list) { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; }
 }
 
@@ -199,17 +259,13 @@
   .story :global(main#main .hero-media) { aspect-ratio: 1 / 1; }
   .story :global(main#main .hero-grid .hero-copy) { padding-block: 20px; }
   .story :global(main#main .tx-grid) { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 24px 56px; }
-  .story :global(main#main #centre .centre-head) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: end; }
   .story :global(main#main #explore > .container) { grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr); gap: 28px 48px; align-items: center; }
   .story :global(main#main #explore .wt-head) { grid-column: 1; grid-row: 1; }
   .story :global(main#main #explore .wt-stage) { grid-column: 2; grid-row: 1 / span 2; }
   .story :global(main#main #explore .wt-sub) { grid-column: 1; grid-row: 2; align-self: start; }
   .story :global(main#main #doctor .doctor-grid) { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 48px; }
   .story :global(main#main #doctor .doctor-photo) { max-width: 440px; }
-  .story :global(main#main #videos .vsec-text--wide) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px 48px; align-items: end; }
-  .story :global(main#main #videos .vsec-text--wide .kicker) { grid-column: 1 / -1; }
-  .story :global(main#main #videos .vsec-text--wide .h2) { grid-column: 1; margin: 0; }
-  .story :global(main#main #videos .vsec-text--wide .lead) { grid-column: 2; margin: 0; }
+  .story :global(main#main[data-home-page] #videos .vp--shelf) { grid-template-columns: minmax(0, 65fr) minmax(0, 35fr); gap: 40px; align-items: center; }
   .story :global(main#main #oculoplasty .oculo-copy) { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 20px 64px; }
   .story :global(main#main #oculoplasty .oculo-copy > .kicker),
   .story :global(main#main #oculoplasty .oculo-copy > .h2),
@@ -224,12 +280,7 @@
   .story :global(main#main[data-about-page] #about .about-copy-main) { grid-column: 1; grid-row: 2 / span 2; }
   .story :global(main#main[data-about-page] #about .ed) { grid-column: 2; grid-row: 2; }
   .story :global(main#main[data-about-page] #about .about-note) { grid-column: 2; grid-row: 3; }
-  .story :global(main#main[data-about-page] #hospital .fg) { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
-  .story :global(main#main[data-about-page] #hospital .fg-card) { grid-column: auto; }
-  .story :global(main#main[data-about-page] #hospital .fg-card:nth-child(3)) { grid-column: 2; grid-row: 2; }
-  .story :global(main#main[data-about-page] #hospital .fg-card:nth-child(4)) { grid-column: 1; grid-row: 2; }
-  .story :global(main#main[data-about-page] #hospital .fg-card:nth-child(3)) { margin-top: 56px; }
-  .story :global(main#main[data-about-page] #hospital .fg-card:nth-child(4)) { margin-top: 0; }
+  .story :global(main#main[data-about-page] #hospital .fg) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .story :global(main#main[data-about-page] #about-video .vp--showcase) { grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr); gap: 48px; }
   .story :global(main#main[data-page-kind="services"] #vision .tile) { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 64px; }
   .story :global(main#main[data-page-kind="services"] #vision li:nth-child(even) .tile) { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }

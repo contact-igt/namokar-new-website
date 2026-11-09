@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { pageMeta, withBrand } from "@/lib/seo";
 import Link from "next/link";
-import Image from "next/image";
+import FacilityPhoto from "@/components/FacilityPhoto";
 import AssetImage from "@/components/AssetImage";
 import EditorialImage from "@/components/EditorialImage";
 import styles from "./about.module.css";
@@ -300,24 +300,9 @@ export default function AboutPage() {
               examined and treated at our Ashok Vihar centre.
             </p>
           </div>
-          <div className={`fg ${styles.facilityGrid}`} role="group" aria-label="Photographs inside the centre">
+          <div className={`fg centre-gallery ${styles.facilityGrid}`} role="group" aria-label="Photographs inside the centre">
             {gallery.map((item) => (
-              <article key={item.src} className="fg-card">
-                <span className="fg-frame">
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    className="fg-img"
-                    style={{ objectPosition: item.position }}
-                  />
-                </span>
-                <div className="fg-cap">
-                  <strong className="fg-title">{item.title ?? item.caption}</strong>
-                  {item.title ? <p className="fg-desc">{item.caption}</p> : null}
-                </div>
-              </article>
+              <FacilityPhoto key={item.src} item={item} />
             ))}
           </div>
         </div>

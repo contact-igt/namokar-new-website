@@ -37,13 +37,20 @@ export default function VideoShelf({ videos }: { videos: PlayerProps[] }) {
         </div>
         <div className="shelf">
           <div className="shelf-stage" data-aspect={cur.aspect}>
-            <VideoPlayer key={cur.id} v={cur} sizes="(min-width: 960px) 54vw, 100vw" playing={playing} onPlay={() => setPlaying(true)} />
-            {cur.learn && (
-              <Link href={cur.learn.href} className="text-link shelf-learn">
-                {cur.learn.label}
-                <ArrowRightIcon width={18} height={18} />
-              </Link>
-            )}
+            <VideoPlayer
+              key={cur.id}
+              v={cur}
+              layout="shelf"
+              sizes="(min-width: 960px) 65vw, 100vw"
+              playing={playing}
+              onPlay={() => setPlaying(true)}
+              infoFooter={cur.learn && (
+                <Link href={cur.learn.href} className="text-link shelf-learn">
+                  {cur.learn.label}
+                  <ArrowRightIcon width={18} height={18} />
+                </Link>
+              )}
+            />
           </div>
           <div className="shelf-carousel-wrap" aria-label="Choose a video">
             {videos.length > 1 && (
