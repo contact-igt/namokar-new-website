@@ -1,3 +1,4 @@
+import InteriorPage from "@/components/interior/InteriorPage";
 import type { Metadata } from "next";
 import { pageMeta, withBrand } from "@/lib/seo";
 import Link from "next/link";
@@ -20,7 +21,7 @@ export default function TestimonialsPage() {
   if (!REVIEWS_ALLOWED) notFound();
   const online = onlineBookingAvailable();
   return (
-    <main id="main">
+    <InteriorPage kind="reviews">
       <PageHero
         crumb="Patient Reviews"
         title="Patient reviews."
@@ -75,6 +76,6 @@ export default function TestimonialsPage() {
           )}
         </div>
       </section>
-    </main>
+    </InteriorPage>
   );
 }

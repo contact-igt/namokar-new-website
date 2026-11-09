@@ -1,3 +1,4 @@
+import InteriorPage from "@/components/interior/InteriorPage";
 import type { ReactNode } from "react";
 import Breadcrumb from "./Breadcrumb";
 
@@ -21,7 +22,7 @@ export default function LegalDraft({
   children?: ReactNode;
 }) {
   return (
-    <main id="main">
+    <InteriorPage kind="legal">
       <section className="page-hero page-hero--none">
         <div className="container page-hero-grid">
           <div className="page-hero-copy">
@@ -71,6 +72,6 @@ export default function LegalDraft({
           </ol>
         </div>
       </section>
-    </main>
+    </InteriorPage>
   );
 }

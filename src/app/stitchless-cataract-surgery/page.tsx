@@ -1,11 +1,23 @@
 import ClinicalFigure from "@/components/clinical/ClinicalFigure";
 import ServiceLayout, { serviceMetadata } from "@/components/ServiceLayout";
+import CataractHero from "@/components/CataractHero";
+import CataractOverview from "@/components/CataractOverview";
+import CataractWhen from "@/components/CataractWhen";
+import CataractJourney from "@/components/CataractJourney";
+import CataractVideos from "@/components/CataractVideos";
 
 export const metadata = serviceMetadata("cataract");
 
 export default function Page() {
   return (
-    <ServiceLayout serviceKey="cataract">
+    <ServiceLayout
+      serviceKey="cataract"
+      customHero={<CataractHero />}
+      customOverview={<CataractOverview />}
+      customWhen={<CataractWhen />}
+      customJourney={<CataractJourney />}
+      customVideos={<CataractVideos />}
+    >
       <ClinicalFigure
         id="eyeCompare"
         heading="A normal eye and an eye with a cataract"

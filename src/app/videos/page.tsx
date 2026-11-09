@@ -1,3 +1,4 @@
+import InteriorPage from "@/components/interior/InteriorPage";
 import type { Metadata } from "next";
 import { pageMeta, withBrand } from "@/lib/seo";
 import { notFound } from "next/navigation";
@@ -28,7 +29,7 @@ export default function VideosPage() {
   const online = onlineBookingAvailable();
   const videos = allPlayable();
   return (
-    <main id="main">
+    <InteriorPage kind="videos">
       <PageHero
         crumb="Videos"
         title="Eye Care Videos & Insights"
@@ -67,6 +68,6 @@ export default function VideosPage() {
         lead="Contact the centre to plan your visit or arrange an eye consultation."
         online={online}
       />
-    </main>
+    </InteriorPage>
   );
 }

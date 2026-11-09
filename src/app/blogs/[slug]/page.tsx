@@ -1,3 +1,4 @@
+import InteriorPage from "@/components/interior/InteriorPage";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -42,7 +43,7 @@ export default async function Page({ params }: { params: Params }) {
     0,
   );
   return (
-    <main id="main">
+    <InteriorPage kind="article">
       <PageHero
         crumb={a.title}
         trail={[{ label: "Health Articles", href: LINKS.blogs }]}
@@ -94,7 +95,7 @@ export default async function Page({ params }: { params: Params }) {
         lead="Contact the centre to plan your visit or arrange an eye consultation."
         online={online}
       />
-    </main>
+    </InteriorPage>
   );
 }
 

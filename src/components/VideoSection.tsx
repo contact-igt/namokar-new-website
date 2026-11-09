@@ -16,6 +16,7 @@ export default function VideoSection({
   lead,
   note,
   dark = false,
+  layout = "split",
 }: {
   videos: VideoItem[];
   id: string;
@@ -24,11 +25,36 @@ export default function VideoSection({
   lead: string;
   note?: string;
   dark?: boolean;
+  layout?: "split" | "showcase";
 }) {
   if (!videos.length) return null;
   const [first, ...rest] = videos;
   const vertical = first.aspect === "9:16";
   const fp = playerProps(first);
+
+  if (layout === "showcase") {
+    return (
+      <section id={id} className={`section${dark ? " section--graphite" : ""} vsec-showcase-section`} aria-labelledby={`${id}-h`}>
+        <div className="container">
+          <div className="vsec-showcase-head">
+            <p className="kicker">{kicker}</p>
+            <h2 id={`${id}-h`} className="h2">{heading}</h2>
+            <p className="lead">{lead}</p>
+          </div>
+          <div className="vsec-showcase-stage">
+            <VideoPlayer v={fp} sizes="(min-width: 960px) 65vw, 100vw" layout="showcase" />
+          </div>
+          {rest.length > 0 && (
+            <div className="vsec-more">
+              {rest.map((v) => (
+                <VideoPlayer key={v.id} v={playerProps(v)} sizes={v.aspect === "9:16" ? "360px" : "(min-width: 768px) 50vw, 100vw"} />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+    );
+  }
   // Two or more vertical videos and no landscape one: heading above, the Shorts side by side.
   if (vertical && rest.length > 0 && rest.every((v) => v.aspect === "9:16")) {
     return (

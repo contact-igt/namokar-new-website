@@ -1,3 +1,4 @@
+import InteriorPage from "@/components/interior/InteriorPage";
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -37,9 +38,19 @@ export function serviceMetadata(key: ServiceKey): Metadata {
 export default function ServiceLayout({
   serviceKey,
   children,
+  customHero,
+  customOverview,
+  customWhen,
+  customJourney,
+  customVideos,
 }: {
   serviceKey: ServiceKey;
   children?: ReactNode;
+  customHero?: ReactNode;
+  customOverview?: ReactNode;
+  customWhen?: ReactNode;
+  customJourney?: ReactNode;
+  customVideos?: ReactNode;
 }) {
   const c = SERVICE_CONTENT[serviceKey];
   const s = serviceByKey(serviceKey);
@@ -50,7 +61,7 @@ export default function ServiceLayout({
   const vids = videosFor(serviceKey);
 
   return (
-    <main id="main">
+    <InteriorPage kind={serviceKey}>
       <JsonLd page={serviceKey}
         data={[
           webPage({
@@ -63,108 +74,120 @@ export default function ServiceLayout({
           faqPage(s.href, c.faqs),
         ]}
       />
-      <PageHero
-        crumb={s.title}
-        trail={[{ label: "Services", href: LINKS.allServices }]}
-        eyebrow={c.eyebrow ?? group.title}
-        title={c.h1}
-        lead={c.lead}
-        actions={<BookButton online={online} />}
-        media={
-          hasCover ? (
-            <AssetImage
-              asset={cover.primary.asset}
-              fill
-              eager
-              sizes="(min-width: 960px) 58vw, 100vw"
-              className="page-hero-img"
-              style={{ objectPosition: cover.primary.position }}
-            />
-          ) : undefined
-        }
-        mediaCaption={hasCover ? cover.primary.caption : undefined}
-        aside={hasCover ? undefined : <HelpPanel />}
-      />
-
-      <section id="overview" className="section section--tight" aria-labelledby="overview-h">
-        <div className="container about-grid">
-          <div className="section-head reveal">
-            <p className="kicker">{group.title}</p>
-            <h2 id="overview-h" className="h2">{c.introHeading}</h2>
-          </div>
-          <div className="about-body reveal">
-            {c.intro.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-            {cover.plate && figureUsable(cover.plate.figure) && (
-              <figure className="about-photo plate-fig">
-                <Plate name={cover.plate.plate} />
-                <figcaption className="plate-cap">{cover.plate.caption}</figcaption>
-              </figure>
-            )}
-            {cover.secondary && usable(cover.secondary.asset) && (
-              <EditorialImage
-                asset={cover.secondary.asset}
-                caption={cover.secondary.caption}
-                ratio="cinema"
-                position={cover.secondary.position}
-                sizes="(min-width: 960px) 50vw, 100vw"
-                className="about-photo"
-                tab={false}
+      {customHero ?? (
+        <PageHero
+          crumb={s.title}
+          trail={[{ label: "Services", href: LINKS.allServices }]}
+          eyebrow={c.eyebrow ?? group.title}
+          title={c.h1}
+          lead={c.lead}
+          actions={<BookButton online={online} />}
+          media={
+            hasCover ? (
+              <AssetImage
+                asset={cover.primary.asset}
+                fill
+                eager
+                sizes="(min-width: 960px) 58vw, 100vw"
+                className="page-hero-img"
+                style={{ objectPosition: cover.primary.position }}
               />
-            )}
+            ) : undefined
+          }
+          mediaCaption={hasCover ? cover.primary.caption : undefined}
+          aside={hasCover ? undefined : <HelpPanel />}
+        />
+      )}
+
+      {customOverview ?? (
+        <section id="overview" className="section section--tight" aria-labelledby="overview-h">
+          <div className="container about-grid">
+            <div className="section-head reveal">
+              <p className="kicker">{group.title}</p>
+              <h2 id="overview-h" className="h2">{c.introHeading}</h2>
+            </div>
+            <div className="about-body reveal">
+              <div className="overview-copy">
+                {c.intro.map((p) => (
+                  <p key={p}>{p}</p>
+                ))}
+              </div>
+              {cover.plate && figureUsable(cover.plate.figure) && (
+                <figure className="about-photo plate-fig">
+                  <Plate name={cover.plate.plate} />
+                  <figcaption className="plate-cap">{cover.plate.caption}</figcaption>
+                </figure>
+              )}
+              {cover.secondary && usable(cover.secondary.asset) && (
+                <EditorialImage
+                  asset={cover.secondary.asset}
+                  caption={cover.secondary.caption}
+                  ratio="cinema"
+                  position={cover.secondary.position}
+                  sizes="(min-width: 960px) 50vw, 100vw"
+                  className="about-photo"
+                  tab={false}
+                />
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {children}
 
-      <section id="when" className="section section--porcelain" aria-labelledby="when-h">
-        <div className="container about-grid">
-          <div className="section-head reveal">
-            <p className="kicker">Know the signs</p>
-            <h2 id="when-h" className="h2">{c.seekHelp.heading}</h2>
+      {customWhen ?? (
+        <section id="when" className="section section--porcelain" aria-labelledby="when-h">
+          <div className="container about-grid">
+            <div className="section-head reveal">
+              <p className="kicker">Know the signs</p>
+              <h2 id="when-h" className="h2">{c.seekHelp.heading}</h2>
+            </div>
+            <div className="about-body reveal">
+              <ul className="bullets bullets--lg">
+                {c.seekHelp.items.map((i) => (
+                  <li key={i}>{i}</li>
+                ))}
+              </ul>
+              <p className="callout">{c.seekHelp.note}</p>
+            </div>
           </div>
-          <div className="about-body reveal">
-            <ul className="bullets bullets--lg">
-              {c.seekHelp.items.map((i) => (
-                <li key={i}>{i}</li>
+        </section>
+      )}
+
+      {customJourney ?? (
+        <section id="journey" className="section" aria-labelledby="journey-h">
+          <div className="container why-grid">
+            <div className="section-head reveal">
+              <p className="kicker">What to expect</p>
+              <h2 id="journey-h" className="h2">What an assessment involves</h2>
+              <p className="lead">{c.journeyLead}</p>
+            </div>
+            <ol className="why-list">
+              {c.journey.map((j, i) => (
+                <li key={j.title} className="why-row">
+                  <span className="why-no" aria-hidden="true">0{i + 1}</span>
+                  <div>
+                    <h3 className="h3">{j.title}</h3>
+                    <p>{j.text}</p>
+                  </div>
+                </li>
               ))}
-            </ul>
-            <p className="callout">{c.seekHelp.note}</p>
+            </ol>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      <section id="journey" className="section" aria-labelledby="journey-h">
-        <div className="container why-grid">
-          <div className="section-head reveal">
-            <p className="kicker">What to expect</p>
-            <h2 id="journey-h" className="h2">What an assessment involves</h2>
-            <p className="lead">{c.journeyLead}</p>
-          </div>
-          <ol className="why-list">
-            {c.journey.map((j, i) => (
-              <li key={j.title} className="why-row">
-                <span className="why-no" aria-hidden="true">0{i + 1}</span>
-                <div>
-                  <h3 className="h3">{j.title}</h3>
-                  <p>{j.text}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <VideoSection
-        id="watch"
-        videos={vids}
-        kicker="Watch"
-        heading={vids.length > 1 ? "Videos on this topic" : "A video on this topic"}
-        lead="Dr. Poonam Jain's centre shares short videos on its YouTube channel and in its own footage."
-        note="Videos are general information, not a substitute for an examination. They complement the written information on this page."
-      />
+      {customVideos ?? (
+        <VideoSection
+          id="watch"
+          videos={vids}
+          kicker="Watch"
+          heading={vids.length > 1 ? "Videos on this topic" : "A video on this topic"}
+          lead="Dr. Poonam Jain's centre shares short videos on its YouTube channel and in its own footage."
+          note="Videos are general information, not a substitute for an examination. They complement the written information on this page."
+        />
+      )}
 
       <section id="faq" className="section section--porcelain" aria-labelledby="faq-h">
         <div className="container faq-grid">
@@ -206,6 +229,6 @@ export default function ServiceLayout({
         lead="Contact the centre to plan your visit or arrange an eye consultation."
         online={online}
       />
-    </main>
+    </InteriorPage>
   );
 }

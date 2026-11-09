@@ -1,3 +1,4 @@
+import InteriorPage from "@/components/interior/InteriorPage";
 import type { Metadata } from "next";
 import { pageMeta, withBrand } from "@/lib/seo";
 import Link from "next/link";
@@ -21,7 +22,7 @@ export default function BlogsPage() {
   const online = onlineBookingAvailable();
   const sorted = [...ARTICLES].sort((a, b) => b.publishedOn.localeCompare(a.publishedOn));
   return (
-    <main id="main">
+    <InteriorPage kind="articles">
       <PageHero
         crumb="Health Articles"
         title="Health articles."
@@ -61,6 +62,6 @@ export default function BlogsPage() {
           )}
         </div>
       </section>
-    </main>
+    </InteriorPage>
   );
 }

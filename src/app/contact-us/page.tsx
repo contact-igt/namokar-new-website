@@ -1,3 +1,4 @@
+import InteriorPage from "@/components/interior/InteriorPage";
 import type { Metadata } from "next";
 import { pageMeta, withBrand } from "@/lib/seo";
 import AppointmentForm from "@/components/AppointmentForm";
@@ -73,7 +74,7 @@ const VISIT = [
 
 export default function ContactPage() {
   return (
-    <main id="main">
+    <InteriorPage kind="contact">
       <JsonLd page="contact"
         data={[
           webPage({ type: "ContactPage", path: PAGES.contact.path, name: "Contact Us", description: metadata.description as string, mainEntityId: ids.clinic }),
@@ -285,6 +286,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </main>
+    </InteriorPage>
   );
 }

@@ -22,6 +22,7 @@ export default function VideoPlayer({
   sizes = "(min-width: 960px) 40vw, 100vw",
   playing,
   onPlay,
+  layout = "default",
 }: {
   v: PlayerProps;
   showMeta?: boolean;
@@ -29,6 +30,7 @@ export default function VideoPlayer({
   /** Controlled mode (a shelf that allows one player at a time). Omit for a self-contained player. */
   playing?: boolean;
   onPlay?: () => void;
+  layout?: "default" | "showcase";
 }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [own, setOwn] = useState(false);
@@ -44,6 +46,93 @@ export default function VideoPlayer({
   };
 
   const label = `Play video: ${v.title} (${v.duration}${v.hasAudio ? "" : ", no sound"})`;
+
+  if (layout === "showcase") {
+    return (
+      <figure className="vp vp--showcase">
+        <div className="vp-frame vp-frame--h" style={v.ratio ? { aspectRatio: v.ratio } : undefined}>
+          {!started && v.kind === "local" && v.poster && (
+            <Image src={v.poster} alt="" fill sizes={sizes} className={posterClass} />
+          )}
+          {!started && v.kind === "youtube" && (
+            <div className="vp-thumb" aria-hidden="true">
+              {v.poster ? (
+                <Image src={v.poster} alt="" fill sizes={sizes} className={posterClass} />
+              ) : (
+                <Image src="/images/namokar-logo.webp" alt="" width={220} height={62} className="vp-thumb-mark" />
+              )}
+            </div>
+          )}
+
+          {started && v.kind === "local" && !failed && (
+            <video
+              ref={ref}
+              className="vp-video"
+              src={v.src}
+              poster={v.poster}
+              controls
+              playsInline
+              preload="metadata"
+              muted={!v.hasAudio}
+              onError={() => setFailed(true)}
+              aria-label={v.title}
+            >
+              {v.captions && <track kind="captions" src={v.captions} srcLang={v.language} label="Captions" default />}
+            </video>
+          )}
+
+          {started && v.kind === "youtube" && (
+            <iframe
+              className="vp-iframe"
+              src={`https://www.youtube-nocookie.com/embed/${v.videoId}?autoplay=1&rel=0&playsinline=1&cc_load_policy=1`}
+              title={v.title}
+              allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
+          )}
+
+          {failed && (
+            <p className="vp-fail" role="status">
+              The video could not be loaded. Please try again later, or call the centre.
+            </p>
+          )}
+
+          {!started && (
+            <button type="button" className="vp-play" onClick={start} aria-label={label}>
+              <span className="vp-play-icon" aria-hidden="true" />
+              <span className="vp-play-text">
+                Play
+                <span className="vp-play-meta">
+                  {v.duration}
+                  {v.hasAudio ? "" : " · no sound"}
+                </span>
+              </span>
+            </button>
+          )}
+        </div>
+
+        <div className="vp-info">
+          <figcaption className="vp-cap vp-cap--showcase">
+            {v.title}
+            {v.kind === "youtube" && v.language === "hi" && " (in Hindi)"}
+          </figcaption>
+
+          {v.kind === "youtube" && (
+            <p className="vp-note">
+              {started
+                ? "Playing in YouTube's privacy-enhanced player."
+                : "Pressing play loads YouTube's player (privacy-enhanced mode)."}{" "}
+              <a href={v.watchUrl} target="_blank" rel="noopener noreferrer" className="text-link">
+                Watch on YouTube <ArrowRightIcon width={16} height={16} />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </p>
+          )}
+        </div>
+      </figure>
+    );
+  }
 
   return (
     <figure className={`vp${vertical ? " vp--vertical" : ""}`}>

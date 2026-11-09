@@ -1,3 +1,4 @@
+import InteriorPage from "@/components/interior/InteriorPage";
 import type { Metadata } from "next";
 import { pageMeta, withBrand } from "@/lib/seo";
 import Link from "next/link";
@@ -72,7 +73,7 @@ export default function ServicesPage() {
   const oculo = SERVICES.filter((s) => s.group === "oculoplasty");
 
   return (
-    <main id="main">
+    <InteriorPage kind="services">
       <JsonLd page="services"
         data={[
           webPage({ type: "CollectionPage", path: PAGES.services.path, name: "Our Services", description: metadata.description as string }),
@@ -199,6 +200,6 @@ export default function ServicesPage() {
         lead="Tell the centre what you have noticed and ask about arranging an eye consultation. The doctor will advise which care suits you."
         online={online}
       />
-    </main>
+    </InteriorPage>
   );
 }

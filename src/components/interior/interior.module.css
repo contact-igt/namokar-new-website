@@ -1,0 +1,466 @@
+/* Opt-in interior design. Typography, text colours and button identity come from globals.css.
+   Neither the homepage nor the approved About page carries this module's root class. */
+.page {
+  --interior-tint: color-mix(in srgb, var(--orange) 4%, var(--white));
+  min-width: 0;
+}
+.page :global(.section) { padding-block: clamp(48px, 6vw, 80px); }
+.page :global(.section--porcelain) { background: var(--interior-tint); }
+.page :global(.container > *) { min-width: 0; }
+.page :global(.reveal) { animation: none; opacity: 1; transform: none; }
+.page :global(.section-head) { position: static; max-width: 830px; }
+.page :global(.about-body) { min-width: 0; max-width: 66ch; gap: 20px; }
+.page :global(.about-grid),
+.page :global(.why-grid),
+.page :global(.faq-grid),
+.page :global(.services-grid),
+.page :global(.train-grid) { gap: 32px; }
+.page :global(#faq) { background: var(--porcelain); }
+.page :global(.faq-list) { min-width: 0; }
+.page :global(.faq) { border-radius: 0; box-shadow: none; }
+.page :global(.related-list) { margin-top: 28px; }
+.page :global(.related-link) { gap: 8px 20px; padding-block: 22px; }
+.page :global(.cta) { padding-block: clamp(48px, 6vw, 80px); }
+.page :global(.cta-inner) { gap: 28px; }
+
+/* Full-width warmth, inset copy and an authentic photograph with a caption below it. */
+.page :global(.page-hero) {
+  padding: 32px 0 64px;
+  background: var(--interior-tint);
+}
+.page :global(.page-hero-grid) {
+  width: min(1320px, calc(100% - var(--gutter) * 2));
+  max-width: 1320px;
+  padding-inline: 0;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+}
+.page :global(.page-hero-copy) { min-width: 0; max-width: none; }
+.page :global(.page-hero-media) {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 48px var(--r-lg) var(--r-lg) var(--r-lg);
+  background: none;
+  box-shadow: none;
+}
+.page :global(.page-hero-media::before) { content: none; }
+.page :global(.page-hero-media .parallax) {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  flex: none;
+}
+.page :global(.page-hero-media .page-hero-img) {
+  object-fit: contain;
+  transform: none;
+  will-change: auto;
+}
+.page :global(.page-hero-media .hero-caption) {
+  position: static;
+  width: calc(100% - 32px);
+  max-width: none;
+  margin: 16px;
+  padding: 4px 0 4px 16px;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.page :global(.page-hero--none .page-hero-copy) { max-width: 920px; }
+.page :global(.help-panel) {
+  width: 100%;
+  margin: 0;
+  padding: 28px;
+  border-color: var(--line);
+  border-radius: var(--r-lg);
+  background: var(--white);
+}
+.page :global(.help-links) { display: grid; justify-items: start; gap: 8px; }
+
+/* Reading spreads and consistently framed secondary photographs. */
+.page :global(.ed-frame) { border-radius: var(--r-lg); box-shadow: none; }
+.page :global(.ed-img) { object-fit: contain; }
+.page :global(.ed--tab .ed-frame::before) { content: none; }
+.page :global(.ed-cap) { padding-top: 12px; }
+.page :global(.pair) { gap: 28px; align-items: start; }
+.page :global(.pair .ed-frame) { aspect-ratio: 3 / 2; }
+.page :global(.terms > div) { gap: 8px; padding-block: 22px; }
+.page :global(.why-list) { min-width: 0; }
+.page :global(.why-row) { gap: 20px; padding-block: 24px; }
+.page :global(.clin) { background: var(--porcelain); }
+.page :global(.clin-head) { max-width: 830px; margin-bottom: 28px; }
+.page :global(.clin-fig) { min-width: 0; border-radius: var(--r-lg); box-shadow: none; }
+.page :global(.vsec),
+.page :global(.vsec-duo),
+.page :global(.vsec-more) { gap: 28px; }
+.page :global(.vp-frame) { box-shadow: none; }
+
+/* Service directory: image-led vision cards and more compact oculoplasty rows. */
+.page[data-page-kind="services"] :global(.svcnav) { background: var(--white); }
+.page[data-page-kind="services"] :global(#vision .tile-grid) { gap: 28px; }
+.page[data-page-kind="services"] :global(#vision .tile) {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+}
+.page[data-page-kind="services"] :global(.tile-photo) { border-radius: var(--r-lg); aspect-ratio: 3 / 2; }
+.page[data-page-kind="services"] :global(.tile-photo::after) { content: none; }
+.page[data-page-kind="services"] :global(.tile-photo-img) { object-fit: cover; }
+.page[data-page-kind="services"] :global(.tile-body) { padding: 20px 0 0; gap: 12px; }
+.page[data-page-kind="services"] :global(#oculoplasty .svc-row) { gap: 20px; padding-block: 24px; }
+.page[data-page-kind="services"] :global(.svc-thumb) { width: 128px; border-radius: var(--r-lg); }
+.page[data-page-kind="services"] :global(.svc-thumb-img) { object-fit: contain; }
+
+/* Glaucoma has enough content to vary the composition between signs, tests and treatment. */
+.page[data-page-kind="glaucoma"] :global(#signs .tile-grid) { gap: 0 32px; }
+.page[data-page-kind="glaucoma"] :global(#signs .tile),
+.page[data-page-kind="glaucoma"] :global(#monitoring .tile) {
+  padding: 24px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.page[data-page-kind="glaucoma"] :global(#types .tile-grid),
+.page[data-page-kind="glaucoma"] :global(#treatment .tile-grid) { gap: 24px; }
+.page[data-page-kind="glaucoma"] :global(#types .tile),
+.page[data-page-kind="glaucoma"] :global(#treatment .tile) {
+  gap: 14px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: none;
+}
+.page[data-page-kind="glaucoma"] :global(#monitoring .tile-grid) { grid-template-columns: minmax(0, 1fr); margin-top: 0; gap: 0; }
+.page[data-page-kind="glaucoma"] :global(#monitoring .tile) { grid-template-columns: auto minmax(0, 1fr); gap: 8px 20px; }
+.page[data-page-kind="glaucoma"] :global(#monitoring .tile-blurb) { grid-column: 2; }
+.page[data-page-kind="glaucoma"] :global(.statement) { max-width: 1000px; gap: 20px; }
+.page[data-page-kind="glaucoma"] :global(.page-hero-media) { max-width: 420px; justify-self: center; }
+.page[data-page-kind="glaucoma"] :global(.page-hero-media .parallax) { aspect-ratio: 2 / 3; }
+
+/* Eyelid surgery keeps its two-way comparison; aesthetic care keeps a consultation checklist. */
+.page[data-page-kind="eyelid"] :global(.compare) { gap: 24px; margin-top: 32px; }
+.page[data-page-kind="eyelid"] :global(.compare > div) {
+  gap: 20px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+}
+.page[data-page-kind="aesthetic"] :global(#expectations .dash-list li) {
+  padding-block: 14px;
+  border-bottom: 1px solid var(--ink-soft);
+}
+.page[data-page-kind="exams"] :global(#parts .terms),
+.page[data-page-kind="reconstructive"] :global(#terms .terms) { min-width: 0; }
+
+/* Cataract retains its original dedicated sections and image, without a faded backdrop. */
+.page[data-page-kind="cataract"] :global(.cataract-hero) {
+  display: block;
+  height: auto;
+  min-height: 0;
+  padding: 32px 0 64px;
+  background: var(--interior-tint);
+}
+.page[data-page-kind="cataract"] :global(.cataract-hero-image-stage) { display: none; }
+.page[data-page-kind="cataract"] :global(.cataract-hero-container) {
+  width: min(1320px, calc(100% - var(--gutter) * 2));
+  max-width: 1320px;
+  padding-inline: 0;
+}
+.page[data-page-kind="cataract"] :global(.cataract-hero-grid) { grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: center; }
+.page[data-page-kind="cataract"] :global(.cataract-hero-copy) { max-width: none; }
+.page[data-page-kind="cataract"] :global(.cataract-hero-mobile-media) { display: block; margin: 0; }
+.page[data-page-kind="cataract"] :global(.cataract-hero-mobile-img-wrap) {
+  aspect-ratio: 3 / 2;
+  border-radius: 48px var(--r-lg) var(--r-lg) var(--r-lg);
+  overflow: hidden;
+  box-shadow: none;
+}
+.page[data-page-kind="cataract"] :global(.cataract-hero-mobile-img) { width: 100%; height: 100%; object-fit: contain; }
+.page[data-page-kind="cataract"] :global(.cataract-overview-grid) { gap: 32px; align-items: start; }
+.page[data-page-kind="cataract"] :global(.cataract-overview-img-wrap) { border-radius: var(--r-lg); box-shadow: none; }
+.page[data-page-kind="cataract"] :global(.cataract-overview-img) { object-fit: contain; }
+.page[data-page-kind="cataract"] :global(.cataract-overview-copy) { gap: 20px; max-width: 66ch; }
+.page[data-page-kind="cataract"] :global(.cataract-when-box) { padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; }
+.page[data-page-kind="cataract"] :global(.cataract-when-list) { gap: 0; }
+.page[data-page-kind="cataract"] :global(.cataract-when-item) { padding-block: 14px; border-bottom: 1px solid var(--line); }
+.page[data-page-kind="cataract"] :global(.cataract-urgent-notice) { margin-top: 24px; background: var(--white); }
+.page[data-page-kind="cataract"] :global(.cataract-journey-stack) { gap: 0; }
+.page[data-page-kind="cataract"] :global(.cataract-journey-card) {
+  padding: 24px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.page[data-page-kind="cataract"] :global(.cataract-video-grid) { gap: 28px; }
+.page[data-page-kind="cataract"] :global(.cataract-video-card .vp) { padding: 0; border: 0; box-shadow: none; background: none; }
+
+/* Doctor: intact portrait, quiet focus rows, two clearly grouped training columns. */
+.page[data-page-kind="doctor"] :global(.page-hero-media) {
+  width: min(100%, 440px);
+  aspect-ratio: auto !important;
+  border: 8px solid var(--white);
+  border-radius: var(--r-lg);
+  justify-self: center;
+}
+.page[data-page-kind="doctor"] :global(.page-hero-media .parallax) { aspect-ratio: 130 / 179; }
+.page[data-page-kind="doctor"] :global(.page-hero-media .page-hero-img) { object-fit: contain !important; }
+.page[data-page-kind="doctor"] :global(.doctor-focus-list) { gap: 0; }
+.page[data-page-kind="doctor"] :global(.doctor-focus-card) {
+  padding: 16px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.page[data-page-kind="doctor"] :global(.train-cols) { gap: 28px; }
+.page[data-page-kind="doctor"] :global(.train-col) { padding: 28px; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--white); }
+.page[data-page-kind="doctor"] :global(.cred-cards-group) { gap: 0; }
+.page[data-page-kind="doctor"] :global(.cred-item-card) {
+  padding: 18px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.page[data-page-kind="doctor"] :global(#room .pair .ed-frame) { aspect-ratio: 3 / 2 !important; border: 0; border-radius: var(--r-lg); box-shadow: none; }
+.page[data-page-kind="doctor"] :global(#care .svc-row),
+.page[data-page-kind="international"] :global(#care .svc-row) {
+  padding: 24px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.page[data-page-kind="doctor"] :global(#care .svc-list),
+.page[data-page-kind="international"] :global(#care .svc-list) { gap: 0; }
+
+/* Outstation visitors: a continuous numbered journey, arrival photographs, then practical details. */
+.page[data-page-kind="international"] :global(#plan .journey-cards) { gap: 0; }
+.page[data-page-kind="international"] :global(#plan .journey-card) {
+  padding: 24px 0;
+  gap: 20px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.page[data-page-kind="international"] :global(#arrive) { background: var(--porcelain); }
+.page[data-page-kind="international"] :global(#arrive .pair .ed-frame) { aspect-ratio: 3 / 2; border: 0; border-radius: var(--r-lg); box-shadow: none; }
+.page[data-page-kind="international"] :global(.find-cards-grid) { gap: 24px; }
+.page[data-page-kind="international"] :global(.find-card),
+.page[data-page-kind="international"] :global(.find-action-card) { border-color: var(--line); border-radius: var(--r-lg); box-shadow: none; }
+.page[data-page-kind="international"] :global(.find-action-value) { white-space: normal; overflow: visible; }
+.page[data-page-kind="international"] :global(.find-actions-group) { grid-template-columns: minmax(0, 1fr); }
+
+/* Contact keeps the existing call/directions actions together and gives the map generous space. */
+.page[data-page-kind="contact"] :global(.actions-wrap) { background: var(--white); }
+.page[data-page-kind="contact"] :global(.actions) { gap: 20px; padding-block: 32px; }
+.page[data-page-kind="contact"] :global(.act) { height: 100%; border-radius: var(--r-lg); box-shadow: none; }
+.page[data-page-kind="contact"] :global(.loc-grid) { gap: 32px; }
+.page[data-page-kind="contact"] :global(.info-rows > div) { padding-block: 18px; }
+.page[data-page-kind="contact"] :global(.map-frame) { border-radius: var(--r-lg); }
+.page[data-page-kind="contact"] :global(.req-grid) { gap: 32px; }
+.page[data-page-kind="contact"] :global(.form--contact) { background: var(--white); border-color: var(--line); }
+.page[data-page-kind="contact"] :global(#visit .why-row--plain) { padding: 24px 0; }
+
+/* Editorial and utility pages share the same restraint without borrowing a treatment layout. */
+.page[data-page-kind="videos"] :global(.vlib) { gap: 48px; }
+.page[data-page-kind="videos"] :global(.vlib-group) { gap: 28px; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+.page[data-page-kind="videos"] :global(.vlib-grid) { display: block; columns: 1; column-gap: 28px; }
+.page[data-page-kind="videos"] :global(.vlib-grid .vp) {
+  display: grid;
+  width: 100%;
+  max-width: none;
+  margin-bottom: 28px;
+  break-inside: avoid;
+}
+.page[data-page-kind="videos"] :global(.vlib-grid .vp--vertical) { max-width: 360px; }
+.page[data-page-kind="articles"] :global(.empty-state),
+.page[data-page-kind="reviews"] :global(.empty-state) { padding-block: 24px; gap: 20px; }
+.page[data-page-kind="article"] :global(.article) { max-width: 76ch; gap: 24px; }
+.page[data-page-kind="legal"] :global(.legal-banner) { background: var(--white); border-color: var(--line); border-left: 3px solid var(--orange); }
+.page[data-page-kind="confirmation"] { background: var(--interior-tint); padding-block: clamp(48px, 6vw, 80px); }
+.page[data-page-kind="confirmation"] :global(.thank-you) { max-width: 1040px; gap: 28px; }
+.page[data-page-kind="confirmation"] :global(.thank-you-card) { border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: none; }
+.page[data-page-kind="confirmation"] :global(.thank-you-next) { padding: 28px; border-radius: var(--r-lg); }
+.page[data-page-kind="review"] { background: var(--porcelain); }
+.page[data-page-kind="review"] :global(.rv-wrap) { border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--white); }
+
+@media (min-width: 768px) {
+  .page[data-page-kind="videos"] :global(.vlib-grid) { columns: 2; }
+  .page :global(.pair) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+  .page[data-page-kind="glaucoma"] :global(#signs .tile-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .page[data-page-kind="eyelid"] :global(.compare) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .page[data-page-kind="exams"] :global(.terms > div),
+  .page[data-page-kind="reconstructive"] :global(.terms > div) { grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); gap: 24px; }
+}
+@media (min-width: 960px) {
+  .page[data-page-kind="videos"] :global(.vlib-grid) { columns: 3; }
+  .page[data-page-kind="videos"] :global(.vlib-grid:not(:has(> :nth-child(3)))) { columns: 2; }
+  .page :global(.page-hero--photo .page-hero-grid) { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 48px; }
+  .page :global(.page-hero--photo .page-hero-copy) { padding-left: 32px; }
+  .page :global(.page-hero-media) { border-top-left-radius: 88px; }
+  .page :global(.page-hero--aside .page-hero-grid) { grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr); gap: 64px; padding-inline: 32px; }
+  .page :global(.about-grid),
+  .page :global(.why-grid),
+  .page :global(.faq-grid),
+  .page :global(.train-grid) { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 48px; }
+  .page :global(.services-grid) { gap: 48px; }
+  .page :global(.cta-inner) { grid-template-columns: minmax(0, 1fr) auto; gap: 48px; align-items: center; }
+  .page[data-page-kind="glaucoma"] :global(#types .tile-grid),
+  .page[data-page-kind="glaucoma"] :global(#treatment .tile-grid) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .page[data-page-kind="glaucoma"] :global(#monitoring > .container) { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 48px; align-items: start; }
+  .page[data-page-kind="glaucoma"] :global(.page-hero-grid) { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); }
+  .page[data-page-kind="cataract"] :global(.cataract-hero-grid) { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 48px; }
+  .page[data-page-kind="cataract"] :global(.cataract-hero-copy) { padding-left: 32px; }
+  .page[data-page-kind="cataract"] :global(.cataract-hero-mobile-img-wrap) { border-top-left-radius: 88px; }
+  .page[data-page-kind="cataract"] :global(.cataract-overview-grid) { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 48px; }
+  .page[data-page-kind="cataract"] :global(.cataract-video-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .page[data-page-kind="doctor"] :global(.page-hero-grid) { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
+  .page[data-page-kind="doctor"] :global(.page-hero-media) { border-radius: var(--r-lg); }
+  .page[data-page-kind="doctor"] :global(.train-grid) { grid-template-columns: minmax(0, 1fr); }
+  .page[data-page-kind="doctor"] :global(.train-cols) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+  .page[data-page-kind="doctor"] :global(.train-grid .section-head) { max-width: 830px; }
+  .page[data-page-kind="international"] :global(#plan .why-grid),
+  .page[data-page-kind="international"] :global(#find .find-grid) { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 48px; }
+  .page[data-page-kind="contact"] :global(.loc-grid) { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 48px; align-items: center; }
+  .page[data-page-kind="contact"] :global(.map-frame) { aspect-ratio: 4 / 3; }
+  .page[data-page-kind="contact"] :global(.req-grid) { gap: 48px; }
+}
+@media (max-width: 767px) {
+  .page :global(.page-hero),
+  .page[data-page-kind="cataract"] :global(.cataract-hero) { padding: 24px 0 48px; }
+  .page :global(.help-panel) { padding: 24px; }
+  .page :global(.why-row) { grid-template-columns: auto minmax(0, 1fr); gap: 16px; }
+  .page :global(.why-row--plain) { grid-template-columns: minmax(0, 1fr); }
+  .page[data-page-kind="glaucoma"] :global(#types .tile),
+  .page[data-page-kind="glaucoma"] :global(#treatment .tile),
+  .page[data-page-kind="eyelid"] :global(.compare > div),
+  .page[data-page-kind="doctor"] :global(.train-col) { padding: 24px 20px; }
+  .page[data-page-kind="international"] :global(#plan .journey-card) { gap: 14px; }
+  .page[data-page-kind="international"] :global(.find-card--address) { grid-template-columns: minmax(0, 1fr); }
+  .page[data-page-kind="contact"] :global(.act) { padding: 20px 16px; }
+  .page[data-page-kind="confirmation"] :global(.thank-you-next) { padding: 24px 20px; }
+}
+
+/* Pixel research: image-led service stories, distinct from the compact oculoplasty index. */
+.page :global(.overview-copy) { display: grid; gap: 20px; min-width: 0; max-width: 66ch; }
+.page[data-page-kind="doctor"] :global(#room) { background: var(--porcelain); }
+.page[data-page-kind="contact"] :global(.form) { gap: 24px; }
+.page[data-page-kind="articles"] :global(.tile-grid) { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.page[data-page-kind="articles"] :global(.tile) {
+  padding: 28px 0;
+  gap: 14px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.page :global(.lens-fg .slick-dots) { gap: 8px; }
+.page :global(.lens-fg .slick-dots button) { width: 36px; height: 36px; padding: 13px; }
+
+@media (min-width: 768px) {
+  .page :global(#overview .about-grid:has(.ed.about-photo)) {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 28px 32px;
+  }
+  .page :global(#overview .about-grid:has(.ed.about-photo) .section-head) { grid-column: 1 / -1; grid-row: 1; }
+  .page :global(#overview .about-grid:has(.ed.about-photo) .about-body) { display: contents; }
+  .page :global(#overview .about-grid:has(.ed.about-photo) .overview-copy) { grid-column: 2; grid-row: 2; }
+  .page :global(#overview .about-grid:has(.ed.about-photo) .ed.about-photo) { grid-column: 1; grid-row: 2; margin: 0; align-self: center; }
+  .page :global(#overview .ed.about-photo .ed-frame) { aspect-ratio: 3 / 2; }
+  .page[data-page-kind="glaucoma"] :global(#overview .ed.about-photo),
+  .page[data-page-kind="exams"] :global(#overview .ed.about-photo) { width: min(100%, 320px); justify-self: center; }
+  .page[data-page-kind="glaucoma"] :global(#overview .ed.about-photo .ed-frame),
+  .page[data-page-kind="exams"] :global(#overview .ed.about-photo .ed-frame) { aspect-ratio: 2 / 3; }
+  .page[data-page-kind="articles"] :global(.tile) { grid-template-columns: minmax(0, 1fr) auto; column-gap: 32px; }
+  .page[data-page-kind="articles"] :global(.tile .tile-meta) { grid-column: 2; grid-row: 1 / span 3; }
+}
+@media (min-width: 960px) {
+  .page[data-page-kind="services"] :global(#vision .tile-grid) { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .page[data-page-kind="services"] :global(#vision .tile-grid > li) { padding-block: 28px; border-bottom: 1px solid var(--line); }
+  .page[data-page-kind="services"] :global(#vision .tile) {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: 40px;
+  }
+  .page[data-page-kind="services"] :global(#vision .tile-body) { padding: 0; max-width: 54ch; }
+  .page[data-page-kind="services"] :global(#vision .tile-grid > li:nth-child(even) .tile) { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); }
+  .page[data-page-kind="services"] :global(#vision .tile-grid > li:nth-child(even) .tile-photo) { grid-column: 2; grid-row: 1; }
+  .page[data-page-kind="services"] :global(#vision .tile-grid > li:nth-child(even) .tile-body) { grid-column: 1; grid-row: 1; }
+  .page :global(#overview .about-grid:has(.ed.about-photo)) { gap: 24px 48px; }
+  .page :global(#overview .about-grid:has(.ed.about-photo) .section-head) { grid-column: 2; }
+  .page :global(#overview .about-grid:has(.ed.about-photo) .ed.about-photo) { grid-row: 1 / span 2; }
+}
+
+/* Short About-style interactions; no scroll parallax, large transforms or hidden content. */
+@media (prefers-reduced-motion: no-preference) {
+  .page :global(.btn), .page :global(.text-link), .page :global(.tile),
+  .page :global(.svc-row), .page :global(.find-action-card) {
+    transition: transform 180ms var(--ease), background-color 180ms var(--ease),
+      border-color 180ms var(--ease), box-shadow 180ms var(--ease);
+  }
+  .page :global(.ed-img), .page :global(.tile-photo-img), .page :global(.vp-poster) { transition: transform 320ms var(--ease); }
+  .page :global(.btn svg), .page :global(.related-link svg), .page :global(.svc-more svg) { transition: transform 180ms var(--ease); }
+  .page :global(.act), .page :global(.compare > div), .page :global(.train-col), .page :global(.vp-frame) {
+    transition: transform 200ms var(--ease), border-color 200ms var(--ease), box-shadow 200ms var(--ease);
+  }
+  .page :global(.field input), .page :global(.field select), .page :global(.field textarea) {
+    transition: border-color 180ms var(--ease), box-shadow 180ms var(--ease);
+  }
+  .page :global(.field input:focus-visible), .page :global(.field select:focus-visible), .page :global(.field textarea:focus-visible) {
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--orange) 8%, transparent);
+  }
+  @supports (interpolate-size: allow-keywords) {
+    .page :global(.faq) { interpolate-size: allow-keywords; }
+    .page :global(.faq::details-content) {
+      block-size: 0;
+      opacity: 0;
+      overflow: clip;
+      transition: block-size 240ms var(--ease), opacity 180ms var(--ease),
+        content-visibility 240ms allow-discrete;
+    }
+    .page :global(.faq[open]::details-content) { block-size: auto; opacity: 1; }
+    .page :global(.faq[open] p) { animation: none; }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .page :global(.tile:hover), .page :global(.svc-row:hover),
+    .page :global(.find-action-card:hover), .page :global(.doctor-focus-card:hover),
+    .page :global(.cred-item-card:hover), .page :global(.journey-card:hover),
+    .page :global(.cataract-journey-card:hover) { box-shadow: none; transform: translateY(-2px); }
+    .page :global(.ed:hover .ed-img), .page :global(.tile:hover .tile-photo-img),
+    .page :global(.vp-frame:hover .vp-poster) { transform: scale(1.012); }
+    .page :global(.related-link:hover svg), .page :global(.tile:hover .svc-more svg) { transform: translateX(3px); }
+    .page :global(.act:hover), .page :global(.compare > div:hover), .page :global(.train-col:hover) {
+      transform: translateY(-2px);
+      border-color: var(--orange);
+      box-shadow: 0 6px 18px color-mix(in srgb, var(--ink) 6%, transparent);
+    }
+    .page :global(.vp:hover .vp-frame) { box-shadow: 0 6px 18px color-mix(in srgb, var(--ink) 6%, transparent); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page *, .page *::before, .page *::after { animation: none !important; transition: none !important; }
+  .page :global(.btn), .page :global(.tile), .page :global(.svc-row), .page :global(.ed-img),
+  .page :global(.vp-poster), .page :global(.tile-photo-img), .page :global(.doctor-focus-card),
+  .page :global(.cred-item-card), .page :global(.journey-card), .page :global(.find-action-card),
+  .page :global(.cataract-journey-card), .page :global(.act), .page :global(.train-col) { transform: none !important; }
+}

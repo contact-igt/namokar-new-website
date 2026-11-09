@@ -1,3 +1,4 @@
+import InteriorPage from "@/components/interior/InteriorPage";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PhoneIcon } from "@/components/Icons";
@@ -11,7 +12,7 @@ export const metadata: Metadata = pageMeta("contact", {
 
 export default function ThankYouPage() {
   return (
-    <main id="main" className="thank-you-page">
+    <InteriorPage kind="confirmation" className="thank-you-page">
       <section className="container thank-you" aria-labelledby="thank-you-title">
         <div className="thank-you-card">
           <span className="thank-you-check" aria-hidden="true">✓</span>
@@ -34,6 +35,6 @@ export default function ThankYouPage() {
           </div>
         </div>
       </section>
-    </main>
+    </InteriorPage>
   );
 }

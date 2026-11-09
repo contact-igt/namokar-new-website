@@ -5,6 +5,7 @@ import Image from "next/image";
 import Slider, { type Settings } from "react-slick";
 import { LINKS } from "@/config/site";
 import { ArrowRightIcon } from "../Icons";
+import { usePrefersReducedMotion } from "../motion/useMedia";
 
 type Design = "distance" | "near" | "astigmatism" | "edof";
 
@@ -75,6 +76,7 @@ const COPY: Record<
  * (src/config/figures.ts); no brand names and no promises.
  */
 export default function LensDesigns() {
+  const calm = usePrefersReducedMotion();
   // Three cards across on a desktop, two on a tablet, one on a phone. Swipe, drag or use the dots;
   // nothing moves on its own.
   const settings: Settings = {
@@ -82,7 +84,11 @@ export default function LensDesigns() {
     arrows: false,
     dots: true,
     infinite: true,
-    speed: 520,
+    speed: calm ? 0 : 360,
+    useCSS: !calm,
+    cssEase: "cubic-bezier(0.23, 1, 0.32, 1)",
+    autoplay: false,
+    swipeToSlide: true,
     slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
@@ -116,7 +122,10 @@ export default function LensDesigns() {
                   <p className="lens-card-text">{COPY[d].text}</p>
                   <ul className="lens-card-points">
                     {COPY[d].points.map((pt) => (
-                      <li key={pt}>{pt}</li>
+                      <li key={pt} className="lens-point-item">
+                        <span className="lens-point-icon" aria-hidden="true" />
+                        <span className="lens-point-text">{pt}</span>
+                      </li>
                     ))}
                   </ul>
                   <Link href={LINKS.contact} className="lens-card-cta">

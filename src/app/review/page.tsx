@@ -1,3 +1,4 @@
+import InteriorPage from "@/components/interior/InteriorPage";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
@@ -99,10 +100,10 @@ async function Index() {
 
 export default function ReviewPage() {
   return (
-    <main id="main" className="section">
+    <InteriorPage kind="review" className="section">
       <Suspense fallback={null}>
         <Index />
       </Suspense>
-    </main>
+    </InteriorPage>
   );
 }

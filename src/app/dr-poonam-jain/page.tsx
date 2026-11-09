@@ -1,3 +1,4 @@
+import InteriorPage from "@/components/interior/InteriorPage";
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
@@ -49,7 +50,7 @@ export default function DoctorPage() {
   const hasWork = usable(ASSETS.docSlit) || usable(ASSETS.docBlazer);
 
   return (
-    <main id="main">
+    <InteriorPage kind="doctor" className="doctor-page">
       <JsonLd page="doctor"
         data={[
           webPage({ type: "ProfilePage", path: PAGES.doctor.path, name: "Dr. Poonam Jain", description: metadata.description as string, mainEntityId: ids.physician }),
@@ -72,7 +73,7 @@ export default function DoctorPage() {
               eager
               sizes="(min-width: 960px) 40vw, 100vw"
               className="page-hero-img"
-              style={{ objectPosition: lead === ASSETS.portrait ? "50% 30%" : "50% 38%" }}
+              style={{ objectPosition: lead === ASSETS.portrait ? "50% 30%" : "50% 20%" }}
             />
           ) : undefined
         }
@@ -97,11 +98,17 @@ export default function DoctorPage() {
               that suit you.
             </p>
             <h3 className="areas-h">Areas of focus</h3>
-            <ul className="bullets">
-              <li>Oculoplasty: functional and aesthetic eyelid care</li>
-              <li>Tear-drainage problems and watering eyes</li>
-              <li>Comprehensive eye care as a senior ophthalmologist</li>
-            </ul>
+            <div className="doctor-focus-list" role="list">
+              <div className="doctor-focus-card" role="listitem">
+                <span>Oculoplasty: functional and aesthetic eyelid care</span>
+              </div>
+              <div className="doctor-focus-card" role="listitem">
+                <span>Tear-drainage problems and watering eyes</span>
+              </div>
+              <div className="doctor-focus-card" role="listitem">
+                <span>Comprehensive eye care as a senior ophthalmologist</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -114,34 +121,34 @@ export default function DoctorPage() {
             <p className="lead">As they are currently recorded.</p>
           </div>
           <div className="train-cols reveal">
-            <div>
+            <div className="train-col">
               <h3 className="h3">Qualifications</h3>
-              <dl className="cred-rows">
-                <div>
+              <div className="cred-cards-group">
+                <div className="cred-item-card">
                   <dt>MBBS</dt>
                   <dd>Bachelor of Medicine and Bachelor of Surgery</dd>
                 </div>
-                <div>
+                <div className="cred-item-card">
                   <dt>MS, Ophthalmology</dt>
                   <dd>Postgraduate surgical degree in ophthalmology</dd>
                 </div>
                 <RegistrationRow />
-              </dl>
+              </div>
             </div>
-            <div>
+            <div className="train-col">
               <h3 className="h3">Further training</h3>
-              <dl className="cred-rows">
-                <div>
+              <div className="cred-cards-group">
+                <div className="cred-item-card">
                   <dt>Fellowship</dt>
                   <dd>Oculoplasty, Barraquer Institute, Barcelona</dd>
                 </div>
-                <div>
+                <div className="cred-item-card">
                   <dt>Observership</dt>
                   <dd>Wilmer Eye Institute, Johns Hopkins, Baltimore</dd>
                 </div>
-              </dl>
+              </div>
             </div>
-            <p className="fine">
+            <p className="fine train-fine">
               Both are past training, not a current affiliation with, or endorsement by,
               those institutions.
             </p>
@@ -161,15 +168,15 @@ export default function DoctorPage() {
                 asset={ASSETS.docSlit}
                 caption="Dr. Poonam Jain beside a slit-lamp examination unit."
                 ratio="wide"
-                position="55% 45%"
-                sizes="(min-width: 960px) 58vw, 100vw"
+                position="50% 45%"
+                sizes="(min-width: 960px) 50vw, 100vw"
               />
               <EditorialImage
                 asset={ASSETS.docBlazer}
                 caption="In her consultation room."
-                ratio="tall"
-                position="50% 30%"
-                sizes="(min-width: 960px) 40vw, 100vw"
+                ratio="wide"
+                position="50% 20%"
+                sizes="(min-width: 960px) 50vw, 100vw"
               />
             </div>
           </div>
@@ -225,6 +232,6 @@ export default function DoctorPage() {
         lead="Contact the centre to plan your visit or arrange an eye consultation."
         online={online}
       />
-    </main>
+    </InteriorPage>
   );
 }

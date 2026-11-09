@@ -1,3 +1,4 @@
+import InteriorPage from "@/components/interior/InteriorPage";
 import type { Metadata } from "next";
 import { pageMeta, withBrand } from "@/lib/seo";
 import Link from "next/link";
@@ -46,7 +47,7 @@ const STEPS = [
 export default function InternationalPage() {
   const online = onlineBookingAvailable();
   return (
-    <main id="main">
+    <InteriorPage kind="international" className="intl-page">
       <JsonLd page="international"
         data={webPage({ path: PAGES.international.path, name: "International and Outstation Patients", description: metadata.description as string })}
       />
@@ -66,11 +67,13 @@ export default function InternationalPage() {
             <h2 id="plan-h" className="h2">From first call to follow-up</h2>
             <p className="lead">A general outline of how a visit from further away usually works.</p>
           </div>
-          <ol className="why-list">
+          <ol className="why-list journey-cards" role="list">
             {STEPS.map((s, i) => (
-              <li key={s.title} className="why-row">
-                <span className="why-no" aria-hidden="true">0{i + 1}</span>
-                <div>
+              <li key={s.title} className="why-row journey-card" role="listitem">
+                <div className="journey-card-no" aria-hidden="true">
+                  <span>0{i + 1}</span>
+                </div>
+                <div className="journey-card-body">
                   <h3 className="h3">{s.title}</h3>
                   <p>{s.text}</p>
                 </div>
@@ -92,16 +95,16 @@ export default function InternationalPage() {
               <EditorialImage
                 asset={ASSETS.internationalExteriorNov}
                 caption="The centre entrance from the street."
-                ratio="cinema"
+                ratio="wide"
                 position="50% 45%"
-                sizes="(min-width: 960px) 58vw, 100vw"
+                sizes="(min-width: 960px) 50vw, 100vw"
               />
               <EditorialImage
                 asset={ASSETS.internationalReceptionNov}
                 caption="The reception desk at the centre entrance."
                 ratio="wide"
                 position="42% 50%"
-                sizes="(min-width: 960px) 40vw, 100vw"
+                sizes="(min-width: 960px) 50vw, 100vw"
               />
             </div>
           </div>
@@ -153,34 +156,53 @@ export default function InternationalPage() {
       </section>
 
       <section id="find" className="section section--porcelain" aria-labelledby="find-h">
-        <div className="container about-grid">
+        <div className="container find-grid">
           <div className="section-head reveal">
             <p className="kicker">Finding the centre</p>
             <h2 id="find-h" className="h2">Where we are</h2>
           </div>
-          <div className="about-body reveal">
-            <address className="loc-address">
-              {SITE.address.lines.map((l) => (
-                <span key={l}>{l}<br /></span>
-              ))}
-              <span className="info-note">{SITE.address.landmark}</span>
-            </address>
-            <ul className="vp-links vp-links--dark">
-              <li>
-                <a href={TEL_HREF}>
+          <div className="find-cards-grid reveal">
+            <div className="find-card find-card--address">
+              <div className="find-card-icon" aria-hidden="true">
+                <PinIcon width={22} height={22} />
+              </div>
+              <div className="find-card-content">
+                <span className="find-card-label">Centre Address</span>
+                <address className="find-address">
+                  {SITE.address.lines.map((l) => (
+                    <span key={l}>{l}<br /></span>
+                  ))}
+                  <span className="find-landmark">{SITE.address.landmark}</span>
+                </address>
+              </div>
+            </div>
+
+            <div className="find-actions-group">
+              <a href={TEL_HREF} className="find-action-card">
+                <div className="find-action-icon" aria-hidden="true">
                   <PhoneIcon width={20} height={20} />
-                  {SITE.phone.display}
-                </a>
-              </li>
-              <li>
-                <a href={MAPS_LINK} target="_blank" rel="noopener noreferrer">
+                </div>
+                <div className="find-action-info">
+                  <span className="find-action-label">Telephone Contact</span>
+                  <span className="find-action-value">{SITE.phone.display}</span>
+                </div>
+                <ArrowRightIcon className="find-action-arrow" width={18} height={18} />
+              </a>
+
+              <a href={MAPS_LINK} target="_blank" rel="noopener noreferrer" className="find-action-card">
+                <div className="find-action-icon" aria-hidden="true">
                   <PinIcon width={20} height={20} />
-                  Get directions
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
-              </li>
-            </ul>
-            <p>
+                </div>
+                <div className="find-action-info">
+                  <span className="find-action-label">Directions</span>
+                  <span className="find-action-value">Get directions</span>
+                </div>
+                <ArrowRightIcon className="find-action-arrow" width={18} height={18} />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </div>
+
+            <p className="find-contact-note">
               The <Link href={LINKS.contact} className="text-link">Contact page</Link> has a map.
             </p>
           </div>
@@ -193,6 +215,6 @@ export default function InternationalPage() {
         lead="Contact the centre to plan your visit or arrange an eye consultation."
         online={online}
       />
-    </main>
+    </InteriorPage>
   );
 }
