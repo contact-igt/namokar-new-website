@@ -5,7 +5,6 @@ import Image from "next/image";
 import AssetImage from "@/components/AssetImage";
 import EditorialImage from "@/components/EditorialImage";
 import styles from "./about.module.css";
-import AboutMotion from "./AboutMotion";
 import RegistrationRow from "@/components/RegistrationRow";
 import BookButton from "@/components/BookButton";
 import CtaBand from "@/components/CtaBand";
@@ -67,7 +66,6 @@ export default function AboutPage() {
 
   return (
     <main id="main" className={styles.page} data-about-page>
-      <AboutMotion />
       <JsonLd page="about"
         data={[
           webPage({ type: "AboutPage", path: PAGES.about.path, name: "About Us", description: metadata.description as string, mainEntityId: ids.clinic }),

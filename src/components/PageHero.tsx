@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Breadcrumb from "./Breadcrumb";
-import Parallax from "./motion/Parallax";
 
 /**
  * Inner-page hero. Text sits on white. `media` (a cleared photograph) or `aside`
@@ -46,7 +45,7 @@ export default function PageHero({
         </div>
         {media && (
           <figure className="page-hero-media">
-            <Parallax>{media}</Parallax>
+            <div className="parallax">{media}</div>
             {mediaCaption && (
               <figcaption className="hero-caption">
                 <span className="hero-caption-kicker">{mediaLabel ?? crumb}</span>

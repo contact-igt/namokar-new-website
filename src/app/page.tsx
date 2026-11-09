@@ -8,7 +8,6 @@ import HomeAppointmentPopup from "@/components/HomeAppointmentPopup";
 import TreatmentExplorer from "@/components/TreatmentExplorer";
 import { treatmentItems } from "@/lib/treatments";
 import JsonLd from "@/components/JsonLd";
-import Parallax from "@/components/motion/Parallax";
 import { ArrowRightIcon, PhoneIcon, PinIcon, PlusIcon } from "@/components/Icons";
 import NamePlate from "@/components/NamePlate";
 import VisitPanel from "@/components/VisitPanel";
@@ -113,7 +112,7 @@ function heroShot(candidates: HeroCandidate[], eager: boolean) {
   return {
     caption: c.caption,
     node: (
-      <Parallax range={18}>
+      <div className="parallax">
       <AssetImage
         asset={c.asset}
         fill
@@ -122,7 +121,7 @@ function heroShot(candidates: HeroCandidate[], eager: boolean) {
         className="hero-img"
         style={{ objectPosition: c.position }}
       />
-      </Parallax>
+      </div>
     ),
   };
 }

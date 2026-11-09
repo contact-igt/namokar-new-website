@@ -1,24 +1,7 @@
-"use client";
+import type { ReactNode } from "react";
+import styles from "./story.module.css";
 
-import { type ReactNode, useLayoutEffect, useRef } from "react";
-
-/** Number of pages this tab has shown. Lives in the browser only; reset by a full page load. */
-let pagesShown = 0;
-
-/**
- * A template remounts on every navigation. From the second page of a visit on, the new page eases
- * in (opacity and a 6 px shift, 200 ms). The first page is never animated, so it adds nothing to
- * the time it takes to appear. Added before paint (layout effect) so there is no flash, and
- * switched off by the reduced-motion rule in globals.css.
- */
+/** Static page compositions. Header, footer and floating actions live outside this scope. */
 export default function Template({ children }: { children: ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
-  useLayoutEffect(() => {
-    // React Strict Mode replays effects in development. Count each mounted template once.
-    if (!ref.current || ref.current.dataset.pageCounted) return;
-    ref.current.dataset.pageCounted = "true";
-    if (pagesShown > 0) ref.current.classList.add("page-enter");
-    pagesShown += 1;
-  }, []);
-  return <div ref={ref}>{children}</div>;
+  return <div className={styles.story}>{children}</div>;
 }

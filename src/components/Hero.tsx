@@ -11,7 +11,6 @@ import {
 } from "react";
 import { LINKS, SITE } from "@/config/site";
 import { HOME_FACTS } from "@/content/why";
-import CountUp from "./CountUp";
 import BookButton, { SecondaryContact } from "./BookButton";
 import { ArrowDownIcon, ArrowRightIcon } from "./Icons";
 
@@ -303,7 +302,7 @@ export default function Hero({
                     aria-hidden={copy ? true : undefined}
                   >
                     <span className="stat-value">
-                      <CountUp value={f.value} />
+                      {f.value}
                     </span>
                     <span className="stat-label">{f.label}</span>
                   </li>
