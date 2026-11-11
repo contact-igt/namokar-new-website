@@ -58,6 +58,8 @@ Status "pending" means it is NOT shown in any default build, in `npm run dev` or
 | Asset (file in /private-assets) | Shows | Source | Approval needed | Status | In production default |
 |---|---|---|---|---|---|
 | Logo (`public/images/namokar-logo.webp`) | Brand | Live site Untitled-design-9.png, NABH mark cropped | Described by the owner as the approved logo | approved | **Yes** |
+| `public/images/Copy of DSC06862.JPG` | Dr. Poonam Jain, homepage portrait | Supplied in public/images by the project owner, 11 Nov 2026 | Selected and approved by the project user for the homepage doctor section, 11 Nov 2026 | approved | Homepage doctor section |
+| `public/images/WhatsApp Image 2026-11-11 at 5.51.48 PM.jpeg` | Hands photograph, Why Patients Choose Namokar background | Supplied in public/images by the project owner, 11 Nov 2026 | Selected by the project owner for this section, 11 Nov 2026 | approved | Homepage Why Namokar section |
 | hospital-reception.webp | Receptionist | July shoot IMG_4308 | Receptionist's consent, client | pending | No |
 | hospital-consultation-room.webp | Dr. Poonam Jain | July shoot IMG_0026 | Doctor, client | pending | No |
 | dr-poonam-jain-portrait.webp | Dr. Poonam Jain | July shoot IMG_0033 | Doctor, client | pending | No |

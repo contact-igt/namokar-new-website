@@ -216,7 +216,7 @@ const faqs = (online: boolean) => [
 export default function Home() {
   const online = onlineBookingAvailable();
 
-  const hasPortrait = usable(ASSETS.doctorArcPortrait);
+  const hasPortrait = usable(ASSETS.homepageDoctorPortrait);
   const gallery = compact([
     photoItem(ASSETS.archCataractExam, {
       title: "Consultation & Eye Examination",
@@ -294,8 +294,8 @@ export default function Home() {
             <figure className="doctor-photo reveal">
               {hasPortrait ? (
                 <AssetImage
-                  asset={ASSETS.doctorArcPortrait}
-                  sizes="(min-width: 960px) 25vw, 100vw"
+                  asset={ASSETS.homepageDoctorPortrait}
+                  sizes="(min-width: 960px) 40vw, 100vw"
                   className="doctor-img"
                 />
               ) : (
@@ -369,7 +369,7 @@ export default function Home() {
         />
 
         {/* Oculoplasty */}
-        <section id="oculoplasty" className="section section--graphite" aria-labelledby="oculo-h">
+        <section id="oculoplasty" className="section oculo-section" aria-labelledby="oculo-h">
           <div className="container oculo-grid">
             <div className="oculo-copy">
               <p className="kicker">Oculoplasty</p>
@@ -447,10 +447,9 @@ export default function Home() {
 
         {/* Why Namokar */}
         <section id="why" className="why-section" aria-labelledby="why-h">
-          <div className="why-backdrop" aria-hidden="true">
-            <AssetImage asset={ASSETS.whyCentreBackground} fill sizes="100vw" className="why-backdrop-img" />
+          <div className="why-hands-backdrop" aria-hidden="true">
+            <AssetImage asset={ASSETS.whyCentreBackground} sizes="(min-width: 960px) 1100px, 100vw" className="why-hands-image" alt="" />
           </div>
-          <div className="why-overlay" aria-hidden="true" />
           <div className="container why-shell">
             <header className="why-intro reveal">
               <p className="kicker why-kicker">Why Namokar</p>

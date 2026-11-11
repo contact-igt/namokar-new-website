@@ -10,7 +10,6 @@ import {
   useState,
 } from "react";
 import { LINKS } from "@/config/site";
-import CountUp from "./CountUp";
 import { CalendarIcon } from "./Icons";
 
 const AUTO_MS = 5500;
@@ -25,6 +24,9 @@ export const HERO_SLIDES = [
     titleSub: "a ",
     titleHighlight: "Personal Approach.",
     body: "From routine eye examinations to cataract, glaucoma and oculoplasty care, every visit starts with a careful assessment.",
+    image: "/images/Modern Ophthalmology Exam Room 1-1.png",
+    imageAlt: "Diagnostic eye examination setup with orange chair and advanced ophthalmic equipment",
+    objectPosition: "right center",
     more: { label: "About the centre", href: LINKS.about },
   },
   {
@@ -36,19 +38,23 @@ export const HERO_SLIDES = [
     titleSub: "",
     titleHighlight: "Explained Clearly.",
     body: "Careful assessment of your vision and a clear discussion of your treatment options with premium IOL choices.",
+    image: "/images/Modern Ophthalmology Exam Room.png",
+    imageAlt: "Warm ophthalmic consultation and slit-lamp examination room at Namokar Eye Centre",
+    objectPosition: "right center",
     more: { label: "About cataract surgery", href: LINKS.cataract },
   },
-  {
-    id: "oculoplasty",
-    tab: "Oculoplasty",
-    label: "Specialist oculoplasty",
-    badge: "Fellowship-Trained Specialist",
-    titlePrefix: "Specialist Eyelid &",
-    titleSub: "",
-    titleHighlight: "Tear-Duct Care.",
-    body: "Care for drooping or heavy eyelids, watering eyes and under-eye concerns, tailored after careful evaluation.",
-    more: { label: "Explore eyelid care", href: LINKS.eyelid },
-  },
+] as const;
+
+const TRUST_ITEMS = [
+  "25+ Years of Eye Care Experience",
+  "10,000+ Patients Treated",
+  "Barraquer Institute Trained Specialist",
+  "International Clinical Exposure",
+  "Modern Diagnostic Facilities",
+  "Patient-Centred Care",
+  "Comprehensive Eye Care",
+  "Specialist Oculoplasty Care",
+  "Advanced Ophthalmic Technology",
 ] as const;
 
 export default function Hero({
@@ -57,7 +63,7 @@ export default function Hero({
   panel?: ReactNode;
   online: boolean;
 }) {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const count = HERO_SLIDES.length;
 
@@ -105,19 +111,28 @@ export default function Hero({
         onKeyDown={onKeyDown}
         tabIndex={0}
       >
-        {/* The clinic photograph stays in place while the copy advances. */}
-        <div className="hero-banner-visual" aria-hidden="true">
-          <Image
-            src="/images/Copy of DSC07064 - Copy-200kb.jpg"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="hero-static-image"
-          />
+        <div className="hero-lens-watermark" aria-hidden="true" />
+        <div className="hero-banner-visual">
+          {HERO_SLIDES.map((slide, i) => (
+            <div
+              key={slide.id}
+              className={`hero-image-layer hero-image-layer--${slide.id} ${active === i ? "is-active" : ""}`}
+              aria-hidden={active !== i}
+            >
+              <Image
+                src={slide.image}
+                alt={slide.imageAlt}
+                fill
+                priority={i === 0}
+                sizes="100vw"
+                className={`hero-slide-image hero-slide-image--${slide.id}`}
+                style={{ objectFit: "cover", objectPosition: slide.objectPosition }}
+              />
+            </div>
+          ))}
         </div>
 
-        {/* Floating Three Dots Pagination (Bottom Right) */}
+        {/* Slide pagination */}
         <div
           className="hero-slider-pagination"
           role="tablist"
@@ -258,53 +273,21 @@ export default function Hero({
         </div>
       </section>
 
-      {/* Dark Teal Stats Bar with 4 Key Metrics */}
-      <div className="hero-stats-band" role="region" aria-label="Key Facts and Excellence">
-        <div className="container hero-stats-container">
-          <div className="hero-stats-grid">
-            {/* 1. Specialist Fellowship */}
-            <div className="hero-stat-col hero-stat-col--specialist">
-              <span className="hero-stat-badge-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
-                  <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
-                </svg>
-              </span>
-              <div className="hero-stat-desc">
-                <span className="hero-stat-sub">Barraquer Institute</span>
-                <strong className="hero-stat-main">Trained Specialist</strong>
-              </div>
+      <div className="hero-stats-band hero-trust-marquee" role="region" aria-label="Why patients trust Namokar">
+        <div className="hero-trust-track">
+          {[0, 1].map((copy) => (
+            <div className="hero-trust-group" key={copy} aria-hidden={copy === 1}>
+              {TRUST_ITEMS.map((item) => (
+                <span className="hero-trust-item" key={item}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M2.5 12s3.6-6 9.5-6 9.5 6 9.5 6-3.6 6-9.5 6-9.5-6-9.5-6Z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                  {item}
+                </span>
+              ))}
             </div>
-
-            <div className="hero-stat-sep" aria-hidden="true" />
-
-            {/* 2. 25+ Years */}
-            <div className="hero-stat-col">
-              <span className="hero-stat-num">
-                <CountUp value="25+" />
-              </span>
-              <span className="hero-stat-label">Years of Excellence</span>
-            </div>
-
-            <div className="hero-stat-sep" aria-hidden="true" />
-
-            {/* 3. 10,000+ Patients */}
-            <div className="hero-stat-col">
-              <span className="hero-stat-num">
-                <CountUp value="10,000+" />
-              </span>
-              <span className="hero-stat-label">Happy Patients</span>
-            </div>
-
-            <div className="hero-stat-sep" aria-hidden="true" />
-
-            {/* 4. Verified facilities count */}
-            <div className="hero-stat-col">
-              <span className="hero-stat-num">
-                <CountUp value="6" />
-              </span>
-              <span className="hero-stat-label">Advanced Facilities</span>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

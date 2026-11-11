@@ -473,8 +473,41 @@
 }
 
 /* Educational videos */
-.homeRedesign :global(.video-showcase) {
-  background: linear-gradient(180deg, #fffaf6 0%, #fff 100%);
+.homeRedesign :global(.video-showcase),
+.homeRedesign :global(.video-showcase.video-showcase) {
+  position: relative;
+  overflow: hidden;
+  background-color: #fef6f4;
+  background-image: none !important;
+}
+
+.homeRedesign :global(.video-showcase > .container) {
+  position: relative;
+  z-index: 1;
+}
+
+.homeRedesign :global(.video-showcase)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(680px, 66vw, 1080px);
+  aspect-ratio: 1672 / 941;
+  background-image: url("/images/Cosmetic Eye Consultation in Peach Tones(1).png");
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: contain;
+  opacity: 0.65;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image:
+    linear-gradient(to bottom, #000 0%, #000 56%, rgba(0, 0, 0, 0.4) 76%, transparent 96%),
+    linear-gradient(to right, transparent 0%, transparent 28%, rgba(0, 0, 0, 0.35) 42%, #000 60%, #000 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to bottom, #000 0%, #000 56%, rgba(0, 0, 0, 0.4) 76%, transparent 96%),
+    linear-gradient(to right, transparent 0%, transparent 28%, rgba(0, 0, 0, 0.35) 42%, #000 60%, #000 100%);
+  mask-composite: intersect;
 }
 
 .homeRedesign :global(.video-showcase .vsec-text--wide .h2) {
@@ -637,7 +670,8 @@
 .homeRedesign :global(.why-foot) {
   max-width: 720px;
   margin: 14px 0 0;
-  color: rgb(255 255 255 / 0.82);
+  color: #1e383e;
+  opacity: 1;
 }
 
 .homeRedesign :global(.why-cards) {
@@ -827,12 +861,6 @@
 }
 
 @media (min-width: 960px) {
-  .homeRedesign :global(.hero-banner-visual) {
-    width: 57vw;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.32) 13%, #000 29%);
-    mask-image: linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.32) 13%, #000 29%);
-  }
-
   .homeRedesign :global(.wt-layout) {
     grid-template-columns: minmax(0, 1.55fr) minmax(250px, 0.65fr);
     column-gap: 54px;
@@ -910,12 +938,6 @@
 
   .homeRedesign :global(.hero-banner-content) {
     padding-block: 42px 28px;
-  }
-
-  .homeRedesign :global(.hero-banner-visual) {
-    order: 2;
-    min-height: clamp(280px, 64vw, 460px);
-    border-radius: 0;
   }
 
   .homeRedesign :global(.hero-slider-pagination) {
@@ -1092,30 +1114,58 @@
 }
 
 .homeRedesign :global(.hero-banner-visual) {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  border-radius: 0;
-  -webkit-mask-image: none;
-  mask-image: none;
+  position: absolute !important;
+  inset: 0 !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  aspect-ratio: auto !important;
+  border-radius: 0 !important;
+  background: #fff8f1;
+  overflow: hidden !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
 }
 
-.homeRedesign :global(.hero-static-image) {
-  object-fit: cover;
-  object-position: 58% center;
+.homeRedesign :global(.hero-lens-watermark) {
+  display: none !important;
 }
 
 .homeRedesign :global(.hero-banner-visual::after) {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #fff8f1 0%, #fff8f1 31%, rgb(255 248 241 / 0.94) 42%, rgb(255 248 241 / 0.38) 64%, transparent 81%);
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    #fff8f1 0%,
+    #fff8f1 24%,
+    rgba(255, 248, 241, 0.96) 32%,
+    rgba(255, 248, 241, 0.82) 40%,
+    rgba(255, 248, 241, 0.52) 48%,
+    rgba(255, 248, 241, 0.22) 56%,
+    rgba(255, 248, 241, 0.05) 64%,
+    transparent 70%
+  );
   pointer-events: none;
 }
 
 @media (min-width: 960px) {
+  .homeRedesign :global(.hero-banner-visual) {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
   .homeRedesign :global(.hero-banner-wrapper) {
     min-height: calc(100svh - 85px);
     display: flex;
@@ -1139,6 +1189,10 @@
 }
 
 @media (max-width: 959px) {
+  .homeRedesign :global(.hero-lens-watermark) {
+    display: none;
+  }
+
   .homeRedesign :global(.hero-slide-copy) {
     min-height: 230px;
   }
@@ -1155,17 +1209,22 @@
   }
 
   .homeRedesign :global(.hero-banner-visual) {
-    order: 2;
-    position: relative;
-    inset: auto;
-    width: 100%;
-    height: clamp(220px, 36vw, 340px);
-    min-height: 0;
-    aspect-ratio: auto;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    order: unset !important;
   }
 
   .homeRedesign :global(.hero-banner-visual::after) {
-    background: linear-gradient(180deg, #fff8f1, rgb(255 248 241 / 0.5) 12%, transparent 32%);
+    background: linear-gradient(
+      180deg,
+      #fff8f1 0%,
+      rgba(255, 248, 241, 0.96) 42%,
+      rgba(255, 248, 241, 0.82) 60%,
+      rgba(255, 248, 241, 0.45) 85%,
+      rgba(255, 248, 241, 0.2) 100%
+    );
   }
 
   .homeRedesign :global(.hero-static-image) {
@@ -1206,13 +1265,15 @@
   }
 }
 
+
+
 @media (max-width: 639px) {
   .homeRedesign :global(.hero-banner-content) {
     padding-block: 28px 24px;
   }
 
   .homeRedesign :global(.hero-slide-copy) {
-    min-height: 290px;
+    min-height: 240px;
   }
 
   .homeRedesign :global(.hero-banner-heading) {
@@ -1262,9 +1323,7 @@
     word-break: normal;
   }
 
-  .homeRedesign :global(.hero-banner-visual) {
-    height: clamp(200px, 60vw, 260px);
-  }
+
 
   .homeRedesign :global(.hero-stats-band) {
     padding-block: 10px;
@@ -1311,5 +1370,446 @@
 @media (prefers-reduced-motion: reduce) {
   .homeRedesign :global(.hero-slide-copy) {
     animation: none;
+  }
+}
+
+/* Two coordinated hero photographs and a continuous trust stripe. */
+.homeRedesign :global(.hero-image-layer) {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 700ms ease;
+}
+
+.homeRedesign :global(.hero-image-layer.is-active) {
+  opacity: 1;
+}
+
+.homeRedesign :global(.hero-slide-image) {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: right center !important;
+}
+
+.homeRedesign :global(.hero-slide-image--centre) {
+  object-position: right center !important;
+}
+
+.homeRedesign :global(.hero-slide-image--cataract) {
+  object-position: right center !important;
+}
+
+@media (max-width: 959px) {
+  .homeRedesign :global(.hero-slide-image--centre) {
+    object-position: 78% center !important;
+  }
+
+  .homeRedesign :global(.hero-slide-image--cataract) {
+    object-position: 74% center !important;
+  }
+}
+
+.homeRedesign :global(.hero-trust-marquee) {
+  display: flex;
+  align-items: center;
+  min-height: 76px;
+  overflow: hidden;
+  padding-block: 0;
+  background: var(--home-teal-deep);
+}
+
+.homeRedesign :global(.hero-trust-track) {
+  display: flex;
+  width: max-content;
+  animation: hero-trust-scroll 48s linear infinite;
+}
+
+.homeRedesign :global(.hero-trust-marquee:hover .hero-trust-track),
+.homeRedesign :global(.hero-trust-marquee:focus-within .hero-trust-track) {
+  animation-play-state: paused;
+}
+
+.homeRedesign :global(.hero-trust-group) {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: clamp(34px, 4vw, 68px);
+  padding-right: clamp(34px, 4vw, 68px);
+}
+
+.homeRedesign :global(.hero-trust-item) {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 11px;
+  color: #fff;
+  font-size: clamp(0.82rem, 1.05vw, 0.96rem);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.homeRedesign :global(.hero-trust-item svg) {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  color: #f6a36d;
+}
+
+@keyframes hero-trust-scroll {
+  to { transform: translateX(-50%); }
+}
+
+/* Doctor introduction, credentials, and authentic portrait. */
+.homeRedesign :global(.doctor-showcase) {
+  padding-block: clamp(70px, 7vw, 108px);
+  background: linear-gradient(180deg, #fffdfb, #fff8f2);
+}
+
+.homeRedesign :global(.doctor-showcase .doctor-grid) {
+  align-items: center;
+}
+
+.homeRedesign :global(.doctor-showcase .doctor-photo) {
+  border-radius: 22px;
+  background: #eae8e5;
+  box-shadow: 0 20px 42px -30px rgb(7 63 70 / 0.36);
+}
+
+.homeRedesign :global(.doctor-showcase .doctor-img) {
+  display: block;
+  aspect-ratio: 4 / 5.25;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.homeRedesign :global(.doctor-showcase .doctor-photo:hover .doctor-img) {
+  transform: none;
+}
+
+.homeRedesign :global(.doctor-photo-caption) {
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+}
+
+.homeRedesign :global(.doctor-profile-main) {
+  align-content: center;
+  gap: 18px;
+}
+
+.homeRedesign :global(.doctor-profile-main .doctor-showcase-head) {
+  gap: 12px;
+  margin: 0;
+}
+
+.homeRedesign :global(.doctor-showcase-head .doctor-role) {
+  color: #425b61;
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
+.homeRedesign :global(.doctor-showcase .doctor-copy .lead) {
+  max-width: 58ch;
+  color: #4b6064;
+  line-height: 1.68;
+}
+
+.homeRedesign :global(.doctor-expertise-card) {
+  gap: 14px;
+  padding: clamp(21px, 2.3vw, 30px);
+  background: #fff;
+  border-color: rgb(217 99 24 / 0.2);
+  box-shadow: 0 17px 38px -32px rgb(7 63 70 / 0.38);
+}
+
+.homeRedesign :global(.doctor-expertise-card li) {
+  padding-block: 9px;
+}
+
+.homeRedesign :global(.doctor-highlights) {
+  margin-top: clamp(24px, 3vw, 38px);
+  gap: 14px;
+}
+
+.homeRedesign :global(.doctor-highlights > div) {
+  min-height: 82px;
+  padding: 16px clamp(16px, 2vw, 26px);
+  background: #fff0e5;
+  border: 1px solid rgb(217 99 24 / 0.1);
+}
+
+.homeRedesign :global(.doctor-training-section) {
+  margin-top: clamp(30px, 3.5vw, 44px);
+  padding-block: 0;
+}
+
+.homeRedesign :global(.doctor-training-section::before) {
+  content: none;
+}
+
+.homeRedesign :global(.doctor-training-section .doctor-training-title) {
+  margin-bottom: 20px;
+  color: var(--home-teal-deep);
+}
+
+.homeRedesign :global(.doctor-qualification-list) {
+  gap: 14px;
+}
+
+.homeRedesign :global(.doctor-qualification-list > div) {
+  padding: 20px 18px;
+  border-color: rgb(7 63 70 / 0.13);
+  box-shadow: 0 14px 32px -30px rgb(7 63 70 / 0.3);
+}
+
+/* Light, compact oculoplasty composition. */
+.homeRedesign :global(#oculoplasty) {
+  background: #fff7f1;
+  color: var(--home-teal-deep);
+}
+
+.homeRedesign :global(.oculo-grid) {
+  align-items: stretch;
+  gap: clamp(30px, 4vw, 60px);
+}
+
+.homeRedesign :global(.oculo-copy .kicker) {
+  color: var(--home-orange);
+}
+
+.homeRedesign :global(.oculo-copy .h2) {
+  max-width: 18ch;
+  color: var(--home-teal-deep);
+}
+
+.homeRedesign :global(.oculo-copy .lead),
+.homeRedesign :global(.oculo-note) {
+  color: #4b6064;
+}
+
+.homeRedesign :global(.oculo-cards) {
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.homeRedesign :global(.oculo-card),
+.homeRedesign :global(.oculo-card:hover) {
+  padding: 19px;
+  border-color: rgb(217 99 24 / 0.18);
+  background: #fff;
+  box-shadow: 0 15px 36px -30px rgb(7 63 70 / 0.32);
+}
+
+.homeRedesign :global(.oculo-card-icon) {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+}
+
+.homeRedesign :global(.oculo-card-icon svg) {
+  width: 27px;
+  height: 27px;
+}
+
+.homeRedesign :global(.oculo-card--aesthetic .oculo-card-icon) {
+  background: #fff0e5;
+  color: var(--home-orange);
+}
+
+.homeRedesign :global(#oculoplasty .oculo-card .oculo-card-title) {
+  color: var(--home-teal-deep);
+}
+
+.homeRedesign :global(.oculo-check-list li) {
+  color: #4b6064;
+  font-size: 0.88rem;
+}
+
+.homeRedesign :global(.oculo-links .btn--outline-light) {
+  border-color: var(--home-orange);
+  color: var(--home-orange);
+  background: transparent;
+}
+
+.homeRedesign :global(.oculo-feature-art) {
+  min-height: 520px;
+  box-shadow: 0 22px 46px -30px rgb(7 63 70 / 0.38);
+}
+
+.homeRedesign :global(.oculo-highlights) {
+  margin-top: clamp(34px, 4vw, 52px);
+  border-top: 0;
+  border-radius: 16px;
+  background: #ffeadb;
+}
+
+.homeRedesign :global(.oculo-highlights::before) {
+  content: none;
+}
+
+/* Why Namokar cards now sit in normal flow on a warm, light canvas. */
+.homeRedesign :global(.why-section) {
+  padding: clamp(68px, 7vw, 100px) 0 clamp(70px, 7vw, 100px);
+  overflow: hidden;
+  background: #fffdfb;
+  color: var(--home-teal-deep);
+}
+
+.homeRedesign :global(.why-hands-backdrop) {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.homeRedesign :global(.why-hands-image) {
+  position: absolute;
+  top: -125px;
+  left: 50%;
+  width: min(100%, 1100px);
+  height: auto;
+  transform: translateX(-50%);
+  opacity: 0.5;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent), linear-gradient(180deg, transparent, #000 15%, #000 82%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent), linear-gradient(180deg, transparent, #000 15%, #000 82%, transparent);
+  mask-composite: intersect;
+}
+
+.homeRedesign :global(.why-hands-backdrop::after) {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(255 253 251 / 0.35), rgb(255 244 235 / 0.28) 52%, rgb(255 253 251 / 0.45));
+}
+
+.homeRedesign :global(.why-h2) {
+  color: var(--home-teal-deep);
+}
+
+.homeRedesign :global(.why-foot) {
+  color: #1e383e;
+  opacity: 1;
+}
+
+.homeRedesign :global(.why-cards) {
+  position: static;
+  inset: auto;
+  margin-top: clamp(32px, 4vw, 48px);
+  gap: 16px;
+}
+
+.homeRedesign :global(.why-card) {
+  min-height: 230px;
+  border: 1px solid rgb(217 99 24 / 0.14);
+  box-shadow: 0 18px 42px -34px rgb(7 63 70 / 0.35);
+}
+
+.homeRedesign :global(.faq-section) {
+  padding-top: clamp(68px, 7vw, 96px);
+}
+
+@media (min-width: 640px) {
+  .homeRedesign :global(.oculo-cards) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 959px) {
+  .homeRedesign :global(.why-hands-image) {
+    top: -25px;
+    width: min(100%, 850px);
+  }
+
+  .homeRedesign :global(.doctor-showcase .doctor-photo) {
+    width: min(100%, 520px);
+  }
+
+  .homeRedesign :global(.oculo-feature-art) {
+    min-height: clamp(310px, 60vw, 480px);
+  }
+
+  .homeRedesign :global(.why-card) {
+    min-height: 0;
+  }
+
+  .homeRedesign :global(.video-showcase)::before {
+    width: clamp(480px, 60vw, 720px);
+    opacity: 0.55;
+  }
+}
+
+@media (max-width: 639px) {
+  .homeRedesign :global(.video-showcase)::before {
+    width: clamp(420px, 115vw, 520px);
+    aspect-ratio: 1672 / 941;
+    opacity: 0.52;
+    top: 0;
+    right: 0;
+    -webkit-mask-image:
+      linear-gradient(to bottom, #000 0%, #000 52%, rgba(0, 0, 0, 0.4) 75%, transparent 95%),
+      linear-gradient(to right, transparent 0%, transparent 34%, rgba(0, 0, 0, 0.4) 50%, #000 66%, #000 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to bottom, #000 0%, #000 52%, rgba(0, 0, 0, 0.4) 75%, transparent 95%),
+      linear-gradient(to right, transparent 0%, transparent 34%, rgba(0, 0, 0, 0.4) 50%, #000 66%, #000 100%);
+    mask-composite: intersect;
+  }
+
+  .homeRedesign :global(.why-hands-image) {
+    top: 80px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 639px) {
+  .homeRedesign :global(.hero-trust-marquee) {
+    min-height: 62px;
+  }
+
+  .homeRedesign :global(.hero-trust-item) {
+    font-size: 0.84rem;
+  }
+
+  .homeRedesign :global(.doctor-showcase) {
+    padding-block: 62px;
+  }
+
+  .homeRedesign :global(.doctor-showcase .doctor-img) {
+    aspect-ratio: 4 / 4.5;
+    object-position: 50% 36%;
+  }
+
+  .homeRedesign :global(.oculo-links) {
+    align-items: stretch;
+  }
+
+  .homeRedesign :global(.oculo-links .btn) {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .homeRedesign :global(.why-cards) {
+    margin-top: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .homeRedesign :global(.hero-image-layer) {
+    transition: none;
+  }
+
+  .homeRedesign :global(.hero-trust-marquee) {
+    overflow-x: auto;
+  }
+
+  .homeRedesign :global(.hero-trust-track) {
+    animation: none;
+  }
+
+  .homeRedesign :global(.hero-trust-group[aria-hidden="true"]) {
+    display: none;
   }
 }

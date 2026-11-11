@@ -2022,7 +2022,8 @@ p {
   font-size: 0.9375rem;
   font-weight: 500;
   line-height: 1.55;
-  color: #556268;
+  color: #1e383e;
+  opacity: 1;
 }
 
 .why-photo {
@@ -7399,7 +7400,7 @@ a.act--primary:hover {
 }
 
 .video-showcase {
-  --home-section-bg: url("/images/bg-home-videos.png");
+  --home-section-bg: url("/images/Cosmetic Eye Consultation in Peach Tones(1).png");
 }
 
 .doctor-showcase {
@@ -11610,11 +11611,13 @@ a.act--primary:hover {
 @media (min-width: 960px) {
   .hero-banner-visual {
     position: absolute;
+    inset: 0;
     top: 0;
     right: 0;
     bottom: 0;
-    width: 58vw;
-    min-width: 540px;
+    left: 0;
+    width: 100%;
+    min-width: 100%;
     max-width: none;
     height: 100%;
     min-height: 100%;
@@ -11622,8 +11625,8 @@ a.act--primary:hover {
     aspect-ratio: auto;
     z-index: 1;
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.08) 8%, rgba(0, 0, 0, 0.85) 22%, #000000 32%);
-    mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.08) 8%, rgba(0, 0, 0, 0.85) 22%, #000000 32%);
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 }
 
