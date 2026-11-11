@@ -9,13 +9,12 @@ import HomeAppointmentPopup from "@/components/HomeAppointmentPopup";
 import TreatmentExplorer from "@/components/TreatmentExplorer";
 import { treatmentItems } from "@/lib/treatments";
 import JsonLd from "@/components/JsonLd";
-import Parallax from "@/components/motion/Parallax";
 import { ArrowRightIcon, PhoneIcon, PinIcon, PlusIcon } from "@/components/Icons";
 import NamePlate from "@/components/NamePlate";
 import VisitPanel from "@/components/VisitPanel";
 import WalkthroughSection from "@/components/WalkthroughSection";
 import VideoShelf from "@/components/VideoShelf";
-import { ASSETS, type Asset, usable } from "@/config/assets";
+import { ASSETS, usable } from "@/config/assets";
 import { PAGES } from "@/config/routes";
 import { HOME_DESCRIPTION, HOME_TITLE, LINKS, MAPS_LINK, SITE, TEL_HREF } from "@/config/site";
 import { videosFor } from "@/content/videos";
@@ -25,6 +24,7 @@ import { playerProps } from "@/lib/videoProps";
 import { compact, photoItem } from "@/lib/photos";
 import { pageMeta } from "@/lib/seo";
 import { clinic, faqPage, ids, webPage, website } from "@/lib/schema";
+import styles from "./home-redesign.module.css";
 
 /**
  * Title, description and robots come from the root layout. The canonical address is set here
@@ -213,59 +213,10 @@ const faqs = (online: boolean) => [
   },
 ];
 
-/**
- * Banner photographs, one slide each. For every slide the first candidate that is cleared for
- * use is shown, so approving or withholding a photograph never leaves a gap or an empty frame.
- */
-type HeroCandidate = { asset: Asset; caption: string; position: string };
-const HERO_SHOTS: HeroCandidate[][] = [
-  // 1. Doctor consultation & examination
-  [
-    { asset: ASSETS.docSlit, caption: "Dr. Poonam Jain seated beside a slit-lamp examination unit.", position: "72% 35%" },
-    { asset: ASSETS.homeDoctorNov, caption: "Dr. Poonam Jain during an eye examination at the centre.", position: "50% 40%" },
-    { asset: ASSETS.homeExteriorNov, caption: "Our Ashok Vihar centre, seen from the street.", position: "50% 19%" },
-    { asset: ASSETS.exterior, caption: "Our Ashok Vihar centre, seen from the street.", position: "50% 20%" },
-    { asset: ASSETS.reception, caption: "The reception at our Ashok Vihar centre.", position: "42% 20%" },
-  ],
-  // 2. Cataract: the operating microscope and surgical console
-  [
-    { asset: ASSETS.homeTheatreNov, caption: "An operation theatre at the centre.", position: "50% 30%" },
-    { asset: ASSETS.otScope, caption: "An operating microscope in the theatre area at the centre.", position: "50% 20%" },
-    { asset: ASSETS.consoleWide, caption: "A surgical console in the theatre area at the centre.", position: "50% 20%" },
-  ],
-  // 3. Specialist oculoplasty & diagnostics
-  [
-    { asset: ASSETS.homeDoctorNov, caption: "Dr. Poonam Jain during an eye examination at the centre.", position: "50% 40%" },
-    { asset: ASSETS.homeDiagnosticsNov, caption: "Diagnostic instruments in an examination room at the centre.", position: "50% 50%" },
-    { asset: ASSETS.otModernC, caption: "An operation theatre at the centre.", position: "50% 20%" },
-    { asset: ASSETS.otModernB, caption: "The operating table and microscope in the theatre.", position: "50% 20%" },
-  ],
-];
-
-function heroShot(candidates: HeroCandidate[], eager: boolean) {
-  const c = candidates.find((x) => usable(x.asset));
-  if (!c) return null;
-  return {
-    caption: c.caption,
-    node: (
-      <Parallax range={18}>
-      <AssetImage
-        asset={c.asset}
-        fill
-        eager={eager}
-        sizes="100vw"
-        className="hero-img"
-        style={{ objectPosition: c.position }}
-      />
-      </Parallax>
-    ),
-  };
-}
-
 export default function Home() {
   const online = onlineBookingAvailable();
 
-  const hasPortrait = usable(ASSETS.portrait);
+  const hasPortrait = usable(ASSETS.doctorArcPortrait);
   const gallery = compact([
     photoItem(ASSETS.archCataractExam, {
       title: "Consultation & Eye Examination",
@@ -285,8 +236,8 @@ export default function Home() {
       position: "50% 40%",
     }),
     photoItem(ASSETS.homeDiagnosticsNov, {
-      title: "Our Equipment",
-      caption: "Advanced and precise technology for accurate diagnosis and treatment.",
+      title: "Caring Spaces",
+      caption: "Well-equipped, hygienic and patient-friendly treatment areas.",
       icon: "/images/microscope.png",
       position: "50% 50%",
     }),
@@ -302,11 +253,10 @@ export default function Home() {
           faqPage(PAGES.home.path, faqs(online)),
         ]}
       />
-      <main id="main">
+      <main id="main" className={styles.homeRedesign}>
         <Hero
           online={online}
           panel={<VisitPanel />}
-          shots={HERO_SHOTS.map((c, i) => heroShot(c, i === 0))}
         />
 
         {/* Find care: the six treatments as real links with a picture and a short description */}
@@ -319,7 +269,7 @@ export default function Home() {
               <div className="centre-head reveal">
                 <div>
                   <p className="kicker">The centre</p>
-                  <h2 id="centre-h" className="h2">Our <span>Centre</span></h2>
+                  <h2 id="centre-h" className="h2">Our Centre</h2>
                 </div>
                 <div className="centre-copy">
                 <p className="lead">
@@ -340,17 +290,12 @@ export default function Home() {
 
         {/* Doctor */}
         <section id="doctor" className="section doctor-showcase" aria-labelledby="doctor-h">
-          <header className="container doctor-showcase-head">
-            <p className="kicker">Meet your doctor</p>
-            <h2 id="doctor-h" className="h2 h2--xl">Meet <span>Dr. Poonam Jain</span></h2>
-            <p className="doctor-role">Medical Director &bull; Senior Ophthalmologist &bull; Oculoplasty Surgeon</p>
-          </header>
           <div className="container doctor-grid">
             <figure className="doctor-photo reveal">
               {hasPortrait ? (
                 <AssetImage
-                  asset={ASSETS.portrait}
-                  sizes="(min-width: 960px) 44vw, 100vw"
+                  asset={ASSETS.doctorArcPortrait}
+                  sizes="(min-width: 960px) 25vw, 100vw"
                   className="doctor-img"
                 />
               ) : (
@@ -361,57 +306,60 @@ export default function Home() {
                 <span>Medical Director, Namokar Eye &amp; Oculoplasty Centre</span>
               </figcaption>
             </figure>
-            <div className="doctor-copy">
+            <div className="doctor-copy doctor-profile-main">
+              <header className="doctor-showcase-head">
+                <p className="kicker">Meet your doctor</p>
+                <h2 id="doctor-h" className="h2 h2--xl">Meet Dr. Poonam Jain</h2>
+                <p className="doctor-role">Medical Director &bull; Senior Ophthalmologist &bull; Oculoplasty Surgeon</p>
+              </header>
               <p className="lead">
                 With 25+ years of experience in eye care, Dr. Poonam Jain leads Namokar
                 Eye &amp; Oculoplasty Centre with a particular focus on oculoplasty, the
                 care of the eyelids, tear passages and the area around the eyes.
               </p>
-              <div className="doctor-highlights" aria-label="Professional highlights">
-                <div><DoctorIcon name="calendar" /><strong>25+</strong><span>Years of Experience</span></div>
-                <div><DoctorIcon name="team" /><strong>Doctor-led</strong><span>Eye care</span></div>
-                <div><DoctorIcon name="eye" /><strong>Oculoplasty</strong><span>Specialist focus</span></div>
-              </div>
-              <p className="doctor-text">
-                Care at Namokar is doctor-led. You are examined and advised by the
-                doctor, and the discussion is built around your eyes, your concerns and
-                the options that suit you.
-              </p>
-              <h3 className="doctor-training-title">Qualifications &amp; Training</h3>
-              <dl className="cred-rows doctor-training">
-                <div>
-                  <dt><DoctorIcon name="cap" />Fellowship</dt>
-                  <dd>Oculoplasty, Barraquer Institute, Barcelona</dd>
-                </div>
-                <div>
-                  <dt><DoctorIcon name="book" />Observership</dt>
-                  <dd>Wilmer Eye Institute, Johns Hopkins, Baltimore</dd>
-                </div>
-                <div>
-                  <dt><DoctorIcon name="award" />MS, Ophthalmology</dt>
-                  <dd>Safdarjung Hospital, New Delhi</dd>
-                </div>
-                <div>
-                  <dt><DoctorIcon name="medical" />MBBS</dt>
-                  <dd>Maulana Azad Medical College, New Delhi</dd>
-                </div>
-              </dl>
-              <div className="doctor-expertise" aria-label="Areas of expertise">
-                <strong>Areas of Expertise</strong>
-                <span><DoctorIcon name="lid" />Eyelid &amp; Oculoplasty</span>
-                <span><DoctorIcon name="drop" />Tear Passage Care</span>
-                <span><DoctorIcon name="eye" />Periocular Conditions</span>
-              </div>
-              <div className="btn-row doctor-actions">
-                {/* Profile page is switched off for now: this opens the contact page. Use LINKS.doctor to restore. */}
-                <Link href={LINKS.contact} className="btn btn--primary">
-                  Read Dr. Poonam Jain&rsquo;s Full Profile <ArrowRightIcon />
-                </Link>
-                <Link href={LINKS.about} className="btn btn--secondary">
-                  About the centre <ArrowRightIcon width={18} height={18} />
-                </Link>
-              </div>
+              <Link href={LINKS.doctor} className="btn btn--secondary doctor-read-more">
+                Read About Doctor <ArrowRightIcon width={18} height={18} />
+              </Link>
             </div>
+            <aside className="doctor-expertise-card" aria-label="Areas of expertise">
+              <p className="doctor-expertise-kicker">Specialist care</p>
+              <h3>Areas of Expertise</h3>
+              <ul>
+                <li><DoctorIcon name="lid" /><span>Eyelid &amp; Oculoplasty</span></li>
+                <li><DoctorIcon name="drop" /><span>Tear Passage Care</span></li>
+                <li><DoctorIcon name="eye" /><span>Periocular Conditions</span></li>
+                <li><DoctorIcon name="medical" /><span>Comprehensive Eye Care</span></li>
+              </ul>
+              <Link href={LINKS.contact} className="btn btn--primary doctor-expertise-cta">
+                Book an Appointment <ArrowRightIcon width={18} height={18} />
+              </Link>
+            </aside>
+          </div>
+          <div className="container doctor-highlights" aria-label="Professional highlights">
+            <div><DoctorIcon name="calendar" /><strong>25+</strong><span>Years of Experience</span></div>
+            <div><DoctorIcon name="team" /><strong>Doctor-led</strong><span>Eye care</span></div>
+            <div><DoctorIcon name="eye" /><strong>Oculoplasty</strong><span>Specialist focus</span></div>
+          </div>
+          <div className="container doctor-training-section">
+            <h3 className="doctor-training-title">Qualifications &amp; Training</h3>
+            <dl className="doctor-qualification-list">
+              <div>
+                <dt><DoctorIcon name="cap" />Fellowship</dt>
+                <dd>Oculoplasty, Barraquer Institute, Barcelona</dd>
+              </div>
+              <div>
+                <dt><DoctorIcon name="book" />Observership</dt>
+                <dd>Wilmer Eye Institute, Johns Hopkins, Baltimore</dd>
+              </div>
+              <div>
+                <dt><DoctorIcon name="award" />MS, Ophthalmology</dt>
+                <dd>Safdarjung Hospital, New Delhi</dd>
+              </div>
+              <div>
+                <dt><DoctorIcon name="medical" />MBBS</dt>
+                <dd>Maulana Azad Medical College, New Delhi</dd>
+              </div>
+            </dl>
           </div>
         </section>
 
@@ -425,7 +373,7 @@ export default function Home() {
           <div className="container oculo-grid">
             <div className="oculo-copy">
               <p className="kicker">Oculoplasty</p>
-              <h2 id="oculo-h" className="h2">Specialist Oculoplasty for Function &amp; <span>Appearance</span></h2>
+              <h2 id="oculo-h" className="h2">Specialist Oculoplasty for Function &amp; Appearance</h2>
               <p className="lead">
                 Oculoplasty is a branch of ophthalmology focused on the eyelids, tear
                 passages, eye socket and surrounding eye area. Some concerns affect
@@ -484,118 +432,58 @@ export default function Home() {
                 examining your eyes and talking through what you hope to achieve.
               </p>
             </div>
-            <div className="oculo-art-stack">
-              <figure className="oculo-art oculo-art--top">
-                <AssetImage asset={ASSETS.archCataractExam} fill sizes="(min-width: 960px) 38vw, 100vw" className="oculo-img" />
-                <figcaption className="oculo-art-label">Consultation &amp; Examination</figcaption>
-              </figure>
-              <figure className="oculo-art oculo-art--bottom">
-                <AssetImage asset={ASSETS.oculoplastyConsultNov} fill sizes="(min-width: 960px) 28vw, 100vw" className="oculo-img" />
-                <figcaption className="oculo-art-label">Consultation</figcaption>
-              </figure>
-            </div>
+            <figure className="oculo-feature-art">
+              <AssetImage asset={ASSETS.oculoplastyRealExam} fill sizes="(min-width: 960px) 42vw, 100vw" className="oculo-img" />
+              <figcaption>Specialist evaluation of the eyelids and surrounding eye area</figcaption>
+            </figure>
+          </div>
+          <div className="container oculo-highlights" aria-label="Oculoplasty areas of care">
+            <span><DoctorIcon name="lid" />Eyelid care</span>
+            <span><DoctorIcon name="drop" />Tear passage care</span>
+            <span><DoctorIcon name="eye" />Eye socket care</span>
+            <span><DoctorIcon name="medical" />Aesthetic procedures</span>
           </div>
         </section>
 
         {/* Why Namokar */}
-        <section id="why" className="section why-section" aria-labelledby="why-h">
-          <div className="container why-grid">
-            <div className="why-intro reveal">
+        <section id="why" className="why-section" aria-labelledby="why-h">
+          <div className="why-backdrop" aria-hidden="true">
+            <AssetImage asset={ASSETS.whyCentreBackground} fill sizes="100vw" className="why-backdrop-img" />
+          </div>
+          <div className="why-overlay" aria-hidden="true" />
+          <div className="container why-shell">
+            <header className="why-intro reveal">
               <p className="kicker why-kicker">Why Namokar</p>
-              <div className="why-title-wrap">
-                <h2 id="why-h" className="h2 why-h2">
-                  Why Patients<br />Choose <span>Namokar</span>
-                </h2>
-                <svg className="why-title-curve" viewBox="0 0 110 8" fill="none" aria-hidden="true">
-                  <path d="M2 6C35 1.5 75 1.5 108 6" stroke="#c4591a" strokeWidth="3.5" strokeLinecap="round" />
-                </svg>
-              </div>
-              <p className="why-foot">
-                Doctor-led consultations &bull; Ashok Vihar, New Delhi &bull; Comprehensive eye care and oculoplasty under one centre.
-              </p>
-              <figure className="why-photo">
-                <AssetImage
-                  asset={ASSETS.docSlit}
-                  fill
-                  sizes="(min-width: 960px) 36vw, 100vw"
-                  className="why-photo-img"
-                />
-              </figure>
-            </div>
-
-            <div className="why-right">
-              <div className="why-cards">
+              <h2 id="why-h" className="h2 why-h2">Why Patients Choose Namokar</h2>
+              <p className="why-foot">Doctor-led consultations in Ashok Vihar, New Delhi, with comprehensive eye care and specialist oculoplasty under one centre.</p>
+            </header>
+            <div className="why-cards">
                 {HOME_WHY.map((w, i) => {
                   const iconName = (["award", "eye", "cap", "team"] as const)[i];
                   return (
                     <article key={w.title} className="why-card">
-                      <span className="why-card-badge" aria-hidden="true">0{i + 1}</span>
                       <div className="why-card-icon">
                         <DoctorIcon name={iconName} />
                       </div>
                       <h3 className="why-card-title">{w.title}</h3>
-                      {(i === 1 || i === 3) && <div className="why-card-bar" aria-hidden="true" />}
                       <p className="why-card-text">{w.text}</p>
                     </article>
                   );
                 })}
-              </div>
-              <div className="why-action">
-                <Link href={LINKS.contact} className="btn why-book-btn">
-                  <span className="why-btn-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
-                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                      <line x1="16" y1="2" x2="16" y2="6" />
-                      <line x1="8" y1="2" x2="8" y2="6" />
-                      <line x1="3" y1="10" x2="21" y2="10" />
-                    </svg>
-                  </span>
-                  <span>Book a Consultation</span>
-                  <ArrowRightIcon width={18} height={18} />
-                </Link>
-              </div>
             </div>
           </div>
         </section>
 
         {/* FAQ */}
         <section id="faq" className="section faq-section" aria-labelledby="faq-h">
-          <div className="container faq-grid">
+          <div className="container faq-shell">
             <div className="faq-intro reveal">
               <p className="kicker faq-kicker">Common questions</p>
-              <div className="faq-title-wrap">
-                <h2 id="faq-h" className="h2 faq-h2">
-                  Questions<br />
-                  <span>Patients Often Ask</span>
-                </h2>
-                <svg className="faq-title-curve" viewBox="0 0 110 8" fill="none" aria-hidden="true">
-                  <path d="M2 6C35 1.5 75 1.5 108 6" stroke="#c4591a" strokeWidth="3.5" strokeLinecap="round" />
-                </svg>
-              </div>
+              <h2 id="faq-h" className="h2 faq-h2">Questions Patients Often Ask</h2>
               <p className="faq-lead">
                 This is general information. Your own eyes need to be examined before
                 anyone can advise you.
               </p>
-
-              <div className="faq-photo-wrap">
-                <figure className="faq-photo">
-                  <div className="faq-photo-inner">
-                    <AssetImage
-                      asset={ASSETS.homeDoctorNov}
-                      fill
-                      sizes="(min-width: 960px) 38vw, 100vw"
-                      className="faq-photo-img"
-                    />
-                  </div>
-                  <div className="faq-badge" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="24" height="24">
-                      <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-                      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-                      <line x1="12" y1="17" x2="12.01" y2="17" strokeWidth="3" />
-                    </svg>
-                  </div>
-                </figure>
-              </div>
             </div>
 
             <div className="faq-list faq-list--cards">

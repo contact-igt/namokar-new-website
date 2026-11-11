@@ -3030,6 +3030,63 @@ p {
   color: #b3bec3;
 }
 
+/* Approved homepage redesign: shared footer treatment */
+.site-footer {
+  background:
+    radial-gradient(circle at 10% 0, rgb(214 107 31 / 0.12), transparent 24rem),
+    linear-gradient(125deg, #052f35, #073f46);
+}
+
+.footer-grid {
+  align-items: start;
+}
+
+.footer-logo-plate {
+  padding: 9px 12px;
+  border-radius: 12px;
+}
+
+.footer-h {
+  color: #f2a16b;
+}
+
+.footer-col a {
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  color: #f2a16b;
+}
+
+.footer-base {
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+}
+
+.footer-legal a {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgb(255 255 255 / 0.28);
+  text-underline-offset: 5px;
+}
+
+@media (min-width: 960px) {
+  .footer-grid {
+    grid-template-columns: 1.25fr 0.8fr 1fr 1.15fr;
+    gap: 44px;
+  }
+
+  .footer-base {
+    grid-template-columns: 1fr auto;
+  }
+}
+
 /* ---------- Phones ---------- */
 @media (min-width: 380px) {
   .brand img {

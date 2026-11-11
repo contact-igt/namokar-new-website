@@ -79,7 +79,7 @@ export default function TreatmentExplorer({ items }: { items: TreatmentItem[] })
       <div className="container">
         <header className="tx-cards-head">
           <p className="tx-cards-kicker">Find care</p>
-          <h2 id="tx-h" className="tx-cards-title">What can we <span>help you with?</span></h2>
+          <h2 id="tx-h" className="tx-cards-title">What can we help you with?</h2>
           <p className="tx-cards-lead">
             Choose the area closest to your concern. If you&rsquo;re unsure where to begin, start
             with a comprehensive eye examination and the doctor can guide you after assessment.

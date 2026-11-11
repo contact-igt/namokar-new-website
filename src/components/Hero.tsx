@@ -9,11 +9,9 @@ import {
   useEffect,
   useState,
 } from "react";
-import { LINKS, SITE, TEL_HREF } from "@/config/site";
+import { LINKS } from "@/config/site";
 import CountUp from "./CountUp";
-import { CalendarIcon, PhoneIcon, PinIcon } from "./Icons";
-
-type Shot = { node: ReactNode; caption: string } | null;
+import { CalendarIcon } from "./Icons";
 
 const AUTO_MS = 5500;
 
@@ -27,8 +25,6 @@ export const HERO_SLIDES = [
     titleSub: "a ",
     titleHighlight: "Personal Approach.",
     body: "From routine eye examinations to cataract, glaucoma and oculoplasty care, every visit starts with a careful assessment.",
-    image: "/images/dr-poonam-jain-slit.webp",
-    imageAlt: "Dr. Poonam Jain conducting a slit-lamp eye examination with a patient",
     more: { label: "About the centre", href: LINKS.about },
   },
   {
@@ -40,8 +36,6 @@ export const HERO_SLIDES = [
     titleSub: "",
     titleHighlight: "Explained Clearly.",
     body: "Careful assessment of your vision and a clear discussion of your treatment options with premium IOL choices.",
-    image: "/images/banner-slide-cataract.png",
-    imageAlt: "Advanced operating microscope in the theatre at Namokar Eye Centre",
     more: { label: "About cataract surgery", href: LINKS.cataract },
   },
   {
@@ -53,21 +47,17 @@ export const HERO_SLIDES = [
     titleSub: "",
     titleHighlight: "Tear-Duct Care.",
     body: "Care for drooping or heavy eyelids, watering eyes and under-eye concerns, tailored after careful evaluation.",
-    image: "/images/banner-slide-oculoplasty.png",
-    imageAlt: "Dr. Poonam Jain consulting with a patient at Namokar Eye Centre",
     more: { label: "Explore eyelid care", href: LINKS.eyelid },
   },
 ] as const;
 
 export default function Hero({
-  shots = [],
   online,
 }: {
-  shots?: Shot[];
   panel?: ReactNode;
   online: boolean;
 }) {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(1);
   const [paused, setPaused] = useState(false);
   const count = HERO_SLIDES.length;
 
@@ -115,35 +105,16 @@ export default function Hero({
         onKeyDown={onKeyDown}
         tabIndex={0}
       >
-        {/* Right Media Column / Visual Slider - Pinned to right edge and bottom */}
-        <div className="hero-banner-visual">
-          <div className="hero-slider-stage">
-            {HERO_SLIDES.map((slide, i) => {
-              const isActive = i === active;
-              return (
-                <div
-                  key={slide.id}
-                  className={`hero-slider-slide ${isActive ? "is-active" : ""}`}
-                  aria-hidden={!isActive}
-                >
-                  {shots[i]?.node ? (
-                    <div className="hero-shot-container">
-                      {shots[i]!.node}
-                    </div>
-                  ) : (
-                    <Image
-                      src={slide.image}
-                      alt={slide.imageAlt}
-                      fill
-                      priority={i === 0}
-                      sizes="(min-width: 1200px) 60vw, (min-width: 768px) 70vw, 100vw"
-                      className="hero-slider-image"
-                    />
-                  )}
-                </div>
-              );
-            })}
-          </div>
+        {/* The clinic photograph stays in place while the copy advances. */}
+        <div className="hero-banner-visual" aria-hidden="true">
+          <Image
+            src="/images/Copy of DSC07064 - Copy-200kb.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="hero-static-image"
+          />
         </div>
 
         {/* Floating Three Dots Pagination (Bottom Right) */}
@@ -168,8 +139,9 @@ export default function Hero({
         {/* Main Banner Content Container */}
         <div className="container hero-banner-container">
           <div className="hero-banner-content">
-            {/* Top Trust Badge */}
-            <div className="hero-banner-badge">
+            <div className="hero-slide-copy" key={currentSlide.id}>
+              {/* Top Trust Badge */}
+              <div className="hero-banner-badge">
               <span className="hero-badge-icon" aria-hidden="true">
                 <svg
                   viewBox="0 0 24 24"
@@ -189,10 +161,10 @@ export default function Hero({
               <span className="hero-badge-text">
                 {currentSlide.badge}
               </span>
-            </div>
+              </div>
 
-            {/* Slide Headline */}
-            <h1 className="hero-banner-heading">
+              {/* Slide Headline */}
+              <h1 className="hero-banner-heading">
               {currentSlide.titlePrefix}{" "}
               {currentSlide.titleSub && (
                 <span className="hero-heading-sub">{currentSlide.titleSub}</span>
@@ -200,12 +172,13 @@ export default function Hero({
               <span className="hero-heading-highlight">
                 {currentSlide.titleHighlight}
               </span>
-            </h1>
+              </h1>
 
-            {/* Slide Description */}
-            <p className="hero-banner-body">
-              {currentSlide.body}
-            </p>
+              {/* Slide Description */}
+              <p className="hero-banner-body">
+                {currentSlide.body}
+              </p>
+            </div>
 
             {/* Action Buttons */}
             <div className="hero-banner-actions">
@@ -217,12 +190,14 @@ export default function Hero({
                 <span className="hero-btn-arrow" aria-hidden="true">&rarr;</span>
               </Link>
 
-              <Link href={LINKS.about} className="hero-btn-secondary">
+              <a href="#explore" className="hero-btn-secondary">
                 <span className="hero-btn-icon" aria-hidden="true">
-                  <PinIcon width={18} height={18} />
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                    <path d="M8 5.5v13l10-6.5-10-6.5Z" />
+                  </svg>
                 </span>
-                <span>Visit Our Centre</span>
-              </Link>
+                <span>Watch Our Video</span>
+              </a>
             </div>
 
             {/* Feature Highlights Strip (3 Items) */}
@@ -322,7 +297,7 @@ export default function Hero({
 
             <div className="hero-stat-sep" aria-hidden="true" />
 
-            {/* 4. 6 Advanced Facilities */}
+            {/* 4. Verified facilities count */}
             <div className="hero-stat-col">
               <span className="hero-stat-num">
                 <CountUp value="6" />

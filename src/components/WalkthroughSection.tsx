@@ -13,7 +13,7 @@ export default function WalkthroughSection({ video }: { video: PlayerProps | und
   if (!video) return null;
   return (
     <section id="explore" className="section section--graphite wt" aria-labelledby="explore-h">
-      <div className="container">
+      <div className="container wt-layout">
         <div className="wt-head reveal">
           <p className="kicker">Explore Namokar</p>
           <h2 id="explore-h" className="h2">Step Inside Our Centre</h2>
@@ -22,6 +22,12 @@ export default function WalkthroughSection({ video }: { video: PlayerProps | und
         <div className="wt-stage">
           <VideoPlayer v={video} sizes="(min-width: 1240px) 1100px, 100vw" />
         </div>
+        <aside className="wt-highlights" aria-label="Centre highlights">
+          <span><b aria-hidden="true">01</b>Modern infrastructure</span>
+          <span><b aria-hidden="true">02</b>Advanced equipment</span>
+          <span><b aria-hidden="true">03</b>Hygienic and safe environment</span>
+          <span><b aria-hidden="true">04</b>Patient-centred care</span>
+        </aside>
         <p className="wt-sub">{video.description}</p>
       </div>
     </section>

@@ -29,12 +29,28 @@ const IMAGES: Record<ServiceKey, Candidate[]> = {
     { asset: ASSETS.otModernB, position: "55% 55%" },
   ],
   glaucoma: [
-    { asset: ASSETS.homeDiagnosticsNov, position: "50% 50%" },
+    {
+      image: {
+        src: "/images/Copy of DSC06976.JPG",
+        alt: "Eye examination equipment and clinician in a treatment room",
+        width: 6000,
+        height: 4000,
+      },
+      position: "50% 50%",
+    },
     { asset: ASSETS.archGlaucomaTest, position: "50% 58%" },
     { asset: ASSETS.archStaffEquipment, position: "50% 45%" },
   ],
   exams: [
-    { asset: ASSETS.archExamOverhead, position: "50% 62%" },
+    {
+      image: {
+        src: "/images/Copy of DSC06884.JPG",
+        alt: "Comprehensive eye examination at a slit-lamp instrument",
+        width: 6000,
+        height: 4000,
+      },
+      position: "50% 50%",
+    },
     { asset: ASSETS.chartDoor, position: "50% 40%" },
   ],
   eyelid: [

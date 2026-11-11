@@ -30,7 +30,7 @@ export default function Footer() {
         </div>
 
         <nav aria-label="Footer" className="footer-col">
-          <h2 className="footer-h">Explore</h2>
+          <h2 className="footer-h">Quick Links</h2>
           <ul>
             <li><Link href={LINKS.home}>Home</Link></li>
             <li><Link href={LINKS.about}>About Us</Link></li>
@@ -45,7 +45,7 @@ export default function Footer() {
         </nav>
 
         <nav aria-label="Services" className="footer-col">
-          <h2 className="footer-h">Services</h2>
+          <h2 className="footer-h">Our Services</h2>
           <ul>
             {SERVICES.map((s) => (
               <li key={s.key}><Link href={s.href}>{s.title}</Link></li>
@@ -54,7 +54,7 @@ export default function Footer() {
         </nav>
 
         <address className="footer-col footer-contact">
-          <h2 className="footer-h">Visit or call</h2>
+          <h2 className="footer-h">Contact Us</h2>
           <p>
             {SITE.address.lines.map((l) => (
               <span key={l}>{l}<br /></span>
@@ -76,10 +76,10 @@ export default function Footer() {
       </div>
       <div className="container footer-base">
         <p>© 2026 {SITE.name}. All rights reserved.</p>
-        <p>
-          Information on this website is general guidance and does not replace an
-          examination by a doctor.
-        </p>
+        <nav aria-label="Legal" className="footer-legal">
+          <Link href={LINKS.privacy}>Privacy Policy</Link>
+          <Link href={LINKS.terms}>Terms of Use</Link>
+        </nav>
       </div>
     </footer>
   );
