@@ -1,0 +1,1079 @@
+/* Scoped styles for the Contact Us page redesign */
+
+.page {
+  --teal: #073f46;
+  --teal-dark: #052c31;
+  --teal-muted: #475d63;
+  --orange: #c45110;
+  --orange-hover: #ad440a;
+  --peach: #fff0e5;
+  --peach-light: #fff8f1;
+  --border-warm: #f2ded1;
+  --card-bg: #ffffff;
+  --ink: #203f46;
+  --ink-soft: #51646a;
+
+  color: var(--ink);
+  background-color: var(--peach-light);
+  font-family: var(--nf-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+.page :global(.container) {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 3.5vw, 48px);
+}
+
+.page h1,
+.page h2,
+.page h3 {
+  color: var(--teal);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.page a:focus-visible,
+.page button:focus-visible,
+.page summary:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+/* Section Kickers / Eyebrows */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 14px;
+  color: var(--orange);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--orange);
+  border-radius: 2px;
+}
+
+/* ==================================================
+   1. HERO SECTION
+   ================================================== */
+.hero {
+  position: relative;
+  padding-top: clamp(20px, 2.5vw, 36px);
+  padding-bottom: clamp(48px, 5vw, 72px);
+  min-height: clamp(380px, 33vw, 520px);
+  background: #fffaf6 url("/images/ChatGPT Image Nov 13, 2026, 04_11_21 PM.png") center 54% / cover no-repeat;
+  overflow: hidden;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: clamp(16px, 2.2vw, 24px);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6c7e84;
+}
+
+.breadcrumb a {
+  color: var(--teal);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--orange);
+}
+
+.breadcrumbSeparator {
+  color: #d46b2b;
+  font-weight: 400;
+}
+
+.breadcrumbCurrent {
+  color: #6c7e84;
+}
+
+.heroCopy {
+  max-width: 510px;
+  padding-top: clamp(34px, 5vw, 82px);
+}
+
+.heroTitle {
+  margin: 0;
+  max-width: 9ch;
+  font-size: clamp(3rem, 4.25vw, 4rem);
+  line-height: 1.08;
+  color: var(--teal);
+}
+
+.heroTitleBar {
+  width: 38px;
+  height: 3px;
+  background-color: var(--orange);
+  border-radius: 2px;
+  margin: clamp(16px, 2vw, 22px) 0;
+}
+
+.heroLead {
+  margin: 0;
+  font-size: clamp(1.02rem, 1.25vw, 1.15rem);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 48ch;
+}
+
+/* ==================================================
+   2. QUICK CONTACT ACTIONS
+   ================================================== */
+.actionsSection {
+  padding-top: clamp(20px, 2.5vw, 32px);
+  padding-bottom: clamp(42px, 4vw, 60px);
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(180deg, #fff7f0, #fff8f2);
+}
+
+.actionsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 24px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.actionCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 96px;
+  padding: clamp(18px, 2vw, 22px) clamp(20px, 2.2vw, 26px);
+  border-radius: 20px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.actionCard:hover {
+  transform: translateY(-3px);
+}
+
+.actionCardPrimary {
+  background: linear-gradient(135deg, #c45110 0%, #db6117 100%);
+  color: #ffffff;
+  box-shadow: 0 12px 28px -10px rgba(196, 81, 16, 0.48);
+  border: 1px solid transparent;
+}
+
+.actionCardPrimary:hover {
+  box-shadow: 0 16px 32px -8px rgba(196, 81, 16, 0.58);
+}
+
+.actionCardSecondary {
+  background: var(--card-bg);
+  color: var(--teal);
+  border: 1px solid var(--border-warm);
+  box-shadow: 0 8px 24px -10px rgba(108, 67, 40, 0.08);
+}
+
+.actionCardSecondary:hover {
+  border-color: #ebd0be;
+  box-shadow: 0 12px 28px -8px rgba(108, 67, 40, 0.14);
+}
+
+.actionIconPrimary {
+  width: 26px;
+  height: 26px;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.actionIconSecondary {
+  width: 26px;
+  height: 26px;
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+.actionText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.actionTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.actionCardPrimary .actionTitle {
+  color: #ffffff;
+}
+
+.actionCardSecondary .actionTitle {
+  color: var(--teal);
+}
+
+.actionSub {
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.actionCardPrimary .actionSub {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.actionCardSecondary .actionSub {
+  color: var(--ink-soft);
+}
+
+.actionsNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 22px;
+  margin-bottom: 0;
+  font-size: 0.88rem;
+  color: #67797f;
+  text-align: center;
+}
+
+.actionsNote svg {
+  width: 17px;
+  height: 17px;
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+/* ==================================================
+   3. FIND US / LOCATION SECTION
+   ================================================== */
+.findUsSection {
+  padding-block: clamp(54px, 5vw, 74px);
+  position: relative;
+  background: linear-gradient(180deg, #fff8f2, #fffaf6);
+}
+
+.findUsGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(22px, 3vw, 38px);
+}
+
+.findUsInfo {
+  text-align: center;
+}
+
+.findUsInfo .eyebrow {
+  justify-content: center;
+}
+
+.findUsHeading {
+  margin: 0;
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  line-height: 1.15;
+  color: var(--teal);
+}
+
+.contactList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0;
+  margin: 0;
+  padding: clamp(24px, 2.8vw, 36px);
+  list-style: none;
+  background: rgb(255 255 255 / .84);
+  border: 1px solid var(--border-warm);
+  border-radius: 24px;
+  box-shadow: 0 12px 30px -18px rgb(108 67 40 / .22);
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding-inline: clamp(12px, 2vw, 28px);
+}
+
+.contactItem + .contactItem {
+  border-left: 1px solid var(--border-warm);
+}
+
+.contactIconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background-color: var(--peach);
+  color: var(--orange);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contactIconBox svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.contactLabel {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  color: var(--orange);
+  text-transform: uppercase;
+}
+
+.contactText {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink);
+  font-style: normal;
+}
+
+.contactText a {
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.contactText a:hover {
+  color: var(--orange);
+}
+
+.contactNote {
+  display: block;
+  font-size: 0.88rem;
+  color: #6a7c82;
+  margin-top: 2px;
+}
+
+/* Map Card */
+.mapCard {
+  background: transparent;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 1040px);
+  margin-inline: auto;
+}
+
+.mapCard :global(.map) {
+  min-width: 0;
+  width: 100%;
+}
+
+.mapCard :global(.map-frame) {
+  position: relative;
+  width: 100%;
+  height: clamp(320px, 33vw, 480px);
+  border-radius: 25px;
+  overflow: hidden;
+  background-color: #f3f2e9;
+  background-image:
+    linear-gradient(34deg, transparent 46%, #fff 46%, #fff 51%, transparent 51%),
+    linear-gradient(-39deg, transparent 45%, #fff 45%, #fff 50%, transparent 50%),
+    linear-gradient(83deg, transparent 45%, #fff 45%, #fff 50%, transparent 50%),
+    linear-gradient(134deg, transparent 46%, #fff 46%, #fff 51%, transparent 51%),
+    radial-gradient(ellipse at 76% 23%, #e2ead5 0 15%, transparent 16%),
+    radial-gradient(ellipse at 18% 76%, #e2ead5 0 18%, transparent 19%);
+  background-size: 180px 155px, 240px 185px, 210px 180px, 300px 215px, 100% 100%, 100% 100%;
+  box-shadow: 0 12px 28px -16px rgba(93, 65, 45, .24);
+}
+
+.mapCard :global(.map-frame)::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  width: 32px;
+  height: 42px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c45110'%3E%3Cpath d='M12 0C7.58 0 4 3.58 4 8c0 5.25 8 16 8 16s8-10.75 8-16c0-4.42-3.58-8-8-8zm0 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 4px 6px rgba(108, 67, 40, 0.3));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mapCard :global(.map-frame)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(108, 67, 40, 0.22);
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mapCard :global(.map-frame iframe) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.mapCard :global(.map-note) {
+  margin: 14px 4px 2px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.mapCard :global(.map-note a) {
+  color: var(--orange);
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: 6px;
+  transition: color 0.15s ease;
+}
+
+.mapCard :global(.map-note a):hover {
+  text-decoration: underline;
+  color: var(--orange-hover);
+}
+
+.mapCard :global(.map-note a)::after {
+  content: " ↗";
+  font-size: 0.88rem;
+}
+
+/* ==================================================
+   4. APPOINTMENTS SECTION (Wave Background)
+   ================================================== */
+.appointmentsSection {
+  position: relative;
+  padding-block: clamp(58px, 5vw, 76px);
+  background-color: #fff8f1;
+  background-image:
+    radial-gradient(ellipse 39% 48% at 9% 88%, rgb(241 170 125 / 0.2), transparent 76%),
+    radial-gradient(ellipse 33% 38% at 31% 68%, rgb(255 226 207 / 0.17), transparent 78%),
+    url("/images/Soft Peach Wave Background.png");
+  background-size: 100% 100%, 100% 100%, cover;
+  background-position: center, center, center bottom;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.appointmentsGrid {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(36px, 4.5vw, 68px);
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.appointmentsCopy {
+  position: relative;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: clamp(28px, 3vw, 46px);
+}
+
+.appointmentsTitle {
+  margin: 0 0 18px;
+  font-size: clamp(2.2rem, 3.4vw, 3.1rem);
+  line-height: 1.12;
+  color: var(--teal);
+}
+
+.appointmentsLead {
+  margin: 0 0 28px;
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  line-height: 1.62;
+  color: var(--ink-soft);
+}
+
+.appointmentPhoto {
+  position: relative;
+  width: min(100%, 520px);
+  aspect-ratio: 4 / 3;
+  margin: 0 0 26px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 14px 32px -18px rgb(108 67 40 / .28);
+}
+
+.appointmentPhotoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.callAppointmentBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #c45110 0%, #db6117 100%);
+  color: #ffffff;
+  padding: 15px 30px;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 12px 26px -8px rgba(196, 81, 16, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 1;
+}
+
+.callAppointmentBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px -6px rgba(196, 81, 16, 0.55);
+}
+
+.callAppointmentBtn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Form Card Container */
+.formCard {
+  background: var(--card-bg);
+  border-radius: 24px;
+  border: 1px solid var(--border-warm);
+  box-shadow: 0 18px 40px -14px rgba(108, 67, 40, 0.14);
+  padding: clamp(28px, 3.7vw, 50px);
+  position: relative;
+  z-index: 2;
+}
+
+/* AppointmentForm overrides */
+.formCard :global(.form) {
+  display: grid;
+  gap: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.formCard :global(.form-row) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 620px) {
+  .formCard :global(.form-row) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formCard :global(.form-row > .field:nth-child(3)) {
+  grid-column: 1 / -1;
+}
+
+.formCard :global(.field) {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formCard :global(.field label) {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.formCard :global(.field label span[aria-hidden="true"]) {
+  color: var(--orange);
+}
+
+.formCard :global(.field label .hint) {
+  font-weight: 400;
+  color: #7b8d93;
+  font-size: 0.82rem;
+}
+
+.formCard :global(.field input:not([type="checkbox"])),
+.formCard :global(.field select),
+.formCard :global(.field textarea) {
+  width: 100%;
+  min-height: 56px;
+  padding: 11px 16px;
+  border: 1.5px solid #e5dad2;
+  border-radius: 12px;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 0.94rem;
+  color: var(--ink);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formCard :global(.field input::placeholder),
+.formCard :global(.field textarea::placeholder) {
+  color: #9aa8ac;
+  font-size: 0.92rem;
+}
+
+.formCard :global(.field input:focus-visible),
+.formCard :global(.field select:focus-visible),
+.formCard :global(.field textarea:focus-visible) {
+  outline: none;
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(196, 81, 16, 0.15);
+}
+
+.formCard :global(.field [aria-invalid="true"]) {
+  border-color: #b42318;
+}
+
+.formCard :global(.field-error) {
+  margin: 4px 0 0;
+  font-size: 0.82rem;
+  color: #b42318;
+}
+
+.formCard :global(.field textarea) {
+  min-height: 176px;
+  resize: vertical;
+}
+
+.formCard :global(.hp) {
+  display: none;
+}
+
+.formCard :global(.field--check) {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  align-items: start;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.formCard :global(.field--check input) {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: var(--orange);
+  cursor: pointer;
+}
+
+.formCard :global(.field--check label) {
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.formCard :global(.hint) {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #788a90;
+}
+
+.formCard :global(.hint a) {
+  color: var(--orange);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.formCard :global(.btn--primary) {
+  background: linear-gradient(135deg, #c45110 0%, #db6117 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px -6px rgba(196, 81, 16, 0.45);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  justify-self: start;
+}
+
+.formCard :global(.btn--primary:hover:not(:disabled)) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -6px rgba(196, 81, 16, 0.55);
+}
+
+.formCard :global(.btn--primary:disabled) {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Success status note */
+.formCard :global(.form-note--ok) {
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+  border-radius: 16px;
+  background-color: #f0f8f4;
+  border: 1px solid #cce8d9;
+}
+
+.formCard :global(.form-note--ok h3) {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #175a36;
+}
+
+.formCard :global(.form-note--ok p) {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #274938;
+}
+
+/* ==================================================
+   5. PLAN YOUR VISIT / BEFORE YOU VISIT
+   ================================================== */
+.visitSection {
+  padding-block: clamp(56px, 6vw, 82px);
+  position: relative;
+  background: radial-gradient(ellipse 35% 56% at 8% 75%, #fce6d9 0%, transparent 100%), #fff9f4;
+}
+
+.visitLayout {
+  display: grid;
+  grid-template-columns: clamp(235px, 22vw, 310px) minmax(0, 1fr);
+  gap: clamp(32px, 4vw, 60px);
+  align-items: center;
+}
+
+.calendarVisualCol {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 14px;
+}
+
+.calendarVisualWrap {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+.calendarGlow {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(circle, rgba(253, 228, 210, 0.8) 0%, transparent 70%);
+  filter: blur(20px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.calendarSvg {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.visitContentCol {
+  min-width: 0;
+}
+
+.visitHeading {
+  margin: 0 0 clamp(20px, 2.3vw, 30px);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  line-height: 1.15;
+  color: var(--teal);
+}
+
+.visitCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2vw, 26px);
+}
+
+.visitCard + .visitCard {
+  border-left: 1px solid #efdbce;
+  padding-left: clamp(16px, 2vw, 26px);
+}
+
+.visitCard {
+  background: transparent;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.visitIconCircle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--peach);
+  color: var(--orange);
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.visitIconCircle svg {
+  width: 22px;
+  height: 22px;
+}
+
+.visitCardTitle {
+  margin: 0 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.18rem;
+  line-height: 1.25;
+  color: var(--teal);
+}
+
+.visitCardText {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.58;
+  color: var(--ink-soft);
+}
+
+/* 4th visit card (Before you come) spanning cleanly below */
+.visitCardSpan {
+  margin-top: clamp(20px, 2.4vw, 30px);
+  padding: 18px 0 0;
+  border-top: 1px solid #efdbce;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.visitCardSpan .visitIconCircle {
+  margin-bottom: 0;
+  margin-top: 2px;
+}
+
+.visitCardSpanContent {
+  flex: 1;
+}
+
+.visitCardSpanContent .visitCardTitle {
+  margin-bottom: 4px;
+}
+
+/* ==================================================
+   6. COMMON QUESTIONS / FAQ SECTION
+   ================================================== */
+.faqSection {
+  padding-block: clamp(58px, 5.6vw, 78px) clamp(74px, 7vw, 96px);
+  background: linear-gradient(180deg, #fff9f4, #fffaf6);
+  position: relative;
+}
+
+.faqSection::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 46px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath fill='%230b3033' d='M0 34C275-18 485 74 750 63c294-12 465-63 690-30v47H0Z'/%3E%3C/svg%3E") center bottom / 100% 100% no-repeat;
+  pointer-events: none;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: minmax(0, .68fr) minmax(0, 1.52fr);
+  gap: clamp(32px, 4.5vw, 64px);
+  align-items: flex-start;
+}
+
+.faqHeadingCol {
+  position: relative;
+}
+
+.faqHeading {
+  margin: 0;
+  font-size: clamp(2.2rem, 3.4vw, 3rem);
+  line-height: 1.15;
+  color: var(--teal);
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.faqItem {
+  background: var(--card-bg);
+  border-radius: 20px;
+  border: 1px solid var(--border-warm);
+  box-shadow: 0 4px 14px -4px rgba(108, 67, 40, 0.05);
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faqItem:hover {
+  border-color: #ebd0be;
+}
+
+.faqItem[open] {
+  border-color: #ebd0be;
+  box-shadow: 0 10px 24px -6px rgba(108, 67, 40, 0.09);
+}
+
+.faqSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: clamp(15px, 1.7vw, 19px) clamp(20px, 2.4vw, 26px);
+  cursor: pointer;
+  list-style: none;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--teal);
+  transition: color 0.15s ease;
+}
+
+.faqSummary::-webkit-details-marker {
+  display: none;
+}
+
+.faqItem[open] .faqSummary {
+  color: var(--orange);
+}
+
+.faqPlus {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  color: var(--orange);
+  font-size: 1.4rem;
+  font-weight: 400;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.faqItem[open] .faqPlus {
+  transform: rotate(45deg);
+}
+
+.faqAnswer {
+  padding: 0 clamp(20px, 2.4vw, 26px) clamp(18px, 2vw, 22px);
+  margin: 0;
+  font-family: var(--nf-body), sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.62;
+  color: var(--ink-soft);
+}
+
+/* ==================================================
+   RESPONSIVE BREAKPOINTS
+   ================================================== */
+@media (max-width: 959px) {
+  .appointmentsGrid,
+  .faqGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .contactList {
+    grid-template-columns: 1fr;
+  }
+
+  .contactItem {
+    padding: 16px 0;
+  }
+
+  .contactItem + .contactItem {
+    border-left: 0;
+    border-top: 1px solid var(--border-warm);
+  }
+
+  .actionsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .actionsGrid > li:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .visitLayout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .calendarVisualCol {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .calendarVisualWrap {
+    max-width: 220px;
+  }
+
+  .faqHeadingCol {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: clamp(430px, 105vw, 560px);
+    background-position: 62% center;
+  }
+
+  .heroCopy {
+    max-width: 330px;
+    padding-top: 24px;
+  }
+
+  .actionsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .actionsGrid > li:nth-child(3) {
+    grid-column: auto;
+  }
+
+  .visitCardsGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .visitCard + .visitCard { border-left: 0; padding-left: 0; }
+
+  .visitCardSpan {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
