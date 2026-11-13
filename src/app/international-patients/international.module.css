@@ -46,7 +46,7 @@
 .breadcrumb a:hover { color: var(--orange); }
 .breadcrumb span[aria-hidden] { color: #d46b2b; }
 .heroGrid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); align-items: start; gap: clamp(24px, 3vw, 48px); margin-top: 12px; }
-.heroCopy { position: relative; z-index: 1; padding-block: 0; }
+.heroCopy { position: relative; z-index: 1; padding-block: 18px 0; }
 .heroCopy h1 { max-width: 12ch; margin: 0; font-size: clamp(3rem, 4.15vw, 5.25rem); line-height: 1.03; }
 .heroLead { max-width: 47ch; margin: 24px 0 28px; color: #44595e; font-size: clamp(1.05rem, 1.2vw, 1.3rem); line-height: 1.6; }
 .heroButton { box-shadow: 0 11px 21px -14px rgb(132 55 10 / 0.7); }

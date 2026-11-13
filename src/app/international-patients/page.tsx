@@ -52,7 +52,7 @@ export default function InternationalPage() {
       <svg className={styles.shapeDefinitions} aria-hidden="true" focusable="false">
         <defs>
           <clipPath id="international-hero-shape" clipPathUnits="objectBoundingBox">
-            <path d="M.24,.005 C.46,-.025 .82,-.015 1,.12 L1,.85 C1,.93 .97,.97 .93,.965 C.83,.95 .81,.78 .67,.73 C.53,.68 .43,.78 .29,.89 C.15,1 .025,.87 0,.63 C-.03,.37 .065,.085 .24,.005 Z" />
+            <path d="M.24,.005 C.46,-.025 .82,-.015 1,.12 L1,.85 C1,.93 .97,.97 .93,.965 C.83,.95 .81,.78 .67,.73 C.53,.68 .43,.78 .29,.89 C.15,1 .045,.87 .025,.63 C.005,.39 .065,.085 .24,.005 Z" />
           </clipPath>
           <clipPath id="international-reception-shape" clipPathUnits="objectBoundingBox">
             <path d="M.37,.015 C.56,0 .79,0 .93,.015 C.98,.03 1,.12 1,.28 C1,.48 .99,.72 .95,.88 C.91,.98 .80,1 .60,1 L.23,1 C.08,.98 0,.81 0,.57 C0,.26 .14,.04 .37,.015 Z" />
