@@ -161,3 +161,9 @@ The project owner requested and approved two original AI-generated educational e
 ## Comprehensive eye-examination illustrations (21 Oct 2026)
 
 The project owner requested and approved five original AI-generated educational images for the examination-step explainer: visual acuity, refraction, eye-pressure measurement, slit-lamp examination and retinal imaging. Every person depicted is fictional; these are not patient photographs or treatment results. Files: `exam-visual-acuity-ai.png`, `exam-refraction-ai.png`, `exam-eye-pressure-ai.png`, `exam-front-eye-ai.png` and `exam-retina-ai.png` in `private-assets/`.
+
+## Homepage image selection (12 Nov 2026)
+
+The project owner selected the existing public images for the independent homepage background slideshow in this order: `Modern Namokar Eye Clinic Facade.png`, `Modern Ophthalmology Exam Room 11.png`, `Modern Ophthalmology Clinic Waiting Room.png`, and `Modern Ophthalmology Exam Room.png`. The owner also selected `public/images/Copy of DSC06826.JPG` for the homepage Oculoplasty section, replacing the previous photograph registered as `ASSETS.oculoplastyRealExam`. The supplied image files are used without alteration.
+
+The owner subsequently requested removal of the foreground orange seat at the bottom of the waiting-room background. The Hero now uses `Modern Ophthalmology Clinic Waiting Room-clean.png`: an imagegen floor repair composited only into the original's x625–914, y730–878 region. Its original 1790×879 dimensions and every pixel outside that repair region are preserved. The source image is retained unchanged.

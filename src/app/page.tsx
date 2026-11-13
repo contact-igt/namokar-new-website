@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import AssetImage from "@/components/AssetImage";
 import BookButton, { SecondaryContact } from "@/components/BookButton";
@@ -223,17 +224,17 @@ export default function Home() {
       caption: "Detailed and comfortable eye evaluation with advanced diagnostic equipment.",
       position: "55% 50%",
     }),
-    photoItem(ASSETS.reception, {
-      title: "Reception",
-      caption: "A warm and welcoming space for our patients.",
-      icon: "/images/reception-new.png",
-      position: "50% 50%",
-    }),
     photoItem(ASSETS.archTeamDoctor, {
       title: "Our Team",
       caption: "A dedicated and experienced team focused on your eye health.",
       icon: "/images/multiple-users-silhouette.png",
       position: "50% 40%",
+    }),
+    photoItem(ASSETS.reception, {
+      title: "Reception",
+      caption: "A warm and welcoming space for our patients.",
+      icon: "/images/reception-new.png",
+      position: "50% 50%",
     }),
     photoItem(ASSETS.homeDiagnosticsNov, {
       title: "Caring Spaces",
@@ -301,65 +302,45 @@ export default function Home() {
               ) : (
                 <NamePlate />
               )}
-              <figcaption className="doctor-photo-caption">
-                <strong>Dr. Poonam Jain</strong>
-                <span>Medical Director, Namokar Eye &amp; Oculoplasty Centre</span>
-              </figcaption>
             </figure>
             <div className="doctor-copy doctor-profile-main">
               <header className="doctor-showcase-head">
                 <p className="kicker">Meet your doctor</p>
-                <h2 id="doctor-h" className="h2 h2--xl">Meet Dr. Poonam Jain</h2>
+                <h2 id="doctor-h" className="h2 h2--xl">Dr. Poonam Jain</h2>
                 <p className="doctor-role">Medical Director &bull; Senior Ophthalmologist &bull; Oculoplasty Surgeon</p>
               </header>
               <p className="lead">
-                With 25+ years of experience in eye care, Dr. Poonam Jain leads Namokar
-                Eye &amp; Oculoplasty Centre with a particular focus on oculoplasty, the
-                care of the eyelids, tear passages and the area around the eyes.
+                With 25+ years of experience in eye care, Dr. Poonam Jain leads Namokar Eye &amp; Oculoplasty Centre, with a special focus on eyelids, tear passages and conditions around the eyes.
               </p>
-              <Link href={LINKS.doctor} className="btn btn--secondary doctor-read-more">
-                Read About Doctor <ArrowRightIcon width={18} height={18} />
-              </Link>
+              <div className="doctor-actions">
+                <Link href={LINKS.contact} className="btn btn--primary doctor-book">
+                  Book an Appointment <ArrowRightIcon width={18} height={18} />
+                </Link>
+                <Link href={LINKS.doctor} className="btn btn--secondary doctor-read-more">
+                  Read About Doctor <ArrowRightIcon width={18} height={18} />
+                </Link>
+              </div>
+              <div className="doctor-details">
+                <section className="doctor-focus" aria-labelledby="doctor-focus-h">
+                  <h3 id="doctor-focus-h">Areas of Expertise</h3>
+                  <ul>
+                    <li><Image className="doctor-clay-icon" src="/images/doctor-expertise-eyelid.webp" alt="" width={64} height={64} /><div><strong>Eyelid &amp; Oculoplasty</strong><span>Functional and aesthetic eyelid care</span></div></li>
+                    <li><Image className="doctor-clay-icon" src="/images/doctor-expertise-tear-passage.webp" alt="" width={64} height={64} /><div><strong>Tear Passage Care</strong><span>Tear-drainage problems and watering eyes</span></div></li>
+                    <li><Image className="doctor-clay-icon" src="/images/doctor-expertise-periocular.webp" alt="" width={64} height={64} /><div><strong>Periocular Conditions</strong><span>Conditions around the eyes</span></div></li>
+                    <li><Image className="doctor-clay-icon" src="/images/doctor-expertise-eye-care.webp" alt="" width={64} height={64} /><div><strong>Comprehensive Eye Care</strong><span>Comprehensive eye care as a senior ophthalmologist</span></div></li>
+                  </ul>
+                </section>
+                <section className="doctor-timeline" aria-labelledby="doctor-timeline-h">
+                  <h3 id="doctor-timeline-h"><span className="doctor-training-heading-icon" aria-hidden="true"><DoctorIcon name="cap" /></span>Qualifications &amp; Training</h3>
+                  <ol>
+                    <li><strong>Fellowship</strong><span>Oculoplasty, Barraquer Institute, Barcelona</span></li>
+                    <li><strong>Observership</strong><span>Wilmer Eye Institute, Johns Hopkins, Baltimore</span></li>
+                    <li><strong>MS, Ophthalmology</strong><span>Safdarjung Hospital, New Delhi</span></li>
+                    <li><strong>MBBS</strong><span>Maulana Azad Medical College, New Delhi</span></li>
+                  </ol>
+                </section>
+              </div>
             </div>
-            <aside className="doctor-expertise-card" aria-label="Areas of expertise">
-              <p className="doctor-expertise-kicker">Specialist care</p>
-              <h3>Areas of Expertise</h3>
-              <ul>
-                <li><DoctorIcon name="lid" /><span>Eyelid &amp; Oculoplasty</span></li>
-                <li><DoctorIcon name="drop" /><span>Tear Passage Care</span></li>
-                <li><DoctorIcon name="eye" /><span>Periocular Conditions</span></li>
-                <li><DoctorIcon name="medical" /><span>Comprehensive Eye Care</span></li>
-              </ul>
-              <Link href={LINKS.contact} className="btn btn--primary doctor-expertise-cta">
-                Book an Appointment <ArrowRightIcon width={18} height={18} />
-              </Link>
-            </aside>
-          </div>
-          <div className="container doctor-highlights" aria-label="Professional highlights">
-            <div><DoctorIcon name="calendar" /><strong>25+</strong><span>Years of Experience</span></div>
-            <div><DoctorIcon name="team" /><strong>Doctor-led</strong><span>Eye care</span></div>
-            <div><DoctorIcon name="eye" /><strong>Oculoplasty</strong><span>Specialist focus</span></div>
-          </div>
-          <div className="container doctor-training-section">
-            <h3 className="doctor-training-title">Qualifications &amp; Training</h3>
-            <dl className="doctor-qualification-list">
-              <div>
-                <dt><DoctorIcon name="cap" />Fellowship</dt>
-                <dd>Oculoplasty, Barraquer Institute, Barcelona</dd>
-              </div>
-              <div>
-                <dt><DoctorIcon name="book" />Observership</dt>
-                <dd>Wilmer Eye Institute, Johns Hopkins, Baltimore</dd>
-              </div>
-              <div>
-                <dt><DoctorIcon name="award" />MS, Ophthalmology</dt>
-                <dd>Safdarjung Hospital, New Delhi</dd>
-              </div>
-              <div>
-                <dt><DoctorIcon name="medical" />MBBS</dt>
-                <dd>Maulana Azad Medical College, New Delhi</dd>
-              </div>
-            </dl>
           </div>
         </section>
 

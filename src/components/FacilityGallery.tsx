@@ -1,8 +1,13 @@
 "use client";
 
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Slider, { type Settings } from "react-slick";
 import type { PhotoItem } from "@/lib/photos";
+import { usePrefersReducedMotion } from "./motion/useMedia";
+import styles from "./FacilityGallery.module.css";
+
+export type FacilityItem = PhotoItem & { photographs?: PhotoItem[] };
 
 function GalleryIcon({ type }: { type: 0 | 1 | 2 | 3 }) {
   const shapes = [
@@ -24,13 +29,128 @@ function getCardIcon(it: PhotoItem) {
   return null;
 }
 
+function ShowcasePhoto({ item, photograph = item, type }: { item: PhotoItem; photograph?: PhotoItem; type: 0 | 1 | 2 | 3 }) {
+  const icon = getCardIcon(item);
+  return (
+    <article className={styles.feature}>
+      <div className={styles.imageFrame}><Image src={photograph.src} alt={photograph.alt} fill sizes="(min-width: 960px) 58vw, 100vw" className={styles.photo} style={{ objectPosition: photograph.position }} draggable={false} /></div>
+      <div className={styles.caption}>
+        <span className={styles.featureIcon} aria-hidden="true">
+          {icon ? <Image src={icon} alt="" width={28} height={28} draggable={false} /> : <GalleryIcon type={type} />}
+        </span>
+        <div>
+          <strong>{item.title ?? item.caption}</strong>
+          {item.title && <span>{photograph !== item && photograph.title && `${photograph.title} — `}{photograph.caption}</span>}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function ShowcaseGallery({ items, label }: { items: FacilityItem[]; label: string }) {
+  const [active, setActive] = useState(0);
+  const [photoVisits, setPhotoVisits] = useState<Record<number, number>>({});
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [interacting, setInteracting] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const pointerStart = useRef<number | null>(null);
+  const featureRef = useRef<HTMLDivElement>(null);
+  const reducedMotion = usePrefersReducedMotion();
+  const paused = hovered || focused || interacting || hidden;
+  const select = useCallback((index: number) => {
+    setActive(index);
+    setPhotoVisits((previous) => ({ ...previous, [index]: (previous[index] ?? -1) + 1 }));
+  }, []);
+
+  useEffect(() => {
+    // Warm the optimized photo cache without rendering thumbnail images.
+    for (const item of items.flatMap((item) => item.photographs?.length ? item.photographs : [item])) {
+      const { props } = getImageProps({ src: item.src, alt: item.alt, width: item.width, height: item.height, sizes: "(min-width: 960px) 58vw, 100vw" });
+      const image = new window.Image();
+      image.sizes = props.sizes ?? "";
+      image.srcset = props.srcSet ?? "";
+      image.src = props.src;
+    }
+  }, [items]);
+
+  useEffect(() => {
+    const update = () => setHidden(document.hidden);
+    document.addEventListener("visibilitychange", update);
+    return () => document.removeEventListener("visibilitychange", update);
+  }, []);
+
+  useEffect(() => {
+    if (items.length < 2 || paused || reducedMotion) return;
+    const timer = window.setInterval(() => select((active + 1) % items.length), 4800);
+    return () => window.clearInterval(timer);
+  }, [active, items.length, paused, reducedMotion, select]);
+
+  const featured = items[active % items.length];
+  const photographs = featured.photographs;
+  const photograph = photographs?.length ? photographs[(photoVisits[active] ?? 0) % photographs.length] : featured;
+  const iconType = (item: PhotoItem): 0 | 1 | 2 | 3 => {
+    const title = (item.title ?? "").toLowerCase();
+    return title.includes("reception") ? 1 : title.includes("team") ? 2 : /spaces|theatre|room/.test(title) ? 3 : 0;
+  };
+  const previews = items.map((item, index) => ({ item, index }))
+    .filter(({ index }) => index !== active);
+
+  return (
+    <div
+      className={styles.gallery}
+      role="region"
+      aria-label={label}
+      onPointerEnter={(event) => { if (event.pointerType === "mouse") setHovered(true); }}
+      onFocusCapture={(event) => { if (event.target.matches(":focus-visible")) setFocused(true); }}
+      onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}
+      onPointerDown={(event) => { pointerStart.current = event.clientX; setInteracting(true); }}
+      onPointerUp={(event) => {
+        if (pointerStart.current === null) return;
+        const distance = event.clientX - pointerStart.current;
+        pointerStart.current = null;
+        setInteracting(false);
+        if (Math.abs(distance) > 50) select((active + (distance < 0 ? 1 : items.length - 1)) % items.length);
+      }}
+      onPointerCancel={() => { pointerStart.current = null; setInteracting(false); }}
+      onPointerLeave={() => { pointerStart.current = null; setInteracting(false); setHovered(false); }}
+    >
+      <div ref={featureRef} className={styles.stage} tabIndex={-1} aria-live={focused || reducedMotion ? "polite" : "off"}>
+        <div key={photograph.src} className={styles.transition}>
+          <ShowcasePhoto item={featured} photograph={photograph} type={iconType(featured)} />
+        </div>
+      </div>
+      <div className={styles.selections} aria-label="Choose a featured centre photograph">
+        {previews.map(({ item, index }) => {
+          const icon = getCardIcon(item);
+          return (
+            <button key={item.src} type="button" className={styles.selection} onClick={(event) => {
+              select(index);
+              if (event.detail === 0) featureRef.current?.focus({ preventScroll: true });
+            }} aria-label={`Feature ${item.title ?? item.caption}`}>
+              <span className={styles.cardIcon} aria-hidden="true">
+                {icon ? <Image src={icon} alt="" width={28} height={28} /> : <GalleryIcon type={iconType(item)} />}
+              </span>
+              <span className={styles.cardCopy}>
+                <strong>{item.title ?? item.caption}</strong>
+                {item.title && <span>{item.caption}</span>}
+              </span>
+              <span className={styles.arrow} aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 /** An autoplaying facility carousel. */
 export default function FacilityGallery({
   items,
   label,
   showcase = false,
 }: {
-  items: PhotoItem[];
+  items: FacilityItem[];
   label: string;
   showcase?: boolean;
 }) {
@@ -39,54 +159,7 @@ export default function FacilityGallery({
   if (!n) return null;
 
   if (showcase) {
-    const [feature, ...details] = items;
-
-    return (
-      <div className="fg fg--showcase" aria-label={label}>
-        <article className="fg-showcase-feature">
-          <Image src={feature.src} alt={feature.alt} fill sizes="(min-width: 960px) 52vw, 100vw" className="fg-img" style={{ objectPosition: feature.position }} />
-          <div className="fg-showcase-feature-cap">
-            <span className="fg-showcase-feature-icon"><GalleryIcon type={0} /></span>
-            <div>
-              <strong>{feature.title ?? feature.caption}</strong>
-              {feature.title && <span>{feature.caption}</span>}
-            </div>
-          </div>
-        </article>
-        <div className="fg-showcase-list">
-          {details.slice(0, 3).map((it, index) => {
-            const iconSrc = getCardIcon(it);
-            return (
-              <article key={it.src} className="fg-showcase-card">
-                <span className="fg-showcase-card-image">
-                  <Image src={it.src} alt={it.alt} fill sizes="(min-width: 960px) 28vw, 100vw" className="fg-img" style={{ objectPosition: it.position }} />
-                </span>
-                <div className="fg-showcase-card-copy">
-                  {iconSrc ? (
-                    <span className="fg-showcase-card-icon" aria-hidden="true">
-                      <Image
-                        src={iconSrc}
-                        alt=""
-                        width={28}
-                        height={28}
-                        className="fg-showcase-icon-img"
-                      />
-                    </span>
-                  ) : (
-                    <GalleryIcon type={(index + 1) as 1 | 2 | 3} />
-                  )}
-                  <strong>{it.title ?? it.caption}</strong>
-                  {it.title && <span>{it.caption}</span>}
-                </div>
-                <span className="fg-showcase-arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 5 7 7-7 7" /></svg>
-                </span>
-              </article>
-            );
-          })}
-        </div>
-      </div>
-    );
+    return <ShowcaseGallery items={items} label={label} />;
   }
 
   const settings: Settings = {

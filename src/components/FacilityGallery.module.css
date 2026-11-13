@@ -1,0 +1,90 @@
+.gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: clamp(18px, 2.5vw, 32px);
+  touch-action: pan-y;
+}
+
+.stage { min-width: 0; border-radius: 24px; }
+.transition { height: 100%; animation: featureIn 420ms ease both; }
+.feature {
+  position: relative;
+  isolation: isolate;
+  height: 100%;
+  min-height: 510px;
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 0 20px 42px -27px rgb(5 47 53 / 0.35);
+}
+.imageFrame { position: absolute; inset: 0; }
+.photo { object-fit: cover; }
+.caption {
+  position: absolute;
+  inset: auto 20px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgb(5 47 53 / 0.82);
+  color: white;
+}
+.caption > div { min-width: 0; display: grid; gap: 5px; }
+.caption strong { font-size: clamp(1.15rem, 1.8vw, 1.65rem); line-height: 1.2; }
+.caption div > span { font-size: 0.9rem; line-height: 1.45; color: rgb(255 255 255 / 0.94); }
+.featureIcon, .cardIcon { display: grid; place-items: center; flex: none; color: #b64a0c; }
+.featureIcon { width: 48px; height: 48px; border-radius: 13px; background: #fff8f3; }
+.featureIcon svg, .cardIcon svg { width: 28px; height: 28px; }
+.featureIcon img, .cardIcon img { object-fit: contain; }
+.selections { display: grid; grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 15px; min-width: 0; }
+.selection {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 34px;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: clamp(18px, 2.2vw, 28px);
+  border: 1px solid rgb(217 99 24 / 0.06);
+  border-radius: 20px;
+  background: #fff8f3;
+  color: #052f35;
+  box-shadow: 0 12px 24px -20px rgb(7 63 70 / 0.28);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.selection:hover { transform: translateX(3px); box-shadow: 0 14px 30px -20px rgb(7 63 70 / 0.38); }
+.selection:focus-visible, .stage:focus-visible { outline: 3px solid #d96318; outline-offset: 4px; }
+.cardCopy { display: grid; gap: 7px; min-width: 0; }
+.cardCopy strong { font-size: clamp(1.05rem, 1.4vw, 1.3rem); line-height: 1.3; }
+.cardCopy > span { font-size: 0.94rem; line-height: 1.5; color: #52656a; }
+.arrow { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #fff; color: #b64a0c; }
+.arrow svg { width: 19px; height: 19px; }
+@keyframes featureIn { from { opacity: 0.55; } to { opacity: 1; } }
+@media (max-width: 959px) {
+  .gallery { grid-template-columns: minmax(0, 1fr); }
+  .feature { min-height: 0; aspect-ratio: 3 / 2; }
+  .selections { grid-template-rows: none; }
+  .selection { min-height: 110px; }
+}
+@media (max-width: 560px) {
+  .feature { display: flex; flex-direction: column; aspect-ratio: auto; border-radius: 20px; background: #fff8f3; }
+  .imageFrame { position: relative; inset: auto; aspect-ratio: 3 / 2; }
+  .caption { position: relative; inset: auto; min-height: 150px; margin: -16px 12px 12px; gap: 10px; padding: 12px; border-radius: 12px; }
+  .featureIcon { width: 36px; height: 36px; border-radius: 10px; }
+  .featureIcon svg, .featureIcon img { width: 23px; height: 23px; }
+  .caption strong { font-size: 1.05rem; }
+  .caption div > span { font-size: 0.78rem; }
+  .selection { grid-template-columns: 28px minmax(0, 1fr) 28px; gap: 11px; padding: 18px 15px; }
+  .arrow { width: 28px; height: 28px; }
+  .cardCopy > span { font-size: 0.85rem; }
+}
+@media (max-width: 360px) {
+  .caption { min-height: 190px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .transition { animation: none; }
+  .selection { transition: none; }
+}

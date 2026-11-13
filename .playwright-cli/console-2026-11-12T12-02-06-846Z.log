@@ -1,0 +1,65 @@
+[     956ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[    1138ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  122186ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  122227ms] [LOG] [Fast Refresh] done in 42ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  122400ms] [LOG] [Fast Refresh] done in 42ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  188360ms] [LOG] [Fast Refresh] done in 42ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  188471ms] [LOG] [Fast Refresh] done in 42ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  206080ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  206113ms] [LOG] [Fast Refresh] done in 86ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  206208ms] [LOG] [Fast Refresh] done in 86ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  219823ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  219857ms] [LOG] [Fast Refresh] done in 8ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  235772ms] [LOG] [Fast Refresh] done in 8ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  248588ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  248634ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  254906ms] [WARNING] Allow attribute will take precedence over 'allowfullscreen'. @ http://localhost:3000/_next/static/chunks/1daa_next_dist_compiled_react-dom_cjs_react-dom-client_development_0mp0cp_t-ezj9.js:10736
+[  255792ms] [ERROR] Permissions policy violation: compute-pressure is not allowed in this document. @ https://www.youtube-nocookie.com/s/player/62fa573b/player_embed.vflset/en_US/base.js:4449
+[  256743ms] [WARNING] The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127 @ :1
+[  293227ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  293237ms] [LOG] [Fast Refresh] done in 2ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  323806ms] [LOG] [Fast Refresh] done in 2ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  332031ms] [LOG] [Fast Refresh] done in 2ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  368914ms] [LOG] [Fast Refresh] done in 75682ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  369159ms] [LOG] [Fast Refresh] done in 75682ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  383613ms] [LOG] [Fast Refresh] done in 75682ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  397249ms] [LOG] [Fast Refresh] done in 75682ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  399152ms] [LOG] [Fast Refresh] done in 75682ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  399298ms] [LOG] [Fast Refresh] done in 75682ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  399927ms] [LOG] [Fast Refresh] done in 75682ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  400325ms] [LOG] [Fast Refresh] done in 75682ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  400382ms] [LOG] [Fast Refresh] done in 75682ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  400610ms] [LOG] [Fast Refresh] done in 75682ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  400657ms] [LOG] [Fast Refresh] done in 75682ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  403471ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  403539ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  410904ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  410958ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  515701ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  515764ms] [LOG] [Fast Refresh] done in 63ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  515946ms] [LOG] [Fast Refresh] done in 63ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  542226ms] [LOG] [Fast Refresh] done in 26527ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  542407ms] [LOG] [Fast Refresh] done in 26527ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  586484ms] [LOG] [Fast Refresh] done in 26527ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  586946ms] [LOG] [Fast Refresh] done in 26527ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  587103ms] [LOG] [Fast Refresh] done in 26527ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  587168ms] [LOG] [Fast Refresh] done in 26527ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  589125ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  591568ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  591606ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  652700ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  652747ms] [LOG] [Fast Refresh] done in 14ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  684727ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  684764ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  801505ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  801840ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  801996ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  803294ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  803725ms] [LOG] [Fast Refresh] done in 541ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 2331104ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 2331217ms] [LOG] [Fast Refresh] done in 187ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 2331327ms] [LOG] [Fast Refresh] done in 187ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 2410793ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 2410871ms] [LOG] [Fast Refresh] done in 65ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 2410927ms] [LOG] [Fast Refresh] done in 65ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 2474320ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720

@@ -1,0 +1,444 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "Namokar Eye & Oculoplasty Centre, home" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Namokar Eye & Oculoplasty Centre" [ref=e7]
+      - navigation "Main" [ref=e8]:
+        - list [ref=e9]:
+          - listitem [ref=e10]:
+            - link "Home" [ref=e11] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e12]:
+            - link "About" [ref=e13] [cursor=pointer]:
+              - /url: /about-us
+          - listitem [ref=e14]:
+            - button "Services" [ref=e15] [cursor=pointer]
+          - listitem [ref=e18]:
+            - link "International Patients" [ref=e19] [cursor=pointer]:
+              - /url: /international-patients
+          - listitem [ref=e20]:
+            - link "Contact Us" [ref=e21] [cursor=pointer]:
+              - /url: /contact-us
+      - link "Book a Consultation" [ref=e22] [cursor=pointer]:
+        - /url: /contact-us#request
+  - main [ref=e27]:
+    - generic [ref=e28]:
+      - region "Namokar Highlights and Care Services" [ref=e29]:
+        - generic:
+          - generic:
+            - img "Warm ophthalmic consultation and slit-lamp examination room at Namokar Eye Centre"
+        - tablist "Slide Selection" [ref=e30]:
+          - 'tab "Slide 1: Our Centre" [selected] [ref=e31] [cursor=pointer]'
+          - 'tab "Slide 2: Cataract" [ref=e32] [cursor=pointer]'
+        - generic [ref=e34]:
+          - generic [ref=e911]:
+            - generic [ref=e912]: Trusted Eye Care Since 25+ Years
+            - heading "Complete Eye Care, With a Personal Approach." [level=1] [ref=e919]
+            - paragraph [ref=e920]: From routine eye examinations to cataract, glaucoma and oculoplasty care, every visit starts with a careful assessment.
+          - generic [ref=e45]:
+            - link "Book a Consultation" [ref=e46] [cursor=pointer]:
+              - /url: /contact-us#request
+              - generic [aria-hidden] [ref=e52]: →
+            - link "Watch Our Video" [ref=e53] [cursor=pointer]:
+              - /url: "#explore"
+          - list [ref=e58]:
+            - listitem [ref=e59]:
+              - generic [ref=e64]: AdvancedTechnology
+            - listitem [ref=e66]:
+              - generic [ref=e71]: ExpertDoctors
+            - listitem [ref=e73]:
+              - generic [ref=e77]: CompassionateCare
+      - region "Why patients trust Namokar" [ref=e78]:
+        - generic [ref=e79]:
+          - generic [ref=e80]:
+            - generic [ref=e81]: 25+ Years of Eye Care Experience
+            - generic [ref=e85]: 10,000+ Patients Treated
+            - generic [ref=e89]: Barraquer Institute Trained Specialist
+            - generic [ref=e93]: International Clinical Exposure
+            - generic [ref=e97]: Modern Diagnostic Facilities
+            - generic [ref=e101]: Patient-Centred Care
+            - generic [ref=e105]: Comprehensive Eye Care
+            - generic [ref=e109]: Specialist Oculoplasty Care
+            - generic [ref=e113]: Advanced Ophthalmic Technology
+          - generic [aria-hidden] [ref=e117]:
+            - generic [ref=e118]: 25+ Years of Eye Care Experience
+            - generic [ref=e122]: 10,000+ Patients Treated
+            - generic [ref=e126]: Barraquer Institute Trained Specialist
+            - generic [ref=e130]: International Clinical Exposure
+            - generic [ref=e134]: Modern Diagnostic Facilities
+            - generic [ref=e138]: Patient-Centred Care
+            - generic [ref=e142]: Comprehensive Eye Care
+            - generic [ref=e146]: Specialist Oculoplasty Care
+            - generic [ref=e150]: Advanced Ophthalmic Technology
+    - region "What can we help you with?" [ref=e154]:
+      - generic [ref=e155]:
+        - generic [ref=e156]:
+          - paragraph [ref=e157]: Find care
+          - heading "What can we help you with?" [level=2] [ref=e158]
+          - paragraph [ref=e159]: Choose the area closest to your concern. If you’re unsure where to begin, start with a comprehensive eye examination and the doctor can guide you after assessment.
+        - generic [ref=e160]:
+          - button "Show previous services" [ref=e161] [cursor=pointer]
+          - list [ref=e164]:
+            - listitem [ref=e165]:
+              - 'link "Cataract Surgery For a clouded lens: careful assessment of your vision, and a clear discussion of when surgery is considered and what your options are. Learn more" [ref=e166] [cursor=pointer]':
+                - /url: /stitchless-cataract-surgery
+                - generic [ref=e172]:
+                  - generic [ref=e173]: Cataract Surgery
+                  - generic [ref=e174]: "For a clouded lens: careful assessment of your vision, and a clear discussion of when surgery is considered and what your options are."
+                  - generic [ref=e175]: Learn more
+            - listitem [ref=e178]:
+              - link "Glaucoma Management Glaucoma often has no early symptoms. Assessment, tests chosen by the doctor and regular follow-up, because it needs long-term monitoring. Learn more" [ref=e179] [cursor=pointer]:
+                - /url: /glaucoma-management
+                - generic [ref=e185]:
+                  - generic [ref=e186]: Glaucoma Management
+                  - generic [ref=e187]: Glaucoma often has no early symptoms. Assessment, tests chosen by the doctor and regular follow-up, because it needs long-term monitoring.
+                  - generic [ref=e188]: Learn more
+            - listitem [ref=e191]:
+              - link "Comprehensive Eye Examinations A thorough check of how well you see and how healthy your eyes are, from routine check-ups to examinations for specific concerns, explained in plain language. Learn more" [ref=e192] [cursor=pointer]:
+                - /url: /comprehensive-eye-examinations
+                - generic [ref=e198]:
+                  - generic [ref=e199]: Comprehensive Eye Examinations
+                  - generic [ref=e200]: A thorough check of how well you see and how healthy your eyes are, from routine check-ups to examinations for specific concerns, explained in plain language.
+                  - generic [ref=e201]: Learn more
+            - listitem [ref=e204]:
+              - link "Eyelid Surgery (Blepharoplasty) Assessment of heavy or drooping eyelids and under-eye bags, for functional and cosmetic reasons, including whether surgery would help. Learn more" [ref=e205] [cursor=pointer]:
+                - /url: /eyelid-surgery-blepharoplasty
+                - generic [ref=e211]:
+                  - generic [ref=e212]: Eyelid Surgery (Blepharoplasty)
+                  - generic [ref=e213]: Assessment of heavy or drooping eyelids and under-eye bags, for functional and cosmetic reasons, including whether surgery would help.
+                  - generic [ref=e214]: Learn more
+            - listitem [ref=e217]:
+              - link "Aesthetic Oculoplasty Considered care for heavy eyelids, under-eye bags and age-related changes around the eyes, planned with eye health in mind. Learn more" [ref=e218] [cursor=pointer]:
+                - /url: /aesthetic-oculofacial
+                - generic [ref=e224]:
+                  - generic [ref=e225]: Aesthetic Oculoplasty
+                  - generic [ref=e226]: Considered care for heavy eyelids, under-eye bags and age-related changes around the eyes, planned with eye health in mind.
+                  - generic [ref=e227]: Learn more
+            - listitem [ref=e230]:
+              - link "Reconstructive Oculoplasty Assessment and treatment for drooping eyelids (ptosis), eyelid malposition and tear-drainage problems that affect comfort or function. Learn more" [ref=e231] [cursor=pointer]:
+                - /url: /eye-plastic-reconstructive-surgery
+                - generic [ref=e237]:
+                  - generic [ref=e238]: Reconstructive Oculoplasty
+                  - generic [ref=e239]: Assessment and treatment for drooping eyelids (ptosis), eyelid malposition and tear-drainage problems that affect comfort or function.
+                  - generic [ref=e240]: Learn more
+          - button "Show more services" [ref=e243] [cursor=pointer]
+        - link "View all services" [ref=e246] [cursor=pointer]:
+          - /url: /our-services
+    - region "Our Centre" [ref=e249]:
+      - generic [ref=e250]:
+        - generic [ref=e251]:
+          - generic [ref=e252]:
+            - paragraph [ref=e253]: The centre
+            - heading "Our Centre" [level=2] [ref=e254]
+          - paragraph [ref=e256]: Take a closer look at Namokar Eye & Oculoplasty Centre — our welcoming spaces, advanced technology and the dedicated team behind your care.
+        - region "Photographs of the centre" [ref=e257]:
+          - article [ref=e922]:
+            - img "Dr. Poonam Jain with members of the centre's team in the waiting area" [ref=e923]
+            - generic [ref=e926]:
+              - strong [ref=e927]: Our Team
+              - generic [ref=e928]: A dedicated and experienced team focused on your eye health.
+          - generic "Choose a featured centre photograph" [ref=e269]:
+            - button "Feature Consultation & Eye Examination" [ref=e929] [cursor=pointer]:
+              - img "Dr. Poonam Jain examining a patient at a slit-lamp unit in a consultation room" [ref=e931]
+              - generic [ref=e932]:
+                - strong [ref=e937]: Consultation & Eye Examination
+                - generic [ref=e938]: Detailed and comfortable eye evaluation with advanced diagnostic equipment.
+            - button "Feature Reception" [ref=e881] [cursor=pointer]:
+              - img "The reception area at Namokar Eye & Oculoplasty Centre, with the Namokar logo on the wall behind the desk" [ref=e883]
+              - generic [ref=e884]:
+                - strong [ref=e886]: Reception
+                - generic [ref=e887]: A warm and welcoming space for our patients.
+            - button "Feature Caring Spaces" [ref=e901] [cursor=pointer]:
+              - img "Diagnostic instruments in an examination room at Namokar Eye & Oculoplasty Centre" [ref=e903]
+              - generic [ref=e904]:
+                - strong [ref=e906]: Caring Spaces
+                - generic [ref=e907]: Well-equipped, hygienic and patient-friendly treatment areas.
+    - region "Step Inside Our Centre" [ref=e300]:
+      - generic [ref=e301]:
+        - generic [ref=e302]:
+          - paragraph [ref=e303]: Explore Namokar
+          - heading "Step Inside Our Centre" [level=2] [ref=e304]
+          - paragraph [ref=e305]: Take a short walkthrough of Namokar Eye & Oculoplasty Centre, from the entrance and reception to the consultation and examination areas.
+        - figure "A Walk Through Namokar Eye & Oculoplasty Centre" [ref=e307]:
+          - 'button "Play video: A Walk Through Namokar Eye & Oculoplasty Centre (0:30)" [ref=e309] [cursor=pointer]':
+            - generic [ref=e311]:
+              - text: Play
+              - generic [ref=e312]: 0:30
+        - paragraph [ref=e314]: From the street entrance to reception and the examination rooms.
+    - region "Dr. Poonam Jain" [ref=e315]:
+      - generic [ref=e316]:
+        - figure [ref=e317]:
+          - img "Dr. Poonam Jain in a white coat and reddish-orange top, standing with her arms crossed in an examination room" [ref=e318]
+        - generic [ref=e319]:
+          - generic [ref=e320]:
+            - paragraph [ref=e321]: Meet your doctor
+            - heading "Dr. Poonam Jain" [level=2] [ref=e322]
+            - paragraph [ref=e323]: Medical Director • Senior Ophthalmologist • Oculoplasty Surgeon
+          - paragraph [ref=e324]: With 25+ years of experience in eye care, Dr. Poonam Jain leads Namokar Eye & Oculoplasty Centre, with a special focus on eyelids, tear passages and conditions around the eyes.
+          - generic [ref=e325]:
+            - link "Book an Appointment" [ref=e326] [cursor=pointer]:
+              - /url: /contact-us
+            - link "Read About Doctor" [ref=e329] [cursor=pointer]:
+              - /url: /dr-poonam-jain
+          - generic [ref=e332]:
+            - region "Areas of Expertise" [ref=e333]:
+              - heading "Areas of Expertise" [level=3] [ref=e334]
+              - list [ref=e335]:
+                - listitem [ref=e336]:
+                  - generic [ref=e337]:
+                    - strong [ref=e338]: Eyelid & Oculoplasty
+                    - generic [ref=e339]: Functional and aesthetic eyelid care
+                - listitem [ref=e340]:
+                  - generic [ref=e341]:
+                    - strong [ref=e342]: Tear Passage Care
+                    - generic [ref=e343]: Tear-drainage problems and watering eyes
+                - listitem [ref=e344]:
+                  - generic [ref=e345]:
+                    - strong [ref=e346]: Periocular Conditions
+                    - generic [ref=e347]: Conditions around the eyes
+                - listitem [ref=e348]:
+                  - generic [ref=e349]:
+                    - strong [ref=e350]: Comprehensive Eye Care
+                    - generic [ref=e351]: Comprehensive eye care as a senior ophthalmologist
+            - region "Qualifications & Training" [ref=e352]:
+              - heading "Qualifications & Training" [level=3] [ref=e353]
+              - list [ref=e358]:
+                - listitem [ref=e359]:
+                  - strong [ref=e360]: Fellowship
+                  - generic [ref=e361]: Oculoplasty, Barraquer Institute, Barcelona
+                - listitem [ref=e362]:
+                  - strong [ref=e363]: Observership
+                  - generic [ref=e364]: Wilmer Eye Institute, Johns Hopkins, Baltimore
+                - listitem [ref=e365]:
+                  - strong [ref=e366]: MS, Ophthalmology
+                  - generic [ref=e367]: Safdarjung Hospital, New Delhi
+                - listitem [ref=e368]:
+                  - strong [ref=e369]: MBBS
+                  - generic [ref=e370]: Maulana Azad Medical College, New Delhi
+    - region "Eye Care, Explained by Dr. Poonam Jain." [ref=e371]:
+      - generic [ref=e372]:
+        - generic [ref=e373]:
+          - paragraph [ref=e374]: From the doctor
+          - heading "Eye Care, Explained by Dr. Poonam Jain." [level=2] [ref=e375]
+          - paragraph [ref=e376]: Clear, doctor-led videos about common eye concerns, treatments and life at Namokar. Choose one, then press Play.
+        - generic [ref=e377]:
+          - figure "A closer look inside Namokar Eye & Oculoplasty Centre, Delhi" [ref=e379]:
+            - 'button "Play video: A closer look inside Namokar Eye & Oculoplasty Centre, Delhi (0:53)" [ref=e382] [cursor=pointer]':
+              - generic [ref=e384]:
+                - text: Play
+                - generic [ref=e385]: 0:53
+          - complementary "Video topics" [ref=e386]:
+            - heading "A closer look inside Namokar Eye & Oculoplasty Centre" [level=3] [ref=e387]: A closer look insideNamokar Eye & Oculoplasty Centre
+            - paragraph [ref=e388]: See how we examine, diagnose and care for our patients at our Delhi centre.
+            - generic [ref=e389]:
+              - generic [ref=e390]:
+                - generic [ref=e394]: Clinic Tour
+                - generic [ref=e395]: Our facilities
+              - generic [ref=e396]:
+                - generic [ref=e400]: Eye Treatments
+                - generic [ref=e401]: In simple terms
+              - generic [ref=e402]:
+                - generic [ref=e407]: Patient Care
+                - generic [ref=e408]: Our approach
+            - link "Visit Our Channel (opens in a new tab)" [ref=e409] [cursor=pointer]:
+              - /url: https://www.youtube.com/watch?v=0xW4m-m_M8E
+              - text: Visit Our Channel
+              - generic [ref=e413]: (opens in a new tab)
+        - generic [ref=e414]:
+          - heading "More Videos from Dr. Poonam Jain" [level=3] [ref=e415]
+          - link "View All Videos (opens in a new tab)" [ref=e416] [cursor=pointer]:
+            - /url: https://www.youtube.com/@dr.poonamjain-NamokarEyeCentre
+            - text: View All Videos
+            - generic [ref=e419]: (opens in a new tab)
+        - generic "Choose a video" [ref=e421]:
+          - generic [ref=e424]:
+            - generic [ref=e428]:
+              - 'button "Choose video: A closer look inside Namokar Eye & Oculoplasty Centre, Delhi" [pressed] [ref=e429] [cursor=pointer]'
+              - heading "A closer look inside Namokar Eye & Oculoplasty Centre, Delhi" [level=3] [ref=e432]
+            - generic [ref=e436]:
+              - 'button "Choose video: Dr. Poonam Jain talks about cataract surgery" [ref=e437] [cursor=pointer]'
+              - heading "Dr. Poonam Jain talks about cataract surgery" [level=3] [ref=e440]
+            - generic [ref=e444]:
+              - 'button "Choose video: Why I became an eye surgeon" [ref=e445] [cursor=pointer]'
+              - heading "Why I became an eye surgeon" [level=3] [ref=e448]
+    - region "Specialist Oculoplasty for Function & Appearance" [ref=e449]:
+      - generic [ref=e450]:
+        - generic [ref=e451]:
+          - paragraph [ref=e452]: Oculoplasty
+          - heading "Specialist Oculoplasty for Function & Appearance" [level=2] [ref=e453]
+          - paragraph [ref=e454]: Oculoplasty is a branch of ophthalmology focused on the eyelids, tear passages, eye socket and surrounding eye area. Some concerns affect vision or eye comfort. Others affect appearance. Many involve both.
+          - generic [ref=e455]:
+            - article [ref=e456]:
+              - generic [ref=e457]:
+                - heading "Functional Concerns" [level=3] [ref=e468]
+                - list [ref=e470]:
+                  - listitem [ref=e471]: Drooping eyelids (ptosis) that make the eye look tired or affect vision
+                  - listitem [ref=e472]: Persistent watering or tear-drainage problems
+                  - listitem [ref=e473]: Eyelids turning inward or outward
+                  - listitem [ref=e474]: Other eyelid-position concerns
+            - article [ref=e475]:
+              - generic [ref=e476]:
+                - heading "Aesthetic Concerns" [level=3] [ref=e486]
+                - list [ref=e488]:
+                  - listitem [ref=e489]: Heavy upper eyelids
+                  - listitem [ref=e490]: Loose eyelid skin
+                  - listitem [ref=e491]: Under-eye bags
+                  - listitem [ref=e492]: Age-related changes around the eyes
+          - generic [ref=e493]:
+            - link "Reconstructive Oculoplasty" [ref=e494] [cursor=pointer]:
+              - /url: /eye-plastic-reconstructive-surgery
+            - link "Aesthetic Oculoplasty" [ref=e497] [cursor=pointer]:
+              - /url: /aesthetic-oculofacial
+          - paragraph [ref=e500]: Dr. Poonam Jain decides whether a procedure is suitable only after examining your eyes and talking through what you hope to achieve.
+        - figure "Specialist evaluation of the eyelids and surrounding eye area" [ref=e501]:
+          - img "A clinician examining a patient with ophthalmic equipment at Namokar Eye & Oculoplasty Centre" [ref=e502]
+      - generic "Oculoplasty areas of care" [ref=e504]:
+        - generic [ref=e505]: Eyelid care
+        - generic [ref=e509]: Tear passage care
+        - generic [ref=e512]: Eye socket care
+        - generic [ref=e516]: Aesthetic procedures
+    - region "Why Patients Choose Namokar" [ref=e520]:
+      - generic [ref=e521]:
+        - generic [ref=e522]:
+          - paragraph [ref=e523]: Why Namokar
+          - heading "Why Patients Choose Namokar" [level=2] [ref=e524]
+          - paragraph [ref=e525]: Doctor-led consultations in Ashok Vihar, New Delhi, with comprehensive eye care and specialist oculoplasty under one centre.
+        - generic [ref=e526]:
+          - article [ref=e527]:
+            - heading "25+ Years of Eye Care Experience" [level=3] [ref=e532]
+            - paragraph [ref=e533]: Care led by Dr. Poonam Jain, Senior Ophthalmologist and Oculoplasty Surgeon.
+          - article [ref=e534]:
+            - heading "Specialist Oculoplasty Focus" [level=3] [ref=e539]
+            - paragraph [ref=e540]: Dedicated evaluation of eyelid, tear-drainage and eye-area concerns alongside comprehensive ophthalmology.
+          - article [ref=e541]:
+            - heading "International Clinical Exposure" [level=3] [ref=e546]
+            - paragraph [ref=e547]: Oculoplasty Fellowship at the Barraquer Institute, Barcelona, with an Observership at the Wilmer Eye Institute, Johns Hopkins.
+          - article [ref=e548]:
+            - heading "10,000+ Patients Treated" [level=3] [ref=e554]
+            - paragraph [ref=e555]: Patients cared for across years of clinical practice.
+    - region "Questions Patients Often Ask" [ref=e556]:
+      - generic [ref=e557]:
+        - generic [ref=e558]:
+          - paragraph [ref=e559]: Common questions
+          - heading "Questions Patients Often Ask" [level=2] [ref=e560]
+          - paragraph [ref=e561]: This is general information. Your own eyes need to be examined before anyone can advise you.
+        - generic [ref=e562]:
+          - group [ref=e563]:
+            - generic "Why is a comprehensive eye check-up important?" [ref=e564] [cursor=pointer]
+            - paragraph [ref=e573]: Some eye conditions, including glaucoma, can develop slowly without obvious symptoms. A full examination can find changes early, when they are easier to manage. Your doctor will advise how often you should be reviewed.
+          - group [ref=e574]:
+            - generic "What can a drooping eyelid (ptosis) mean?" [ref=e575] [cursor=pointer]
+          - group [ref=e587]:
+            - generic "Why do my eyes keep watering?" [ref=e588] [cursor=pointer]
+          - group [ref=e596]:
+            - generic "What is the difference between an ophthalmologist and an oculoplasty surgeon?" [ref=e597] [cursor=pointer]
+          - group [ref=e608]:
+            - generic "Does every drooping eyelid require surgery?" [ref=e609] [cursor=pointer]
+          - group [ref=e618]:
+            - generic "Are under-eye bags always treated with surgery?" [ref=e619] [cursor=pointer]
+          - group [ref=e629]:
+            - generic "Can I come for a general eye check-up even if I don't need surgery?" [ref=e630] [cursor=pointer]
+          - group [ref=e640]:
+            - generic "What should I bring to my first visit?" [ref=e641] [cursor=pointer]
+          - group [ref=e650]:
+            - generic "How do I arrange an appointment?" [ref=e651] [cursor=pointer]
+    - region "Book Your Consultation Today" [ref=e659]:
+      - generic [ref=e661]:
+        - figure [aria-hidden] [ref=e662]
+        - generic [ref=e663]:
+          - paragraph [ref=e664]: Take the first step
+          - heading "Book Your Consultation Today" [level=2] [ref=e665]
+          - paragraph [ref=e666]: Take the first step towards clearer, healthier vision with doctor-led care at Namokar Eye & Oculoplasty Centre.
+          - generic [ref=e667]:
+            - link "Call to Book" [ref=e668] [cursor=pointer]:
+              - /url: tel:+919810419720
+            - link "Call Namokar Eye & Oculoplasty Centre on +91 98104 19720" [ref=e671] [cursor=pointer]:
+              - /url: tel:+919810419720
+              - text: Call Us Now
+  - contentinfo [ref=e674]:
+    - generic [ref=e675]:
+      - generic [ref=e676]:
+        - link "Namokar Eye & Oculoplasty Centre, home" [ref=e677] [cursor=pointer]:
+          - /url: /
+          - img "Namokar Eye & Oculoplasty Centre" [ref=e678]
+        - paragraph [ref=e679]: Comprehensive eye care with specialist oculoplasty, led by Dr. Poonam Jain in Ashok Vihar, New Delhi.
+      - navigation "Footer" [ref=e680]:
+        - heading "Quick Links" [level=2] [ref=e681]
+        - list [ref=e682]:
+          - listitem [ref=e683]:
+            - link "Home" [ref=e684] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e685]:
+            - link "About Us" [ref=e686] [cursor=pointer]:
+              - /url: /about-us
+          - listitem [ref=e687]:
+            - link "Our Services" [ref=e688] [cursor=pointer]:
+              - /url: /our-services
+          - listitem [ref=e689]:
+            - link "International Patients" [ref=e690] [cursor=pointer]:
+              - /url: /international-patients
+          - listitem [ref=e691]:
+            - link "Contact Us" [ref=e692] [cursor=pointer]:
+              - /url: /contact-us
+          - listitem [ref=e693]:
+            - link "Eye Care Videos & Insights" [ref=e694] [cursor=pointer]:
+              - /url: /videos
+      - navigation "Services" [ref=e695]:
+        - heading "Our Services" [level=2] [ref=e696]
+        - list [ref=e697]:
+          - listitem [ref=e698]:
+            - link "Cataract Surgery" [ref=e699] [cursor=pointer]:
+              - /url: /stitchless-cataract-surgery
+          - listitem [ref=e700]:
+            - link "Glaucoma Management" [ref=e701] [cursor=pointer]:
+              - /url: /glaucoma-management
+          - listitem [ref=e702]:
+            - link "Comprehensive Eye Examinations" [ref=e703] [cursor=pointer]:
+              - /url: /comprehensive-eye-examinations
+          - listitem [ref=e704]:
+            - link "Eyelid Surgery (Blepharoplasty)" [ref=e705] [cursor=pointer]:
+              - /url: /eyelid-surgery-blepharoplasty
+          - listitem [ref=e706]:
+            - link "Aesthetic Oculoplasty" [ref=e707] [cursor=pointer]:
+              - /url: /aesthetic-oculofacial
+          - listitem [ref=e708]:
+            - link "Reconstructive Oculoplasty" [ref=e709] [cursor=pointer]:
+              - /url: /eye-plastic-reconstructive-surgery
+      - generic [ref=e710]:
+        - heading "Contact Us" [level=2] [ref=e711]
+        - paragraph [ref=e712]:
+          - generic [ref=e713]: 13 A, Pocket A, Phase 3
+          - generic [ref=e714]: Ashok Vihar, near Satyawati College
+          - generic [ref=e715]: Delhi 110052
+        - list [ref=e716]:
+          - listitem [ref=e717]:
+            - link "+91 98104 19720" [ref=e718] [cursor=pointer]:
+              - /url: tel:+919810419720
+          - listitem [ref=e721]:
+            - link "Get directions (opens in a new tab)" [ref=e722] [cursor=pointer]:
+              - /url: https://maps.app.goo.gl/6VUFVHz9jQva7ai99
+              - text: Get directions
+              - generic [ref=e726]: (opens in a new tab)
+    - generic [ref=e727]:
+      - paragraph [ref=e728]: © 2026 Namokar Eye & Oculoplasty Centre. All rights reserved.
+      - navigation "Legal" [ref=e729]:
+        - link "Privacy Policy" [ref=e730] [cursor=pointer]:
+          - /url: /privacy-policy
+        - link "Terms of Use" [ref=e731] [cursor=pointer]:
+          - /url: /terms-and-conditions
+  - complementary "Quick actions" [ref=e732]:
+    - link "WhatsApp (opens in a new tab)" [ref=e733] [cursor=pointer]:
+      - /url: https://wa.me/919810157258
+      - generic [ref=e734]: WhatsApp
+      - generic [ref=e735]: (opens in a new tab)
+    - link "YouTube (opens in a new tab)" [ref=e736] [cursor=pointer]:
+      - /url: https://www.youtube.com/@dr.poonamjain-NamokarEyeCentre
+      - generic [ref=e737]: YouTube
+      - generic [ref=e738]: (opens in a new tab)
+    - link "Phone" [ref=e739] [cursor=pointer]:
+      - /url: tel:+919810419720
+  - button "Open Next.js Dev Tools" [ref=e746] [cursor=pointer]
+  - alert [ref=e859]

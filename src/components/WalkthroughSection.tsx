@@ -9,26 +9,29 @@ import VideoPlayer from "./VideoPlayer";
  * dark section. The supporting line says only what the footage shows: the entrance, reception
  * and examinations.
  */
-export default function WalkthroughSection({ video }: { video: PlayerProps | undefined }) {
+export default function WalkthroughSection({
+  video,
+  id = "explore",
+  lead = "Take a short walkthrough of Namokar Eye & Oculoplasty Centre, from the entrance and reception to the consultation and examination areas.",
+  note,
+  eyebrow = "Explore Namokar",
+  heading = "Step Inside Our Centre",
+  showDescription = true,
+}: { video: PlayerProps | undefined; id?: string; lead?: string; note?: string; eyebrow?: string; heading?: string; showDescription?: boolean }) {
   if (!video) return null;
   return (
-    <section id="explore" className="section section--graphite wt" aria-labelledby="explore-h">
+    <section id={id} className={`section section--graphite wt${id === "about-video" ? " wt--about" : ""}`} aria-labelledby={`${id}-h`}>
       <div className="container wt-layout">
         <div className="wt-head reveal">
-          <p className="kicker">Explore Namokar</p>
-          <h2 id="explore-h" className="h2">Step Inside Our Centre</h2>
-          <p className="lead">Take a short walkthrough of Namokar Eye &amp; Oculoplasty Centre, from the entrance and reception to the consultation and examination areas.</p>
+          <p className="kicker">{eyebrow}</p>
+          <h2 id={`${id}-h`} className="h2">{heading}</h2>
+          <p className="lead">{lead}</p>
         </div>
         <div className="wt-stage">
           <VideoPlayer v={video} sizes="(min-width: 1240px) 1100px, 100vw" />
         </div>
-        <aside className="wt-highlights" aria-label="Centre highlights">
-          <span><b aria-hidden="true">01</b>Modern infrastructure</span>
-          <span><b aria-hidden="true">02</b>Advanced equipment</span>
-          <span><b aria-hidden="true">03</b>Hygienic and safe environment</span>
-          <span><b aria-hidden="true">04</b>Patient-centred care</span>
-        </aside>
-        <p className="wt-sub">{video.description}</p>
+        {showDescription && <p className="wt-sub">{video.description}</p>}
+        {note && <p className="wt-sub">{note}</p>}
       </div>
     </section>
   );

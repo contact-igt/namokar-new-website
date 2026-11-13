@@ -11,8 +11,10 @@ import {
 } from "react";
 import { LINKS } from "@/config/site";
 import { CalendarIcon } from "./Icons";
+import { usePrefersReducedMotion } from "./motion/useMedia";
 
 const AUTO_MS = 5500;
+const BACKGROUND_AUTO_MS = 6000;
 
 export const HERO_SLIDES = [
   {
@@ -24,9 +26,6 @@ export const HERO_SLIDES = [
     titleSub: "a ",
     titleHighlight: "Personal Approach.",
     body: "From routine eye examinations to cataract, glaucoma and oculoplasty care, every visit starts with a careful assessment.",
-    image: "/images/Modern Ophthalmology Exam Room 1-1.png",
-    imageAlt: "Diagnostic eye examination setup with orange chair and advanced ophthalmic equipment",
-    objectPosition: "right center",
     more: { label: "About the centre", href: LINKS.about },
   },
   {
@@ -38,23 +37,29 @@ export const HERO_SLIDES = [
     titleSub: "",
     titleHighlight: "Explained Clearly.",
     body: "Careful assessment of your vision and a clear discussion of your treatment options with premium IOL choices.",
-    image: "/images/Modern Ophthalmology Exam Room.png",
-    imageAlt: "Warm ophthalmic consultation and slit-lamp examination room at Namokar Eye Centre",
-    objectPosition: "right center",
     more: { label: "About cataract surgery", href: LINKS.cataract },
   },
 ] as const;
 
+const HERO_BACKGROUNDS = [
+  { id: "exterior", image: "/images/Namokar Eye Centre Exterior.png", alt: "The exterior of Namokar Eye & Oculoplasty Centre" },
+  { id: "centre", image: "/images/Modern Ophthalmology Exam Room 11.png", alt: "Diagnostic eye examination setup with orange chair and advanced ophthalmic equipment" },
+  { id: "waiting", image: "/images/Modern Ophthalmology Clinic Waiting Room-clean.png", alt: "The waiting room and diagnostic equipment at Namokar Eye & Oculoplasty Centre" },
+  { id: "cataract", image: "/images/Modern Ophthalmology Exam Room.png", alt: "Warm ophthalmic consultation and slit-lamp examination room at Namokar Eye Centre" },
+] as const;
+
 const TRUST_ITEMS = [
-  "25+ Years of Eye Care Experience",
-  "10,000+ Patients Treated",
-  "Barraquer Institute Trained Specialist",
-  "International Clinical Exposure",
-  "Modern Diagnostic Facilities",
-  "Patient-Centred Care",
-  "Comprehensive Eye Care",
-  "Specialist Oculoplasty Care",
-  "Advanced Ophthalmic Technology",
+  { label: "25+ Years of Eye Care Experience", enabled: true },
+  { label: "10,000+ Patients Treated", enabled: true },
+  { label: "Barraquer Institute Trained Specialist", enabled: true },
+  { label: "International Clinical Exposure", enabled: true },
+  { label: "Modern Diagnostic Facilities", enabled: true },
+  { label: "Patient-Centred Care", enabled: true },
+  { label: "Comprehensive Eye Care", enabled: true },
+  { label: "Specialist Oculoplasty Care", enabled: true },
+  { label: "Advanced Ophthalmic Technology", enabled: true },
+  // Enable after the current certificate and display authorization are confirmed.
+  { label: "NABH Accreditation", enabled: false },
 ] as const;
 
 export default function Hero({
@@ -65,6 +70,8 @@ export default function Hero({
 }) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [backgroundActive, setBackgroundActive] = useState(0);
+  const reducedMotion = usePrefersReducedMotion();
   const count = HERO_SLIDES.length;
 
   const go = useCallback(
@@ -85,6 +92,17 @@ export default function Hero({
     }, AUTO_MS);
     return () => clearInterval(timer);
   }, [paused, count]);
+
+  // Photography has its own clock; content navigation, focus and hover never reset it.
+  useEffect(() => {
+    if (reducedMotion) return;
+    const timer = setInterval(() => {
+      if (!document.hidden) {
+        setBackgroundActive((previous) => (previous + 1) % HERO_BACKGROUNDS.length);
+      }
+    }, BACKGROUND_AUTO_MS);
+    return () => clearInterval(timer);
+  }, [reducedMotion]);
 
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.key === "ArrowRight") {
@@ -113,20 +131,20 @@ export default function Hero({
       >
         <div className="hero-lens-watermark" aria-hidden="true" />
         <div className="hero-banner-visual">
-          {HERO_SLIDES.map((slide, i) => (
+          {HERO_BACKGROUNDS.map((background, i) => (
             <div
-              key={slide.id}
-              className={`hero-image-layer hero-image-layer--${slide.id} ${active === i ? "is-active" : ""}`}
-              aria-hidden={active !== i}
+              key={background.id}
+              className={`hero-image-layer hero-image-layer--${background.id} ${backgroundActive === i ? "is-active" : ""}`}
+              aria-hidden={backgroundActive !== i}
             >
               <Image
-                src={slide.image}
-                alt={slide.imageAlt}
+                src={background.image}
+                alt={background.alt}
                 fill
                 priority={i === 0}
+                loading={i === 0 ? undefined : "eager"}
                 sizes="100vw"
-                className={`hero-slide-image hero-slide-image--${slide.id}`}
-                style={{ objectFit: "cover", objectPosition: slide.objectPosition }}
+                className={`hero-slide-image hero-slide-image--${background.id}`}
               />
             </div>
           ))}
@@ -277,13 +295,13 @@ export default function Hero({
         <div className="hero-trust-track">
           {[0, 1].map((copy) => (
             <div className="hero-trust-group" key={copy} aria-hidden={copy === 1}>
-              {TRUST_ITEMS.map((item) => (
-                <span className="hero-trust-item" key={item}>
+              {TRUST_ITEMS.filter((item) => item.enabled).map((item) => (
+                <span className="hero-trust-item" key={item.label}>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M2.5 12s3.6-6 9.5-6 9.5 6 9.5 6-3.6 6-9.5 6-9.5-6-9.5-6Z" />
                     <circle cx="12" cy="12" r="3" />
                   </svg>
-                  {item}
+                  {item.label}
                 </span>
               ))}
             </div>

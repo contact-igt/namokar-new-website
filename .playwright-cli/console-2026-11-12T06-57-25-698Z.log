@@ -1,0 +1,110 @@
+[    1125ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[    1301ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  125407ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  125419ms] [LOG] [Fast Refresh] done in 14ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  126224ms] [LOG] [Fast Refresh] done in 14ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  147125ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  147194ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  150399ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  150592ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  152364ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  154661ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  154761ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  158896ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  158984ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  160267ms] [WARNING] Image with src "/images/about-thumbnail1.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  161463ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  161518ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  163238ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  163275ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  187386ms] [WARNING] Image with src "/images/Copy of DSC06826.JPG" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  259217ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  259257ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  267826ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  267873ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  359295ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  359333ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  383372ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  383400ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  384778ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  384834ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  386322ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  386357ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  387825ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  387871ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  389320ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  389359ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  390745ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  390782ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  391285ms] [WARNING] Image with src "/images/Copy of DSC06826.JPG" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  407892ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  407933ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  640400ms] [WARNING] Allow attribute will take precedence over 'allowfullscreen'. @ http://localhost:3000/_next/static/chunks/1daa_next_dist_compiled_react-dom_cjs_react-dom-client_development_0mp0cp_t-ezj9.js:10736
+[  645490ms] [WARNING] The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127 @ :1
+[  669164ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  670637ms] [LOG] [Fast Refresh] done in 1588ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  714601ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  714636ms] [LOG] [Fast Refresh] done in 2ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  726556ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  726650ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  727930ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  727985ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  730383ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  730435ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  732025ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  732094ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  733505ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  733595ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  749029ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  749892ms] [LOG] [Fast Refresh] done in 970ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  750115ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  750468ms] [LOG] [Fast Refresh] done in 461ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  777039ms] [WARNING] Image with src "/images/about-thumbnail1.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  788175ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  788256ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  870409ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  870432ms] [LOG] [Fast Refresh] done in 5ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  887280ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  887336ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  889389ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  889433ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  891006ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  891073ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  892955ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  893003ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  894838ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  894884ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  896229ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  896272ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  898269ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  898315ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  908692ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  911134ms] [LOG] [Fast Refresh] done in 2553ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1613552ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1613563ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1613582ms] [LOG] [Fast Refresh] done in 43ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1613691ms] [LOG] [Fast Refresh] done in 43ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1613781ms] [LOG] [Fast Refresh] done in 43ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1614677ms] [LOG] [Fast Refresh] done in 43ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1615053ms] [LOG] [Fast Refresh] done in 43ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1615855ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1616005ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1666286ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1667866ms] [LOG] [Fast Refresh] done in 1685ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1685869ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1686196ms] [LOG] [Fast Refresh] done in 434ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 2437463ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://g.clarity.ms/collect:1
+[ 2457461ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://g.clarity.ms/collect:1
+[ 2457461ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://g.clarity.ms/collect:1
+[ 2459512ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://report.clarity.ms/sea:1

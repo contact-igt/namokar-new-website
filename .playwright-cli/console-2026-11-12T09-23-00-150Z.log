@@ -1,0 +1,30 @@
+[     884ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[    1017ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  342706ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_TIMED_OUT @ https://p.clarity.ms/collect:1
+[  349671ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_TIMED_OUT @ https://p.clarity.ms/collect:1
+[  803762ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  803794ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  817960ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  818595ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  834028ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  834703ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  922595ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  923225ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  928224ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  928998ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  974422ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[  975070ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1001803ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1002088ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1002183ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1002231ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1003445ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1006286ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1008458ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1009063ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1010691ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1010878ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1029851ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1029968ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1070805ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720
+[ 1071658ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1bjkg68unqmjx._.js:720

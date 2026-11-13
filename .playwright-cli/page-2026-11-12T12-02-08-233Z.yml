@@ -1,0 +1,317 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "Namokar Eye & Oculoplasty Centre, home" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Namokar Eye & Oculoplasty Centre" [ref=e7]
+      - navigation "Main" [ref=e8]:
+        - list [ref=e9]:
+          - listitem [ref=e10]:
+            - link "Home" [ref=e11] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e12]:
+            - link "About" [ref=e13] [cursor=pointer]:
+              - /url: /about-us
+          - listitem [ref=e14]:
+            - button "Services" [ref=e15] [cursor=pointer]
+          - listitem [ref=e18]:
+            - link "International Patients" [ref=e19] [cursor=pointer]:
+              - /url: /international-patients
+          - listitem [ref=e20]:
+            - link "Contact Us" [ref=e21] [cursor=pointer]:
+              - /url: /contact-us
+      - link "Book a Consultation" [ref=e22] [cursor=pointer]:
+        - /url: /contact-us#request
+  - main [ref=e27]:
+    - region "Eye Care Built Around Understanding, Expertise & Individual Attention" [ref=e28]:
+      - generic [ref=e29]:
+        - navigation "Breadcrumb" [ref=e30]:
+          - link "Home" [ref=e31] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e34]: About Us
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - paragraph [ref=e37]: About Namokar
+            - heading "Eye Care Built Around Understanding, Expertise & Individual Attention" [level=1] [ref=e38]
+            - paragraph [ref=e39]: Namokar Eye & Oculoplasty Centre is an eye-care centre in Ashok Vihar, New Delhi, offering comprehensive ophthalmology alongside specialist oculoplasty care led by Dr. Poonam Jain, Senior Ophthalmologist and Oculoplasty Surgeon. Our approach begins with understanding your concern before discussing the next step.
+            - generic [ref=e40]:
+              - link "Book an Appointment" [ref=e41] [cursor=pointer]:
+                - /url: /contact-us
+              - link "Know Our Centre" [ref=e44] [cursor=pointer]:
+                - /url: "#hospital"
+          - generic [ref=e47]:
+            - figure [ref=e48]:
+              - img "The entrance of Namokar Eye & Oculoplasty Centre in Ashok Vihar" [ref=e49]
+            - figure [ref=e50]:
+              - img "The reception area at Namokar Eye & Oculoplasty Centre, with the Namokar logo on the wall behind the desk" [ref=e51]
+            - figure [ref=e52]:
+              - img "Diagnostic instruments in an examination room at Namokar Eye & Oculoplasty Centre" [ref=e53]
+            - paragraph [ref=e54]: Welcome to Namokar. The reception at our Ashok Vihar centre, where your visit begins.
+        - list "Our approach to care" [ref=e55]:
+          - listitem [ref=e56]:
+            - strong [ref=e60]: Trusted Eye Care Since 25+ Years
+          - listitem [ref=e61]:
+            - strong [ref=e65]: Advanced Technology
+          - listitem [ref=e66]:
+            - strong [ref=e70]: Expert Doctors
+          - listitem [ref=e71]:
+            - strong [ref=e74]: Compassionate Care
+    - region "Comprehensive Eye Care With a Special Focus on Oculoplasty" [ref=e75]:
+      - generic [ref=e76]:
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - figure [ref=e79]:
+              - img "The reception area at Namokar Eye & Oculoplasty Centre, with the Namokar logo on the wall behind the desk" [ref=e80]
+            - figure [ref=e81]:
+              - img "Diagnostic instruments in an examination room at Namokar Eye & Oculoplasty Centre" [ref=e82]
+          - list [ref=e83]:
+            - listitem [ref=e84]:
+              - strong [ref=e85]: Eyelid & Oculoplasty Care
+            - listitem [ref=e86]:
+              - strong [ref=e87]: Tear Passage Care
+            - listitem [ref=e88]:
+              - strong [ref=e89]: Periocular Conditions
+            - listitem [ref=e90]:
+              - strong [ref=e91]: Comprehensive Eye Care
+        - generic [ref=e92]:
+          - paragraph [ref=e93]: About Namokar
+          - heading "Comprehensive Eye Care With a Special Focus on Oculoplasty" [level=2] [ref=e94]
+          - paragraph [ref=e95]: Namokar Eye & Oculoplasty Centre is located in Ashok Vihar, New Delhi and provides comprehensive eye care, including routine and condition-specific eye examinations, cataract care, glaucoma management and other ophthalmic concerns. The centre has a reception, consultation and examination rooms, and an operation theatre.
+          - paragraph [ref=e96]: A key area of focus at Namokar is oculoplasty, the branch of ophthalmology concerned with the eyelids, tear passages, eye socket and surrounding eye area. This includes both functional concerns, such as drooping eyelids and watering eyes, and aesthetic concerns involving the eyelids and under-eye area.
+          - generic [ref=e97]:
+            - group [ref=e98]:
+              - generic "Eye Care Available at Namokar" [ref=e99] [cursor=pointer]
+            - group [ref=e102]:
+              - generic "Customised Management" [ref=e103] [cursor=pointer]
+            - group [ref=e106]:
+              - generic "Cataract Surgery" [ref=e107] [cursor=pointer]
+            - group [ref=e110]:
+              - generic "Glaucoma Management" [ref=e111] [cursor=pointer]
+            - group [ref=e114]:
+              - generic "Comprehensive Eye Examinations" [ref=e115] [cursor=pointer]
+            - group [ref=e118]:
+              - generic "Eyelid Surgery (Blepharoplasty)" [ref=e119] [cursor=pointer]
+            - group [ref=e122]:
+              - generic "Aesthetic Oculoplasty" [ref=e123] [cursor=pointer]
+            - group [ref=e126]:
+              - generic "Reconstructive Oculoplasty" [ref=e127] [cursor=pointer]
+    - region "Meet Dr. Poonam Jain" [ref=e130]:
+      - generic [ref=e131]:
+        - figure [ref=e132]:
+          - img "Dr. Poonam Jain in a white coat, standing beside a chair in a consultation room" [ref=e133]
+        - generic [ref=e134]:
+          - paragraph [ref=e135]: Meet your doctor
+          - heading "Meet Dr. Poonam Jain" [level=2] [ref=e136]
+          - paragraph [ref=e137]: Medical Director • Senior Ophthalmologist • Oculoplasty Surgeon
+          - paragraph [ref=e138]: With 25+ years of experience in ophthalmology and oculoplasty, Dr. Poonam Jain leads clinical care at Namokar Eye & Oculoplasty Centre.
+          - paragraph [ref=e139]: Alongside comprehensive ophthalmology, she has a particular clinical focus on oculoplasty, including functional and aesthetic conditions involving the eyelids, tear passages and surrounding eye area. Her approach is centred on careful evaluation, clear communication and treatment planning based on the individual patient's needs.
+          - generic [ref=e140]:
+            - link "Book an Appointment" [ref=e141] [cursor=pointer]:
+              - /url: /contact-us
+            - link "Read About Doctor" [ref=e144] [cursor=pointer]:
+              - /url: /dr-poonam-jain
+          - generic [ref=e147]:
+            - region "Areas of Expertise" [ref=e148]:
+              - heading "Areas of Expertise" [level=3] [ref=e149]
+              - list [ref=e154]:
+                - listitem [ref=e155]:
+                  - generic [ref=e156]:
+                    - strong [ref=e157]: Eyelid & Oculoplasty Care
+                    - generic [ref=e158]: Functional and aesthetic oculoplasty
+                    - generic [ref=e159]: Ptosis and eyelid-position concerns
+                    - generic [ref=e160]: Blepharoplasty and eye-area concerns
+                - listitem [ref=e161]:
+                  - generic [ref=e162]:
+                    - strong [ref=e163]: Tear Passage Care
+                    - generic [ref=e164]: Watering eyes and tear-drainage disorders
+                - listitem [ref=e165]:
+                  - generic [ref=e166]:
+                    - strong [ref=e167]: Periocular Conditions
+                    - generic [ref=e168]: Conditions around the eyes
+                - listitem [ref=e169]:
+                  - generic [ref=e170]:
+                    - strong [ref=e171]: Comprehensive Eye Care
+                    - generic [ref=e172]: Comprehensive ophthalmology
+                    - generic [ref=e173]: Cataract evaluation and eye care
+            - region "Qualifications & Advanced Training" [ref=e174]:
+              - heading "Qualifications & Advanced Training" [level=3] [ref=e175]
+              - paragraph [ref=e180]: "Dr. Poonam Jain's medical education and further clinical training include:"
+              - generic [ref=e181]:
+                - generic [ref=e182]:
+                  - term [ref=e183]: MBBS
+                  - definition [ref=e184]: Maulana Azad Medical College, New Delhi
+                - generic [ref=e185]:
+                  - term [ref=e186]: MS, Ophthalmology
+                  - definition [ref=e187]: Safdarjung Hospital, New Delhi
+                - generic [ref=e188]:
+                  - term [ref=e189]: Fellowship in Oculoplasty
+                  - definition [ref=e190]: Barraquer Institute, Barcelona, Spain
+                - generic [ref=e191]:
+                  - term [ref=e192]: Observership
+                  - definition [ref=e193]: Wilmer Eye Institute, Johns Hopkins, Baltimore, USA
+              - paragraph [ref=e194]: A fellowship is a period of advanced clinical training. An observership means observing clinical practice, and is not a degree or a fellowship. Both are past training experiences and do not imply a current affiliation with, or endorsement by, these institutions.
+    - region "The People and Spaces Behind Your Care" [ref=e195]:
+      - generic [ref=e196]:
+        - generic [ref=e197]:
+          - paragraph [ref=e198]: Our centre
+          - heading "The People and Spaces Behind Your Care" [level=2] [ref=e199]
+          - paragraph [ref=e200]: Meet the team and see the actual rooms where patients are welcomed, examined and treated at our Ashok Vihar centre.
+        - region "Photographs inside the centre" [ref=e201]:
+          - article [ref=e204]:
+            - img "An operation theatre at Namokar Eye & Oculoplasty Centre" [ref=e205]
+            - generic [ref=e211]:
+              - strong [ref=e212]: Operation theatre
+              - generic [ref=e213]: The operating table, microscope and surgical equipment used for eye procedures.
+          - generic "Choose a featured centre photograph" [ref=e214]:
+            - button "Feature Examination room" [ref=e215] [cursor=pointer]:
+              - generic [ref=e220]:
+                - strong [ref=e221]: Examination room
+                - generic [ref=e222]: Diagnostic instruments used during a detailed eye examination.
+            - button "Feature A detailed eye examination" [ref=e226] [cursor=pointer]:
+              - generic [ref=e231]:
+                - strong [ref=e232]: A detailed eye examination
+                - generic [ref=e233]: Dr. Poonam Jain examining a patient at a slit-lamp, the microscope used to look closely at the front of the eye.
+            - button "Feature Our care team" [ref=e237] [cursor=pointer]:
+              - generic [ref=e239]:
+                - strong [ref=e240]: Our care team
+                - generic [ref=e241]: Dr. Poonam Jain with members of the team who look after patients, in the waiting area.
+    - region "Step Inside Our Centre" [ref=e247]:
+      - generic [ref=e248]:
+        - generic [ref=e249]:
+          - paragraph [ref=e250]: Explore Namokar
+          - heading "Step Inside Our Centre" [level=2] [ref=e251]
+          - paragraph [ref=e252]: Before your visit, see the reception, consultation spaces, examination areas and other parts of our Ashok Vihar centre.
+        - figure "A closer look inside Namokar Eye & Oculoplasty Centre, Delhi" [ref=e254]:
+          - 'button "Play video: A closer look inside Namokar Eye & Oculoplasty Centre, Delhi (0:53)" [ref=e257] [cursor=pointer]':
+            - generic [ref=e259]:
+              - text: Play
+              - generic [ref=e260]: 0:53
+          - paragraph [ref=e262]:
+            - text: Pressing play loads YouTube's player (privacy-enhanced mode).
+            - link "Watch on YouTube (opens in a new tab)" [ref=e263] [cursor=pointer]:
+              - /url: https://www.youtube.com/watch?v=0xW4m-m_M8E
+              - text: Watch on YouTube
+              - generic [ref=e266]: (opens in a new tab)
+        - paragraph [ref=e267]: A short tour of the centre, from the clinic's channel.
+        - paragraph [ref=e268]: The video is general information and loads from YouTube only when you press play.
+    - region "What to Expect When You Visit Namokar" [ref=e269]:
+      - generic [ref=e270]:
+        - generic [ref=e271]:
+          - paragraph [ref=e272]: Your visit
+          - heading "What to Expect When You Visit Namokar" [level=2] [ref=e273]
+          - paragraph [ref=e274]: A general outline of how a visit usually goes. Each patient's care depends on their own eyes and needs, and no particular outcome can be promised.
+        - list [ref=e275]:
+          - listitem [ref=e276]:
+            - heading "Appointment Booking" [level=3] [ref=e281]
+            - paragraph [ref=e282]: Contact the centre and briefly tell the team your concern, so they can help arrange the appropriate consultation.
+          - listitem [ref=e286]:
+            - heading "Warm Reception" [level=3] [ref=e292]
+            - paragraph [ref=e293]: The reception at our Ashok Vihar centre, where your visit begins.
+          - listitem [ref=e297]:
+            - heading "Consultation & Examination" [level=3] [ref=e302]
+            - paragraph [ref=e303]: Your eyes are examined based on your symptoms and your reason for visiting. Bring previous prescriptions, reports, scans, your current spectacles and your medication list where relevant.
+            - paragraph [ref=e304]: The doctor reviews the examination findings, listens to your concerns and explains what they mean in understandable language.
+          - listitem [ref=e308]:
+            - heading "Diagnosis & Treatment Plan" [level=3] [ref=e313]
+            - paragraph [ref=e314]: If treatment could help, the available options are explained. Not every patient requires surgery or a procedure.
+          - listitem [ref=e318]:
+            - heading "Follow-up Care" [level=3] [ref=e323]
+            - paragraph [ref=e324]: Some eye conditions need monitoring or follow-up, such as glaucoma. The doctor will explain what is appropriate for you.
+    - region "Book Your Consultation Today" [ref=e327]:
+      - generic [ref=e329]:
+        - figure [aria-hidden] [ref=e330]
+        - generic [ref=e331]:
+          - paragraph [ref=e332]: Take the first step
+          - heading "Book Your Consultation Today" [level=2] [ref=e333]
+          - paragraph [ref=e334]: Take the first step towards clearer, healthier vision with doctor-led care at Namokar Eye & Oculoplasty Centre.
+          - generic [ref=e335]:
+            - link "Call to Book" [ref=e336] [cursor=pointer]:
+              - /url: tel:+919810419720
+            - link "Call Namokar Eye & Oculoplasty Centre on +91 98104 19720" [ref=e339] [cursor=pointer]:
+              - /url: tel:+919810419720
+              - text: Call Us Now
+  - contentinfo [ref=e342]:
+    - generic [ref=e343]:
+      - generic [ref=e344]:
+        - link "Namokar Eye & Oculoplasty Centre, home" [ref=e345] [cursor=pointer]:
+          - /url: /
+          - img "Namokar Eye & Oculoplasty Centre" [ref=e346]
+        - paragraph [ref=e347]: Comprehensive eye care with specialist oculoplasty, led by Dr. Poonam Jain in Ashok Vihar, New Delhi.
+      - navigation "Footer" [ref=e348]:
+        - heading "Quick Links" [level=2] [ref=e349]
+        - list [ref=e350]:
+          - listitem [ref=e351]:
+            - link "Home" [ref=e352] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e353]:
+            - link "About Us" [ref=e354] [cursor=pointer]:
+              - /url: /about-us
+          - listitem [ref=e355]:
+            - link "Our Services" [ref=e356] [cursor=pointer]:
+              - /url: /our-services
+          - listitem [ref=e357]:
+            - link "International Patients" [ref=e358] [cursor=pointer]:
+              - /url: /international-patients
+          - listitem [ref=e359]:
+            - link "Contact Us" [ref=e360] [cursor=pointer]:
+              - /url: /contact-us
+          - listitem [ref=e361]:
+            - link "Eye Care Videos & Insights" [ref=e362] [cursor=pointer]:
+              - /url: /videos
+      - navigation "Services" [ref=e363]:
+        - heading "Our Services" [level=2] [ref=e364]
+        - list [ref=e365]:
+          - listitem [ref=e366]:
+            - link "Cataract Surgery" [ref=e367] [cursor=pointer]:
+              - /url: /stitchless-cataract-surgery
+          - listitem [ref=e368]:
+            - link "Glaucoma Management" [ref=e369] [cursor=pointer]:
+              - /url: /glaucoma-management
+          - listitem [ref=e370]:
+            - link "Comprehensive Eye Examinations" [ref=e371] [cursor=pointer]:
+              - /url: /comprehensive-eye-examinations
+          - listitem [ref=e372]:
+            - link "Eyelid Surgery (Blepharoplasty)" [ref=e373] [cursor=pointer]:
+              - /url: /eyelid-surgery-blepharoplasty
+          - listitem [ref=e374]:
+            - link "Aesthetic Oculoplasty" [ref=e375] [cursor=pointer]:
+              - /url: /aesthetic-oculofacial
+          - listitem [ref=e376]:
+            - link "Reconstructive Oculoplasty" [ref=e377] [cursor=pointer]:
+              - /url: /eye-plastic-reconstructive-surgery
+      - generic [ref=e378]:
+        - heading "Contact Us" [level=2] [ref=e379]
+        - paragraph [ref=e380]:
+          - generic [ref=e381]: 13 A, Pocket A, Phase 3
+          - generic [ref=e382]: Ashok Vihar, near Satyawati College
+          - generic [ref=e383]: Delhi 110052
+        - list [ref=e384]:
+          - listitem [ref=e385]:
+            - link "+91 98104 19720" [ref=e386] [cursor=pointer]:
+              - /url: tel:+919810419720
+          - listitem [ref=e389]:
+            - link "Get directions (opens in a new tab)" [ref=e390] [cursor=pointer]:
+              - /url: https://maps.app.goo.gl/6VUFVHz9jQva7ai99
+              - text: Get directions
+              - generic [ref=e394]: (opens in a new tab)
+    - generic [ref=e395]:
+      - paragraph [ref=e396]: © 2026 Namokar Eye & Oculoplasty Centre. All rights reserved.
+      - navigation "Legal" [ref=e397]:
+        - link "Privacy Policy" [ref=e398] [cursor=pointer]:
+          - /url: /privacy-policy
+        - link "Terms of Use" [ref=e399] [cursor=pointer]:
+          - /url: /terms-and-conditions
+  - complementary "Quick actions" [ref=e400]:
+    - link "WhatsApp (opens in a new tab)" [ref=e401] [cursor=pointer]:
+      - /url: https://wa.me/919810157258
+      - generic [ref=e402]: WhatsApp
+      - generic [ref=e403]: (opens in a new tab)
+    - link "YouTube (opens in a new tab)" [ref=e404] [cursor=pointer]:
+      - /url: https://www.youtube.com/@dr.poonamjain-NamokarEyeCentre
+      - generic [ref=e405]: YouTube
+      - generic [ref=e406]: (opens in a new tab)
+    - link "Phone" [ref=e407] [cursor=pointer]:
+      - /url: tel:+919810419720
+  - button "Open Next.js Dev Tools" [ref=e414] [cursor=pointer]

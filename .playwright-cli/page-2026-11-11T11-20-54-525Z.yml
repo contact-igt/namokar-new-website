@@ -1,0 +1,393 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Shanti Eye Tech home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "Shanti Eye Tech" [ref=e5]
+      - navigation "Primary navigation" [ref=e6]:
+        - link "Home" [ref=e7] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "Treatments" [ref=e10] [cursor=pointer]:
+          - /url: /services
+        - link "Doctors" [ref=e13] [cursor=pointer]:
+          - /url: /doctors
+        - link "Blog" [ref=e14] [cursor=pointer]:
+          - /url: /blogs
+        - link "Contact" [ref=e15] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=e16]:
+        - link "Call Us" [ref=e17] [cursor=pointer]:
+          - /url: tel:+919179191939
+        - link "Book Appointment" [ref=e21] [cursor=pointer]:
+          - /url: /contact#contact-form
+  - main [ref=e25]:
+    - generic [ref=e26]:
+      - generic [ref=e28]:
+        - generic [ref=e29]: ADVANCED EYE CARE
+        - heading "GENTLE CARE FOR YOUR PRECIOUS EYES" [level=1] [ref=e31]
+        - paragraph [ref=e32]: Experience advanced ophthalmology care with cutting-edge technology and compassionate specialists dedicated to preserving and enhancing your vision.
+        - generic [ref=e33]:
+          - link "Book Consultation" [ref=e34] [cursor=pointer]:
+            - /url: /contact#contact-form
+          - link "Call Now" [ref=e37] [cursor=pointer]:
+            - /url: tel:+919179191939
+        - generic "Shanti Eye Tech highlights" [ref=e40]:
+          - generic [ref=e46]:
+            - generic [ref=e47]: 20+
+            - generic [ref=e49]: Clinical Ophthalmology Practice
+          - generic [ref=e56]:
+            - generic [ref=e57]: Modern OT
+            - generic [ref=e58]: Dedicated Surgical Suites
+          - generic [ref=e64]:
+            - generic [ref=e65]: Comprehensive Care
+            - generic [ref=e66]: Diagnostic & Surgical Services
+      - generic:
+        - img "Dr. Solanki Specialist"
+    - generic [ref=e68]:
+      - list [ref=e69]:
+        - listitem [ref=e70]: Established Eye Care
+        - listitem [ref=e76]: Comprehensive Eye Care
+        - listitem [ref=e81]: Modern Diagnostic Facilities
+        - listitem [ref=e87]: Patient-Centred Care
+        - listitem [ref=e91]: Established Eye Care
+        - listitem [ref=e97]: Comprehensive Eye Care
+        - listitem [ref=e102]: Modern Diagnostic Facilities
+        - listitem [ref=e108]: Patient-Centred Care
+      - list [ref=e112]:
+        - listitem [ref=e113]: Established Eye Care
+        - listitem [ref=e119]: Comprehensive Eye Care
+        - listitem [ref=e124]: Modern Diagnostic Facilities
+        - listitem [ref=e130]: Patient-Centred Care
+        - listitem [ref=e134]: Established Eye Care
+        - listitem [ref=e140]: Comprehensive Eye Care
+        - listitem [ref=e145]: Modern Diagnostic Facilities
+        - listitem [ref=e151]: Patient-Centred Care
+    - generic [ref=e156]:
+      - generic [ref=e157]:
+        - generic [ref=e158]: CLINICAL OVERVIEW
+        - heading "Dedicated to Quality Eye Care" [level=2] [ref=e160]
+      - generic [ref=e161]:
+        - article [ref=e162] [cursor=pointer]:
+          - generic [ref=e163]:
+            - generic [ref=e164]: 0+
+            - text: Years
+          - generic [ref=e165]: Dedicated Eye Care Practice
+        - article [ref=e166] [cursor=pointer]:
+          - generic [ref=e167]: "0"
+          - generic [ref=e168]: Eye Care Specialities
+        - article [ref=e169] [cursor=pointer]:
+          - generic [ref=e170]: Modern Infrastructure
+          - generic [ref=e171]: Diagnostic & Surgical Systems
+    - generic [ref=e173]:
+      - generic [ref=e175]:
+        - generic [ref=e176]: OUR SERVICES
+        - heading "Comprehensive Eye Care For Every Need" [level=2] [ref=e178]:
+          - text: Comprehensive Eye Care
+          - generic [ref=e179]: For Every Need
+        - paragraph [ref=e180]: From routine eye exams to complex surgical procedures, our team of expert ophthalmologists provides personalized care using the latest technology.
+      - generic [ref=e181]:
+        - link [ref=e182] [cursor=pointer]:
+          - /url: /services/cataract#service-banner
+          - generic: "01"
+          - heading "Advanced Cataract Surgery" [level=3] [ref=e189]
+          - paragraph [ref=e190]: Evaluation and treatment for cataracts that can cause cloudy vision, glare and progressive reduction in visual clarity.
+          - generic [ref=e191]: Learn More
+        - link [ref=e194] [cursor=pointer]:
+          - /url: /services/retina#service-banner
+          - generic: "02"
+          - heading "Retina Care" [level=3] [ref=e200]
+          - paragraph [ref=e201]: Dilated retinal examination to detect and diagnose retinal diseases, with guidance for further diagnostic procedures and treatment options.
+          - generic [ref=e202]: Learn More
+        - link [ref=e205] [cursor=pointer]:
+          - /url: /services/lasik#service-banner
+          - generic: "03"
+          - heading "Freedom From Glasses" [level=3] [ref=e212]
+          - paragraph [ref=e213]: Touchless LASIK, SMILE, PRK, ICL and PRELEX — vision-correction options designed to reduce or eliminate dependence on spectacles or contact lenses for suitable patients.
+          - generic [ref=e214]: Learn More
+        - link [ref=e217] [cursor=pointer]:
+          - /url: /services/glaucoma#service-banner
+          - generic: "04"
+          - heading "Glaucoma Management" [level=3] [ref=e222]
+          - paragraph [ref=e223]: Evaluation, monitoring and treatment guidance for glaucoma, a group of conditions that can damage the optic nerve.
+          - generic [ref=e224]: Learn More
+        - link [ref=e227] [cursor=pointer]:
+          - /url: /services/pediatric-eye-care#service-banner
+          - generic: "05"
+          - heading "Pediatric Eye Care" [level=3] [ref=e233]
+          - paragraph [ref=e234]: Eye examinations and care focused on healthy vision and proper eye development in children.
+          - generic [ref=e235]: Learn More
+        - link [ref=e238] [cursor=pointer]:
+          - /url: /services/keratoconus#service-banner
+          - generic: "06"
+          - heading "Keratoconus Care" [level=3] [ref=e244]
+          - paragraph [ref=e245]: Evaluation and management of keratoconus, a progressive condition in which the cornea becomes thinner and develops a cone-like shape. Treatment depends on corneal findings and whether progression is present.
+          - generic [ref=e246]: Learn More
+    - generic [ref=e250]:
+      - generic [ref=e251]:
+        - generic [ref=e252]: ADVANCED TECHNOLOGY
+        - heading "Cutting-Edge Equipment For Optimal Outcomes" [level=2] [ref=e254]
+        - paragraph [ref=e255]: We invest in the latest diagnostic and surgical technology to ensure the highest standards of precision and patient safety.
+      - generic "Advanced technology and equipment" [ref=e256]:
+        - generic [ref=e257]:
+          - generic [ref=e259]:
+            - article [ref=e263]:
+              - generic [aria-hidden] [ref=e264]: "03"
+              - heading [level=3] [ref=e273]: OCT
+              - paragraph [ref=e274]: For comprehensive retina and anterior segment analysis.
+            - article [ref=e278]:
+              - generic [aria-hidden] [ref=e279]: "04"
+              - heading [level=3] [ref=e283]: Digital Diagnostics
+              - paragraph [ref=e284]: Automated Refraction, Non-Contact Tonometry, and Lensometry for accurate eye examinations.
+            - article [ref=e288]:
+              - generic [aria-hidden] [ref=e289]: "05"
+              - heading [level=3] [ref=e295]: Modern Operation Theatre & Advanced Phaco Machine
+              - paragraph [ref=e296]: Alcon LEGION Advanced Phaco System for advanced cataract surgery.
+            - article [ref=e300]:
+              - generic [aria-hidden] [ref=e301]: "01"
+              - heading "Biometry" [level=3] [ref=e309]
+              - paragraph [ref=e310]: Optical Biometry and Immersion A-Scan for accurate IOL power calculations and better outcomes after cataract surgery.
+            - article [ref=e314]:
+              - generic [aria-hidden] [ref=e315]: "02"
+              - heading "Glaucoma Diagnostics" [level=3] [ref=e320]
+              - paragraph [ref=e321]: Perimetry, OCT, and Pachymetry for detailed glaucoma evaluation and analysis.
+            - article [ref=e325]:
+              - generic [aria-hidden] [ref=e326]: "03"
+              - heading "OCT" [level=3] [ref=e335]
+              - paragraph [ref=e336]: For comprehensive retina and anterior segment analysis.
+            - article [ref=e340]:
+              - generic [aria-hidden] [ref=e341]: "04"
+              - heading [level=3] [ref=e345]: Digital Diagnostics
+              - paragraph [ref=e346]: Automated Refraction, Non-Contact Tonometry, and Lensometry for accurate eye examinations.
+            - article [ref=e350]:
+              - generic [aria-hidden] [ref=e351]: "05"
+              - heading [level=3] [ref=e357]: Modern Operation Theatre & Advanced Phaco Machine
+              - paragraph [ref=e358]: Alcon LEGION Advanced Phaco System for advanced cataract surgery.
+            - article [ref=e362]:
+              - generic [aria-hidden] [ref=e363]: "01"
+              - heading [level=3] [ref=e371]: Biometry
+              - paragraph [ref=e372]: Optical Biometry and Immersion A-Scan for accurate IOL power calculations and better outcomes after cataract surgery.
+            - article [ref=e376]:
+              - generic [aria-hidden] [ref=e377]: "02"
+              - heading [level=3] [ref=e382]: Glaucoma Diagnostics
+              - paragraph [ref=e383]: Perimetry, OCT, and Pachymetry for detailed glaucoma evaluation and analysis.
+            - article [ref=e387]:
+              - generic [aria-hidden] [ref=e388]: "03"
+              - heading [level=3] [ref=e397]: OCT
+              - paragraph [ref=e398]: For comprehensive retina and anterior segment analysis.
+          - list [ref=e399]:
+            - listitem [ref=e400] [cursor=pointer]:
+              - button "• 1" [ref=e401]
+            - listitem [ref=e402] [cursor=pointer]:
+              - button "• 2" [ref=e403]
+            - listitem [ref=e404] [cursor=pointer]:
+              - button "• 3" [ref=e405]
+            - listitem [ref=e406] [cursor=pointer]:
+              - button "• 4" [ref=e407]
+            - listitem [ref=e408] [cursor=pointer]:
+              - button "• 5" [ref=e409]
+    - generic [ref=e411]:
+      - generic [ref=e412]:
+        - generic [ref=e413]: Available Today
+        - img "Dr. Amit N Solanki beside eye examination equipment" [ref=e415]
+        - generic [ref=e416]: Director — Shanti EyeTech Eye Care & Laser Hospital
+      - generic [ref=e417]:
+        - generic [ref=e418]: DIRECTOR
+        - heading "Dr. Amit N Solanki" [level=2] [ref=e420]
+        - heading "Director — Shanti EyeTech Eye Care & Laser Hospital MBBS, DOMS, DNB, FAECS" [level=4] [ref=e421]: Director — Shanti EyeTech Eye Care & Laser HospitalMBBS, DOMS, DNB, FAECS
+        - paragraph [ref=e422]: Practising ophthalmology since 2003 with a focus on cataract surgery, glaucoma management and refractive evaluation. He has presented scientific papers and participated as invited guest faculty at national and international ophthalmology congresses.
+        - list [ref=e423]:
+          - listitem [ref=e424]: Cataract, Glaucoma and Refractive Surgeon
+          - listitem [ref=e425]: Former Senior Resident - Aravind Eye Hospital, Tamil Nadu
+        - generic [ref=e426]:
+          - generic [ref=e427]:
+            - generic [ref=e432]:
+              - generic [ref=e433]: 0+
+              - text: Years
+            - generic [ref=e434]: Clinical Practice
+          - generic [ref=e435]:
+            - generic [ref=e439]:
+              - generic [ref=e440]: 0+
+              - text: Papers
+            - generic [ref=e441]: Published Research
+          - generic [ref=e442]:
+            - generic [ref=e447]:
+              - generic [ref=e448]: 0+
+              - text: Awards
+            - generic [ref=e449]: Awards & Recognition
+        - generic [ref=e450]:
+          - link "Book Consultation" [ref=e451] [cursor=pointer]:
+            - /url: /contact#contact-form
+          - link "View Full Profile" [ref=e457] [cursor=pointer]:
+            - /url: /doctors#doctor-banner
+    - generic [ref=e459]:
+      - generic [ref=e460]:
+        - generic [ref=e461]: WHY CHOOSE US
+        - heading "Four Pillars of Our Commitment" [level=2] [ref=e463]
+        - paragraph [ref=e464]: What sets Shanti Eye Tech apart is our unwavering dedication to combining clinical excellence with genuine care for every patient who walks through our doors.
+      - generic [ref=e465]:
+        - article [ref=e466]:
+          - heading "Precision Diagnostics" [level=3] [ref=e470]
+          - paragraph [ref=e471]: Advanced imaging and diagnostic tools enable us to detect eye conditions at their earliest stages, ensuring timely and effective treatment.
+        - article [ref=e472]:
+          - heading "Patient-Centered Care" [level=3] [ref=e476]
+          - paragraph [ref=e477]: Every patient receives personalized attention from our compassionate team, with treatment plans tailored to individual needs and lifestyle.
+        - article [ref=e478]:
+          - heading "Clinical Standards" [level=3] [ref=e483]
+          - paragraph [ref=e484]: We adhere to structured clinical protocols, aseptic surgical standards, and comprehensive post-procedure monitoring to support patient safety and optimal care.
+        - article [ref=e485]:
+          - heading "Compassionate Communication" [level=3] [ref=e490]
+          - paragraph [ref=e491]: We believe in empathetic patient interaction, taking the time to listen, explain diagnostic findings clearly, and provide reassurance throughout the treatment process.
+    - generic [ref=e493]:
+      - generic [ref=e494]:
+        - generic [ref=e495]: FAQS
+        - heading "Questions? We Have Answers" [level=2] [ref=e497]: Questions?We Have Answers
+        - paragraph [ref=e498]: Find answers to common questions about our services, procedures, and patient care.
+        - link "Still have questions? Contact us" [ref=e499] [cursor=pointer]:
+          - /url: /contact#contact-form
+      - generic [ref=e502]:
+        - group [ref=e503]:
+          - generic "What eye conditions do you treat? -" [ref=e504] [cursor=pointer]:
+            - text: What eye conditions do you treat?
+            - generic [ref=e505]: "-"
+          - paragraph [ref=e506]: Shanti EyeTech provides care across cataract, glaucoma, refractive/vision-correction concerns, keratoconus and pediatric eye conditions. We also provide dilated retinal examination to detect and diagnose retinal diseases and guide patients regarding further diagnostic procedures and treatment options.
+        - group [ref=e507]:
+          - generic "Is LASIK surgery safe and permanent? +" [ref=e508] [cursor=pointer]:
+            - text: Is LASIK surgery safe and permanent?
+            - generic [ref=e509]: +
+        - group [ref=e510]:
+          - generic "How long does cataract surgery take? +" [ref=e511] [cursor=pointer]:
+            - text: How long does cataract surgery take?
+            - generic [ref=e512]: +
+        - group [ref=e513]:
+          - generic "Do you accept insurance? +" [ref=e514] [cursor=pointer]:
+            - text: Do you accept insurance?
+            - generic [ref=e515]: +
+        - group [ref=e516]:
+          - generic "When should children have their first eye exam? +" [ref=e517] [cursor=pointer]:
+            - text: When should children have their first eye exam?
+            - generic [ref=e518]: +
+    - generic [ref=e520]:
+      - generic [ref=e521]:
+        - generic [ref=e522]: BOOK NOW
+        - heading "Ready to See the World Clearly?" [level=2] [ref=e524]: Ready to Seethe World Clearly?
+        - paragraph [ref=e525]: Schedule your consultation today and take the first step towards better vision. Our expert team is ready to provide personalised care.
+        - list [ref=e526]:
+          - listitem [ref=e527]:
+            - generic [ref=e532]: Quick Appointments
+            - generic [ref=e533]: Appointments are subject to availability.
+          - listitem [ref=e534]:
+            - generic [ref=e539]: Expert Specialists
+            - generic [ref=e540]: Experienced ophthalmology care.
+      - generic [ref=e541]:
+        - heading "Book Your Appointment" [level=3] [ref=e542]
+        - generic [ref=e543]:
+          - text: Full Name *
+          - textbox "Full Name *" [ref=e544]:
+            - /placeholder: Enter your full name
+        - generic [ref=e545]:
+          - text: Email Address *
+          - textbox "Email Address *" [ref=e546]:
+            - /placeholder: your.email@example.com
+        - generic [ref=e547]:
+          - text: Phone Number *
+          - textbox "Phone Number *" [ref=e548]:
+            - /placeholder: +91 90000 XXXXX
+        - generic [ref=e549]:
+          - text: Service Needed *
+          - combobox "Service Needed *" [ref=e550] [cursor=pointer]:
+            - option "Select a service" [disabled] [selected]
+            - option "Cataract Surgery"
+            - option "Freedom From Glasses (LASIK / Refractive)"
+            - option "Retina Care"
+            - option "Glaucoma Treatment"
+            - option "Pediatric Eye Care"
+            - option "Keratoconus Care"
+        - generic [ref=e551]:
+          - text: Additional Notes
+          - textbox "Additional Notes" [ref=e552]:
+            - /placeholder: Any specific concerns or preferred time?
+        - paragraph [ref=e553]: Please avoid sharing detailed or sensitive medical information here — our team will discuss your condition directly when confirming your appointment.
+        - button "Confirm Appointment" [ref=e554] [cursor=pointer]
+  - contentinfo [ref=e558]:
+    - generic [ref=e559]:
+      - generic [ref=e560]:
+        - generic [ref=e561]:
+          - img "Shanti EyeTech" [ref=e562]
+          - paragraph [ref=e563]: Providing personalized eye care with advanced technology and a patient-focused approach in Indore.
+        - generic [ref=e564]:
+          - heading "Quick Links" [level=4] [ref=e565]
+          - link "About Us" [ref=e566] [cursor=pointer]:
+            - /url: /about
+          - link "Our Doctors" [ref=e567] [cursor=pointer]:
+            - /url: /doctors
+          - link "Services" [ref=e568] [cursor=pointer]:
+            - /url: /services
+          - link "Technology" [ref=e569] [cursor=pointer]:
+            - /url: /#technology
+          - link "Blog" [ref=e570] [cursor=pointer]:
+            - /url: /blogs
+        - generic [ref=e571]:
+          - heading "Services" [level=4] [ref=e572]
+          - link "Cataract Surgery" [ref=e573] [cursor=pointer]:
+            - /url: /services/cataract#service-banner
+          - link "Freedom From Glasses" [ref=e574] [cursor=pointer]:
+            - /url: /services/lasik#service-banner
+          - link "Retina Care" [ref=e575] [cursor=pointer]:
+            - /url: /services/retina#service-banner
+          - link "Glaucoma Treatment" [ref=e576] [cursor=pointer]:
+            - /url: /services/glaucoma#service-banner
+          - link "Pediatric Eye Care" [ref=e577] [cursor=pointer]:
+            - /url: /services/pediatric-eye-care#service-banner
+          - link "Keratoconus Care" [ref=e578] [cursor=pointer]:
+            - /url: /services/keratoconus#service-banner
+        - generic [ref=e579]:
+          - heading "Resources" [level=4] [ref=e580]
+          - link "Patient Guide" [ref=e581] [cursor=pointer]:
+            - /url: /contact#contact-form
+          - link "Insurance Info" [ref=e582] [cursor=pointer]:
+            - /url: /contact#contact-form
+          - link "Patient FAQs" [ref=e583] [cursor=pointer]:
+            - /url: /contact#faq
+          - link "Clinical Facilities" [ref=e584] [cursor=pointer]:
+            - /url: /about#facilities
+          - link "Contact Us" [ref=e585] [cursor=pointer]:
+            - /url: /contact#contact-form
+        - generic [ref=e586]:
+          - link "Facebook" [ref=e587] [cursor=pointer]:
+            - /url: https://www.facebook.com/shantieyetech
+          - link "Instagram" [ref=e590] [cursor=pointer]:
+            - /url: https://www.instagram.com/shantieyetech/
+          - link "YouTube" [ref=e595] [cursor=pointer]:
+            - /url: https://www.youtube.com/@ShantieyetechbyDrAmitSolanki
+      - generic [ref=e599]:
+        - generic [ref=e605]:
+          - generic [ref=e606]: Visit Us
+          - generic [ref=e607]: Shekhar Central, M1 & M2, Palasia Square,Manorama Ganj, Indore, Madhya Pradesh 452001
+        - generic [ref=e612]:
+          - generic [ref=e613]: Call Us
+          - generic [ref=e614]: +91 91791 91939
+        - generic [ref=e620]:
+          - generic [ref=e621]: Email Us
+          - generic [ref=e622]: info@shantieyetech.com
+        - generic [ref=e628]:
+          - generic [ref=e629]: Working Hours
+          - generic [ref=e630]: "Mon - Sat: 10:00 AM - 7:00 PMSunday: Closed"
+      - generic [ref=e631]:
+        - generic [ref=e632]: © 2026 Shanti Eye Tech. All rights reserved.
+        - generic [ref=e633]:
+          - link "Privacy Policy" [ref=e634] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "Terms & Conditions" [ref=e635] [cursor=pointer]:
+            - /url: /terms-conditions
+          - link "Cookie Policy" [ref=e636] [cursor=pointer]:
+            - /url: /cookie-policy
+  - navigation "Quick contact actions" [ref=e637]:
+    - link "Phone" [ref=e638] [cursor=pointer]:
+      - /url: tel:+919179191939
+    - link "WhatsApp" [ref=e640] [cursor=pointer]:
+      - /url: https://wa.me/919179191939
+    - link "YouTube" [ref=e642] [cursor=pointer]:
+      - /url: https://www.youtube.com/@ShantieyetechbyDrAmitSolanki
+  - alert [ref=e644]
