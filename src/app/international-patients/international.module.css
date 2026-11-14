@@ -8,7 +8,7 @@
 
 .page :global(.container) { max-width: 1400px; }
 .page h1, .page h2, .page h3 { color: var(--teal); }
-.page h1, .page h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 700; letter-spacing: -0.025em; text-wrap: balance; }
+.page h1, .page h2 { font-family: var(--font-heading); font-weight: 700; letter-spacing: -0.025em; text-wrap: balance; }
 .page a:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
 .shapeDefinitions { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
 
@@ -87,7 +87,7 @@
 .steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 15px; margin: 0; padding: 0; list-style: none; }
 .stepCard { min-width: 0; padding: 26px 23px 27px; border: 1px solid #f5e4d8; border-radius: 22px; background: #fff; box-shadow: 0 18px 30px -27px rgb(108 67 40 / 0.45); }
 .stepNumber { display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: 21px; border-radius: 17px; background: #fff0e5; color: var(--orange); font-size: 1.1rem; font-weight: 800; }
-.stepCard h3 { min-height: 2.5em; margin: 0 0 12px; font-family: Georgia, "Times New Roman", serif; font-size: 1.12rem; line-height: 1.25; }
+.stepCard h3 { min-height: 2.5em; margin: 0 0 12px; font-family: var(--font-heading); font-size: 1.12rem; line-height: 1.25; }
 .stepCard p { margin: 0; color: #506269; font-size: 0.89rem; line-height: 1.58; }
 
 .arrive { overflow: hidden; padding-block: clamp(64px, 6vw, 88px); }
@@ -134,7 +134,7 @@
 }
 .serviceGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
 .serviceGrid li { min-width: 0; }
-.serviceCard { display: grid; grid-template-columns: 50px minmax(0, 1fr) 22px; align-items: center; gap: 16px; height: 100%; min-height: 90px; padding: 17px 19px; border: 1px solid #f2e2d6; border-radius: 19px; background: #fff; box-shadow: 0 12px 22px -19px rgb(117 65 38 / 0.35); color: var(--teal); font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; font-weight: 700; line-height: 1.25; transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease; }
+.serviceCard { display: grid; grid-template-columns: 50px minmax(0, 1fr) 22px; align-items: center; gap: 16px; height: 100%; min-height: 90px; padding: 17px 19px; border: 1px solid #f2e2d6; border-radius: 19px; background: #fff; box-shadow: 0 12px 22px -19px rgb(117 65 38 / 0.35); color: var(--teal); font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; line-height: 1.25; transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease; }
 .serviceCard:hover { transform: translateY(-2px); border-color: #e8b796; box-shadow: 0 15px 24px -17px rgb(117 65 38 / 0.42); }
 .serviceNumber { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 15px; background: #fff0e5; color: var(--orange); font-family: var(--font-body); font-size: 0.92rem; font-weight: 800; }
 .serviceCard svg { color: var(--orange); }
@@ -234,3 +234,13 @@
 @media (prefers-reduced-motion: reduce) {
   .serviceCard { transition: none; }
 }
+
+/* Shared Home page typography. */
+.page h1 { font-family: var(--font-heading); font-size: var(--type-hero-size); font-weight: 850; line-height: var(--type-hero-line); letter-spacing: var(--type-hero-tracking); }
+.page h2 { font-family: var(--font-heading); font-size: var(--type-section-size); font-weight: 800; line-height: var(--type-section-line); letter-spacing: var(--type-section-tracking); }
+.page h3 { font-family: var(--font-heading); font-size: var(--type-subsection-size); font-weight: 700; line-height: var(--type-subsection-line); letter-spacing: var(--type-subsection-tracking); }
+.page .eyebrow { font-family: var(--font-body); font-size: var(--type-eyebrow-size); font-weight: 700; letter-spacing: var(--type-eyebrow-tracking); }
+.page .heroLead, .page .centerHeading > p:last-child, .page .arriveHeading > p:not(.eyebrow) { font-size: var(--type-lead-size); line-height: var(--type-lead-line); }
+.page .stepCard p, .page .noteCopy p, .page .locationNote { font-size: var(--type-supporting-size); line-height: var(--type-supporting-line); }
+.page :global(.btn) { font-family: var(--font-body); font-size: var(--type-button-size); font-weight: 600; line-height: 1.2; }
+.page .bottomCta :global(.cta-title) { font-size: var(--type-section-size); line-height: var(--type-section-line); letter-spacing: var(--type-section-tracking); }

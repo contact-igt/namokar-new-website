@@ -28,7 +28,7 @@
 .aboutPage h1, .introCopy h2, .doctorCopy h2, .centeredHeading h2 {
   margin: 0;
   color: var(--about-teal);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.025em;
@@ -69,7 +69,7 @@
 .introRoom { right: 0; bottom: 0; width: min(55%, 320px); aspect-ratio: 3 / 2; height: auto; border: 4px solid #fffaf6; z-index: 1; }
 .introRoom img { object-fit: contain; }
 .specialtySection { flex: none; }
-.specialtySection h3 { margin: 0 0 16px; color: var(--about-teal); font-family: Georgia, "Times New Roman", serif; font-size: 1.4rem; line-height: 1.2; }
+.specialtySection h3 { margin: 0 0 16px; color: var(--about-teal); font-family: var(--font-heading); font-size: 1.4rem; line-height: 1.2; }
 .specialtyAccordions { display: grid; gap: 10px; }
 .specialtyAccordions details { border: 1px solid rgb(217 99 24 / 0.1); border-radius: 15px; background: rgb(255 252 249 / 0.88); box-shadow: 0 8px 18px -15px rgb(117 65 38 / 0.4); }
 .specialtyAccordions summary { display: grid; grid-template-columns: 48px minmax(0, 1fr) 18px; gap: 12px; align-items: center; padding: 10px 14px; list-style: none; cursor: pointer; }
@@ -91,7 +91,7 @@
 .accordions summary svg { flex: none; color: #d96318; width: 18px; height: 18px; transition: transform 180ms ease; }
 .accordions details[open] summary svg { transform: rotate(180deg); }
 .accordions summary:focus-visible { outline: 3px solid #d96318; outline-offset: 3px; border-radius: 12px; }
-.careAvailable h3 { margin: 0 0 10px; color: var(--about-teal); font-family: Georgia, "Times New Roman", serif; font-size: 1.18rem; line-height: 1.25; }
+.careAvailable h3 { margin: 0 0 10px; color: var(--about-teal); font-family: var(--font-heading); font-size: 1.18rem; line-height: 1.25; }
 .careAvailable .answer { padding: 0; }
 .answer { padding: 0 16px 16px; font-size: 0.88rem; line-height: 1.65; }
 .answer p + p { margin-top: 10px; }
@@ -105,7 +105,7 @@
 .doctorPhoto img { display: block; width: 100%; height: auto; object-fit: contain; }
 .doctorHighlights { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); align-items: center; gap: 20px; padding: 20px 22px; border: 1px solid rgb(217 99 24 / 0.15); border-radius: 18px; background: rgb(255 251 246 / 0.9); }
 .doctorExperience { display: grid; gap: 4px; }
-.doctorExperience strong { color: var(--about-orange); font-family: Georgia, "Times New Roman", serif; font-size: 2.5rem; line-height: 1; }
+.doctorExperience strong { color: var(--about-orange); font-family: var(--font-heading); font-size: 2.5rem; line-height: 1; }
 .doctorExperience span { color: var(--about-teal); font-size: 0.83rem; font-weight: 700; line-height: 1.4; }
 .doctorHighlights ul { display: grid; gap: 7px; margin: 0; padding: 0 0 0 20px; border-left: 1px solid rgb(217 99 24 / 0.18); list-style: none; color: var(--about-teal); font-size: 0.8rem; line-height: 1.4; }
 .doctorIntro { display: flex; flex-direction: column; }
@@ -117,7 +117,7 @@
 .doctorCopy .designation { color: var(--about-teal); font-weight: 650; font-size: 0.92rem; }
 .doctorPanels { display: grid; grid-column: 1 / -1; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); gap: 22px; }
 .infoPanel { min-width: 0; padding: 20px 17px; background: rgb(255 252 249 / 0.86); border: 1px solid rgb(255 255 255 / 0.8); border-radius: 20px; box-shadow: 0 12px 24px -22px rgb(117 65 38 / 0.4); }
-.infoPanel h3 { display: flex; align-items: center; gap: 9px; margin: 0 0 17px; font-family: Georgia, "Times New Roman", serif; color: var(--about-teal); font-size: 1.13rem; line-height: 1.25; }
+.infoPanel h3 { display: flex; align-items: center; gap: 9px; margin: 0 0 17px; font-family: var(--font-heading); color: var(--about-teal); font-size: 1.13rem; line-height: 1.25; }
 .headingIcon { display: grid; place-items: center; flex: none; width: 31px; height: 31px; border-radius: 50%; background: #ffeadc; color: #d96318; }
 .headingIcon svg { width: 22px; height: 22px; }
 .capIcon { color: #fff; background: #c45110; }
@@ -151,7 +151,7 @@
 .journeyCard { position: relative; min-width: 0; padding: 24px 18px; border-radius: 22px; background: rgb(255 253 250 / 0.88); border: 1px solid rgb(255 255 255 / 0.8); box-shadow: 0 12px 22px -19px rgb(117 65 38 / 0.4); text-align: center; }
 .journeyIcon { display: grid; place-items: center; width: 62px; height: 62px; margin: 0 auto 16px; border-radius: 50%; background: #ffeadc; color: #d96318; }
 .journeyIcon svg { width: 33px; height: 33px; }
-.journeyCard h3 { color: var(--about-teal); font-family: Georgia, "Times New Roman", serif; font-size: 1.14rem; line-height: 1.2; margin: 0 0 13px; }
+.journeyCard h3 { color: var(--about-teal); font-family: var(--font-heading); font-size: 1.14rem; line-height: 1.2; margin: 0 0 13px; }
 .journeyCard p { font-size: 0.83rem; line-height: 1.55; }
 .journeyCard p + p { margin-top: 10px; }
 .visitPreparation { max-width: 75ch; margin: 24px auto 0; color: #52656a; text-align: center; font-size: 0.88rem; line-height: 1.6; }
@@ -242,10 +242,8 @@
   .introCopy > p:not(:global(.kicker)),
   .doctorIntro > p:not(.designation):not(:global(.kicker)),
   .accordions details > .answer p {
-    text-align: justify;
-    text-align-last: left;
-    text-justify: inter-word;
-    hyphens: auto;
+    text-align: left;
+    hyphens: manual;
   }
 }
 
@@ -259,3 +257,13 @@
     hyphens: manual;
   }
 }
+
+/* Home page typography for the About page. */
+.aboutPage h1 { font-family: var(--font-heading); font-size: var(--type-hero-size); font-weight: 850; line-height: var(--type-hero-line); letter-spacing: var(--type-hero-tracking); }
+.aboutPage h2 { font-family: var(--font-heading); font-size: var(--type-section-size); font-weight: 800; line-height: var(--type-section-line); letter-spacing: var(--type-section-tracking); }
+.aboutPage h3 { font-family: var(--font-heading); font-size: var(--type-subsection-size); font-weight: 700; line-height: var(--type-subsection-line); letter-spacing: var(--type-subsection-tracking); }
+.aboutPage :global(.kicker), .aboutPage .waveSection > :global(.container) :global(.kicker) { font-family: var(--font-body); font-size: var(--type-eyebrow-size); font-weight: 700; letter-spacing: var(--type-eyebrow-tracking); }
+.aboutPage .heroCopy > p:not(:global(.kicker)), .aboutPage .introCopy > p:not(:global(.kicker)), .aboutPage .doctorIntro > p:not(.designation):not(:global(.kicker)), .aboutPage .centeredHeading > p:last-child { font-size: var(--type-lead-size); line-height: var(--type-lead-line); }
+.aboutPage .journeyCard p, .aboutPage .expertiseList li span, .aboutPage .timeline dd, .aboutPage .specialtyAnswer, .aboutPage .answer, .aboutPage .visitPreparation, .aboutPage .collageCaption { font-size: var(--type-supporting-size); line-height: var(--type-supporting-line); }
+.aboutPage .trustCards strong, .aboutPage .expertiseList strong, .aboutPage .timeline dt { font-family: var(--font-heading); }
+.aboutPage :global(.btn) { font-family: var(--font-body); font-size: var(--type-button-size); font-weight: 600; line-height: 1.2; }

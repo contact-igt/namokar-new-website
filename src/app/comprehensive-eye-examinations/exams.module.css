@@ -10,7 +10,7 @@
 .page h2 {
   margin: 0;
   color: var(--exams-teal);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.025em;
@@ -261,7 +261,7 @@
 .bentoTitle {
   margin: 0 0 6px;
   color: #ffffff;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.15rem, 1.35vw, 1.35rem);
   font-weight: 700;
   line-height: 1.25;
@@ -314,7 +314,7 @@
   color: #ffffff !important;
   font-size: clamp(2.1rem, 3.4vw, 3rem);
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-heading);
 }
 
 .reasonsGrid {
@@ -695,3 +695,12 @@
   .closing { padding: 40px 0 60px; }
   .closingImage { min-height: 235px; }
 }
+
+/* Shared Home page typography. */
+.page h1 { font-family: var(--font-heading); font-size: var(--type-hero-size); font-weight: 850; line-height: var(--type-hero-line); letter-spacing: var(--type-hero-tracking); }
+.page h2 { font-family: var(--font-heading); font-size: var(--type-section-size); font-weight: 800; line-height: var(--type-section-line); letter-spacing: var(--type-section-tracking); }
+.page h3 { font-family: var(--font-heading); font-size: var(--type-subsection-size); font-weight: 700; line-height: var(--type-subsection-line); letter-spacing: var(--type-subsection-tracking); }
+.page .eyebrow { font-family: var(--font-body); font-size: var(--type-eyebrow-size); font-weight: 700; letter-spacing: var(--type-eyebrow-tracking); }
+.page .heroCopy > p:not(.eyebrow), .page .overviewText p, .page .bentoCenterHead .leadText, .page .closingCopy p { font-size: var(--type-lead-size); line-height: var(--type-lead-line); }
+.page .refVideoDesc, .page .bentoDescription { font-size: var(--type-supporting-size); line-height: var(--type-supporting-line); }
+.page :global(.btn) { font-family: var(--font-body); font-size: var(--type-button-size); font-weight: 600; line-height: 1.2; }

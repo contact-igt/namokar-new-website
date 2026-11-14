@@ -14,7 +14,7 @@
 
   color: var(--glaucoma-ink);
   background-color: var(--glaucoma-peach-light);
-  font-family: var(--nf-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-body);
   overflow-x: hidden;
 }
 
@@ -30,7 +30,7 @@
 .page h3 {
   margin: 0;
   color: var(--glaucoma-teal);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.14;
   letter-spacing: -0.02em;
@@ -1051,7 +1051,7 @@
 
 .explained :global(.clin-head h2) {
   font-size: clamp(1.85rem, 3.2vw, 2.5rem);
-  font-family: var(--font-playfair, Georgia, serif);
+  font-family: var(--font-heading);
   font-weight: 700;
   color: var(--glaucoma-teal, #0c2b33);
   margin: 0 auto 14px;
@@ -1473,3 +1473,13 @@
     display: none;
   }
 }
+
+/* Shared Home page typography. */
+.page h1 { font-family: var(--font-heading); font-size: var(--type-hero-size); font-weight: 850; line-height: var(--type-hero-line); letter-spacing: var(--type-hero-tracking); }
+.page h2 { font-family: var(--font-heading); font-size: var(--type-section-size); font-weight: 800; line-height: var(--type-section-line); letter-spacing: var(--type-section-tracking); }
+.page h3 { font-family: var(--font-heading); font-size: var(--type-subsection-size); font-weight: 700; line-height: var(--type-subsection-line); letter-spacing: var(--type-subsection-tracking); }
+.page .eyebrow, .page .explained :global(.clin-head .kicker) { font-family: var(--font-body); font-size: var(--type-eyebrow-size); font-weight: 700; letter-spacing: var(--type-eyebrow-tracking); }
+.page .heroLead, .page .leadText, .page .explained :global(.clin-head .lead) { font-size: var(--type-lead-size); line-height: var(--type-lead-line); }
+.page :global(.btn) { font-family: var(--font-body); font-size: var(--type-button-size); font-weight: 600; line-height: 1.2; }
+.page .overviewContent .overviewHeading,
+.page .explained :global(.clin-head h2) { font-size: var(--type-section-size); font-weight: 800; line-height: var(--type-section-line); letter-spacing: var(--type-section-tracking); }
