@@ -107,3 +107,5 @@ next-env.d.ts
 /namokareyecare-website-frontend-main/
 /pixel-eye-2-main/
 /pixel-eye-2-main.zip
+
+.playwright-cli/
