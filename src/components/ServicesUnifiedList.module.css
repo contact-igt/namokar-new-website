@@ -1,0 +1,249 @@
+.wrapper {
+  width: 100%;
+}
+
+/* Category Filter Tabs */
+.filterTabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 44px;
+}
+
+.tabBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(15, 44, 59, 0.04);
+}
+
+.tabBtn:hover {
+  border-color: #b85d19;
+  color: #b85d19;
+  transform: translateY(-1px);
+}
+
+.tabBtnActive {
+  background: #0f2c3b;
+  color: #ffffff;
+  border-color: #0f2c3b;
+  box-shadow: 0 4px 14px rgba(15, 44, 59, 0.2);
+}
+
+.tabBtnActive:hover {
+  background: #143b4f;
+  color: #ffffff;
+  border-color: #143b4f;
+}
+
+.tabCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: rgba(15, 44, 59, 0.08);
+  color: #0f2c3b;
+}
+
+.tabBtnActive .tabCount {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Cards Grid */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 28px;
+  row-gap: 42px;
+}
+
+/* Single Service Card: transparent wrapper, NO enclosing card box */
+.card {
+  position: relative;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  padding: 0;
+  transition: transform 0.22s ease;
+}
+
+/* Simple, gentle card hover effect */
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* Visual Photo Area: increased height to 270px, ends at bottom first */
+.photoContainer {
+  position: relative;
+  width: 100%;
+  height: 270px;
+  border-radius: 22px;
+  overflow: hidden;
+  background-color: #f1f5f9;
+  box-shadow: 0 6px 20px rgba(15, 44, 59, 0.06);
+  transition: box-shadow 0.22s ease;
+}
+
+.card:hover .photoContainer {
+  box-shadow: 0 10px 24px rgba(15, 44, 59, 0.1);
+}
+
+.cardPhoto {
+  object-fit: cover;
+}
+
+.photoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 44, 59, 0.1) 0%,
+    rgba(15, 44, 59, 0) 35%,
+    rgba(15, 44, 59, 0.05) 100%
+  );
+  pointer-events: none;
+}
+
+/* Floating Pill Badge at Top-Left */
+.floatingBadge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 3;
+  background: #ffffff;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  display: inline-flex;
+  align-items: center;
+  max-width: calc(100% - 28px);
+}
+
+.badgeText {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f2c3b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.01em;
+}
+
+/* Bottom Bubble Container: previous soft ice-blue color matching the reference design */
+.bubble {
+  background: #edf5fa;
+  border-radius: 20px;
+  width: calc(100% - 28px);
+  margin-top: -52px;
+  padding: 18px 20px 16px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8px 22px rgba(15, 44, 59, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 138px;
+  transition: background-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.card:hover .bubble {
+  background: #e4f1f9;
+  box-shadow: 0 10px 28px rgba(15, 44, 59, 0.1);
+}
+
+.bubbleText {
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0 0 12px;
+  font-weight: 400;
+}
+
+/* Bubble Action (Learn More Link) */
+.bubbleAction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #b85d19;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding-top: 8px;
+  border-top: 1px solid rgba(15, 44, 59, 0.08);
+}
+
+.actionText {
+  color: #b85d19;
+  letter-spacing: 0.01em;
+}
+
+.actionIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .actionIcon {
+  transform: translateX(3px);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 22px;
+    row-gap: 38px;
+  }
+  .photoContainer {
+    height: 240px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    row-gap: 34px;
+  }
+  .filterTabs {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tabBtn {
+    justify-content: center;
+  }
+  .photoContainer {
+    height: 220px;
+  }
+  .bubble {
+    width: calc(100% - 20px);
+    margin-top: -44px;
+    padding: 16px 16px 14px;
+  }
+}

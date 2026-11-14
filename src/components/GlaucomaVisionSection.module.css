@@ -1,0 +1,416 @@
+/* ============================================================
+   Glaucoma Vision Section - Glaucoma Management Page
+   Matches the premium layout design established in Functional/Cosmetic
+   ============================================================ */
+
+.sectionWrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: #FAF5F0;
+  background: linear-gradient(180deg, #FDF9F5 0%, #FAF5F0 50%, #FAF4EE 100%);
+  padding-top: clamp(48px, 6vw, 84px);
+  padding-bottom: clamp(60px, 7vw, 96px);
+  color: #0c454b;
+}
+
+/* Background Decorative Elements */
+.bgDecor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Floating apricot bubbles */
+.bubbleTopCenter1 {
+  position: absolute;
+  top: clamp(60px, 8vw, 100px);
+  left: 42%;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #F8D9C8;
+  opacity: 0.75;
+}
+
+.bubbleTopCenter2 {
+  position: absolute;
+  top: clamp(30px, 5vw, 60px);
+  left: 45%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #F8E2D5;
+  opacity: 0.6;
+}
+
+/* Bottom-left dot matrix */
+.dotMatrixBottomLeft {
+  position: absolute;
+  bottom: 30px;
+  left: clamp(16px, 3vw, 40px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  opacity: 0.45;
+}
+
+/* Right-middle dot matrix */
+.dotMatrixRight {
+  position: absolute;
+  top: 48%;
+  right: clamp(16px, 2.5vw, 36px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  opacity: 0.45;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #E89A60;
+}
+
+/* Bottom-right organic pastel wave accents */
+.bottomRightWaves {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: clamp(260px, 28vw, 420px);
+  height: clamp(140px, 16vw, 240px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Main Container */
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================================
+   Top Row: Header Copy (Left) + Duo Visual Showcase (Right)
+   ============================================================ */
+
+.topGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+  margin-bottom: clamp(40px, 5.5vw, 64px);
+}
+
+@media (min-width: 1024px) {
+  .topGrid {
+    grid-template-columns: 1fr 1.15fr;
+    gap: 48px;
+  }
+}
+
+.leftCol {
+  max-width: 520px;
+}
+
+/* Kicker */
+.kickerWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.kickerBar {
+  display: inline-block;
+  width: 28px;
+  height: 2.5px;
+  background-color: #167e88;
+  border-radius: 2px;
+}
+
+.kickerText {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #167e88;
+}
+
+/* Main Heading */
+.heading {
+  font-family: var(--font-heading, "Manrope", sans-serif);
+  font-size: clamp(2.2rem, 3.6vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+  color: #0c3b44;
+  margin: 0 0 18px;
+}
+
+.headingHighlight {
+  color: #c85a17;
+  display: block;
+}
+
+/* Lead body paragraph */
+.lead {
+  font-size: clamp(0.96rem, 1.1vw, 1.05rem);
+  line-height: 1.65;
+  color: #556877;
+  margin: 0 0 28px;
+  max-width: 490px;
+}
+
+/* CTA Button */
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #c85a17;
+  color: #ffffff !important;
+  padding: 13px 28px;
+  border-radius: 9999px;
+  font-size: 0.96rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(200, 90, 23, 0.28);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ctaBtn:hover {
+  background: #aa4a10;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(200, 90, 23, 0.38);
+}
+
+.ctaBtnIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
+   Right Visual Showcase: Duo Framed Medical Cards
+   ============================================================ */
+
+.visualShowcase {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 640px) {
+  .visualShowcase {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+.visualCard {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 14px 36px rgba(12, 69, 75, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(22, 126, 136, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.visualCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 44px rgba(12, 69, 75, 0.12);
+}
+
+.imageFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #000;
+}
+
+.imageFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.floatingBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+}
+
+.badgeTeal {
+  color: #0c4e57;
+  border: 1px solid rgba(22, 126, 136, 0.25);
+}
+
+.badgeTeal::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #167e88;
+}
+
+.badgeCoral {
+  color: #9c3c0a;
+  border: 1px solid rgba(200, 90, 23, 0.25);
+}
+
+.badgeCoral::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c85a17;
+}
+
+.cardFooter {
+  padding: 16px 18px;
+  background: #ffffff;
+}
+
+.cardTitle {
+  font-family: var(--font-heading, "Manrope", sans-serif);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #0c3b44;
+  margin: 0 0 4px;
+}
+
+.cardCaption {
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: #617382;
+  margin: 0;
+}
+
+/* ============================================================
+   Bottom Row: Two Condition Breakdown Cards (Chronic vs Acute)
+   ============================================================ */
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 840px) {
+  .cardsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+.conditionCard {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: clamp(24px, 3.5vw, 38px) clamp(22px, 3vw, 34px);
+  box-shadow: 0 14px 40px rgba(12, 69, 75, 0.06), 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.conditionCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 48px rgba(12, 69, 75, 0.1), 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.cardChronic {
+  border: 1px solid rgba(22, 126, 136, 0.25);
+}
+
+.cardAcute {
+  border: 1px solid rgba(200, 90, 23, 0.25);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f2f4;
+}
+
+.cardIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+.cardIconTeal {
+  background: #e6f6f7;
+  color: #167e88;
+}
+
+.cardIconCoral {
+  background: #faeae1;
+  color: #c85a17;
+}
+
+.cardHeadTitle {
+  font-family: var(--font-heading, "Manrope", sans-serif);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0c3b44;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.cardHeadSubtitle {
+  font-size: 0.85rem;
+  color: #6a7c8b;
+  margin: 3px 0 0;
+}
+
+.symptomList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.symptomItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.94rem;
+  line-height: 1.5;
+  color: #3b5061;
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}

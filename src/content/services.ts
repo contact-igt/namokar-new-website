@@ -466,6 +466,10 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
         q: "Why see an oculoplastic surgeon for the eye area?",
         a: "The eyelid skin is thin and the eye area is delicate. An oculoplastic surgeon is trained as an eye specialist first, so procedures can be planned with both cosmetic outcome and eye protection in mind.",
       },
+      {
+        q: "What should I bring to my aesthetic eye consultation?",
+        a: "Bring any previous eye reports and a list of the medicines and eye drops you use. Note the changes that concern you and the questions you would like to discuss, so the doctor can understand your priorities during the assessment.",
+      },
     ],
     related: ["eyelid", "reconstructive", "exams"],
   },

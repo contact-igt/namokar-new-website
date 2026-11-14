@@ -2,17 +2,14 @@ import type { Metadata } from "next";
 import { pageMeta, withBrand } from "@/lib/seo";
 import Link from "next/link";
 import Image from "next/image";
-import { Plate } from "@/components/clinical/Plates";
-import { treatmentItems, type TreatmentItem } from "@/lib/treatments";
-import BookButton from "@/components/BookButton";
-import CtaBand from "@/components/CtaBand";
-import FaqList from "@/components/FaqList";
-import HelpPanel from "@/components/HelpPanel";
-import { ArrowRightIcon } from "@/components/Icons";
-import PageHero from "@/components/PageHero";
+import { treatmentItems } from "@/lib/treatments";
+import HomeCta from "@/components/HomeCta";
+import ServicesFaqSection from "@/components/ServicesFaqSection";
+import { CalendarIcon } from "@/components/Icons";
+import ServicesUnifiedList, { type ServiceCardItem } from "@/components/ServicesUnifiedList";
+import styles from "./services.module.css";
 import { PAGES } from "@/config/routes";
-import { LINKS, SERVICE_GROUPS, SERVICES, SITE } from "@/config/site";
-import { WHY } from "@/content/why";
+import { LINKS, SERVICES, SITE } from "@/config/site";
 import { onlineBookingAvailable } from "@/lib/booking";
 import JsonLd from "@/components/JsonLd";
 import { faqPage, itemList, webPage } from "@/lib/schema";
@@ -54,25 +51,112 @@ const FAQS = [
   },
 ];
 
-/** The picture for a treatment: a photograph of the centre, else a line-drawing plate, else none. */
-function Visual({ t, sizes, className }: { t: TreatmentItem; sizes: string; className: string }) {
-  if (t.image) {
-    return (
-      <Image src={t.image.src} alt="" fill sizes={sizes} className={className} style={{ objectPosition: t.image.position }} />
-    );
-  }
-  return t.plate ? <Plate name={t.plate} crop="thumbnail" /> : null;
-}
+const SERVICE_CARD_ITEMS: ServiceCardItem[] = [
+  {
+    key: "cataract",
+    title: "Cataract Surgery",
+    category: "vision",
+    categoryLabel: "Comprehensive Vision Care",
+    blurb:
+      "For a clouded lens: careful assessment of your vision, and a clear discussion of when surgery is considered and what your options are.",
+    href: LINKS.cataract,
+    image: "/images/services/cataract-care.webp",
+    alt: "Cataract surgery consultation and slit-lamp eye assessment",
+  },
+  {
+    key: "glaucoma",
+    title: "Glaucoma Management",
+    category: "vision",
+    categoryLabel: "Comprehensive Vision Care",
+    blurb:
+      "Glaucoma often has no early symptoms. Assessment, tests chosen by the doctor and regular follow-up, because it needs long-term monitoring.",
+    href: LINKS.glaucoma,
+    image: "/images/services/glaucoma-care.webp",
+    alt: "Glaucoma diagnostic evaluation and eye pressure testing",
+  },
+  {
+    key: "exams",
+    title: "Comprehensive Eye Examinations",
+    category: "vision",
+    categoryLabel: "Comprehensive Vision Care",
+    blurb:
+      "A thorough check of how well you see and how healthy your eyes are, from routine check-ups to examinations for specific concerns, explained in plain language.",
+    href: LINKS.exams,
+    image: "/images/services/eye-examination-care.webp",
+    alt: "Comprehensive eye examination with slit lamp technology",
+  },
+  {
+    key: "eyelid",
+    title: "Eyelid Surgery (Blepharoplasty)",
+    category: "oculoplasty",
+    categoryLabel: "Oculoplasty & Eye-Area Care",
+    blurb:
+      "Assessment of heavy or drooping eyelids and under-eye bags, for functional and cosmetic reasons, including whether surgery would help.",
+    href: LINKS.eyelid,
+    image: "/images/services/eyelid-blepharoplasty-care.webp",
+    alt: "Specialist blepharoplasty and eyelid evaluation",
+  },
+  {
+    key: "aesthetic",
+    title: "Aesthetic Oculoplasty",
+    category: "oculoplasty",
+    categoryLabel: "Oculoplasty & Eye-Area Care",
+    blurb:
+      "Considered care for heavy eyelids, under-eye bags and age-related changes around the eyes, planned with eye health in mind.",
+    href: LINKS.aesthetic,
+    image: "/images/services/aesthetic-oculoplasty-care.webp",
+    alt: "Aesthetic oculoplasty consultation for delicate eye areas",
+  },
+  {
+    key: "reconstructive",
+    title: "Reconstructive Oculoplasty",
+    category: "oculoplasty",
+    categoryLabel: "Oculoplasty & Eye-Area Care",
+    blurb:
+      "Assessment and treatment for drooping eyelids (ptosis), eyelid malposition and tear-drainage problems that affect comfort or function.",
+    href: LINKS.reconstructive,
+    image: "/images/services/reconstructive-oculoplasty-care.webp",
+    alt: "Reconstructive oculoplasty and tear drainage treatment",
+  },
+];
+
+const JOURNEY_STEPS = [
+  {
+    step: "01",
+    title: "Share your concern",
+    text: "Tell us what has changed, what is troubling you and what you hope to understand.",
+    image: "/images/journey/step-unit-1.webp",
+    alt: "Share your concern - Doctor and patient consultation at slit lamp (Step 01)",
+  },
+  {
+    step: "02",
+    title: "Understand your eyes",
+    text: "An examination helps the doctor assess your eye health and discuss any tests you may need.",
+    image: "/images/journey/step-unit-2.webp",
+    alt: "Understand your eyes - Diagnostic retinal scan on monitor (Step 02)",
+  },
+  {
+    step: "03",
+    title: "Discuss your options",
+    text: "Understand the findings, possible treatments and the benefits and risks relevant to you.",
+    image: "/images/journey/step-unit-3.webp",
+    alt: "Discuss your options - Specialist using ophthalmic microscope (Step 03)",
+  },
+  {
+    step: "04",
+    title: "Plan your next step",
+    text: "Agree on a care plan and receive guidance about treatment, monitoring or follow-up.",
+    image: "/images/journey/step-unit-4.webp",
+    alt: "Plan your next step - Agree on a care plan and guidance (Step 04)",
+  },
+];
 
 export default function ServicesPage() {
   const pics = new Map(treatmentItems().map((t) => [t.id, t]));
-  const has = (k: TreatmentItem["id"]) => Boolean(pics.get(k)?.image || pics.get(k)?.plate);
   const online = onlineBookingAvailable();
-  const vision = SERVICES.filter((s) => s.group === "vision");
-  const oculo = SERVICES.filter((s) => s.group === "oculoplasty");
 
   return (
-    <main id="main">
+    <main id="main" className={styles.page}>
       <JsonLd page="services"
         data={[
           webPage({ type: "CollectionPage", path: PAGES.services.path, name: "Our Services", description: metadata.description as string }),
@@ -80,125 +164,265 @@ export default function ServicesPage() {
           faqPage(PAGES.services.path, FAQS),
         ]}
       />
-      <PageHero
-        crumb="Our Services"
-        title="Care for your eyes, and the area around them."
-        lead="Comprehensive eye care first, with specialist oculoplasty for the eyelids, tear passages and the area around the eyes. Whatever brings you, care starts with an examination and a clear explanation of your options."
-        actions={<BookButton online={online} />}
-        aside={<HelpPanel />}
-      />
 
-      <nav className="svcnav" aria-label="On this page">
-        <div className="container svcnav-inner">
-          <p className="svcnav-label">Jump to</p>
-          <ul className="svcnav-list svcnav-list--two">
-            <li><a href="#vision" className="chip">{SERVICE_GROUPS.vision.title}</a></li>
-            <li><a href="#oculoplasty" className="chip">{SERVICE_GROUPS.oculoplasty.title}</a></li>
-          </ul>
+      {/* Hero Banner Section */}
+      <section className={styles.hero} aria-labelledby="services-hero-h">
+        {/* Soft Organic Decorative Background Wave */}
+        <div className={styles.heroBgDecor} aria-hidden="true">
+          <svg viewBox="0 0 1440 680" preserveAspectRatio="none" className={styles.heroBgSvg}>
+            <defs>
+              <linearGradient id="servicesPeachWave" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#F8DFCB" stopOpacity="0.75" />
+                <stop offset="60%" stopColor="#FBE9DB" stopOpacity="0.4" />
+                <stop offset="100%" stopColor="#FFFBF7" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M 640 680 C 760 580, 940 500, 1140 480 C 1280 460, 1380 470, 1440 490 L 1440 680 Z"
+              fill="url(#servicesPeachWave)"
+            />
+          </svg>
         </div>
-      </nav>
 
-      <section id="vision" className="section" aria-labelledby="vision-h">
         <div className="container">
-          <div className="section-head section-head--wide reveal">
-            <p className="kicker">01</p>
-            <h2 id="vision-h" className="h2">{SERVICE_GROUPS.vision.title}</h2>
-            <p className="lead">{SERVICE_GROUPS.vision.blurb}</p>
-          </div>
-          <ul className="tile-grid">
-            {vision.map((s) => (
-              <li key={s.key} className="reveal">
-                <Link href={s.href} className={`tile${has(s.key) ? " tile--photo" : ""}`}>
-                  {has(s.key) && (
-                    <span className="tile-photo">
-                      <Visual
-                        t={pics.get(s.key)!}
-                        sizes="(min-width: 960px) 30vw, (min-width: 640px) 45vw, 100vw"
-                        className="tile-photo-img"
-                      />
-                    </span>
-                  )}
-                  <span className="tile-body">
-                    <span className="tile-title">{s.title}</span>
-                    <span className="tile-blurb">{s.blurb}</span>
-                    <span className="svc-more">
-                      Learn more <ArrowRightIcon width={18} height={18} />
-                    </span>
-                  </span>
-                </Link>
+          {/* Breadcrumb Navigation */}
+          <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+            <ol>
+              <li>
+                <Link href={LINKS.home}>Home</Link>
               </li>
-            ))}
-          </ul>
+              <li className={styles.crumbSep} aria-hidden="true">&gt;</li>
+              <li aria-current="page">Our Services</li>
+            </ol>
+          </nav>
+
+          <div className={styles.heroGrid}>
+            {/* Left Column Copy & CTAs */}
+            <div className={styles.heroCopy}>
+              <div className={styles.kickerWrap}>
+                <span className={styles.kickerBar} aria-hidden="true" />
+                <span className={styles.kickerText}>OUR SERVICES</span>
+              </div>
+
+              <h1 id="services-hero-h" className={styles.heading}>
+                Thoughtful care for every part of <span className={styles.headingOrange}>your eyes.</span>
+              </h1>
+
+              <p className={styles.lead}>
+                From routine eye examinations to specialist eyelid and oculoplasty care, explore our services at Namokar Eye &amp; Oculoplasty Centre. Find the care you need, with clear guidance at every step.
+              </p>
+
+              <div className={styles.actions}>
+                <a href="#services-list" className={styles.btnPrimary}>
+                  <span>Explore Our Services</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+
+                <Link href={`${LINKS.contact}#request`} className={styles.btnSecondary}>
+                  <CalendarIcon width={18} height={18} />
+                  <span>Book a Consultation</span>
+                </Link>
+              </div>
+
+              {/* 3 Feature Highlights with Icons & Dividers */}
+              <div className={styles.highlights} role="list">
+                <div className={styles.highlightItem} role="listitem">
+                  <div className={styles.highlightIcon} aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#B85D19" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
+                      <path d="M2.5 12s3.6-6 9.5-6 9.5 6 9.5 6-3.6 6-9.5 6S2.5 12 2.5 12Z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </div>
+                  <span>Comprehensive<br />eye care</span>
+                </div>
+
+                <div className={styles.highlightSep} aria-hidden="true" />
+
+                <div className={styles.highlightItem} role="listitem">
+                  <div className={styles.highlightIcon} aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#B85D19" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+                  </div>
+                  <span>Specialist<br />oculoplasty</span>
+                </div>
+
+                <div className={styles.highlightSep} aria-hidden="true" />
+
+                <div className={styles.highlightItem} role="listitem">
+                  <div className={styles.highlightIcon} aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#B85D19" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
+                      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7 7-7Z" />
+                    </svg>
+                  </div>
+                  <span>Individual<br />attention</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column Visual Card */}
+            <div className={styles.heroVisualCol}>
+              <div className={styles.cardFrame}>
+                <div className={styles.cardInner}>
+                  {pics.get("exams")?.image && (
+                    <Image
+                      src={pics.get("exams")!.image!.src}
+                      alt={pics.get("exams")!.image!.alt}
+                      fill
+                      priority
+                      sizes="(min-width: 960px) 46vw, 100vw"
+                      style={{ objectFit: "cover" }}
+                    />
+                  )}
+
+                  {/* Floating Badge on Card */}
+                  <div className={styles.floatingBadge}>
+                    <div className={styles.badgeIcon} aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="#B85D19" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
+                        <path d="M2.5 12s3.6-6 9.5-6 9.5 6 9.5 6-3.6 6-9.5 6S2.5 12 2.5 12Z" />
+                        <circle cx="12" cy="12" r="3" />
+                      </svg>
+                    </div>
+                    <div className={styles.badgeDivider} aria-hidden="true" />
+                    <div className={styles.badgeText}>
+                      <strong>Your care starts with understanding.</strong>
+                      <span>Eye consultations in Ashok Vihar, New Delhi</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="oculoplasty" className="section section--porcelain" aria-labelledby="oculo-h">
-        <div className="container services-grid">
-          <div className="section-head reveal">
-            <p className="kicker">02</p>
-            <h2 id="oculo-h" className="h2">{SERVICE_GROUPS.oculoplasty.title}</h2>
-            <p className="lead">{SERVICE_GROUPS.oculoplasty.blurb}</p>
-          </div>
-          <ul className="svc-list">
-            {oculo.map((s) => (
-              <li key={s.key} className="reveal">
-                <Link href={s.href} className={`svc-row${has(s.key) ? " svc-row--thumb" : ""}`}>
-                  {has(s.key) && (
-                    <span className="svc-thumb">
-                      <Visual t={pics.get(s.key)!} sizes="112px" className="svc-thumb-img" />
-                    </span>
-                  )}
-                  <span className="svc-row-text">
-                    <span className="svc-title">{s.title}</span>
-                    <span className="svc-blurb">{s.blurb}</span>
-                  </span>
-                  <ArrowRightIcon className="svc-row-arrow" />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section id="why" className="section" aria-labelledby="why-h">
-        <div className="container why-grid">
-          <div className="section-head reveal">
-            <p className="kicker">Why Namokar</p>
-            <h2 id="why-h" className="h2">How care is given</h2>
-            <p className="lead">
-              More about the <Link href={LINKS.doctor} className="text-link">doctor who leads the centre</Link>.
+      {/* Unified Clinical Services Section */}
+      <section id="services-list" className={styles.servicesSection} aria-labelledby="services-list-h">
+        <div id="vision" className={styles.anchorOffset} aria-hidden="true" />
+        <div id="oculoplasty" className={styles.anchorOffset} aria-hidden="true" />
+        <div className="container">
+          <div className={styles.servicesHeader}>
+            <div className={styles.kickerWrap}>
+              <span className={styles.kickerBar} aria-hidden="true" />
+              <span className={styles.kickerText}>OUR SERVICES</span>
+            </div>
+            <h2 id="services-list-h" className={styles.sectionTitle}>
+              Comprehensive Vision &amp; <span className={styles.headingOrange}>Oculoplasty Care</span>
+            </h2>
+            <p className={styles.sectionLead}>
+              Thoughtful, specialist eye care for all stages of life. Explore our core clinical services from cataract surgery and glaucoma management to delicate eyelid and reconstructive oculoplasty.
             </p>
           </div>
-          <ol className="why-list">
-            {WHY.map((w, i) => (
-              <li key={w.title} className="why-row">
-                <span className="why-no" aria-hidden="true">0{i + 1}</span>
-                <div>
-                  <h3 className="h3">{w.title}</h3>
-                  <p>{w.text}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+
+          <ServicesUnifiedList items={SERVICE_CARD_ITEMS} />
         </div>
       </section>
 
-      <section id="faq" className="section section--porcelain" aria-labelledby="faq-h">
-        <div className="container faq-grid">
-          <div className="section-head reveal">
-            <p className="kicker">Finding your way</p>
-            <h2 id="faq-h" className="h2">Choosing a service</h2>
+      {/* Your Care Journey Section */}
+      <section className={styles.journey} aria-labelledby="journey-h">
+        {/* Background decorative waves, dot grids, and eye illustration */}
+        <div className={styles.journeyBgDecor} aria-hidden="true">
+          {/* Top-right eye with HUD scanning graphic */}
+          <div className={styles.journeyEyeDecor}>
+            <Image
+              src="/images/journey/eye-hud-faded-2x.webp"
+              alt=""
+              width={720}
+              height={330}
+              className={styles.journeyEyeImg}
+              priority={false}
+            />
           </div>
-          <FaqList items={FAQS} />
+
+          {/* Left subtle dot grid */}
+          <div className={styles.dotGridLeft} />
+
+          {/* Right subtle dot grid */}
+          <div className={styles.dotGridRight} />
+
+          {/* Bottom decorative organic curves SVG */}
+          <svg className={styles.bottomWaveSvg} viewBox="0 0 1440 160" fill="none" preserveAspectRatio="none">
+            <path
+              d="M0,90 C320,140 540,60 840,110 C1140,150 1320,80 1440,100 L1440,160 L0,160 Z"
+              fill="#F4EAE2"
+              fillOpacity="0.65"
+            />
+            <path
+              d="M0,120 C240,85 480,135 720,115 C960,95 1200,145 1440,120 L1440,160 L0,160 Z"
+              fill="#DCE9E5"
+              fillOpacity="0.5"
+            />
+          </svg>
+        </div>
+
+        <div className="container">
+          {/* Header area */}
+          <div className={styles.journeyHeader}>
+            <div className={styles.kickerWrap}>
+              <span className={styles.kickerBar} aria-hidden="true" />
+              <span className={styles.kickerText}>YOUR CARE JOURNEY</span>
+            </div>
+
+            <h2 id="journey-h" className={styles.journeyTitle}>
+              A clear path from concern to <span className={styles.headingOrange}>care.</span>
+            </h2>
+
+            <p className={styles.journeySubtitle}>
+              Understand your eye health and feel informed about the next step.
+            </p>
+          </div>
+
+          {/* Steps Process Grid */}
+          <div className={styles.stepsWrap}>
+            {/* Connecting subtle curved path behind circles on desktop */}
+            <svg className={styles.connectingLine} viewBox="0 0 1140 60" fill="none" preserveAspectRatio="none" aria-hidden="true">
+              <path
+                d="M 142 30 Q 285 12, 427 30 T 712 30 T 997 30"
+                stroke="#E8C5B0"
+                strokeWidth="1.5"
+              />
+            </svg>
+
+            <ol className={styles.journeyStepsList}>
+              {JOURNEY_STEPS.map((step) => (
+                <li key={step.step} className={styles.journeyStepCard}>
+                  {/* Floating Circular Photo Unit with White Ring and Badge */}
+                  <div className={styles.stepCircleUnit}>
+                    <Image
+                      src={step.image}
+                      alt={step.alt}
+                      width={124}
+                      height={133}
+                      className={styles.stepUnitImg}
+                      priority
+                    />
+                  </div>
+
+                  {/* Content inside card */}
+                  <h3 className={styles.stepCardTitle}>{step.title}</h3>
+                  <p className={styles.stepCardText}>{step.text}</p>
+
+                  {/* Subtle bottom indicator */}
+                  <span className={styles.stepBottomAccent} aria-hidden="true" />
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          {/* CTA Button bottom left aligned */}
+          <div className={styles.journeyCtaWrap}>
+            <Link href={`${LINKS.contact}#request`} className={styles.journeyBtn}>
+              <span>Book a Consultation</span>
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
         </div>
       </section>
 
-      <CtaBand
-        id="services-cta-h"
-        heading="Not sure where to start?"
-        lead="Tell the centre what you have noticed and ask about arranging an eye consultation. The doctor will advise which care suits you."
-        online={online}
-      />
+      <ServicesFaqSection items={FAQS} />
+
+      <HomeCta online={online} id="services-cta" />
     </main>
   );
 }

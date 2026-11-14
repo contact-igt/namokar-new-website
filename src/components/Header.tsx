@@ -134,7 +134,7 @@ export default function Header({ online, nav }: { online: boolean; nav: NavItem[
 
   const isActive = (item: NavItem) =>
     item.href
-      ? pathname === item.href
+      ? pathname === item.href || (item.children?.some((c) => pathname === c.href) ?? false)
       : item.children?.some((c) => pathname === c.href) ?? false;
 
   return (
@@ -158,11 +158,13 @@ export default function Header({ online, nav }: { online: boolean; nav: NavItem[
                 item.children ? (
                   <li
                     key={item.key}
-                    className="nav-item has-sub"
+                    className={`nav-item has-sub${item.href ? " nav-item--split" : ""}`}
                     onPointerEnter={hover(item.key, true)}
                     onPointerLeave={hover(item.key, false)}
                   >
+                    {item.href && <Link href={item.href} className="nav-link" data-active={isActive(item) || undefined} aria-current={pathname === item.href ? "page" : undefined} onClick={closeAll}>{item.label}</Link>}
                     <button
+                      aria-label={item.href ? `Show ${item.label.toLowerCase()} menu` : undefined}
                       ref={(el) => {
                         triggers.current[item.key] = el;
                       }}
@@ -180,7 +182,7 @@ export default function Header({ online, nav }: { online: boolean; nav: NavItem[
                         }
                       }}
                     >
-                      {item.label}
+                      {!item.href && item.label}
                       <ChevronDownIcon className="chev" width={18} height={18} />
                     </button>
                     <ul id={`menu-${item.key}`} className="submenu" data-open={openKey === item.key}>

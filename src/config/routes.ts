@@ -114,6 +114,7 @@ export function buildNav(): NavItem[] {
     {
       key: "services",
       label: "Services",
+      href: PAGES.services.path,
       children: [
         ...SERVICES.map((s) => ({ label: s.title, href: s.href })),
         { label: "View all services", href: PAGES.services.path },

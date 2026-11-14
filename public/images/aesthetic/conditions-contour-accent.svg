@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="360" viewBox="0 0 560 360" fill="none">
+  <defs>
+    <radialGradient id="wash" cx="0" cy="1" r="1" gradientTransform="translate(100 330) rotate(-38) scale(360 240)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8E8DC" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path fill="url(#wash)" d="M0 0h560v360H0z"/>
+  <g stroke-linecap="round">
+    <path d="M-80 310C45 168 206 164 370 282" stroke="#C85A17" stroke-opacity=".15" stroke-width="1.4"/>
+    <path d="M-65 333C64 207 215 204 350 295" stroke="#C85A17" stroke-opacity=".1"/>
+    <path d="M-40 349C86 253 222 249 326 310" stroke="#0B4348" stroke-opacity=".1"/>
+    <path d="M43 270C116 318 215 329 302 292" stroke="#0B4348" stroke-opacity=".12" stroke-width="1.4"/>
+  </g>
+  <circle cx="160" cy="269" r="38" stroke="#C85A17" stroke-opacity=".1"/>
+  <circle cx="160" cy="269" r="25" stroke="#0B4348" stroke-opacity=".08"/>
+  <circle cx="365" cy="241" r="3" fill="#C85A17" fill-opacity=".2"/>
+  <circle cx="387" cy="261" r="2" fill="#0B4348" fill-opacity=".16"/>
+</svg>

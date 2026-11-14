@@ -1,4 +1,5 @@
 import ClinicalFigure from "@/components/clinical/ClinicalFigure";
+import UnderstandingCataracts from "@/components/clinical/UnderstandingCataracts";
 import ServiceLayout, { serviceMetadata } from "@/components/ServiceLayout";
 
 export const metadata = serviceMetadata("cataract");
@@ -6,11 +7,7 @@ export const metadata = serviceMetadata("cataract");
 export default function Page() {
   return (
     <ServiceLayout serviceKey="cataract">
-      <ClinicalFigure
-        id="eyeCompare"
-        heading="A normal eye and an eye with a cataract"
-        intro="The same view of the eye twice. The difference is the lens: clear in a normal eye, clouded in an eye with a cataract."
-      />
+      <UnderstandingCataracts />
 
       <ClinicalFigure
         id="cataractPatterns"

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" fill="none">
+  <defs>
+    <linearGradient id="sage" x1="0" y1="250" x2="790" y2="180" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B4348" stop-opacity=".2"/><stop offset=".5" stop-color="#A7C9BE" stop-opacity=".25"/><stop offset="1" stop-color="#DCE9E5" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="peach" x1="0" y1="170" x2="740" y2="240" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C35626" stop-opacity=".14"/><stop offset=".55" stop-color="#EBC6A9" stop-opacity=".24"/><stop offset="1" stop-color="#FAF4EE" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="100" x2="720" y2="260" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C35626" stop-opacity=".32"/><stop offset="1" stop-color="#C35626" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path d="M-50 80C103 58 116 242 309 222S541 137 714 228S851 281 950 268V326H-50Z" fill="url(#peach)"/>
+  <path d="M-50 154C109 94 166 288 350 255S568 194 732 264S873 296 950 280V326H-50Z" fill="url(#sage)"/>
+  <path d="M-50 60C113 34 124 221 309 202S541 117 714 208S851 261 950 248" stroke="url(#line)" stroke-width="1.5"/>
+  <path d="M-50 182C104 131 171 307 350 274S568 213 732 283" stroke="#0B4348" stroke-opacity=".09" stroke-width="1.2"/>
+</svg>

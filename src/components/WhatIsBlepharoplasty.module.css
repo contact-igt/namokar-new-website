@@ -1,0 +1,503 @@
+/* ==========================================================================
+   WhatIsBlepharoplasty Component Styles
+   Pixel-perfect match to reference design with responsive layout & website fonts
+   ========================================================================== */
+
+.sectionWrap {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(135deg, #FCF9F6 0%, #FAF5EE 50%, #FCF9F6 100%);
+  overflow: hidden;
+  padding: 68px 0 60px 0;
+}
+
+/* Ambient SVG background decorations */
+.bgDecor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgDecorSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Main 2-column layout */
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  align-items: center;
+  gap: 48px;
+}
+
+/* --------------------------------------------------------------------------
+   Left Column: Heading, Subheading, Copy & CTA (using website font families)
+   -------------------------------------------------------------------------- */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 530px;
+}
+
+/* Kicker with horizontal terracotta bar */
+.kickerWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.kickerBar {
+  display: inline-block;
+  width: 28px;
+  height: 2.5px;
+  background-color: #C85A17;
+  border-radius: 2px;
+}
+
+.kickerText {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #C85A17;
+}
+
+/* Main Headline with website heading font (Manrope) */
+.heading {
+  margin: 0 0 14px 0;
+  font-family: var(--font-heading);
+  font-size: clamp(34px, 4.4vw, 50px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.titleTeal {
+  display: block;
+  color: #0C454B;
+}
+
+.titleOrange {
+  display: block;
+  color: #C85A17;
+}
+
+/* Sub-headline with website heading font */
+.subheading {
+  margin: 0 0 16px 0;
+  font-family: var(--font-heading);
+  color: #0C454B;
+  font-size: clamp(17px, 1.8vw, 20px);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* Explanatory Body Copy with website body font (Inter) */
+.paragraph {
+  margin: 0;
+  font-family: var(--font-body);
+  color: #556871;
+  font-size: 15px;
+  line-height: 1.68;
+}
+
+/* CTA Pill Button */
+.ctaBtn {
+  font-family: var(--font-heading);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #CF5E1D 0%, #B84D14 100%);
+  color: #ffffff !important;
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 13px 26px;
+  border-radius: 9999px;
+  box-shadow: 0 6px 18px rgba(184, 77, 20, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  cursor: pointer;
+}
+
+.ctaBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(184, 77, 20, 0.45);
+  background: linear-gradient(135deg, #D66524 0%, #BE5217 100%);
+}
+
+.ctaBtn:active {
+  transform: translateY(0);
+}
+
+.btnCalendarIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btnArrow {
+  font-size: 16px;
+  transition: transform 0.25s ease;
+}
+
+.ctaBtn:hover .btnArrow {
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   Right Column: Eye Photo Card with Clean Background & Floating Key Benefits Card
+   -------------------------------------------------------------------------- */
+.rightCol {
+  position: relative;
+  width: 100%;
+}
+
+.visualCard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1264 / 848;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 16px 42px rgba(12, 69, 75, 0.09), 0 3px 10px rgba(0, 0, 0, 0.03);
+  background-color: #FAF4EE;
+}
+
+.visualImgWrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.visualImg {
+  object-fit: cover;
+  object-position: center left;
+  display: block;
+}
+
+/* Floating Key Benefits Card */
+.benefitsCard {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 228px;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  padding: 22px 20px 20px 20px;
+  box-shadow: 0 14px 34px rgba(12, 69, 75, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
+  z-index: 2;
+}
+
+.benefitsTitle {
+  margin: 0 0 14px 0;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: #0C454B;
+  letter-spacing: -0.01em;
+}
+
+.benefitsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.benefitIconBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #FDE8DB;
+  color: #C85A17;
+  flex-shrink: 0;
+}
+
+.benefitText {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.32;
+  color: #1F3E44;
+}
+
+/* --------------------------------------------------------------------------
+   Bottom Frosted Card: When to Consider Blepharoplasty?
+   -------------------------------------------------------------------------- */
+.bottomCard {
+  margin-top: 38px;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(228, 244, 246, 0.75) 0%, rgba(240, 250, 251, 0.88) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(188, 224, 228, 0.85);
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(12, 69, 75, 0.04);
+  padding: 22px 32px;
+  display: flex;
+  align-items: center;
+}
+
+.bottomLeftBlock {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.bottomHeading {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: #0C454B;
+  line-height: 1.25;
+  width: 185px;
+}
+
+.bottomDivider {
+  width: 1px;
+  height: 52px;
+  background-color: rgba(12, 69, 75, 0.2);
+  margin: 0 28px;
+  flex-shrink: 0;
+}
+
+.bottomItemsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  width: 100%;
+}
+
+.considerItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.considerIconBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #FDE8DB;
+  color: #C85A17;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.considerItem:hover .considerIconBadge {
+  transform: translateY(-2px);
+  background-color: #F9DFCE;
+}
+
+.considerText {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #1F3E44;
+  text-align: center;
+  max-width: 175px;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .sectionWrap {
+    padding: 56px 0 48px 0;
+  }
+
+  .mainGrid {
+    gap: 36px;
+  }
+
+  .benefitsCard {
+    width: 210px;
+    padding: 18px 16px;
+    right: 14px;
+  }
+
+  .benefitIconBadge {
+    width: 32px;
+    height: 32px;
+  }
+
+  .benefitText {
+    font-size: 12.5px;
+  }
+
+  .bottomCard {
+    padding: 20px 24px;
+  }
+
+  .bottomDivider {
+    margin: 0 20px;
+  }
+
+  .bottomHeading {
+    font-size: 17px;
+    width: 165px;
+  }
+
+  .bottomItemsGrid {
+    gap: 14px;
+  }
+
+  .considerText {
+    font-size: 12.5px;
+  }
+}
+
+@media (max-width: 860px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .leftCol {
+    max-width: 100%;
+  }
+
+  .visualCard {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .bottomCard {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
+  }
+
+  .bottomLeftBlock {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .bottomHeading {
+    width: 100%;
+    text-align: center;
+  }
+
+  .bottomDivider {
+    display: none;
+  }
+
+  .bottomItemsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 16px;
+    width: 100%;
+  }
+
+  .considerText {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .sectionWrap {
+    padding: 44px 0 36px 0;
+  }
+
+  .heading {
+    font-size: 32px;
+  }
+
+  .subheading {
+    font-size: 16px;
+  }
+
+  .paragraph {
+    font-size: 14.5px;
+  }
+
+  .ctaBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .visualCard {
+    aspect-ratio: auto;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .visualImgWrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1264 / 848;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(12, 69, 75, 0.08);
+  }
+
+  .benefitsCard {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-top: 14px;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 8px 24px rgba(12, 69, 75, 0.08);
+  }
+
+  .bottomCard {
+    border-radius: 20px;
+    padding: 20px 16px;
+  }
+
+  .bottomItemsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .considerItem {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 14px;
+  }
+
+  .considerIconBadge {
+    margin-bottom: 0;
+  }
+
+  .considerText {
+    text-align: left;
+  }
+}

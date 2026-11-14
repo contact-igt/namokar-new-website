@@ -2604,10 +2604,9 @@ p {
 .cta-section {
   position: relative;
   overflow: hidden;
-  background-color: #072e33;
-  background: linear-gradient(135deg, #072a2f 0%, #0c3e44 48%, #07262a 100%);
-  color: var(--white);
-  padding: 88px 0 130px;
+  background: #ffffff;
+  color: var(--ink);
+  padding: 72px 0;
 }
 
 .cta-bg-layer {
@@ -11996,4 +11995,293 @@ a.act--primary:hover {
     flex-shrink: 0;
   }
 }
+
+
+/* Services label navigates; its adjacent disclosure retains treatment links. */
+.nav-item--split { display: flex; align-items: center; gap: 0; }
+.nav-item--split > .nav-sub-toggle { padding-inline: 5px; min-width: 32px; justify-content: center; }
+.nav-item--split > .nav-link:first-child { padding-right: 2px; }
+.nav-item--split > .nav-link[data-active="true"] { color: var(--orange-dark); }
+@media (max-width: 959px) {
+  .nav-item--split { flex-wrap: wrap; }
+  .nav-item--split > .nav-link:first-child { flex: 1; }
+  .nav-item--split > .nav-sub-toggle { width: 44px; min-height: 44px; }
+  .nav-item--split > .submenu { flex-basis: 100%; width: 100%; }
+}
+
+/* ============================================================
+   Cataract Service Hero – Redesigned 2-Column Banner UI
+   Matches the uploaded design with slit-lamp exam card
+   ============================================================ */
+
+.svc-hero-wrapper {
+  position: relative;
+  width: 100%;
+  background: #fffcf8;
+}
+
+.svc-hero-section {
+  position: relative;
+  min-height: 540px;
+  background-color: #fffcf8;
+  overflow: hidden;
+  padding: clamp(36px, 4.5vw, 60px) 0;
+  display: flex;
+  align-items: center;
+}
+
+.svc-hero-bg-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.svc-hero-bg-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.svc-hero-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.svc-hero-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .svc-hero-layout {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+  }
+}
+
+/* Left Column Text & Actions */
+.svc-hero-col-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.svc-crumbs {
+  margin-bottom: 14px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.svc-crumbs ol {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.svc-crumbs a {
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.svc-crumbs a:hover {
+  color: #b85d19;
+}
+
+.svc-crumbs [aria-current="page"] {
+  color: #0f2c3b;
+  font-weight: 600;
+}
+
+.svc-crumbs-sep {
+  color: #b85d19;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.svc-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #b85d19;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.svc-kicker-bar {
+  display: inline-block;
+  width: 28px;
+  height: 2.5px;
+  background: #b85d19;
+  border-radius: 2px;
+}
+
+.svc-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.14;
+  color: #0f2c3b;
+  margin-bottom: 18px;
+  letter-spacing: -0.025em;
+}
+
+.svc-heading-orange {
+  color: #b85d19;
+}
+
+.svc-lead {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #52606d;
+  max-width: 520px;
+  margin-bottom: 28px;
+}
+
+.svc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 34px;
+}
+
+.svc-btn-primary {
+  background: #b85d19 !important;
+  color: #ffffff !important;
+  border-radius: 9999px !important;
+  padding: 13px 26px !important;
+  font-size: 0.96rem !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  box-shadow: 0 4px 14px rgba(184, 93, 25, 0.28) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+.svc-btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(184, 93, 25, 0.38) !important;
+}
+
+.svc-btn-secondary {
+  background: #ffffff !important;
+  color: #0f2c3b !important;
+  border: 1.5px solid rgba(15, 44, 59, 0.35) !important;
+  border-radius: 9999px !important;
+  padding: 13px 24px !important;
+  font-size: 0.96rem !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+.svc-btn-secondary:hover {
+  border-color: #b85d19 !important;
+  color: #b85d19 !important;
+  transform: translateY(-2px) !important;
+}
+
+.svc-features {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.svc-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.svc-feature-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fdeee2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(184, 93, 25, 0.08);
+}
+
+.svc-feature-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #0f2c3b;
+}
+
+.svc-feature-sep {
+  width: 1px;
+  height: 32px;
+  background: rgba(15, 44, 59, 0.15);
+  flex-shrink: 0;
+}
+
+/* Right Column Visual Card */
+.svc-hero-col-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svc-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  filter: drop-shadow(0 6px 24px rgba(184, 93, 25, 0.08));
+  transition: transform 0.2s ease;
+}
+
+.svc-card-wrapper:hover {
+  transform: translateY(-2px);
+}
+
+.svc-card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 28px;
+}
+
+@media (max-width: 640px) {
+  .svc-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .svc-btn-primary,
+  .svc-btn-secondary {
+    justify-content: center;
+  }
+
+  .svc-features {
+    gap: 14px;
+  }
+
+  .svc-feature-sep {
+    display: none;
+  }
+}
+
 

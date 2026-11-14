@@ -30,6 +30,18 @@ const { include, exclude } = mediaTracing();
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**.ytimg.com",
+      },
+      {
+        protocol: "https",
+        hostname: "img.youtube.com",
+      },
+    ],
+  },
   // Legacy WordPress addresses (src/config/redirects.ts). A legacy address with a trailing slash
   // reaches its destination in two hops: Next.js first removes the slash (308), then this rule.
   async redirects() {

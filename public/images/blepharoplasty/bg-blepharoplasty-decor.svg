@@ -1,0 +1,97 @@
+<svg width="1440" height="700" viewBox="0 0 1440 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Soft warm background radial glow -->
+    <radialGradient id="blephAmbientGlow" cx="80%" cy="20%" r="60%" fx="80%" fy="20%">
+      <stop offset="0%" stop-color="#FEEBDE" stop-opacity="0.6" />
+      <stop offset="60%" stop-color="#FFFDF9" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#FFFDF9" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Warm wave linear gradients -->
+    <linearGradient id="waveGrad1" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#F8ECE2" stop-opacity="0.75" />
+      <stop offset="50%" stop-color="#FAEDE5" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#F5E4D7" stop-opacity="0.8" />
+    </linearGradient>
+
+    <linearGradient id="waveGrad2" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#FCF3EB" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#FAE8DC" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#F7DFCE" stop-opacity="0.85" />
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient Glow -->
+  <rect width="1440" height="700" fill="url(#blephAmbientGlow)" />
+
+  <!-- Eyelid Contour Palpebral Arcs (Subtle architectural lines in background) -->
+  <g opacity="0.4" stroke="#E89A60" stroke-width="1.5" stroke-dasharray="4 6" fill="none">
+    <!-- Upper eyelid crease guide arc -->
+    <path d="M 550 180 C 720 120, 920 120, 1100 190" />
+    <!-- Lower eyelid contour guide arc -->
+    <path d="M 590 205 C 730 245, 890 245, 1060 195" />
+    <!-- Precision focus ring -->
+    <circle cx="820" cy="180" r="36" stroke-width="1" stroke-dasharray="2 4" />
+  </g>
+
+  <!-- Bottom Flowing Waves -->
+  <!-- Base champagne foundation wave -->
+  <path
+    d="M 0 540 C 260 480, 520 570, 820 515 C 1120 460, 1320 540, 1440 500 L 1440 700 L 0 700 Z"
+    fill="url(#waveGrad1)"
+  />
+
+  <!-- Soft peach flowing wave -->
+  <path
+    d="M 0 580 C 340 510, 680 600, 1000 545 C 1220 510, 1360 560, 1440 535 L 1440 700 L 0 700 Z"
+    fill="url(#waveGrad2)"
+  />
+
+  <!-- Terracotta Eyelid Contour Line -->
+  <path
+    d="M 0 580 C 340 510, 680 600, 1000 545 C 1220 510, 1360 560, 1440 535"
+    stroke="#E8A27A"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    opacity="0.75"
+    fill="none"
+  />
+
+  <!-- Bottom-left decorative eyelid petal motifs -->
+  <g fill="#EAC8B4" opacity="0.6">
+    <path d="M 110 525 C 128 495, 152 510, 140 538 C 132 552, 118 544, 110 525 Z" />
+    <path d="M 148 518 C 174 496, 194 514, 183 540 C 171 551, 154 540, 148 518 Z" />
+    <path d="M 182 530 C 208 514, 222 536, 208 554 C 194 562, 182 546, 182 530 Z" />
+  </g>
+
+  <!-- Top-Right Terracotta Precision Dot Matrix (6x4 grid) -->
+  <g fill="#E89A60" opacity="0.5">
+    <circle cx="1280" cy="50" r="2.5" />
+    <circle cx="1304" cy="50" r="2.5" />
+    <circle cx="1328" cy="50" r="2.5" />
+    <circle cx="1352" cy="50" r="2.5" />
+    <circle cx="1376" cy="50" r="2.5" />
+    <circle cx="1400" cy="50" r="2.5" />
+
+    <circle cx="1280" cy="74" r="2.5" />
+    <circle cx="1304" cy="74" r="2.5" />
+    <circle cx="1328" cy="74" r="2.5" />
+    <circle cx="1352" cy="74" r="2.5" />
+    <circle cx="1376" cy="74" r="2.5" />
+    <circle cx="1400" cy="74" r="2.5" />
+
+    <circle cx="1280" cy="98" r="2.5" />
+    <circle cx="1304" cy="98" r="2.5" />
+    <circle cx="1328" cy="98" r="2.5" />
+    <circle cx="1352" cy="98" r="2.5" />
+    <circle cx="1376" cy="98" r="2.5" />
+    <circle cx="1400" cy="98" r="2.5" />
+
+    <circle cx="1280" cy="122" r="2.5" />
+    <circle cx="1304" cy="122" r="2.5" />
+    <circle cx="1328" cy="122" r="2.5" />
+    <circle cx="1352" cy="122" r="2.5" />
+    <circle cx="1376" cy="122" r="2.5" />
+    <circle cx="1400" cy="122" r="2.5" />
+  </g>
+</svg>
