@@ -1593,7 +1593,7 @@
   min-height: 76px;
   overflow: hidden;
   padding-block: 0;
-  background: var(--home-teal-deep);
+  background: var(--namokar-dark-section-background);
 }
 
 .homeRedesign :global(.hero-trust-track) {

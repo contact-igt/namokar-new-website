@@ -23,6 +23,13 @@ import HelpPanel from "./HelpPanel";
 import { ArrowRightIcon } from "./Icons";
 import PageHero from "./PageHero";
 
+const compactRelatedBlurb: Partial<Record<ServiceKey, string>> = {
+  exams: "A thorough check of your vision and overall eye health.",
+  cataract: "Assessment of a clouded lens and discussion of treatment options.",
+  glaucoma: "Assessment and regular follow-up for long-term glaucoma care.",
+  reconstructive: "Care for eyelid and tear-drainage problems affecting comfort or function.",
+};
+
 /** Page metadata shared by every service route. Pages awaiting review are not indexed. */
 export function serviceMetadata(key: ServiceKey): Metadata {
   const c = SERVICE_CONTENT[key];
@@ -37,9 +44,24 @@ export function serviceMetadata(key: ServiceKey): Metadata {
 export default function ServiceLayout({
   serviceKey,
   children,
+  hero,
+  overview,
+  afterEditorial,
+  video,
+  faq,
+  closing,
+  className,
 }: {
   serviceKey: ServiceKey;
   children?: ReactNode;
+  /** Page-specific editorial slots. Defaults retain the shared service-page composition. */
+  hero?: ReactNode;
+  overview?: ReactNode;
+  afterEditorial?: ReactNode;
+  video?: ReactNode;
+  faq?: ReactNode;
+  closing?: ReactNode;
+  className?: string;
 }) {
   const c = SERVICE_CONTENT[serviceKey];
   const s = serviceByKey(serviceKey);
@@ -48,9 +70,10 @@ export default function ServiceLayout({
   const cover = COVERS[serviceKey];
   const hasCover = usable(cover.primary.asset);
   const vids = videosFor(serviceKey);
+  const compactRelated = serviceKey === "glaucoma" || serviceKey === "exams";
 
   return (
-    <main id="main">
+    <main id="main" className={className}>
       <JsonLd page={serviceKey}
         data={[
           webPage({
@@ -63,126 +86,136 @@ export default function ServiceLayout({
           faqPage(s.href, c.faqs),
         ]}
       />
-      <PageHero
-        crumb={s.title}
-        trail={[{ label: "Services", href: LINKS.allServices }]}
-        eyebrow={c.eyebrow ?? group.title}
-        title={c.h1}
-        lead={c.lead}
-        actions={<BookButton online={online} />}
-        media={
-          hasCover ? (
-            <AssetImage
-              asset={cover.primary.asset}
-              fill
-              eager
-              sizes="(min-width: 960px) 58vw, 100vw"
-              className="page-hero-img"
-              style={{ objectPosition: cover.primary.position }}
-            />
-          ) : undefined
-        }
-        mediaCaption={hasCover ? cover.primary.caption : undefined}
-        aside={hasCover ? undefined : <HelpPanel />}
-      />
-
-      <section id="overview" className="section section--tight" aria-labelledby="overview-h">
-        <div className="container about-grid">
-          <div className="section-head reveal">
-            <p className="kicker">{group.title}</p>
-            <h2 id="overview-h" className="h2">{c.introHeading}</h2>
-          </div>
-          <div className="about-body reveal">
-            {c.intro.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-            {cover.plate && figureUsable(cover.plate.figure) && (
-              <figure className="about-photo plate-fig">
-                <Plate name={cover.plate.plate} />
-                <figcaption className="plate-cap">{cover.plate.caption}</figcaption>
-              </figure>
-            )}
-            {cover.secondary && usable(cover.secondary.asset) && (
-              <EditorialImage
-                asset={cover.secondary.asset}
-                caption={cover.secondary.caption}
-                ratio="cinema"
-                position={cover.secondary.position}
-                sizes="(min-width: 960px) 50vw, 100vw"
-                className="about-photo"
-                tab={false}
+      {hero ?? (
+        <PageHero
+          crumb={s.title}
+          trail={[{ label: "Services", href: LINKS.allServices }]}
+          eyebrow={c.eyebrow ?? group.title}
+          title={c.h1}
+          lead={c.lead}
+          actions={<BookButton online={online} />}
+          media={
+            hasCover ? (
+              <AssetImage
+                asset={cover.primary.asset}
+                fill
+                eager
+                sizes="(min-width: 960px) 58vw, 100vw"
+                className="page-hero-img"
+                style={{ objectPosition: cover.primary.position }}
               />
-            )}
+            ) : undefined
+          }
+          mediaCaption={hasCover ? cover.primary.caption : undefined}
+          aside={hasCover ? undefined : <HelpPanel />}
+        />
+      )}
+
+      {overview ?? (
+        <section id="overview" className="section section--tight" aria-labelledby="overview-h">
+          <div className="container about-grid">
+            <div className="section-head reveal">
+              <p className="kicker">{group.title}</p>
+              <h2 id="overview-h" className="h2">{c.introHeading}</h2>
+            </div>
+            <div className="about-body reveal">
+              {c.intro.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+              {cover.plate && figureUsable(cover.plate.figure) && (
+                <figure className="about-photo plate-fig">
+                  <Plate name={cover.plate.plate} />
+                  <figcaption className="plate-cap">{cover.plate.caption}</figcaption>
+                </figure>
+              )}
+              {cover.secondary && usable(cover.secondary.asset) && (
+                <EditorialImage
+                  asset={cover.secondary.asset}
+                  caption={cover.secondary.caption}
+                  ratio="cinema"
+                  position={cover.secondary.position}
+                  sizes="(min-width: 960px) 50vw, 100vw"
+                  className="about-photo"
+                  tab={false}
+                />
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {children}
 
-      <section id="when" className="section section--porcelain" aria-labelledby="when-h">
-        <div className="container about-grid">
-          <div className="section-head reveal">
-            <p className="kicker">Know the signs</p>
-            <h2 id="when-h" className="h2">{c.seekHelp.heading}</h2>
-          </div>
-          <div className="about-body reveal">
-            <ul className="bullets bullets--lg">
-              {c.seekHelp.items.map((i) => (
-                <li key={i}>{i}</li>
-              ))}
-            </ul>
-            <p className="callout">{c.seekHelp.note}</p>
-          </div>
-        </div>
-      </section>
+      {afterEditorial ?? (
+        <>
+          <section id="when" className="section section--porcelain" aria-labelledby="when-h">
+            <div className="container about-grid">
+              <div className="section-head reveal">
+                <p className="kicker">Know the signs</p>
+                <h2 id="when-h" className="h2">{c.seekHelp.heading}</h2>
+              </div>
+              <div className="about-body reveal">
+                <ul className="bullets bullets--lg">
+                  {c.seekHelp.items.map((i) => (
+                    <li key={i}>{i}</li>
+                  ))}
+                </ul>
+                <p className="callout">{c.seekHelp.note}</p>
+              </div>
+            </div>
+          </section>
 
-      <section id="journey" className="section" aria-labelledby="journey-h">
-        <div className="container why-grid">
-          <div className="section-head reveal">
-            <p className="kicker">What to expect</p>
-            <h2 id="journey-h" className="h2">What an assessment involves</h2>
-            <p className="lead">{c.journeyLead}</p>
-          </div>
-          <ol className="why-list">
-            {c.journey.map((j, i) => (
-              <li key={j.title} className="why-row">
-                <span className="why-no" aria-hidden="true">0{i + 1}</span>
-                <div>
-                  <h3 className="h3">{j.title}</h3>
-                  <p>{j.text}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+          <section id="journey" className="section" aria-labelledby="journey-h">
+            <div className="container why-grid">
+              <div className="section-head reveal">
+                <p className="kicker">What to expect</p>
+                <h2 id="journey-h" className="h2">What an assessment involves</h2>
+                <p className="lead">{c.journeyLead}</p>
+              </div>
+              <ol className="why-list">
+                {c.journey.map((j, i) => (
+                  <li key={j.title} className="why-row">
+                    <span className="why-no" aria-hidden="true">0{i + 1}</span>
+                    <div>
+                      <h3 className="h3">{j.title}</h3>
+                      <p>{j.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+        </>
+      )}
 
-      <VideoSection
+      {video ?? <VideoSection
         id="watch"
         videos={vids}
         kicker="Watch"
         heading={vids.length > 1 ? "Videos on this topic" : "A video on this topic"}
         lead="Dr. Poonam Jain's centre shares short videos on its YouTube channel and in its own footage."
         note="Videos are general information, not a substitute for an examination. They complement the written information on this page."
-      />
+      />}
 
-      <section id="faq" className="section section--porcelain" aria-labelledby="faq-h">
-        <div className="container faq-grid">
-          <div className="section-head reveal">
-            <p className="kicker">Common questions</p>
-            <h2 id="faq-h" className="h2">Questions patients often ask</h2>
-            <p className="lead">
-              This page is general information, not medical advice. Your own eyes need to
-              be examined before anyone can advise you.
-            </p>
+      {faq ?? (
+        <section id="faq" className="section section--porcelain" aria-labelledby="faq-h">
+          <div className="container faq-grid">
+            <div className="section-head reveal">
+              <p className="kicker">Common questions</p>
+              <h2 id="faq-h" className="h2">Questions patients often ask</h2>
+              <p className="lead">
+                This page is general information, not medical advice. Your own eyes need to
+                be examined before anyone can advise you.
+              </p>
+            </div>
+            <FaqList items={c.faqs} />
           </div>
-          <FaqList items={c.faqs} />
-        </div>
-      </section>
+        </section>
+      )}
 
-      <section id="related" className="section section--tight" aria-labelledby="related-h">
+      <section id="related" className={`section section--tight${compactRelated ? " related--compact" : ""}`} aria-labelledby="related-h">
         <div className="container">
-          <h2 id="related-h" className="h2 h2--sm">Related care</h2>
+          <h2 id="related-h" className="h2 h2--sm">{compactRelated ? "Related Services" : "Related care"}</h2>
           <ul className="related-list">
             {c.related.map((k) => {
               const r = serviceByKey(k);
@@ -190,8 +223,14 @@ export default function ServiceLayout({
                 <li key={k}>
                   <Link href={r.href} className="related-link">
                     <span className="related-title">{r.title}</span>
-                    <span className="related-blurb">{r.blurb}</span>
-                    <ArrowRightIcon width={18} height={18} />
+                    <span className="related-blurb">{compactRelated ? compactRelatedBlurb[k] ?? r.blurb : r.blurb}</span>
+                    {compactRelated ? (
+                      <span className="btn btn--primary related-action">
+                        View Detailed Service <ArrowRightIcon width={18} height={18} />
+                      </span>
+                    ) : (
+                      <ArrowRightIcon width={18} height={18} />
+                    )}
                   </Link>
                 </li>
               );
@@ -200,12 +239,12 @@ export default function ServiceLayout({
         </div>
       </section>
 
-      <CtaBand
+      {closing ?? <CtaBand
         id={`${serviceKey}-cta-h`}
         heading="Speak to the centre about your eyes."
         lead="Contact the centre to plan your visit or arrange an eye consultation."
         online={online}
-      />
+      />}
     </main>
   );
 }
