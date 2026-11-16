@@ -324,6 +324,137 @@
   .targetedServiceFaq .sectionTitle { max-width: none; }
 }
 
+/* Enhanced FAQ with image for Glaucoma & Comprehensive Eye Examinations */
+.page .faqWithImage :global(.faq-shell) {
+  max-width: 1360px;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
+  align-items: start;
+  gap: clamp(36px, 4.5vw, 68px);
+}
+
+.page .faqWithImage :global(.faq-shell .faq-intro) {
+  position: static;
+  top: auto;
+  transform: none;
+  animation: none;
+  will-change: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+}
+
+.faqWithImage .kickerWrap {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.faqWithImage .sectionTitle {
+  color: #073f46;
+  font-size: clamp(2rem, 2.5vw, 2.45rem);
+  line-height: 1.18;
+  max-width: none;
+  margin: 0 0 12px 0;
+  text-wrap: balance;
+}
+
+.faqWithImage .sectionLead {
+  color: #43565d;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0 0 16px 0;
+  max-width: none;
+}
+
+.faqWithImage .faqImageWrap {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 0 0 16px 0;
+  box-shadow: 0 6px 20px rgba(7, 63, 70, 0.07);
+  border: 1px solid rgba(228, 201, 183, 0.45);
+  background: #ffffff;
+  line-height: 0;
+}
+
+.faqWithImage .faqImage {
+  width: 100%;
+  height: clamp(210px, 17vw, 245px);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.page .faqWithImage .faqBenefits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  max-width: 100%;
+  background: #e8f1ef;
+  border-radius: 16px;
+  padding: 14px 10px;
+  margin: 0 0 16px 0;
+  list-style: none;
+  gap: 8px;
+}
+
+.faqWithImage .faqBenefits li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #073f46;
+  line-height: 1.25;
+}
+
+.faqWithImage .faqBenefits li span[aria-hidden="true"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #073f46;
+}
+
+.faqWithImage .btnPrimary {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 24px;
+  border-radius: 9999px;
+  background: var(--services-orange, #b85d19);
+  color: #ffffff;
+  font-size: 0.98rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(184, 93, 25, 0.3);
+  transition: all 0.2s ease;
+  margin: 0;
+}
+
+.faqWithImage .btnPrimary:hover {
+  background: #9d4d12;
+  box-shadow: 0 6px 20px rgba(184, 93, 25, 0.38);
+  color: #ffffff;
+}
+
+@media (max-width: 959px) {
+  .page .faqWithImage :global(.faq-shell) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+  
+  .faqWithImage .faqImage {
+    height: 220px;
+  }
+}
+
 .btnSecondary {
   background: #ffffff;
   color: #0f2c3b;

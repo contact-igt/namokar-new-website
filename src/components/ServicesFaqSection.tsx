@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { LINKS } from "@/config/site";
 import BookButton from "./BookButton";
@@ -11,7 +12,17 @@ const topicIcons: Record<"cataract" | "glaucoma" | "exams", FaqIconName[]> = {
   exams: ["calendar", "eye", "shield", "drop", "eye", "clipboard", "doctor", "phone"],
 };
 
-export default function ServicesFaqSection({ items, aesthetic = false, heading, lead, serviceStyle = false, online = false, topic }: {
+export default function ServicesFaqSection({
+  items,
+  aesthetic = false,
+  heading,
+  lead,
+  serviceStyle = false,
+  online = false,
+  topic,
+  image,
+  allClosed = false,
+}: {
   items: { q: string; a: string }[];
   aesthetic?: boolean;
   heading?: string;
@@ -19,14 +30,17 @@ export default function ServicesFaqSection({ items, aesthetic = false, heading, 
   serviceStyle?: boolean;
   online?: boolean;
   topic?: "cataract" | "glaucoma" | "exams";
+  image?: string;
+  allClosed?: boolean;
 }) {
   return (
     <div className={styles.page}>
       <HomeFaqSection
         items={items}
         icons={serviceStyle && topic ? topicIcons[topic] : aesthetic ? ["lid", "eyebag", "shield", "doctor"] : ["eye", "doctor", "lid", "scalpel", "clipboard", "calendar", "pin"]}
-        className={`${styles.servicesFaq} ${aesthetic && !heading ? styles.aestheticFaq : ""} ${serviceStyle ? styles.targetedServiceFaq : ""}`}
+        className={`${styles.servicesFaq} ${aesthetic && !heading ? styles.aestheticFaq : ""} ${serviceStyle ? styles.targetedServiceFaq : ""} ${image ? styles.faqWithImage : ""}`}
         animateIntro={!serviceStyle}
+        allClosed={allClosed}
         intro={
           <>
             <div className={styles.kickerWrap}>
@@ -41,6 +55,18 @@ export default function ServicesFaqSection({ items, aesthetic = false, heading, 
                 ? "Answers to common questions about aesthetic oculoplasty. Your eyes need to be examined before the doctor can advise which care is suitable for you."
                 : "Get answers to common questions about our eye care services.")}
             </p>
+            {image && (
+              <div className={styles.faqImageWrap}>
+                <Image
+                  src={image}
+                  alt="Optometric examination desk with prescription pad, eyeglasses, and eye chart"
+                  width={600}
+                  height={360}
+                  className={styles.faqImage}
+                  priority={false}
+                />
+              </div>
+            )}
             <ul className={styles.faqBenefits} aria-label="Our approach to care">
               <li><span aria-hidden="true"><FaqIcon name="eye" /></span>Expert guidance</li>
               <li><span aria-hidden="true"><FaqIcon name="shield" /></span>Personalized care</li>

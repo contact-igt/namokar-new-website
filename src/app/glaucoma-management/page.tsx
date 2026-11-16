@@ -480,7 +480,16 @@ export default function Page() {
 
   const faqs = SERVICE_CONTENT.glaucoma.faqs;
   const faq = (
-    <ServicesFaqSection items={faqs} heading="Questions patients often ask" lead="This page is general information, not medical advice. Your own eyes need to be examined before anyone can advise you." serviceStyle topic="glaucoma" online={online} />
+    <ServicesFaqSection
+      items={faqs}
+      heading="Questions patients often ask"
+      lead="This page is general information, not medical advice. Your own eyes need to be examined before anyone can advise you."
+      serviceStyle
+      topic="glaucoma"
+      online={online}
+      image="/images/452e8467-0cbd-4c38-a11d-1ca6ff9f6035.png"
+      allClosed
+    />
   );
 
   const closing = (

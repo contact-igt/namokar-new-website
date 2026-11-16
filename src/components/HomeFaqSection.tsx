@@ -85,7 +85,7 @@ export function FaqIcon({ name }: { name: FaqIconName }) {
   return icons[name] || icons.eye;
 }
 
-export default function HomeFaqSection({items, title = "Questions Patients Often Ask", eyebrow = "Common questions", intro, className = "", icons, animateIntro = true}: {items: {q: string; a: string}[]; title?: string; eyebrow?: string; intro?: ReactNode; className?: string; icons?: FaqIconName[]; animateIntro?: boolean}) {
+export default function HomeFaqSection({items, title = "Questions Patients Often Ask", eyebrow = "Common questions", intro, className = "", icons, animateIntro = true, allClosed = false}: {items: {q: string; a: string}[]; title?: string; eyebrow?: string; intro?: ReactNode; className?: string; icons?: FaqIconName[]; animateIntro?: boolean; allClosed?: boolean}) {
   const accordionName = useId();
   return <div className={homeStyles.homeRedesign}>
         <section id="faq" className={`section faq-section ${className}`} aria-labelledby="faq-h">
@@ -106,7 +106,7 @@ export default function HomeFaqSection({items, title = "Questions Patients Often
                 const iconNames = ["eye", "lid", "drop", "doctor", "scalpel", "eyebag", "calendar", "clipboard", "phone"] as const;
                 const iconName = icons?.[i] ?? iconNames[i] ?? "eye";
                 return (
-                  <details key={f.q} name={accordionName} className="faq-card" open={i === 0 ? true : undefined}>
+                  <details key={f.q} name={accordionName} className="faq-card" open={!allClosed && i === 0 ? true : undefined}>
                     <summary className="faq-summary">
                       <span className="faq-card-icon" aria-hidden="true">
                         <FaqIcon name={iconName} />
