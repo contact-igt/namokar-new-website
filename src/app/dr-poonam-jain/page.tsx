@@ -140,7 +140,7 @@ export default function DoctorPage() {
         </div>
       </section>
 
-      <section id="training" className={`section section--porcelain ${styles.trainingSection}`} aria-labelledby="training-h">
+      <section id="training" className={`section ${styles.trainingSection}`} aria-labelledby="training-h">
         <div className={`container train-grid ${styles.trainingPanel}`}>
           <GraduationCapIcon className={styles.trainingGraphic} aria-hidden="true" />
           <div className="section-head reveal">

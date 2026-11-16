@@ -6,7 +6,7 @@
 
 .page :global(.page-hero) {
   padding: 22px 0 52px;
-  background: #fffaf6 url('/images/Soft Peach Wave Background.png') center / cover no-repeat;
+  background: #fffaf6 url('/images/c6cd266f-076b-4e91-9d43-d210412b91e8.png') center / cover no-repeat;
 }
 
 .page :global(.page-hero-grid) { gap: clamp(28px, 5vw, 72px); }
@@ -31,7 +31,7 @@
 .faqSection,
 .videoSection,
 .consultationSection {
-  background: #fffaf6 url('/images/Soft Peach Wave Background.png') center / cover no-repeat;
+  background: #fffaf6 url('/images/c6cd266f-076b-4e91-9d43-d210412b91e8.png') center / cover no-repeat;
 }
 
 /* Common Kicker Badge and Heading Accent */
@@ -133,7 +133,7 @@
 .focusImage img { object-fit: cover; }
 
 /* Training Section */
-.trainingSection { background: #fffaf6 url('/images/Soft Peach Wave Background.png') center / cover no-repeat; }
+.trainingSection { background: #fffaf6 url('/images/c6cd266f-076b-4e91-9d43-d210412b91e8.png') center / cover no-repeat; }
 .trainingPanel {
   position: relative;
   display: grid;
@@ -469,7 +469,7 @@
 }
 .consultationImg {
   object-fit: cover;
-  object-position: 5% center;
+  object-position: 17% center;
 }
 .consultationContent {
   display: flex;
