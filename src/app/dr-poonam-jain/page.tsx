@@ -160,7 +160,6 @@ export default function DoctorPage() {
 
       <section id="training" className={`section ${styles.trainingSection}`} aria-labelledby="training-h">
         <div className={`container ${styles.trainingPanel}`}>
-          <GraduationCapIcon className={styles.trainingGraphic} aria-hidden="true" />
           <div className={`reveal ${styles.trainingHead}`}>
             <div className={styles.trainingKicker}>
               <span className={styles.trainingKickerDash} aria-hidden="true" />

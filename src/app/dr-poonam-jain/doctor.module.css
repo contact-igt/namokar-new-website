@@ -145,22 +145,6 @@
   background: rgb(255 247 241 / .88);
   box-shadow: 0 14px 36px rgb(90 52 32 / .06);
 }
-.trainingPanel > *:not(.trainingGraphic) {
-  position: relative;
-  z-index: 1;
-}
-.trainingGraphic {
-  position: absolute;
-  bottom: 8px;
-  left: 2%;
-  width: 140px;
-  height: 140px;
-  color: #eabda5;
-  opacity: .25;
-  stroke-width: .65;
-  pointer-events: none;
-  z-index: 0;
-}
 .trainingHead {
   display: flex;
   flex-direction: column;
