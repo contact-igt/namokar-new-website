@@ -133,31 +133,164 @@
 .focusImage img { object-fit: cover; }
 
 /* Training Section */
-.trainingSection { background: #fffaf6 url('/images/c6cd266f-076b-4e91-9d43-d210412b91e8.png') center / cover no-repeat; }
+.trainingSection {
+  background: #fffaf6 url('/images/c6cd266f-076b-4e91-9d43-d210412b91e8.png') center / cover no-repeat;
+}
 .trainingPanel {
   position: relative;
-  display: grid;
-  gap: 28px;
   overflow: hidden;
-  padding: clamp(26px, 3vw, 42px);
+  padding: clamp(28px, 4vw, 44px);
   border: 1px solid #f1d9ca;
   border-radius: 26px;
-  background: rgb(255 247 241 / .86);
+  background: rgb(255 247 241 / .88);
   box-shadow: 0 14px 36px rgb(90 52 32 / .06);
 }
-.trainingPanel > *:not(.trainingGraphic) { position: relative; z-index: 1; }
+.trainingPanel > *:not(.trainingGraphic) {
+  position: relative;
+  z-index: 1;
+}
 .trainingGraphic {
   position: absolute;
-  bottom: 12px;
-  left: 8%;
-  width: 130px;
-  height: 130px;
+  bottom: 8px;
+  left: 2%;
+  width: 140px;
+  height: 140px;
   color: #eabda5;
-  opacity: .48;
+  opacity: .25;
   stroke-width: .65;
+  pointer-events: none;
+  z-index: 0;
 }
-.trainingPanel :global(.train-cols) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
-.trainingPanel :global(.fine) { grid-column: 1 / -1; }
+.trainingHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 28px;
+}
+.trainingKicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--orange-dark, #c45110);
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.trainingKickerDash {
+  display: inline-block;
+  width: 18px;
+  height: 1.5px;
+  background: var(--orange-dark, #c45110);
+  border-radius: 1px;
+}
+.trainingTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+  font-weight: 700;
+  color: var(--ink, #1e383e);
+  line-height: 1.25;
+  margin: 0 0 8px;
+  text-align: center;
+}
+.trainingLead {
+  font-size: 1.05rem;
+  color: var(--ink-muted, #68797b);
+  margin: 0;
+  text-align: center;
+}
+.trainingGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 32px);
+}
+.trainingColumn {
+  display: flex;
+  flex-direction: column;
+}
+.trainingColumnHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  color: var(--ink, #1e383e);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.trainingColumnIcon {
+  display: flex;
+  align-items: center;
+  color: var(--orange-dark, #c45110);
+}
+.trainingCards {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  flex: 1;
+}
+.credCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(20px, 2.5vw, 24px);
+  background: #ffffff;
+  border: 1px solid #f1dfd4;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(81, 54, 37, 0.05);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+.credCard:hover {
+  transform: translateY(-2px);
+  border-color: #e8cdbd;
+  box-shadow: 0 10px 24px rgba(81, 54, 37, 0.09);
+}
+.credCardIconWrap {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #fdeee3;
+  color: var(--orange-dark, #c45110);
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+.credCardTitle {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--orange-dark, #c45110);
+  margin: 0 0 6px;
+  line-height: 1.35;
+}
+.credCardDesc {
+  font-size: 0.95rem;
+  color: var(--ink-soft, #44565a);
+  margin: 0;
+  line-height: 1.5;
+}
+.trainingDisclaimer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #ebd5c5;
+  color: var(--ink-muted, #68797b);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.trainingDisclaimerIcon {
+  flex-shrink: 0;
+  color: var(--orange-dark, #c45110);
+  display: flex;
+  align-items: center;
+}
 
 /* 1. In the Consultation Room Section */
 .roomSection {
@@ -587,7 +720,6 @@
 /* Media Queries */
 @media (min-width: 960px) {
   .page :global(.page-hero-grid) { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
-  .trainingPanel { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); }
 }
 @media (min-width: 1200px) {
   .careGrid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
@@ -599,7 +731,6 @@
   .focusGrid { grid-template-columns: 1fr; }
   .focusGrid li { grid-template-columns: 42% 1fr; grid-template-rows: auto; min-height: 150px; }
   .focusImage { height: 100%; }
-  .trainingPanel :global(.train-cols) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .showcaseGrid { grid-template-columns: 1fr; }
   .videoDuo {
     flex-direction: column;
@@ -629,8 +760,8 @@
   .page :global(.page-eyebrow) { white-space: normal; }
   .page :global(.page-hero-media) { aspect-ratio: 3 / 2; }
   .aboutCard { min-height: 0; }
-  .trainingPanel :global(.train-cols) { grid-template-columns: 1fr; }
-  .trainingPanel :global(.fine) { grid-column: auto; }
+  .trainingGrid { grid-template-columns: 1fr; gap: 24px; }
+  .trainingCards { grid-template-rows: auto; }
   .careGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .consultationVisual { aspect-ratio: 16 / 11; }
 }

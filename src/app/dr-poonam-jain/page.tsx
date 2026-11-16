@@ -5,7 +5,7 @@ import Link from "next/link";
 import RegistrationRow from "@/components/RegistrationRow";
 import BookButton from "@/components/BookButton";
 import FaqList from "@/components/FaqList";
-import { CalendarIcon, GraduationCapIcon, PhoneIcon, PinIcon } from "@/components/Icons";
+import { CalendarIcon, GraduationCapIcon, InfoIcon, PhoneIcon, PinIcon } from "@/components/Icons";
 import PageHero from "@/components/PageHero";
 import { ASSETS, srcOf, usable } from "@/config/assets";
 import { PAGES } from "@/config/routes";
@@ -85,6 +85,24 @@ function HeadingAccentCurve({ className }: { className?: string }) {
   );
 }
 
+function MedalIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" width={20} height={20} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+      <circle cx="12" cy="8" r="5" />
+      <path d="m8.5 12.5-1.5 8.5 5-3 5 3-1.5-8.5" />
+    </svg>
+  );
+}
+
+function BookIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" width={20} height={20} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+    </svg>
+  );
+}
+
 export default function DoctorPage() {
   const online = onlineBookingAvailable();
   const hasWork = usable(ASSETS.docSlit) || usable(ASSETS.docBlazer);
@@ -141,45 +159,72 @@ export default function DoctorPage() {
       </section>
 
       <section id="training" className={`section ${styles.trainingSection}`} aria-labelledby="training-h">
-        <div className={`container train-grid ${styles.trainingPanel}`}>
+        <div className={`container ${styles.trainingPanel}`}>
           <GraduationCapIcon className={styles.trainingGraphic} aria-hidden="true" />
-          <div className="section-head reveal">
-            <p className="kicker">Expertise</p>
-            <h2 id="training-h" className="h2">Qualifications and training</h2>
-            <p className="lead">As they are currently recorded.</p>
+          <div className={`reveal ${styles.trainingHead}`}>
+            <div className={styles.trainingKicker}>
+              <span className={styles.trainingKickerDash} aria-hidden="true" />
+              <span>Expertise</span>
+              <span className={styles.trainingKickerDash} aria-hidden="true" />
+            </div>
+            <h2 id="training-h" className={styles.trainingTitle}>Qualifications and training</h2>
+            <p className={styles.trainingLead}>As they are currently recorded.</p>
           </div>
-          <div className="train-cols reveal">
-            <div>
-              <h3 className="h3">Qualifications</h3>
-              <dl className="cred-rows">
-                <div>
-                  <dt>MBBS</dt>
-                  <dd>Bachelor of Medicine and Bachelor of Surgery</dd>
-                </div>
-                <div>
-                  <dt>MS, Ophthalmology</dt>
-                  <dd>Postgraduate surgical degree in ophthalmology</dd>
-                </div>
-                <RegistrationRow />
-              </dl>
+          <div className={`reveal ${styles.trainingGrid}`}>
+            <div className={styles.trainingColumn}>
+              <div className={styles.trainingColumnHead}>
+                <span className={styles.trainingColumnIcon} aria-hidden="true">
+                  <GraduationCapIcon width={22} height={22} />
+                </span>
+                <span>Qualifications</span>
+              </div>
+              <div className={styles.trainingCards}>
+                <article className={styles.credCard}>
+                  <div className={styles.credCardIconWrap} aria-hidden="true">
+                    <GraduationCapIcon width={20} height={20} />
+                  </div>
+                  <h3 className={styles.credCardTitle}>MBBS</h3>
+                  <p className={styles.credCardDesc}>Bachelor of Medicine and Bachelor of Surgery</p>
+                </article>
+                <article className={styles.credCard}>
+                  <div className={styles.credCardIconWrap} aria-hidden="true">
+                    <GraduationCapIcon width={20} height={20} />
+                  </div>
+                  <h3 className={styles.credCardTitle}>MS, Ophthalmology</h3>
+                  <p className={styles.credCardDesc}>Postgraduate surgical degree in ophthalmology</p>
+                </article>
+              </div>
             </div>
-            <div>
-              <h3 className="h3">Further training</h3>
-              <dl className="cred-rows">
-                <div>
-                  <dt>Fellowship</dt>
-                  <dd>Oculoplasty, Barraquer Institute, Barcelona</dd>
-                </div>
-                <div>
-                  <dt>Observership</dt>
-                  <dd>Wilmer Eye Institute, Johns Hopkins, Baltimore</dd>
-                </div>
-              </dl>
+            <div className={styles.trainingColumn}>
+              <div className={styles.trainingColumnHead}>
+                <span className={styles.trainingColumnIcon} aria-hidden="true">
+                  <MedalIcon width={22} height={22} />
+                </span>
+                <span>Further training</span>
+              </div>
+              <div className={styles.trainingCards}>
+                <article className={styles.credCard}>
+                  <div className={styles.credCardIconWrap} aria-hidden="true">
+                    <MedalIcon width={20} height={20} />
+                  </div>
+                  <h3 className={styles.credCardTitle}>Fellowship</h3>
+                  <p className={styles.credCardDesc}>Oculoplasty, Barraquer Institute, Barcelona</p>
+                </article>
+                <article className={styles.credCard}>
+                  <div className={styles.credCardIconWrap} aria-hidden="true">
+                    <BookIcon width={20} height={20} />
+                  </div>
+                  <h3 className={styles.credCardTitle}>Observership</h3>
+                  <p className={styles.credCardDesc}>Wilmer Eye Institute, Johns Hopkins, Baltimore</p>
+                </article>
+              </div>
             </div>
-            <p className="fine">
-              Both are past training, not a current affiliation with, or endorsement by,
-              those institutions.
-            </p>
+          </div>
+          <div className={styles.trainingDisclaimer}>
+            <span className={styles.trainingDisclaimerIcon} aria-hidden="true">
+              <InfoIcon width={18} height={18} />
+            </span>
+            <span>Both are past training, not a current affiliation with, or endorsement by, those institutions.</span>
           </div>
         </div>
       </section>
