@@ -5,45 +5,24 @@
   background: var(--cataract-peach);
 }
 
-.page :global(.container) {
-  max-width: 1400px;
-}
-
-.page :global(.h2) {
-  color: var(--cataract-ink);
-  font-family: var(--font-heading);
-  font-size: var(--type-section-size);
-  font-weight: 800;
-  line-height: var(--type-section-line);
-  letter-spacing: var(--type-section-tracking);
-}
-
-.page :global(.kicker) {
-  font-family: var(--font-body);
-  font-size: var(--type-eyebrow-size);
-  font-weight: 700;
-  letter-spacing: var(--type-eyebrow-tracking);
-}
-
-.page :global(.lead) {
-  font-size: var(--type-lead-size);
-  line-height: var(--type-lead-line);
-}
+.page :global(.container) { max-width: 1400px; }
+.page :global(.h2) { color: var(--cataract-ink); font-family: var(--font-heading); font-size: var(--type-section-size); font-weight: 800; line-height: var(--type-section-line); letter-spacing: var(--type-section-tracking); }
+.page :global(.kicker) { font-family: var(--font-body); font-size: var(--type-eyebrow-size); font-weight: 700; letter-spacing: var(--type-eyebrow-tracking); }
+.page :global(.lead) { font-size: var(--type-lead-size); line-height: var(--type-lead-line); }
 
 
 
-/* The approved anatomy background leaves its right half clear for the copy. */
+/* Keep the anatomical Cataract illustration and its peach waves across the whole section. */
 .overview {
   padding-block: clamp(64px, 5vw, 84px);
   scroll-margin-top: 88px;
   background: #fff9f5 url('/images/da6b3c44-eb16-4da2-8f3b-d8e36fe46080.png') left calc(50% - 195px) / cover no-repeat;
 }
-
 .overviewGrid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
   align-items: center;
-  gap: clamp(36px, 5vw, 80px);
+  gap: clamp(28px, 4vw, 64px);
   width: 100%;
 }
 .overviewVisual { position: relative; min-height: 500px; }
@@ -77,26 +56,6 @@
   line-height: 1.22;
 }
 .calloutText strong {
-}
-
-.overviewTrustIcon {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  flex: none;
-  border-radius: 50%;
-  background: #fff0e5;
-  color: #c45110;
-}
-
-.overviewTrustIcon svg {
-  width: 21px;
-  height: 21px;
-}
-
-.overviewTrust strong {
-  display: block;
   font-family: var(--font-heading);
   font-size: 0.96rem;
   font-weight: 700;
@@ -122,415 +81,142 @@
 .overviewCopy {
   max-width: 66ch;
 }
+.overviewCopy :global(.kicker) { margin-bottom: 14px; }
+.overviewCopy h2 { margin: 0 0 22px; color: #052f35; }
+.overviewDescription { padding-left: clamp(22px, 2.3vw, 34px); border-left: 7px solid #f8d7c3; border-radius: 6px; }
+.overviewDescription p { margin: 0 0 16px; color: var(--ink-soft); font-size: var(--type-lead-size); line-height: var(--type-lead-line); }
+.overviewDescription p:last-child { margin-bottom: 0; }
+.overviewFeatures { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; gap: 18px; margin-top: 30px; }
+.overviewFeatures article { display: grid; grid-template-columns: 48px minmax(0, 1fr); align-content: center; gap: 3px 14px; min-height: 124px; padding: 20px; border: 1px solid #f1d9c7; border-radius: 18px; background: rgb(255 253 250 / .88); box-shadow: 0 8px 24px rgb(118 64 35 / .06); }
+.overviewFeatures article > span { display: grid; grid-row: span 2; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: #fff0e5; color: #c45110; }
+.overviewFeatures svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.overviewFeatures strong { color: #052f35; font-family: var(--font-heading); font-size: 1.05rem; line-height: 1.3; }
+.overviewFeatures p { margin: 0; color: var(--ink-soft); font-size: var(--type-supporting-size); line-height: var(--type-supporting-line); }
+.overviewTrust { display: inline-flex; align-items: center; gap: 14px; width: min(100%, 300px); padding: 14px 18px; border: 1px solid #f1d9c7; border-radius: 16px; background: rgb(255 253 249 / .92); box-shadow: 0 10px 24px rgb(118 64 35 / .1); color: var(--cataract-ink); }
+.overviewTrustIcon { display: grid; place-items: center; width: 38px; height: 38px; flex: none; border-radius: 50%; background: #fff0e5; color: #c45110; }
+.overviewTrustIcon svg { width: 21px; height: 21px; }
+.overviewTrust strong { display: block; font-family: var(--font-heading); font-size: 1rem; line-height: 1.25; }
+.overviewTrust small { display: block; margin-top: 3px; color: #52656a; font-size: .8rem; line-height: 1.35; }
 
-.page :global([data-figure='cataractSteps'] .clin-head h2) {
-  max-width: none;
-}
-
-.page :global([data-figure='cataractPatterns'] .cat-guide) {
-  gap: 28px;
-}
-
+.page :global([data-figure]), .page :global(#journey), .page :global(#faq), .page :global(#related) { background: #fff8f3 url('/images/Soft Peach Wave Background.png') center / cover no-repeat; }
+.page :global(.clin-head) { width: min(100%, 1000px); margin-inline: auto; text-align: center; }
+.page :global(.clin-head .kicker) { justify-content: center; }
+.page :global(.clin-head .lead) { margin-inline: auto; }
+.page :global(.clin-head h2) { max-width: none; white-space: nowrap; }
+.page :global([data-figure='cataractSteps'] .clin-head) { width: min(100%, 1120px); }
+.page :global([data-figure='cataractSteps'] .clin-head h2) { max-width: none; }
+.page :global([data-figure='cataractPatterns'] .cat-guide) { gap: 28px; }
 .page :global([data-figure='cataractPatterns'] .cat-comparison-panel),
-.page :global([data-figure='cataractPatterns'] .cat-pattern-panel) {
-  padding: clamp(20px, 3vw, 38px);
-  border: 1px solid #f1d9c7;
-  border-radius: 24px;
-  background: rgb(255 253 250 / .94);
-}
+.page :global([data-figure='cataractPatterns'] .cat-pattern-panel) { padding: clamp(20px, 3vw, 38px); border: 1px solid #f1d9c7; border-radius: 24px; background: rgb(255 253 250 / .94); }
+.page :global([data-figure='cataractPatterns'] .cat-types-grid) { align-items: stretch; }
+.page :global([data-figure='cataractPatterns'] .cat-card--pattern) { display: flex; flex-direction: column; height: 100%; }
+.page :global([data-figure='cataractPatterns'] .cat-card--pattern .cat-image) { flex: none; height: 220px; overflow: hidden; }
+.page :global([data-figure='cataractPatterns'] .cat-card--pattern figcaption) { display: flex; flex: 1; flex-direction: column; }
+.page :global([data-figure='cataractPatterns'] .cat-card--pattern h4) { position: static; margin: 18px 0 10px; }
+.page :global([data-figure='cataractPatterns'] .cat-card--pattern p) { position: static; margin: 0; }
 
-.page :global([data-figure='cataractPatterns'] .cat-types-grid) {
-  align-items: stretch;
-}
+.page :global(#lenses) { min-height: 0; padding-block: clamp(56px, 7vw, 88px); background: #fff8f3 url('/images/Soft Peach Wave Background.png') center / cover no-repeat; }
+.lensPanel { max-width: 1320px; margin-inline: auto; padding: clamp(48px, 7vw, 88px) clamp(24px, 7vw, 96px); border-radius: clamp(24px, 3.5vw, 36px); background: var(--namokar-dark-section-background); box-shadow: 0 20px 50px -16px rgb(5 56 62 / .35); color: #fff; text-align: center; }
+.lensContent { display: block; max-width: 980px; margin-inline: auto; text-align: center; }
+.lensPanel :global(.section-head) { display: flex; flex-direction: column; align-items: center; max-width: none; margin-bottom: 24px; text-align: center; }
+.lensPanel :global(.section-head h2) { margin-inline: auto; text-align: center; }
+.lensPanel :global(.kicker) { justify-content: center; }
+.page :global(#lenses .section-head) { max-width: none; margin-bottom: 24px; }
+.page :global(#lenses .kicker) { justify-content: center; }
+.page :global(#lenses .h2) { color: #fff; }
+.page :global(#lenses .about-body) { max-width: 78ch; margin-inline: auto; }
+.page :global(#lenses .about-body p) { color: #f6f9f8; }
 
-.page :global([data-figure='cataractPatterns'] .cat-card--pattern) {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
+.centerHead { max-width: 980px; margin: 0 auto 34px; text-align: center; }
+.centerHead :global(.kicker) { justify-content: center; }
+.centerHead :global(.lead) { margin: 14px auto 0; }
+.signs { padding-block: clamp(76px, 8vw, 112px); background: var(--namokar-dark-section-background); color: #fff; }
+.videos { padding-block: clamp(76px, 8vw, 112px); background: #fff8f3 url('/images/Soft Peach Wave Background.png') center / cover no-repeat; }
+.signs :global(.h2), .signs :global(.lead) { color: #fff; }
+.signs :global(.kicker) { color: #f7a97b; }
+.signs :global(.kicker)::before { background: #f7a97b; }
+.signGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 1100px; margin: 0 auto; padding: 0; list-style: none; }
+.signGrid li { display: flex; align-items: center; gap: 18px; min-height: 92px; padding: 18px 22px; border: 1px solid rgb(255 255 255 / .2); border-radius: 18px; background: rgb(255 255 255 / .1); color: #f6f9f8; font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; line-height: 1.45; }
+.signIcon { display: grid; place-items: center; flex: none; width: 48px; height: 48px; border-radius: 14px; background: #fff0e5; color: #c45110; }
+.signIcon svg { width: 25px; height: 25px; }
+.signWarning { flex-direction: column; align-items: flex-start !important; justify-content: center; gap: 6px !important; border-color: #c45110 !important; background: rgb(196 81 16 / .18) !important; color: #fff4ed !important; }
+.signWarning strong { color: #ffb283; font-family: var(--font-body); }
+.signWarning span { font-family: var(--font-body); font-size: .95rem; font-weight: 500; line-height: 1.55; }
 
-.page :global([data-figure='cataractPatterns'] .cat-card--pattern .cat-image) {
-  flex: none;
-  height: 220px;
-  overflow: hidden;
-}
+.journey { padding-block: clamp(76px, 8vw, 112px); }
+.journeyGrid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 26px; margin: 0; padding: 0; list-style: none; }
+.journeyGrid li { position: relative; display: flex; flex-direction: column; align-items: center; min-width: 0; text-align: center; }
+.journeyImage { position: relative; width: min(100%, 180px); aspect-ratio: 1; margin: 0 auto 22px; border: 5px solid #fff; border-radius: 50%; box-shadow: 0 12px 28px rgb(118 64 35 / .14); }
+.journeyImage img { border-radius: 50%; object-fit: cover; }
+.journeyNumber { position: absolute; z-index: 1; top: -9px; left: -9px; display: grid; place-items: center; width: 42px; height: 42px; border: 3px solid #fff; border-radius: 50%; background: #c45110; color: #fff; font-family: var(--font-body); font-size: 1.05rem; font-weight: 800; }
+.journeyGrid li:not(:last-child)::after { position: absolute; top: 75px; right: -25px; content: '››'; color: #c45110; font-family: var(--font-body); font-size: 2.2rem; font-weight: 700; line-height: 1; }
+.journeyGrid h3 { display: grid; place-items: center; min-height: 3.3em; margin: 0 0 10px; color: var(--cataract-ink); font-family: var(--font-heading); font-size: clamp(1.1rem, 1.5vw, 1.35rem); line-height: 1.3; }
+.journeyGrid p { max-width: 28ch; margin: 0 auto; color: #455d63; font-size: .9375rem; line-height: 1.6; }
 
-.page :global([data-figure='cataractPatterns'] .cat-card--pattern figcaption) {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-}
+.videoGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+.videoGrid :global(.vp) { display: flex; flex-direction: column; min-width: 0; height: 100%; margin: 0; padding: 12px; border: 1px solid #f2ded1; border-radius: 20px; background: #fffdfb; }
+.videoGrid :global(.vp--vertical) { width: auto; max-width: none; }
+.videoGrid :global(.vp-frame) { width: 100%; aspect-ratio: 16 / 9 !important; border-radius: 14px; overflow: hidden; }
+.videoGrid :global(.vp-cap) { flex: 1; padding: 16px 6px 8px; }
+.videoGrid :global(.vp-cap), .videoGrid :global(.vp-note) { text-align: center; }
+.videoGrid :global(.vp-cap-cat) { display: block; }
+.videoGrid :global(.vp-note) { padding: 0 6px 6px; }
+.videoGrid :global(.vp-note .text-link) { display: inline-flex; align-items: center; gap: 7px; margin-top: 8px; padding: 9px 15px; border: 1px solid #ed5b3b; border-radius: 999px; color: #b43b1f; font-weight: 700; text-decoration: none; }
+.videoGrid :global(.vp-note .text-link)::before { content: '▶'; display: inline-grid; place-items: center; width: 20px; height: 15px; border-radius: 4px; background: #ed1c24; color: #fff; font-size: .62rem; line-height: 1; }
+.videoNote { max-width: 78ch; margin: 20px auto 0; color: #52656a; text-align: center; font-size: .9375rem; line-height: 1.6; }
 
-.page :global([data-figure='cataractPatterns'] .cat-card--pattern h4) {
-  position: static;
-  margin: 18px 0 10px;
-}
+.page :global(#faq), .page :global(#related) { min-height: 0; }
+.page :global(.cta-panel-image) { object-fit: cover; object-position: left center; }
+.page :global([data-figure='lensDesigns'] .clin-fig),
+.page :global([data-figure='cataractSteps'] .clin-fig) { padding: 0; border: 0; background: transparent; }
+.page :global([data-figure='lensDesigns'] .clin-head),
+.page :global([data-figure='cataractSteps'] .clin-head) { margin-bottom: 36px; }
+.page :global([data-figure='cataractSteps'] .clin-head .lead) { max-width: none; }
 
-.page :global([data-figure='cataractPatterns'] .cat-card--pattern p) {
-  position: static;
-  margin: 0;
-}
+.page :global([data-figure='lensDesigns'] .lens-fg) { margin-top: 0; }
+.page :global([data-figure='lensDesigns'] .lens-card) { border-color: #f1dfd4; border-radius: 26px; background: #fffdfb; box-shadow: 0 10px 28px rgb(81 54 37 / .09); }
+.page :global([data-figure='lensDesigns'] .lens-card-fig) { aspect-ratio: 1.9 / 1; border: 0; }
+.page :global([data-figure='lensDesigns'] .lens-card-fig::after) { position: absolute; right: -3%; bottom: -1px; left: -3%; height: 22px; border-radius: 50% 50% 0 0; background: #fffdfb; content: ''; }
+.page :global([data-figure='lensDesigns'] .lens-card-body) { gap: 12px; padding: 20px 22px 24px; }
+.page :global([data-figure='lensDesigns'] .lens-card-category) { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
+.page :global([data-figure='lensDesigns'] .lens-card-icon) { display: grid; flex: none; place-items: center; width: 42px; height: 42px; border-radius: 13px; background: #fff0e5; color: var(--orange-dark); }
+.page :global([data-figure='lensDesigns'] .lens-card-icon svg) { width: 25px; height: 25px; }
+.page :global([data-figure='lensDesigns'] .lens-card-top) { min-height: 42px; }
+.page :global([data-figure='lensDesigns'] .lens-card-title) { min-height: 2.4em; margin: 0; font-size: clamp(1.15rem, 1.7vw, 1.375rem); }
+.page :global([data-figure='lensDesigns'] .lens-card-text) { min-height: 6.4em; margin: 0; }
+.page :global([data-figure='lensDesigns'] .lens-card-points) { margin: 0 0 6px; border-color: #eedfd5; }
+.page :global([data-figure='lensDesigns'] .lens-card-cta) { width: 100%; min-height: 48px; border-radius: 999px; }
+.page :global([data-figure='lensDesigns'] .lens-fine) { display: flex; align-items: center; gap: 18px; margin-top: 38px; padding: 18px 22px; border: 1px solid #f0dfd2; border-radius: 20px; background: rgb(255 246 240 / .9); text-align: left; }
+.page :global([data-figure='lensDesigns'] .lens-fine svg) { flex: none; width: 42px; height: 42px; padding: 8px; border-right: 1px solid #e7a987; color: var(--orange-dark); }
 
-.page :global(#lenses) {
-  min-height: 0;
-  padding-block: clamp(56px, 7vw, 88px);
-  background: #fff8f3 url('/images/Soft Peach Wave Background.png') center / cover no-repeat;
+.page :global([data-figure='cataractSteps'] .cataract-process) { align-items: stretch; gap: 22px; padding-top: 0; }
+.page :global([data-figure='cataractSteps'] .cataract-process-step) { display: flex; flex-direction: column; align-items: stretch; justify-items: stretch; min-height: 100%; overflow: visible; border: 1px solid #f1d9c9; border-radius: 26px; background: #fffdfb; box-shadow: 0 10px 24px rgb(92 52 28 / .1); }
+.page :global([data-figure='cataractSteps'] .cataract-process-eye) { flex: none; width: 100%; height: 205px; aspect-ratio: auto; border-radius: 25px 25px 35% 35% / 25px 25px 12% 12%; background-color: #ffebdf; background-size: 400% auto; }
+.page :global([data-figure='cataractSteps'] .cataract-process-eye > span) { top: 0; left: 16px; width: 48px; height: 44px; border: 0; border-radius: 0 0 16px 16px; font-family: var(--font-body); font-size: 1.2rem; }
+.page :global([data-figure='cataractSteps'] .cataract-process-label) { display: grid; grid-template-columns: 48px minmax(0, 1fr); align-items: start; justify-items: stretch; gap: 12px; height: auto; min-height: 115px; margin: 0; padding: 18px 20px 0; border: 0; border-radius: 0; background: transparent; text-align: left; }
+.page :global([data-figure='cataractSteps'] .cataract-process-icon) { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: #fff0e5; color: var(--orange-dark); }
+.page :global([data-figure='cataractSteps'] .cataract-process-icon svg) { width: 27px; height: 27px; }
+.page :global([data-figure='cataractSteps'] .cataract-process-label h3) { min-height: 1.3em; margin: 4px 0 8px; color: var(--cataract-ink); font-size: clamp(1.1rem, 1.6vw, 1.35rem); }
+.page :global([data-figure='cataractSteps'] .cataract-process-subtitle) { display: inline-block; padding: 4px 10px; border-radius: 999px; background: #ffe9dc; color: #814011; font-size: .8rem; font-weight: 700; line-height: 1.3; }
+.page :global([data-figure='cataractSteps'] .cataract-process-step > p) { margin: 0; padding: 4px 20px 26px; font-size: .9375rem; line-height: 1.55; }
+.page :global([data-figure='cataractSteps'] .cataract-process-arrow) { z-index: 2; top: 177px; right: -35px; display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid #f0d6c5; border-radius: 50%; background: #fffdfb; box-shadow: 0 5px 12px rgb(92 52 28 / .15); }
+.page :global([data-figure='cataractSteps'] .cataract-process-arrow::after) { top: 18px; right: 19px; width: 12px; height: 12px; border-width: 0 3px 3px 0; }
+.page :global([data-figure='cataractSteps'] .cataract-process-note) { margin-top: 30px; }
+@media (min-width: 1120px) {
+  .page :global([data-figure='cataractSteps'] .cataract-process) { gap: 22px; }
 }
-
-.lensPanel {
-  max-width: 1320px;
-  margin-inline: auto;
-  padding: clamp(48px, 7vw, 88px) clamp(24px, 7vw, 96px);
-  border-radius: clamp(24px, 3.5vw, 36px);
-  background: var(--namokar-dark-section-background);
-  box-shadow: 0 20px 50px -16px rgb(5 56 62 / .35);
-  color: #fff;
-  text-align: center;
+@media (max-width: 1119px) {
+  .page :global([data-figure='cataractSteps'] .cataract-process-arrow) { display: none; }
 }
-
-.lensContent {
-  display: block;
-  max-width: 980px;
-  margin-inline: auto;
-  text-align: center;
+@media (max-width: 1000px) {
+  .page :global([data-figure='lensDesigns'] .lens-card-text) { min-height: 0; }
 }
-
-.lensPanel :global(.section-head) {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: none;
-  margin-bottom: 24px;
-  text-align: center;
+@media (max-width: 680px) {
+  .page :global([data-figure='lensDesigns'] .lens-card-title) { min-height: 0; }
+  .page :global([data-figure='lensDesigns'] .lens-card-fig) { aspect-ratio: 1.65 / 1; }
+  .page :global([data-figure='cataractSteps'] .cataract-process-label) { min-height: 0; padding-bottom: 16px; }
 }
-
-.lensPanel :global(.section-head h2) {
-  margin-inline: auto;
-  text-align: center;
-}
-
-.lensPanel :global(.kicker) {
-  justify-content: center;
-}
-
-.page :global(#lenses .section-head) {
-  max-width: none;
-  margin-bottom: 24px;
-}
-
-.page :global(#lenses .kicker) {
-  justify-content: center;
-}
-
-.page :global(#lenses .h2) {
-  color: #fff;
-}
-
-.page :global(#lenses .about-body) {
-  max-width: 78ch;
-  margin-inline: auto;
-}
-
-.page :global(#lenses .about-body p) {
-  color: #f6f9f8;
-}
-
-.centerHead {
-  max-width: 980px;
-  margin: 0 auto 34px;
-  text-align: center;
-}
-
-.centerHead :global(.kicker) {
-  justify-content: center;
-}
-
-.centerHead :global(.lead) {
-  margin: 14px auto 0;
-}
-
-.signs {
-  padding-block: clamp(76px, 8vw, 112px);
-  background: var(--namokar-dark-section-background);
-  color: #fff;
-}
-
-.videos {
-  padding-block: clamp(76px, 8vw, 112px);
-  background: #fff8f3 url('/images/Soft Peach Wave Background.png') center / cover no-repeat;
-}
-
-.signs :global(.h2),
-.signs :global(.lead) {
-  color: #fff;
-}
-
-.signs :global(.kicker) {
-  color: #f7a97b;
-}
-
-.signs :global(.kicker)::before {
-  background: #f7a97b;
-}
-
-.signGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
-}
-
-.signGrid li {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  min-height: 92px;
-  padding: 18px 22px;
-  border: 1px solid rgb(255 255 255 / .2);
-  border-radius: 18px;
-  background: rgb(255 255 255 / .1);
-  color: #f6f9f8;
-  font-family: var(--font-heading);
-  font-size: 1.05rem;
-  font-weight: 700;
-  line-height: 1.45;
-}
-
-.signIcon {
-  display: grid;
-  place-items: center;
-  flex: none;
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: #fff0e5;
-  color: #c45110;
-}
-
-.signIcon svg {
-  width: 25px;
-  height: 25px;
-}
-
-.signWarning {
-  flex-direction: column;
-  align-items: flex-start !important;
-  justify-content: center;
-  gap: 6px !important;
-  border-color: #c45110 !important;
-  background: rgb(196 81 16 / .18) !important;
-  color: #fff4ed !important;
-}
-
-.signWarning strong {
-  color: #ffb283;
-  font-family: var(--font-body);
-}
-
-.signWarning span {
-  font-family: var(--font-body);
-  font-size: .95rem;
-  font-weight: 500;
-  line-height: 1.55;
-}
-
-.journey {
-  padding-block: clamp(76px, 8vw, 112px);
-}
-
-.journeyGrid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 26px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.journeyGrid li {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 0;
-  text-align: center;
-}
-
-.journeyImage {
-  position: relative;
-  width: min(100%, 180px);
-  aspect-ratio: 1;
-  margin: 0 auto 22px;
-  border: 5px solid #fff;
-  border-radius: 50%;
-  box-shadow: 0 12px 28px rgb(118 64 35 / .14);
-}
-
-.journeyImage img {
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.journeyNumber {
-  position: absolute;
-  z-index: 1;
-  top: -9px;
-  left: -9px;
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border: 3px solid #fff;
-  border-radius: 50%;
-  background: #c45110;
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  font-weight: 800;
-}
-
-.journeyGrid li:not(:last-child)::after {
-  position: absolute;
-  top: 75px;
-  right: -25px;
-  content: '››';
-  color: #c45110;
-  font-family: var(--font-body);
-  font-size: 2.2rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.journeyGrid h3 {
-  display: grid;
-  place-items: center;
-  min-height: 3.3em;
-  margin: 0 0 10px;
-  color: var(--cataract-ink);
-  font-family: var(--font-heading);
-  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
-  line-height: 1.3;
-}
-
-.journeyGrid p {
-  max-width: 28ch;
-  margin: 0 auto;
-  color: #455d63;
-  font-size: .9375rem;
-  line-height: 1.6;
-}
-
-.videoGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  align-items: stretch;
-}
-
-.videoGrid :global(.vp) {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  height: 100%;
-  margin: 0;
-  padding: 12px;
-  border: 1px solid #f2ded1;
-  border-radius: 20px;
-  background: #fffdfb;
-}
-
-.videoGrid :global(.vp--vertical) {
-  width: auto;
-  max-width: none;
-}
-
-.videoGrid :global(.vp-frame) {
-  width: 100%;
-  aspect-ratio: 16 / 9 !important;
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-.videoGrid :global(.vp-cap) {
-  flex: 1;
-  padding: 16px 6px 8px;
-}
-
-.videoGrid :global(.vp-cap),
-.videoGrid :global(.vp-note) {
-  text-align: center;
-}
-
-.videoGrid :global(.vp-cap-cat) {
-  display: block;
-}
-
-.videoGrid :global(.vp-note) {
-  padding: 0 6px 6px;
-}
-
-.videoGrid :global(.vp-note .text-link) {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: 8px;
-  padding: 9px 15px;
-  border: 1px solid #ed5b3b;
-  border-radius: 999px;
-  color: #b43b1f;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.videoGrid :global(.vp-note .text-link)::before {
-  content: '▶';
-  display: inline-grid;
-  place-items: center;
-  width: 20px;
-  height: 15px;
-  border-radius: 4px;
-  background: #ed1c24;
-  color: #fff;
-  font-size: .62rem;
-  line-height: 1;
-}
-
-.videoNote {
-  max-width: 78ch;
-  margin: 20px auto 0;
-  color: #52656a;
-  text-align: center;
-  font-size: .9375rem;
-  line-height: 1.6;
-}
-
-.page :global(#faq),
-.page :global(#related) {
-  min-height: 0;
-}
-
-.page :global(.cta-panel-image) {
-  object-fit: cover;
-  object-position: left center;
-}
-
-.page :global([data-figure='cataractSteps'] .cataract-process-label) {
-  height: 112px;
-}
-
-.page :global([data-figure='cataractSteps'] .cataract-process-step > p) {
-  margin-top: 16px;
-}
-
-@media (min-width: 1100px) {
-  .page :global(.cta-title) {
-    font-size: clamp(1.9rem, 2.45vw, 2.35rem);
-    white-space: nowrap;
-  }
-}
+@media (min-width: 1100px) { .page :global(.cta-title) { font-size: clamp(1.9rem, 2.45vw, 2.35rem); white-space: nowrap; } }
 
 @media (max-width: 959px) {
   .overview { background-image: none; }
