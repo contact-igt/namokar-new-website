@@ -28,7 +28,22 @@ export default function Page() {
         <section id="overview" className={styles.overview} aria-labelledby="overview-h">
           <div className={`container ${styles.overviewGrid}`}>
             <div className={styles.overviewVisual}>
-              <span className={styles.overviewCallout}><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="16" rx="9" ry="13"/><path d="M7 16c0-7 4-13 9-13m9 13c0 7-4 13-9 13"/></svg>Natural Lens</span>
+              <div className={styles.overviewCallout}>
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={styles.calloutIcon}>
+                  <ellipse cx="16" cy="16" rx="6.2" ry="7.2" strokeWidth="1.8" />
+                  <path d="M12 10.5 C10.5 7, 14.5 4.5, 18.5 5.5 C22.5 6.5, 24.5 10, 23 13 C22.2 14.5, 20.5 14.8, 20 15" strokeWidth="1.8" />
+                  <path d="M20 21.5 C21.5 25, 17.5 27.5, 13.5 26.5 C9.5 25.5, 7.5 22, 9 19 C9.8 17.5, 11.5 17.2, 12 17" strokeWidth="1.8" />
+                </svg>
+                <div className={styles.calloutText}>
+                  <strong>Intraocular</strong>
+                  <span>Lens (IOL)</span>
+                </div>
+                <svg className={styles.calloutPointer} viewBox="0 0 172 74" fill="none" aria-hidden="true">
+                  <line x1="172" y1="0" x2="6" y2="64" stroke="rgba(255, 255, 255, 0.95)" strokeWidth="1.8" strokeLinecap="round" />
+                  <circle cx="6" cy="64" r="8" fill="rgba(255, 255, 255, 0.35)" />
+                  <circle cx="6" cy="64" r="4.2" fill="#ffffff" />
+                </svg>
+              </div>
             </div>
             <div className={styles.overviewCopy}>
               <p className="kicker">Comprehensive vision care</p>
