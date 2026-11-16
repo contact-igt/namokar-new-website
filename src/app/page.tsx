@@ -11,7 +11,7 @@ import HomeAppointmentPopup from "@/components/HomeAppointmentPopup";
 import TreatmentExplorer from "@/components/TreatmentExplorer";
 import { treatmentItems } from "@/lib/treatments";
 import JsonLd from "@/components/JsonLd";
-import { ArrowRightIcon, PhoneIcon, PinIcon, PlusIcon } from "@/components/Icons";
+import { ArrowRightIcon, GraduationCapIcon, PhoneIcon, PinIcon, PlusIcon } from "@/components/Icons";
 import NamePlate from "@/components/NamePlate";
 import VisitPanel from "@/components/VisitPanel";
 import WalkthroughSection from "@/components/WalkthroughSection";
@@ -264,7 +264,7 @@ export default function Home() {
                   </ul>
                 </section>
                 <section className="doctor-timeline" aria-labelledby="doctor-timeline-h">
-                  <h3 id="doctor-timeline-h"><span className="doctor-training-heading-icon" aria-hidden="true"><DoctorIcon name="cap" /></span>Qualifications &amp; Training</h3>
+                  <h3 id="doctor-timeline-h"><span className="doctor-training-heading-icon" aria-hidden="true"><GraduationCapIcon width={22} height={22} /></span>Qualifications &amp; Training</h3>
                   <ol>
                     <li><strong>Fellowship</strong><span>Oculoplasty, Barraquer Institute, Barcelona</span></li>
                     <li><strong>Observership</strong><span>Wilmer Eye Institute, Johns Hopkins, Baltimore</span></li>

@@ -2290,6 +2290,9 @@
   font-family: var(--font-heading);
   font-size: clamp(1.15rem, 1.5vw, 1.4rem);
   line-height: 1.2;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
 }
 
 .homeRedesign :global(.doctor-focus ul),
@@ -2322,7 +2325,7 @@
 .homeRedesign :global(.doctor-timeline h3) {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
 }
 
 .homeRedesign :global(.doctor-training-heading-icon) {
@@ -2330,16 +2333,18 @@
   flex: none;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: var(--home-orange);
-  color: #fff;
+  background: var(--home-peach, #ffeadc);
+  color: var(--home-orange, #d96318);
 }
 
-.homeRedesign :global(.doctor-training-heading-icon .doctor-icon) {
-  width: 19px;
-  height: 19px;
+.homeRedesign :global(.doctor-training-heading-icon svg) {
+  width: 22px;
+  height: 22px;
+  stroke: var(--home-orange, #d96318);
+  stroke-width: 2;
 }
 
 .homeRedesign :global(.doctor-focus li div),
@@ -2366,22 +2371,15 @@
   position: relative;
   display: grid;
   gap: 8px;
-  padding-left: 18px;
+  padding-left: 20px;
 }
 
 .homeRedesign :global(.doctor-timeline ol::before) {
-  content: "";
-  position: absolute;
-  top: 14px;
-  bottom: 14px;
-  left: 5px;
-  width: 1px;
-  background: rgb(217 99 24 / 0.35);
+  display: none;
 }
 
 .homeRedesign :global(.doctor-timeline li) {
   position: relative;
-  padding: 10px 12px;
   border: 1px solid rgb(217 99 24 / 0.12);
   border-radius: 10px;
   background: rgb(255 245 237 / 0.75);
@@ -2390,13 +2388,75 @@
 .homeRedesign :global(.doctor-timeline li::before) {
   content: "";
   position: absolute;
-  top: 18px;
-  left: -17px;
+  top: 50%;
+  left: -18px;
+  transform: translateY(-50%);
   width: 8px;
   height: 8px;
   border: 2px solid #fff8f3;
   border-radius: 50%;
-  background: var(--home-orange);
+  background: var(--home-orange, #d96318);
+  z-index: 2;
+  box-sizing: content-box;
+}
+
+.homeRedesign :global(.doctor-timeline li::after) {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -13px;
+  width: 2px;
+  background: rgb(217 99 24 / 0.35);
+  z-index: 1;
+}
+
+.homeRedesign :global(.doctor-timeline li:last-child::after) {
+  display: none;
+}
+
+@media (min-width: 681px) {
+  .homeRedesign :global(.doctor-focus),
+  .homeRedesign :global(.doctor-timeline) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .homeRedesign :global(.doctor-timeline ol) {
+    flex: 1;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 12px;
+    height: 100%;
+  }
+
+  .homeRedesign :global(.doctor-timeline li) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 14px;
+  }
+
+  .homeRedesign :global(.doctor-timeline li::after) {
+    height: calc(100% + 12px);
+  }
+}
+
+@media (max-width: 680px) {
+  .homeRedesign :global(.doctor-timeline ol) {
+    display: grid;
+    gap: 10px;
+  }
+
+  .homeRedesign :global(.doctor-timeline li) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 12px;
+  }
+
+  .homeRedesign :global(.doctor-timeline li::after) {
+    height: calc(100% + 10px);
+  }
 }
 
 @media (max-width: 959px) {

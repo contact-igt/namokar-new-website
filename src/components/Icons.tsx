@@ -96,3 +96,11 @@ export const InfoIcon = (p: P) => (
     <path d="M12 7.6h.01" />
   </svg>
 );
+
+export const GraduationCapIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="m3 10 9-5 9 5-9 5-9-5Z" />
+    <path d="M6 12v4c3 2 9 2 12 0v-4" />
+    <path d="M21 10v6" />
+  </svg>
+);
