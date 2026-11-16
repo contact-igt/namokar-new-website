@@ -16,6 +16,7 @@ export default function VideoSection({
   lead,
   note,
   dark = false,
+  showMeta = false,
 }: {
   videos: VideoItem[];
   id: string;
@@ -24,6 +25,7 @@ export default function VideoSection({
   lead: string;
   note?: string;
   dark?: boolean;
+  showMeta?: boolean;
 }) {
   if (!videos.length) return null;
   const [first, ...rest] = videos;
@@ -64,8 +66,8 @@ export default function VideoSection({
             {note && <p className="vsec-note">{note}</p>}
           </div>
           <div className="vsec-duo">
-            <VideoPlayer v={fp} sizes="(min-width: 960px) 62vw, 100vw" />
-            <VideoPlayer v={playerProps(rest[0])} sizes="320px" />
+            <VideoPlayer v={fp} showMeta={showMeta} sizes="(min-width: 960px) 62vw, 100vw" />
+            <VideoPlayer v={playerProps(rest[0])} showMeta={showMeta} sizes="320px" />
           </div>
           {extra.length > 0 && (
             <div className="vsec-more">

@@ -17,6 +17,7 @@ export default function PageHero({
   mediaCaption,
   mediaLabel,
   aside,
+  below,
   long = false,
 }: {
   crumb: string;
@@ -30,6 +31,8 @@ export default function PageHero({
   /** Small label above the photo caption; defaults to the page name. */
   mediaLabel?: string;
   aside?: ReactNode;
+  /** Optional content immediately below the hero grid, inside the same section. */
+  below?: ReactNode;
   /** A longer headline and intro: set a little smaller so the copy stays level with the photograph. */
   long?: boolean;
 }) {
@@ -57,6 +60,7 @@ export default function PageHero({
         )}
         {!media && aside}
       </div>
+      {below && <div className="container page-hero-below">{below}</div>}
     </section>
   );
 }

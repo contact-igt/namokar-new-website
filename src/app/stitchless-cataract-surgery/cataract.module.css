@@ -525,24 +525,95 @@
 @media (min-width: 1100px) { .page :global(.cta-title) { font-size: clamp(1.9rem, 2.45vw, 2.35rem); white-space: nowrap; } }
 
 @media (max-width: 959px) {
-  .overview { background-image: none; }
-  .overviewGrid { grid-template-columns: 1fr; gap: 24px; }
-  .overviewVisual { min-height: 340px; border-radius: 20px; background: url('/images/da6b3c44-eb16-4da2-8f3b-d8e36fe46080.png') left center / cover no-repeat; }
-  .overviewCallout { top: 28%; right: auto; left: 45%; }
-  .calloutPointer { display: none; }
-  .overviewCopy { max-width: none; }
+  .overview {
+    background-image: none;
+    padding-block: clamp(36px, 5vw, 60px);
+  }
+  .overviewGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .overviewCopy {
+    order: 1;
+    max-width: none;
+  }
+  .overviewVisual {
+    order: 2;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    min-height: 260px;
+    border-radius: 20px;
+    background: #fff8f1 url('/images/da6b3c44-eb16-4da2-8f3b-d8e36fe46080.png') left 40% / cover no-repeat;
+    border: 1px solid #f2ded1;
+    box-shadow: 0 10px 28px rgba(7, 63, 70, 0.08);
+    overflow: hidden;
+    margin-top: 4px;
+  }
+  .overviewCallout {
+    position: absolute;
+    top: 18%;
+    right: 14px;
+    left: auto;
+    padding: 8px 14px 8px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 6px 18px rgba(7, 63, 70, 0.12);
+    border: 1px solid rgba(240, 217, 203, 0.8);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+  }
+  .calloutIcon {
+    width: 24px;
+    height: 24px;
+  }
+  .calloutText strong,
+  .calloutText span {
+    font-size: 0.82rem;
+  }
+  .calloutPointer {
+    display: block;
+    position: absolute;
+    right: calc(100% - 4px);
+    top: 55%;
+    width: 86px;
+    height: 42px;
+    pointer-events: none;
+  }
+  .overviewFeatures {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .overviewFeatures article {
+    min-height: auto;
+    padding: 14px 16px;
+    gap: 2px 12px;
+  }
+  .overviewFeatures article > span {
+    width: 40px;
+    height: 40px;
+  }
+  .overviewFeatures svg {
+    width: 22px;
+    height: 22px;
+  }
+  .overviewFeatures strong {
+    font-size: 0.98rem;
+  }
+  .overviewFeatures p {
+    font-size: 0.88rem;
+  }
   .videoGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .journeyGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 24px; }
   .journeyGrid li:not(:last-child)::after { display: none; }
 }
 
 @media (max-width: 639px) {
-  .overviewFeatures { grid-template-columns: 1fr; }
-  .overviewVisual { min-height: 240px; }
-  .overviewCallout { top: 20%; left: auto; right: 14px; padding: 7px 12px 7px 10px; gap: 8px; }
-  .calloutIcon { width: 24px; height: 24px; }
-  .calloutText strong,
-  .calloutText span { font-size: 0.82rem; }
   .page :global(.clin-head h2) { white-space: normal; }
   .lensPanel { padding: 42px 24px; }
   .signGrid, .videoGrid { grid-template-columns: 1fr; }

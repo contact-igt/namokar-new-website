@@ -149,8 +149,17 @@ export default function ServicePageHero({
               </div>
             </div>
 
-            {/* Right Column: Informational badge placed at lower area of equipment */}
+            {/* Right Column: Visual Area & Floating Badge */}
             <div className={styles.colVisual}>
+              <div className={styles.mobileEquipment} aria-hidden="true">
+                <Image
+                  src="/images/55b29aeb-2558-4b4e-b632-b0d35046e843.png"
+                  alt="Ophthalmic examination equipment"
+                  fill
+                  sizes="(max-width: 959px) 100vw, 1px"
+                  className={styles.mobileEquipmentImg}
+                />
+              </div>
               <div className={styles.badgeWrap}>
                 <div className={styles.infoBadge}>
                   <span className={styles.badgeIcon} aria-hidden="true">
