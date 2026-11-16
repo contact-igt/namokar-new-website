@@ -1,0 +1,232 @@
+.page {
+  color: var(--ink);
+  background: #fffaf6;
+}
+
+.page :global(.page-hero) {
+  padding: 16px 0 76px;
+  background: #fffaf6 url('/images/Soft Peach Wave Background.png') center / cover no-repeat;
+}
+
+.page :global(.page-hero-grid) { gap: clamp(28px, 5vw, 72px); }
+.page :global(.page-hero-copy) { min-width: 0; }
+.page :global(.page-eyebrow) { max-width: 28ch; color: var(--orange-dark); }
+.page :global(.page-hero-media) {
+  aspect-ratio: 1.48;
+  margin: 0;
+  border-radius: 28px;
+  box-shadow: 0 18px 42px rgb(63 40 26 / .12);
+}
+.page :global(.page-hero-img) { object-position: center 45%; }
+.page :global(.page-actions .btn) { width: auto; }
+
+.aboutSection,
+.roomSection,
+.careSection,
+.faqSection,
+.videoSection :global(section),
+.consultationSection {
+  background: #fffaf6 url('/images/Soft Peach Wave Background.png') center / cover no-repeat;
+}
+
+.aboutShell { display: grid; gap: 24px; }
+.centerHead { justify-items: center; text-align: center; }
+.aboutBody {
+  display: grid;
+  gap: 14px;
+  width: min(100%, 78ch);
+  margin-inline: auto;
+  color: var(--ink-soft);
+  text-align: center;
+  line-height: 1.65;
+}
+.focusHeading {
+  margin-top: 18px;
+  color: var(--orange-dark);
+  font-family: var(--font-heading);
+  font-size: var(--type-eyebrow-size);
+  font-weight: 800;
+  letter-spacing: var(--type-eyebrow-tracking);
+  text-align: center;
+  text-transform: uppercase;
+}
+.focusGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 4px;
+}
+.focusGrid li {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+  min-height: 116px;
+  padding: 14px;
+  border: 1px solid #f2d8ca;
+  border-radius: 18px;
+  background: rgb(255 255 255 / .88);
+  box-shadow: 0 10px 28px rgb(90 52 32 / .06);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.4;
+}
+.focusImage { position: relative; width: 92px; height: 82px; flex: none; overflow: hidden; border-radius: 12px; background: #fff1e8; }
+.focusImage img { object-fit: cover; }
+
+.trainingSection { background: #fffaf6 url('/images/Soft Peach Wave Background.png') center / cover no-repeat; }
+.trainingPanel {
+  position: relative;
+  display: grid;
+  gap: 38px;
+  overflow: hidden;
+  padding: clamp(28px, 4vw, 54px);
+  border: 1px solid #f1d9ca;
+  border-radius: 26px;
+  background: rgb(255 247 241 / .86);
+  box-shadow: 0 14px 36px rgb(90 52 32 / .06);
+}
+.trainingPanel > *:not(.trainingGraphic) { position: relative; z-index: 1; }
+.trainingGraphic {
+  position: absolute;
+  bottom: 8px;
+  left: 6%;
+  width: 180px;
+  height: 180px;
+  color: #eabda5;
+  opacity: .48;
+  stroke-width: .65;
+}
+.trainingPanel :global(.train-cols) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.trainingPanel :global(.fine) { grid-column: 1 / -1; }
+
+.roomPair { align-items: start; }
+.roomPair :global(.ed-frame) { aspect-ratio: 16 / 10 !important; border-radius: 18px; }
+.roomPair :global(.ed--tab .ed-frame::before) { display: none; }
+
+.videoSection :global(.vsec-text) { max-width: 70ch; }
+.videoSection :global(.vsec-more) { align-items: stretch; }
+.videoSection :global(.vp) { min-width: 0; }
+.videoSection :global(.vp-frame) { overflow: hidden; border-radius: 16px; }
+.videoSection :global(.vp-note) { display: grid; justify-items: center; gap: 8px; text-align: center; }
+.videoSection :global(.vp-note .text-link) {
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 18px;
+  border: 1px solid var(--orange-dark);
+  border-radius: 999px;
+  color: var(--orange-dark);
+  text-decoration: none;
+}
+
+.careHead { margin-bottom: 30px; }
+.careGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.careGrid li { min-width: 0; }
+.careCard {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid #f2d8ca;
+  border-radius: 18px;
+  background: rgb(255 255 255 / .9);
+  box-shadow: 0 10px 28px rgb(90 52 32 / .06);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.careCard:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgb(90 52 32 / .11); }
+.careImage { position: relative; display: block; width: 100%; aspect-ratio: 5 / 3; overflow: hidden; background: #fff1e8; }
+.careImage img { object-fit: cover; }
+.careTitle {
+  display: grid;
+  place-items: center;
+  min-height: 76px;
+  padding: 12px 16px 16px;
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.faqSection { overflow: hidden; }
+.faqSection::before {
+  content: '?';
+  position: absolute;
+  left: 5%;
+  top: 22%;
+  color: #f9d8c6;
+  font-family: var(--font-heading);
+  font-size: clamp(10rem, 26vw, 22rem);
+  font-weight: 800;
+  line-height: 1;
+  opacity: .7;
+  pointer-events: none;
+}
+.faqSection :global(.faq-grid) { position: relative; z-index: 1; }
+.faqSection :global(.faq-list) { display: grid; gap: 12px; border: 0; }
+.faqSection :global(.faq) { overflow: hidden; border: 1px solid #efd8cb; border-radius: 14px; background: rgb(255 255 255 / .87); }
+.faqSection :global(.faq summary) { padding: 16px 20px; }
+.faqSection :global(.faq p) { padding: 0 20px 20px; }
+
+.consultationSection { padding: clamp(64px, 7vw, 108px) 0; }
+.consultationCard {
+  display: grid;
+  grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+  min-height: 390px;
+  overflow: hidden;
+  border: 1px solid #f1d8c8;
+  border-radius: 28px;
+  background: #fff8f3;
+  box-shadow: 0 18px 42px rgb(40 64 65 / .09);
+}
+.consultationImage { position: relative; min-height: 390px; background: #f7e5db; }
+.consultationImage img { object-fit: cover; object-position: left center; }
+.consultationContent { display: grid; align-content: center; justify-items: start; padding: clamp(30px, 4vw, 58px); }
+.consultationContent :global(.lead) { margin-top: 12px; }
+.consultationDetails { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 22px; color: var(--ink-soft); }
+.consultationDetails p { display: flex; align-items: flex-start; gap: 10px; max-width: 32ch; font-size: .9rem; line-height: 1.45; }
+.consultationDetails svg { width: 18px; height: 18px; flex: none; color: var(--orange-dark); }
+.consultationDetails a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.consultationActions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+
+@media (min-width: 960px) {
+  .page :global(.page-hero-grid) { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
+  .trainingPanel { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); }
+}
+@media (min-width: 768px) {
+  .roomPair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1200px) {
+  .careGrid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+@media (max-width: 1279px) {
+  .consultationCard { grid-template-columns: 1fr; }
+  .consultationImage { min-height: clamp(260px, 34vw, 360px); }
+}
+@media (max-width: 959px) {
+  .focusGrid { grid-template-columns: 1fr; }
+  .trainingPanel :global(.train-cols) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .page :global(.page-hero) { padding-bottom: 54px; }
+  .page :global(.page-hero-media) { aspect-ratio: 3 / 2; }
+  .aboutBody { text-align: left; }
+  .trainingPanel :global(.train-cols) { grid-template-columns: 1fr; }
+  .trainingPanel :global(.fine) { grid-column: auto; }
+  .roomPair :global(.ed-frame) { aspect-ratio: 16 / 10 !important; }
+  .careGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .consultationImage { min-height: 280px; }
+}
+@media (max-width: 520px) {
+  .page :global(.page-actions .btn) { width: 100%; }
+  .focusGrid li { min-height: 98px; }
+  .focusImage { width: 82px; height: 72px; }
+  .careGrid { grid-template-columns: 1fr; }
+  .careImage { aspect-ratio: 16 / 8; }
+  .consultationImage { min-height: 250px; }
+  .consultationContent { padding: 26px 22px 30px; }
+  .consultationActions { width: 100%; }
+  .consultationActions :global(.btn) { width: 100%; }
+  .faqSection::before { left: 2%; top: 7%; }
+}
