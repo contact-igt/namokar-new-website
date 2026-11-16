@@ -28,12 +28,14 @@ export default function Page() {
         <section id="overview" className={styles.overview} aria-labelledby="overview-h">
           <div className={`container ${styles.overviewGrid}`}>
             <div className={styles.overviewVisual}>
-              <span className={styles.overviewCallout}>Natural lens</span>
+              <span className={styles.overviewCallout}><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="16" rx="9" ry="13"/><path d="M7 16c0-7 4-13 9-13m9 13c0 7-4 13-9 13"/></svg>Natural Lens</span>
             </div>
             <div className={styles.overviewCopy}>
               <p className="kicker">Comprehensive vision care</p>
               <h2 id="overview-h" className="h2">What is a Cataract</h2>
-              {content.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              <div className={styles.overviewDescription}>
+                {content.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              </div>
             </div>
           </div>
           <div className={`container ${styles.overviewFeatures}`}>
