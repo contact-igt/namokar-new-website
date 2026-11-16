@@ -213,6 +213,11 @@
   object-fit: cover;
   object-position: center;
 }
+.page :global([data-figure='lensDesigns'] .lens-card-image--edof) {
+  object-fit: contain;
+  object-position: 46% 50%;
+  transform: scale(1.48);
+}
 .page :global([data-figure='lensDesigns'] .lens-card-body) {
   display: flex;
   flex-direction: column;

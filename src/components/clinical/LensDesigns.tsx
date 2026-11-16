@@ -191,10 +191,10 @@ export default function LensDesigns() {
         <Slider ref={sliderRef} {...settings}>
           {ORDER.map((d) => (
             <div key={d}>
-              <article className="lens-card">
-                <div className="lens-card-fig">
+              <article className={`lens-card ${d === "edof" ? "lens-card--edof" : ""}`}>
+                <div className={`lens-card-fig ${d === "edof" ? "lens-card-fig--edof" : ""}`}>
                   <Image
-                    className="lens-card-image"
+                    className={`lens-card-image ${d === "edof" ? "lens-card-image--edof" : ""}`}
                     src={IMAGES[d]}
                     alt={`Simplified illustration of how a ${COPY[d].name.toLowerCase()} lens focuses light inside the eye`}
                     fill
