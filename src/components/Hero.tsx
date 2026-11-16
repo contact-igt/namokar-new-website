@@ -22,9 +22,7 @@ export const HERO_SLIDES = [
     tab: "Our Centre",
     label: "Our centre",
     badge: "Trusted Eye Care Since 25+ Years",
-    titlePrefix: "Complete Eye Care, With",
-    titleSub: "a ",
-    titleHighlight: "Personal Approach.",
+    title: "Centre for Vision Care & Eye Aesthetics",
     body: "From routine eye examinations to cataract, glaucoma and oculoplasty care, every visit starts with a careful assessment.",
     more: { label: "About the centre", href: LINKS.about },
   },
@@ -33,9 +31,7 @@ export const HERO_SLIDES = [
     tab: "Cataract",
     label: "Cataract care",
     badge: "Advanced Micro-Incision Surgery",
-    titlePrefix: "Cataract Care,",
-    titleSub: "",
-    titleHighlight: "Explained Clearly.",
+    title: "Professional Eye Care with Personalised Attention",
     body: "Careful assessment of your vision and a clear discussion of your treatment options with premium IOL choices.",
     more: { label: "About cataract surgery", href: LINKS.cataract },
   },
@@ -198,13 +194,7 @@ export default function Hero({
 
               {/* Slide Headline */}
               <h1 className="hero-banner-heading">
-              {currentSlide.titlePrefix}{" "}
-              {currentSlide.titleSub && (
-                <span className="hero-heading-sub">{currentSlide.titleSub}</span>
-              )}
-              <span className="hero-heading-highlight">
-                {currentSlide.titleHighlight}
-              </span>
+                {currentSlide.title}
               </h1>
 
               {/* Slide Description */}

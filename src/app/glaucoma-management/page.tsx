@@ -309,11 +309,59 @@ export default function Page() {
             {c.introHeading}
           </h2>
           <div className={styles.overviewText}>
-            {c.intro.map((p, index) => (
-              <p key={p} className={index === 1 ? styles.overviewHighlight : undefined}>{p}</p>
-            ))}
+            <p>
+              Glaucoma is a group of eye conditions in which the{" "}
+              <strong>optic nerve</strong>, which carries what the eye sees to the brain, is{" "}
+              <strong>gradually damaged</strong>.{" "}
+              <strong>Raised pressure inside the eye</strong> is a common factor, but it is not the only one.
+            </p>
+            <p className={styles.overviewHighlight}>
+              Glaucoma is often called the <strong>silent thief of sight</strong> because it can take{" "}
+              <strong>side vision slowly and without pain</strong>. Left untreated, it can lead to permanent loss of vision.
+            </p>
+            <p>
+              Glaucoma is usually a <strong>long-term condition</strong> that is managed rather than cured. Damage to the optic nerve cannot be reversed, so the aim of care is to{" "}
+              <strong>find glaucoma early</strong> and to{" "}
+              <strong>protect the vision that remains</strong>. Treatment and follow-up are planned for each person.
+            </p>
           </div>
         </div>
+      </div>
+
+      <div className={`container ${styles.overviewFeatures}`}>
+        <article>
+          <span aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z" />
+              <circle cx="12" cy="12" r="3.5" />
+              <path d="M12 15.5v3.5M10.5 21h3" />
+            </svg>
+          </span>
+          <strong>Optic nerve &amp; pressure</strong>
+          <p>The nerve connecting eye to brain is gradually damaged, with raised pressure a common factor.</p>
+        </article>
+        <article>
+          <span aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 3a9 9 0 0 1 0 18" strokeDasharray="2.5 2.5" />
+              <circle cx="12" cy="12" r="3" />
+              <path d="M3 12h3M18 12h3" />
+            </svg>
+          </span>
+          <strong>Painless side-vision loss</strong>
+          <p>Often called the silent thief of sight, taking side vision slowly and without early pain.</p>
+        </article>
+        <article>
+          <span aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <polyline points="9 12 11 14 15 10" />
+            </svg>
+          </span>
+          <strong>Protecting remaining sight</strong>
+          <p>While damage cannot be reversed, finding it early and ongoing care protect remaining vision.</p>
+        </article>
       </div>
     </section>
   );

@@ -11611,6 +11611,7 @@ a.act--primary:hover {
   letter-spacing: -0.025em;
   color: #0f242c;
   margin: 0 0 14px 0;
+  text-wrap: balance;
 }
 
 .hero-heading-sub {
