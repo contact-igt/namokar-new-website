@@ -328,7 +328,15 @@ export default function ServiceLayout({
       )}
 
       {closing ?? (redesignedService ? (
-        <HomeCta online={online} id={`${serviceKey}-cta`} />
+        <HomeCta
+          online={online}
+          id={`${serviceKey}-cta`}
+          {...(serviceKey === "cataract" ? {
+            kicker: "Consultation",
+            heading: "Speak to the centre about your eyes.",
+            desc: "Contact the centre to plan your visit or arrange an eye consultation.",
+          } : {})}
+        />
       ) : (
         <CtaBand
           id={`${serviceKey}-cta-h`}

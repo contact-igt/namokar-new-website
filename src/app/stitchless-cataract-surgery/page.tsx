@@ -14,7 +14,7 @@ const journeyImages = [
   "/images/aesthetic/doctor-exam-dsc06826.webp",
   "/images/aesthetic/eye-exam-chart.webp",
   "/images/cataract-hero-clean-v2.webp",
-  "/images/aesthetic/doctor-exam-dsc06824.webp",
+  "/images/aesthetic/doctor-exam-dsc06796.webp",
 ];
 
 export default function Page() {
@@ -33,6 +33,11 @@ export default function Page() {
               <h2 id="overview-h" className="h2">What is a Cataract</h2>
               {content.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </div>
+          </div>
+          <div className={`container ${styles.overviewFeatures}`}>
+            <article><span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M9 5c4 2 5 10 1 14"/></svg></span><strong>Natural lens clouding</strong><p>A cataract makes the eye’s natural lens cloudy.</p></article>
+            <article><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></span><strong>Blurred or dim vision</strong><p>Clarity can gradually reduce as the cataract develops.</p></article>
+            <article><span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v10m-5-5h10"/></svg></span><strong>Clear artificial lens</strong><p>Surgery usually replaces the clouded lens with an IOL.</p></article>
           </div>
         </section>
       }
@@ -122,11 +127,11 @@ export default function Page() {
         <div className="container">
           <div className={styles.lensPanel}>
             <div className="about-grid">
-              <div className="section-head reveal">
+              <div className="section-head">
                 <p className="kicker">Choosing a lens</p>
                 <h2 id="lenses-h" className="h2">About replacement lenses</h2>
               </div>
-              <div className="about-body reveal">
+              <div className="about-body">
                 <p>
                   Artificial lenses come in different designs. Monofocal lenses usually have one main
                   focus; multifocal and extended depth of focus (EDOF) designs aim to cover more than

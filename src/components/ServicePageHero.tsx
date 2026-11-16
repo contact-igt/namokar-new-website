@@ -137,39 +137,6 @@ export default function ServicePageHero({
                 </Link>
               </div>
 
-              {/* 3 Feature Highlights Strip */}
-              <div className="svc-features" role="list">
-                <div className="svc-feature-item" role="listitem">
-                  <div className="svc-feature-icon-wrap" aria-hidden="true">
-                    <EyeIcon />
-                  </div>
-                  <div className="svc-feature-text">
-                    Advanced<br />Technology
-                  </div>
-                </div>
-
-                <div className="svc-feature-sep" aria-hidden="true" />
-
-                <div className="svc-feature-item" role="listitem">
-                  <div className="svc-feature-icon-wrap" aria-hidden="true">
-                    <ShieldCheckIcon />
-                  </div>
-                  <div className="svc-feature-text">
-                    Expert<br />Care
-                  </div>
-                </div>
-
-                <div className="svc-feature-sep" aria-hidden="true" />
-
-                <div className="svc-feature-item" role="listitem">
-                  <div className="svc-feature-icon-wrap" aria-hidden="true">
-                    <HeartIcon />
-                  </div>
-                  <div className="svc-feature-text">
-                    Better<br />Vision
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* Right Column: Hero Visual Card */}
@@ -188,6 +155,12 @@ export default function ServicePageHero({
               </div>
             </div>
           </div>
+          <ul className="svc-trust-cards" aria-label="Our approach to care">
+            <li><CalendarIcon width={36} height={36} /><strong>Trusted Eye Care Since 25+ Years</strong></li>
+            <li><EyeIcon /><strong>Advanced Technology</strong></li>
+            <li><ShieldCheckIcon /><strong>Expert Doctors</strong></li>
+            <li><HeartIcon /><strong>Compassionate Care</strong></li>
+          </ul>
         </div>
       </section>
     </div>

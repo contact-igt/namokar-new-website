@@ -72,15 +72,15 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
       },
       {
         title: "Planning",
-        text: "If you decide to go ahead, measurements of the eye help plan the operation and choose a replacement lens. The doctor also explains any instructions about medicines, eye drops or contact lenses.",
+        text: "Eye measurements guide surgery and lens choice. The doctor explains instructions for medicines, drops and contact lenses.",
       },
       {
         title: "Surgery, if you choose it",
-        text: "The centre explains how the operation is arranged, the benefits and risks in your case, and what to do before and afterwards.",
+        text: "The centre explains the operation, its benefits and risks, and care before and afterwards.",
       },
       {
         title: "Follow-up",
-        text: "The doctor advises on prescribed eye drops, protecting the eye, returning to daily activities and follow-up checks. Contact the centre promptly if you have worsening pain, redness or a sudden change in vision.",
+        text: "Follow advice on drops, eye protection, activities and check-ups. Call promptly for worsening pain, redness or sudden vision changes.",
       },
     ],
     faqs: [

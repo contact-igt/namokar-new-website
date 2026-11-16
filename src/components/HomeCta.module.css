@@ -23,14 +23,14 @@
 
 .ctaPanelImage {
   object-fit: cover;
-  object-position: 18% center;
+  object-position: left center;
 }
 
 .ctaVisual::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent 55%, #fff1e7);
+  background: linear-gradient(90deg, transparent 88%, #fff1e7);
   pointer-events: none;
 }
 

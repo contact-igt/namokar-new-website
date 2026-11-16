@@ -4,12 +4,12 @@ const STEPS = [
   {
     title: "Before",
     sub: "Clouded natural lens",
-    text: "The natural lens has become cloudy, so light does not focus as sharply on the retina and vision can look blurred, dull or hazy.",
+    text: "A cloudy natural lens scatters light, making vision blurred, dull or hazy.",
   },
   {
     title: "Small incision",
     sub: "A tiny opening is made",
-    text: "A very small opening is made at the edge of the cornea so the surgeon can reach the lens. Whether stitches are needed depends on the eye and on the technique the surgeon chooses.",
+    text: "A small corneal opening lets the surgeon reach the lens. Stitches depend on the eye and surgical technique.",
   },
   {
     title: "Lens removed",
@@ -19,7 +19,7 @@ const STEPS = [
   {
     title: "New lens",
     sub: "A clear lens is placed",
-    text: "A clear artificial lens, called an intraocular lens (IOL), is placed where the natural lens was. Which design suits you is decided with your doctor.",
+    text: "A clear intraocular lens (IOL) replaces the natural lens. Your doctor helps choose its design.",
   },
 ] as const;
 

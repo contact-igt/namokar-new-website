@@ -942,14 +942,14 @@
 
 .homeRedesign :global(.cta-panel-image) {
   object-fit: cover;
-  object-position: 18% center;
+  object-position: left center;
 }
 
 .homeRedesign :global(.cta-visual::after) {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent 55%, #fff1e7);
+  background: linear-gradient(90deg, transparent 88%, #fff1e7);
 }
 
 .homeRedesign :global(.cta-visual-mark) {

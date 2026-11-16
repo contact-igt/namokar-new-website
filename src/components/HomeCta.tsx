@@ -36,7 +36,7 @@ export default function HomeCta({
             />
             <span className={`${styles.ctaVisualMark} cta-visual-mark`}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                <path d="M2.5 12s3.6-6 9.5-6 9.5 6 9.5 6-3.6 6-9.5 6-9.5-6Z" />
+                <path d="M2.5 12s3.6-6 9.5-6 9.5 6 9.5 6-3.6 6-9.5 6S2.5 12 2.5 12Z" />
                 <circle cx="12" cy="12" r="3" />
               </svg>
             </span>
