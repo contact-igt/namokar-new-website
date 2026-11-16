@@ -17,6 +17,7 @@ import VideoPlayer from "@/components/VideoPlayer";
 import { playerProps } from "@/lib/videoProps";
 import { videosFor } from "@/content/videos";
 import heroStyles from "@/components/ServicePageHero.module.css";
+import DoctorCareCarousel from "@/components/DoctorCareCarousel";
 import styles from "./doctor.module.css";
 
 export const metadata: Metadata = pageMeta("doctor", {
@@ -319,22 +320,17 @@ export default function DoctorPage() {
       <section id="care" className={`section ${styles.careSection}`} aria-labelledby="care-h">
         <div className="container">
           <div className={`section-head reveal ${styles.careHead}`}>
-            <p className="kicker">Areas of care</p>
+            <div className={styles.badgeWrapper}>
+              <span className={styles.badgeLine} aria-hidden="true" />
+              <span className={styles.kickerBadge}>AREAS OF CARE</span>
+              <span className={styles.badgeLine} aria-hidden="true" />
+            </div>
             <h2 id="care-h" className="h2">Where she can help</h2>
             <p className="lead">
               Which treatments are offered is confirmed at the consultation.
             </p>
           </div>
-          <ul className={styles.careGrid}>
-            {SERVICES.map((s) => (
-              <li key={s.key} className="reveal">
-                <Link href={s.href} className={styles.careCard}>
-                  <span className={styles.careImage}><Image src={serviceImages[s.key]} alt="" fill sizes="(min-width: 1200px) 190px, (min-width: 768px) 30vw, 45vw" /></span>
-                  <span className={styles.careTitle}>{s.title}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <DoctorCareCarousel />
         </div>
       </section>
 
