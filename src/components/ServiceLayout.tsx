@@ -77,7 +77,7 @@ export default function ServiceLayout({
   const cover = COVERS[serviceKey];
   const hasCover = usable(cover.primary.asset);
   const vids = videosFor(serviceKey);
-  const compactRelated = serviceKey === "glaucoma" || serviceKey === "exams";
+  const compactRelated = serviceKey === "glaucoma" || serviceKey === "exams" || serviceKey === "cataract";
   const redesignedService = serviceKey === "cataract" || serviceKey === "aesthetic" || serviceKey === "eyelid";
 
   return (
@@ -257,7 +257,7 @@ export default function ServiceLayout({
       </section>
       ))}
 
-      {!redesignedService ? (
+      {!redesignedService || serviceKey === "cataract" ? (
       <section id="related" className={`section section--tight${compactRelated ? " related--compact" : ""}`} aria-labelledby="related-h">
         <div className="container">
           <h2 id="related-h" className="h2 h2--sm">{compactRelated ? "Related Services" : "Related care"}</h2>

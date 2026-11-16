@@ -295,11 +295,7 @@
   border-radius: clamp(24px, 3.5vw, 36px);
   overflow: hidden;
   position: relative;
-  background-color: #05383e;
-  background-image: url("/images/Abstract Teal Flowing Wave Ribbons.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: var(--namokar-dark-section-background);
   padding: clamp(52px, 6.5vw, 88px) clamp(24px, 5vw, 72px);
   box-shadow: 0 20px 50px -16px rgba(5, 56, 62, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -1481,5 +1477,6 @@
 .page .eyebrow, .page .explained :global(.clin-head .kicker) { font-family: var(--font-body); font-size: var(--type-eyebrow-size); font-weight: 700; letter-spacing: var(--type-eyebrow-tracking); }
 .page .heroLead, .page .leadText, .page .explained :global(.clin-head .lead) { font-size: var(--type-lead-size); line-height: var(--type-lead-line); }
 .page :global(.btn) { font-family: var(--font-body); font-size: var(--type-button-size); font-weight: 600; line-height: 1.2; }
+@media (min-width: 1100px) { .page :global(.cta-title) { font-size: clamp(1.9rem, 2.45vw, 2.35rem); white-space: nowrap; } }
 .page .overviewContent .overviewHeading,
 .page .explained :global(.clin-head h2) { font-size: var(--type-section-size); font-weight: 800; line-height: var(--type-section-line); letter-spacing: var(--type-section-tracking); }

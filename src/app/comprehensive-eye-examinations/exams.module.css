@@ -704,3 +704,4 @@
 .page .heroCopy > p:not(.eyebrow), .page .overviewText p, .page .bentoCenterHead .leadText, .page .closingCopy p { font-size: var(--type-lead-size); line-height: var(--type-lead-line); }
 .page .refVideoDesc, .page .bentoDescription { font-size: var(--type-supporting-size); line-height: var(--type-supporting-line); }
 .page :global(.btn) { font-family: var(--font-body); font-size: var(--type-button-size); font-weight: 600; line-height: 1.2; }
+@media (min-width: 1100px) { .page :global(.cta-title) { font-size: clamp(1.9rem, 2.45vw, 2.35rem); white-space: nowrap; } }

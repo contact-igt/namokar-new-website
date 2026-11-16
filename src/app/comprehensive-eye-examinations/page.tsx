@@ -12,6 +12,7 @@ import { CATEGORY_LABEL, videosFor } from "@/content/videos";
 import { onlineBookingAvailable } from "@/lib/booking";
 import { playerProps } from "@/lib/videoProps";
 import styles from "./exams.module.css";
+import HomeCta from "@/components/HomeCta";
 
 export const metadata = serviceMetadata("exams");
 
@@ -179,20 +180,13 @@ export default function Page() {
 
   // 6. CLOSING CTA
   const closing = (
-    <section className={styles.closing} aria-labelledby="exams-cta-h">
-      <div className="container">
-        <div className={styles.closingPanel}>
-          <figure className={styles.closingImage} aria-hidden="true">
-            <Image src="/images/Hands Cupping Glowing Eye Icon.png" alt="" fill sizes="(min-width: 960px) 38vw, 100vw" />
-          </figure>
-          <div className={styles.closingCopy}>
-            <h2 id="exams-cta-h">Speak to the centre about your eyes.</h2>
-            <p>Contact the centre to plan your visit or arrange an eye consultation.</p>
-            <BookButton online={online} />
-          </div>
-        </div>
-      </div>
-    </section>
+    <HomeCta
+      online={online}
+      id="exams-cta"
+      kicker="Consultation"
+      heading="Speak to the centre about your eyes."
+      desc="Contact the centre to plan your visit or arrange an eye consultation."
+    />
   );
 
   return (

@@ -9,6 +9,7 @@ import { videosFor } from "@/content/videos";
 import { onlineBookingAvailable } from "@/lib/booking";
 import { playerProps } from "@/lib/videoProps";
 import VideoPlayer from "@/components/VideoPlayer";
+import HomeCta from "@/components/HomeCta";
 import GlaucomaVideoCard from "./GlaucomaVideoCard";
 import FaqList from "@/components/FaqList";
 import { PhoneIcon } from "@/components/Icons";
@@ -451,41 +452,13 @@ export default function Page() {
   );
 
   const closing = (
-    <section className={styles.ctaSection} aria-labelledby="glaucoma-cta-h">
-      <div className="container">
-        <div className={styles.ctaPanel}>
-          <figure className={styles.ctaVisual} aria-hidden="true">
-            <Image
-              src="/images/Hands Cupping Glowing Eye Icon.png"
-              alt=""
-              fill
-              sizes="(min-width: 960px) 36vw, 100vw"
-              className={styles.ctaImage}
-              unoptimized
-            />
-          </figure>
-          <div className={styles.ctaCopy}>
-            <p className={styles.eyebrow}>Consultation</p>
-            <h2 id="glaucoma-cta-h" className={styles.ctaTitle}>
-              Speak to the centre about your eyes.
-            </h2>
-            <p className={styles.ctaLead}>
-              Contact the centre to plan your visit or arrange an eye consultation.
-            </p>
-            <div className={styles.ctaActions}>
-              <BookButton online={online} />
-              <a
-                href={TEL_HREF}
-                className="btn btn--outline-dark"
-                aria-label={`Call ${SITE.name} on ${SITE.phone.display}`}
-              >
-                <PhoneIcon width={18} height={18} /> Call Us Now
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <HomeCta
+      online={online}
+      id="glaucoma-cta"
+      kicker="Consultation"
+      heading="Speak to the centre about your eyes."
+      desc="Contact the centre to plan your visit or arrange an eye consultation."
+    />
   );
 
   return (
