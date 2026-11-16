@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Slider, { type Settings } from "react-slick";
 import { LINKS } from "@/config/site";
-import { ArrowRightIcon } from "../Icons";
+import { ArrowRightIcon, InfoIcon } from "../Icons";
 
 type Design = "distance" | "near" | "astigmatism" | "edof";
 
@@ -15,6 +15,17 @@ const IMAGES: Record<Design, string> = {
   astigmatism: "/images/lens-toric.webp",
   edof: "/images/lens-edof.webp",
 };
+
+function DesignIcon({ design }: { design: Design }) {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {design === "distance" && <><path d="M2 16s5-7 14-7 14 7 14 7-5 7-14 7S2 16 2 16Z" /><circle cx="16" cy="16" r="4" /></>}
+      {design === "near" && <><ellipse cx="16" cy="9" rx="11" ry="4" /><path d="M5 9v7c0 2 5 4 11 4s11-2 11-4V9M5 16v7c0 2 5 4 11 4s11-2 11-4v-7" /></>}
+      {design === "astigmatism" && <><circle cx="16" cy="16" r="8" /><path d="M16 2v7m0 14v7M2 16h7m14 0h7M12 16h8" /></>}
+      {design === "edof" && <><path d="M3 16h8m10 0h8M12 8c5 2 5 14 0 16M20 8c-5 2-5 14 0 16" /><circle cx="16" cy="16" r="2" /></>}
+    </svg>
+  );
+}
 
 /**
  * One card per design term: a simplified focus drawing, a short tag, a plain description and three
@@ -109,7 +120,7 @@ export default function LensDesigns() {
                 </div>
                 <div className="lens-card-body">
                   <div className="lens-card-top">
-                    <span className="lens-card-name">{COPY[d].name}</span>
+                    <span className="lens-card-category"><span className="lens-card-icon"><DesignIcon design={d} /></span><span className="lens-card-name">{COPY[d].name}</span></span>
                     <span className="lens-card-tag">{COPY[d].tag}</span>
                   </div>
                   <h3 className="lens-card-title">{COPY[d].title}</h3>
@@ -130,10 +141,11 @@ export default function LensDesigns() {
         </Slider>
       </div>
       <p className="clin-fine lens-fine">
-        Which design, if any, suits you depends on your eyes, your daily
+        <InfoIcon width={24} height={24} />
+        <span>Which design, if any, suits you depends on your eyes, your daily
         activities and your expectations. These simplified diagrams do not
         predict your vision. No lens can promise that you will never need
-        spectacles.
+        spectacles.</span>
       </p>
     </div>
   );

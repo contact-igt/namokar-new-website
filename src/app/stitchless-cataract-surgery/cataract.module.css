@@ -137,15 +137,63 @@
 
 .page :global(#faq), .page :global(#related) { min-height: 0; }
 .page :global(.cta-panel-image) { object-fit: cover; object-position: left center; }
-.page :global([data-figure='cataractSteps'] .cataract-process-label) { height: 112px; }
-.page :global([data-figure='cataractSteps'] .cataract-process-step > p) { margin-top: 16px; }
+.page :global([data-figure='lensDesigns'] .clin-fig),
+.page :global([data-figure='cataractSteps'] .clin-fig) { padding: 0; border: 0; background: transparent; }
+.page :global([data-figure='lensDesigns'] .clin-head),
+.page :global([data-figure='cataractSteps'] .clin-head) { margin-bottom: 36px; }
+.page :global([data-figure='cataractSteps'] .clin-head .lead) { max-width: none; }
+
+.page :global([data-figure='lensDesigns'] .lens-fg) { margin-top: 0; }
+.page :global([data-figure='lensDesigns'] .lens-card) { border-color: #f1dfd4; border-radius: 26px; background: #fffdfb; box-shadow: 0 10px 28px rgb(81 54 37 / .09); }
+.page :global([data-figure='lensDesigns'] .lens-card-fig) { aspect-ratio: 1.9 / 1; border: 0; }
+.page :global([data-figure='lensDesigns'] .lens-card-fig::after) { position: absolute; right: -3%; bottom: -1px; left: -3%; height: 22px; border-radius: 50% 50% 0 0; background: #fffdfb; content: ''; }
+.page :global([data-figure='lensDesigns'] .lens-card-body) { gap: 12px; padding: 20px 22px 24px; }
+.page :global([data-figure='lensDesigns'] .lens-card-category) { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
+.page :global([data-figure='lensDesigns'] .lens-card-icon) { display: grid; flex: none; place-items: center; width: 42px; height: 42px; border-radius: 13px; background: #fff0e5; color: var(--orange-dark); }
+.page :global([data-figure='lensDesigns'] .lens-card-icon svg) { width: 25px; height: 25px; }
+.page :global([data-figure='lensDesigns'] .lens-card-top) { min-height: 42px; }
+.page :global([data-figure='lensDesigns'] .lens-card-title) { min-height: 2.4em; margin: 0; font-size: clamp(1.15rem, 1.7vw, 1.375rem); }
+.page :global([data-figure='lensDesigns'] .lens-card-text) { min-height: 6.4em; margin: 0; }
+.page :global([data-figure='lensDesigns'] .lens-card-points) { margin: 0 0 6px; border-color: #eedfd5; }
+.page :global([data-figure='lensDesigns'] .lens-card-cta) { width: 100%; min-height: 48px; border-radius: 999px; }
+.page :global([data-figure='lensDesigns'] .lens-fine) { display: flex; align-items: center; gap: 18px; margin-top: 38px; padding: 18px 22px; border: 1px solid #f0dfd2; border-radius: 20px; background: rgb(255 246 240 / .9); text-align: left; }
+.page :global([data-figure='lensDesigns'] .lens-fine svg) { flex: none; width: 42px; height: 42px; padding: 8px; border-right: 1px solid #e7a987; color: var(--orange-dark); }
+
+.page :global([data-figure='cataractSteps'] .cataract-process) { align-items: stretch; gap: 22px; padding-top: 0; }
+.page :global([data-figure='cataractSteps'] .cataract-process-step) { display: flex; flex-direction: column; align-items: stretch; justify-items: stretch; min-height: 100%; overflow: visible; border: 1px solid #f1d9c9; border-radius: 26px; background: #fffdfb; box-shadow: 0 10px 24px rgb(92 52 28 / .1); }
+.page :global([data-figure='cataractSteps'] .cataract-process-eye) { flex: none; width: 100%; height: 205px; aspect-ratio: auto; border-radius: 25px 25px 35% 35% / 25px 25px 12% 12%; background-color: #ffebdf; background-size: 400% auto; }
+.page :global([data-figure='cataractSteps'] .cataract-process-eye > span) { top: 0; left: 16px; width: 48px; height: 44px; border: 0; border-radius: 0 0 16px 16px; font-family: var(--font-body); font-size: 1.2rem; }
+.page :global([data-figure='cataractSteps'] .cataract-process-label) { display: grid; grid-template-columns: 48px minmax(0, 1fr); align-items: start; justify-items: stretch; gap: 12px; height: auto; min-height: 115px; margin: 0; padding: 18px 20px 0; border: 0; border-radius: 0; background: transparent; text-align: left; }
+.page :global([data-figure='cataractSteps'] .cataract-process-icon) { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: #fff0e5; color: var(--orange-dark); }
+.page :global([data-figure='cataractSteps'] .cataract-process-icon svg) { width: 27px; height: 27px; }
+.page :global([data-figure='cataractSteps'] .cataract-process-label h3) { min-height: 1.3em; margin: 4px 0 8px; color: var(--cataract-ink); font-size: clamp(1.1rem, 1.6vw, 1.35rem); }
+.page :global([data-figure='cataractSteps'] .cataract-process-subtitle) { display: inline-block; padding: 4px 10px; border-radius: 999px; background: #ffe9dc; color: #814011; font-size: .8rem; font-weight: 700; line-height: 1.3; }
+.page :global([data-figure='cataractSteps'] .cataract-process-step > p) { margin: 0; padding: 4px 20px 26px; font-size: .9375rem; line-height: 1.55; }
+.page :global([data-figure='cataractSteps'] .cataract-process-arrow) { z-index: 2; top: 177px; right: -35px; display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid #f0d6c5; border-radius: 50%; background: #fffdfb; box-shadow: 0 5px 12px rgb(92 52 28 / .15); }
+.page :global([data-figure='cataractSteps'] .cataract-process-arrow::after) { top: 18px; right: 19px; width: 12px; height: 12px; border-width: 0 3px 3px 0; }
+.page :global([data-figure='cataractSteps'] .cataract-process-note) { margin-top: 30px; }
+@media (min-width: 1120px) {
+  .page :global([data-figure='cataractSteps'] .cataract-process) { gap: 22px; }
+}
+@media (max-width: 1119px) {
+  .page :global([data-figure='cataractSteps'] .cataract-process-arrow) { display: none; }
+}
+@media (max-width: 1000px) {
+  .page :global([data-figure='lensDesigns'] .lens-card-text) { min-height: 0; }
+}
+@media (max-width: 680px) {
+  .page :global([data-figure='lensDesigns'] .lens-card-title) { min-height: 0; }
+  .page :global([data-figure='lensDesigns'] .lens-card-fig) { aspect-ratio: 1.65 / 1; }
+  .page :global([data-figure='cataractSteps'] .cataract-process-label) { min-height: 0; padding-bottom: 16px; }
+}
 @media (min-width: 1100px) { .page :global(.cta-title) { font-size: clamp(1.9rem, 2.45vw, 2.35rem); white-space: nowrap; } }
 
 @media (max-width: 959px) {
   .overview { background-image: none; }
   .overviewGrid { grid-template-columns: 1fr; gap: 24px; }
   .overviewVisual { min-height: 340px; border-radius: 20px; background: url('/images/da6b3c44-eb16-4da2-8f3b-d8e36fe46080.png') left center / cover no-repeat; }
-  .overviewCallout { top: 33%; right: auto; left: 38%; }
+  .overviewCallout { top: 28%; right: auto; left: 45%; }
+  .calloutPointer { display: none; }
   .overviewCopy { max-width: none; }
   .videoGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .journeyGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 24px; }
