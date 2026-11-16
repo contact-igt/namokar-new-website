@@ -22,7 +22,7 @@ export const HERO_SLIDES = [
     tab: "Our Centre",
     label: "Our centre",
     badge: "Trusted Eye Care Since 25+ Years",
-    title: "Centre for Vision Care & Eye Aesthetics",
+    title: "Centre of Excellence for Vision Care & Eye Aesthetics",
     body: "From routine eye examinations to cataract, glaucoma and oculoplasty care, every visit starts with a careful assessment.",
     more: { label: "About the centre", href: LINKS.about },
   },
