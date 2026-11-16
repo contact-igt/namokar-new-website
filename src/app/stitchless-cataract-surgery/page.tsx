@@ -12,9 +12,9 @@ export const metadata = serviceMetadata("cataract");
 const journeyImages = [
   "/images/aesthetic/assessment-slit-exam-hq.webp",
   "/images/aesthetic/doctor-exam-dsc06826.webp",
-  "/images/replacement-lens-illustration.png",
+  "/images/aesthetic/eye-exam-chart.webp",
   "/images/cataract-hero-clean-v2.webp",
-  "/images/cataract-eye-illustration.png",
+  "/images/aesthetic/doctor-exam-dsc06824.webp",
 ];
 
 export default function Page() {
@@ -27,20 +27,7 @@ export default function Page() {
       overview={
         <section id="overview" className={styles.overview} aria-labelledby="overview-h">
           <div className={`container ${styles.overviewGrid}`}>
-            <div className={styles.overviewVisual}>
-              <div className={styles.overviewTrust}>
-                <span className={styles.overviewTrustIcon} aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 3 4 6v5c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6l-8-3Z" />
-                    <path d="m8.5 12 2.2 2.2 4.8-5" />
-                  </svg>
-                </span>
-                <span>
-                  <strong>Advanced Technology</strong>
-                  <small>Modern diagnostic support</small>
-                </span>
-              </div>
-            </div>
+            <div className={styles.overviewVisual} aria-hidden="true" />
             <div className={styles.overviewCopy}>
               <p className="kicker">Comprehensive vision care</p>
               <h2 id="overview-h" className="h2">What is a Cataract</h2>
@@ -146,10 +133,7 @@ export default function Page() {
                   one distance. Toric designs address astigmatism and may overlap with these categories.
                 </p>
                 <p>
-                  Which design, if any, suits you depends on your eyes, your daily
-                  activities and your expectations. The doctor explains the choices and what
-                  each can and cannot do. No lens can promise that you will never need
-                  spectacles.
+                  Which design suits you depends on your eye measurements, daily activities and expectations. The doctor explains the limits of each option; spectacles may still be needed.
                 </p>
               </div>
             </div>
