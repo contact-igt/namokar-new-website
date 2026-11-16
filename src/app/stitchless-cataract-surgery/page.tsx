@@ -27,7 +27,9 @@ export default function Page() {
       overview={
         <section id="overview" className={styles.overview} aria-labelledby="overview-h">
           <div className={`container ${styles.overviewGrid}`}>
-            <div className={styles.overviewVisual} aria-hidden="true" />
+            <div className={styles.overviewVisual}>
+              <span className={styles.overviewCallout}>Natural lens</span>
+            </div>
             <div className={styles.overviewCopy}>
               <p className="kicker">Comprehensive vision care</p>
               <h2 id="overview-h" className="h2">What is a Cataract</h2>
