@@ -173,16 +173,18 @@ export default function ExpertEyeCareSection({
   heading,
   subtitle,
   showBanner = true,
+  serviceRelated = false,
 }: {
   id?: string;
-  items?: { title: string; desc: string; href: string; image: string; alt: string }[];
+  items?: { title: string; desc: string; href: string; image: string; alt: string; icon?: React.ReactNode }[];
   badge?: string;
   heading?: React.ReactNode;
   subtitle?: React.ReactNode;
   showBanner?: boolean;
+  serviceRelated?: boolean;
 }) {
   return (
-    <section id={id} className={styles.sectionWrap} aria-labelledby={`${id}-h`}>
+    <section id={id} className={`${styles.sectionWrap} ${serviceRelated ? styles.serviceRelated : ""}`} aria-labelledby={`${id}-h`}>
       {/* Decorative Top-Left Soft Peach Wave */}
       <div className={styles.bgWaveTopLeft} aria-hidden="true">
         <svg viewBox="0 0 420 220" fill="none" preserveAspectRatio="none">
@@ -227,7 +229,7 @@ export default function ExpertEyeCareSection({
 
         {/* 3 Services Cards Grid */}
         <div className={styles.cardsGrid}>
-          {(items ? items.map((item) => ({ ...item, icon: <EyeBadgeIcon /> })) : SERVICES_DATA).map((card, idx) => (
+          {(items ? items.map((item) => ({ ...item, icon: item.icon ?? <EyeBadgeIcon /> })) : SERVICES_DATA).map((card, idx) => (
             <div key={idx} className={styles.serviceCard}>
               {/* Card Top Image */}
               <div className={styles.cardImageWrap}>

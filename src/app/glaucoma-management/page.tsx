@@ -11,7 +11,7 @@ import { playerProps } from "@/lib/videoProps";
 import VideoPlayer from "@/components/VideoPlayer";
 import HomeCta from "@/components/HomeCta";
 import GlaucomaVideoCard from "./GlaucomaVideoCard";
-import FaqList from "@/components/FaqList";
+import ServicesFaqSection from "@/components/ServicesFaqSection";
 import { PhoneIcon } from "@/components/Icons";
 import styles from "./glaucoma.module.css";
 
@@ -432,23 +432,7 @@ export default function Page() {
 
   const faqs = SERVICE_CONTENT.glaucoma.faqs;
   const faq = (
-    <section id="faq" className={styles.faqSection} aria-labelledby="faq-h">
-      <div className="container">
-        <div className={styles.faqWrap}>
-          <div className={styles.centerHead}>
-            <p className={styles.eyebrow}>Common questions</p>
-            <h2 id="faq-h">Questions patients often ask</h2>
-            <p className={styles.leadText}>
-              This page is general information, not medical advice. Your own eyes need to
-              be examined before anyone can advise you.
-            </p>
-          </div>
-          <div className={styles.faqList}>
-            <FaqList items={faqs} />
-          </div>
-        </div>
-      </div>
-    </section>
+    <ServicesFaqSection items={faqs} heading="Questions patients often ask" lead="This page is general information, not medical advice. Your own eyes need to be examined before anyone can advise you." serviceStyle topic="glaucoma" online={online} />
   );
 
   const closing = (

@@ -126,7 +126,7 @@ export default function Page() {
       <section id="lenses" className="section section--graphite" aria-labelledby="lenses-h">
         <div className="container">
           <div className={styles.lensPanel}>
-            <div className="about-grid">
+            <div className={styles.lensContent}>
               <div className="section-head">
                 <p className="kicker">Choosing a lens</p>
                 <h2 id="lenses-h" className="h2">About replacement lenses</h2>

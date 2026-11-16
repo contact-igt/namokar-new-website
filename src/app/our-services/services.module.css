@@ -290,6 +290,40 @@
   color: #ffffff;
 }
 
+/* Service detail FAQs use the approved card layout without a sticky introduction. */
+.page .targetedServiceFaq {
+  padding: clamp(64px, 6vw, 88px) 0;
+  background: #fff8f3 url('/images/Soft Peach Wave Background.png') center / cover no-repeat;
+}
+
+.page .targetedServiceFaq :global(.faq-shell) {
+  max-width: 1400px;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.25fr);
+  gap: clamp(40px, 5vw, 76px);
+}
+
+.page .targetedServiceFaq :global(.faq-shell .faq-intro) {
+  position: static;
+  top: auto;
+  transform: none;
+  animation: none;
+  will-change: auto;
+}
+
+.targetedServiceFaq .sectionTitle {
+  max-width: 14ch;
+  color: #073f46;
+  font-size: var(--type-section-size);
+  line-height: var(--type-section-line);
+}
+
+.targetedServiceFaq .faqBenefits { background: #e8f1ef; }
+
+@media (max-width: 959px) {
+  .page .targetedServiceFaq :global(.faq-shell) { grid-template-columns: minmax(0, 1fr); }
+  .targetedServiceFaq .sectionTitle { max-width: none; }
+}
+
 .btnSecondary {
   background: #ffffff;
   color: #0f2c3b;

@@ -467,3 +467,24 @@
   background-color: #E89A60;
 }
 
+/* The three detailed service pages use the approved cards with their own content. */
+.serviceRelated {
+  padding: clamp(64px, 6vw, 86px) 0;
+  background: #fff8f3 url('/images/Soft Peach Wave Background.png') center / cover no-repeat;
+  border: 0;
+}
+
+.serviceRelated .container { max-width: 1400px; }
+.serviceRelated .heading { color: #073f46; font-size: var(--type-section-size); }
+.serviceRelated .header { margin-bottom: 38px; }
+.serviceRelated .cardsGrid { margin-bottom: 0; align-items: stretch; }
+.serviceRelated .serviceCard { height: 100%; }
+.serviceRelated .cardImageWrap { height: clamp(190px, 17vw, 235px); }
+.serviceRelated .cardTitle { min-height: 2.6em; color: #073f46; }
+.serviceRelated .cardDesc { font-size: 1rem; }
+
+@media (max-width: 679px) {
+  .serviceRelated .cardImageWrap { height: 210px; }
+  .serviceRelated .cardTitle { min-height: 0; }
+}
+

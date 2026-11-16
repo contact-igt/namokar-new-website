@@ -35,12 +35,22 @@ import AssessmentJourneySection from "./AssessmentJourneySection";
 import AestheticVideosSection from "./AestheticVideosSection";
 import ExpertEyeCareSection, { SERVICE_CARD_IMAGES } from "./ExpertEyeCareSection";
 import expertStyles from "./ExpertEyeCareSection.module.css";
+import { FaqIcon, type FaqIconName } from "./HomeFaqSection";
 
 const compactRelatedBlurb: Partial<Record<ServiceKey, string>> = {
   exams: "A thorough check of your vision and overall eye health.",
   cataract: "Assessment of a clouded lens and discussion of treatment options.",
   glaucoma: "Assessment and regular follow-up for long-term glaucoma care.",
   reconstructive: "Care for eyelid and tear-drainage problems affecting comfort or function.",
+};
+
+const relatedIconByService: Record<ServiceKey, FaqIconName> = {
+  cataract: "eye",
+  glaucoma: "shield",
+  exams: "clipboard",
+  eyelid: "lid",
+  aesthetic: "eye",
+  reconstructive: "lid",
 };
 
 /** Page metadata shared by every service route. Pages awaiting review are not indexed. */
@@ -234,7 +244,7 @@ export default function ServiceLayout({
         />
       ))}
 
-      {faq ?? (serviceKey === "aesthetic" ? <ServicesFaqSection items={c.faqs} aesthetic /> : serviceKey === "eyelid" ? (
+      {faq ?? (compactRelated ? <ServicesFaqSection items={c.faqs} heading="Questions patients often ask" lead="This page is general information, not medical advice. Your own eyes need to be examined before anyone can advise you." serviceStyle topic={serviceKey as "cataract" | "glaucoma" | "exams"} online={online} /> : serviceKey === "aesthetic" ? <ServicesFaqSection items={c.faqs} aesthetic /> : serviceKey === "eyelid" ? (
         <ServicesFaqSection
           items={c.faqs}
           aesthetic
@@ -257,7 +267,21 @@ export default function ServiceLayout({
       </section>
       ))}
 
-      {!redesignedService || serviceKey === "cataract" ? (
+      {compactRelated ? (
+        <ExpertEyeCareSection
+          id="related"
+          badge="Related Care"
+          heading="Related Services"
+          subtitle="Explore eye care services related to this page."
+          showBanner={false}
+          serviceRelated
+          items={c.related.map((k) => {
+            const r = serviceByKey(k);
+            const cardMeta = SERVICE_CARD_IMAGES[k];
+            return { title: r.title, desc: compactRelatedBlurb[k] ?? r.blurb, href: r.href, image: cardMeta.image, alt: cardMeta.alt, icon: <FaqIcon name={relatedIconByService[k]} /> };
+          })}
+        />
+      ) : !redesignedService ? (
       <section id="related" className={`section section--tight${compactRelated ? " related--compact" : ""}`} aria-labelledby="related-h">
         <div className="container">
           <h2 id="related-h" className="h2 h2--sm">{compactRelated ? "Related Services" : "Related care"}</h2>

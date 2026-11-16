@@ -9,7 +9,7 @@ const ITEMS = [
 export default function CataractPatterns() {
   return (
     <div className="cat-guide">
-      <div className="cat-pair" aria-label="Clear and clouded natural lens comparison">
+      <div className="cat-comparison-panel"><div className="cat-pair" aria-label="Clear and clouded natural lens comparison">
         <figure className="cat-card cat-card--comparison">
           <div className="cat-image">
             <Image
@@ -36,15 +36,14 @@ export default function CataractPatterns() {
           </div>
           <figcaption><h3>Lens with a cataract</h3><p>Clouding of the natural lens can scatter light and affect vision.</p></figcaption>
         </figure>
-      </div>
-      <div className="cat-types">
+      </div></div>
+      <div className="cat-types cat-pattern-panel">
         <div className="cat-types-head"><h3>Three common patterns</h3><p>These describe where clouding sits in the lens. A person can have more than one pattern.</p></div>
         <div className="cat-types-grid">
           {ITEMS.map((item) => (
             <figure className="cat-card cat-card--pattern" key={item.title}>
               <div className="cat-image">
                 <Image src={item.image} alt={item.alt} width={1086} height={1448} sizes="(min-width: 900px) 33vw, (min-width: 640px) 50vw, 100vw" />
-                <span aria-hidden="true">{item.title}</span>
               </div>
               <figcaption><h4>{item.title}</h4><p>{item.detail}</p></figcaption>
             </figure>

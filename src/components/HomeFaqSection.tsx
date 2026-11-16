@@ -2,7 +2,7 @@ import homeStyles from "@/app/home-redesign.module.css";
 import { useId, type ReactNode } from "react";
 import { PinIcon } from "@/components/Icons";
 
-type FaqIconName = "eye" | "lid" | "drop" | "doctor" | "scalpel" | "eyebag" | "calendar" | "clipboard" | "phone" | "pin" | "shield" | "heart";
+export type FaqIconName = "eye" | "lid" | "drop" | "doctor" | "scalpel" | "eyebag" | "calendar" | "clipboard" | "phone" | "pin" | "shield" | "heart";
 
 export function FaqIcon({ name }: { name: FaqIconName }) {
   const icons = {
@@ -85,12 +85,12 @@ export function FaqIcon({ name }: { name: FaqIconName }) {
   return icons[name] || icons.eye;
 }
 
-export default function HomeFaqSection({items, title = "Questions Patients Often Ask", eyebrow = "Common questions", intro, className = "", icons}: {items: {q: string; a: string}[]; title?: string; eyebrow?: string; intro?: ReactNode; className?: string; icons?: FaqIconName[]}) {
+export default function HomeFaqSection({items, title = "Questions Patients Often Ask", eyebrow = "Common questions", intro, className = "", icons, animateIntro = true}: {items: {q: string; a: string}[]; title?: string; eyebrow?: string; intro?: ReactNode; className?: string; icons?: FaqIconName[]; animateIntro?: boolean}) {
   const accordionName = useId();
   return <div className={homeStyles.homeRedesign}>
         <section id="faq" className={`section faq-section ${className}`} aria-labelledby="faq-h">
           <div className="container faq-shell">
-            <div className="faq-intro reveal">
+            <div className={`faq-intro${animateIntro ? " reveal" : ""}`}>
               {intro ?? <>
               <p className="kicker faq-kicker">{eyebrow}</p>
               <h2 id="faq-h" className="h2 faq-h2">{title}</h2>

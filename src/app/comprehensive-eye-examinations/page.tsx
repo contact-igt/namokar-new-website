@@ -3,7 +3,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import BookButton from "@/components/BookButton";
 import AssetImage from "@/components/AssetImage";
 import ServiceLayout, { serviceMetadata } from "@/components/ServiceLayout";
-import FaqList from "@/components/FaqList";
+import ServicesFaqSection from "@/components/ServicesFaqSection";
 import ExamVideoCard from "./ExamVideoCard";
 import { LINKS } from "@/config/site";
 import { ASSETS } from "@/config/assets";
@@ -160,22 +160,7 @@ export default function Page() {
   // 5. FAQ SECTION (CENTERED ACCORDION MATCHING GLAUCOMA WITH SOFT PEACH WAVE BG)
   const faqs = content.faqs;
   const faq = (
-    <section id="faq" className={styles.faqSection} aria-labelledby="faq-h">
-      <div className="container">
-        <div className={styles.faqWrap}>
-          <div className={styles.centerHeading}>
-            <p className={styles.eyebrow}>Common questions</p>
-            <h2 id="faq-h">Questions patients often ask</h2>
-            <p>
-              This page is general information, not medical advice. Your own eyes need to be examined before anyone can advise you.
-            </p>
-          </div>
-          <div className={styles.faqList}>
-            <FaqList items={faqs} />
-          </div>
-        </div>
-      </div>
-    </section>
+    <ServicesFaqSection items={faqs} heading="Questions patients often ask" lead="This page is general information, not medical advice. Your own eyes need to be examined before anyone can advise you." serviceStyle topic="exams" online={online} />
   );
 
   // 6. CLOSING CTA
