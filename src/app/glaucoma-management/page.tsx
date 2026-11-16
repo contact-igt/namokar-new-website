@@ -301,10 +301,26 @@ export default function Page() {
       className={styles.overviewSection}
       aria-labelledby="overview-h"
     >
+      {/* Full-width background image with eye illustration on left */}
+      <div className={styles.overviewBg} aria-hidden="true">
+        <Image
+          src="/images/828d4946-fb2e-45f2-b03c-d4f46e7c10a9.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className={styles.overviewBgImg}
+        />
+        <div className={styles.mobileBgProtection} />
+      </div>
+
       <div className={`container ${styles.overviewGrid}`}>
         <div className={styles.overviewSpacer} aria-hidden="true" />
         <div className={styles.overviewContent}>
-          <p className={styles.eyebrow}>COMPREHENSIVE VISION CARE</p>
+          <div className={styles.kicker}>
+            <span className={styles.kickerBar} aria-hidden="true" />
+            <span>UNDERSTANDING GLAUCOMA</span>
+          </div>
           <h2 id="overview-h" className={styles.overviewHeading}>
             {c.introHeading}
           </h2>
@@ -315,10 +331,29 @@ export default function Page() {
               <strong>gradually damaged</strong>.{" "}
               <strong>Raised pressure inside the eye</strong> is a common factor, but it is not the only one.
             </p>
-            <p className={styles.overviewHighlight}>
-              Glaucoma is often called the <strong>silent thief of sight</strong> because it can take{" "}
-              <strong>side vision slowly and without pain</strong>. Left untreated, it can lead to permanent loss of vision.
-            </p>
+            <div className={styles.overviewCallout}>
+              <span className={styles.calloutIconWrap} aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  width="22"
+                  height="22"
+                >
+                  <path d="M2.5 12s3.6-6 9.5-6 9.5 6 9.5 6-3.6 6-9.5 6S2.5 12 2.5 12Z" />
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M7.5 18c1.3.8 2.8 1.2 4.5 1.2s3.2-.4 4.5-1.2" />
+                </svg>
+              </span>
+              <p className={styles.calloutText}>
+                Glaucoma is often called the <strong>silent thief of sight</strong> because it can take{" "}
+                <strong>side vision slowly and without pain</strong>. Left untreated, it can lead to{" "}
+                <strong>permanent loss of vision</strong>.
+              </p>
+            </div>
             <p>
               Glaucoma is usually a <strong>long-term condition</strong> that is managed rather than cured. Damage to the optic nerve cannot be reversed, so the aim of care is to{" "}
               <strong>find glaucoma early</strong> and to{" "}
@@ -330,37 +365,72 @@ export default function Page() {
 
       <div className={`container ${styles.overviewFeatures}`}>
         <article>
-          <span aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z" />
-              <circle cx="12" cy="12" r="3.5" />
-              <path d="M12 15.5v3.5M10.5 21h3" />
-            </svg>
-          </span>
-          <strong>Optic nerve &amp; pressure</strong>
-          <p>The nerve connecting eye to brain is gradually damaged, with raised pressure a common factor.</p>
-        </article>
-        <article>
-          <span aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M12 3a9 9 0 0 1 0 18" strokeDasharray="2.5 2.5" />
+          <span className={styles.featureIconWrap} aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.1"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              width="22"
+              height="22"
+            >
+              <path d="M2.5 12s3.6-6 9.5-6 9.5 6 9.5 6-3.6 6-9.5 6S2.5 12 2.5 12Z" />
               <circle cx="12" cy="12" r="3" />
-              <path d="M3 12h3M18 12h3" />
+              <path d="M7.5 18c1.3.8 2.8 1.2 4.5 1.2s3.2-.4 4.5-1.2" />
             </svg>
           </span>
-          <strong>Painless side-vision loss</strong>
-          <p>Often called the silent thief of sight, taking side vision slowly and without early pain.</p>
+          <div className={styles.featureContent}>
+            <strong>Optic nerve &amp; pressure</strong>
+            <p>The nerve connecting eye to brain is gradually damaged, with raised pressure a common factor.</p>
+          </div>
         </article>
         <article>
-          <span aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              <polyline points="9 12 11 14 15 10" />
+          <span className={styles.featureIconWrap} aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.1"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              width="22"
+              height="22"
+            >
+              <circle cx="12" cy="12" r="7" />
+              <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" />
+              <line x1="12" y1="2" x2="12" y2="5" />
+              <line x1="12" y1="19" x2="12" y2="22" />
+              <line x1="2" y1="12" x2="5" y2="12" />
+              <line x1="19" y1="12" x2="22" y2="12" />
             </svg>
           </span>
-          <strong>Protecting remaining sight</strong>
-          <p>While damage cannot be reversed, finding it early and ongoing care protect remaining vision.</p>
+          <div className={styles.featureContent}>
+            <strong>Painless side-vision loss</strong>
+            <p>Often called the silent thief of sight, taking side vision slowly and without pain.</p>
+          </div>
+        </article>
+        <article>
+          <span className={styles.featureIconWrap} aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.1"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              width="22"
+              height="22"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+          </span>
+          <div className={styles.featureContent}>
+            <strong>Protecting remaining sight</strong>
+            <p>While damage cannot be reversed, finding it early and ongoing care protect the vision that remains.</p>
+          </div>
         </article>
       </div>
     </section>
