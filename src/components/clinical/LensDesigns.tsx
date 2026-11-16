@@ -150,13 +150,12 @@ export default function LensDesigns() {
     arrows: true,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
-    dots: true,
+    dots: false,
     infinite: true,
     autoplay: isPlaying,
     autoplaySpeed: 5000,
     pauseOnHover: true,
     pauseOnFocus: true,
-    pauseOnDotsHover: true,
     speed: 550,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -176,34 +175,19 @@ export default function LensDesigns() {
         },
       },
     ],
-    appendDots: (dots) => (
-      <div className="lens-dots-container">
-        <ul className="lens-dots-list">{dots}</ul>
-        <button
-          type="button"
-          className="lens-play-pause-btn"
-          onClick={togglePlay}
-          aria-label={isPlaying ? "Pause automatic slide rotation" : "Resume automatic slide rotation"}
-          title={isPlaying ? "Pause automatic sliding" : "Resume automatic sliding"}
-        >
-          {isPlaying ? (
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="13" height="13">
-              <rect x="5" y="4" width="4.5" height="16" rx="1.5" />
-              <rect x="14.5" y="4" width="4.5" height="16" rx="1.5" />
-            </svg>
-          ) : (
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="13" height="13">
-              <polygon points="6,4 20,12 6,20" />
-            </svg>
-          )}
-        </button>
-      </div>
-    ),
   };
 
   return (
     <div>
       <div className="fg lens-fg" aria-label="Replacement lens designs">
+        <button
+          type="button"
+          className="lens-accessible-pause"
+          onClick={togglePlay}
+          aria-label={isPlaying ? "Pause automatic slide rotation" : "Resume automatic slide rotation"}
+        >
+          {isPlaying ? "Pause automatic sliding" : "Resume automatic sliding"}
+        </button>
         <Slider ref={sliderRef} {...settings}>
           {ORDER.map((d) => (
             <div key={d}>
