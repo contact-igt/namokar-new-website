@@ -38,7 +38,7 @@ export default function ServicesFaqSection({
       <HomeFaqSection
         items={items}
         icons={serviceStyle && topic ? topicIcons[topic] : aesthetic ? ["lid", "eyebag", "shield", "doctor"] : ["eye", "doctor", "lid", "scalpel", "clipboard", "calendar", "pin"]}
-        className={`${styles.servicesFaq} ${aesthetic && !heading ? styles.aestheticFaq : ""} ${serviceStyle ? styles.targetedServiceFaq : ""} ${image ? styles.faqWithImage : ""}`}
+        className={`${styles.servicesFaq} ${aesthetic && !heading ? styles.aestheticFaq : ""} ${serviceStyle ? styles.targetedServiceFaq : ""} ${image ? styles.faqWithImage : ""} ${topic === "cataract" ? styles.cataractFaq : ""}`}
         animateIntro={!serviceStyle}
         allClosed={allClosed}
         intro={
@@ -60,8 +60,8 @@ export default function ServicesFaqSection({
                 <Image
                   src={image}
                   alt="Optometric examination desk with prescription pad, eyeglasses, and eye chart"
-                  width={600}
-                  height={360}
+                  width={1536}
+                  height={1024}
                   className={styles.faqImage}
                   priority={false}
                 />

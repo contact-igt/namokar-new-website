@@ -244,7 +244,7 @@ export default function ServiceLayout({
         />
       ))}
 
-      {faq ?? (compactRelated ? <ServicesFaqSection items={c.faqs} heading="Questions patients often ask" lead="This page is general information, not medical advice. Your own eyes need to be examined before anyone can advise you." serviceStyle topic={serviceKey as "cataract" | "glaucoma" | "exams"} online={online} /> : serviceKey === "aesthetic" ? <ServicesFaqSection items={c.faqs} aesthetic /> : serviceKey === "eyelid" ? (
+      {faq ?? (compactRelated ? <ServicesFaqSection items={c.faqs} heading="Questions patients often ask" lead="This page is general information, not medical advice. Your own eyes need to be examined before anyone can advise you." serviceStyle topic={serviceKey as "cataract" | "glaucoma" | "exams"} online={online} image="/images/452e8467-0cbd-4c38-a11d-1ca6ff9f6035.png" allClosed /> : serviceKey === "aesthetic" ? <ServicesFaqSection items={c.faqs} aesthetic /> : serviceKey === "eyelid" ? (
         <ServicesFaqSection
           items={c.faqs}
           aesthetic
