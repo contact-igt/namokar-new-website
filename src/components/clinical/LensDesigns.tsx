@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Slider, { type Settings } from "react-slick";
@@ -24,6 +25,45 @@ function DesignIcon({ design }: { design: Design }) {
       {design === "astigmatism" && <><circle cx="16" cy="16" r="8" /><path d="M16 2v7m0 14v7M2 16h7m14 0h7M12 16h8" /></>}
       {design === "edof" && <><path d="M3 16h8m10 0h8M12 8c5 2 5 14 0 16M20 8c-5 2-5 14 0 16" /><circle cx="16" cy="16" r="2" /></>}
     </svg>
+  );
+}
+
+interface ArrowProps {
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
+  "aria-label"?: string;
+}
+
+function PrevArrow(props: ArrowProps) {
+  const { onClick } = props;
+  return (
+    <button
+      type="button"
+      className="lens-arrow lens-arrow--prev"
+      onClick={onClick}
+      aria-label="Previous lens design"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" width="22" height="22">
+        <path d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+  );
+}
+
+function NextArrow(props: ArrowProps) {
+  const { onClick } = props;
+  return (
+    <button
+      type="button"
+      className="lens-arrow lens-arrow--next"
+      onClick={onClick}
+      aria-label="Next lens design"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" width="22" height="22">
+        <path d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
   );
 }
 
@@ -86,25 +126,85 @@ const COPY: Record<
  * (src/config/figures.ts); no brand names and no promises.
  */
 export default function LensDesigns() {
-  // Three cards across on a desktop, two on a tablet, one on a phone. Swipe, drag or use the dots;
-  // nothing moves on its own.
+  const [isPlaying, setIsPlaying] = useState(true);
+  const sliderRef = useRef<Slider>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setIsPlaying(false);
+    }
+  }, []);
+
+  const togglePlay = () => {
+    if (isPlaying) {
+      sliderRef.current?.slickPause();
+      setIsPlaying(false);
+    } else {
+      sliderRef.current?.slickPlay();
+      setIsPlaying(true);
+    }
+  };
+
   const settings: Settings = {
     accessibility: true,
-    arrows: false,
+    arrows: true,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
     dots: true,
     infinite: true,
-    speed: 520,
+    autoplay: isPlaying,
+    autoplaySpeed: 5000,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+    pauseOnDotsHover: true,
+    speed: 550,
     slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
-      { breakpoint: 1000, settings: { slidesToShow: 2 } },
-      { breakpoint: 680, settings: { slidesToShow: 1 } },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 680,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
     ],
+    appendDots: (dots) => (
+      <div className="lens-dots-container">
+        <ul className="lens-dots-list">{dots}</ul>
+        <button
+          type="button"
+          className="lens-play-pause-btn"
+          onClick={togglePlay}
+          aria-label={isPlaying ? "Pause automatic slide rotation" : "Resume automatic slide rotation"}
+          title={isPlaying ? "Pause automatic sliding" : "Resume automatic sliding"}
+        >
+          {isPlaying ? (
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="13" height="13">
+              <rect x="5" y="4" width="4.5" height="16" rx="1.5" />
+              <rect x="14.5" y="4" width="4.5" height="16" rx="1.5" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="13" height="13">
+              <polygon points="6,4 20,12 6,20" />
+            </svg>
+          )}
+        </button>
+      </div>
+    ),
   };
+
   return (
     <div>
       <div className="fg lens-fg" aria-label="Replacement lens designs">
-        <Slider {...settings}>
+        <Slider ref={sliderRef} {...settings}>
           {ORDER.map((d) => (
             <div key={d}>
               <article className="lens-card">
@@ -115,19 +215,31 @@ export default function LensDesigns() {
                     alt={`Simplified illustration of how a ${COPY[d].name.toLowerCase()} lens focuses light inside the eye`}
                     fill
                     loading="eager"
-                    sizes="(max-width: 680px) 100vw, (max-width: 1000px) 50vw, 33vw"
+                    sizes="(max-width: 680px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
                 <div className="lens-card-body">
                   <div className="lens-card-top">
-                    <span className="lens-card-category"><span className="lens-card-icon"><DesignIcon design={d} /></span><span className="lens-card-name">{COPY[d].name}</span></span>
+                    <span className="lens-card-category">
+                      <span className="lens-card-icon">
+                        <DesignIcon design={d} />
+                      </span>
+                      <span className="lens-card-name">{COPY[d].name}</span>
+                    </span>
                     <span className="lens-card-tag">{COPY[d].tag}</span>
                   </div>
                   <h3 className="lens-card-title">{COPY[d].title}</h3>
                   <p className="lens-card-text">{COPY[d].text}</p>
                   <ul className="lens-card-points">
                     {COPY[d].points.map((pt) => (
-                      <li key={pt}>{pt}</li>
+                      <li key={pt}>
+                        <span className="lens-point-icon" aria-hidden="true">
+                          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="11" height="11">
+                            <polyline points="3.5 8.5 6.5 11.5 12.5 4.5" />
+                          </svg>
+                        </span>
+                        <span>{pt}</span>
+                      </li>
                     ))}
                   </ul>
                   <Link href={LINKS.contact} className="lens-card-cta">
