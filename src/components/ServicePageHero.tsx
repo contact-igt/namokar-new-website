@@ -1,165 +1,197 @@
 import Image from "next/image";
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
 import { LINKS } from "@/config/site";
 import { CalendarIcon } from "./Icons";
+import styles from "./ServicePageHero.module.css";
 
-/** Eye icon for Advanced Technology */
-function EyeIcon() {
+/** Eye icon matching reference */
+function EyeIcon({ width = 24, height = 24 }: { width?: number; height?: number }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="#B85D19" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      width={width}
+      height={height}
+      aria-hidden="true"
+    >
       <path d="M2.5 12s3.6-6 9.5-6 9.5 6 9.5 6-3.6 6-9.5 6S2.5 12 2.5 12Z" />
       <circle cx="12" cy="12" r="3" />
-      <circle cx="12" cy="12" r="1.1" fill="#B85D19" stroke="none" />
+      <circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none" />
     </svg>
   );
 }
 
-/** Shield with checkmark for Expert Care */
-function ShieldCheckIcon() {
+/** Shield with checkmark for Expert Doctors */
+function ShieldCheckIcon({ width = 24, height = 24 }: { width?: number; height?: number }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="#B85D19" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      width={width}
+      height={height}
+      aria-hidden="true"
+    >
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       <path d="m9 12 2 2 4-4" />
     </svg>
   );
 }
 
-/** Heart icon for Better Vision */
-function HeartIcon() {
+/** Heart icon for Compassionate Care */
+function HeartIcon({ width = 24, height = 24 }: { width?: number; height?: number }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="#B85D19" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      width={width}
+      height={height}
+      aria-hidden="true"
+    >
       <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7 7-7Z" />
     </svg>
   );
 }
 
 interface ServicePageHeroProps {
-  /** Breadcrumb current title */
   crumb?: string;
-  /** Section Kicker */
   kicker?: string;
-  /** Main heading first line */
-  titlePrefix?: string;
-  /** Main heading orange highlight line */
-  titleHighlight?: string;
-  /** Lead body text */
+  titleLine1?: string;
+  titleLine2?: string;
   body?: string;
-  /** Primary button label */
   primaryLabel?: string;
-  /** Primary button destination */
   primaryHref?: string;
-  /** Secondary button label */
   secondaryLabel?: string;
-  /** Secondary button destination */
   secondaryHref?: string;
-  /** Right side hero card image */
-  image?: string;
-  /** Right side hero card image alt */
-  imageAlt?: string;
 }
 
 export default function ServicePageHero({
   crumb = "Cataract Surgery",
   kicker = "CATARACT SURGERY",
-  titlePrefix = "Clear Vision,",
-  titleHighlight = "Brighter Life.",
+  titleLine1 = "Clear Vision,",
+  titleLine2 = "Brighter Life.",
   body = "Advanced cataract surgery with precision technology to help you see the world clearly again.",
   primaryLabel = "Learn About Cataract Surgery",
   primaryHref = "#overview",
   secondaryLabel = "Book a Consultation",
   secondaryHref = `${LINKS.contact}#request`,
-  image = "/images/cataract-hero-card-hq.webp",
-  imageAlt = "Doctor performing slit-lamp eye examination on a patient at Namokar Eye Centre",
 }: ServicePageHeroProps) {
   return (
-    <div className="svc-hero-wrapper">
-      <section className="svc-hero-section" aria-label="Cataract Care Overview">
-        {/* Soft Decorative Background Waves */}
-        <div className="svc-hero-bg-decor" aria-hidden="true">
-          <svg viewBox="0 0 1440 680" preserveAspectRatio="none" className="svc-hero-bg-svg">
-            <defs>
-              <linearGradient id="svcPeachWave" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#F9DFCB" stopOpacity="0.7" />
-                <stop offset="50%" stopColor="#FDEFE4" stopOpacity="0.4" />
-                <stop offset="100%" stopColor="#FFFBF7" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-            {/* Smooth curving wave under the right card */}
-            <path
-              d="M 640 680 C 760 580, 940 500, 1140 480 C 1280 460, 1380 470, 1440 490 L 1440 680 Z"
-              fill="url(#svcPeachWave)"
-            />
-          </svg>
+    <div className={styles.heroWrapper}>
+      <section className={styles.heroSection} aria-label="Cataract Care Overview">
+        {/* Full-width background image with right-aligned examination equipment */}
+        <div className={styles.heroBg} aria-hidden="true">
+          <Image
+            src="/images/55b29aeb-2558-4b4e-b632-b0d35046e843.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className={styles.heroBgImg}
+          />
+          <div className={styles.mobileBgProtection} />
         </div>
 
-        <div className="container svc-hero-container">
-          <div className="svc-hero-layout">
-            {/* Left Column: Content */}
-            <div className="svc-hero-col-text">
-              {/* Breadcrumb Navigation */}
-              <nav aria-label="Breadcrumb" className="svc-crumbs">
-                <ol>
-                  <li>
-                    <Link href="/">Home</Link>
-                  </li>
-                  <li className="svc-crumbs-sep" aria-hidden="true">&gt;</li>
-                  <li aria-current="page">{crumb}</li>
-                </ol>
-              </nav>
+        <div className={styles.container}>
+          {/* Main 2-column hero content */}
+          <div className={styles.mainLayout}>
+            {/* Left Column: Breadcrumbs, Section Label, Heading, Description, CTA Buttons */}
+            <div className={styles.colText}>
+              <div className={styles.breadcrumbWrap}>
+                <Breadcrumb
+                  current={crumb}
+                  trail={[{ label: "Services", href: LINKS.allServices }]}
+                />
+              </div>
 
-              {/* Kicker with orange dash */}
-              <div className="svc-kicker">
-                <span className="svc-kicker-bar" aria-hidden="true" />
+              {/* Section Kicker with orange bar */}
+              <div className={styles.kicker}>
+                <span className={styles.kickerBar} aria-hidden="true" />
                 <span>{kicker}</span>
               </div>
 
-              {/* Main Heading */}
-              <h1 className="svc-heading">
-                {titlePrefix}{" "}
-                <span className="svc-heading-orange">{titleHighlight}</span>
+              {/* Two-line heading in single dark teal colour */}
+              <h1 className={styles.heading}>
+                <span>{titleLine1}</span>
+                <span>{titleLine2}</span>
               </h1>
 
-              {/* Lead Body Paragraph */}
-              <p className="svc-lead">{body}</p>
+              {/* Body lead description */}
+              <p className={styles.lead}>{body}</p>
 
-              {/* Action Buttons */}
-              <div className="svc-actions">
-                <a href={primaryHref} className="svc-btn-primary">
+              {/* CTA Action Buttons */}
+              <div className={styles.actions}>
+                <a href={primaryHref} className={styles.btnPrimary}>
                   <span>{primaryLabel}</span>
-                  <span className="svc-btn-arrow" aria-hidden="true">&rarr;</span>
+                  <span className={styles.btnArrow} aria-hidden="true">
+                    &rarr;
+                  </span>
                 </a>
 
-                <Link href={secondaryHref} className="svc-btn-secondary">
-                  <span className="svc-btn-icon" aria-hidden="true">
+                <Link href={secondaryHref} className={styles.btnSecondary}>
+                  <span className={styles.btnIcon} aria-hidden="true">
                     <CalendarIcon width={18} height={18} />
                   </span>
                   <span>{secondaryLabel}</span>
                 </Link>
               </div>
-
             </div>
 
-            {/* Right Column: Hero Visual Card */}
-            <div className="svc-hero-col-visual">
-              <div className="svc-card-wrapper">
-                <Image
-                  src={image}
-                  alt={imageAlt}
-                  width={1300}
-                  height={1300}
-                  priority
-                  quality={98}
-                  className="svc-card-img"
-                  sizes="(min-width: 960px) 48vw, 100vw"
-                />
+            {/* Right Column: Informational badge placed at lower area of equipment */}
+            <div className={styles.colVisual}>
+              <div className={styles.badgeWrap}>
+                <div className={styles.infoBadge}>
+                  <span className={styles.badgeIcon} aria-hidden="true">
+                    <EyeIcon width={22} height={22} />
+                  </span>
+                  <span className={styles.badgeDivider} aria-hidden="true" />
+                  <div className={styles.badgeText}>
+                    <strong>See Clearly Again</strong>
+                    <span>with Our Expert Cataract Care</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <ul className="svc-trust-cards" aria-label="Our approach to care">
-            <li><CalendarIcon width={36} height={36} /><strong>Trusted Eye Care Since 25+ Years</strong></li>
-            <li><EyeIcon /><strong>Advanced Technology</strong></li>
-            <li><ShieldCheckIcon /><strong>Expert Doctors</strong></li>
-            <li><HeartIcon /><strong>Compassionate Care</strong></li>
+
+          {/* Bottom row of 4 trust cards above the full section background */}
+          <ul className={styles.trustCards} aria-label="Key Cataract Care Highlights">
+            <li className={styles.trustCard}>
+              <span className={styles.trustIcon} aria-hidden="true">
+                <CalendarIcon width={28} height={28} />
+              </span>
+              <strong>Trusted Eye Care Since 25+ Years</strong>
+            </li>
+            <li className={styles.trustCard}>
+              <span className={styles.trustIcon} aria-hidden="true">
+                <EyeIcon width={28} height={28} />
+              </span>
+              <strong>Advanced Technology</strong>
+            </li>
+            <li className={styles.trustCard}>
+              <span className={styles.trustIcon} aria-hidden="true">
+                <ShieldCheckIcon width={28} height={28} />
+              </span>
+              <strong>Expert Doctors</strong>
+            </li>
+            <li className={styles.trustCard}>
+              <span className={styles.trustIcon} aria-hidden="true">
+                <HeartIcon width={28} height={28} />
+              </span>
+              <strong>Compassionate Care</strong>
+            </li>
           </ul>
         </div>
       </section>
