@@ -1,3 +1,4 @@
+import HeadingText from "@/components/HeadingText";
 import Image from "next/image";
 import Breadcrumb from "@/components/Breadcrumb";
 import BookButton from "@/components/BookButton";
@@ -28,7 +29,7 @@ export default function Page() {
         <Breadcrumb current="Comprehensive Eye Examinations" trail={[{ label: "Services", href: LINKS.allServices }]} />
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}>Comprehensive Eye Examinations</p>
-          <h1 id="exams-hero-h">{content.h1}</h1>
+          <h1 id="exams-hero-h"><HeadingText>{content.h1}</HeadingText></h1>
           <p>{content.lead}</p>
           <BookButton online={online} />
         </div>
@@ -42,7 +43,7 @@ export default function Page() {
       <div className="container">
         <div className={styles.overviewCenterHead}>
           <p className={styles.eyebrow}>Comprehensive Eye Examinations</p>
-          <h2 id="overview-h">{content.introHeading}</h2>
+          <h2 id="overview-h"><HeadingText>{content.introHeading}</HeadingText></h2>
         </div>
         <div className={styles.overviewContentWrap}>
           <figure className={styles.overviewPhoto}>
@@ -73,7 +74,7 @@ export default function Page() {
         <div className="container">
           <div className={styles.reasonsCenterHead}>
             <p className={styles.eyebrow}>Know the signs</p>
-            <h2 id="when-h">{content.seekHelp.heading}</h2>
+            <h2 id="when-h"><HeadingText>{content.seekHelp.heading}</HeadingText></h2>
           </div>
           <div className={styles.reasonsGrid}>
             {content.seekHelp.items.map((item) => (
@@ -108,7 +109,7 @@ export default function Page() {
         <div className="container">
           <div className={styles.centerHeading}>
             <p className={styles.eyebrow}>What to expect</p>
-            <h2 id="journey-h">What an assessment involves</h2>
+            <h2 id="journey-h">What an <span className="title-secondary">assessment involves</span></h2>
             <p>{content.journeyLead}</p>
           </div>
           <ol className={styles.journeyGrid}>
@@ -131,7 +132,7 @@ export default function Page() {
       <div className="container">
         <div className={styles.centerHeading}>
           <p className={styles.eyebrow}>Watch</p>
-          <h2 id="watch-h">Videos on this topic</h2>
+          <h2 id="watch-h">Videos on <span className="title-secondary">this topic</span></h2>
           <p>
             Dr. Poonam Jain&apos;s centre shares short videos on its YouTube channel and in its own footage. Videos are general information, not a substitute for an examination. They complement the written information on this page.
           </p>
@@ -199,7 +200,7 @@ export default function Page() {
         <div className="container">
           <div className={styles.bentoCenterHead}>
             <p className={styles.eyebrow}>See it explained</p>
-            <h2 id="fig-examParts-h">What happens during a comprehensive eye examination</h2>
+            <h2 id="fig-examParts-h">What happens during a <span className="title-secondary">comprehensive eye examination</span></h2>
             <p className={styles.leadText}>Each step checks a different part of your vision and eye health.</p>
           </div>
 

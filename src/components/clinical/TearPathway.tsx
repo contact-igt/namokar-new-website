@@ -2,16 +2,16 @@ import Image from "next/image";
 
 const STATES = [
   {
-    src: "/images/tears-drain.png",
-    alt: "Labelled anatomy diagram showing tears draining through the tear gland, puncta, canaliculi, tear sac and tear duct",
-    title: "Tears drain",
-    text: "Tears pass from the inner eye through the puncta, canaliculi, tear sac and tear duct into the nose.",
+    src: "/images/reconstructive/tear-normal-drainage.png",
+    alt: "Diagram showing normal tear drainage from the eye corner down through the tear duct into the nose",
+    title: "Normal Drainage",
+    text: "Tears flow from the eye corner through the tear ducts into the nose. This keeps your eyes hydrated and clear.",
   },
   {
-    src: "/images/passage-blocked.png",
-    alt: "Labelled anatomy diagram showing a blockage in the tear duct and tears collecting above it",
-    title: "Passage blocked",
-    text: "When the passage is narrowed or blocked, tears can pool at the inner eye corner and the eye may water.",
+    src: "/images/reconstructive/tear-blocked-passage.png",
+    alt: "Diagram showing a blocked passage in the tear duct causing fluid retention",
+    title: "Blocked Passage",
+    text: "Tears cannot drain properly, which may lead to watery eyes or recurrent infections. A blocked passage can cause excessive tearing.",
   },
 ];
 

@@ -1,3 +1,4 @@
+import HeadingText from "@/components/HeadingText";
 import type { PlayerProps } from "@/lib/videoProps";
 import VideoPlayer from "./VideoPlayer";
 
@@ -24,7 +25,7 @@ export default function WalkthroughSection({
       <div className="container wt-layout">
         <div className="wt-head reveal">
           <p className="kicker">{eyebrow}</p>
-          <h2 id={`${id}-h`} className="h2">{heading}</h2>
+          <h2 id={`${id}-h`} className="h2"><HeadingText>{heading}</HeadingText></h2>
           <p className="lead">{lead}</p>
         </div>
         <div className="wt-stage">

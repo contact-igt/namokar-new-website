@@ -122,10 +122,10 @@ export default function ServicePageHero({
                 <span>{kicker}</span>
               </div>
 
-              {/* Two-line heading in single dark teal colour */}
+              {/* Two-line heading with the shared secondary accent */}
               <h1 className={styles.heading}>
                 <span>{titleLine1}</span>
-                <span>{titleLine2}</span>
+                <span className="title-secondary">{titleLine2}</span>
               </h1>
 
               {/* Body lead description */}
@@ -207,3 +207,4 @@ export default function ServicePageHero({
     </div>
   );
 }
+

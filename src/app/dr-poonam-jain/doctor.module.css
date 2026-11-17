@@ -16,7 +16,7 @@
   aspect-ratio: 1.5;
   margin: 0;
   overflow: hidden;
-  border: 5px solid rgb(255 255 255 / .85);
+  border: 0;
   border-radius: 32px 80px 32px 80px;
   box-shadow: 0 18px 42px rgb(63 40 26 / .12);
 }

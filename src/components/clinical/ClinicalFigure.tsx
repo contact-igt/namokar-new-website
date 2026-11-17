@@ -1,3 +1,5 @@
+import HeadingText from "@/components/HeadingText";
+import type { ReactNode } from "react";
 import { type InteractiveKey, figureUsable } from "@/config/figures";
 import FigureHost from "./FigureHost";
 
@@ -17,7 +19,7 @@ export default function ClinicalFigure({
   showNote = true,
 }: {
   id: InteractiveKey;
-  heading: string;
+  heading: ReactNode;
   intro?: string;
   className?: string;
   showNote?: boolean;
@@ -29,7 +31,7 @@ export default function ClinicalFigure({
       <div className="container">
         <div className="clin-head reveal">
           <p className="kicker">See it explained</p>
-          <h2 id={hid} className="h2">{heading}</h2>
+          <h2 id={hid} className="h2"><HeadingText>{heading}</HeadingText></h2>
           {intro && <p className="lead">{intro}</p>}
         </div>
         <figure className="clin-fig">

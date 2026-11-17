@@ -209,7 +209,7 @@ export default function ExpertEyeCareSection({
           <h2 id={`${id}-h`} className={styles.heading}>
             {heading ?? (
               <>
-                Expert <span className={styles.headingOrange}>Eye Care</span> Services
+                Expert <span className={`${styles.headingOrange} title-secondary`}>Eye Care</span> Services
               </>
             )}
           </h2>
@@ -289,7 +289,7 @@ export default function ExpertEyeCareSection({
           {/* Center Copy */}
           <div className={styles.bannerCopyCol}>
             <h3 className={styles.bannerHeadline}>
-              Your Vision. <span className={styles.bannerHeadlineOrange}>Our Priority.</span>
+              Your Vision. <span className={`${styles.bannerHeadlineOrange} title-secondary`}>Our Priority.</span>
             </h3>
             <p className={styles.bannerSubtext}>
               Trust Namokar Eye &amp; Oculoplasty Centre for advanced and compassionate eye care.

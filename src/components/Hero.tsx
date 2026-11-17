@@ -1,5 +1,8 @@
 "use client";
 
+import HeadingText from "@/components/HeadingText";
+
+
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -10,7 +13,7 @@ import {
   useState,
 } from "react";
 import { LINKS } from "@/config/site";
-import { CalendarIcon } from "./Icons";
+import { ArrowRightIcon, CalendarIcon, PlayIcon } from "./Icons";
 import { usePrefersReducedMotion } from "./motion/useMedia";
 
 const AUTO_MS = 5500;
@@ -194,7 +197,7 @@ export default function Hero({
 
               {/* Slide Headline */}
               <h1 className="hero-banner-heading">
-                {currentSlide.title}
+                <HeadingText>{currentSlide.title}</HeadingText>
               </h1>
 
               {/* Slide Description */}
@@ -210,14 +213,12 @@ export default function Hero({
                   <CalendarIcon width={19} height={19} />
                 </span>
                 <span>Book a Consultation</span>
-                <span className="hero-btn-arrow" aria-hidden="true">&rarr;</span>
+                <ArrowRightIcon className="hero-btn-arrow" width={20} height={20} />
               </Link>
 
               <a href="#explore" className="hero-btn-secondary">
                 <span className="hero-btn-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                    <path d="M8 5.5v13l10-6.5-10-6.5Z" />
-                  </svg>
+                  <PlayIcon width={20} height={20} />
                 </span>
                 <span>Watch Our Video</span>
               </a>

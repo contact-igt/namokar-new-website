@@ -1,0 +1,9 @@
+Generated with the built-in image_gen tool.
+Shared prompt: Square website card thumbnail, refined semi-realistic 3D medical illustration, natural peach skin, teal iris, gentle studio lighting, pale peach background #FEEBE0, centered anatomy with safe margins, readable at 68px, no text, labels, arrows, blood, or watermark. Illustrative rather than diagnostic.
+Subjects:
+term-ptosis.webp: Eye with drooping upper eyelid partially covering the iris.
+term-ectropion.webp: Eye with lower eyelid turned outward and subtle pink inner lid rim.
+term-tearduct.webp: Eye with tear-duct anatomical cutaway and small orange blockage point.
+term-entropion.webp: Eye with lower eyelid rolled inward and lashes pointing toward the eye.
+term-epiphora.webp: Eye with pooled tears and one clear tear rolling down.
+term-orbit.webp: Eye within an ivory bony socket showing the orbital rim.

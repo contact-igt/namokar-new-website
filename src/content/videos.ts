@@ -212,7 +212,7 @@ const RAW: VideoItem[] = [
     duration: "1:17",
     language: "en",
     hasAudio: true,
-    pages: ["cataract"],
+    pages: [],
     review:
       "Clinician review of the timings and the do/don't list shown on screen. Licence for the inserted stock-style footage. Captions and transcript required (none yet, and not produced automatically). Dr. Poonam Jain's approval.",
   },
@@ -236,7 +236,7 @@ const RAW: VideoItem[] = [
   yt("mrx8xKLUCQE", "Lazy eye (amblyopia) in children: what it is and how it is treated", "2:53", "education", [], "Amblyopia explained.", "Outside the six agreed services."),
   // ---- YouTube Shorts (clinic channel), chosen from the channel's Shorts tab. All unapproved.
   ys("C9AzcSy416o", "Specialised eye care in Ashok Vihar, Delhi", "inside", [], "A short introduction to the centre.", "Check any facilities, experience or accreditation claims spoken or shown. Check for patients on screen: consent."),
-  ys("u3psA5Fu79U", "Cataract surgery: when can you exercise?", "treatment", [], "Returning to exercise after cataract surgery.", "Same topic as the local exercise clip: clinician to confirm the timings. Check for outcome wording."),
+  ys("u3psA5Fu79U", "Cataract surgery: when can you exercise?", "treatment", ["cataract"], "Dr. Poonam Jain talks through returning to exercise after cataract surgery.", "Same topic as the local exercise clip: clinician to confirm the timings. Check for outcome wording."),
   ys("_hkRLpO3JVE", "Choosing an intraocular lens (IOL) for cataract surgery", "treatment", [], "A short note on choosing a lens implant.", "Title says \"select the best IOL\": check for superiority claims and brand names. Clinician review."),
   ys("0YHUAEUcM2g", "What is glaucoma?", "treatment", ["glaucoma"], "A short explanation of glaucoma and the optic nerve.", "Clinician to check statements about damage and vision loss."),
   ys("wtk1RA5bJvk", "Blurry distance vision after long hours at a computer?", "education", ["exams"], "A short note on blurred distance vision and screen work.", "General advice: clinician to check. A second Short with the same title exists (N-qZS9Q6VOo) and was not used."),
@@ -286,6 +286,7 @@ const THUMBS: Record<string, AssetKey | `/images/${string}`> = {
   "0xW4m-m_M8E": "/images/about-thumbnail1.jpg",
   kX04UgyjkWo: "/images/cataract-thumbnail1.jpg",
   D5uIbXIihuc: "/images/cataract-thumbnail2.jpg",
+  u3psA5Fu79U: "vidCataractExercisePoster",
   Bt8DUnLJdZA: "otScope",
   mPDSc3AxoAk: "/images/why-i-became-an-eye-surgeon.jpg",
   SqmpI_G8o5I: "/images/glaucoma-thumbnail1-new.jpg",

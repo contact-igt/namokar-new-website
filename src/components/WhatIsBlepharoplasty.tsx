@@ -300,7 +300,7 @@ export default function WhatIsBlepharoplasty({
             {/* Main Headline */}
             <h2 id={`${id}-heading`} className={styles.heading}>
               <span className={styles.titleTeal}>{titleTeal}</span>
-              <span className={styles.titleOrange}>{titleOrange}</span>
+              <span className={`${styles.titleOrange} title-secondary`}>{titleOrange}</span>
             </h2>
 
             {/* Sub-headline */}

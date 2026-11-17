@@ -1,3 +1,4 @@
+import HeadingText from "@/components/HeadingText";
 import type { ReactNode } from "react";
 import Breadcrumb from "./Breadcrumb";
 
@@ -26,7 +27,7 @@ export default function LegalDraft({
         <div className="container page-hero-grid">
           <div className="page-hero-copy">
             <Breadcrumb current={crumb} />
-            <h1 className="page-title">{title}</h1>
+            <h1 className="page-title"><HeadingText>{title}</HeadingText></h1>
             <p className="legal-banner" role="note">
               <strong>Draft for review.</strong> This text has not been approved and is
               not in effect.

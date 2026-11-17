@@ -136,7 +136,7 @@
 .homeRedesign :global(.tx-all-services) {
   border-color: var(--home-orange);
   border-radius: 999px;
-  color: var(--home-teal-deep);
+  color: #fff;
 }
 
 .homeRedesign :global(.tx-carousel-button),

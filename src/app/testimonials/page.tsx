@@ -58,7 +58,7 @@ export default function TestimonialsPage() {
             </ul>
           ) : (
             <div className="empty-state">
-              <h2 className="h2">Why this page is empty</h2>
+              <h2 className="h2">Why this page <span className="title-secondary">is empty</span></h2>
               <p>
                 A review is shown here only when the patient has agreed to its
                 publication and it can be traced to a source. None has been supplied yet,

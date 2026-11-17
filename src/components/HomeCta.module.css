@@ -85,6 +85,33 @@
   line-height: 1.6;
 }
 
+.contactDetails {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+  color: #56656a;
+}
+
+.contactDetails p {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.contactDetails svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  color: #c35626;
+}
+
+.contactDetails a {
+  color: inherit;
+}
+
 .ctaPanelActions {
   display: flex;
   flex-wrap: wrap;

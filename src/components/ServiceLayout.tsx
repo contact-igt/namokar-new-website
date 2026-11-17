@@ -1,3 +1,5 @@
+import HeadingText from "@/components/HeadingText";
+import headingStyles from "./ServiceLayout.module.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -8,6 +10,7 @@ import { SERVICE_CONTENT } from "@/content/services";
 import { onlineBookingAvailable } from "@/lib/booking";
 import { videosFor } from "@/content/videos";
 import VideoSection from "./VideoSection";
+import ReconstructiveVideosSection from "./ReconstructiveVideosSection";
 import { usable } from "@/config/assets";
 import { figureUsable } from "@/config/figures";
 import { Plate } from "./clinical/Plates";
@@ -17,7 +20,6 @@ import BookButton from "./BookButton";
 import EditorialImage from "./EditorialImage";
 import HomeCta from "./HomeCta";
 import CtaBand from "./CtaBand";
-import FaqList from "./FaqList";
 import ServicesFaqSection from "./ServicesFaqSection";
 import JsonLd from "./JsonLd";
 import { SERVICE_ABOUT, faqPage, webPage } from "@/lib/schema";
@@ -27,11 +29,15 @@ import PageHero from "./PageHero";
 import ServicePageHero from "./ServicePageHero";
 import AestheticPageHero from "./AestheticPageHero";
 import BlepharoplastyPageHero from "./BlepharoplastyPageHero";
+import ReconstructivePageHero from "./ReconstructivePageHero";
+import GlaucomaPageHero from "./GlaucomaPageHero";
 import WhatIsBlepharoplasty from "./WhatIsBlepharoplasty";
 import WhatIsAestheticOculoplasty from "./WhatIsAestheticOculoplasty";
+import WhatIsReconstructiveOculoplasty from "./WhatIsReconstructiveOculoplasty";
 import AestheticConditionsSection from "./AestheticConditionsSection";
 import BlepharoplastyReasonsSection from "./BlepharoplastyReasonsSection";
 import AssessmentJourneySection from "./AssessmentJourneySection";
+import ReconstructiveAssessmentSection from "./ReconstructiveAssessmentSection";
 import AestheticVideosSection from "./AestheticVideosSection";
 import ExpertEyeCareSection, { SERVICE_CARD_IMAGES } from "./ExpertEyeCareSection";
 import expertStyles from "./ExpertEyeCareSection.module.css";
@@ -80,6 +86,7 @@ export default function ServiceLayout({
   closing?: ReactNode;
   className?: string;
 }) {
+  const accentHeadings = serviceKey === "aesthetic" || serviceKey === "eyelid" || serviceKey === "reconstructive";
   const c = SERVICE_CONTENT[serviceKey];
   const s = serviceByKey(serviceKey);
   const online = onlineBookingAvailable();
@@ -91,7 +98,7 @@ export default function ServiceLayout({
   const redesignedService = serviceKey === "cataract" || serviceKey === "aesthetic" || serviceKey === "eyelid";
 
   return (
-    <main id="main" className={className}>
+    <main id="main" className={[className, accentHeadings ? headingStyles.oculoplasty : undefined].filter(Boolean).join(" ")}>
       <JsonLd page={serviceKey}
         data={[
           webPage({
@@ -110,6 +117,10 @@ export default function ServiceLayout({
         <AestheticPageHero />
       ) : serviceKey === "eyelid" ? (
         <BlepharoplastyPageHero />
+      ) : serviceKey === "reconstructive" ? (
+        <ReconstructivePageHero />
+      ) : serviceKey === "glaucoma" ? (
+        <GlaucomaPageHero />
       ) : (
         <PageHero
           crumb={s.title}
@@ -139,12 +150,14 @@ export default function ServiceLayout({
         <WhatIsAestheticOculoplasty id="overview" />
       ) : serviceKey === "eyelid" ? (
         <WhatIsBlepharoplasty id="overview" />
+      ) : serviceKey === "reconstructive" ? (
+        <WhatIsReconstructiveOculoplasty id="overview" />
       ) : (
         <section id="overview" className="section section--tight" aria-labelledby="overview-h">
           <div className="container about-grid">
             <div className="section-head reveal">
               <p className="kicker">{group.title}</p>
-              <h2 id="overview-h" className="h2">{c.introHeading}</h2>
+              <h2 id="overview-h" className="h2"><HeadingText>{c.introHeading}</HeadingText></h2>
             </div>
             <div className="about-body reveal">
               {c.intro.map((p) => (
@@ -176,15 +189,15 @@ export default function ServiceLayout({
 
       {afterEditorial ?? (<>
       {serviceKey === "aesthetic" ? (
-        <AestheticConditionsSection id="when" />
+        <AestheticConditionsSection id="when" heading={<>Conditions and <span className="title-secondary">concerns addressed</span></>} />
       ) : serviceKey === "eyelid" ? (
         <BlepharoplastyReasonsSection id="when" />
-      ) : (
+      ) : serviceKey !== "reconstructive" ? (
         <section id="when" className="section section--porcelain" aria-labelledby="when-h">
           <div className="container about-grid">
             <div className="section-head reveal">
               <p className="kicker">Know the signs</p>
-              <h2 id="when-h" className="h2">{c.seekHelp.heading}</h2>
+              <h2 id="when-h" className="h2"><HeadingText>{c.seekHelp.heading}</HeadingText></h2>
             </div>
             <div className="about-body reveal">
               <ul className="bullets bullets--lg">
@@ -196,20 +209,23 @@ export default function ServiceLayout({
             </div>
           </div>
         </section>
-      )}
+      ) : null}
 
-      {redesignedService ? (
-      <AssessmentJourneySection
-        id="journey"
-        lead={c.journeyLead}
-        journey={c.journey}
-      />
+      {serviceKey === "reconstructive" ? (
+        <ReconstructiveAssessmentSection id="journey" />
+      ) : redesignedService ? (
+        <AssessmentJourneySection
+          id="journey"
+          heading={accentHeadings ? <>What an <span className="title-secondary">assessment involves</span></> : undefined}
+          lead={c.journeyLead}
+          journey={c.journey}
+        />
       ) : (
           <section id="journey" className="section" aria-labelledby="journey-h">
             <div className="container why-grid">
               <div className="section-head reveal">
                 <p className="kicker">What to expect</p>
-                <h2 id="journey-h" className="h2">What an assessment involves</h2>
+                <h2 id="journey-h" className="h2">What an <span className="title-secondary">assessment involves</span></h2>
                 <p className="lead">{c.journeyLead}</p>
               </div>
               <ol className="why-list">
@@ -228,9 +244,12 @@ export default function ServiceLayout({
       )}
       </>)}
 
-      {video ?? (serviceKey === "aesthetic" || serviceKey === "eyelid" ? (
+      {video ?? (serviceKey === "reconstructive" ? (
+        <ReconstructiveVideosSection videos={vids} />
+      ) : serviceKey === "aesthetic" || serviceKey === "eyelid" ? (
         <AestheticVideosSection
           id="watch"
+          heading={<>Videos on <span className="title-secondary">this topic</span></>}
           videos={vids}
         />
       ) : (
@@ -244,28 +263,18 @@ export default function ServiceLayout({
         />
       ))}
 
-      {faq ?? (compactRelated ? <ServicesFaqSection items={c.faqs} heading="Questions patients often ask" lead="This page is general information, not medical advice. Your own eyes need to be examined before anyone can advise you." serviceStyle topic={serviceKey as "cataract" | "glaucoma" | "exams"} online={online} image="/images/452e8467-0cbd-4c38-a11d-1ca6ff9f6035.png" allClosed /> : serviceKey === "aesthetic" ? <ServicesFaqSection items={c.faqs} aesthetic /> : serviceKey === "eyelid" ? (
+      {faq ?? (
         <ServicesFaqSection
           items={c.faqs}
-          aesthetic
-          heading="Questions patients often ask"
+          heading={accentHeadings ? <>Questions <span className="title-secondary">patients often ask</span></> : "Questions patients often ask"}
           lead="This page is general information, not medical advice. Your own eyes need to be examined before anyone can advise you."
+          serviceStyle
+          topic={serviceKey}
+          online={online}
+          image="/images/452e8467-0cbd-4c38-a11d-1ca6ff9f6035.png"
+          allClosed
         />
-      ) : (
-      <section id="faq" className="section section--porcelain" aria-labelledby="faq-h">
-        <div className="container faq-grid">
-          <div className="section-head reveal">
-            <p className="kicker">Common questions</p>
-            <h2 id="faq-h" className="h2">Questions patients often ask</h2>
-            <p className="lead">
-              This page is general information, not medical advice. Your own eyes need to
-              be examined before anyone can advise you.
-            </p>
-          </div>
-          <FaqList items={c.faqs} />
-        </div>
-      </section>
-      ))}
+      )}
 
       {compactRelated ? (
         <ExpertEyeCareSection
@@ -281,7 +290,7 @@ export default function ServiceLayout({
             return { title: r.title, desc: compactRelatedBlurb[k] ?? r.blurb, href: r.href, image: cardMeta.image, alt: cardMeta.alt, icon: <FaqIcon name={relatedIconByService[k]} /> };
           })}
         />
-      ) : !redesignedService ? (
+      ) : !redesignedService && serviceKey !== "reconstructive" ? (
       <section id="related" className={`section section--tight${compactRelated ? " related--compact" : ""}`} aria-labelledby="related-h">
         <div className="container">
           <h2 id="related-h" className="h2 h2--sm">{compactRelated ? "Related Services" : "Related care"}</h2>
@@ -308,14 +317,14 @@ export default function ServiceLayout({
         </div>
       </section>
       ) : serviceKey === "aesthetic" ? (
-        <ExpertEyeCareSection id="related" showBanner={false} />
-      ) : serviceKey === "eyelid" ? (
+        <ExpertEyeCareSection id="related" showBanner={false} heading={<>Expert <span className="title-secondary">Eye Care</span> Services</>} />
+      ) : serviceKey === "eyelid" || serviceKey === "reconstructive" ? (
         <ExpertEyeCareSection
           id="related"
           badge="Related Care"
           heading={
             <>
-              Related <span className={expertStyles.headingOrange}>Eye Care Services</span>
+              Related <span className={`${expertStyles.headingOrange} title-secondary`}>Eye Care Services</span>
             </>
           }
           subtitle="Comprehensive assessments and specialized oculoplastic procedures tailored to support your eye health."
@@ -359,7 +368,9 @@ export default function ServiceLayout({
             kicker: "Consultation",
             heading: "Speak to the centre about your eyes.",
             desc: "Contact the centre to plan your visit or arrange an eye consultation.",
-          } : {})}
+          } : {
+            heading: <>Book Your <span className="title-secondary">Consultation Today</span></>,
+          })}
         />
       ) : (
         <CtaBand

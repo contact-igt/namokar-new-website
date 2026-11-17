@@ -1,0 +1,8 @@
+Tool: built-in image_gen
+Additional assets generated with the same built-in tool:
+conditions-petals.webp: Warm ivory background with faint translucent peach petals and pale teal eyelid-like contours at opposing corners; empty central 85%, low contrast, no text or people.
+assessment-paths.webp: Warm ivory background with sparse peach and teal parallel paths rising along the left edge and sweeping to the bottom right; translucent bands along the bottom, clear central 85%, no text or people.
+video-ripples.webp: Warm ivory background with fine concentric teal elliptical arcs at upper left and translucent peach glass-like arcs at bottom right; clear central 85%, no text or people.
+Expectations section: original realistic-expectations-bg-2x.webp preserved without overrides.
+Asset: facial-harmony.webp (optimized from generated PNG)
+Prompt: Use case: stylized-concept. Create a landscape decorative background image for a premium aesthetic oculofacial clinic website, 1536x1024. Warm near-white ivory #fdfaf7 base, large empty center 80 percent for readable text and cards. At the far upper-right edge a very faint elegant abstract facial-profile contour suggested by two thin muted teal curves, almost invisible, no realistic face. At the far lower-left edge airy translucent peach and blush curved silk-like forms, a few fine terracotta contour arcs inspired by natural facial harmony. Sparse, refined, low contrast medical editorial design, flat smooth gradients. Decorations confined to the outer margins and corners. No text, no letters, no logos, no dots, no actual eyes, no people, no photography, no instruments, no grain, no border. Distinct flowing asymmetric composition with quiet uncluttered central area.

@@ -1,482 +1,200 @@
-/* ============================================================
-   Blepharoplasty (Eyelid Surgery) Custom Hero Banner
-   Matches Aesthetic Oculoplasty Design Language & Palette
-   ============================================================ */
-
 .heroWrapper {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(180deg, #FBF6EE 0%, #FFFDF9 50%, #FAF3EB 100%);
-  min-height: clamp(560px, 48vw, 640px);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: clamp(38px, 4.2vw, 54px);
-  padding-bottom: clamp(40px, 4.8vw, 64px);
-  color: #0c454b;
-  border-bottom: 1px solid #f2e5da;
-}
-
-/* Background Decorative Elements */
-.bgDecor {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
-}
-
-/* Soft warm peach ambient glow at top right */
-.ambientGlow {
-  position: absolute;
-  top: -80px;
-  right: -60px;
-  width: 520px;
-  height: 520px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(254, 235, 222, 0.6) 0%, rgba(255, 253, 249, 0) 70%);
-  filter: blur(40px);
-  pointer-events: none;
-}
-
-/* Delicate warm peach flowing wave across bottom */
-.bottomPeachWave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  height: clamp(140px, 16vw, 230px);
-  pointer-events: none;
-  z-index: 1;
+  position: relative;
+  background-color: #fffaf5;
 }
 
-/* Top-right subtle terracotta dot matrix (6x4) */
-.dotMatrix {
-  position: absolute;
-  top: 36px;
-  right: clamp(24px, 4vw, 56px);
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
-  pointer-events: none;
-  z-index: 2;
-  opacity: 0.55;
+.heroSection {
+  composes: hero from "./ServiceHeroWaves.module.css";
+  position: relative;
+  width: 100%;
+  min-height: clamp(560px, 42vw, 660px);
+  overflow: hidden;
+  padding: clamp(28px, 2.8vw, 44px) 0 clamp(32px, 3.2vw, 48px);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+
 }
 
-.dot {
-  width: 4.5px;
-  height: 4.5px;
-  border-radius: 50%;
-  background-color: #E89A60;
-}
-
-/* Desktop Right Visual with Smooth Left-to-Right Opacity Fade */
+/* The full-width raster frame defines the photo edge, as in the reference banners. */
 .heroRightVisual {
   position: absolute;
-  top: 0;
-  right: 0;
+  inset: 18% 0 0 auto;
   width: 58%;
-  max-width: 980px;
-  height: 100%;
+  height: 82%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   overflow: hidden;
-  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.03) 6%, rgba(0, 0, 0, 0.6) 20%, #000000 34%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.03) 6%, rgba(0, 0, 0, 0.6) 20%, #000000 34%);
 }
 
 .heroRightImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* 36% horizontal anchor shifts Dr. Poonam Jain to the right, into the clear, prominent area */
-  object-position: 36% center;
+  object-position: center 30%;
 }
 
-/* Container */
-.heroContainer {
+.mobileBgProtection {
+  display: none;
+}
+
+/* Main Container: fills hero section */
+.container {
   position: relative;
-  z-index: 2;
+  z-index: 1;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 3.5vw, 44px);
   width: 100%;
-  flex: 1;
+  box-sizing: border-box;
+}
+
+/* 2-Column Hero Layout */
+.mainLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(24px, 3.2vw, 48px);
+  align-items: center;
+}
+
+/* Left Column Text */
+.colText {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 540px;
+  z-index: 2;
 }
 
-/* Left Column: Copy & Actions */
-.heroCopy {
-  max-width: 500px;
-  position: relative;
-  z-index: 3;
-  margin-top: 2px;
+.breadcrumbWrap {
+  margin-bottom: clamp(14px, 1.8vw, 22px);
 }
 
-/* Breadcrumbs Navigation */
-.crumbs {
-  margin-bottom: 12px;
-  font-size: 0.88rem;
+.breadcrumbWrap :global(.crumbs) {
+  margin-bottom: 0;
+  font-size: 0.92rem;
   font-weight: 500;
-  color: #64748b;
 }
 
-.crumbs ol {
+.breadcrumbWrap :global(.crumbs ol) {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 6px;
+  gap: 0;
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-.crumbs a {
-  color: #64748b;
+.breadcrumbWrap :global(.crumbs li) {
+  display: inline-flex;
+  align-items: center;
+}
+
+.breadcrumbWrap :global(.crumbs li+li::before) {
+  content: ">";
+  color: #b85d19;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-inline: 8px;
+}
+
+.breadcrumbWrap :global(.crumbs a) {
+  color: #52606d;
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
-.crumbs a:hover {
-  color: #0c454b;
-  text-decoration: underline;
+.breadcrumbWrap :global(.crumbs a:hover) {
+  color: #b85d19;
 }
 
-.crumbsSep {
-  color: #cbd5e1;
-  user-select: none;
-  font-size: 0.82rem;
-}
-
-.crumbs [aria-current="page"] {
-  color: #0c454b;
+.breadcrumbWrap :global(.crumbs [aria-current="page"]) {
+  color: #073f46;
   font-weight: 600;
 }
 
-/* Kicker */
-.kickerWrap {
-  display: inline-flex;
+/* Kicker with orange bar */
+.kicker {
+  display: flex;
   align-items: center;
   gap: 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #b85d19;
   margin-bottom: 14px;
 }
 
 .kickerBar {
   display: inline-block;
-  width: 28px;
-  height: 2.5px;
-  background-color: #b85d19;
-  border-radius: 2px;
+  width: 27px;
+  height: 2px;
+  background: #d66b1f;
+  border-radius: 1px;
 }
 
-.kickerText {
-  font-size: 0.84rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #b85d19;
-}
-
-/* Heading */
+/* Heading: 2 balanced lines, single dark teal colour */
 .heading {
-  font-family: var(--font-heading, "Manrope", sans-serif);
-  font-size: clamp(2.1rem, 3.6vw, 3.2rem);
+  font-family: var(--font-heading);
+  font-size: clamp(2.35rem, 3.8vw, 3.5rem);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.12;
+  color: #073f46;
+  margin: 0 0 16px 0;
   letter-spacing: -0.025em;
-  color: #0c454b;
-  margin: 0 0 18px;
+  display: flex;
+  flex-direction: column;
 }
 
-.headingOrange {
-  color: #c85a17;
+.heading span {
+  display: block;
 }
 
-/* Lead body paragraph */
+/* Body lead paragraph */
 .lead {
-  font-size: clamp(0.96rem, 1.2vw, 1.05rem);
-  line-height: 1.62;
+  font-size: clamp(1.02rem, 1.15vw, 1.1rem);
+  line-height: 1.55;
   color: #52606d;
-  margin: 0 0 28px;
-  max-width: 470px;
+  max-width: 490px;
+  margin: 0 0 28px 0;
 }
 
-/* Actions */
+/* Action button area */
 .actions {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 14px;
 }
 
-.btnPrimary {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #b85114;
-  color: #ffffff !important;
-  padding: 13px 28px;
-  border-radius: 9999px;
-  font-size: 0.96rem;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 6px 20px rgba(184, 81, 20, 0.28);
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btnPrimary:hover {
-  background: #9e3f0a;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(184, 81, 20, 0.38);
-}
-
-.btnSecondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: #0c454b;
-  font-size: 0.94rem;
-  font-weight: 600;
-  text-decoration: none;
-  padding: 10px 16px;
-  border-radius: 9999px;
-  transition: color 0.15s ease, background 0.15s ease;
-}
-
-.btnSecondary:hover {
-  color: #b85114;
-  background: rgba(184, 81, 20, 0.08);
-}
-
-.btnIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Mobile/Tablet Fallback Visual (hidden on desktop >=1080px) */
-.heroMobileVisual {
-  display: none;
-}
-
-/* ============================================================
-   Floating Bottom Feature Pill Card
-   ============================================================ */
-
-.floatingCardWrap {
-  position: absolute;
-  bottom: clamp(14px, 1.8vw, 26px);
-  right: 0;
-  z-index: 10;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.featurePillCard {
-  background: #ffffff;
-  border-radius: 9999px;
-  border: 1px solid rgba(235, 175, 130, 0.45);
-  box-shadow: 0 16px 44px rgba(12, 69, 75, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
-  padding: 6px 32px 6px 10px;
-  display: flex;
-  align-items: center;
-  height: clamp(92px, 8vw, 106px);
-  position: relative;
-}
-
-/* Overlapping Circular Aesthetic Eye Image */
-.circleEyeWrapper {
-  position: relative;
-  width: clamp(112px, 9.8vw, 126px);
-  height: clamp(112px, 9.8vw, 126px);
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-left: -28px;
-  border: 4px solid #ffffff;
-  outline: 3px solid #e89a60;
-  outline-offset: -1px;
-  box-shadow: 0 10px 24px rgba(12, 69, 75, 0.14);
-  overflow: hidden;
-  background: #ffffff;
-}
-
-.circleEyeImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* 3 Stats Items: Icon Centered Over 2-Line Text */
-.featuresList {
-  display: flex;
-  align-items: center;
-  gap: clamp(18px, 2.2vw, 36px);
-  padding-left: clamp(16px, 2vw, 28px);
-}
-
-.featureItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 8px;
-}
-
-.featureIconCircle {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: #e0f2f2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: #0c454b;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.featureItem:hover .featureIconCircle {
-  transform: translateY(-2px);
-  background-color: #d3eeee;
-}
-
-.featureText {
-  font-family: var(--font-heading, "Manrope", sans-serif);
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: #0c2b38;
-  line-height: 1.25;
-  white-space: nowrap;
-  text-align: center;
-}
-
-.featureDivider {
-  width: 1px;
-  height: 46px;
-  background-color: #e8ded4;
-  flex-shrink: 0;
-  margin: 0 clamp(4px, 1vw, 10px);
-}
-
-/* ============================================================
-   Responsive Layout & Breakpoints
-   ============================================================ */
-
-@media (max-width: 1079px) {
-  .heroRightVisual {
-    display: none;
-  }
-
-  .heroWrapper {
-    padding-bottom: 60px;
-    display: block;
+/* Mobile & Small Screen Layout */
+@media (max-width: 959px) {
+  .heroSection {
     min-height: auto;
-  }
-
-  .heroCopy {
-    max-width: 100%;
-    margin-bottom: 36px;
-  }
-
-  .heroMobileVisual {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 36px;
-  }
-
-  .mobilePhotoFrame {
-    position: relative;
-    width: 100%;
-    max-width: 580px;
-    aspect-ratio: 16 / 10;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 16px 44px rgba(12, 69, 75, 0.1);
-    border: 1px solid rgba(232, 154, 96, 0.3);
-    background-color: #faf4ed;
-  }
-
-  .mobilePhotoImg {
-    object-fit: cover;
-  }
-
-  .floatingCardWrap {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    justify-content: center;
-    margin-top: 24px;
-  }
-
-  .featurePillCard {
-    border-radius: 36px;
-    padding-right: 28px;
-  }
-}
-
-@media (max-width: 720px) {
-  .featurePillCard {
-    flex-direction: column;
-    height: auto;
-    border-radius: 24px;
-    padding: 24px 20px 20px;
-    gap: 20px;
-    width: 100%;
-    max-width: 440px;
-  }
-
-  .circleEyeWrapper {
-    margin-left: 0;
-    margin-top: -50px;
-    width: 110px;
-    height: 110px;
-  }
-
-  .featuresList {
-    flex-direction: column;
-    gap: 16px;
-    padding-left: 0;
-    width: 100%;
-  }
-
-  .featureItem {
-    flex-direction: row;
-    gap: 14px;
-    width: 100%;
-    text-align: left;
-    justify-content: flex-start;
-  }
-
-  .featureText {
-    text-align: left;
-  }
-
-  .featureDivider {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .heroWrapper {
-    padding-top: 28px;
-    padding-bottom: 44px;
-  }
-
-  .actions {
+    padding: 36px 0 0;
     flex-direction: column;
     align-items: stretch;
   }
 
-  .btnPrimary {
-    width: 100%;
-    justify-content: center;
+  .mainLayout {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
-  .btnSecondary {
+  .heroRightVisual {
+    position: relative;
+    inset: auto;
+    order: 2;
     width: 100%;
-    justify-content: center;
+    max-width: none;
+    height: clamp(260px, 60vw, 420px);
+    margin-top: 24px;
   }
 
-  .featureText {
-    white-space: normal;
+  .heroRightImg {
+    object-position: center 30%;
   }
 }

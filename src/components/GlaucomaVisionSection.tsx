@@ -154,7 +154,7 @@ export default function GlaucomaVisionSection({
 
             <h2 id="glaucoma-vision-heading" className={styles.heading}>
               {headingLine1}
-              <span className={styles.headingHighlight}>{headingLine2}</span>
+              <span className={`${styles.headingHighlight} title-secondary`}>{headingLine2}</span>
             </h2>
 
             <p className={styles.lead}>{lead}</p>

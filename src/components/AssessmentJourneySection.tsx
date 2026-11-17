@@ -1,5 +1,8 @@
 "use client";
 
+import HeadingText from "@/components/HeadingText";
+
+
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./AssessmentJourneySection.module.css";
@@ -150,7 +153,7 @@ const ICONS_BY_INDEX = [
 export interface AssessmentJourneySectionProps {
   id?: string;
   kicker?: string;
-  heading?: string;
+  heading?: import("react").ReactNode;
   lead?: string;
   journey?: Array<{ title: string; text: string }>;
   imageSrc?: string;
@@ -212,25 +215,29 @@ export default function AssessmentJourneySection({
 
   return (
     <section id={id} className={styles.sectionWrapper} aria-labelledby="assessment-heading">
-      {/* Decorative Top-Left Organic Curved Wave */}
+      {/* Soft eyelid contours echo the assessment's periocular focus. */}
       <div className={styles.bgWaveTopLeft} aria-hidden="true">
-        <svg viewBox="0 0 420 320" fill="none" className={styles.waveSvg} preserveAspectRatio="none">
-          <path
-            d="M-50,-20 C80,60 120,180 240,160 C340,140 380,240 420,290 L420,-20 Z"
-            fill="#FFF5ED"
-            fillOpacity="0.8"
-          />
+        <svg viewBox="0 0 600 440" fill="none" className={styles.waveSvg}>
+          <ellipse cx="120" cy="100" rx="310" ry="230" fill="#FBEDE2" fillOpacity="0.45" />
+          <g stroke="#C8794C" strokeWidth="1.2" strokeOpacity="0.16">
+            <path d="M-100 235C75 20 280 20 520 175" />
+            <path d="M-110 265C80 48 290 48 540 205" />
+            <path d="M-120 295C85 76 300 76 560 235" />
+          </g>
+          <path d="M-80 295C100 150 270 145 450 260" stroke="#669C98" strokeOpacity="0.12" strokeWidth="1.2" />
         </svg>
       </div>
 
-      {/* Decorative Bottom-Right Organic Curved Wave */}
+      {/* A quieter complementary contour beneath the timeline. */}
       <div className={styles.bgWaveBottomRight} aria-hidden="true">
-        <svg viewBox="0 0 460 340" fill="none" className={styles.waveSvg} preserveAspectRatio="none">
-          <path
-            d="M120,340 C190,260 280,290 350,210 C400,150 440,130 460,80 L460,340 Z"
-            fill="#FAF2EB"
-            fillOpacity="0.75"
-          />
+        <svg viewBox="0 0 600 440" fill="none" className={styles.waveSvg}>
+          <ellipse cx="530" cy="390" rx="300" ry="210" fill="#EAF4F1" fillOpacity="0.55" />
+          <g stroke="#63938F" strokeWidth="1.2" strokeOpacity="0.18">
+            <path d="M80 320C270 120 480 140 710 280" />
+            <path d="M60 350C260 150 480 170 730 310" />
+            <path d="M40 380C250 180 480 200 750 340" />
+          </g>
+          <path d="M170 390C340 260 490 255 670 350" stroke="#C8794C" strokeOpacity="0.16" strokeWidth="1.2" />
         </svg>
       </div>
 
@@ -246,7 +253,7 @@ export default function AssessmentJourneySection({
 
             {/* Main Section Title */}
             <h2 id="assessment-heading" className={styles.title}>
-              {heading}
+              <HeadingText>{heading}</HeadingText>
             </h2>
 
             {/* Description Lead */}
@@ -270,9 +277,6 @@ export default function AssessmentJourneySection({
           {/* Right Column: Continuous Vertical Timeline + 4 Step Cards */}
           <div className={styles.rightCol}>
             <div className={styles.timelineContainer}>
-              {/* Continuous vertical timeline connector line */}
-              <div className={styles.timelineTrack} aria-hidden="true" />
-
               {steps.map((step, idx) => {
                 const isActive = activeStep === idx;
                 const num = step.stepNumber || String(idx + 1).padStart(2, "0");

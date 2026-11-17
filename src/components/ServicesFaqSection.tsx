@@ -1,15 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LINKS } from "@/config/site";
+import { LINKS, type ServiceKey } from "@/config/site";
 import BookButton from "./BookButton";
 import styles from "@/app/our-services/services.module.css";
 import HomeFaqSection, { FaqIcon, type FaqIconName } from "./HomeFaqSection";
 import { ArrowRightIcon, CalendarIcon } from "./Icons";
 
-const topicIcons: Record<"cataract" | "glaucoma" | "exams", FaqIconName[]> = {
+const topicIcons: Record<ServiceKey, FaqIconName[]> = {
   cataract: ["doctor", "eye", "scalpel", "doctor", "drop", "eye", "clipboard"],
   glaucoma: ["shield", "eye", "calendar", "doctor", "eye", "eye", "shield", "clipboard", "drop", "calendar", "doctor"],
   exams: ["calendar", "eye", "shield", "drop", "eye", "clipboard", "doctor", "phone"],
+  eyelid: ["lid", "eye", "shield", "doctor", "calendar", "clipboard"],
+  aesthetic: ["eye", "eyebag", "lid", "shield", "doctor", "calendar"],
+  reconstructive: ["lid", "drop", "eye", "doctor", "shield", "clipboard"],
 };
 
 export default function ServicesFaqSection({
@@ -25,11 +28,11 @@ export default function ServicesFaqSection({
 }: {
   items: { q: string; a: string }[];
   aesthetic?: boolean;
-  heading?: string;
+  heading?: import("react").ReactNode;
   lead?: string;
   serviceStyle?: boolean;
   online?: boolean;
-  topic?: "cataract" | "glaucoma" | "exams";
+  topic?: ServiceKey;
   image?: string;
   allClosed?: boolean;
 }) {
@@ -48,7 +51,7 @@ export default function ServicesFaqSection({
               <span className={styles.kickerText}>{serviceStyle || aesthetic ? "Common questions" : "Finding your way"}</span>
             </div>
             <h2 id="faq-h" className={styles.sectionTitle}>
-              {heading ?? (aesthetic ? <><span className={styles.faqTitleLine}>Your Aesthetic</span>{" "}<span className={styles.faqTitleLine}>Eye Care Questions,</span>{" "}<span className={`${styles.headingOrange} ${styles.faqTitleLine}`}>Answered</span></> : <>Your Eye Care Questions, <span className={styles.headingOrange}>Answered</span></>)}
+              {heading ?? (aesthetic ? <><span className={styles.faqTitleLine}>Your Aesthetic</span>{" "}<span className={styles.faqTitleLine}>Eye Care Questions,</span>{" "}<span className={`${styles.headingOrange} ${styles.faqTitleLine} title-secondary`}>Answered</span></> : <>Your Eye Care Questions, <span className={`${styles.headingOrange} title-secondary`}>Answered</span></>)}
             </h2>
             <p className={styles.sectionLead}>
               {lead ?? (aesthetic
@@ -81,3 +84,4 @@ export default function ServicesFaqSection({
     </div>
   );
 }
+

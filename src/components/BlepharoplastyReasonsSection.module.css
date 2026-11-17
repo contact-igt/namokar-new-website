@@ -353,3 +353,7 @@
     min-width: 46px;
   }
 }
+
+/* Medical illustrations fill the existing circular badges. */
+.iconBadgePeach, .iconBadgeTeal { overflow: hidden; }
+.reasonImage { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }

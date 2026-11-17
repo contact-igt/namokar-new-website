@@ -86,7 +86,7 @@ export default function AboutPage() {
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
               <p className="kicker">About Namokar</p>
-              <h1 id="about-hero-h">Eye Care Built Around Understanding, Expertise &amp; Individual Attention</h1>
+              <h1 id="about-hero-h">Eye Care Built Around Understanding, <span className="title-secondary">Expertise &amp; Individual Attention</span></h1>
               <p>Namokar Eye &amp; Oculoplasty Centre is an eye-care centre in Ashok Vihar, New Delhi, offering comprehensive ophthalmology alongside specialist oculoplasty care led by Dr. Poonam Jain, Senior Ophthalmologist and Oculoplasty Surgeon. Our approach begins with understanding your concern before discussing the next step.</p>
               <div className={styles.actions}>
                 <a href={bookingHref} className="btn btn--primary">Book an Appointment <ArrowRightIcon width={18} height={18} /></a>
@@ -115,7 +115,7 @@ export default function AboutPage() {
           <div className={styles.introRight}>
             <div className={styles.introCopy}>
               <p className="kicker">About Namokar</p>
-              <h2 id="about-h">Comprehensive Eye Care With a Special Focus on Oculoplasty</h2>
+              <h2 id="about-h">Comprehensive Eye Care With a <span className="title-secondary">Special Focus on Oculoplasty</span></h2>
               <p>Namokar Eye &amp; Oculoplasty Centre is located in {SITE.area} and provides comprehensive eye care, including routine and condition-specific eye examinations, cataract care, glaucoma management and other ophthalmic concerns. The centre has a reception, consultation and examination rooms, and an operation theatre.</p>
               <p>A key area of focus at Namokar is oculoplasty, the branch of ophthalmology concerned with the eyelids, tear passages, eye socket and surrounding eye area. This includes both functional concerns, such as drooping eyelids and watering eyes, and aesthetic concerns involving the eyelids and under-eye area.</p>
             </div>
@@ -170,7 +170,7 @@ export default function AboutPage() {
           </div>
           <div className={`${styles.doctorCopy} ${styles.doctorIntro}`}>
             <p className="kicker">Meet your doctor</p>
-            <h2 id="doctor-h">Meet Dr. Poonam Jain</h2>
+            <h2 id="doctor-h">Meet Dr. <span className="title-secondary">Poonam Jain</span></h2>
             <p className={styles.designation}>Medical Director &bull; Senior Ophthalmologist &bull; Oculoplasty Surgeon</p>
             <p>With 25+ years of experience in ophthalmology and oculoplasty, Dr. Poonam Jain leads clinical care at Namokar Eye &amp; Oculoplasty Centre.</p>
             <p>Alongside comprehensive ophthalmology, she has a particular clinical focus on oculoplasty, including functional and aesthetic conditions involving the eyelids, tear passages and surrounding eye area. Her approach is centred on careful evaluation, clear communication and treatment planning based on the individual patient&apos;s needs.</p>
@@ -204,7 +204,7 @@ export default function AboutPage() {
         <div className="container">
           <div className={styles.centeredHeading}>
             <p className="kicker">Our centre</p>
-            <h2 id="hospital-h">The People and Spaces Behind Your Care</h2>
+            <h2 id="hospital-h">The People and Spaces <span className="title-secondary">Behind Your Care</span></h2>
             <p>Meet the team and see the actual rooms where patients are welcomed, examined and treated at our Ashok Vihar centre.</p>
           </div>
           <FacilityGallery items={gallery} label="Photographs inside the centre" showcase />
@@ -226,7 +226,7 @@ export default function AboutPage() {
         <div className="container">
           <div className={styles.centeredHeading}>
             <p className="kicker">Your visit</p>
-            <h2 id="journey-h">What to Expect When You Visit Namokar</h2>
+            <h2 id="journey-h">What to Expect When <span className="title-secondary">You Visit Namokar</span></h2>
             <p>A general outline of how a visit usually goes. Each patient&apos;s care depends on their own eyes and needs, and no particular outcome can be promised.</p>
           </div>
           <ol className={styles.journey}>

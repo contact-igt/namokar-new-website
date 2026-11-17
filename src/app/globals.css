@@ -11665,6 +11665,9 @@ a.act--primary:hover {
 
 .hero-btn-icon svg {
   display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 .hero-btn-primary:hover {
@@ -11675,8 +11678,10 @@ a.act--primary:hover {
 }
 
 .hero-btn-arrow {
-  font-size: 1.15rem;
-  line-height: 1;
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
   transition: transform 0.2s ease;
 }
 
@@ -12003,6 +12008,29 @@ a.act--primary:hover {
 .nav-item--split > .nav-sub-toggle { padding-inline: 5px; min-width: 32px; justify-content: center; }
 .nav-item--split > .nav-link:first-child { padding-right: 2px; }
 .nav-item--split > .nav-link[data-active="true"] { color: var(--orange-dark); }
+@media (min-width: 960px) {
+  /* The label and disclosure share one underline instead of drawing two. */
+  .nav-item--split > .nav-link::after { content: none; }
+  .nav-item--split::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 5px;
+    bottom: 8px;
+    height: 2px;
+    background: var(--orange);
+    pointer-events: none;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 220ms var(--ease);
+  }
+  .nav-item--split:hover::after,
+  .nav-item--split:has(> .nav-link[data-active="true"])::after,
+  .nav-item--split:has(> .nav-sub-toggle[aria-expanded="true"])::after,
+  .nav-item--split:has(> .nav-link:focus-visible)::after {
+    transform: scaleX(1);
+  }
+}
 @media (max-width: 959px) {
   .nav-item--split { flex-wrap: wrap; }
   .nav-item--split > .nav-link:first-child { flex: 1; }
@@ -12283,6 +12311,20 @@ a.act--primary:hover {
   .svc-feature-sep {
     display: none;
   }
+}
+
+
+
+/* Shared secondary color for banner and section titles across all routes. */
+:root {
+  --title-secondary: #c85a17;
+  --title-secondary-on-dark: #f7a97b;
+}
+:root main :is(h1, h2) .title-secondary {
+  color: var(--title-secondary);
+}
+main :is(.section--dark, .graphite-section) {
+  --title-secondary: var(--title-secondary-on-dark);
 }
 
 

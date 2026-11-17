@@ -176,7 +176,7 @@ export default function RealisticExpectationsSection({
 
             {/* Headline */}
             <h2 id="expectations-heading" className={styles.title}>
-              Changes are <span className={styles.highlight}>personal</span>
+              Changes are <span className={`${styles.highlight} title-secondary`}>personal</span>
             </h2>
 
             {/* Paragraph Description */}

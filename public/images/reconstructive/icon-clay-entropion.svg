@@ -1,0 +1,64 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="tileGradEntr" x1="20" y1="20" x2="236" y2="236" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#FFF2E7" />
+        <stop offset="45%" stop-color="#FCE6D4" />
+        <stop offset="100%" stop-color="#F3D2BA" />
+      </linearGradient>
+
+      <linearGradient id="clayTerraEntr" x1="60" y1="90" x2="190" y2="160" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#F4955B" />
+        <stop offset="40%" stop-color="#E27433" />
+        <stop offset="100%" stop-color="#B84E14" />
+      </linearGradient>
+
+      <filter id="tileShadowEntr" x="0" y="0" width="256" height="256" filterUnits="userSpaceOnUse">
+        <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#C27A4E" flood-opacity="0.28" />
+        <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#A15426" flood-opacity="0.16" />
+      </filter>
+
+      <filter id="elemShadowEntr" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#8E3C0F" flood-opacity="0.32" />
+        <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#692404" flood-opacity="0.2" />
+      </filter>
+    </defs>
+
+    <!-- Base Clay Squircle Tile -->
+    <rect x="18" y="14" width="220" height="220" rx="54" fill="url(#tileGradEntr)" filter="url(#tileShadowEntr)" />
+    <rect x="20" y="16" width="216" height="216" rx="52" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="3" />
+    <rect x="22" y="18" width="212" height="212" rx="50" stroke="#FCE6D4" stroke-opacity="0.5" stroke-width="2" />
+
+    <!-- 3D CLAY EYE with INWARD LASHES -->
+    <g filter="url(#elemShadowEntr)">
+      <!-- Eyeball White Sclera -->
+      <path d="M 64 128 C 88 95, 168 95, 192 128 C 168 161, 88 161, 64 128 Z" fill="#FFFFFF" />
+      
+      <!-- Blue Iris & Pupil -->
+      <circle cx="128" cy="128" r="28" fill="#3A82A3" />
+      <circle cx="128" cy="128" r="14" fill="#0B3539" />
+      <circle cx="135" cy="121" r="5" fill="#FFFFFF" opacity="0.9" />
+
+      <!-- Upper Lid -->
+      <path d="M 60 125 C 88 92, 168 92, 196 125" stroke="url(#clayTerraEntr)" stroke-width="7" stroke-linecap="round" />
+      <path d="M 64 123 C 90 95, 166 95, 192 123" stroke="#FFBA8F" stroke-width="2.5" stroke-linecap="round" />
+
+      <!-- Lower Lid turning INWARD with lashes curled against the eyeball -->
+      <path d="M 60 131 C 88 164, 168 164, 196 131" stroke="url(#clayTerraEntr)" stroke-width="8" stroke-linecap="round" />
+      
+      <!-- Inward Lashes pointing UP/IN against cornea -->
+      <path d="M 98 150 C 102 142, 105 136, 107 132" stroke="#D15F22" stroke-width="5" stroke-linecap="round" />
+      <path d="M 128 153 C 128 144, 128 136, 128 130" stroke="#D15F22" stroke-width="5.5" stroke-linecap="round" />
+      <path d="M 158 150 C 154 142, 151 136, 149 132" stroke="#D15F22" stroke-width="5" stroke-linecap="round" />
+    </g>
+
+    <!-- Two 3D Clay Inward Arrows (Left pointing Right, Right pointing Left) -->
+    <g filter="url(#elemShadowEntr)">
+      <!-- Left Arrow (pointing inwards to right) -->
+      <rect x="36" y="123" width="22" height="10" rx="5" fill="url(#clayTerraEntr)" />
+      <path d="M 52 115 L 68 128 L 52 141 Z" fill="url(#clayTerraEntr)" stroke="#FFAE80" stroke-width="2" stroke-linejoin="round" />
+
+      <!-- Right Arrow (pointing inwards to left) -->
+      <rect x="198" y="123" width="22" height="10" rx="5" fill="url(#clayTerraEntr)" />
+      <path d="M 204 115 L 188 128 L 204 141 Z" fill="url(#clayTerraEntr)" stroke="#FFAE80" stroke-width="2" stroke-linejoin="round" />
+    </g>
+  </svg>

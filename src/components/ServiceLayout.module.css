@@ -1,0 +1,4 @@
+.oculoplasty h2 :global(.title-secondary) {
+  color: var(--title-secondary);
+}
+

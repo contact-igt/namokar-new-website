@@ -1,0 +1,9 @@
+Tool: built-in image_gen
+Additional background prompt set (all landscape 1536x1024, ivory #fdfaf7, empty central 85%, minimal medical editorial style, low contrast, no text, people, eyes, icons, dots, logos, border or grain):
+comparison-balance.webp: Balanced translucent peach folded planes on the left edge and pale teal curved planes on the right, suggesting functional and cosmetic harmony.
+eyelid-arches.webp: Three delicate parallel pale teal arches at upper left and translucent peach nested arches at bottom right, inspired by eyelid creases; not an anatomical diagram.
+assessment-reasons-fan.webp: Soft overlapping translucent peach fan shapes at bottom left, a few pale teal curving contour strokes at upper right.
+journey-curves.webp: Two delicate interweaving peach and teal lines in an S curve down the right edge, soft peach mist along the bottom, suggesting guided progression.
+video-halos.webp: Faint overlapping elliptical peach and teal halos cropped at upper right and bottom left, like soft lenses.
+Asset: eyelid-contours.webp (optimized from the generated PNG)
+Prompt: Use case: stylized-concept. Asset: wide decorative background for a premium eyelid surgery information webpage. Create a refined very subtle abstract illustration on warm ivory #fdfaf7. Extremely delicate flowing arcs inspired by the natural contour of an eyelid, layered translucent peach silk ribbons confined to upper-left and bottom-right corners, a few thin pale muted teal contour lines near the far edges. Large completely empty ivory center (middle 75 percent) for readable website text and cards. Flat airy editorial aesthetic, understated clinical elegance, low contrast, smooth clean gradients. Landscape 1536x1024. No text, no letters, no logos, no photographs, no actual eyes or faces, no medical instruments, no grain, no dots, no frames. This is a background texture, with decoration only at the perimeter.

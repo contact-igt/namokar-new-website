@@ -1,3 +1,4 @@
+import HeadingText from "@/components/HeadingText";
 import type { VideoItem } from "@/content/videos";
 import { playerProps } from "@/lib/videoProps";
 import VideoPlayer from "./VideoPlayer";
@@ -38,7 +39,7 @@ export default function VideoSection({
         <div className="container">
           <div className="vsec-text vsec-text--wide reveal">
             <p className="kicker">{kicker}</p>
-            <h2 id={`${id}-h`} className="h2">{heading}</h2>
+            <h2 id={`${id}-h`} className="h2"><HeadingText>{heading}</HeadingText></h2>
             <p className="lead">{lead}</p>
             {note && <p className="vsec-note">{note}</p>}
           </div>
@@ -61,7 +62,7 @@ export default function VideoSection({
         <div className="container">
           <div className="vsec-text vsec-text--wide reveal">
             <p className="kicker">{kicker}</p>
-            <h2 id={`${id}-h`} className="h2">{heading}</h2>
+            <h2 id={`${id}-h`} className="h2"><HeadingText>{heading}</HeadingText></h2>
             <p className="lead">{lead}</p>
             {note && <p className="vsec-note">{note}</p>}
           </div>
@@ -86,7 +87,7 @@ export default function VideoSection({
         <div className={`vsec ${vertical ? "vsec--splitv" : "vsec--split"}`}>
           <div className="vsec-text reveal">
             <p className="kicker">{kicker}</p>
-            <h2 id={`${id}-h`} className="h2">{heading}</h2>
+            <h2 id={`${id}-h`} className="h2"><HeadingText>{heading}</HeadingText></h2>
             <p className="lead">{lead}</p>
             {note && <p className="vsec-note">{note}</p>}
           </div>

@@ -1,0 +1,30 @@
+{
+  "mode": "Built-in image_gen",
+  "prompt": "Wide minimal abstract eye care website background. Ivory #fdfaf7, pale peach #efd9c8, pale sage teal. Extremely airy low contrast artwork at outer edges; center almost blank for legible text. No text, logos, people, photographic eyes or medical diagrams.",
+  "motifs": [
+    {
+      "name": "overview",
+      "motif": "delicate flowing silk arcs suggesting the natural curve of an eyelid, at upper right and lower left"
+    },
+    {
+      "name": "terms",
+      "motif": "fine concentric orbital rings with tiny spaced dots at far right and bottom left"
+    },
+    {
+      "name": "tear-pathway",
+      "motif": "gentle translucent water ripples and a few abstract teardrop shapes at far left and lower right"
+    },
+    {
+      "name": "eyelid",
+      "motif": "two delicate parallel sculptural curved ribbons along opposite outer edges"
+    },
+    {
+      "name": "assessment",
+      "motif": "a softly winding path of thin peach lines and small circular milestones at the right edge"
+    },
+    {
+      "name": "videos",
+      "motif": "soft radiating light waves and translucent rounded glass forms at the outer corners"
+    }
+  ]
+}

@@ -56,6 +56,12 @@ export const ArrowRightIcon = (p: P) => (
   </svg>
 );
 
+export const PlayIcon = (p: P) => (
+  <svg {...base} fill="currentColor" stroke="none" {...p}>
+    <path d="M8 5.5v13l10-6.5-10-6.5Z" />
+  </svg>
+);
+
 export const ArrowDownIcon = (p: P) => (
   <svg {...base} {...p}>
     <path d="M12 5v14M6 13l6 6 6-6" />

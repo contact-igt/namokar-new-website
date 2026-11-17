@@ -1,3 +1,4 @@
+import HeadingText from "@/components/HeadingText";
 import ClinicalFigure from "@/components/clinical/ClinicalFigure";
 import Image from "next/image";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -187,111 +188,131 @@ export default function Page() {
   const c = SERVICE_CONTENT.glaucoma;
   const online = onlineBookingAvailable();
 
-  // 1. HERO SECTION
+  // 1. HERO SECTION (Matches Cataract & Comprehensive Eye Exam UI)
   const hero = (
-    <section className={styles.hero} aria-labelledby="glaucoma-hero-h">
-      <div className="container">
-        <div className={styles.breadcrumbWrap}>
-          <Breadcrumb
-            current="Glaucoma Management"
-            trail={[{ label: "Services", href: LINKS.allServices }]}
+    <div className={styles.heroWrapper}>
+      <section className={styles.heroSection} aria-labelledby="glaucoma-hero-h">
+        {/* Right-side Consultation Artwork with Left-to-Right Opacity Gradient Fade */}
+        <div className={styles.heroRightVisual} aria-hidden="true">
+          <Image
+            src="/images/Copy of DSC06796.JPG"
+            alt="Eye examination at Namokar Eye & Oculoplasty Centre"
+            fill
+            priority
+            sizes="(min-width: 1024px) 54vw, 100vw"
+            className={styles.heroRightImg}
+            unoptimized
           />
+          <div className={styles.mobileBgProtection} />
         </div>
-        <div className={styles.heroGrid}>
-          <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>Glaucoma Management</p>
-            <h1 id="glaucoma-hero-h" className={styles.heroTitle}>
-              {c.h1}
-            </h1>
-            <p className={styles.heroLead}>{c.lead}</p>
-            <div className={styles.heroActions}>
-              <BookButton online={online} />
+
+        <div className={`container ${styles.container}`}>
+          {/* Main 2-column hero content */}
+          <div className={styles.mainLayout}>
+            {/* Left Column: Breadcrumb, Kicker, Heading, Description, CTA Actions */}
+            <div className={styles.colText}>
+              <div className={styles.breadcrumbWrap}>
+                <Breadcrumb
+                  current="Glaucoma Management"
+                  trail={[{ label: "Services", href: LINKS.allServices }]}
+                />
+              </div>
+
+              {/* Section Kicker with orange bar */}
+              <div className={styles.kicker}>
+                <span className={styles.kickerBar} aria-hidden="true" />
+                <span>GLAUCOMA MANAGEMENT</span>
+              </div>
+
+              {/* Two-line heading */}
+              <h1 id="glaucoma-hero-h" className={styles.heading}>
+                <span>Protecting your vision,</span>
+                <span className="title-secondary">from silent damage.</span>
+              </h1>
+
+              {/* Body lead description */}
+              <p className={styles.lead}>{c.lead}</p>
+
+              {/* CTA Action Buttons */}
+              <div className={styles.actions}>
+                <BookButton online={online} className={styles.btnPrimary} />
+                <a href="#overview" className={styles.btnSecondary}>
+                  <span>Learn About Glaucoma</span>
+                  <span className={styles.btnArrow} aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
             </div>
-            <div className={styles.heroFeatureRow}>
-              <div className={styles.heroFeatureItem}>
-                <span className={styles.heroFeatureIcon} aria-hidden="true">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M2 12s3.8-6.5 10-6.5 10 6.5 10 6.5-3.8 6.5-10 6.5-10-6.5-10-6.5Z" />
-                    <circle cx="12" cy="12" r="3.2" strokeWidth="2" />
-                  </svg>
-                </span>
-                <div className={styles.heroFeatureText}>
-                  <span>Advanced</span>
-                  <span>Technology</span>
-                </div>
-              </div>
 
-              <div className={styles.heroFeatureDivider} aria-hidden="true" />
-
-              <div className={styles.heroFeatureItem}>
-                <span className={styles.heroFeatureIcon} aria-hidden="true">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
-                    <path d="m9 12 2 2 4-4" />
-                  </svg>
-                </span>
-                <div className={styles.heroFeatureText}>
-                  <span>Expert</span>
-                  <span>Doctors</span>
-                </div>
-              </div>
-
-              <div className={styles.heroFeatureDivider} aria-hidden="true" />
-
-              <div className={styles.heroFeatureItem}>
-                <span className={styles.heroFeatureIcon} aria-hidden="true">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                  </svg>
-                </span>
-                <div className={styles.heroFeatureText}>
-                  <span>Compassionate</span>
-                  <span>Care</span>
+            {/* Right Column: Floating Informational Badge on visual */}
+            <div className={styles.colVisual}>
+              <div className={styles.badgeWrap}>
+                <div className={styles.infoBadge}>
+                  <span className={styles.badgeIcon} aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      width="22"
+                      height="22"
+                    >
+                      <path d="M2 12s3.8-6.5 10-6.5 10 6.5 10 6.5-3.8 6.5-10 6.5-10-6.5-10-6.5Z" />
+                      <circle cx="12" cy="12" r="3.2" strokeWidth="2" />
+                    </svg>
+                  </span>
+                  <span className={styles.badgeDivider} aria-hidden="true" />
+                  <div className={styles.badgeText}>
+                    <strong>Preserving Your Sight</strong>
+                    <span>with Advanced Glaucoma Care</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className={styles.heroMediaWrapper}>
-            <Image
-              src="/images/Copy of DSC06796.JPG"
-              alt="Eye examination at Namokar Eye & Oculoplasty Centre"
-              fill
-              priority
-              sizes="(min-width: 1024px) 54vw, 100vw"
-              className={styles.heroPhotoImg}
-              unoptimized
-            />
-          </div>
+
+          {/* Bottom row of 4 trust cards above the full section background */}
+          <ul className={styles.trustCards} aria-label="Key Glaucoma Care Highlights">
+            <li className={styles.trustCard}>
+              <span className={styles.trustIcon} aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M2 12s3.8-6.5 10-6.5 10 6.5 10 6.5-3.8 6.5-10 6.5-10-6.5-10-6.5Z" />
+                  <circle cx="12" cy="12" r="3.2" strokeWidth="2" />
+                </svg>
+              </span>
+              <strong>Early Detection & Pressure Checks</strong>
+            </li>
+            <li className={styles.trustCard}>
+              <span className={styles.trustIcon} aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+              </span>
+              <strong>Advanced Optic Nerve OCT</strong>
+            </li>
+            <li className={styles.trustCard}>
+              <span className={styles.trustIcon} aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </span>
+              <strong>Specialist Glaucoma Doctors</strong>
+            </li>
+            <li className={styles.trustCard}>
+              <span className={styles.trustIcon} aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+              </span>
+              <strong>Long-term Vision Protection</strong>
+            </li>
+          </ul>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 
   // 2. OVERVIEW SECTION (“WHAT IS GLAUCOMA?”)
@@ -322,7 +343,7 @@ export default function Page() {
             <span>UNDERSTANDING GLAUCOMA</span>
           </div>
           <h2 id="overview-h" className={styles.overviewHeading}>
-            {c.introHeading}
+            <HeadingText>{c.introHeading}</HeadingText>
           </h2>
           <div className={styles.overviewText}>
             <p>
@@ -444,7 +465,7 @@ export default function Page() {
         <div className="container">
           <div className={styles.centerHead}>
             <p className={styles.eyebrow}>Know the signs</p>
-            <h2 id="when-h">{c.seekHelp.heading}</h2>
+            <h2 id="when-h"><HeadingText>{c.seekHelp.heading}</HeadingText></h2>
           </div>
           <div className={styles.awarenessGrid}>
             {c.seekHelp.items.map((item) => (
@@ -481,7 +502,7 @@ export default function Page() {
         <div className="container">
           <div className={styles.centerHead}>
             <p className={styles.eyebrow}>What to expect</p>
-            <h2 id="journey-h">What an assessment involves</h2>
+            <h2 id="journey-h">What an <span className="title-secondary">assessment involves</span></h2>
             <p className={styles.leadText}>
               A general outline of long-term care. The doctor decides which tests you need and how often. Most people can maintain good vision and continue their usual activities.
             </p>
@@ -522,7 +543,7 @@ export default function Page() {
       <div className="container">
         <div className={styles.centerHead}>
           <p className={styles.eyebrow}>Watch</p>
-          <h2 id="watch-h">Videos on this topic</h2>
+          <h2 id="watch-h">Videos on <span className="title-secondary">this topic</span></h2>
           <p className={styles.leadText}>
             Dr. Poonam Jain&apos;s centre shares short videos on its YouTube channel and in its own footage. Videos are general information, not a substitute for an examination. They complement the written information on this page.
           </p>
@@ -594,7 +615,7 @@ export default function Page() {
             <div className={styles.earlyContent}>
               <p className={styles.eyebrow}>Why check-ups matter</p>
               <h2 id="silent-h" className={styles.earlyHeading}>
-                Often no early symptoms. That is why an examination matters.
+                Often no early symptoms. <span className="title-secondary">That is why an examination matters.</span>
               </h2>
               <p className={styles.earlyLead}>
                 Vision lost to glaucoma does not come back, and early on most people notice
@@ -611,7 +632,7 @@ export default function Page() {
         <div className="container">
           <div className={styles.centerHead}>
             <p className={styles.eyebrow}>Signs to notice</p>
-            <h2 id="signs-h">Changes you may notice</h2>
+            <h2 id="signs-h">Changes you <span className="title-secondary">may notice</span></h2>
             <p className={styles.leadText}>
               Early glaucoma often shows nothing at all. When changes do appear, they tend to
               be slow, so they are easy to put down to age or tired eyes.
@@ -652,7 +673,7 @@ export default function Page() {
         <div className="container">
           <div className={styles.centerHead}>
             <p className={styles.eyebrow}>Types</p>
-            <h2 id="types-h">Common types of glaucoma</h2>
+            <h2 id="types-h">Common types <span className="title-secondary">of glaucoma</span></h2>
             <p className={styles.leadText}>
               Knowing which type a person has helps the doctor choose the right care.
             </p>
@@ -722,7 +743,7 @@ export default function Page() {
           <div className={styles.monitoringHeaderWrap}>
             <div className={styles.monitoringCopy}>
               <p className={styles.eyebrow}>Diagnosis and monitoring</p>
-              <h2 id="monitoring-h">How glaucoma is found and followed</h2>
+              <h2 id="monitoring-h">How glaucoma is <span className="title-secondary">found and followed</span></h2>
               <p className={styles.leadText}>
                 Checking eye pressure alone is not enough. The doctor looks at the nerve, the
                 drainage angle and the field of vision together. These are tests a doctor may use;
@@ -765,7 +786,7 @@ export default function Page() {
         <div className="container">
           <div className={styles.centerHead}>
             <p className={styles.eyebrow}>Treatment</p>
-            <h2 id="treatment-h">How glaucoma is treated</h2>
+            <h2 id="treatment-h">How glaucoma <span className="title-secondary">is treated</span></h2>
             <p className={styles.leadText}>
               Treatment aims to lower the pressure in the eye and protect the vision that is
               left. It cannot bring back vision that has already been lost.
@@ -816,3 +837,4 @@ export default function Page() {
     </ServiceLayout>
   );
 }
+

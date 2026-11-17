@@ -470,6 +470,14 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
         q: "What should I bring to my aesthetic eye consultation?",
         a: "Bring any previous eye reports and a list of the medicines and eye drops you use. Note the changes that concern you and the questions you would like to discuss, so the doctor can understand your priorities during the assessment.",
       },
+      {
+        q: "How much recovery time should I plan for?",
+        a: "Recovery depends on the procedure and your individual treatment plan. During your consultation, ask about time away from work, returning to usual activities, follow-up visits and any aftercare you may need so you can plan ahead.",
+      },
+      {
+        q: "How can I set realistic expectations for treatment?",
+        a: "Explain the changes you would like to see and discuss them with the doctor during your assessment. Ask what the proposed treatment can achieve, what its limitations and risks are, and whether other options may better suit your concerns. Results vary from person to person.",
+      },
     ],
     related: ["eyelid", "reconstructive", "exams"],
   },
@@ -534,6 +542,18 @@ export const SERVICE_CONTENT: Record<ServiceKey, ServicePageContent> = {
       {
         q: "Is reconstructive oculoplasty only about appearance?",
         a: "No. Its focus is function, comfort and eye protection. Appearance may also be considered when planning care for eyelid or surrounding-eye conditions.",
+      },
+      {
+        q: "What should I bring to my reconstructive eye consultation?",
+        a: "Bring previous eye reports, details of any earlier eye or eyelid procedures, and a list of your medicines and eye drops. Note when your symptoms began, how they affect daily activities and the questions you would like to discuss.",
+      },
+      {
+        q: "How will my treatment plan be decided?",
+        a: "The doctor will assess your concerns and examine your eyes before discussing treatment options. Use the consultation to ask about the proposed approach, its expected benefits, limitations and risks, and any alternatives before deciding how to proceed.",
+      },
+      {
+        q: "How should I plan for recovery and follow-up?",
+        a: "Recovery and follow-up depend on the treatment recommended for you. Ask the doctor about time away from work, returning to usual activities, aftercare instructions and review appointments so you can arrange any support you may need.",
       },
     ],
     related: ["eyelid", "aesthetic", "exams"],

@@ -1,0 +1,330 @@
+/* ==========================================================================
+   WhatIsReconstructiveOculoplasty – Custom Layout Matching Reference UI
+   ========================================================================== */
+
+.sectionWrap {
+  position: relative;
+  width: 100%;
+  background: #fdfaf7;
+  overflow: hidden;
+  padding: 64px 0 60px;
+}
+
+/* ── Subtle background decorative curves ── */
+.bgLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── Container ── */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Main Top Grid: 3-Column Split (Text, Rectangle Image, 3 Cards) ── */
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr 1fr;
+  gap: 28px;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+/* ── Left Column: Content (No button) ── */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 8px;
+}
+
+.kickerWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.kickerBar {
+  display: inline-block;
+  width: 24px;
+  height: 2.5px;
+  background: #c85a17;
+  border-radius: 2px;
+}
+
+.kickerText {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c85a17;
+}
+
+.heading {
+  margin: 0 0 18px;
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 3.5vw, 44px);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+}
+
+.titleTeal {
+  color: #0c454b;
+  display: block;
+}
+
+.titleOrange {
+  color: #c85a17;
+  display: block;
+}
+
+.paragraph {
+  margin: 0 0 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.68;
+  color: #556871;
+  max-width: 44ch;
+}
+
+.paragraph:last-of-type {
+  margin-bottom: 0;
+}
+
+/* ── Middle Column: Rectangle Clinical Image Card ── */
+.imageCol {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageCard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.05 / 1;
+  max-height: 310px;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #f2e9e1;
+  box-shadow: 0 16px 38px rgba(12, 69, 75, 0.09), 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.imageCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 50px rgba(12, 69, 75, 0.14);
+}
+
+.macroImg {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.imageCard:hover .macroImg {
+  transform: scale(1.04);
+}
+
+/* ── Right Column: 3 Enhanced Procedure Link Cards ── */
+.cardsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+.procedureCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 16px 22px;
+  text-decoration: none;
+  box-shadow: 0 8px 26px rgba(12, 69, 75, 0.06), 0 1px 4px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(200, 90, 23, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.procedureCard:hover {
+  transform: translateX(4px);
+  box-shadow: 0 12px 32px rgba(12, 69, 75, 0.11);
+  border-color: rgba(200, 90, 23, 0.3);
+}
+
+.cardLeftGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cardIconCircle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #faede3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.22s ease, background-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.procedureCard:hover .cardIconCircle {
+  transform: scale(1.06);
+  background: #fde5d5;
+  box-shadow: 0 4px 12px rgba(200, 90, 23, 0.15);
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #0c454b;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Crisp SVG Right Arrow Container */
+.cardArrowBox {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0c454b;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, color 0.25s ease, background-color 0.25s ease;
+}
+
+.procedureCard:hover .cardArrowBox {
+  transform: translateX(4px);
+  color: #c85a17;
+  background: rgba(200, 90, 23, 0.08);
+}
+
+/* ── Bottom Feature Bar ── */
+.bottomBar {
+  background: #faeee5;
+  border-radius: 20px;
+  padding: 18px 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  border: 1px solid rgba(200, 90, 23, 0.12);
+}
+
+.bottomItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 4px 16px;
+}
+
+.bottomItem:not(:last-child) {
+  border-right: 1px solid rgba(200, 90, 23, 0.2);
+}
+
+.bottomIconBox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #0c454b;
+  flex-shrink: 0;
+}
+
+.bottomItemText {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: #0c454b;
+  letter-spacing: -0.01em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1080px) {
+  .mainGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .leftCol {
+    grid-column: 1;
+  }
+
+  .imageCol {
+    grid-column: 2;
+  }
+
+  .cardsCol {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .imageCard {
+    max-height: 290px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionWrap {
+    padding: 48px 0 44px;
+  }
+
+  .mainGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .paragraph {
+    max-width: 100%;
+  }
+
+  .imageCol {
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .imageCard {
+    max-height: 280px;
+  }
+
+  .cardsCol {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .bottomBar {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 18px 20px;
+  }
+
+  .bottomItem:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid rgba(200, 90, 23, 0.16);
+    padding-bottom: 14px;
+  }
+}

@@ -157,7 +157,7 @@ export default function FunctionalOrCosmeticSection({
 
             <h2 id="reasons-heading" className={styles.heading}>
               Functional or
-              <span className={styles.headingHighlight}>Cosmetic?</span>
+              <span className={`${styles.headingHighlight} title-secondary`}>Cosmetic?</span>
             </h2>
 
             <p className={styles.lead}>{lead}</p>

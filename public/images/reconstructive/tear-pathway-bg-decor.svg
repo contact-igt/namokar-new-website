@@ -1,0 +1,216 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Soft warm ambient radial glows -->
+    <radialGradient id="topWarmGlow" cx="10%" cy="15%" r="65%">
+      <stop offset="0%" stop-color="#FCE7D7" stop-opacity="0.8" />
+      <stop offset="45%" stop-color="#FAF1E8" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#FAF7F2" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="rightCardGlow" cx="85%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#FDE8DB" stop-opacity="0.65" />
+      <stop offset="50%" stop-color="#FBF4ED" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#FAF7F2" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="bottomTealWash" cx="30%" cy="90%" r="50%">
+      <stop offset="0%" stop-color="#DDF2EE" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#F2FAF8" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#FAF7F2" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Warm elegant ribbon gradients -->
+    <linearGradient id="warmRibbon1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F9DFC9" stop-opacity="0.75" />
+      <stop offset="50%" stop-color="#F5D0B2" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#FAF7F2" stop-opacity="0.05" />
+    </linearGradient>
+
+    <linearGradient id="warmRibbon2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FDE6D5" stop-opacity="0.8" />
+      <stop offset="60%" stop-color="#FCEEE3" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Delicate streamline gradients for tear drainage pathway -->
+    <linearGradient id="streamGradAqua" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D7A75" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#14B8A6" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#0D7A75" stop-opacity="0.05" />
+    </linearGradient>
+
+    <linearGradient id="streamGradAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C85A17" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#E2864C" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#EAA475" stop-opacity="0.05" />
+    </linearGradient>
+
+    <linearGradient id="orbitArcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C85A17" stop-opacity="0.3" />
+      <stop offset="50%" stop-color="#D97A3C" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#0D7A75" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Base Ambient Color Washes -->
+  <rect width="1600" height="900" fill="url(#topWarmGlow)" />
+  <rect width="1600" height="900" fill="url(#rightCardGlow)" />
+  <rect width="1600" height="900" fill="url(#bottomTealWash)" />
+
+  <!-- TOP-LEFT & MID-LEFT FLOWING CURVED RIBBONS (Subtle Medical Aesthetics) -->
+  <g opacity="0.85">
+    <path
+      d="M -80 -40 C 140 60, 280 200, 360 420 C 300 320, 180 180, -60 100 Z"
+      fill="url(#warmRibbon1)"
+    />
+    <path
+      d="M -50 -10 C 120 120, 240 280, 290 480"
+      stroke="#E2864C"
+      stroke-width="2"
+      stroke-linecap="round"
+      opacity="0.35"
+    />
+    <path
+      d="M 40 -60 C 160 80, 260 200, 340 300 C 270 210, 180 90, 80 -40 Z"
+      fill="url(#warmRibbon2)"
+      opacity="0.5"
+    />
+  </g>
+
+  <!-- BOTTOM-LEFT TO CENTER TEAR DRAINAGE FLOW CURVES -->
+  <g opacity="0.75">
+    <!-- Fluid wave 1 -->
+    <path
+      d="M -40 820 C 160 680, 380 660, 580 750 C 420 800, 220 850, -20 920 Z"
+      fill="url(#warmRibbon1)"
+      opacity="0.65"
+    />
+    <path
+      d="M -20 760 C 180 620, 420 620, 680 720"
+      stroke="#E2864C"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      opacity="0.4"
+    />
+    <path
+      d="M 10 790 C 200 660, 440 660, 720 760"
+      stroke="#EAA475"
+      stroke-width="1.5"
+      stroke-dasharray="6 8"
+      stroke-linecap="round"
+      opacity="0.35"
+    />
+  </g>
+
+  <!-- LACRIMAL / TEAR PATHWAY MOTIF (Elegant subtle anatomical line art) -->
+  <g transform="translate(60, 180)" opacity="0.6">
+    <!-- Gentle outer eye curve -->
+    <path
+      d="M 90 320 C 160 270, 260 270, 340 310"
+      stroke="url(#orbitArcGrad)"
+      stroke-width="2.2"
+      stroke-linecap="round"
+    />
+    <!-- Delicate orbital contour -->
+    <path
+      d="M 60 350 C 150 290, 280 295, 370 340"
+      stroke="#C85A17"
+      stroke-width="2"
+      stroke-linecap="round"
+      opacity="0.35"
+    />
+    <!-- Lower lid line -->
+    <path
+      d="M 95 365 C 175 410, 285 405, 350 355"
+      stroke="#D97A3C"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      opacity="0.25"
+    />
+
+    <!-- Tear drainage canaliculus to nasolacrimal canal path (stylized dashed stream) -->
+    <path
+      d="M 280 320 C 265 335, 255 360, 258 395 C 262 445, 275 490, 285 540"
+      stroke="url(#streamGradAqua)"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-dasharray="7 9"
+    />
+    <!-- Inner parallel stream -->
+    <path
+      d="M 288 322 C 273 340, 266 368, 268 400 C 272 445, 284 485, 294 535"
+      stroke="#0D7A75"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      opacity="0.25"
+    />
+
+    <!-- Subtle fluid drop accent rings -->
+    <circle cx="282" cy="320" r="3.5" fill="#0D7A75" opacity="0.4" />
+    <circle cx="258" cy="395" r="3" fill="#0D7A75" opacity="0.35" />
+    <circle cx="270" cy="460" r="2.5" fill="#0D7A75" opacity="0.3" />
+    <circle cx="285" cy="540" r="3.5" fill="#0D7A75" opacity="0.4" />
+  </g>
+
+  <!-- TOP-RIGHT & CARD-BACKING FLUID SWEEP (Frames the comparison cards) -->
+  <g opacity="0.8">
+    <!-- Deep sweeping curve across the top right -->
+    <path
+      d="M 980 -50 C 1180 80, 1380 90, 1650 30 L 1650 -50 Z"
+      fill="url(#warmRibbon1)"
+      opacity="0.45"
+    />
+    <path
+      d="M 1020 -30 C 1220 110, 1420 110, 1650 50"
+      stroke="#E2864C"
+      stroke-width="2"
+      stroke-linecap="round"
+      opacity="0.3"
+    />
+
+    <!-- Soft concentric orbital arcs behind right cards -->
+    <path
+      d="M 1100 240 C 1260 160, 1460 200, 1580 320"
+      stroke="url(#streamGradAmber)"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-dasharray="10 12"
+      opacity="0.3"
+    />
+    <path
+      d="M 1140 280 C 1280 210, 1440 240, 1540 340"
+      stroke="#EAA475"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      opacity="0.25"
+    />
+  </g>
+
+  <!-- BOTTOM-RIGHT SOFT ACCENTS -->
+  <g opacity="0.6">
+    <path
+      d="M 1300 860 C 1420 780, 1520 790, 1650 820 L 1650 920 L 1260 920 Z"
+      fill="url(#warmRibbon1)"
+      opacity="0.35"
+    />
+    <path
+      d="M 1280 840 C 1400 750, 1520 760, 1640 800"
+      stroke="#E2864C"
+      stroke-width="2"
+      stroke-linecap="round"
+      opacity="0.25"
+    />
+    <!-- Delicate floating micro rings representing clear tear drops -->
+    <circle cx="1220" cy="740" r="18" stroke="#E2864C" stroke-width="1" stroke-dasharray="3 4" opacity="0.2" />
+    <circle cx="1220" cy="740" r="6" fill="#E2864C" opacity="0.08" />
+    <circle cx="1480" cy="710" r="24" stroke="#0D7A75" stroke-width="1" stroke-dasharray="4 6" opacity="0.2" />
+    <circle cx="1480" cy="710" r="8" fill="#0D7A75" opacity="0.08" />
+    <circle cx="1360" cy="180" r="14" stroke="#E2864C" stroke-width="1" stroke-dasharray="3 4" opacity="0.2" />
+  </g>
+
+  <!-- SUBTLE GEOMETRIC ORBITAL GRID ACCENTS -->
+  <g opacity="0.25">
+    <circle cx="160" cy="480" r="140" stroke="#C85A17" stroke-width="0.8" stroke-dasharray="4 8" />
+    <circle cx="160" cy="480" r="220" stroke="#C85A17" stroke-width="0.6" stroke-dasharray="2 10" />
+  </g>
+</svg>

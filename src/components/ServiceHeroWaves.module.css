@@ -1,0 +1,26 @@
+.hero {
+  background: #fff8f3;
+  isolation: isolate;
+}
+
+/* Raster frame derived from the cataract artwork, with a feathered photo aperture.
+   Photos sit below it; text and badges sit above it. */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: url("/images/service-hero-peach-frame-v2.png") center / 100% 100% no-repeat;
+  /* Soften only the decorative frame; retain the transparent photo opening. */
+  filter: saturate(0.65) brightness(1.04);
+}
+
+@media (max-width: 959px) {
+  .hero::after {
+    top: auto;
+    height: clamp(260px, 60vw, 420px);
+    background-size: 200% 100%;
+    background-position: right center;
+  }
+}

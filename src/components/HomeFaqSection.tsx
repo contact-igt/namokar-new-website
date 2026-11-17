@@ -1,3 +1,4 @@
+import HeadingText from "@/components/HeadingText";
 import homeStyles from "@/app/home-redesign.module.css";
 import { useId, type ReactNode } from "react";
 import { PinIcon } from "@/components/Icons";
@@ -93,7 +94,7 @@ export default function HomeFaqSection({items, title = "Questions Patients Often
             <div className={`faq-intro${animateIntro ? " reveal" : ""}`}>
               {intro ?? <>
               <p className="kicker faq-kicker">{eyebrow}</p>
-              <h2 id="faq-h" className="h2 faq-h2">{title}</h2>
+              <h2 id="faq-h" className="h2 faq-h2"><HeadingText>{title}</HeadingText></h2>
               <p className="faq-lead">
                 This is general information. Your own eyes need to be examined before
                 anyone can advise you.

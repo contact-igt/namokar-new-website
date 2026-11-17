@@ -1,7 +1,8 @@
+import HeadingText from "@/components/HeadingText";
 import Image from "next/image";
 import Link from "next/link";
 import { LINKS, SITE, TEL_HREF } from "@/config/site";
-import { ArrowRightIcon, PhoneIcon } from "./Icons";
+import { ArrowRightIcon, PhoneIcon, PinIcon } from "./Icons";
 import { onlineBookingAvailable } from "@/lib/booking";
 import styles from "./HomeCta.module.css";
 
@@ -9,8 +10,10 @@ export interface HomeCtaProps {
   online?: boolean;
   id?: string;
   kicker?: string;
-  heading?: string;
+  heading?: import("react").ReactNode;
   desc?: string;
+  showContactDetails?: boolean;
+  callLabel?: string;
 }
 
 export default function HomeCta({
@@ -19,6 +22,8 @@ export default function HomeCta({
   kicker = "Take the first step",
   heading = "Book Your Consultation Today",
   desc = "Take the first step towards clearer, healthier vision with doctor-led care at Namokar Eye & Oculoplasty Centre.",
+  showContactDetails = false,
+  callLabel = "Call Us Now",
 }: HomeCtaProps) {
   const bookingHref = online ? `${LINKS.contact}#request` : TEL_HREF;
 
@@ -44,9 +49,15 @@ export default function HomeCta({
           <div className={`${styles.ctaPanelCopy} cta-panel-copy`}>
             <p className={`${styles.kicker} kicker`}>{kicker}</p>
             <h2 id={`${id}-h`} className={`${styles.ctaTitle} cta-title`}>
-              {heading}
+              <HeadingText>{heading}</HeadingText>
             </h2>
             <p className={`${styles.ctaDesc} cta-desc`}>{desc}</p>
+            {showContactDetails && (
+              <div className={styles.contactDetails}>
+                <p><PinIcon /><span>{SITE.address.lines.join(", ")}</span></p>
+                <p><PhoneIcon /><a href={TEL_HREF}>{SITE.phone.display}</a></p>
+              </div>
+            )}
             <div className={`${styles.ctaPanelActions} cta-panel-actions`}>
               {online ? (
                 <Link href={bookingHref} className="btn btn--primary">
@@ -62,7 +73,7 @@ export default function HomeCta({
                 className={`btn ${styles.ctaCallButton} cta-call-button`}
                 aria-label={`Call ${SITE.name} on ${SITE.phone.display}`}
               >
-                <PhoneIcon width={18} height={18} /> Call Us Now
+                <PhoneIcon width={18} height={18} /> {callLabel}
               </a>
             </div>
           </div>

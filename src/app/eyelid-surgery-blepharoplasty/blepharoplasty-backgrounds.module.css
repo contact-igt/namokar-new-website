@@ -1,0 +1,58 @@
+/* Artwork is scoped to the editorial sections on this route. */
+.page > :global(#overview),
+.page > :global(#reasons),
+.page > :global([data-figure="eyelidPosition"]),
+.page > :global(#when),
+.page > :global(#journey),
+.page > :global(#watch) {
+  background-color: #fdfaf7;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+/* Separate artwork for each editorial section. */
+.page > :global(#overview) {
+  background-image: url("/images/blepharoplasty/backgrounds/eyelid-contours.webp");
+}
+
+.page > :global(#reasons) {
+  background-image: url("/images/blepharoplasty/backgrounds/comparison-balance.webp");
+}
+
+.page > :global([data-figure="eyelidPosition"]) {
+  background-image: url("/images/blepharoplasty/backgrounds/eyelid-arches.webp");
+}
+
+.page > :global(#when) {
+  background-image: url("/images/blepharoplasty/backgrounds/assessment-reasons-fan.webp");
+}
+
+.page > :global(#journey) {
+  background-image: url("/images/blepharoplasty/backgrounds/journey-curves.webp");
+}
+
+.page > :global(#watch) {
+  background-image: url("/images/blepharoplasty/backgrounds/video-halos.webp");
+}
+
+/* Remove only the old full-section decorative layers, retaining content icons. */
+.page > :global(#overview) > :global([aria-hidden="true"]),
+.page > :global(#reasons) > :global([aria-hidden="true"]),
+.page > :global(#when) > :global([aria-hidden="true"]),
+.page > :global(#journey) > :global([aria-hidden="true"]),
+.page > :global(#watch) > :global([aria-hidden="true"]) {
+  display: none;
+}
+
+/* Keep the artwork proportional on taller, stacked mobile sections. */
+@media (max-width: 640px) {
+  .page > :global(#overview),
+  .page > :global(#reasons),
+  .page > :global([data-figure="eyelidPosition"]),
+  .page > :global(#when),
+  .page > :global(#journey),
+  .page > :global(#watch) {
+    background-size: auto 100%;
+  }
+}

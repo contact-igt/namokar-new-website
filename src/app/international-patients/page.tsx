@@ -73,7 +73,7 @@ export default function InternationalPage() {
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
               <p className={styles.eyebrow}>International Patients</p>
-              <h1 id="international-h">Visiting from outside Delhi or abroad.</h1>
+              <h1 id="international-h">Visiting from outside <span className="title-secondary">Delhi or abroad.</span></h1>
               <p className={styles.heroLead}>How to get in touch, what to bring and what to ask before you travel to the centre in Ashok Vihar.</p>
               <BookButton online={online} className={`btn btn--primary ${styles.heroButton}`} />
             </div>
@@ -105,7 +105,7 @@ export default function InternationalPage() {
         <div className="container">
           <div className={styles.centerHeading}>
             <p className={styles.eyebrow}>Planning your visit</p>
-            <h2 id="plan-h">From first call to follow-up</h2>
+            <h2 id="plan-h">From first call <span className="title-secondary">to follow-up</span></h2>
             <p>A general outline of how a visit from further away usually works.</p>
           </div>
           <ol className={styles.steps}>
@@ -124,7 +124,7 @@ export default function InternationalPage() {
         <div className={`container ${styles.arriveGrid}`}>
           <div className={styles.arriveHeading}>
             <p className={styles.eyebrow}>When you arrive</p>
-            <h2 id="arrive-h">What you will see</h2>
+            <h2 id="arrive-h">What you <span className="title-secondary">will see</span></h2>
             <p>The centre is on the street front in Ashok Vihar, with a reception at the entrance.</p>
             <ul className={styles.arrivalDetails}>
               <li id="arrival-reception-caption"><span><InfoIcon /></span>The reception desk at the centre entrance.</li>
@@ -147,7 +147,7 @@ export default function InternationalPage() {
           <div className={styles.noteCard}>
             <div>
               <p className={styles.eyebrow}>Please note</p>
-              <h2 id="careful-h">What this page does not promise</h2>
+              <h2 id="careful-h">What this page <span className="title-secondary">does not promise</span></h2>
             </div>
             <div className={styles.noteCopy}>
               <p>This page does not list help with visas, travel, accommodation, airport transfers, translation or insurance. If you need any of these, please ask the centre what is possible before you plan a trip.</p>
@@ -161,7 +161,7 @@ export default function InternationalPage() {
         <div className="container">
           <div className={styles.centerHeading}>
             <p className={styles.eyebrow}>Areas of care</p>
-            <h2 id="care-h">What the centre looks after</h2>
+            <h2 id="care-h">What the centre <span className="title-secondary">looks after</span></h2>
             <p>Which treatments are offered is confirmed at the consultation.</p>
           </div>
           <ul className={styles.serviceGrid}>
@@ -191,7 +191,7 @@ export default function InternationalPage() {
                 <circle cx="130" cy="72" r="10" fill="#fff8f0" />
               </svg>
               <p className={styles.eyebrow}>Finding the centre</p>
-              <h2 id="find-h">Where we are</h2>
+              <h2 id="find-h">Where we <span className="title-secondary">are</span></h2>
             </div>
             <div className={styles.locationDetails}>
               <address>
@@ -214,7 +214,7 @@ export default function InternationalPage() {
                 <Image src="/images/Hands Cupping Glowing Eye Icon.png" alt="" fill sizes="(min-width: 760px) 38vw, 100vw" className="cta-panel-image" />
               </figure>
               <div className="cta-panel-copy">
-                <h2 id="intl-cta-h" className="cta-title">Planning to visit?</h2>
+                <h2 id="intl-cta-h" className="cta-title">Planning to <span className="title-secondary">visit?</span></h2>
                 <p className="cta-desc">Contact the centre to plan your visit or arrange an eye consultation.</p>
                 <div className={styles.ctaContact}>
                   <p><PinIcon /><span>{SITE.address.lines.join(", ")}</span></p>

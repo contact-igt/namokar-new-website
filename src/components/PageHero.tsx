@@ -1,3 +1,4 @@
+import HeadingText from "@/components/HeadingText";
 import type { ReactNode } from "react";
 import Breadcrumb from "./Breadcrumb";
 import Parallax from "./motion/Parallax";
@@ -43,7 +44,7 @@ export default function PageHero({
         <div className="page-hero-copy">
           <Breadcrumb current={crumb} trail={trail} />
           {eyebrow && <p className="page-eyebrow">{eyebrow}</p>}
-          <h1 className="page-title">{title}</h1>
+          <h1 className="page-title"><HeadingText>{title}</HeadingText></h1>
           <p className="page-lead">{lead}</p>
           {actions && <div className="page-actions">{actions}</div>}
         </div>

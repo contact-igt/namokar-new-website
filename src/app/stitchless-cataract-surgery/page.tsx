@@ -1,9 +1,10 @@
+import HeadingText from "@/components/HeadingText";
 import ClinicalFigure from "@/components/clinical/ClinicalFigure";
 import ServiceLayout, { serviceMetadata } from "@/components/ServiceLayout";
 import Image from "next/image";
-import VideoPlayer from "@/components/VideoPlayer";
+import CataractVideoCard from "./CataractVideoCard";
 import { SERVICE_CONTENT } from "@/content/services";
-import { videosFor } from "@/content/videos";
+import { CATEGORY_LABEL, videosFor } from "@/content/videos";
 import { playerProps } from "@/lib/videoProps";
 import styles from "./cataract.module.css";
 
@@ -47,7 +48,7 @@ export default function Page() {
             </div>
             <div className={styles.overviewCopy}>
               <p className="kicker">Comprehensive vision care</p>
-              <h2 id="overview-h" className="h2">What is a Cataract</h2>
+              <h2 id="overview-h" className="h2">What is <span className="title-secondary">a Cataract</span></h2>
               <div className={styles.overviewDescription}>
                 {content.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               </div>
@@ -66,7 +67,7 @@ export default function Page() {
             <div className="container">
               <div className={styles.centerHead}>
                 <p className="kicker">Know the signs</p>
-                <h2 id="when-h" className="h2">{content.seekHelp.heading}</h2>
+                <h2 id="when-h" className="h2"><HeadingText>{content.seekHelp.heading}</HeadingText></h2>
               </div>
               <ul className={styles.signGrid}>
                 {content.seekHelp.items.map((item, index) => (
@@ -90,7 +91,7 @@ export default function Page() {
             <div className="container">
               <div className={styles.centerHead}>
                 <p className="kicker">What to expect</p>
-                <h2 id="journey-h" className="h2">What an assessment involves</h2>
+                <h2 id="journey-h" className="h2">What an <span className="title-secondary">assessment involves</span></h2>
                 <p className="lead">{content.journeyLead}</p>
               </div>
               <ol className={styles.journeyGrid}>
@@ -114,11 +115,25 @@ export default function Page() {
           <div className="container">
             <div className={styles.centerHead}>
               <p className="kicker">Watch</p>
-              <h2 id="watch-h" className="h2">Videos on this topic</h2>
+              <h2 id="watch-h" className="h2">Videos on <span className="title-secondary">this topic</span></h2>
               <p className="lead">Dr. Poonam Jain&apos;s centre shares short videos on its YouTube channel and in its own footage.</p>
             </div>
             <div className={styles.videoGrid}>
-              {videos.map((video) => <VideoPlayer key={video.id} v={playerProps(video)} showMeta sizes="(min-width: 960px) 33vw, 100vw" />)}
+              {videos.map((video) => {
+                const props = playerProps(video);
+                return (
+                  <CataractVideoCard
+                    key={video.id}
+                    videoId={props.videoId || ""}
+                    title={video.title}
+                    description={video.description}
+                    poster={props.poster || "/images/cataract-thumbnail1.jpg"}
+                    watchUrl={props.watchUrl || `https://www.youtube.com/watch?v=${props.videoId}`}
+                    language={video.language}
+                    category={CATEGORY_LABEL[video.category]}
+                  />
+                );
+              })}
             </div>
             <p className={styles.videoNote}>Videos are general information, not a substitute for an examination. They complement the written information on this page.</p>
           </div>
@@ -148,7 +163,7 @@ export default function Page() {
             <div className={styles.lensContent}>
               <div className="section-head">
                 <p className="kicker">Choosing a lens</p>
-                <h2 id="lenses-h" className="h2">About replacement lenses</h2>
+                <h2 id="lenses-h" className="h2">About replacement <span className="title-secondary">lenses</span></h2>
               </div>
               <div className="about-body">
                 <p>

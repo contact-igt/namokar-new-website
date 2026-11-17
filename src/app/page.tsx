@@ -203,7 +203,7 @@ export default function Home() {
               <div className="centre-head reveal">
                 <div>
                   <p className="kicker">The centre</p>
-                  <h2 id="centre-h" className="h2">Our Centre</h2>
+                  <h2 id="centre-h" className="h2">Our <span className="title-secondary">Centre</span></h2>
                 </div>
                 <div className="centre-copy">
                 <p className="lead">
@@ -239,7 +239,7 @@ export default function Home() {
             <div className="doctor-copy doctor-profile-main">
               <header className="doctor-showcase-head">
                 <p className="kicker">Meet your doctor</p>
-                <h2 id="doctor-h" className="h2 h2--xl">Dr. Poonam Jain</h2>
+                <h2 id="doctor-h" className="h2 h2--xl">Dr. Poonam <span className="title-secondary">Jain</span></h2>
                 <p className="doctor-role">Medical Director &bull; Senior Ophthalmologist &bull; Oculoplasty Surgeon</p>
               </header>
               <p className="lead">
@@ -287,7 +287,7 @@ export default function Home() {
           <div className="container oculo-grid">
             <div className="oculo-copy">
               <p className="kicker">Oculoplasty</p>
-              <h2 id="oculo-h" className="h2">Specialist Oculoplasty for Function &amp; Appearance</h2>
+              <h2 id="oculo-h" className="h2">Specialist Oculoplasty for <span className="title-secondary">Function &amp; Appearance</span></h2>
               <p className="lead">
                 Oculoplasty is a branch of ophthalmology focused on the eyelids, tear
                 passages, eye socket and surrounding eye area. Some concerns affect
@@ -367,7 +367,7 @@ export default function Home() {
           <div className="container why-shell">
             <header className="why-intro reveal">
               <p className="kicker why-kicker">Why Namokar</p>
-              <h2 id="why-h" className="h2 why-h2">Why Patients Choose Namokar</h2>
+              <h2 id="why-h" className="h2 why-h2">Why Patients <span className="title-secondary">Choose Namokar</span></h2>
               <p className="why-foot">Doctor-led consultations in Ashok Vihar, New Delhi, with comprehensive eye care and specialist oculoplasty under one centre.</p>
             </header>
             <div className="why-cards">

@@ -1,0 +1,47 @@
+/* Secondary title accents are limited to this service page. */
+.page :global(h2 .title-secondary) {
+  color: var(--title-secondary);
+}
+
+/* Route-scoped artwork: shared sections and other service pages retain their styling. */
+.page > :global(#overview),
+.page > :global(#terms),
+.page > :global(#tearPathway),
+.page > :global([data-figure="lidMalposition"]),
+.page > :global(#journey),
+.page > :global(#watch) {
+  background-color: #fdfaf7;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.page > :global(#overview) {
+  background-image: url("/images/reconstructive/backgrounds/overview.webp");
+}
+
+/* Replace the previous decorative overlay with the new artwork. */
+.page > :global(#overview) > :global([aria-hidden="true"]) {
+  display: none;
+}
+
+.page > :global(#terms) {
+  background-image: url("/images/reconstructive/backgrounds/terms-v2.webp");
+}
+
+.page > :global(#tearPathway) {
+  background-image: url("/images/reconstructive/backgrounds/tear-pathway.webp");
+}
+
+.page > :global([data-figure="lidMalposition"]) {
+  background-image: url("/images/reconstructive/backgrounds/eyelid.webp");
+}
+
+.page > :global(#journey) {
+  background-image: url("/images/reconstructive/backgrounds/assessment.webp");
+}
+
+.page > :global(#watch) {
+  background-image: url("/images/reconstructive/backgrounds/videos.webp");
+}
+

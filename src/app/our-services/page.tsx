@@ -5,7 +5,7 @@ import Image from "next/image";
 import { treatmentItems } from "@/lib/treatments";
 import HomeCta from "@/components/HomeCta";
 import ServicesFaqSection from "@/components/ServicesFaqSection";
-import { CalendarIcon } from "@/components/Icons";
+import { ArrowRightIcon, CalendarIcon } from "@/components/Icons";
 import ServicesUnifiedList, { type ServiceCardItem } from "@/components/ServicesUnifiedList";
 import styles from "./services.module.css";
 import { PAGES } from "@/config/routes";
@@ -125,29 +125,29 @@ const JOURNEY_STEPS = [
     step: "01",
     title: "Share your concern",
     text: "Tell us what has changed, what is troubling you and what you hope to understand.",
-    image: "/images/journey/step-unit-1.webp",
-    alt: "Share your concern - Doctor and patient consultation at slit lamp (Step 01)",
+    image: "/images/journey/share-concern-v2.webp",
+    alt: "Illustration of a patient sharing his concerns with an eye doctor",
   },
   {
     step: "02",
     title: "Understand your eyes",
     text: "An examination helps the doctor assess your eye health and discuss any tests you may need.",
-    image: "/images/journey/step-unit-2.webp",
-    alt: "Understand your eyes - Diagnostic retinal scan on monitor (Step 02)",
+    image: "/images/journey/eye-examination-v2.webp",
+    alt: "Illustration of an eye examination using a slit lamp",
   },
   {
     step: "03",
     title: "Discuss your options",
     text: "Understand the findings, possible treatments and the benefits and risks relevant to you.",
-    image: "/images/journey/step-unit-3.webp",
-    alt: "Discuss your options - Specialist using ophthalmic microscope (Step 03)",
+    image: "/images/journey/discuss-options-v2.webp",
+    alt: "Illustration of a doctor explaining eye care options to a patient",
   },
   {
     step: "04",
     title: "Plan your next step",
     text: "Agree on a care plan and receive guidance about treatment, monitoring or follow-up.",
-    image: "/images/journey/step-unit-4.webp",
-    alt: "Plan your next step - Agree on a care plan and guidance (Step 04)",
+    image: "/images/journey/plan-care-v2.webp",
+    alt: "Illustration of a doctor and patient reviewing a care plan",
   },
 ];
 
@@ -205,7 +205,7 @@ export default function ServicesPage() {
               </div>
 
               <h1 id="services-hero-h" className={styles.heading}>
-                Thoughtful care for every part of <span className={styles.headingOrange}>your eyes.</span>
+                Thoughtful care for every part of <span className={`${styles.headingOrange} title-secondary`}>your eyes.</span>
               </h1>
 
               <p className={styles.lead}>
@@ -215,7 +215,7 @@ export default function ServicesPage() {
               <div className={styles.actions}>
                 <a href="#services-list" className={styles.btnPrimary}>
                   <span>Explore Our Services</span>
-                  <span aria-hidden="true">&rarr;</span>
+                  <ArrowRightIcon className={styles.btnArrow} width={20} height={20} />
                 </a>
 
                 <Link href={`${LINKS.contact}#request`} className={styles.btnSecondary}>
@@ -308,7 +308,7 @@ export default function ServicesPage() {
               <span className={styles.kickerText}>OUR SERVICES</span>
             </div>
             <h2 id="services-list-h" className={styles.sectionTitle}>
-              Comprehensive Vision &amp; <span className={styles.headingOrange}>Oculoplasty Care</span>
+              Comprehensive Vision &amp; <span className={`${styles.headingOrange} title-secondary`}>Oculoplasty Care</span>
             </h2>
             <p className={styles.sectionLead}>
               Thoughtful, specialist eye care for all stages of life. Explore our core clinical services from cataract surgery and glaucoma management to delicate eyelid and reconstructive oculoplasty.
@@ -365,7 +365,7 @@ export default function ServicesPage() {
             </div>
 
             <h2 id="journey-h" className={styles.journeyTitle}>
-              A clear path from concern to <span className={styles.headingOrange}>care.</span>
+              A clear path from concern to <span className={`${styles.headingOrange} title-secondary`}>care.</span>
             </h2>
 
             <p className={styles.journeySubtitle}>
@@ -387,16 +387,20 @@ export default function ServicesPage() {
             <ol className={styles.journeyStepsList}>
               {JOURNEY_STEPS.map((step) => (
                 <li key={step.step} className={styles.journeyStepCard}>
-                  {/* Floating Circular Photo Unit with White Ring and Badge */}
+                  {/* Circular Photo with white ring, orange outer ring and number badge */}
                   <div className={styles.stepCircleUnit}>
-                    <Image
-                      src={step.image}
-                      alt={step.alt}
-                      width={124}
-                      height={133}
-                      className={styles.stepUnitImg}
-                      priority
-                    />
+                    <div className={styles.stepCircleFrame}>
+                      <Image
+                        src={step.image}
+                        alt={step.alt}
+                        fill
+                        sizes="148px"
+                        className={styles.stepUnitImg}
+                      />
+                    </div>
+                    <span className={styles.stepNumBadge} aria-hidden="true">
+                      {step.step}
+                    </span>
                   </div>
 
                   {/* Content inside card */}

@@ -1,3 +1,4 @@
+import HeadingText from "@/components/HeadingText";
 import React from "react";
 import Image from "next/image";
 import styles from "./AestheticConditionsSection.module.css";
@@ -182,7 +183,7 @@ const CONDITIONS_DATA = [
 export interface AestheticConditionsSectionProps {
   id?: string;
   kicker?: string;
-  heading?: string;
+  heading?: import("react").ReactNode;
   lead?: string;
   note?: string;
 }
@@ -208,7 +209,7 @@ export default function AestheticConditionsSection({
 
             {/* Main Section Title */}
             <h2 id="conditions-heading" className={styles.title}>
-              {heading}
+              <HeadingText>{heading}</HeadingText>
             </h2>
 
             {/* Description Text */}

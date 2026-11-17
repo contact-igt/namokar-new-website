@@ -252,7 +252,7 @@ export default function ContactPage() {
             <span className={styles.breadcrumbCurrent} aria-current="page">Contact Us</span>
           </nav>
           <div className={styles.heroCopy}>
-            <h1 id="contact-hero-h" className={styles.heroTitle}>We&apos;re Here to Help.</h1>
+            <h1 id="contact-hero-h" className={styles.heroTitle}>We&apos;re Here <span className="title-secondary">to Help.</span></h1>
             <div className={styles.heroTitleBar} aria-hidden="true" />
             <p className={styles.heroLead}>
               Contact Namokar Eye &amp; Oculoplasty Centre to plan your visit or arrange an eye consultation.
@@ -348,7 +348,7 @@ export default function ContactPage() {
           <div className={styles.findUsGrid}>
             <div className={styles.findUsInfo}>
               <p className={styles.eyebrow}>Find us</p>
-              <h2 id="loc-h" className={styles.findUsHeading}>Namokar Eye &amp; Oculoplasty Centre</h2>
+              <h2 id="loc-h" className={styles.findUsHeading}>Namokar Eye &amp; <span className="title-secondary">Oculoplasty Centre</span></h2>
             </div>
             <div className={styles.mapCard}>
               <MapEmbed />
@@ -456,7 +456,7 @@ export default function ContactPage() {
             </div>
             <div className={styles.visitContentCol}>
               <p className={styles.eyebrow}>Plan your visit</p>
-              <h2 id="visit-h" className={styles.visitHeading}>Before you visit</h2>
+              <h2 id="visit-h" className={styles.visitHeading}>Before you <span className="title-secondary">visit</span></h2>
               <div className={styles.visitCardsGrid}>
                 <div className={styles.visitCard}>
                   <div className={styles.visitIconCircle} aria-hidden="true">
@@ -502,7 +502,7 @@ export default function ContactPage() {
           <div className={styles.faqGrid}>
             <div className={styles.faqHeadingCol}>
               <p className={styles.eyebrow}>Common questions</p>
-              <h2 id="faq-h" className={styles.faqHeading}>Contact and Visiting</h2>
+              <h2 id="faq-h" className={styles.faqHeading}>Contact and <span className="title-secondary">Visiting</span></h2>
             </div>
             <div className={styles.faqList}>
               {FAQS.map((f) => (

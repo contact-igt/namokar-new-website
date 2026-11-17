@@ -234,10 +234,10 @@ export default function WhatIsAestheticOculoplasty({
             </div>
 
             {/* Main Headline */}
-            <h1 className={styles.heading}>
+            <h2 className={styles.heading}>
               <span className={styles.titleTeal}>{titleTeal}</span>
-              <span className={styles.titleOrange}>{titleOrange}</span>
-            </h1>
+              <span className={`${styles.titleOrange} title-secondary`}>{titleOrange}</span>
+            </h2>
 
             {/* Sub-headline */}
             <p className={styles.subheading}>{subheading}</p>

@@ -1,0 +1,132 @@
+<svg width="1440" height="720" viewBox="0 0 1440 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Soft warm background radial wash -->
+    <radialGradient id="topWash" cx="0%" cy="0%" r="50%">
+      <stop offset="0%" stop-color="#FEECE0" stop-opacity="0.75" />
+      <stop offset="60%" stop-color="#FFFDFB" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#FFFDFB" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="botWash" cx="15%" cy="85%" r="55%">
+      <stop offset="0%" stop-color="#FDE5D2" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#FFF5EC" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#FFFDFB" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Warm wave linear gradients -->
+    <linearGradient id="peachRibbon1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBE6D6" stop-opacity="0.85" />
+      <stop offset="60%" stop-color="#F9D7BE" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#FFF0E4" stop-opacity="0.2" />
+    </linearGradient>
+
+    <linearGradient id="peachRibbon2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FAD9C0" stop-opacity="0.75" />
+      <stop offset="50%" stop-color="#FCECE0" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#FFF8F2" stop-opacity="0.1" />
+    </linearGradient>
+
+    <linearGradient id="eyeStrokeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C85A17" stop-opacity="0.25" />
+      <stop offset="50%" stop-color="#D97A3C" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#0B3539" stop-opacity="0.12" />
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient Washes -->
+  <rect width="1440" height="720" fill="url(#topWash)" />
+  <rect width="1440" height="720" fill="url(#botWash)" />
+
+  <!-- TOP-LEFT FLOWING RIBBONS -->
+  <g opacity="0.85">
+    <path
+      d="M -40 -20 C 120 40, 260 160, 320 340 C 260 260, 160 140, -40 80 Z"
+      fill="url(#peachRibbon1)"
+    />
+    <path
+      d="M -20 -40 C 80 80, 200 220, 240 380"
+      stroke="#E59360"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      opacity="0.4"
+    />
+    <path
+      d="M 60 -40 C 160 80, 260 180, 340 240 C 280 180, 200 80, 120 -40 Z"
+      fill="url(#peachRibbon2)"
+      opacity="0.6"
+    />
+  </g>
+
+  <!-- BOTTOM-LEFT FLOWING RIBBONS -->
+  <g opacity="0.9">
+    <path
+      d="M -60 760 C 80 620, 240 540, 480 600 C 340 650, 180 720, -20 800 Z"
+      fill="url(#peachRibbon1)"
+    />
+    <path
+      d="M -40 700 C 140 560, 320 520, 560 620"
+      stroke="#E2864C"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      opacity="0.5"
+    />
+    <path
+      d="M -20 740 C 160 600, 360 560, 600 660"
+      stroke="#EAA475"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      opacity="0.35"
+    />
+  </g>
+
+  <!-- BOTTOM-LEFT ARTISTIC EYE ILLUSTRATION (Subtle ambient presence) -->
+  <g transform="translate(30, 140)" opacity="0.38">
+    <!-- Outer Palpebral Crease Arc -->
+    <path
+      d="M 120 425 C 190 380, 290 380, 370 415"
+      stroke="url(#eyeStrokeGrad)"
+      stroke-width="1.8"
+      stroke-linecap="round"
+    />
+
+    <!-- Upper Eyelid Main Arc -->
+    <path
+      d="M 85 450 C 175 395, 295 400, 385 440"
+      stroke="#C85A17"
+      stroke-width="2.4"
+      stroke-linecap="round"
+      opacity="0.5"
+    />
+
+    <!-- Long sweeping eyelashes -->
+    <path d="M 130 428 C 120 405, 125 390, 135 378" stroke="#C85A17" stroke-width="1.6" stroke-linecap="round" opacity="0.45" />
+    <path d="M 160 416 C 152 390, 160 372, 172 360" stroke="#C85A17" stroke-width="1.6" stroke-linecap="round" opacity="0.5" />
+    <path d="M 195 408 C 190 380, 202 360, 218 348" stroke="#C85A17" stroke-width="1.8" stroke-linecap="round" opacity="0.55" />
+    <path d="M 235 405 C 235 375, 250 352, 270 340" stroke="#C85A17" stroke-width="1.8" stroke-linecap="round" opacity="0.55" />
+    <path d="M 275 407 C 280 378, 300 358, 325 348" stroke="#C85A17" stroke-width="1.8" stroke-linecap="round" opacity="0.5" />
+    <path d="M 315 414 C 325 388, 350 370, 378 362" stroke="#C85A17" stroke-width="1.6" stroke-linecap="round" opacity="0.45" />
+    <path d="M 350 424 C 365 402, 395 388, 428 382" stroke="#C85A17" stroke-width="1.6" stroke-linecap="round" opacity="0.4" />
+    <path d="M 375 435 C 395 418, 425 408, 452 405" stroke="#C85A17" stroke-width="1.4" stroke-linecap="round" opacity="0.35" />
+
+    <!-- Lower Eyelid Arc -->
+    <path
+      d="M 100 460 C 180 500, 290 495, 370 450"
+      stroke="#0B3539"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      opacity="0.3"
+    />
+
+    <!-- Lower Lashes -->
+    <path d="M 170 482 C 168 495, 165 505, 162 512" stroke="#0B3539" stroke-width="1.2" stroke-linecap="round" opacity="0.25" />
+    <path d="M 210 492 C 210 508, 208 518, 205 526" stroke="#0B3539" stroke-width="1.2" stroke-linecap="round" opacity="0.25" />
+    <path d="M 250 493 C 252 509, 254 518, 258 526" stroke="#0B3539" stroke-width="1.2" stroke-linecap="round" opacity="0.25" />
+    <path d="M 290 488 C 295 502, 300 512, 308 520" stroke="#0B3539" stroke-width="1.2" stroke-linecap="round" opacity="0.25" />
+    <path d="M 330 475 C 338 488, 346 498, 355 504" stroke="#0B3539" stroke-width="1.2" stroke-linecap="round" opacity="0.25" />
+
+    <!-- Iris Circle -->
+    <circle cx="240" cy="450" r="38" stroke="#0B3539" stroke-width="1.8" opacity="0.35" fill="#FAF0E6" fill-opacity="0.3" />
+    <circle cx="240" cy="450" r="24" stroke="#C85A17" stroke-width="1.4" opacity="0.35" />
+    <circle cx="240" cy="450" r="14" fill="#0B3539" fill-opacity="0.3" />
+    <circle cx="246" cy="442" r="5" fill="#FFFFFF" fill-opacity="0.8" />
+  </g>
+</svg>

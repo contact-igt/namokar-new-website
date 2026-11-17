@@ -138,7 +138,7 @@ export default function DoctorPage() {
         <div className={`container ${styles.aboutShell}`}>
           <div className={`section-head reveal ${styles.centerHead}`}>
             <p className="kicker">About the doctor</p>
-            <h2 id="about-h" className="h2">Doctor-led care, built around you</h2>
+            <h2 id="about-h" className="h2">Doctor-led care, built <span className="title-secondary">around you</span></h2>
           </div>
           <div className={`reveal ${styles.aboutBody}`}>
             <div className={styles.aboutCard}>
@@ -167,7 +167,7 @@ export default function DoctorPage() {
               <span>Expertise</span>
               <span className={styles.trainingKickerDash} aria-hidden="true" />
             </div>
-            <h2 id="training-h" className={styles.trainingTitle}>Qualifications and training</h2>
+            <h2 id="training-h" className={styles.trainingTitle}>Qualifications and <span className="title-secondary">training</span></h2>
             <p className={styles.trainingLead}>As they are currently recorded.</p>
           </div>
           <div className={`reveal ${styles.trainingGrid}`}>
@@ -238,7 +238,7 @@ export default function DoctorPage() {
                 <span className={styles.kickerBadge}>At the centre</span>
                 <span className={styles.badgeLine} aria-hidden="true" />
               </div>
-              <h2 id="room-h" className="h2">In the consultation room</h2>
+              <h2 id="room-h" className="h2">In the <span className="title-secondary">consultation room</span></h2>
               <HeadingAccentCurve className={styles.headingAccentLine} />
             </div>
             <div className={styles.showcaseGrid}>
@@ -296,7 +296,7 @@ export default function DoctorPage() {
                 <span className={styles.kickerBadge}>In her own words</span>
                 <span className={styles.badgeLine} aria-hidden="true" />
               </div>
-              <h2 id="doctor-video-h" className="h2">Hear from Dr. Poonam Jain</h2>
+              <h2 id="doctor-video-h" className="h2">Hear from Dr. <span className="title-secondary">Poonam Jain</span></h2>
               <HeadingAccentCurve className={styles.headingAccentLine} />
               <p className="lead">A short talk from the centre&apos;s YouTube channel, and a clip at the centre.</p>
               <p className={styles.videoDisclaimer}>
@@ -325,7 +325,7 @@ export default function DoctorPage() {
               <span className={styles.kickerBadge}>AREAS OF CARE</span>
               <span className={styles.badgeLine} aria-hidden="true" />
             </div>
-            <h2 id="care-h" className="h2">Where she can help</h2>
+            <h2 id="care-h" className="h2">Where she <span className="title-secondary">can help</span></h2>
             <p className="lead">
               Which treatments are offered is confirmed at the consultation.
             </p>
@@ -342,7 +342,7 @@ export default function DoctorPage() {
               <span className={styles.kickerBadge}>Common questions</span>
               <span className={styles.badgeLine} aria-hidden="true" />
             </div>
-            <h2 id="faq-h" className="h2">Before your visit</h2>
+            <h2 id="faq-h" className="h2">Before your <span className="title-secondary">visit</span></h2>
             <HeadingAccentCurve className={styles.headingAccentLine} />
             <p className="lead">Common questions before planning a consultation.</p>
           </div>
@@ -370,7 +370,7 @@ export default function DoctorPage() {
                 <span className={styles.kickerBadge}>Consultation</span>
                 <span className={styles.badgeLine} aria-hidden="true" />
               </div>
-              <h2 id="doctor-cta-h" className="h2">Arrange a consultation.</h2>
+              <h2 id="doctor-cta-h" className="h2">Arrange a <span className="title-secondary">consultation.</span></h2>
               <HeadingAccentCurve className={styles.headingAccentLine} />
               <p className="lead">Contact the centre to plan your visit or arrange an eye consultation.</p>
               <div className={styles.consultationInfoBox}>

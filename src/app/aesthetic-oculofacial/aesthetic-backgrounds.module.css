@@ -1,0 +1,43 @@
+/* Route-specific artwork; shared service sections retain their own backgrounds. */
+.page > :global(#overview),
+.page > :global(#when),
+.page > :global(#journey),
+.page > :global(#watch) {
+  background-color: #fdfaf7;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+/* Each editorial section has its own artwork. Expectations keeps its original photo. */
+.page > :global(#overview) {
+  background-image: url("/images/aesthetic/backgrounds/facial-harmony.webp");
+}
+
+.page > :global(#when) {
+  background-image: url("/images/aesthetic/backgrounds/conditions-petals.webp");
+}
+
+.page > :global(#journey) {
+  background-image: url("/images/aesthetic/backgrounds/assessment-paths.webp");
+}
+
+.page > :global(#watch) {
+  background-image: url("/images/aesthetic/backgrounds/video-ripples.webp");
+}
+
+/* Replace the old direct decorative layers without hiding nested content icons. */
+.page > :global(#overview) > :global([aria-hidden="true"]),
+.page > :global(#journey) > :global([aria-hidden="true"]),
+.page > :global(#watch) > :global([aria-hidden="true"]) {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .page > :global(#overview),
+  .page > :global(#when),
+  .page > :global(#journey),
+  .page > :global(#watch) {
+    background-size: auto 100%;
+  }
+}

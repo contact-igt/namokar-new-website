@@ -1,0 +1,63 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="tileGradDuct" x1="20" y1="20" x2="236" y2="236" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#FFF2E7" />
+        <stop offset="45%" stop-color="#FCE6D4" />
+        <stop offset="100%" stop-color="#F3D2BA" />
+      </linearGradient>
+
+      <linearGradient id="clayTerraDuct" x1="80" y1="80" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#F58E4E" />
+        <stop offset="40%" stop-color="#E26D2B" />
+        <stop offset="100%" stop-color="#B84912" />
+      </linearGradient>
+
+      <filter id="tileShadowDuct" x="0" y="0" width="256" height="256" filterUnits="userSpaceOnUse">
+        <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#C27A4E" flood-opacity="0.28" />
+        <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#A15426" flood-opacity="0.16" />
+      </filter>
+
+      <filter id="elemShadowDuct" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#8E3C0F" flood-opacity="0.32" />
+        <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#692404" flood-opacity="0.2" />
+      </filter>
+    </defs>
+
+    <!-- Base Clay Squircle Tile -->
+    <rect x="18" y="14" width="220" height="220" rx="54" fill="url(#tileGradDuct)" filter="url(#tileShadowDuct)" />
+    <rect x="20" y="16" width="216" height="216" rx="52" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="3" />
+    <rect x="22" y="18" width="212" height="212" rx="50" stroke="#FCE6D4" stroke-opacity="0.5" stroke-width="2" />
+
+    <!-- 3D CLAY TEAR DUCT ANATOMICAL SYSTEM -->
+    <g filter="url(#elemShadowDuct)" transform="translate(6, 4)">
+      <!-- Faint Inner Eye Margin Outline -->
+      <path d="M 68 85 C 85 105, 90 120, 85 135 C 75 150, 60 160, 45 168" stroke="#D18357" stroke-width="4" stroke-linecap="round" opacity="0.45" />
+
+      <!-- Upper Canaliculus Duct (3D clay tubular branch) -->
+      <path d="M 72 88 C 96 92, 112 104, 118 116" stroke="url(#clayTerraDuct)" stroke-width="10" stroke-linecap="round" />
+      <path d="M 72 88 C 96 92, 112 104, 118 116" stroke="#FFAE80" stroke-width="3" stroke-linecap="round" />
+
+      <!-- Lower Canaliculus Duct (3D clay tubular branch) -->
+      <path d="M 68 144 C 92 140, 110 128, 118 116" stroke="url(#clayTerraDuct)" stroke-width="10" stroke-linecap="round" />
+      <path d="M 68 144 C 92 140, 110 128, 118 116" stroke="#FFAE80" stroke-width="3" stroke-linecap="round" />
+
+      <!-- Punctum Openings (clay beads) -->
+      <circle cx="70" cy="88" r="6" fill="#4DA6E8" stroke="#FFFFFF" stroke-width="2" />
+      <circle cx="66" cy="144" r="6" fill="#4DA6E8" stroke="#FFFFFF" stroke-width="2" />
+
+      <!-- Lacrimal Sac (Tear reservoir pouch) in smooth 3D clay -->
+      <path
+        d="M 115 102 C 135 96, 150 110, 150 128 C 150 146, 138 154, 128 160 C 116 154, 110 142, 110 124 C 110 112, 112 105, 115 102 Z"
+        fill="url(#clayTerraDuct)"
+      />
+      <!-- Lacrimal Sac Specular Highlight -->
+      <path d="M 120 108 C 136 104, 144 114, 144 126" stroke="#FFBA8F" stroke-width="3.5" stroke-linecap="round" />
+
+      <!-- Descending Nasolacrimal Duct -->
+      <path d="M 130 156 C 134 172, 130 185, 124 204" stroke="url(#clayTerraDuct)" stroke-width="12" stroke-linecap="round" />
+      
+      <!-- Blockage / Obstruction Node (bright terracotta 3D bead with warning pulse) -->
+      <circle cx="129" cy="180" r="11" fill="#C83812" stroke="#FFFFFF" stroke-width="3" />
+      <circle cx="129" cy="180" r="18" stroke="#C83812" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.7" />
+    </g>
+  </svg>

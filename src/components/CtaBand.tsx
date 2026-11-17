@@ -1,3 +1,4 @@
+import HeadingText from "@/components/HeadingText";
 import { PhoneIcon, PinIcon } from "./Icons";
 import BookButton, { SecondaryContact } from "./BookButton";
 import { SITE, TEL_HREF } from "@/config/site";
@@ -21,7 +22,7 @@ export default function CtaBand({
     <section className="cta" aria-labelledby={id}>
       <div className="container cta-inner">
         <div>
-          <h2 id={id} className="h2">{heading}</h2>
+          <h2 id={id} className="h2"><HeadingText>{heading}</HeadingText></h2>
           <p className="lead">{lead}</p>
           <p className="cta-place">
             <PinIcon />

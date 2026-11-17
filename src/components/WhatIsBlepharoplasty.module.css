@@ -251,16 +251,17 @@
 
 /* --------------------------------------------------------------------------
    Bottom Frosted Card: When to Consider Blepharoplasty?
+   Uses brand theme colors: warm peach/cream background, terracotta accent borders & shadows
    -------------------------------------------------------------------------- */
 .bottomCard {
   margin-top: 38px;
   width: 100%;
-  background: linear-gradient(135deg, rgba(228, 244, 246, 0.75) 0%, rgba(240, 250, 251, 0.88) 100%);
+  background: linear-gradient(135deg, #FFF6F0 0%, #FAEEE5 100%);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(188, 224, 228, 0.85);
+  border: 1px solid rgba(214, 107, 31, 0.18);
   border-radius: 24px;
-  box-shadow: 0 8px 24px rgba(12, 69, 75, 0.04);
+  box-shadow: 0 8px 24px rgba(184, 77, 20, 0.06);
   padding: 22px 32px;
   display: flex;
   align-items: center;
@@ -285,7 +286,7 @@
 .bottomDivider {
   width: 1px;
   height: 52px;
-  background-color: rgba(12, 69, 75, 0.2);
+  background-color: rgba(200, 90, 23, 0.2);
   margin: 0 28px;
   flex-shrink: 0;
 }
@@ -311,16 +312,20 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: #FDE8DB;
+  background-color: #FFFFFF;
   color: #C85A17;
+  border: 1px solid rgba(200, 90, 23, 0.15);
+  box-shadow: 0 2px 8px rgba(184, 77, 20, 0.08);
   margin-bottom: 10px;
   flex-shrink: 0;
-  transition: transform 0.25s ease, background-color 0.25s ease;
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .considerItem:hover .considerIconBadge {
   transform: translateY(-2px);
-  background-color: #F9DFCE;
+  background-color: #FDE8DB;
+  border-color: rgba(200, 90, 23, 0.3);
+  box-shadow: 0 4px 12px rgba(184, 77, 20, 0.14);
 }
 
 .considerText {

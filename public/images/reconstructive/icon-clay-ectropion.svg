@@ -1,0 +1,65 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="tileGradEctr" x1="20" y1="20" x2="236" y2="236" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#FFF2E7" />
+        <stop offset="45%" stop-color="#FCE6D4" />
+        <stop offset="100%" stop-color="#F3D2BA" />
+      </linearGradient>
+
+      <linearGradient id="clayTerraEctr" x1="60" y1="90" x2="190" y2="160" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#F4955B" />
+        <stop offset="40%" stop-color="#E27433" />
+        <stop offset="100%" stop-color="#B84E14" />
+      </linearGradient>
+
+      <filter id="tileShadowEctr" x="0" y="0" width="256" height="256" filterUnits="userSpaceOnUse">
+        <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#C27A4E" flood-opacity="0.28" />
+        <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#A15426" flood-opacity="0.16" />
+      </filter>
+
+      <filter id="elemShadowEctr" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#8E3C0F" flood-opacity="0.32" />
+        <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#692404" flood-opacity="0.2" />
+      </filter>
+    </defs>
+
+    <!-- Base Clay Squircle Tile -->
+    <rect x="18" y="14" width="220" height="220" rx="54" fill="url(#tileGradEctr)" filter="url(#tileShadowEctr)" />
+    <rect x="20" y="16" width="216" height="216" rx="52" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="3" />
+    <rect x="22" y="18" width="212" height="212" rx="50" stroke="#FCE6D4" stroke-opacity="0.5" stroke-width="2" />
+
+    <!-- 3D CLAY EYE with OUTWARD TURNING LID -->
+    <g filter="url(#elemShadowEctr)">
+      <!-- Eyeball White Sclera -->
+      <path d="M 64 125 C 88 92, 168 92, 192 125 C 168 158, 88 158, 64 125 Z" fill="#FFFFFF" />
+      
+      <!-- Blue Iris & Pupil -->
+      <circle cx="128" cy="125" r="28" fill="#3A82A3" />
+      <circle cx="128" cy="125" r="14" fill="#0B3539" />
+      <circle cx="135" cy="118" r="5" fill="#FFFFFF" opacity="0.9" />
+
+      <!-- Upper Lid -->
+      <path d="M 60 122 C 88 90, 168 90, 196 122" stroke="url(#clayTerraEctr)" stroke-width="7" stroke-linecap="round" />
+      <path d="M 64 120 C 90 92, 166 92, 192 120" stroke="#FFBA8F" stroke-width="2.5" stroke-linecap="round" />
+
+      <!-- Lower Lid drooping/turning OUTWARD (sagging curve exposing pink margin) -->
+      <path d="M 60 129 C 88 174, 168 174, 196 129" stroke="url(#clayTerraEctr)" stroke-width="8" stroke-linecap="round" />
+      <!-- Exposed mucosal pink/coral band -->
+      <path d="M 72 135 C 96 166, 160 166, 184 135" stroke="#F48C72" stroke-width="4.5" stroke-linecap="round" />
+      <!-- Everted Lashes pointing downwards away from eye -->
+      <path d="M 98 154 L 95 166" stroke="#D15F22" stroke-width="4.5" stroke-linecap="round" />
+      <path d="M 128 160 L 128 173" stroke="#D15F22" stroke-width="5" stroke-linecap="round" />
+      <path d="M 158 154 L 161 166" stroke="#D15F22" stroke-width="4.5" stroke-linecap="round" />
+    </g>
+
+    <!-- Two 3D Clay Outward Arrows (Left pointing Left, Right pointing Right) -->
+    <g filter="url(#elemShadowEctr)">
+      <!-- Left Arrow (pointing outwards to left) -->
+      <rect x="44" y="120" width="22" height="10" rx="5" fill="url(#clayTerraEctr)" />
+      <path d="M 48 112 L 32 125 L 48 138 Z" fill="url(#clayTerraEctr)" stroke="#FFAE80" stroke-width="2" stroke-linejoin="round" />
+
+      <!-- Right Arrow (pointing outwards to right) -->
+      <rect x="190" y="120" width="22" height="10" rx="5" fill="url(#clayTerraEctr)" />
+      <path d="M 208 112 L 224 125 L 208 138 Z" fill="url(#clayTerraEctr)" stroke="#FFAE80" stroke-width="2" stroke-linejoin="round" />
+    </g>
+  </svg>
