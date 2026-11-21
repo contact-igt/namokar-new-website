@@ -1,44 +1,19 @@
 "use client";
 
-import HeadingText from "@/components/HeadingText";
-
-
 import Image from "next/image";
 import Link from "next/link";
-import {
-  type KeyboardEvent,
-  type ReactNode,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
-import { LINKS } from "@/config/site";
-import { ArrowRightIcon, CalendarIcon, PlayIcon } from "./Icons";
+import { type ReactNode, useEffect, useState } from "react";
+import { LINKS, TEL_HREF } from "@/config/site";
+import { ArrowRightIcon, CalendarIcon, PhoneIcon } from "./Icons";
 import { usePrefersReducedMotion } from "./motion/useMedia";
 
-const AUTO_MS = 5500;
 const BACKGROUND_AUTO_MS = 6000;
 
-export const HERO_SLIDES = [
-  {
-    id: "centre",
-    tab: "Our Centre",
-    label: "Our centre",
-    badge: "Trusted Eye Care Since 25+ Years",
-    title: "Centre of Excellence for Vision Care & Eye Aesthetics",
-    body: "From routine eye examinations to cataract, glaucoma and oculoplasty care, every visit starts with a careful assessment.",
-    more: { label: "About the centre", href: LINKS.about },
-  },
-  {
-    id: "cataract",
-    tab: "Cataract",
-    label: "Cataract care",
-    badge: "Advanced Micro-Incision Surgery",
-    title: "Professional Eye Care with Personalised Attention",
-    body: "Careful assessment of your vision and a clear discussion of your treatment options with premium IOL choices.",
-    more: { label: "About cataract surgery", href: LINKS.cataract },
-  },
-] as const;
+const HERO_CONTENT = {
+  welcome: "Welcome to Namokar Eye & Oculoplasty Centre",
+  title: "A Unique Centre Offering Quality Eye Care & Eye Plastic, Cosmetic & Reconstructive Surgery",
+  body: "From routine eye examinations to cataract, glaucoma and oculoplasty care, every visit starts with a careful assessment.",
+} as const;
 
 const HERO_BACKGROUNDS = [
   { id: "exterior", image: "/images/Namokar Eye Centre Exterior.png", alt: "The exterior of Namokar Eye & Oculoplasty Centre" },
@@ -61,36 +36,9 @@ const TRUST_ITEMS = [
   { label: "NABH Accreditation", enabled: false },
 ] as const;
 
-export default function Hero({
-  online,
-}: {
-  panel?: ReactNode;
-  online: boolean;
-}) {
-  const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
+export default function Hero({ online }: { online: boolean; panel?: ReactNode }) {
   const [backgroundActive, setBackgroundActive] = useState(0);
   const reducedMotion = usePrefersReducedMotion();
-  const count = HERO_SLIDES.length;
-
-  const go = useCallback(
-    (to: number) => {
-      setActive((to + count) % count);
-    },
-    [count],
-  );
-
-  // Auto-advance banner on a timer
-  useEffect(() => {
-    if (paused) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = setInterval(() => {
-      if (!document.hidden) {
-        setActive((prev) => (prev + 1) % count);
-      }
-    }, AUTO_MS);
-    return () => clearInterval(timer);
-  }, [paused, count]);
 
   // Photography has its own clock; content navigation, focus and hover never reset it.
   useEffect(() => {
@@ -103,30 +51,11 @@ export default function Hero({
     return () => clearInterval(timer);
   }, [reducedMotion]);
 
-  const onKeyDown = (e: KeyboardEvent) => {
-    if (e.key === "ArrowRight") {
-      e.preventDefault();
-      go(active + 1);
-    } else if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      go(active - 1);
-    }
-  };
-
-  const currentSlide = HERO_SLIDES[active];
-
   return (
     <div className="hero-banner-wrapper">
       <section
         className="hero-banner-section"
-        aria-roledescription="carousel"
-        aria-label="Namokar Highlights and Care Services"
-        onPointerEnter={(e) => e.pointerType === "mouse" && setPaused(true)}
-        onPointerLeave={() => setPaused(false)}
-        onFocus={() => setPaused(true)}
-        onBlur={() => setPaused(false)}
-        onKeyDown={onKeyDown}
-        tabIndex={0}
+        aria-label="Namokar Eye & Oculoplasty Centre"
       >
         <div className="hero-lens-watermark" aria-hidden="true" />
         <div className="hero-banner-visual">
@@ -149,30 +78,10 @@ export default function Hero({
           ))}
         </div>
 
-        {/* Slide pagination */}
-        <div
-          className="hero-slider-pagination"
-          role="tablist"
-          aria-label="Slide Selection"
-        >
-          {HERO_SLIDES.map((slide, i) => (
-            <button
-              key={slide.id}
-              type="button"
-              role="tab"
-              className={`hero-slider-dot ${active === i ? "is-active" : ""}`}
-              aria-label={`Slide ${i + 1}: ${slide.tab}`}
-              aria-selected={active === i}
-              onClick={() => go(i)}
-            />
-          ))}
-        </div>
-
         {/* Main Banner Content Container */}
         <div className="container hero-banner-container">
           <div className="hero-banner-content">
-            <div className="hero-slide-copy" key={currentSlide.id}>
-              {/* Top Trust Badge */}
+            <div className="hero-slide-copy">
               <div className="hero-banner-badge">
               <span className="hero-badge-icon" aria-hidden="true">
                 <svg
@@ -191,36 +100,34 @@ export default function Hero({
                 </svg>
               </span>
               <span className="hero-badge-text">
-                {currentSlide.badge}
+                {HERO_CONTENT.welcome}
               </span>
               </div>
 
-              {/* Slide Headline */}
               <h1 className="hero-banner-heading">
-                <HeadingText>{currentSlide.title}</HeadingText>
+                {HERO_CONTENT.title}
               </h1>
 
-              {/* Slide Description */}
               <p className="hero-banner-body">
-                {currentSlide.body}
+                {HERO_CONTENT.body}
               </p>
             </div>
 
             {/* Action Buttons */}
             <div className="hero-banner-actions">
-              <Link href={`${LINKS.contact}#request`} className="hero-btn-primary">
+              <Link href={online ? `${LINKS.contact}#request` : LINKS.contact} className="hero-btn-primary">
                 <span className="hero-btn-icon" aria-hidden="true">
                   <CalendarIcon width={19} height={19} />
                 </span>
-                <span>Book a Consultation</span>
+                <span>Book an Appointment</span>
                 <ArrowRightIcon className="hero-btn-arrow" width={20} height={20} />
               </Link>
 
-              <a href="#explore" className="hero-btn-secondary">
+              <a href={TEL_HREF} className="hero-btn-secondary">
                 <span className="hero-btn-icon" aria-hidden="true">
-                  <PlayIcon width={20} height={20} />
+                  <PhoneIcon width={20} height={20} />
                 </span>
-                <span>Watch Our Video</span>
+                <span>Call</span>
               </a>
             </div>
 

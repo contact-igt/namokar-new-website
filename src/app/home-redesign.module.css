@@ -2347,8 +2347,7 @@
   stroke-width: 2;
 }
 
-.homeRedesign :global(.doctor-focus li div),
-.homeRedesign :global(.doctor-timeline li) {
+.homeRedesign :global(.doctor-focus li div) {
   display: grid;
   gap: 3px;
 }
@@ -2367,6 +2366,13 @@
   line-height: 1.4;
 }
 
+.homeRedesign :global(.doctor-timeline strong),
+.homeRedesign :global(.doctor-timeline li span) {
+  display: block;
+  text-align: left;
+  width: 100%;
+}
+
 .homeRedesign :global(.doctor-timeline ol) {
   position: relative;
   display: grid;
@@ -2380,6 +2386,12 @@
 
 .homeRedesign :global(.doctor-timeline li) {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  gap: 3px;
   border: 1px solid rgb(217 99 24 / 0.12);
   border-radius: 10px;
   background: rgb(255 245 237 / 0.75);
@@ -2433,6 +2445,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
     padding: 10px 14px;
   }
 
@@ -2451,6 +2464,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
     padding: 10px 12px;
   }
 

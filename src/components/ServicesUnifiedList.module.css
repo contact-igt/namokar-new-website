@@ -84,6 +84,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
   text-decoration: none;
   padding: 0;
   transition: transform 0.22s ease;
@@ -166,7 +167,7 @@
   border: 1px solid rgba(217, 99, 24, 0.08);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  flex: 1;
   min-height: 138px;
   transition: background-color 0.22s ease, box-shadow 0.22s ease;
 }
@@ -184,6 +185,20 @@
   font-weight: 400;
 }
 
+.bubbleTopics {
+  display: grid;
+  gap: 5px;
+  margin: 0 0 14px;
+  padding-left: 18px;
+  color: #475569;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.bubbleTopics li::marker {
+  color: #b85d19;
+}
+
 /* Bubble Action (Learn More Link) */
 .bubbleAction {
   display: flex;
@@ -193,6 +208,7 @@
   font-weight: 700;
   font-size: 0.85rem;
   padding-top: 8px;
+  margin-top: auto;
   border-top: 1px solid rgba(15, 44, 59, 0.08);
 }
 

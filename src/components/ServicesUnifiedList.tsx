@@ -12,6 +12,7 @@ export type ServiceCardItem = {
   category: "vision" | "oculoplasty";
   categoryLabel: string;
   blurb: string;
+  topics?: readonly string[];
   href: string;
   image: string;
   alt: string;
@@ -76,7 +77,7 @@ export default function ServicesUnifiedList({ items }: ServicesUnifiedListProps)
             key={item.key}
             href={item.href}
             className={styles.card}
-            aria-label={`${item.title} - ${item.blurb}`}
+            aria-label={`${item.title} - ${item.blurb}${item.topics ? ` Topics: ${item.topics.join(", ")}` : ""}`}
           >
             {/* Visual Header with Photo & Floating Badge */}
             <div className={styles.photoContainer}>
@@ -98,6 +99,11 @@ export default function ServicesUnifiedList({ items }: ServicesUnifiedListProps)
             {/* Bottom Rounded Ice-Blue Bubble */}
             <div className={styles.bubble}>
               <p className={styles.bubbleText}>{item.blurb}</p>
+              {item.topics && (
+                <ul className={styles.bubbleTopics}>
+                  {item.topics.map((topic) => <li key={topic}>{topic}</li>)}
+                </ul>
+              )}
               <div className={styles.bubbleAction}>
                 <span className={styles.actionText}>Learn more</span>
                 <span className={styles.actionIcon} aria-hidden="true">
