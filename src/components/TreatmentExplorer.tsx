@@ -10,6 +10,7 @@ import { ArrowRightIcon } from "./Icons";
 
 function TreatmentIcon({ id }: { id: TreatmentItem["id"] }) {
   const paths = {
+    squint: <><path d="M2 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z" /><circle cx="10" cy="12" r="3" /><path d="M20 8v8m-2-2 2 2 2-2" /></>,
     cataract: <><path d="M3 12s3.2-6 9-6 9 6 9 6-3.2 6-9 6-9-6-9-6Z" /><circle cx="12" cy="12" r="2.8" /></>,
     glaucoma: <><circle cx="12" cy="12" r="3" /><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1m9.2 9.2 2.1 2.1m0-13.4-2.1 2.1m-9.2 9.2-2.1 2.1" /></>,
     exams: <><rect x="5" y="3.5" width="14" height="17" rx="2" /><path d="M9 3v3m6-3v3M8.5 11.5h7m-7 4h4" /></>,

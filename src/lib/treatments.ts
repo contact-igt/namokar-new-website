@@ -1,6 +1,6 @@
 import { type Asset, ASSETS, srcOf, usable } from "@/config/assets";
 import { figureUsable } from "@/config/figures";
-import { type ServiceKey, SERVICES } from "@/config/site";
+import { type ServiceKey, SERVICES, LINKS } from "@/config/site";
 import type { PlateName } from "@/components/clinical/Plates";
 
 /**
@@ -73,7 +73,7 @@ const PLATES: Partial<Record<ServiceKey, { name: PlateName; figure: "plateEyelid
 };
 
 export type TreatmentItem = {
-  id: ServiceKey;
+  id: ServiceKey | "squint";
   title: string;
   short: string;
   href: string;
@@ -84,7 +84,7 @@ export type TreatmentItem = {
 };
 
 export function treatmentItems(): TreatmentItem[] {
-  return SERVICES.map((s) => {
+  const items: TreatmentItem[] = SERVICES.map((s) => {
     const c = IMAGES[s.key].find((x) => "image" in x || usable(x.asset));
     const p = PLATES[s.key];
     return {
@@ -101,4 +101,5 @@ export function treatmentItems(): TreatmentItem[] {
       plate: !c && p && figureUsable(p.figure) ? p.name : null,
     };
   });
+  return [...items, { id: "squint", title: "Squint Correction", short: "Squint Correction", href: LINKS.squint, summary: "Eye alignment information for children and adults, with guidance on assessment and treatment options.", image: { src: "/images/squint/squint-hero.webp", alt: "Illustrative eye-alignment consultation", width: 1536, height: 1024, position: "50% 50%", sourceLabel: "Illustrative image" }, plate: null }];
 }

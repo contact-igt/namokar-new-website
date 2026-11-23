@@ -52,6 +52,7 @@ const FAQS = [
 ];
 
 const SERVICE_CARD_ITEMS: ServiceCardItem[] = [
+  { key: "squint", title: "Squint Correction", category: "vision", categoryLabel: "Comprehensive Vision Care", blurb: "Understand eye alignment, squint and lazy eye, and discuss the assessment and treatment appropriate to you.", href: LINKS.squint, image: "/images/squint/squint-hero.webp", alt: "Illustrative child eye-alignment consultation" },
   {
     key: "cataract",
     title: "Cataract Surgery",
