@@ -20,6 +20,7 @@ export type PageKey =
   | "doctor"
   | "services"
   | "squint"
+  | "refractive"
   | "cataract"
   | "glaucoma"
   | "exams"
@@ -44,6 +45,7 @@ export const PAGES: Record<PageKey, PageDef> = {
   doctor: { path: LINKS.doctor, label: "Dr. Poonam Jain", reviewed: true, blocker: "Released on the owner's confirmation; the registration number has not been supplied, so none is shown (see DOCTOR_REGISTRATION)" },
   services: { path: LINKS.allServices, label: "Our Services", reviewed: true, blocker: "Released on the owner's confirmation" },
   squint: { path: LINKS.squint, label: "Squint Correction", reviewed: false, blocker: "Awaiting clinical and client approval" },
+  refractive: { path: LINKS.refractive, label: "Refractive Surgery", reviewed: true, blocker: "Awaiting clinical review" },
   cataract: { path: LINKS.cataract, label: "Cataract Surgery", reviewed: true, blocker: "Released on the owner's confirmation" },
   glaucoma: { path: LINKS.glaucoma, label: "Glaucoma Management", reviewed: true, blocker: "Released on the owner's confirmation" },
   exams: { path: LINKS.exams, label: "Comprehensive Eye Examinations", reviewed: true, blocker: "Released on the owner's confirmation" },
@@ -120,6 +122,7 @@ export function buildNav(): NavItem[] {
       children: [
         ...SERVICES.map((s) => ({ label: s.title, href: s.href })),
         { label: "Squint", href: LINKS.squint },
+        { label: "Refractive Surgery", href: LINKS.refractive },
         { label: "View all services", href: PAGES.services.path },
       ],
     },

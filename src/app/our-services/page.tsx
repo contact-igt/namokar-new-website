@@ -53,6 +53,7 @@ const FAQS = [
 
 const SERVICE_CARD_ITEMS: ServiceCardItem[] = [
   { key: "squint", title: "Squint Correction", category: "vision", categoryLabel: "Comprehensive Vision Care", blurb: "Understand eye alignment, squint and lazy eye, and discuss the assessment and treatment appropriate to you.", href: LINKS.squint, image: "/images/squint/squint-hero.webp", alt: "Illustrative child eye-alignment consultation" },
+  { key: "refractive", title: "Refractive Surgery", category: "vision", categoryLabel: "Comprehensive Vision Care", blurb: "Options to reduce dependence on glasses and contact lenses, including LASIK, PRK, ReLEx SMILE, ICL and IPCL, guided by a detailed clinical evaluation.", href: LINKS.refractive, image: "/images/refractive/refractive-hero.webp", alt: "Refractive surgery consultation and laser vision correction evaluation" },
   {
     key: "cataract",
     title: "Cataract Surgery",

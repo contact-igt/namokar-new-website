@@ -1,0 +1,1053 @@
+/* Refractive Surgery Service Page Styles */
+
+.page {
+  background: #fffaf6 url('/images/Soft Peach Wave Background.png') center top / 100% auto repeat-y;
+  color: var(--ink);
+}
+
+.section {
+  padding-block: 64px;
+  scroll-margin-top: calc(var(--header-h, 84px) + 24px);
+  position: relative;
+}
+
+/* ========================================================
+   SECTION 1 — HERO BANNER
+   ======================================================== */
+.hero {
+  position: relative;
+  width: 100%;
+  padding-block: clamp(28px, 3vw, 42px);
+  background-color: #fff8f3;
+  background-image:
+    linear-gradient(to right, #fff8f3 48%, rgba(255, 248, 243, 0.92) 58%, rgba(255, 248, 243, 0.15) 75%),
+    url('/images/refractive/refractive-hero.webp');
+  background-position: right center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.heroCopy {
+  width: 54%;
+  max-width: 650px;
+  padding-block: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.heroCopy :global(.kicker) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--type-eyebrow-size);
+  font-weight: 700;
+  letter-spacing: var(--type-eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--orange-dark);
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.heroCopy :global(.kicker)::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 2.5px;
+  background: var(--orange-dark);
+  letter-spacing: var(--type-eyebrow-tracking);
+}
+
+.heroMobileMedia {
+  display: none;
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: var(--type-hero-size);
+  line-height: var(--type-hero-line);
+  letter-spacing: var(--type-hero-tracking);
+  font-weight: 800;
+  color: #073f46;
+  margin: 0 0 20px 0;
+}
+
+.heroLead {
+  font-family: var(--font-body);
+  font-size: var(--type-lead-size);
+  line-height: var(--type-lead-line);
+  color: var(--ink-soft);
+  margin: 0 0 28px 0;
+  max-width: 580px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background-color: #073f46;
+  color: #ffffff !important;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 18px rgba(7, 63, 70, 0.15);
+}
+
+.btnPrimary:hover {
+  background-color: #0c5761;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(7, 63, 70, 0.22);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 26px;
+  background-color: #ffffff;
+  color: var(--orange-dark) !important;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  border: 1.5px solid #d96318;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(217, 99, 24, 0.08);
+}
+
+.btnSecondary:hover {
+  background-color: #fff5ee;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(217, 99, 24, 0.16);
+}
+
+.heroNotice {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid #f2ded1;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  color: #073f46;
+  max-width: 580px;
+}
+
+.heroNotice svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--orange-dark);
+}
+
+/* ========================================================
+   SHARED HEADINGS & SECTION INTROS
+   ======================================================== */
+.heading {
+  max-width: 1100px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.heading :global(.kicker) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: var(--type-eyebrow-size);
+  font-weight: 700;
+  letter-spacing: var(--type-eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--orange-dark);
+  margin-bottom: 12px;
+}
+
+.heading :global(.kicker)::before,
+.heading :global(.kicker)::after {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 2.5px;
+  background: var(--orange-dark);
+  letter-spacing: var(--type-eyebrow-tracking);
+}
+
+.heading h2 {
+  font-family: var(--font-heading);
+  font-size: var(--type-section-size);
+  font-weight: 800;
+  line-height: var(--type-section-line);
+  color: #073f46;
+  margin: 0 0 16px 0;
+  letter-spacing: var(--type-section-tracking);
+  text-wrap: balance;
+}
+
+.intro {
+  max-width: 820px;
+  margin: 0 auto 32px;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: var(--type-lead-size);
+  line-height: var(--type-lead-line);
+  color: var(--ink-soft);
+}
+
+/* ========================================================
+   SECTION 2 — REFRACTIVE ERRORS GRID
+   ======================================================== */
+.errorsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.errorCard {
+  background: #ffffff;
+  border: 1px solid #f2ded1;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 8px 24px -10px rgba(7, 63, 70, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.errorCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -8px rgba(7, 63, 70, 0.14);
+}
+
+.errorVisual {
+  width: 100%;
+  aspect-ratio: 16 / 9.5;
+  background: #fffaf6;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorVisual img,
+.errorVisual svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.errorCard h3 {
+  font-family: var(--font-heading);
+  font-size: var(--type-subsection-size);
+  font-weight: 700;
+  color: #073f46;
+  margin: 0 0 12px 0;
+  letter-spacing: var(--type-subsection-tracking);
+  line-height: var(--type-subsection-line);
+}
+
+.errorCard p {
+  font-family: var(--font-body);
+  font-size: var(--type-supporting-size);
+  line-height: var(--type-supporting-line);
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* ========================================================
+   SECTION 3 — TWO PATHWAYS TO VISION CORRECTION
+   ======================================================== */
+.pathwaySection {
+  background: #fff8f2;
+  border-block: 1px solid #f5dfd2;
+}
+
+.pathwayGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.pathwayCard {
+  background: #ffffff;
+  border: 1.5px solid #f0d5c5;
+  border-radius: 26px;
+  padding: 30px;
+  box-shadow: 0 10px 30px -10px rgba(7, 63, 70, 0.09);
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.pathwayCard:nth-child(2) { background: #fff8f2; }
+.pathwayCard:hover { transform: translateY(-3px); }
+
+.pathwayHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.pathwayIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff0e6;
+  color: var(--orange-dark);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.pathwayIcon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.pathwayTitle {
+  font-family: var(--font-heading);
+  font-size: var(--type-subsection-size);
+  font-weight: 700;
+  color: #073f46;
+  margin: 0;
+  line-height: var(--type-subsection-line);
+  letter-spacing: var(--type-subsection-tracking);
+}
+
+.pathwayVisual {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #fffaf6;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 22px;
+}
+
+.pathwayVisual img,
+.pathwayVisual svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.pathwayDesc {
+  font-family: var(--font-body);
+  font-size: var(--type-supporting-size);
+  line-height: var(--type-supporting-line);
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* ========================================================
+   SECTION 4 — FIVE REFRACTIVE SURGERY PROCEDURES
+   ======================================================== */
+.proceduresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.proceduresGrid > :nth-child(4),
+.proceduresGrid > :nth-child(5) {
+  grid-column: span 1;
+}
+
+@media (min-width: 960px) {
+  .proceduresGrid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .proceduresGrid > :nth-child(1),
+  .proceduresGrid > :nth-child(2),
+  .proceduresGrid > :nth-child(3) {
+    grid-column: span 2;
+  }
+  .proceduresGrid > :nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+  .proceduresGrid > :nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+}
+
+.procCard {
+  background: #ffffff;
+  border: 1px solid #f2ded1;
+  border-radius: 22px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 8px 24px -12px rgba(7, 63, 70, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.procCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px -10px rgba(7, 63, 70, 0.15);
+}
+
+.procVisual {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #fffaf6;
+  border-radius: 0;
+  padding: 10px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.procVisual img,
+.procVisual svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.procTag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #fff0e6;
+  color: var(--orange-dark);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+  width: fit-content;
+  margin: 20px 22px 10px;
+}
+
+.procCard h3 {
+  font-family: var(--font-heading);
+  font-size: var(--type-subsection-size);
+  font-weight: 700;
+  color: #073f46;
+  margin: 0 22px 12px;
+  line-height: var(--type-subsection-line);
+  letter-spacing: var(--type-subsection-tracking);
+}
+
+.procCard p {
+  font-family: var(--font-body);
+  font-size: var(--type-supporting-size);
+  line-height: var(--type-supporting-line);
+  color: var(--ink-soft);
+  margin: 0 22px 24px;
+}
+
+/* ========================================================
+   SECTION 5 — PROCEDURE COMPARISON TABLE & CARDS
+   ======================================================== */
+.comparisonWrap {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.comparisonTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #ffffff;
+  border: 1px solid #eed7c9;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -10px rgba(7, 63, 70, 0.08);
+}
+
+.comparisonTable th,
+.comparisonTable td {
+  padding: 18px 20px;
+  text-align: left;
+  border-bottom: 1px solid #f5dfd2;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  vertical-align: top;
+}
+
+.comparisonTable thead th {
+  background: #fff4ec;
+  color: #073f46;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1rem;
+  border-bottom: 2px solid #e5b99e;
+}
+
+.comparisonTable tbody th {
+  background: #fffaf6;
+  color: #073f46;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  width: 18%;
+  min-width: 170px;
+  border-right: 1px solid #f2ded1;
+}
+
+.comparisonTable tr:last-child th,
+.comparisonTable tr:last-child td {
+  border-bottom: none;
+}
+
+/* Mobile cards for comparison */
+.comparisonCardsMobile {
+  display: none;
+}
+
+/* ========================================================
+   SECTION 6 — CANDIDATE ELIGIBILITY (6 CARDS)
+   ======================================================== */
+.eligibilityGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.eligibilityCard {
+  background: #ffffff;
+  border: 1px solid #f2ded1;
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: 0 6px 20px -8px rgba(7, 63, 70, 0.07);
+  display: flex;
+  flex-direction: column;
+}
+
+.eligibilityIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #fff0e6;
+  color: var(--orange-dark);
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}
+
+.eligibilityIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.eligibilityCard h3 {
+  font-family: var(--font-heading);
+  font-size: var(--type-subsection-size);
+  font-weight: 700;
+  color: #073f46;
+  margin: 0 0 10px 0;
+  letter-spacing: var(--type-subsection-tracking);
+  line-height: var(--type-subsection-line);
+}
+
+.eligibilityCard p {
+  font-family: var(--font-body);
+  font-size: var(--type-supporting-size);
+  line-height: var(--type-supporting-line);
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* ========================================================
+   SECTION 8 — WHAT TO EXPECT ON THE DAY OF SURGERY
+   ======================================================== */
+.journeySteps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.journeyCard {
+  background: #fffdfa url('/images/Soft Peach Wave Background.png') center bottom / auto 100%;
+  border: 1px solid #f2ded1;
+  border-radius: 22px;
+  padding: 26px 20px;
+  box-shadow: 0 6px 20px -8px rgba(7, 63, 70, 0.06);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.journeyTop { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.journeyTop > svg { width: 34px; height: 34px; color: var(--orange-dark); }
+.journeyCard:not(:last-child)::after { content: ''; position: absolute; top: 48px; right: -21px; width: 20px; border-top: 1px solid var(--orange); }
+
+.journeyNum {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #fff0e6;
+  color: var(--orange-dark);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.05rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}
+
+.journeyCard h3 {
+  font-family: var(--font-heading);
+  font-size: var(--type-subsection-size);
+  font-weight: 700;
+  color: #073f46;
+  margin: 0 0 10px 0;
+  line-height: var(--type-subsection-line);
+  letter-spacing: var(--type-subsection-tracking);
+}
+
+.journeyCard p {
+  font-family: var(--font-body);
+  font-size: var(--type-supporting-size);
+  line-height: var(--type-supporting-line);
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* ========================================================
+   SECTION 9 — RECOVERY, AFTERCARE, AND WHAT TO EXPECT
+   ======================================================== */
+.recoveryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.recoveryCard {
+  background: #ffffff;
+  border: 1px solid #f2ded1;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 6px 18px -6px rgba(7, 63, 70, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.recoveryIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #fff0e6;
+  color: var(--orange-dark);
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+}
+
+.recoveryIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.recoveryCard h3 {
+  font-family: var(--font-heading);
+  font-size: var(--type-subsection-size);
+  font-weight: 700;
+  color: #073f46;
+  margin: 0 0 10px 0;
+  letter-spacing: var(--type-subsection-tracking);
+  line-height: var(--type-subsection-line);
+}
+
+.recoveryCard p {
+  font-family: var(--font-body);
+  font-size: var(--type-supporting-size);
+  line-height: var(--type-supporting-line);
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.recoveryWarningCard {
+  background: #fff9f6;
+  border: 1.5px solid #d96318;
+  grid-column: span 2;
+}
+
+.recoveryWarningCard .recoveryIcon {
+  background: var(--orange-mist);
+  color: var(--orange-dark);
+}
+
+/* ========================================================
+   SECTION 10 — REALISTIC EXPECTATIONS, RISKS & LIMITATIONS
+   ======================================================== */
+.risksGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.riskCard {
+  background: #ffffff;
+  border: 1px solid #f2ded1;
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: 0 6px 20px -8px rgba(7, 63, 70, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.riskHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.riskIcon { color: var(--orange-dark); flex: none; }
+.riskIcon svg { display: block; width: 28px; height: 28px; }
+.riskCard:nth-child(even) { background: #fff8f2; }
+
+.riskCard h3 {
+  font-family: var(--font-heading);
+  font-size: var(--type-subsection-size);
+  font-weight: 700;
+  color: #073f46;
+  margin: 0;
+  letter-spacing: var(--type-subsection-tracking);
+  line-height: var(--type-subsection-line);
+}
+
+.riskCard p {
+  font-family: var(--font-body);
+  font-size: var(--type-supporting-size);
+  line-height: var(--type-supporting-line);
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* ========================================================
+   SECTION 11 — VIDEOS ON THIS TOPIC
+   ======================================================== */
+.videosGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.videoCard {
+  background: #ffffff;
+  border: 1px solid #eed7c9;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px -10px rgba(7, 63, 70, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.videoFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+  overflow: hidden;
+}
+
+.videoIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.videoPosterBtn {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.videoThumb {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.playButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(196, 81, 16, 0.9);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.videoPosterBtn:hover .playButton {
+  transform: translate(-50%, -50%) scale(1.12);
+  background: var(--orange-dark);
+}
+
+.videoBody {
+  padding: 22px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.videoKicker {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--orange-dark);
+  margin-bottom: 8px;
+}
+
+.videoTitle {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #073f46;
+  margin: 0 0 10px 0;
+  line-height: 1.35;
+}
+
+.videoDesc {
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0 0 16px 0;
+  flex: 1;
+}
+
+.videoAction {
+  margin-top: auto;
+}
+
+.youtubeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--orange-dark);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.youtubeLink:hover {
+  color: #a43e06;
+}
+
+/* ========================================================
+   RESPONSIVE LAYOUT & BREAKPOINTS
+   ======================================================== */
+@media (max-width: 1024px) {
+  .journeyCard:nth-child(2)::after { display: none; }
+  .heroCopy {
+    width: 60%;
+  }
+
+  .errorsGrid,
+  .pathwayGrid,
+  .videosGrid {
+    gap: 20px;
+  }
+
+  .eligibilityGrid,
+  .risksGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .journeySteps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .recoveryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .recoveryWarningCard {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 959px) {
+  .hero {
+    background-image: none !important;
+    padding-top: 18px !important;
+    padding-bottom: 36px;
+  }
+
+  .heroCopy {
+    width: 100%;
+    max-width: 100%;
+    padding-top: 0 !important;
+    padding-bottom: 8px;
+  }
+
+  .heroMobileMedia {
+    display: block;
+    width: 100%;
+    margin: 0 0 20px 0;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #f2ded1;
+    box-shadow: 0 8px 24px rgba(7, 63, 70, 0.08);
+  }
+
+  .heroMobileImage {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: 80% center;
+    display: block;
+  }
+
+  .comparisonTable {
+    display: none;
+  }
+
+  .comparisonCardsMobile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mobileCompCard {
+    background: #ffffff;
+    border: 1px solid #f2ded1;
+    border-radius: 20px;
+    padding: 22px;
+    box-shadow: 0 6px 18px rgba(7, 63, 70, 0.05);
+  }
+
+  .mobileCompCard h3 {
+    font-family: var(--font-heading);
+    font-size: var(--type-subsection-size);
+    color: #073f46;
+    margin: 0 0 16px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e5b99e;
+    letter-spacing: var(--type-subsection-tracking);
+    line-height: var(--type-subsection-line);
+    font-weight: 700;
+  }
+
+  .mobileCompItem {
+    padding: 10px 0;
+    border-bottom: 1px solid #f8ebe3;
+  }
+
+  .mobileCompItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .mobileCompTag {
+    display: inline-block;
+    padding: 2px 10px;
+    background: #fff0e6;
+    color: var(--orange-dark);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .mobileCompItem p {
+    margin: 0;
+    font-size: var(--type-supporting-size);
+    line-height: var(--type-supporting-line);
+    color: var(--ink-soft);
+  }
+}
+
+@media (max-width: 639px) {
+  .journeyCard::after { display: none; }
+  .section {
+    padding-block: 44px;
+  }
+
+  .errorsGrid,
+  .pathwayGrid,
+  .proceduresGrid,
+  .eligibilityGrid,
+  .journeySteps,
+  .recoveryGrid,
+  .risksGrid,
+  .videosGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .recoveryWarningCard {
+    grid-column: span 1;
+  }
+
+  .hero h1 {
+    font-size: var(--type-hero-size);
+    line-height: var(--type-hero-line);
+    margin-bottom: 14px;
+    letter-spacing: var(--type-hero-tracking);
+  }
+
+  .heroLead {
+    font-size: var(--type-lead-size);
+    line-height: var(--type-lead-line);
+    margin-bottom: 20px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.eligibilityCard, .recoveryCard, .riskCard { transition: transform .2s var(--ease), box-shadow .2s var(--ease); }
+.eligibilityCard:hover, .recoveryCard:hover, .riskCard:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -14px rgb(7 63 70 / .16); }
+.errorVisual { max-height: 240px; }
+.comparisonTable { table-layout: fixed; }
+.comparisonTable th, .comparisonTable td { overflow-wrap: anywhere; padding: 16px 14px; }
+@media (min-width: 640px) {
+  .journeyCard h3, .eligibilityCard h3 { min-height: 2.6em; }
+  .riskHeader { min-height: calc(var(--type-subsection-size) * 2.6); }
+}
+.page :global(#refractive-consultation .cta-panel-image) { width: 200% !important; max-width: none; object-fit: cover; object-position: left center; left: -6% !important; }
+@media (prefers-reduced-motion: reduce) {
+  .page *, .page *::before, .page *::after { transition: none !important; animation: none !important; }
+  .errorCard:hover, .pathwayCard:hover, .procCard:hover, .eligibilityCard:hover, .recoveryCard:hover, .riskCard:hover { transform: none; }
+}

@@ -90,6 +90,7 @@ export const LINKS = {
   reconstructive: "/eye-plastic-reconstructive-surgery",
   exams: "/comprehensive-eye-examinations",
   squint: "/squint-correction-strabismus-delhi",
+  refractive: "/refractive-surgery",
 } as const;
 
 /** Privacy notice page. Not approved yet; when set, the appointment form links to it. */
