@@ -253,8 +253,10 @@
 .errorVisual svg {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
+
+.errorVisual img { object-position: center; }
 
 .errorCard h3 {
   font-family: var(--font-heading);
@@ -347,8 +349,10 @@
 .pathwayVisual svg {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
+
+.pathwayCard:first-child .pathwayVisual img { object-position: center 68%; }
 
 .pathwayDesc {
   font-family: var(--font-body);
@@ -679,17 +683,6 @@
   margin: 0;
 }
 
-.recoveryWarningCard {
-  background: #fff9f6;
-  border: 1.5px solid #d96318;
-  grid-column: span 2;
-}
-
-.recoveryWarningCard .recoveryIcon {
-  background: var(--orange-mist);
-  color: var(--orange-dark);
-}
-
 /* ========================================================
    SECTION 10 — REALISTIC EXPECTATIONS, RISKS & LIMITATIONS
    ======================================================== */
@@ -747,6 +740,17 @@
   max-width: 760px;
   margin: 0 auto;
 }
+
+.featuredVideo { max-width:680px; margin:0 auto; }
+.featuredLabel { display:table; margin:0 0 12px; border-radius:999px; padding:5px 12px; background:#fff0e6; color:var(--ink); font:600 var(--type-supporting-size)/1.4 var(--font-body); }
+.moreVideosHeading { margin:34px 0 20px; font:700 var(--type-subsection-size)/var(--type-subsection-line) var(--font-heading); color:var(--ink); }
+.moreVideos { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; align-items:stretch; }
+.moreVideos > div { height:100%; transition:transform .2s,box-shadow .2s; }
+.moreVideos > div:hover { transform:translateY(-3px); box-shadow:0 10px 24px #073f4610; }
+.moreVideos h3 { font-size:var(--type-subsection-size); }
+@media(max-width:959px) { .moreVideos { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:639px) { .moreVideos { grid-template-columns:1fr; gap:18px; } }
+@media(prefers-reduced-motion:reduce) { .moreVideos > div { transition:none; } .moreVideos > div:hover { transform:none; } }
 
 .videoCard {
   background: #ffffff;
@@ -892,9 +896,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .recoveryWarningCard {
-    grid-column: span 2;
-  }
 }
 
 @media (max-width: 959px) {
@@ -1007,10 +1008,6 @@
     gap: 16px;
   }
 
-  .recoveryWarningCard {
-    grid-column: span 1;
-  }
-
   .hero h1 {
     font-size: var(--type-hero-size);
     line-height: var(--type-hero-line);
@@ -1050,4 +1047,106 @@
 @media (prefers-reduced-motion: reduce) {
   .page *, .page *::before, .page *::after { transition: none !important; animation: none !important; }
   .errorCard:hover, .pathwayCard:hover, .procCard:hover, .eligibilityCard:hover, .recoveryCard:hover, .riskCard:hover { transform: none; }
+}
+
+/* Approved five-section refinement; scoped to this service page. */
+.hero { background-image:url('/images/07c50da9-68a5-4e10-9192-d168cf053948.png'); background-size:cover; background-position:center; min-height:0; }
+.heroCopy { width:51%; max-width:640px; }
+.heroNotice { background:transparent; border:0; border-radius:0; padding:8px 0; box-shadow:none; }
+.heroNotice span { border-left:1px solid #dcb79e; padding-left:16px; }
+.hero .actions a:last-child { border:1px solid var(--orange-dark); border-radius:999px; padding:14px 24px; background:#fffaf6; }
+.comparisonWrap { overflow-x:auto; border-radius:22px; border:1px solid #eed7c9; box-shadow:0 6px 20px #073f4608; }
+.comparisonTable { display:table !important; min-width:960px; width:100%; }
+.comparisonTable thead th { text-align:center; background:#fffaf6; vertical-align:bottom; }
+.comparisonTable thead img { width:100%; height:100px; object-fit:contain; }
+.comparisonLabel { display:block; padding:10px 5px; border-radius:10px; background:#ffe9d8; color:var(--ink); font-weight:700; font-size:var(--type-supporting-size); }
+.comparisonTable th:first-child { position:sticky; left:0; z-index:1; background:#fff0e4; }
+.comparisonTable thead th:first-child { z-index:2; }
+.comparisonTable tbody th svg { display:block; width:24px; height:24px; margin-bottom:10px; color:var(--orange-dark); }
+.riskCard { border-radius:18px; padding:24px; background:#fffcf8; box-shadow:0 6px 18px #073f4605; }
+.riskBody { display:grid; grid-template-columns:minmax(0,1fr) 100px; gap:12px; align-items:center; }
+.riskBody img { width:100%; height:auto; mix-blend-mode:multiply; }
+.recoveryCard { overflow:hidden; padding:0 22px 24px; border-radius:20px; background:#fffcf8; }
+.recoveryIllustration { width:calc(100% + 44px); max-width:none; height:auto; aspect-ratio:8/5; object-fit:contain; margin:0 -22px 18px; mix-blend-mode:multiply; }
+@media(max-width:1024px) { .heroCopy { width:53%; } .riskBody { grid-template-columns:minmax(0,1fr) 80px; } }
+@media(max-width:959px) {
+ .hero { background-image:url('/images/07c50da9-68a5-4e10-9192-d168cf053948.png') !important; background-size:100% auto; background-position:top center; background-color:#fff8f3; padding-top:20px !important; }
+ .heroCopy { width:100%; max-width:none; padding-top:35vw !important; }
+ .heroCopy :global(.kicker) { margin-top:0; }
+ .hero h1,.heroLead { max-width:100%; }
+ .comparisonTable th:first-child { width:150px; }
+}
+@media(max-width:639px) { .riskBody { grid-template-columns:minmax(0,1fr) 90px; } }
+
+.riskBody img { mask-image:radial-gradient(ellipse at center,#000 45%,transparent 75%); }
+.recoveryIllustration { mask-image:linear-gradient(#000 70%,transparent); }
+@media(max-width:959px) {
+ .hero { background-position:center 64px; }
+ .heroCopy { padding-top:calc(44.1vw + 24px) !important; }
+}
+
+/* Final recovery layout: six cards followed by unboxed precautions. */
+.recoveryGrid > :nth-child(5) { grid-column: 2; }
+.recoveryGrid > :nth-child(6) { grid-column: 3; }
+.precautions {
+  margin: 24px auto 0;
+  max-width: 960px;
+  padding: 18px 24px;
+  border: 1px solid #f0d8c8;
+  border-radius: 14px;
+  background: #fffaf6;
+  box-shadow: 0 4px 14px #073f4605;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  text-align: left;
+  color: var(--ink);
+}
+.precautions h3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 0 12px;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #073f46;
+}
+.precautions h3 svg { width: 24px; height: 24px; color: var(--orange-dark); }
+.precautions p {
+  margin: 0 auto;
+  max-width: 780px;
+  font-family: var(--font-body);
+  font-size: var(--type-supporting-size);
+  line-height: var(--type-supporting-line);
+  color: var(--ink-soft);
+}
+.precautions > svg { width:32px; height:32px; flex:none; color:var(--orange-dark); }
+.precautions h3 { margin-bottom:6px; }
+.risksGrid { grid-auto-rows:1fr; }
+.riskCard { padding:20px; }
+.riskIcon { display:grid; place-items:center; width:44px; height:44px; border-radius:50%; background:#fff0e6; }
+.riskHeader { min-height:0; align-items:center; margin-bottom:16px; }
+.riskBody { display:grid; grid-template-columns:minmax(0,56fr) minmax(0,44fr); gap:14px; align-items:center; }
+.riskVisual { position:relative; aspect-ratio:1; width:100%; overflow:hidden; border-radius:14px; isolation:isolate; }
+.riskBody .riskVisual img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; margin:0; mask-image:none; transform:scale(1.28); mix-blend-mode:multiply; }
+.riskCard:nth-child(1) .riskVisual img { object-fit:contain; transform:scale(1.4); }
+.riskCard:nth-child(2) .riskVisual img { transform:scale(1.18); }
+.riskCard:nth-child(4) .riskVisual img { transform:scale(1.18); }
+.riskCard:nth-child(5) .riskVisual img { transform:scale(1.2); }
+.riskBody p { display:block; min-width:0; }
+.riskBody { font:400 var(--type-supporting-size)/var(--type-supporting-line) var(--font-body); color:var(--ink-soft); }
+@media(max-width:639px) { .risksGrid { grid-auto-rows:auto; } .riskCard { padding:18px; } .riskBody { gap:12px; } }
+@media(max-width:359px) { .riskBody { grid-template-columns:1fr; } .riskVisual { width:65%; justify-self:center; grid-row:1; } }
+@media(max-width:1024px) {
+ .recoveryGrid > :nth-child(5) { grid-column: 1; }
+ .recoveryGrid > :nth-child(6) { grid-column: 2; }
+}
+@media(max-width:639px) {
+ .recoveryGrid > :nth-child(5), .recoveryGrid > :nth-child(6) { grid-column: auto; }
+ .precautions { margin-top: 26px; padding: 18px 16px 20px; }
+ .precautions h3 { font-size: 1.25rem; }
+ .precautions h3 svg { width: 20px; height: 20px; }
 }

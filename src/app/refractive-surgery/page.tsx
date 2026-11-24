@@ -15,9 +15,13 @@ import {
 } from "@/content/refractive";
 import RefractiveEvaluationWorkup from "./RefractiveEvaluationWorkup";
 import CataractVideoCard from "@/app/stitchless-cataract-surgery/CataractVideoCard";
+import RefractiveProcedureShowcase from "./RefractiveProcedureShowcase";
+import TreatmentExperience from "./TreatmentExperience";
+import AftercareCarousel from "./AftercareCarousel";
 import RefractiveReveal from "./RefractiveReveal";
 import RefractiveIcon, { type RefractiveIconName } from "./RefractiveIcon";
 import styles from "./refractive.module.css";
+import videoStyles from "@/components/ServiceVideoSection.module.css";
 
 export const metadata: Metadata = pageMeta("refractive", {
   title: "Refractive Surgery & Laser Vision Correction in Delhi | Namokar",
@@ -53,26 +57,26 @@ const errorCards = [
   {
     title: "Myopia (Nearsightedness)",
     desc: content[1].paragraphs[1].replace(/^[^:]+:\s*/, ""),
-    visual: "/images/refractive/myopia.svg",
-    alt: "Illustration of myopia with light rays focusing in front of retina",
+    visual: "/images/refractive/myopia-final.webp",
+    alt: "Sharp nearby leaves and window latch with blurred distant scenery",
   },
   {
     title: "Hyperopia (Farsightedness)",
     desc: content[1].paragraphs[2].replace(/^[^:]+:\s*/, ""),
-    visual: "/images/refractive/hyperopia.svg",
-    alt: "Illustration of hyperopia with light rays focusing behind retina",
+    visual: "/images/refractive/hyperopia-final.webp",
+    alt: "Close smartphone text shown out of focus to suggest near-vision difficulty",
   },
   {
     title: "Astigmatism (Uneven Curvature)",
     desc: content[1].paragraphs[3].replace(/^[^:]+:\s*/, ""),
-    visual: "/images/refractive/astigmatism.svg",
-    alt: "Illustration of astigmatism with multiple focal points",
+    visual: "/images/refractive/astigmatism-final.webp",
+    alt: "Night streetlights with doubled highlights and directional streaks",
   },
   {
     title: "Presbyopia (Age-Related Near Vision Changes)",
     desc: content[1].paragraphs[4].replace(/^[^:]+:\s*/, ""),
-    visual: "/images/refractive/presbyopia.svg",
-    alt: "Illustration of presbyopia with loss of lens focusing flexibility",
+    visual: "/images/refractive/presbyopia-final.webp",
+    alt: "Mature hands reading a newspaper with reading glasses nearby",
   },
 ];
 
@@ -82,7 +86,7 @@ const procedureCards = [
     fullName: "Laser-Assisted in Situ Keratomileusis",
     tag: "Flap-Based Laser",
     desc: content[3].paragraphs[1].replace(/^[^:]+:\s*/, ""),
-    visual: "/images/refractive/proc-lasik.svg",
+    visual: "/images/refractive/redesign/generated-lasik.webp",
     alt: "Diagram illustrating LASIK corneal flap creation and laser ablation",
   },
   {
@@ -90,7 +94,7 @@ const procedureCards = [
     fullName: "Photorefractive Keratectomy",
     tag: "Surface Laser",
     desc: content[3].paragraphs[2].replace(/^[^:]+:\s*/, ""),
-    visual: "/images/refractive/proc-prk.svg",
+    visual: "/images/refractive/redesign/generated-prk.webp",
     alt: "Diagram illustrating PRK surface laser reshaping without corneal flap",
   },
   {
@@ -98,7 +102,7 @@ const procedureCards = [
     fullName: "Small Incision Lenticule Extraction",
     tag: "Flapless Keyhole",
     desc: content[3].paragraphs[3].replace(/^[^:]+:\s*/, ""),
-    visual: "/images/refractive/proc-smile.svg",
+    visual: "/images/refractive/redesign/generated-smile.webp",
     alt: "Diagram illustrating SMILE keyhole lenticule extraction",
   },
   {
@@ -106,7 +110,7 @@ const procedureCards = [
     fullName: "Implantable Collamer Lens",
     tag: "Phakic Intraocular Lens",
     desc: content[3].paragraphs[4].replace(/^[^:]+:\s*/, ""),
-    visual: "/images/refractive/proc-icl.svg",
+    visual: "/images/refractive/redesign/generated-icl.webp",
     alt: "Diagram showing ICL positioning in posterior chamber behind iris",
   },
   {
@@ -114,7 +118,7 @@ const procedureCards = [
     fullName: "Implantable Phakic Contact Lens",
     tag: "Hybrid Phakic Lens",
     desc: content[3].paragraphs[5].replace(/^[^:]+:\s*/, ""),
-    visual: "/images/refractive/proc-ipcl.svg",
+    visual: "/images/refractive/redesign/generated-ipcl.webp",
     alt: "Diagram showing IPCL positioning preserving natural crystalline lens",
   },
 ];
@@ -210,44 +214,40 @@ const recoveryCards = [
     icon: "calendar" as RefractiveIconName,
     desc: content[8].paragraphs[6].replace(/^[^:]+:\s*/, ""),
   },
-  {
-    title: "Symptoms Requiring Prompt Attention",
-    icon: "phone" as RefractiveIconName,
-    desc: content[8].paragraphs[7].replace(/^[^:]+:\s*/, ""),
-    warning: true,
-  },
 ];
+
+const urgentGuidance = content[8].paragraphs[7].replace(/^[^:]+:\s*/, "");
 
 const riskCards = [
   {
     title: "Reduced Dependence on Glasses",
     icon: "glasses" as RefractiveIconName,
-    desc: content[9].paragraphs[1].replace(/^[^:]+:\s*/, ""),
+    desc: "Surgery aims to reduce dependence on glasses, not guarantee permanent spectacle-free vision. Some activities, residual prescriptions and age-related changes may still require correction. Healing affects results.",
   },
   {
     title: "Dry Eye and Ocular Surface Symptoms",
     icon: "drop" as RefractiveIconName,
-    desc: content[9].paragraphs[2].replace(/^[^:]+:\s*/, ""),
+    desc: "Laser treatment may cause dryness and fluctuating vision. Drops may help, but symptoms can persist. Assess existing dry eye before surgery; ongoing symptoms need review.",
   },
   {
     title: "Glare, Halos, and Night Vision Changes",
     icon: "night" as RefractiveIconName,
-    desc: content[9].paragraphs[3].replace(/^[^:]+:\s*/, ""),
+    desc: "Glare, halos and starbursts may improve with healing but can persist and affect night driving. Discuss pupil size, visual needs and existing night-vision difficulties during assessment.",
   },
   {
     title: "Residual Prescription or Later Changes",
     icon: "target" as RefractiveIconName,
-    desc: content[9].paragraphs[4].replace(/^[^:]+:\s*/, ""),
+    desc: "Healing or later eye changes may alter vision. Glasses, contact lenses or further treatment may be considered after stability. Additional surgery is not always suitable.",
   },
   {
     title: "Procedure-Specific Complications",
     icon: "shield" as RefractiveIconName,
-    desc: content[9].paragraphs[5].replace(/^[^:]+:\s*/, ""),
+    desc: "LASIK has flap risks; PRK may involve delayed healing or haze; SMILE has lenticule risks. ICL/IPCL need lens-clearance, cataract, endothelial-cell and pressure monitoring. Infection, corneal weakening and sight loss are uncommon but important risks.",
   },
   {
     title: "Age-Related Vision Changes",
     icon: "calendar" as RefractiveIconName,
-    desc: content[9].paragraphs[6].replace(/^[^:]+:\s*/, ""),
+    desc: "Surgery does not stop lens aging. Presbyopia may require reading glasses, and cataracts can develop. Keep preoperative records and inform future eye-care providers about previous treatments.",
   },
 ];
 
@@ -278,18 +278,6 @@ export default function RefractiveSurgeryPage() {
 
           <div className={styles.heroCopy}>
             <p className="kicker">{content[0].eyebrow}</p>
-
-            {/* Mobile hero image rendered right below eyebrow */}
-            <div className={styles.heroMobileMedia}>
-              <Image
-                src="/images/refractive/refractive-hero.webp"
-                alt="Illustrative ophthalmic equipment for refractive surgery assessment"
-                width={1790}
-                height={879}
-                priority
-                className={styles.heroMobileImage}
-              />
-            </div>
 
             <h1 id="refractive-hero-h">{content[0].title}</h1>
             <p className={styles.heroLead}>{content[0].paragraphs[0]}</p>
@@ -359,8 +347,8 @@ export default function RefractiveSurgeryPage() {
               </div>
               <div className={styles.pathwayVisual}>
                 <Image
-                  src="/images/refractive/pathway-laser.svg"
-                  alt="Corneal laser reshaping cross-sectional diagram"
+                  src="/images/refractive/laser-treatment-photo.webp"
+                  alt="Clinical team preparing a patient beneath an ophthalmic laser"
                   width={500}
                   height={280}
                 />
@@ -377,8 +365,8 @@ export default function RefractiveSurgeryPage() {
               </div>
               <div className={styles.pathwayVisual}>
                 <Image
-                  src="/images/refractive/pathway-phakic.svg"
-                  alt="Phakic lens behind the iris and in front of the natural lens"
+                  src="/images/glaucoma-treat-surgery.jpg"
+                  alt="Gloved hands preparing sterile ophthalmic surgical instruments"
                   width={500}
                   height={280}
                 />
@@ -400,18 +388,7 @@ export default function RefractiveSurgeryPage() {
           </header>
           <p className={styles.intro}>{content[3].paragraphs[0]}</p>
 
-          <div className={styles.proceduresGrid}>
-            {procedureCards.map((proc) => (
-              <article key={proc.title} className={styles.procCard}>
-                <div className={styles.procVisual}>
-                  <Image src={proc.visual} alt={proc.alt} width={360} height={220} />
-                </div>
-                <span className={styles.procTag}>{proc.tag}</span>
-                <h3>{proc.title}</h3>
-                <p>{proc.desc}</p>
-              </article>
-            ))}
-          </div>
+          <RefractiveProcedureShowcase procedures={procedureCards} />
         </div>
       </section>
 
@@ -426,23 +403,19 @@ export default function RefractiveSurgeryPage() {
           </header>
           <p className={styles.intro}>{content[4].paragraphs[0]}</p>
 
-          <div className={styles.comparisonWrap}>
+          <div className={styles.comparisonWrap} tabIndex={0} role="region" aria-label="Scrollable procedure comparison">
             {/* Desktop Structured Table */}
             <table className={styles.comparisonTable}>
               <thead>
                 <tr>
                   <th scope="col">Feature / Aspect</th>
-                  <th scope="col">LASIK</th>
-                  <th scope="col">PRK</th>
-                  <th scope="col">ReLEx SMILE</th>
-                  <th scope="col">ICL</th>
-                  <th scope="col">IPCL</th>
+                  {procedureCards.map(proc => <th scope="col" key={proc.title}><Image src={proc.visual} alt={proc.alt} width={240} height={160} sizes="180px" /><span className={styles.comparisonLabel}>{proc.title}</span></th>)}
                 </tr>
               </thead>
               <tbody>
-                {comparison.map((row) => (
+                {comparison.map((row, index) => (
                   <tr key={row.category}>
-                    <th scope="row">{row.category}</th>
+                    <th scope="row"><RefractiveIcon name={(["laser", "eye", "clock", "calendar"] as RefractiveIconName[])[index]} />{row.category}</th>
                     <td>{row.lasik}</td>
                     <td>{row.prk}</td>
                     <td>{row.smile}</td>
@@ -453,34 +426,7 @@ export default function RefractiveSurgeryPage() {
               </tbody>
             </table>
 
-            {/* Mobile Responsive Cards */}
-            <div className={styles.comparisonCardsMobile}>
-              {comparison.map((row) => (
-                <div key={row.category} className={styles.mobileCompCard}>
-                  <h3>{row.category}</h3>
-                  <div className={styles.mobileCompItem}>
-                    <span className={styles.mobileCompTag}>LASIK</span>
-                    <p>{row.lasik}</p>
-                  </div>
-                  <div className={styles.mobileCompItem}>
-                    <span className={styles.mobileCompTag}>PRK</span>
-                    <p>{row.prk}</p>
-                  </div>
-                  <div className={styles.mobileCompItem}>
-                    <span className={styles.mobileCompTag}>ReLEx SMILE</span>
-                    <p>{row.smile}</p>
-                  </div>
-                  <div className={styles.mobileCompItem}>
-                    <span className={styles.mobileCompTag}>ICL</span>
-                    <p>{row.icl}</p>
-                  </div>
-                  <div className={styles.mobileCompItem}>
-                    <span className={styles.mobileCompTag}>IPCL</span>
-                    <p>{row.ipcl}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+
           </div>
         </div>
       </section>
@@ -534,15 +480,7 @@ export default function RefractiveSurgeryPage() {
           </header>
           <p className={styles.intro}>{content[7].paragraphs[0]}</p>
 
-          <ol className={styles.journeySteps}>
-            {journeySteps.map((step) => (
-              <li key={step.number} className={styles.journeyCard}>
-                <div className={styles.journeyTop}><span className={styles.journeyNum}>{step.number}</span><RefractiveIcon name={step.icon} /></div>
-                <h3>{step.title}</h3>
-                <p>{step.desc}</p>
-              </li>
-            ))}
-          </ol>
+          <TreatmentExperience stages={journeySteps} />
         </div>
       </section>
 
@@ -557,12 +495,13 @@ export default function RefractiveSurgeryPage() {
           </header>
           <p className={styles.intro}>{content[8].paragraphs[0]}</p>
 
-          <div className={styles.recoveryGrid}>
-            {recoveryCards.map((card) => (
+          <AftercareCarousel>
+            {recoveryCards.map((card, index) => (
               <article
                 key={card.title}
-                className={`${styles.recoveryCard} ${card.warning ? styles.recoveryWarningCard : ""}`}
+                className={styles.recoveryCard}
               >
+                <Image className={styles.recoveryIllustration} src={'/images/refractive/redesign/generated-' + ['ripples','drop','goggles','splash','laptop','calendar','shield'][index] + '.webp'} alt="" width={480} height={300} sizes="(max-width:639px) 90vw, 25vw" />
                 <span className={styles.recoveryIcon} aria-hidden="true">
                   <RefractiveIcon name={card.icon} />
                 </span>
@@ -570,7 +509,14 @@ export default function RefractiveSurgeryPage() {
                 <p>{card.desc}</p>
               </article>
             ))}
-          </div>
+          </AftercareCarousel>
+          <aside className={styles.precautions} aria-labelledby="precautions-h">
+            <RefractiveIcon name="cross" />
+            <div>
+            <h3 id="precautions-h">Important Precautions</h3>
+            <p>{urgentGuidance}</p>
+            </div>
+          </aside>
         </div>
       </section>
 
@@ -586,13 +532,13 @@ export default function RefractiveSurgeryPage() {
           <p className={styles.intro}>{content[9].paragraphs[0]}</p>
 
           <div className={styles.risksGrid}>
-            {riskCards.map((card) => (
+            {riskCards.map((card, index) => (
               <article key={card.title} className={styles.riskCard}>
                 <div className={styles.riskHeader}>
                   <span className={styles.riskIcon} aria-hidden="true"><RefractiveIcon name={card.icon} /></span>
                   <h3>{card.title}</h3>
                 </div>
-                <p>{card.desc}</p>
+                <div className={styles.riskBody}><p>{card.desc}</p><div className={styles.riskVisual}><Image src={'/images/refractive/redesign/generated-' + ['glasses','drop','glare','chart','shield','calendar'][index] + '.webp'} alt="" width={240} height={200} sizes="(max-width:639px) 40vw, 180px" /></div></div>
               </article>
             ))}
           </div>
@@ -607,10 +553,12 @@ export default function RefractiveSurgeryPage() {
           <header className={styles.heading}>
             <p className="kicker">{content[10].eyebrow}</p>
             <h2 id="videos-h">{content[10].title}</h2>
-            <p className={styles.intro}>{content[10].paragraphs[0]}</p>
+            <p className={styles.intro}>Watch Dr. Poonam Jain’s featured contact lens care video, then explore third-party educational videos on refractive surgery options, implantable lenses and LASIK risks. Videos provide general information and do not replace an eye examination.</p>
           </header>
 
-          <div className={styles.videosGrid}>
+          <div className={videoStyles.layout}>
+          <div className={videoStyles.featured}>
+            <span className={videoStyles.label}>Featured Video</span>
             <CataractVideoCard
               videoId="B6JggoiqX9I"
               title="क्या आप कॉन्टेक्ट लेंस पहनते हैं तो ध्यान रखें"
@@ -618,7 +566,17 @@ export default function RefractiveSurgeryPage() {
               poster="https://i.ytimg.com/vi/B6JggoiqX9I/hqdefault.jpg"
               watchUrl="https://www.youtube.com/watch?v=B6JggoiqX9I"
               category="Official Namokar · Contact-lens care"
+              autoplay={true}
             />
+          </div>
+          <h3 className={videoStyles.heading}>More Videos on Refractive Surgery</h3>
+          <div className={videoStyles.grid}>
+            {[
+              { id: "OB9q-YR6RhA", title: "LASIK, PRK, SMILE or ICL? Choose the Right Refractive Surgery", channel: "Centre For Sight Eye Institute and Hospitals" },
+              { id: "LXFvvclY7O4", title: "What Is an Implantable Collamer Lens (ICL)?", channel: "Doctify" },
+              { id: "EmtYivWUH7I", title: "LASIK Surgery and Its Risks", channel: "U.S. Food and Drug Administration" },
+            ].map(video => <CataractVideoCard key={video.id} videoId={video.id} title={video.title} description={video.channel} poster={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`} watchUrl={`https://www.youtube.com/watch?v=${video.id}`} category="Third-party educational video" autoplay={true} />)}
+          </div>
           </div>
         </div>
       </section>

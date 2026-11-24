@@ -12,6 +12,7 @@ interface CataractVideoCardProps {
   watchUrl: string;
   language?: "en" | "hi";
   category?: string;
+  autoplay?: boolean;
 }
 
 export default function CataractVideoCard({
@@ -22,6 +23,7 @@ export default function CataractVideoCard({
   watchUrl,
   language,
   category,
+  autoplay = true,
 }: CataractVideoCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -31,7 +33,7 @@ export default function CataractVideoCard({
         {isPlaying ? (
           <iframe
             className={styles.refVideoIframe}
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1`}
+            src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=${autoplay ? 1 : 0}&rel=0&playsinline=1`}
             title={title}
             allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
             allowFullScreen

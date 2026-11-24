@@ -1,0 +1,9 @@
+.carousel { display:flex; align-items:center; gap:12px; min-width:0; }
+.track { display:flex; gap:18px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; flex:1; min-width:0; padding-block:4px 12px; }
+.track::-webkit-scrollbar { display:none; }
+.track > article { flex:0 0 calc((100% - 54px)/4); box-sizing:border-box; scroll-snap-align:start; }
+.arrow { flex:none; width:40px; height:40px; display:grid; place-items:center; border:1px solid #eed7c9; border-radius:50%; background:#fffaf6; color:var(--orange-dark); font-size:30px; cursor:pointer; }
+.arrow:focus-visible,.track:focus-visible { outline:2px solid var(--orange-dark); outline-offset:2px; }
+@media(max-width:1024px) { .track > article { flex-basis:calc((100% - 18px)/2); } }
+@media(max-width:639px) { .carousel { gap:6px; } .arrow { width:32px; height:40px; } .track > article { flex-basis:100%; } }
+@media(prefers-reduced-motion:reduce) { .track { scroll-behavior:auto; } }

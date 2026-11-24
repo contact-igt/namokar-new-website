@@ -17,49 +17,49 @@ export const REFRACTIVE_EVALUATION_STEPS: RefractiveStep[] = [
     number: "01",
     title: "Visual Acuity & Refraction",
     shortDesc: "Uncorrected and spectacle-corrected vision are measured to establish the prescription. When needed, cycloplegic drops relax focusing to reveal hidden refractive error. Previous prescriptions help the doctor assess whether vision has been stable enough for treatment.",
-    image: "/images/squint/cycloplegic-refraction.webp",
+    image: "/images/download.png",
     alt: "Clinical optometrist performing precise refraction evaluation with trial lenses"
   },
   {
     number: "02",
     title: "Corneal Topography & Tomography",
     shortDesc: "Maps of the front and back corneal surfaces assess curvature and symmetry. Topography and tomography help identify irregular astigmatism, suspected keratoconus or other patterns that may make corneal laser treatment unsuitable.",
-    image: "/images/refractive/corneal-mapping.svg",
+    image: "/images/download (1).png",
     alt: "Educational schematic of front and back corneal curvature maps"
   },
   {
     number: "03",
     title: "Corneal Thickness Measurement",
     shortDesc: "Optical or ultrasonic pachymetry measures corneal thickness. The planned correction is assessed against the tissue that would remain, helping the surgeon judge structural safety. Thickness alone does not determine whether laser treatment is suitable.",
-    image: "/images/refractive/corneal-thickness.svg",
+    image: "/images/download (2).png",
     alt: "Educational cross-section showing corneal thickness measurement"
   },
   {
     number: "04",
     title: "Ocular Surface & Tear Film Assessment",
     shortDesc: "Slit-lamp and tear-film tests assess dryness, surface inflammation and tear stability. Problems may need treatment before measurements are repeated or surgery considered. Ocular-surface health also affects comfort and the clarity of vision during recovery.",
-    image: "/images/aesthetic/doctor-exam-dsc06796.webp",
+    image: "/images/download (3).png",
     alt: "Ophthalmologist examining ocular surface health and tear film with slit lamp"
   },
   {
     number: "05",
     title: "Anterior Chamber & Endothelial Assessment",
     shortDesc: "For ICL or IPCL, imaging and endothelial assessment check chamber depth, cell density and measurements needed for lens sizing. The aim is appropriate clearance from the natural lens and cornea; suitability remains an individual clinical decision.",
-    image: "/images/refractive/anterior-chamber.svg",
+    image: "/images/download (4).png",
     alt: "Educational diagram of anterior chamber depth, lens clearance and endothelial cells"
   },
   {
     number: "06",
     title: "Dilated Retinal & Optic Nerve Examination",
     shortDesc: "Dilating drops allow examination of the retina, macula and optic nerve. In myopic eyes, peripheral screening helps detect lattice degeneration or retinal tears. Findings may require further assessment or treatment before refractive surgery is considered.",
-    image: "/images/squint/dilated-eye-health-examination.webp",
+    image: "/images/download (5).png",
     alt: "Detailed dilated retinal examination of the fundus and optic nerve"
   },
   {
     number: "07",
     title: "Individualized Treatment Discussion",
     shortDesc: "The doctor reviews your results, daily visual needs and expectations, then discusses suitable options, risks, recovery and alternatives. Ask where a procedure would be performed and what follow-up it requires before deciding whether to proceed.",
-    image: "/images/squint/detailed-clinical-history.webp",
+    image: "/images/download (6).png",
     alt: "Doctor discussing customized refractive surgery options with patient"
   }
 ];

@@ -9,18 +9,18 @@ import styles from "./squint.module.css";
 type Sign = { title: string; text: string };
 const photographs = [
   [
-    { file: "child-misalignment", alt: "Pediatric eye examination in clinic showing eye alignment assessment", position: "50% 50%" },
-    { file: "child-bright-light", alt: "Child patient in clinic examination room closing one eye during light sensitivity evaluation", position: "50% 50%" },
-    { file: "child-head-posture", alt: "Child patient in examination chair tilting head during visual assessment", position: "50% 50%" },
-    { file: "child-reaching-distance", alt: "Pediatric binocular alignment and depth perception evaluation with prism bar in eye clinic", position: "50% 50%" },
-    { file: "child-visual-avoidance", alt: "Child during clinical visual acuity assessment gently covering one eye", position: "50% 50%" },
+    { file: "child-misalignment-premium", alt: "Illustrative photograph of a child with visible inward eye deviation", position: "50% 50%" },
+    { file: "child-bright-light-premium", alt: "Illustrative photograph of a child shielding her eyes and closing one eye in sunlight", position: "50% 50%" },
+    { file: "child-head-posture-premium", alt: "Illustrative photograph of a child tilting his head during a vision assessment", position: "50% 50%" },
+    { file: "child-reaching-distance-premium", alt: "Illustrative photograph of a child carefully judging the distance to a small block", position: "50% 50%" },
+    { file: "child-visual-avoidance-premium", alt: "Illustrative photograph of a child hesitating over a near-vision task with an optometrist", position: "50% 50%" },
   ],
   [
-    { file: "adult-double-vision", alt: "Adult patient in consultation room discussing double vision symptoms with ophthalmic specialist", position: "50% 50%" },
-    { file: "adult-eye-strain", alt: "Adult patient in consultation discussing asthenopia and eye strain symptoms with clinician", position: "50% 50%" },
-    { file: "adult-spatial-depth", alt: "Adult patient undergoing distance vision and binocular depth evaluation with illuminated chart", position: "50% 50%" },
-    { file: "adult-eye-closure", alt: "Adult patient during clinical refraction assessment with one eye occluded", position: "50% 50%" },
-    { file: "adult-misalignment", alt: "Clinician examining adult patient with ophthalmic equipment at Namokar Eye Centre", position: "50% 50%" },
+    { file: "adult-double-vision-premium", alt: "Illustrative photograph of an adult having difficulty focusing on a phone", position: "50% 50%" },
+    { file: "adult-eye-strain-premium", alt: "Illustrative photograph of an adult resting her brow after screen work", position: "50% 50%" },
+    { file: "adult-spatial-depth-premium", alt: "Illustrative photograph of an adult carefully judging distance while pouring water", position: "50% 50%" },
+    { file: "adult-eye-closure-premium", alt: "Illustrative photograph of an adult closing one eye while reading", position: "50% 50%" },
+    { file: "adult-misalignment-premium", alt: "Illustrative photograph of an adult with visible outward eye deviation", position: "50% 50%" },
   ],
 ];
 export default function SquintSigns({ groups }: { groups: Sign[][] }) {
