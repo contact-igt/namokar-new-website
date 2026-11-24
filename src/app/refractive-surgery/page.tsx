@@ -280,6 +280,18 @@ export default function RefractiveSurgeryPage() {
             <p className="kicker">{content[0].eyebrow}</p>
 
             <h1 id="refractive-hero-h">{content[0].title}</h1>
+
+            <div className={styles.heroMobileMedia}>
+              <Image
+                src="/images/07c50da9-68a5-4e10-9192-d168cf053948.png"
+                alt="Refractive surgery and laser vision correction clinical depiction"
+                width={1888}
+                height={833}
+                priority
+                className={styles.heroMobileImage}
+              />
+            </div>
+
             <p className={styles.heroLead}>{content[0].paragraphs[0]}</p>
 
             <div className={styles.actions}>

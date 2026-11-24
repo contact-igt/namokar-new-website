@@ -54,6 +54,5 @@ export default function SquintSigns({ groups }: { groups: Sign[][] }) {
       </Slider>
       <button className={styles.next} type="button" aria-label="Next symptom" onClick={() => slider.current?.slickNext()}><ArrowRightIcon /></button>
     </div>
-    <p className={styles.visualNote}>Clinical illustrative photographs. Images do not replace an in-person ophthalmic assessment.</p>
   </div>;
 }
