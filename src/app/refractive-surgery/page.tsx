@@ -415,7 +415,14 @@ export default function RefractiveSurgeryPage() {
               <tbody>
                 {comparison.map((row, index) => (
                   <tr key={row.category}>
-                    <th scope="row"><RefractiveIcon name={(["laser", "eye", "clock", "calendar"] as RefractiveIconName[])[index]} />{row.category}</th>
+                    <th scope="row">
+                      <div className={styles.comparisonFeatureHeader}>
+                        <span className={styles.comparisonFeatureIcon} aria-hidden="true">
+                          <RefractiveIcon name={(["laser", "eye", "clock", "calendar"] as RefractiveIconName[])[index]} />
+                        </span>
+                        <span>{row.category}</span>
+                      </div>
+                    </th>
                     <td>{row.lasik}</td>
                     <td>{row.prk}</td>
                     <td>{row.smile}</td>
@@ -536,9 +543,19 @@ export default function RefractiveSurgeryPage() {
               <article key={card.title} className={styles.riskCard}>
                 <div className={styles.riskHeader}>
                   <span className={styles.riskIcon} aria-hidden="true"><RefractiveIcon name={card.icon} /></span>
-                  <h3>{card.title}</h3>
+                  <h3 className={styles.riskTitle}>{card.title}</h3>
                 </div>
-                <div className={styles.riskBody}><p>{card.desc}</p><div className={styles.riskVisual}><Image src={'/images/refractive/redesign/generated-' + ['glasses','drop','glare','chart','shield','calendar'][index] + '.webp'} alt="" width={240} height={200} sizes="(max-width:639px) 40vw, 180px" /></div></div>
+                <div className={styles.riskImageWrap}>
+                  <Image
+                    src={'/images/refractive/redesign/generated-' + ['glasses','drop','glare','chart','shield','calendar'][index] + '.webp'}
+                    alt={card.title}
+                    width={480}
+                    height={300}
+                    sizes="(max-width: 639px) 92vw, (max-width: 1024px) 45vw, 360px"
+                    className={styles.riskImg}
+                  />
+                </div>
+                <p className={styles.riskDesc}>{card.desc}</p>
               </article>
             ))}
           </div>
