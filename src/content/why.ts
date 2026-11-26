@@ -18,34 +18,21 @@ export const WHY = [
   },
 ];
 
-/**
- * Homepage "Why patients choose Namokar": the centre's own published facts instead of generic
- * statements. The 25+ years and 10,000+ patients figures come from the client's International
- * Patients page and are logged in docs/NAMOKAR_CONTENT_VERIFICATION.md. No surgery count, no
- * rankings, no outcomes.
- */
-export const HOME_FACTS = [
-  { value: "25+", label: "Years in Eye Care" },
-  { value: "10,000+", label: "Patients Treated" },
-  { value: "6", label: "Areas of Care" },
-  { value: "Barraquer Institute", label: "Fellowship" },
-] as const;
-
 export const HOME_WHY = [
   {
-    title: "25+ Years of Eye Care Experience",
-    text: "Care led by Dr. Poonam Jain, Senior Ophthalmologist and Oculoplasty Surgeon.",
+    title: "28+ Years of Clinical Experience",
+    text: "Doctor-led ophthalmic care guided by over 28 years of clinical and surgical experience.",
   },
   {
-    title: "Specialist Oculoplasty Focus",
-    text: "Dedicated evaluation of eyelid, tear-drainage and eye-area concerns alongside comprehensive ophthalmology.",
+    title: "Complete Eye Care Under One Roof",
+    text: "From comprehensive eye examinations to cataract, retina, vision correction and specialised eye care.",
   },
   {
-    title: "International Clinical Exposure",
-    text: "Oculoplasty Fellowship at the Barraquer Institute, Barcelona, with an Observership at the Wilmer Eye Institute, Johns Hopkins.",
+    title: "Internationally Trained Expertise",
+    text: "Oculoplasty fellowship at the Barraquer Institute, Barcelona, and clinical observership at the Wilmer Eye Institute, Johns Hopkins.",
   },
   {
-    title: "10,000+ Patients Treated",
-    text: "Patients cared for across years of clinical practice.",
+    title: "Specialised Oculoplasty & Aesthetics",
+    text: "Dedicated functional, reconstructive and aesthetic care for the eyelids and surrounding eye structures.",
   },
 ];

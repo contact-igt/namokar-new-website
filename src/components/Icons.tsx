@@ -28,7 +28,7 @@ export const PhoneIcon = (p: P) => (
 export const CalendarIcon = (p: P) => (
   <svg {...base} {...p}>
     <rect x="3.5" y="5" width="17" height="15" rx="2" />
-    <path d="M3.5 10h17M8 3v4M16 3v4" />
+    <path d="M3.5 10h17M8 3v4M16 3v4m-6.5 7.5 2 2 3.5-3.5" />
   </svg>
 );
 
@@ -51,8 +51,8 @@ export const ChevronDownIcon = (p: P) => (
 );
 
 export const ArrowRightIcon = (p: P) => (
-  <svg {...base} {...p}>
-    <path d="M5 12h14M13 6l6 6-6 6" />
+  <svg {...base} strokeWidth={2.25} data-arrow-right="" {...p}>
+    <path d="M4.5 12h15m-5.5-5.5 5.5 5.5-5.5 5.5" />
   </svg>
 );
 

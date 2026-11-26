@@ -5,7 +5,7 @@ import { CalendarIcon, PhoneIcon } from "./Icons";
 /**
  * The one appointment call-to-action. Its wording and destination always match what
  * the visitor can actually do:
- *  - online requests available: "Book a Consultation" opens the request form
+ *  - online requests available: "Request a Consultation" opens the request form
  *  - otherwise: "Call to Book an Appointment" dials the centre
  * Starting a request or a call never implies that an appointment has been booked.
  */
@@ -13,23 +13,25 @@ export default function BookButton({
   online,
   className = "btn btn--primary",
   onNavigate,
+  label,
 }: {
   online: boolean;
   className?: string;
   onNavigate?: () => void;
+  label?: string;
 }) {
   if (online) {
     return (
       <Link href={`${LINKS.contact}#request`} className={className} onClick={onNavigate}>
         <CalendarIcon />
-        Book a Consultation
+        {label ?? "Request a Consultation"}
       </Link>
     );
   }
   return (
     <a href={TEL_HREF} className={className} onClick={onNavigate}>
       <PhoneIcon />
-      Call to Book an Appointment
+      {label ?? "Call to Book an Appointment"}
     </a>
   );
 }

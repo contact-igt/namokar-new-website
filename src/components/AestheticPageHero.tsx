@@ -20,8 +20,8 @@ interface AestheticPageHeroProps {
 export default function AestheticPageHero({
   crumb = "Aesthetic Oculoplasty",
   kicker = "AESTHETIC OCULOPLASTY",
-  titleLine1 = "Natural-looking",
-  titleLine2 = "eye rejuvenation.",
+  titleLine1 = "Aesthetic Eyelid Surgery",
+  titleLine2 = "& Periocular Rejuvenation",
   lead = "Aesthetic oculoplasty focuses on improving the appearance of the eyelids, under-eye area and surrounding eye region while keeping eye safety and natural results as the priority.",
   image = "/images/aesthetic/dr-poonam-jain-aesthetic-hero.webp",
   imageAlt = "Dr. Poonam Jain, Senior Oculoplasty Specialist in Consultation at Namokar Eye & Oculoplasty Centre",
@@ -63,16 +63,18 @@ export default function AestheticPageHero({
 
               {/* Two-line heading */}
               <h1 className={styles.heading}>
-                <span>{titleLine1}</span>
+                <span>{titleLine1}</span>{" "}
                 <span className="title-secondary">{titleLine2}</span>
               </h1>
 
-              {/* Body lead description */}
-              <p className={styles.lead}>{lead}</p>
+              <div className={styles.description}>
+                <p className={styles.lead}>{lead}</p>
+                <p className={styles.doctorIntro}>Consult Dr. Poonam Jain, an internationally trained ophthalmologist and oculoplastic surgeon with over 28 years of clinical and surgical experience.</p>
+              </div>
 
               {/* CTA Booking Button */}
               <div className={styles.actions}>
-                <BookButton online={online} />
+                <BookButton online={online} label={online ? "Request an Aesthetic Oculoplasty Consultation" : "Book an Aesthetic Oculoplasty Consultation"} />
               </div>
             </div>
           </div>

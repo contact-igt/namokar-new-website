@@ -39,11 +39,12 @@
 
 /* Main Container: fills hero section */
 .container {
+  --hero-gutter: clamp(20px, 3.5vw, 44px);
   position: relative;
   z-index: 1;
   max-width: 1360px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 3.5vw, 44px);
+  padding: 0 var(--hero-gutter);
   width: 100%;
   flex: 1 1 auto;
   display: flex;
@@ -158,13 +159,20 @@
   display: block;
 }
 
-/* Body lead paragraph */
-.lead {
+.intro {
   font-size: clamp(1.02rem, 1.15vw, 1.1rem);
   line-height: 1.55;
-  color: #52606d;
   max-width: 490px;
-  margin: 0 0 28px 0;
+  margin-bottom: 24px;
+}
+
+.lead {
+  color: #52606d;
+  margin: 0;
+}
+
+.tagline {
+  margin: 12px 0 0;
 }
 
 /* Action buttons */
@@ -197,8 +205,7 @@
 }
 
 .btnArrow {
-  font-size: 1.05rem;
-  line-height: 1;
+  flex-shrink: 0;
 }
 
 .btnSecondary {
@@ -362,7 +369,7 @@
   .heroSection {
     min-height: auto;
     max-height: none;
-    padding-top: clamp(20px, 4vw, 32px);
+    padding-top: 0;
     padding-bottom: clamp(28px, 4.5vw, 42px);
   }
 
@@ -389,6 +396,11 @@
     margin-bottom: 12px;
   }
 
+  .breadcrumbWrap :global(.crumbs ol) {
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+
   .kicker {
     order: 2;
     margin-bottom: 10px;
@@ -401,7 +413,7 @@
     line-height: 1.12;
   }
 
-  .lead {
+  .intro {
     order: 4;
     margin-bottom: 16px;
     max-width: 100%;
@@ -410,34 +422,30 @@
   }
 
   .colVisual {
-    order: 5;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin: 0 0 16px 0;
-    padding-bottom: 0;
-    align-items: stretch;
+    display: contents;
   }
 
   .mobileEquipment {
     display: block;
+    order: 0;
     position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 10.5;
-    border-radius: 20px;
+    width: calc(100% + 2 * var(--hero-gutter));
+    margin-inline: calc(-1 * var(--hero-gutter));
+    margin-bottom: 20px;
+    aspect-ratio: 2 / 1;
+    max-height: 440px;
     overflow: hidden;
-    border: 1px solid #f2ded1;
-    box-shadow: 0 10px 28px rgba(7, 63, 70, 0.08);
+    mask-image: var(--service-banner-fade);
   }
 
   .mobileEquipmentImg {
     object-fit: cover;
-    object-position: 84% center;
+    object-position: right center;
   }
 
   .badgeWrap {
+    order: 6;
+    margin-top: 18px;
     width: 100%;
     margin-right: 0;
     justify-content: stretch;
@@ -452,7 +460,7 @@
   }
 
   .actions {
-    order: 6;
+    order: 5;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -478,6 +486,10 @@
     width: 100%;
   }
 
+  .heroSection .trustCards {
+    margin-top: 0;
+  }
+
   .trustCard {
     padding: 12px 14px;
     border-radius: 14px;
@@ -495,4 +507,10 @@
     font-size: clamp(0.74rem, 2.7vw, 0.84rem);
     line-height: 1.25;
   }
+}
+
+@media (min-width: 640px) and (max-width: 959px) {
+  .actions { flex-direction: row; }
+  .btnPrimary,
+  .btnSecondary { width: auto; }
 }

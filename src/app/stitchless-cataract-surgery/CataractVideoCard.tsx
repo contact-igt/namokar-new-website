@@ -1,5 +1,6 @@
 "use client";
 
+import { useServiceVideoPlayback } from "@/components/serviceVideoPlayback";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./cataract.module.css";
@@ -13,6 +14,7 @@ interface CataractVideoCardProps {
   language?: "en" | "hi";
   category?: string;
   autoplay?: boolean;
+  onPlay?: () => void;
 }
 
 export default function CataractVideoCard({
@@ -24,7 +26,9 @@ export default function CataractVideoCard({
   language,
   category,
   autoplay = true,
+  onPlay,
 }: CataractVideoCardProps) {
+  const onCarouselPlay = useServiceVideoPlayback();
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
@@ -42,7 +46,11 @@ export default function CataractVideoCard({
           <button
             type="button"
             className={styles.refVideoPosterBtn}
-            onClick={() => setIsPlaying(true)}
+            onClick={() => {
+              setIsPlaying(true);
+              onPlay?.();
+              onCarouselPlay?.();
+            }}
             aria-label={`Play video: ${title}`}
           >
             <Image

@@ -20,9 +20,9 @@ interface ReconstructivePageHeroProps {
 export default function ReconstructivePageHero({
   crumb = "Reconstructive Oculoplasty",
   kicker = "RECONSTRUCTIVE OCULOPLASTY",
-  titleLine1 = "Restoring eye function,",
-  titleLine2 = "comfort and confidence.",
-  lead = "Reconstructive oculoplasty treats medical and functional concerns of the eyelids, tear ducts, eye socket and surrounding eye structures with a focus on safety, comfort and natural restoration.",
+  titleLine1 = "Reconstructive Oculoplasty",
+  titleLine2 = "for Eye Function & Protection",
+  lead = "Specialised assessment and treatment of eyelid abnormalities, tear-drainage disorders and orbital conditions, with a focus on eye protection, functional improvement and individual patient needs.",
   image = "/images/reconstructive/doctor-eyelid-examination.webp",
   imageAlt = "Illustrative image of an eye doctor carefully examining a patient's eyelid in a clinical treatment room at Namokar Eye & Oculoplasty Centre",
 }: ReconstructivePageHeroProps) {
@@ -69,10 +69,11 @@ export default function ReconstructivePageHero({
 
               {/* Body lead description */}
               <p className={styles.lead}>{lead}</p>
+              <p className={styles.lead}>Consult Dr. Poonam Jain, an internationally trained ophthalmologist and oculoplastic surgeon with over 28 years of clinical and surgical experience.</p>
 
               {/* CTA Booking Button */}
               <div className={styles.actions}>
-                <BookButton online={online} />
+                <BookButton online={online} label={online ? "Book a Reconstructive Oculoplasty Consultation" : "Call to Book a Reconstructive Oculoplasty Consultation"} />
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { pageMeta, withBrand } from "@/lib/seo";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import Image from "next/image";
 import { treatmentItems } from "@/lib/treatments";
@@ -9,199 +9,113 @@ import { ArrowRightIcon, CalendarIcon } from "@/components/Icons";
 import ServicesUnifiedList, { type ServiceCardItem } from "@/components/ServicesUnifiedList";
 import styles from "./services.module.css";
 import { PAGES } from "@/config/routes";
-import { LINKS, SERVICES, SITE } from "@/config/site";
+import { LINKS, serviceByKey, SITE, TEL_HREF } from "@/config/site";
 import { onlineBookingAvailable } from "@/lib/booking";
 import JsonLd from "@/components/JsonLd";
 import { faqPage, itemList, webPage } from "@/lib/schema";
 
 export const metadata: Metadata = pageMeta("services", {
-  title: withBrand("Our Services"),
+  title: "Eye Care & Oculoplasty Services in Delhi | Namokar",
   description:
-    "Cataract, glaucoma, eye examinations, eyelid surgery, aesthetic and reconstructive oculoplasty at Namokar Eye & Oculoplasty Centre, Ashok Vihar, New Delhi.",
+    "Explore cataract, retina, LASIK, glaucoma, squint and specialised oculoplasty services at Namokar Eye & Oculoplasty Centre in Ashok Vihar, Delhi.",
 });
 
 const FAQS = [
   {
-    q: "Which service do I need?",
-    a: "If you are not sure, a comprehensive eye examination is a sensible place to start. Tell the doctor what you have noticed, such as blurred vision, a family history of eye disease, heavy eyelids or watering eyes, and the doctor can explain what is found and whether any other care would help.",
+    q: "Which eye care service do I need?",
+    a: "If you are unsure which service is appropriate, begin with a comprehensive eye examination. Your ophthalmologist will assess your symptoms, medical history and eye health before recommending suitable investigations or treatment.",
   },
   {
-    q: "Is every treatment available at the centre?",
-    a: "The centre confirms at the consultation which treatments it offers. This website describes general areas of care and does not promise any particular treatment.",
+    q: "What eye care services are available at Namokar?",
+    a: "Namokar offers comprehensive eye examinations, cataract surgery, glaucoma management, retina care, LASIK and refractive surgery, squint care, eyelid surgery, and functional, reconstructive and aesthetic oculoplasty. Specific treatment recommendations and surgical arrangements are discussed during consultation.",
   },
   {
-    q: "What is the difference between eyelid surgery, aesthetic and reconstructive oculoplasty?",
-    a: "Eyelid surgery (blepharoplasty) deals with excess skin or fat on the eyelids. Aesthetic oculoplasty is care for the appearance of the eyelids and eye area, with eye health kept in view. Reconstructive oculoplasty is care for problems that affect how the eyelids or tear passages work, such as a drooping eyelid or a blocked tear duct. They can overlap, and the examination shows which applies to you.",
+    q: "What is the difference between eyelid surgery, aesthetic oculoplasty and reconstructive oculoplasty?",
+    a: "Blepharoplasty addresses excess eyelid skin or fat for functional or aesthetic reasons. Aesthetic oculoplasty focuses on the appearance of the eyelids and surrounding eye area. Reconstructive oculoplasty addresses structural and functional concerns such as ptosis, eyelid abnormalities and tear-drainage disorders. These areas may overlap.",
   },
   {
-    q: "Will I need surgery?",
-    a: "Not necessarily. Many visits end with an explanation, glasses, medicine or monitoring. If surgery or another treatment is advised, the doctor explains why, what the options and risks are, and you decide at your own pace.",
+    q: "Will I need surgery for my eye condition?",
+    a: "Not necessarily. Depending on the condition, treatment may involve spectacles, medication, monitoring, non-surgical procedures or surgery. Your doctor will discuss the appropriate options after examination.",
   },
   {
-    q: "What should I bring to my first visit?",
-    a: "Bring your current glasses, earlier prescriptions and eye reports, and a list of your medicines. If you have diabetes or other health conditions, bring any recent reports too.",
+    q: "Is LASIK suitable for everyone?",
+    a: "No. LASIK suitability depends on factors such as age, prescription stability, corneal health and overall eye health. A detailed preoperative assessment is necessary before recommending refractive surgery.",
+  },
+  {
+    q: "Can squint be treated in children and adults?",
+    a: "Yes. Squint can occur in children and adults. Treatment depends on the cause, age, eye alignment and visual function, and may involve spectacles, prisms, selected non-surgical treatments or eye muscle surgery.",
+  },
+  {
+    q: "Do all retinal conditions require surgery?",
+    a: "No. Depending on the retinal condition and its severity, treatment may involve monitoring, medication, injections, laser treatment or surgery. An appropriate treatment plan is determined after retinal assessment.",
+  },
+  {
+    q: "When should I seek urgent eye care?",
+    a: "Sudden vision loss, new flashes, a sudden increase in floaters, a curtain-like shadow across your vision, severe eye pain, sudden double vision or an eye injury require urgent medical assessment. Do not wait for a routine appointment.",
+  },
+  {
+    q: "What should I bring to my first consultation?",
+    a: "Please bring your current spectacles, previous eye reports, prescriptions and a list of medications. If you have diabetes or other medical conditions, bring relevant recent medical reports.",
   },
   {
     q: "How do I arrange an appointment?",
-    a: `Please call the centre on ${SITE.phone.display}, or see the Contact page for directions and other ways to reach us.`,
+    a: `Call Namokar Eye & Oculoplasty Centre on ${SITE.phone.display}. Our team will assist you in arranging a suitable consultation time.`,
   },
   {
-    q: "Where is the centre?",
-    a: `${SITE.address.lines.join(", ")}, in ${SITE.area}.`,
+    q: "Where is Namokar Eye & Oculoplasty Centre located?",
+    a: `${SITE.address.lines.join(", ")}. Visit our Contact Us page for directions and contact details.`,
   },
 ];
 
-const SERVICE_CARD_ITEMS: ServiceCardItem[] = [
-  { key: "squint", title: "Squint Correction", category: "vision", categoryLabel: "Comprehensive Vision Care", blurb: "Understand eye alignment, squint and lazy eye, and discuss the assessment and treatment appropriate to you.", href: LINKS.squint, image: "/images/squint/squint-hero.webp", alt: "Illustrative child eye-alignment consultation" },
-  { key: "refractive", title: "Refractive Surgery", category: "vision", categoryLabel: "Comprehensive Vision Care", blurb: "Options to reduce dependence on glasses and contact lenses, including LASIK, PRK, ReLEx SMILE, ICL and IPCL, guided by a detailed clinical evaluation.", href: LINKS.refractive, image: "/images/refractive/refractive-hero.webp", alt: "Refractive surgery consultation and laser vision correction evaluation" },
-  {
-    key: "cataract",
-    title: "Cataract Surgery",
-    category: "vision",
-    categoryLabel: "Comprehensive Vision Care",
-    blurb:
-      "For a clouded lens: careful assessment of your vision, and a clear discussion of when surgery is considered and what your options are.",
-    href: LINKS.cataract,
-    image: "/images/services/cataract-care.webp",
-    alt: "Cataract surgery consultation and slit-lamp eye assessment",
-  },
-  {
-    key: "glaucoma",
-    title: "Glaucoma Management",
-    category: "vision",
-    categoryLabel: "Comprehensive Vision Care",
-    blurb:
-      "Glaucoma often has no early symptoms. Assessment, tests chosen by the doctor and regular follow-up, because it needs long-term monitoring.",
-    href: LINKS.glaucoma,
-    image: "/images/services/glaucoma-care.webp",
-    alt: "Glaucoma diagnostic evaluation and eye pressure testing",
-  },
-  {
-    key: "exams",
-    title: "Comprehensive Eye Examinations",
-    category: "vision",
-    categoryLabel: "Comprehensive Vision Care",
-    blurb:
-      "A thorough check of how well you see and how healthy your eyes are, from routine check-ups to examinations for specific concerns, explained in plain language.",
-    href: LINKS.exams,
-    image: "/images/services/eye-examination-care.webp",
-    alt: "Comprehensive eye examination with slit lamp technology",
-  },
-  {
-    key: "eyelid",
-    title: "Eyelid Surgery (Blepharoplasty)",
-    category: "oculoplasty",
-    categoryLabel: "Oculoplasty & Eye-Area Care",
-    blurb:
-      "Assessment of heavy or drooping eyelids and under-eye bags, for functional and cosmetic reasons, including whether surgery would help.",
-    href: LINKS.eyelid,
-    image: "/images/services/eyelid-blepharoplasty-care.webp",
-    alt: "Specialist blepharoplasty and eyelid evaluation",
-  },
-  {
-    key: "aesthetic",
-    title: "Aesthetic Oculoplasty",
-    category: "oculoplasty",
-    categoryLabel: "Oculoplasty & Eye-Area Care",
-    blurb:
-      "Considered care for heavy eyelids, under-eye bags and age-related changes around the eyes, planned with eye health in mind.",
-    href: LINKS.aesthetic,
-    image: "/images/services/aesthetic-oculoplasty-care.webp",
-    alt: "Aesthetic oculoplasty consultation for delicate eye areas",
-  },
-  {
-    key: "reconstructive",
-    title: "Reconstructive Oculoplasty",
-    category: "oculoplasty",
-    categoryLabel: "Oculoplasty & Eye-Area Care",
-    blurb:
-      "Assessment and treatment for drooping eyelids (ptosis), eyelid malposition and tear-drainage problems that affect comfort or function.",
-    href: LINKS.reconstructive,
-    image: "/images/services/reconstructive-oculoplasty-care.webp",
-    alt: "Reconstructive oculoplasty and tear drainage treatment",
-  },
-  {
-    key: "eyelid-surgery",
-    title: "Eyelid Surgery",
-    category: "oculoplasty",
-    categoryLabel: "Oculoplasty & Eye-Area Care",
-    blurb: "Explore assessment and care for eyelid concerns.",
-    topics: [
-      "Baggy Eyelids",
-      "Droopy Eyelids (Ptosis)",
-      "Hooded Eyelids",
-      "Eyelid Lumps and Bumps",
-      "Blepharoplasty",
-      "Entropion / Ectropion Correction",
-    ],
-    href: LINKS.eyelid,
-    image: "/images/blepharoplasty/blepharoplasty-indian-patient-close.webp",
-    alt: "Clinician assessing a patient's eyelid position",
-  },
-  {
-    key: "cosmetic-procedures",
-    title: "Cosmetic Procedures",
-    category: "oculoplasty",
-    categoryLabel: "Oculoplasty & Eye-Area Care",
-    blurb: "Discuss options for the appearance of the eye area.",
-    topics: [
-      "Anti-wrinkle Injections (Botox)",
-      "Filler Injections",
-      "Tear Trough Injections",
-      "Laser Resurfacing",
-      "Thread Lift",
-    ],
-    href: LINKS.aesthetic,
-    image: "/images/aesthetic/conditions-eye-portrait.webp",
-    alt: "Natural portrait showing the eye area and surrounding skin",
-  },
-  {
-    key: "orbit-lacrimal",
-    title: "Orbit & Lacrimal Surgery",
-    category: "oculoplasty",
-    categoryLabel: "Oculoplasty & Eye-Area Care",
-    blurb: "Explore eye-socket and tear-drainage concerns.",
-    topics: [
-      "Thyroid Eye Disease",
-      "Tumours of Orbit",
-      "Artificial Eye",
-      "Excessive Watering & Discharge",
-      "Orbital Disease",
-      "Eyelid and Orbit Cancers",
-      "Bell's Palsy",
-    ],
-    href: LINKS.reconstructive,
-    image: "/images/reconstructive/doctor-eyelid-examination.webp",
-    alt: "Clinician examining a patient's eye in a consultation room",
-  },
-];
+const CARD_ORDER = ["cataract", "glaucoma", "retina", "lasik", "squint", "exams", "eyelid", "aesthetic", "reconstructive"] as const;
+
+const CARD_COPY: Record<(typeof CARD_ORDER)[number], string> = {
+  cataract: "Assessment and surgical treatment of cataracts, with intraocular lens options selected according to your eye health, visual needs and lifestyle.",
+  glaucoma: "Early detection, diagnostic assessment, personalised treatment and long-term monitoring to help protect vision and reduce the risk of further optic nerve damage.",
+  retina: "Specialised assessment and management of retinal conditions, with medical and surgical treatment options based on individual clinical findings.",
+  lasik: "Detailed assessment and suitable vision correction procedures designed to reduce dependence on spectacles or contact lenses.",
+  squint: "Assessment and management of eye misalignment in children and adults, with treatment focused on eye alignment, visual function and individual needs.",
+  exams: "Detailed evaluation of vision and overall eye health, supporting early detection and appropriate management of routine and specific eye concerns.",
+  eyelid: "Functional and aesthetic eyelid surgery addressing excess eyelid skin and under-eye bags, with careful consideration of eye health and individual suitability.",
+  aesthetic: "Personalised surgical and non-surgical care for age-related changes and aesthetic concerns involving the eyelids and surrounding eye area.",
+  reconstructive: "Specialised assessment and treatment of ptosis, eyelid-position abnormalities, tear-drainage disorders and orbital reconstructive concerns.",
+};
+
+const CARD_IMAGES: Partial<Record<(typeof CARD_ORDER)[number], { src: string; alt: string }>> = {
+  cataract: { src: "/images/services/cataract-care.webp", alt: "Cataract surgery consultation and slit-lamp eye assessment" },
+  glaucoma: { src: "/images/services/glaucoma-care.webp", alt: "Glaucoma diagnostic evaluation and eye pressure testing" },
+  exams: { src: "/images/services/eye-examination-care.webp", alt: "Comprehensive eye examination with slit lamp technology" },
+  eyelid: { src: "/images/services/eyelid-blepharoplasty-care.webp", alt: "Specialist blepharoplasty and eyelid evaluation" },
+  aesthetic: { src: "/images/services/aesthetic-oculoplasty-care.webp", alt: "Aesthetic oculoplasty consultation for delicate eye areas" },
+  reconstructive: { src: "/images/services/reconstructive-oculoplasty-care.webp", alt: "Reconstructive oculoplasty and tear drainage treatment" },
+};
 
 const JOURNEY_STEPS = [
   {
     step: "01",
-    title: "Share your concern",
-    text: "Tell us what has changed, what is troubling you and what you hope to understand.",
+    title: "Share Your Concerns",
+    text: "Discuss your symptoms, medical history, vision needs and any functional or aesthetic concerns with your doctor.",
     image: "/images/journey/share-concern-v2.webp",
     alt: "Illustration of a patient sharing his concerns with an eye doctor",
   },
   {
     step: "02",
-    title: "Understand your eyes",
-    text: "An examination helps the doctor assess your eye health and discuss any tests you may need.",
+    title: "Comprehensive Assessment",
+    text: "Undergo appropriate eye examinations and diagnostic tests to help identify the underlying condition.",
     image: "/images/journey/eye-examination-v2.webp",
     alt: "Illustration of an eye examination using a slit lamp",
   },
   {
     step: "03",
-    title: "Discuss your options",
-    text: "Understand the findings, possible treatments and the benefits and risks relevant to you.",
+    title: "Discuss Your Treatment Options",
+    text: "Understand the clinical findings, available treatments, expected benefits, potential risks and alternatives.",
     image: "/images/journey/discuss-options-v2.webp",
     alt: "Illustration of a doctor explaining eye care options to a patient",
   },
   {
     step: "04",
-    title: "Plan your next step",
-    text: "Agree on a care plan and receive guidance about treatment, monitoring or follow-up.",
+    title: "Personalised Care Plan",
+    text: "Receive guidance on suitable treatment, surgical planning, ongoing monitoring or follow-up based on your individual needs.",
     image: "/images/journey/plan-care-v2.webp",
     alt: "Illustration of a doctor and patient reviewing a care plan",
   },
@@ -210,13 +124,28 @@ const JOURNEY_STEPS = [
 export default function ServicesPage() {
   const pics = new Map(treatmentItems().map((t) => [t.id, t]));
   const online = onlineBookingAvailable();
+  const bookingHref = online ? `${LINKS.contact}#request` : TEL_HREF;
+  const bookingLabel = online ? "Request a Consultation" : "Book a Consultation";
+  const serviceCards: ServiceCardItem[] = CARD_ORDER.map((key) => {
+    const service = key === "squint" ? { title: PAGES.squint.label, href: LINKS.squint, group: "vision" as const } : serviceByKey(key);
+    const photo = CARD_IMAGES[key] ?? pics.get(key)?.image;
+    return {
+      key,
+      title: service.title,
+      category: service.group,
+      blurb: CARD_COPY[key],
+      href: service.href,
+      image: photo?.src ?? "/images/services/eye-examination-care.webp",
+      alt: photo?.alt ?? "",
+    };
+  });
 
   return (
     <main id="main" className={styles.page}>
       <JsonLd page="services"
         data={[
           webPage({ type: "CollectionPage", path: PAGES.services.path, name: "Our Services", description: metadata.description as string }),
-          itemList("Services at Namokar Eye & Oculoplasty Centre", SERVICES.map((s) => ({ name: s.title, path: s.href }))),
+          itemList("Services at Namokar Eye & Oculoplasty Centre", serviceCards.map(({ title, href }) => ({ name: title, path: href }))),
           faqPage(PAGES.services.path, FAQS),
         ]}
       />
@@ -240,7 +169,7 @@ export default function ServicesPage() {
           </svg>
         </div>
 
-        <div className="container">
+        <div className={`container ${styles.heroContent}`}>
           {/* Breadcrumb Navigation */}
           <nav className={styles.breadcrumb} aria-label="Breadcrumb">
             <ol>
@@ -261,11 +190,11 @@ export default function ServicesPage() {
               </div>
 
               <h1 id="services-hero-h" className={styles.heading}>
-                Thoughtful care for every part of <span className={`${styles.headingOrange} title-secondary`}>your eyes.</span>
+                Complete Eye Care &amp; <span className={`${styles.headingOrange} title-secondary`}>Advanced Oculoplasty</span>
               </h1>
 
               <p className={styles.lead}>
-                From routine eye examinations to specialist eyelid and oculoplasty care, explore our services at Namokar Eye &amp; Oculoplasty Centre. Find the care you need, with clear guidance at every step.
+                From routine eye examinations, cataract surgery and retina care to LASIK, squint treatment and specialised aesthetic eyelid surgery, Namokar offers personalised ophthalmic care tailored to your individual needs.
               </p>
 
               <div className={styles.actions}>
@@ -274,9 +203,9 @@ export default function ServicesPage() {
                   <ArrowRightIcon className={styles.btnArrow} width={20} height={20} />
                 </a>
 
-                <Link href={`${LINKS.contact}#request`} className={styles.btnSecondary}>
+                <Link href={bookingHref} className={styles.btnSecondary}>
                   <CalendarIcon width={18} height={18} />
-                  <span>Book a Consultation</span>
+                  <span>{bookingLabel}</span>
                 </Link>
               </div>
 
@@ -289,7 +218,7 @@ export default function ServicesPage() {
                       <circle cx="12" cy="12" r="3" />
                     </svg>
                   </div>
-                  <span>Comprehensive<br />eye care</span>
+                  <span>Comprehensive<br />Eye Care</span>
                 </div>
 
                 <div className={styles.highlightSep} aria-hidden="true" />
@@ -301,7 +230,7 @@ export default function ServicesPage() {
                       <path d="m9 12 2 2 4-4" />
                     </svg>
                   </div>
-                  <span>Specialist<br />oculoplasty</span>
+                  <span>Specialised<br />Oculoplasty</span>
                 </div>
 
                 <div className={styles.highlightSep} aria-hidden="true" />
@@ -312,7 +241,7 @@ export default function ServicesPage() {
                       <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7 7-7Z" />
                     </svg>
                   </div>
-                  <span>Individual<br />attention</span>
+                  <span>Personalised<br />Treatment</span>
                 </div>
               </div>
             </div>
@@ -342,8 +271,8 @@ export default function ServicesPage() {
                     </div>
                     <div className={styles.badgeDivider} aria-hidden="true" />
                     <div className={styles.badgeText}>
-                      <strong>Your care starts with understanding.</strong>
-                      <span>Eye consultations in Ashok Vihar, New Delhi</span>
+                      <strong>Your Care Starts with Understanding</strong>
+                      <span>Comprehensive eye consultations in Ashok Vihar, New Delhi.</span>
                     </div>
                   </div>
                 </div>
@@ -361,17 +290,20 @@ export default function ServicesPage() {
           <div className={styles.servicesHeader}>
             <div className={styles.kickerWrap}>
               <span className={styles.kickerBar} aria-hidden="true" />
-              <span className={styles.kickerText}>OUR SERVICES</span>
+              <span className={styles.kickerText}>OUR SPECIALITIES</span>
             </div>
             <h2 id="services-list-h" className={styles.sectionTitle}>
-              Comprehensive Vision &amp; <span className={`${styles.headingOrange} title-secondary`}>Oculoplasty Care</span>
+              Comprehensive Eye Care &amp; <span className={`${styles.headingOrange} title-secondary`}>Specialised Treatments</span>
             </h2>
             <p className={styles.sectionLead}>
-              Thoughtful, specialist eye care for all stages of life. Explore our core clinical services from cataract surgery and glaucoma management to delicate eyelid and reconstructive oculoplasty.
+              Explore a comprehensive range of ophthalmic services, from routine eye examinations, cataract surgery, retina care, glaucoma management, LASIK and squint treatment to functional, reconstructive and aesthetic oculoplasty.
+            </p>
+            <p className={styles.sectionLead}>
+              At Namokar, treatment recommendations are based on individual eye health, clinical findings and patient needs.
             </p>
           </div>
 
-          <ServicesUnifiedList items={SERVICE_CARD_ITEMS} />
+          <ServicesUnifiedList items={serviceCards} />
         </div>
       </section>
 
@@ -421,11 +353,11 @@ export default function ServicesPage() {
             </div>
 
             <h2 id="journey-h" className={styles.journeyTitle}>
-              A clear path from concern to <span className={`${styles.headingOrange} title-secondary`}>care.</span>
+              A Clear Path from Concern to <span className={`${styles.headingOrange} title-secondary`}>Care</span>
             </h2>
 
             <p className={styles.journeySubtitle}>
-              Understand your eye health and feel informed about the next step.
+              Understand your eye health, explore suitable treatment options and make informed decisions about your care.
             </p>
           </div>
 
@@ -472,17 +404,28 @@ export default function ServicesPage() {
 
           {/* CTA Button bottom left aligned */}
           <div className={styles.journeyCtaWrap}>
-            <Link href={`${LINKS.contact}#request`} className={styles.journeyBtn}>
-              <span>Book a Consultation</span>
-              <span aria-hidden="true">&rarr;</span>
+            <Link href={bookingHref} className={styles.journeyBtn}>
+              <span>{bookingLabel}</span>
+              <ArrowRightIcon width={18} height={18} />
             </Link>
           </div>
         </div>
       </section>
 
-      <ServicesFaqSection items={FAQS} />
+      <ServicesFaqSection
+        items={FAQS}
+        online={online}
+        lead="Find answers to common questions about our ophthalmic services, specialised oculoplasty and treatment options."
+      />
 
-      <HomeCta online={online} id="services-cta" />
+      <HomeCta
+        online={online}
+        id="services-cta"
+        heading="See Better. Look Better."
+        subheading="Book Your Consultation Today"
+        desc="From routine eye examinations and specialised ophthalmic treatments to functional and aesthetic eyelid surgery, begin your personalised care journey at Namokar Eye & Oculoplasty Centre."
+        onlineBookingLabel="Request a Consultation"
+      />
     </main>
   );
 }

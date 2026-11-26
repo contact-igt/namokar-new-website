@@ -118,7 +118,7 @@
 /* Main 2-Column Grid */
 .mainGrid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 36px;
   align-items: center;
 }
@@ -205,8 +205,14 @@
 }
 
 /* Body Paragraph */
+.overviewCopy {
+  display: grid;
+  gap: 0.75em;
+  margin-bottom: 28px;
+}
+
 .paragraph {
-  margin: 0 0 28px;
+  margin: 0;
   color: #55646C;
   font-size: 15px;
   line-height: 1.62;
@@ -279,6 +285,26 @@
   z-index: 3;
 }
 
+@media (width < 992px) {
+  .subheading,
+  .paragraph {
+    max-width: none;
+  }
+
+  .rightCol {
+    display: contents;
+  }
+
+  .visualTopRow {
+    grid-row: 1;
+  }
+
+  .visualTopRow,
+  .featureBarCard {
+    z-index: 3;
+  }
+}
+
 /* Top Visual Row (Doctor + Right Cards) */
 .visualTopRow {
   display: grid;
@@ -289,7 +315,7 @@
 
 @media (min-width: 600px) {
   .visualTopRow {
-    grid-template-columns: 63% 37%;
+    grid-template-columns: minmax(0, 63fr) minmax(0, 37fr);
     gap: 14px;
   }
 }

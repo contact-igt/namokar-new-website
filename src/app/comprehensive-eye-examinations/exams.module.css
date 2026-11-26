@@ -48,6 +48,12 @@
 .hero h1 { max-width: 13ch; font-size: clamp(2.6rem, 4vw, 4rem); }
 .heroCopy > p:not(.eyebrow) { max-width: 48ch; margin: 17px 0 23px; font-size: 1rem; line-height: 1.65; }
 
+@media (min-width: 960px) {
+  .heroCopy { max-width: min(50%, 680px); }
+  .hero h1 { max-width: none; }
+  .hero h1 :global(.title-secondary) { display: block; }
+}
+
 .overview {
   padding: clamp(66px, 6vw, 96px) 0;
   background: #fff9f5 url("/images/Soft Peach Wave Background.png") center / cover no-repeat;
@@ -166,6 +172,42 @@
   margin: 0 auto;
 }
 
+.bentoCarousel .bentoCard {
+  height: 280px;
+}
+
+.bentoCarousel :global(.slick-dots) {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bentoCarousel :global(.slick-dots button) {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.bentoCarousel :global(.slick-dots button)::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #b89380;
+}
+
+.bentoCarousel :global(.slick-dots .slick-active button)::before {
+  background: #a74918;
+}
+
 .bentoCard {
   position: relative;
   border-radius: 24px;
@@ -198,6 +240,11 @@
 .card05 {
   grid-column: 3;
   grid-row: 2;
+}
+
+.card06 {
+  grid-column: 1 / -1;
+  min-height: 280px;
 }
 
 .bentoImgWrap {
@@ -275,12 +322,14 @@
 }
 
 .bentoNote {
-  max-width: 720px;
-  margin: clamp(24px, 3vw, 36px) auto 0;
-  text-align: center;
+  margin: 16px 0 0;
+  padding: 12px 16px;
+  border-inline-start: 3px solid #c65a19;
+  border-radius: 8px;
+  background: #fff7f0;
   color: #486269;
   font-size: 0.92rem;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 /* ==================================================
@@ -360,6 +409,7 @@
 }
 
 .reasonsUrgent {
+  grid-column: 1 / -1;
   border: 1px solid rgba(247, 169, 123, 0.5);
   background: rgba(214, 107, 31, 0.14);
   border-radius: 20px;
@@ -389,6 +439,28 @@
   color: #ffffff;
   font-size: 0.94rem;
   line-height: 1.45;
+}
+
+.reasonsUrgent ul {
+  margin: 4px 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 4px;
+  color: #fff;
+}
+
+.reasonsUrgent li {
+  display: grid;
+  grid-template-columns: 1em minmax(0, 1fr);
+  gap: 0.5em;
+}
+
+.reasonsUrgentIcon {
+  width: 1em;
+  height: 1em;
+  margin-block-start: 0.25em;
+  color: #f7a97b;
 }
 
 .journey {
@@ -464,10 +536,6 @@
 }
 
 .videoGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(28px, 4vw, 44px);
-  align-items: stretch;
   max-width: 1140px;
   margin: clamp(32px, 4vw, 48px) auto 0;
 }
@@ -654,7 +722,21 @@
 
 
 @media (max-width: 959px) {
-  .hero { min-height: 750px; align-items: flex-start; background-size: auto 460px; background-position: right bottom; }
+  .hero {
+    min-height: 0;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 0;
+    background: #fff8f3;
+  }
+  .hero::before {
+    content: "";
+    display: block;
+    height: clamp(240px, 55vw, 460px);
+    margin-bottom: 24px;
+    background: url("/images/Modern Optometry Clinic Wave Banner.png") right center / cover no-repeat;
+    mask-image: var(--service-banner-fade);
+  }
   .heroCopy { max-width: 660px; margin-top: 34px; }
   .overviewContentWrap { grid-template-columns: 1fr; gap: 32px; }
   .overviewPhoto { height: 340px; }
@@ -672,12 +754,10 @@
   .reasonsItem,
   .reasonsUrgent { border-radius: 16px; }
   .journeyGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .videoGrid { grid-template-columns: 1fr; }
   .closingPanel { grid-template-columns: 1fr; }
   .closingImage { min-height: 300px; }
 }
 @media (max-width: 640px) {
-  .hero { min-height: 750px; padding-top: 22px; background-size: auto 350px; }
   .heroCopy { margin-top: 31px; }
   .hero h1 { font-size: clamp(2.3rem, 10vw, 3.25rem); }
   .overviewPhoto { height: 250px; }
@@ -691,6 +771,7 @@
   .card03 { grid-column: auto; grid-row: auto; height: 280px; order: 3; }
   .card04 { grid-column: auto; grid-row: auto; height: 260px; order: 4; }
   .card05 { grid-column: auto; grid-row: auto; height: 260px; order: 5; }
+  .card06 { order: 6; }
   .journeyGrid { grid-template-columns: 1fr; }
   .closing { padding: 40px 0 60px; }
   .closingImage { min-height: 235px; }

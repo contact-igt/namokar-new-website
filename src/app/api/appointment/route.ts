@@ -81,7 +81,7 @@ export async function POST(request: Request) {
   });
   if (!result.ok) return json({ ok: false, code: "invalid", errors: result.errors }, 422);
   const errors: FieldErrors = {};
-  if (!result.values.service) errors.service = "Please select a treatment option.";
+  if (!result.values.service) errors.service = "Please select a service.";
   if (formId === "namokar-contact-v1" && !result.values.message) errors.message = "Please enter a short message.";
   if (Object.keys(errors).length) return json({ ok: false, code: "invalid", errors }, 422);
 

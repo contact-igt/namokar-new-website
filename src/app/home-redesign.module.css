@@ -134,9 +134,14 @@
 }
 
 .homeRedesign :global(.tx-all-services) {
-  border-color: var(--home-orange);
   border-radius: 999px;
-  color: #fff;
+  background: linear-gradient(135deg, var(--orange-dark), var(--orange-darker));
+  color: var(--white);
+  font-weight: 600;
+}
+
+.homeRedesign :global(.tx-all-services:hover) {
+  background: var(--orange-darker);
 }
 
 .homeRedesign :global(.tx-carousel-button),
@@ -252,7 +257,6 @@
 .homeRedesign :global(.fg-showcase-dots) {
   display: flex;
   justify-content: center;
-  gap: 6px;
   margin-top: 18px;
 }
 
@@ -607,7 +611,8 @@
   max-width: none;
 }
 
-.homeRedesign :global(.video-showcase-main) {
+.homeRedesign :global(.video-showcase .video-showcase-main) {
+  grid-template-columns: minmax(0, 1fr);
   gap: 24px;
 }
 
@@ -616,8 +621,10 @@
   flex-direction: column;
   justify-content: center;
   align-self: stretch;
+  min-width: 0;
   max-width: none;
-  padding: 20px 24px;
+  padding: 20px clamp(12px, 4vw, 24px);
+  container: video-intro / inline-size;
 }
 
 .homeRedesign :global(.video-showcase .video-showcase-intro > p) {
@@ -626,6 +633,7 @@
 
 .homeRedesign :global(.video-showcase .video-youtube-link) {
   align-self: flex-start;
+  max-width: 100%;
   margin-top: 22px;
 }
 
@@ -650,30 +658,34 @@
   }
 }
 
-@media (min-width: 960px) and (max-width: 1199.98px) {
-  .homeRedesign :global(.video-showcase .video-showcase-main) {
-    grid-template-columns: minmax(0, 1fr);
-  }
+.homeRedesign :global(.video-showcase .video-showcase-features) {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
 }
 
-.homeRedesign :global(.video-showcase .shelf-title) {
-  min-height: 96px;
+.homeRedesign :global(.video-showcase .video-showcase-features > span) {
+  min-height: 64px;
+  text-align: left;
+  overflow-wrap: anywhere;
 }
 
-@media (min-width: 360px) and (max-width: 639.98px) {
+@container video-intro (min-width: 23rem) {
   .homeRedesign :global(.video-showcase .video-showcase-features) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
   }
 
   .homeRedesign :global(.video-showcase .video-showcase-features > span) {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    gap: 4px;
     justify-content: center;
-    align-items: center;
-    min-height: 108px;
-    padding: 10px 4px;
+    justify-items: center;
+    min-height: 100px;
     text-align: center;
+  }
+
+  .homeRedesign :global(.video-showcase-features .shelf-feature-icon) {
+    grid-row: auto;
   }
 }
 
@@ -1111,7 +1123,10 @@
   }
 
   .homeRedesign :global(.hero-slider-pagination) {
-    bottom: 18px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    justify-content: center;
   }
 
   .homeRedesign :global(.doctor-showcase .doctor-grid) {
@@ -1375,7 +1390,7 @@
   .homeRedesign :global(.hero-banner-content) {
     width: 100%;
     max-width: 650px;
-    padding-block: 34px 24px;
+    padding-block: 10px 44px;
   }
 
   .homeRedesign :global(.hero-banner-visual) {
@@ -1438,10 +1453,6 @@
 
 
 @media (max-width: 639px) {
-  .homeRedesign :global(.hero-banner-content) {
-    padding-block: 28px 24px;
-  }
-
   .homeRedesign :global(.hero-slide-copy) {
     min-height: 240px;
   }
@@ -1478,17 +1489,26 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: start;
     gap: 10px;
+    padding: 12px 8px;
+    border: 1px solid #f2d5c1;
+    border-radius: 12px;
+    background: #fff6ee;
+  }
+
+  .homeRedesign :global(.hero-feature-icon) {
+    color: var(--orange-dark);
   }
 
   .homeRedesign :global(.hero-feature-item) {
     min-width: 0;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 7px;
   }
 
   .homeRedesign :global(.hero-feature-text) {
     font-size: 0.72rem;
+    text-align: center;
     overflow-wrap: normal;
     word-break: normal;
   }
@@ -1572,7 +1592,32 @@
   object-position: right center !important;
 }
 
+.homeRedesign :global(.hero-banner-visual:has(.hero-image-layer--oculoplasty.is-active)::after) {
+  background: none;
+}
+
+.homeRedesign :global(.hero-slide-image--oculoplasty) {
+  object-position: 38% 35% !important;
+}
+
+@media (min-width: 960px) {
+  .homeRedesign :global(.hero-image-layer--oculoplasty) {
+    left: 43%;
+    mask-image: linear-gradient(to right, transparent, #000 16%);
+  }
+}
+
 @media (max-width: 959px) {
+  .homeRedesign :global(.hero-banner-section:has(.hero-image-layer--oculoplasty.is-active) .hero-banner-container) {
+    padding-bottom: clamp(210px, 52vw, 330px);
+  }
+
+  .homeRedesign :global(.hero-image-layer--oculoplasty) {
+    top: auto;
+    height: clamp(210px, 52vw, 330px);
+    mask-image: linear-gradient(to bottom, transparent, #000 14%);
+  }
+
   .homeRedesign :global(.hero-slide-image--exterior),
   .homeRedesign :global(.hero-slide-image--waiting) {
     object-position: 76% center !important;
@@ -1621,7 +1666,7 @@
   align-items: center;
   gap: 11px;
   color: #fff;
-  font-size: clamp(0.82rem, 1.05vw, 0.96rem);
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
   font-weight: 700;
   white-space: nowrap;
 }
@@ -1933,7 +1978,7 @@
   }
 
   .homeRedesign :global(.hero-trust-item) {
-    font-size: 0.84rem;
+    font-size: 1rem;
   }
 
   .homeRedesign :global(.doctor-showcase) {
@@ -2389,12 +2434,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  text-align: left;
+  align-items: stretch;
   gap: 3px;
   border: 1px solid rgb(217 99 24 / 0.12);
   border-radius: 10px;
   background: rgb(255 245 237 / 0.75);
+  text-align: left;
 }
 
 .homeRedesign :global(.doctor-timeline li::before) {
@@ -2463,8 +2508,7 @@
   .homeRedesign :global(.doctor-timeline li) {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-start;
     padding: 10px 12px;
   }
 
@@ -2531,5 +2575,21 @@
 @media (max-width: 560px) {
   .homeRedesign :global(.doctor-actions .btn) {
     width: 100%;
+  }
+}
+
+@media (min-width: 960px) {
+  .homeRedesign :global(:is(.btn, .hero-btn-primary, .hero-btn-secondary, .tx-all-services, .video-youtube-link, .doctor-actions .btn)) {
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 8px 24px;
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .homeRedesign :global(.doctor-actions .btn) {
+    width: auto;
+    white-space: normal;
   }
 }

@@ -185,20 +185,6 @@
   font-weight: 400;
 }
 
-.bubbleTopics {
-  display: grid;
-  gap: 5px;
-  margin: 0 0 14px;
-  padding-left: 18px;
-  color: #475569;
-  font-size: 0.84rem;
-  line-height: 1.4;
-}
-
-.bubbleTopics li::marker {
-  color: #b85d19;
-}
-
 /* Bubble Action (Learn More Link) */
 .bubbleAction {
   display: flex;
@@ -241,6 +227,11 @@
 }
 
 @media (max-width: 640px) {
+  .wrapper :global(.slick-slide) .card {
+    /* Slick sets inline-block on the slide content. Keep the photo and panel centered. */
+    display: flex !important;
+  }
+
   .cardsGrid {
     grid-template-columns: 1fr;
     row-gap: 34px;

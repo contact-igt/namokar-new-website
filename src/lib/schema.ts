@@ -132,6 +132,8 @@ export function itemList(name: string, items: { name: string; path: string }[]) 
 
 /** What each service page is about, in the plainest schema.org terms. Names only. */
 export const SERVICE_ABOUT: Record<ServiceKey, { type: "MedicalCondition" | "MedicalProcedure"; name: string } | undefined> = {
+  retina: undefined,
+  lasik: { type: "MedicalProcedure", name: "LASIK" },
   cataract: { type: "MedicalCondition", name: "Cataract" },
   glaucoma: { type: "MedicalCondition", name: "Glaucoma" },
   exams: { type: "MedicalProcedure", name: "Comprehensive eye examination" },

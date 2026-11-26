@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { pageMeta, withBrand } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import LegalDraft from "@/components/LegalDraft";
-import { PRIVACY_URL } from "@/config/site";
+import { contentReady } from "@/config/routes";
 
 export const metadata: Metadata = pageMeta("terms", {
   title: withBrand("Terms and Conditions (draft for review)"),
@@ -11,7 +11,7 @@ export const metadata: Metadata = pageMeta("terms", {
 
 export default function Page() {
   // A draft template: not published until the approved legal text is added.
-  if (PRIVACY_URL === null) notFound();
+  if (!contentReady("terms")) notFound();
   return (
     <LegalDraft
       crumb="Terms and Conditions"

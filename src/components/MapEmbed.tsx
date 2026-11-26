@@ -1,12 +1,9 @@
-import { MAP, MAPS_LINK } from "@/config/site";
+import { MAP, MAPS_LINK, SITE } from "@/config/site";
 
 /**
- * The contact page shows the map immediately. It states plainly whether the pin is a
- * verified business listing or only an address search.
+ * Displays the map and the centre's configured directions link.
  */
 export default function MapEmbed() {
-  const verified = MAP.verifiedPinUrl !== null;
-
   return (
     <div className="map">
       <div className="map-frame">
@@ -19,9 +16,7 @@ export default function MapEmbed() {
         />
       </div>
       <p className="map-note">
-        {verified
-          ? "Map position from the centre's Google listing."
-          : "The map pin uses the position published on the centre's existing website, not a confirmed Google business listing, so it may not land exactly on the entrance."}{" "}
+        Find {SITE.name} on Google Maps for directions.{" "}
         <a href={MAPS_LINK} target="_blank" rel="noopener noreferrer" className="text-link">
           Open in Google Maps<span className="sr-only"> (opens in a new tab)</span>
         </a>

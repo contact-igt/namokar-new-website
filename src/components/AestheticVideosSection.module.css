@@ -94,11 +94,8 @@
   margin: 0;
 }
 
-/* Video Grid */
+/* Video section spacing */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
   margin-bottom: 40px;
 }
 
@@ -269,8 +266,6 @@
     padding: 56px 0 64px 0;
   }
   .grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
     max-width: 580px;
     margin-left: auto;
     margin-right: auto;

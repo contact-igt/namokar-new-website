@@ -115,6 +115,10 @@
   line-height: 1.68;
 }
 
+.paragraph + .paragraph {
+  margin-top: 0.75em;
+}
+
 /* CTA Pill Button */
 .ctaBtn {
   font-family: var(--font-heading);
@@ -161,48 +165,31 @@
 }
 
 /* --------------------------------------------------------------------------
-   Right Column: Eye Photo Card with Clean Background & Floating Key Benefits Card
+   Right Column: Eye photo and treatment goals
    -------------------------------------------------------------------------- */
-.rightCol {
-  position: relative;
-  width: 100%;
-}
-
 .visualCard {
-  position: relative;
+  min-width: 0;
   width: 100%;
-  aspect-ratio: 1264 / 848;
   border-radius: 28px;
   overflow: hidden;
   box-shadow: 0 16px 42px rgba(12, 69, 75, 0.09), 0 3px 10px rgba(0, 0, 0, 0.03);
-  background-color: #FAF4EE;
+  background-color: #FFFFFF;
 }
 
 .visualImgWrap {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  position: relative;
+  aspect-ratio: 1264 / 848;
+  background-color: #FAF4EE;
 }
 
 .visualImg {
   object-fit: cover;
-  object-position: center left;
+  object-position: center;
   display: block;
 }
 
-/* Floating Key Benefits Card */
 .benefitsCard {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 228px;
-  background-color: #FFFFFF;
-  border-radius: 20px;
-  padding: 22px 20px 20px 20px;
-  box-shadow: 0 14px 34px rgba(12, 69, 75, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
-  z-index: 2;
+  padding: 20px clamp(16px, 2.5vw, 28px) 24px;
 }
 
 .benefitsTitle {
@@ -218,14 +205,14 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .benefitItem {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
 }
 
@@ -263,8 +250,16 @@
   border-radius: 24px;
   box-shadow: 0 8px 24px rgba(184, 77, 20, 0.06);
   padding: 22px 32px;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
+}
+
+.assessmentNote {
+  grid-column: 1 / -1;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(200, 90, 23, 0.2);
 }
 
 .bottomLeftBlock {
@@ -350,19 +345,9 @@
     gap: 36px;
   }
 
-  .benefitsCard {
-    width: 210px;
-    padding: 18px 16px;
-    right: 14px;
-  }
-
   .benefitIconBadge {
     width: 32px;
     height: 32px;
-  }
-
-  .benefitText {
-    font-size: 12.5px;
   }
 
   .bottomCard {
@@ -403,8 +388,7 @@
   }
 
   .bottomCard {
-    flex-direction: column;
-    align-items: flex-start;
+    grid-template-columns: minmax(0, 1fr);
     padding: 24px 20px;
   }
 
@@ -456,29 +440,11 @@
   }
 
   .visualCard {
-    aspect-ratio: auto;
-    overflow: visible;
-    background: transparent;
-    box-shadow: none;
+    border-radius: 20px;
   }
 
-  .visualImgWrap {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1264 / 848;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 12px 30px rgba(12, 69, 75, 0.08);
-  }
-
-  .benefitsCard {
-    position: static;
-    transform: none;
-    width: 100%;
-    margin-top: 14px;
-    border-radius: 18px;
-    padding: 18px;
-    box-shadow: 0 8px 24px rgba(12, 69, 75, 0.08);
+  .benefitsList {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .bottomCard {

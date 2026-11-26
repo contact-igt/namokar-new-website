@@ -65,14 +65,24 @@
 @keyframes featureIn { from { opacity: 0.55; } to { opacity: 1; } }
 @media (max-width: 959px) {
   .gallery { grid-template-columns: minmax(0, 1fr); }
-  .feature { min-height: 0; aspect-ratio: 3 / 2; }
+  .feature {
+    display: grid;
+    height: auto;
+    min-height: 0;
+  }
+  .imageFrame { position: relative; inset: auto; aspect-ratio: 3 / 2; }
+  .caption {
+    position: static;
+    min-height: 104px;
+    border-radius: 0;
+    background: #052f35;
+  }
   .selections { grid-template-rows: none; }
   .selection { min-height: 110px; }
 }
 @media (max-width: 560px) {
-  .feature { display: flex; flex-direction: column; aspect-ratio: auto; border-radius: 20px; background: #fff8f3; }
-  .imageFrame { position: relative; inset: auto; aspect-ratio: 3 / 2; }
-  .caption { position: relative; inset: auto; min-height: 150px; margin: -16px 12px 12px; gap: 10px; padding: 12px; border-radius: 12px; }
+  .feature { border-radius: 20px; }
+  .caption { gap: 10px; padding: 12px; }
   .featureIcon { width: 36px; height: 36px; border-radius: 10px; }
   .featureIcon svg, .featureIcon img { width: 23px; height: 23px; }
   .caption strong { font-size: 1.05rem; }
@@ -80,9 +90,6 @@
   .selection { grid-template-columns: 28px minmax(0, 1fr) 28px; gap: 11px; padding: 18px 15px; }
   .arrow { width: 28px; height: 28px; }
   .cardCopy > span { font-size: 0.85rem; }
-}
-@media (max-width: 360px) {
-  .caption { min-height: 190px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .transition { animation: none; }

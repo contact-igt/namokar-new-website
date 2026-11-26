@@ -188,7 +188,7 @@ export interface WhatIsBlepharoplastyProps {
   titleTeal?: string;
   titleOrange?: string;
   subheading?: string;
-  paragraph?: string;
+  paragraphs: readonly string[];
   imageSrc?: string;
   imageAlt?: string;
   benefits?: BlepharoplastyBenefit[];
@@ -198,35 +198,36 @@ export interface WhatIsBlepharoplastyProps {
 
 export default function WhatIsBlepharoplasty({
   id = "what-is-blepharoplasty",
-  category = "OCULOPLASTY & EYE-AREA CARE",
-  titleTeal = "What is",
+  category = "UNDERSTANDING EYELID SURGERY",
+  titleTeal = "What Is",
   titleOrange = "Blepharoplasty?",
-  subheading = "Restore a more youthful, refreshed look",
-  paragraph = "Blepharoplasty is surgery on the eyelids. It removes or repositions excess skin and, where needed, fat from the upper lids, the lower lids or both. It may be considered when this extra tissue weighs on the eyelids, either because it affects vision and comfort, or because someone is unhappy with how their eyes look.",
+  subheading = "Specialised Eyelid Surgery for Function & Appearance",
+  paragraphs,
   imageSrc = "/images/blepharoplasty/blepharoplasty-indian-macro-v2.webp",
   imageAlt = "High-end clinical macro close-up of Indian patient eye with delicate eyelid crease guideline arc and doctor gently elevating temple",
   benefits = [
-    { icon: "alertEye", text: "Brighter, more alert eyes" },
-    { icon: "youthfulFace", text: "A more youthful appearance" },
-    { icon: "improvedVision", text: "Improved vision (if needed)" },
+    { icon: "alertEye", text: "Upper Eyelid Assessment: Evaluate excess skin and hooding." },
+    { icon: "youthfulFace", text: "Lower Eyelid Assessment: Assess under-eye bags and excess skin." },
+    { icon: "improvedVision", text: "Functional Improvement: Assess whether excess skin obstructs the upper visual field." },
+    { icon: "youthfulFace", text: "Aesthetic Eyelid Care: Consider appearance, eyelid function and eye health together." },
   ],
-  indicationsTitle = "When to Consider Blepharoplasty?",
+  indicationsTitle = "When May Blepharoplasty Be Considered?",
   indications = [
     {
       icon: "heavyLids",
-      text: "Have heavy, tired or drooping eyelids",
+      text: "Excess or hooded upper eyelid skin",
     },
     {
       icon: "readingNight",
-      text: "Upper lids blocking part of your vision",
+      text: "Upper eyelid skin obstructing part of the visual field",
     },
     {
       icon: "glasses",
-      text: "Bags, puffiness or excess eyelid skin",
+      text: "Prominent under-eye bags caused by protruding fat",
     },
     {
       icon: "shieldCheck",
-      text: "Wish to restore eye comfort & open alert look",
+      text: "Loose skin around the upper or lower eyelids",
     },
   ],
 }: WhatIsBlepharoplastyProps) {
@@ -307,56 +308,45 @@ export default function WhatIsBlepharoplasty({
             <p className={styles.subheading}>{subheading}</p>
 
             {/* Explanatory Paragraph */}
-            <p className={styles.paragraph}>{paragraph}</p>
+            {paragraphs.map((paragraph) => (
+              <p key={paragraph} className={styles.paragraph}>{paragraph}</p>
+            ))}
           </div>
 
-          {/* Right Column: Visual Photo Card with correctly displayed Key Benefits */}
-          <div className={styles.rightCol}>
-            <div className={styles.visualCard}>
-              <div className={styles.visualImgWrap}>
-                <Image
-                  src={imageSrc}
-                  alt={imageAlt}
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 48vw, 100vw"
-                  className={styles.visualImg}
-                />
-              </div>
-
-              {/* Correctly displayed Key Benefits Card */}
-              <aside className={styles.benefitsCard} aria-label="Key Benefits">
-                <h3 className={styles.benefitsTitle}>Key Benefits</h3>
-                <ul className={styles.benefitsList}>
-                  {benefits.map((b, idx) => (
-                    <li key={idx} className={styles.benefitItem}>
-                      <span className={styles.benefitIconBadge} aria-hidden="true">
-                        {b.icon === "alertEye" && <AlertEyeIcon />}
-                        {b.icon === "youthfulFace" && <YouthfulFaceIcon />}
-                        {b.icon === "improvedVision" && <ImprovedVisionShieldIcon />}
-                      </span>
-                      <span className={styles.benefitText}>{b.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </aside>
+          <div className={styles.visualCard}>
+            <div className={styles.visualImgWrap}>
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                fill
+                sizes="(max-width: 588px) calc(100vw - 48px), (max-width: 860px) 540px, (max-width: 1220px) 48vw, 576px"
+                className={styles.visualImg}
+              />
             </div>
+
+            <aside className={styles.benefitsCard} aria-label="Treatment goals">
+              <h3 className={styles.benefitsTitle}>Treatment goals</h3>
+              <ul className={styles.benefitsList}>
+                {benefits.map((b, idx) => (
+                  <li key={idx} className={styles.benefitItem}>
+                    <span className={styles.benefitIconBadge} aria-hidden="true">
+                      {b.icon === "alertEye" && <AlertEyeIcon />}
+                      {b.icon === "youthfulFace" && <YouthfulFaceIcon />}
+                      {b.icon === "improvedVision" && <ImprovedVisionShieldIcon />}
+                    </span>
+                    <span className={styles.benefitText}>{b.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </aside>
           </div>
         </div>
 
-        {/* Bottom Frosted Card: When to Consider Blepharoplasty? */}
+        {/* Bottom Frosted Card: When May Blepharoplasty Be Considered? */}
         <div className={styles.bottomCard} role="region" aria-label={indicationsTitle}>
           <div className={styles.bottomLeftBlock}>
             <h3 className={styles.bottomHeading}>
-              {indicationsTitle.includes("?") ? (
-                <>
-                  {indicationsTitle.replace("Blepharoplasty?", "").trim()}
-                  <br />
-                  Blepharoplasty?
-                </>
-              ) : (
-                indicationsTitle
-              )}
+              {indicationsTitle}
             </h3>
             <div className={styles.bottomDivider} aria-hidden="true" />
           </div>
@@ -374,6 +364,9 @@ export default function WhatIsBlepharoplasty({
               </div>
             ))}
           </div>
+          <p className={`${styles.paragraph} ${styles.assessmentNote}`}>
+            An assessment helps determine whether these concerns come from excess skin, protruding fat, brow position, ptosis or another condition.
+          </p>
         </div>
       </div>
     </section>

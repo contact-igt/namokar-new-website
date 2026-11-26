@@ -6,33 +6,39 @@ type Tone = "typical" | "in" | "out";
 const STATES = [
   {
     key: "typical" as Tone,
-    title: "Typical",
-    subtitle: "Upper eyelid",
+    title: "Typical Eyelid",
+    subtitle: "Usual eyelid position",
     asset: ASSETS.upperEyelidTypicalAi,
-    appearance: "The lid edge sits near the top of the coloured part of the eye and the pupil is clear.",
-    assessment: "Usually a normal finding.",
+    appearance: "The upper eyelid covers a small part of the upper cornea and leaves the pupil unobstructed.",
+    cause: "Normal anatomy",
+    vision: "Usually unobstructed",
+    assessment: "Routine examination if needed.",
     nextStep: "No treatment needed",
-    nextStepNote: "Usually a normal finding for a typical lid position.",
+    nextStepNote: "No treatment is needed for a typical lid position.",
   },
   {
     key: "in" as Tone,
-    title: "Drooping",
-    subtitle: "Ptosis (Lid muscle)",
+    title: "Ptosis",
+    subtitle: "Drooping eyelid margin",
     asset: ASSETS.upperEyelidDroopingAi,
-    appearance: "The lid edge sits lower than usual and may partly cover the iris or pupil.",
-    assessment: "An examination identifies the cause and whether vision is affected.",
-    nextStep: "Specialist discussion",
-    nextStepNote: "The doctor discusses the cause and the options that suit your eyes.",
+    appearance: "The upper eyelid margin sits lower than usual and may obstruct the pupil or visual field.",
+    cause: "Changes involving eyelid-elevating structures, nerves or other conditions",
+    vision: "May obstruct the visual field",
+    assessment: "Evaluate eyelid-elevating structures, nerves and other potential causes.",
+    nextStep: "Cause-specific management",
+    nextStepNote: "Ptosis correction may be appropriate after assessment.",
   },
   {
     key: "out" as Tone,
-    title: "Excess skin",
-    subtitle: "Upper lid (Skin fold)",
+    title: "Dermatochalasis",
+    subtitle: "Excess eyelid skin",
     asset: ASSETS.upperEyelidExcessSkinAi,
-    appearance: "An extra skin fold can hang over the crease or rest on the eyelashes.",
-    assessment: "An examination distinguishes excess skin from a drooping lid and checks its effect on vision.",
-    nextStep: "Treatment explanation",
-    nextStepNote: "The doctor explains whether any treatment could help and what it can change.",
+    appearance: "Age-related or inherited excess skin may fold over the crease, rest on the lashes or obstruct the upper visual field.",
+    cause: "Age-related or inherited skin and tissue changes",
+    vision: "Excess skin may obstruct the upper visual field",
+    assessment: "Assess the eyelids, brow position and ocular surface.",
+    nextStep: "Blepharoplasty when appropriate",
+    nextStepNote: "Surgical suitability depends on the clinical findings.",
   },
 ];
 
@@ -99,13 +105,19 @@ export default function EyelidPosition() {
             ))}
           </tr>
           <tr>
-            <th scope="row"><span className="lidcmp-row-heading"><RowIcon type="alert" />What it can look like</span></th>
+            <th scope="row"><span className="lidcmp-row-heading"><RowIcon type="alert" />Main anatomical feature</span></th>
             {STATES.map((state) => (
               <td key={state.key}>
                 <p className="lidcmp-copy"><Check tone={state.key} />{state.appearance}</p>
               </td>
             ))}
           </tr>
+          {([{ key: "cause", title: "Underlying cause" }, { key: "vision", title: "Effect on vision" }] as const).map(({ key, title }) => (
+            <tr key={key}>
+              <th scope="row"><span className="lidcmp-row-heading">{title}</span></th>
+              {STATES.map((state) => <td key={state.key}><p className="lidcmp-copy">{state[key]}</p></td>)}
+            </tr>
+          ))}
           <tr>
             <th scope="row"><span className="lidcmp-row-heading"><RowIcon type="care" />Why assessment matters</span></th>
             {STATES.map((state) => (

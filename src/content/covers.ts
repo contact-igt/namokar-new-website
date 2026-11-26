@@ -22,7 +22,7 @@ export type Cover = {
 
 export type PlateCover = { plate: PlateName; figure: "plateEyelid" | "plateAesthetic" | "plateTear"; caption: string };
 
-export const COVERS: Record<ServiceKey, { primary: Cover; secondary?: Cover; plate?: PlateCover }> = {
+export const COVERS: Record<Exclude<ServiceKey, "retina" | "lasik">, { primary: Cover; secondary?: Cover; plate?: PlateCover }> = {
   cataract: {
     primary: { asset: ASSETS.archCataractExam, caption: "A slit-lamp examination in a consultation room at the centre. Cataract care begins with an examination of the lens and the rest of the eye.", position: "50% 45%" },
     secondary: { asset: ASSETS.cataractOverviewAi, caption: "", position: "50% 50%" },

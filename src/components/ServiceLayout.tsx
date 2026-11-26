@@ -3,15 +3,15 @@ import headingStyles from "./ServiceLayout.module.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { type PageKey } from "@/config/routes";
+import { PAGES, type PageKey } from "@/config/routes";
 import { pageMeta, withBrand } from "@/lib/seo";
-import { LINKS, SERVICE_GROUPS, type ServiceKey, serviceByKey } from "@/config/site";
+import { LINKS, SERVICE_GROUPS, TEL_HREF, type ServiceKey, serviceByKey } from "@/config/site";
 import { SERVICE_CONTENT } from "@/content/services";
 import { onlineBookingAvailable } from "@/lib/booking";
 import { videosFor } from "@/content/videos";
 import VideoSection from "./VideoSection";
 import ReconstructiveVideosSection from "./ReconstructiveVideosSection";
-import { usable } from "@/config/assets";
+import { ASSETS, srcOf, usable } from "@/config/assets";
 import { figureUsable } from "@/config/figures";
 import { Plate } from "./clinical/Plates";
 import { COVERS } from "@/content/covers";
@@ -43,6 +43,12 @@ import ExpertEyeCareSection, { SERVICE_CARD_IMAGES } from "./ExpertEyeCareSectio
 import expertStyles from "./ExpertEyeCareSection.module.css";
 import { FaqIcon, type FaqIconName } from "./HomeFaqSection";
 
+const reconstructiveRelatedBlurb: Partial<Record<ServiceKey, string>> = {
+  eyelid: "Functional and aesthetic eyelid surgery addressing excess eyelid skin, hooded upper eyelids and selected under-eye bag concerns.",
+  aesthetic: "Personalised assessment and treatment of aesthetic concerns involving the eyelids and surrounding eye structures.",
+  exams: "Detailed assessment of vision, ocular surface health and overall eye health to support appropriate treatment decisions.",
+};
+
 const compactRelatedBlurb: Partial<Record<ServiceKey, string>> = {
   exams: "A thorough check of your vision and overall eye health.",
   cataract: "Assessment of a clouded lens and discussion of treatment options.",
@@ -50,7 +56,32 @@ const compactRelatedBlurb: Partial<Record<ServiceKey, string>> = {
   reconstructive: "Care for eyelid and tear-drainage problems affecting comfort or function.",
 };
 
+const cataractRelatedBlurb: Partial<Record<ServiceKey, string>> = {
+  exams: "Detailed assessment of vision and overall eye health to identify conditions affecting visual clarity.",
+  glaucoma: "Diagnostic assessment, treatment and ongoing monitoring to help preserve vision and protect optic nerve health.",
+  retina: "Assessment and management of retinal conditions that may affect vision and cataract surgery outcomes.",
+};
+
+const glaucomaRelatedBlurb: Partial<Record<ServiceKey, string>> = {
+  exams: "Detailed assessment of vision, eye pressure, optic nerve health and overall eye health.",
+  cataract: "Assessment and surgical management of cataracts, with treatment planning that considers existing glaucoma and other eye conditions.",
+  retina: "Assessment and management of retinal conditions that may affect visual function and overall eye health.",
+};
+
+const examsRelatedBlurb: Partial<Record<ServiceKey, string>> = {
+  glaucoma: "Detailed assessment, testing and monitoring to help protect optic nerve health and preserve vision.",
+  retina: "Evaluation and management of retinal conditions, including changes related to diabetes and other retinal diseases.",
+};
+
+const eyelidRelatedBlurb: Partial<Record<ServiceKey, string>> = {
+  aesthetic: "Specialised assessment and personalised treatment for aesthetic concerns involving the eyelids and surrounding eye structures.",
+  reconstructive: "Assessment and treatment of ptosis, eyelid-position abnormalities, tear-drainage disorders and reconstructive concerns.",
+  exams: "Detailed assessment of vision, ocular surface health and overall eye health to support appropriate clinical decisions.",
+};
+
 const relatedIconByService: Record<ServiceKey, FaqIconName> = {
+  retina: "eye",
+  lasik: "eye",
   cataract: "eye",
   glaucoma: "shield",
   exams: "clipboard",
@@ -60,9 +91,9 @@ const relatedIconByService: Record<ServiceKey, FaqIconName> = {
 };
 
 /** Page metadata shared by every service route. Pages awaiting review are not indexed. */
-export function serviceMetadata(key: ServiceKey): Metadata {
+export function serviceMetadata(key: Exclude<ServiceKey, "retina" | "lasik">): Metadata {
   const c = SERVICE_CONTENT[key];
-  return pageMeta(key as PageKey, { title: withBrand(c.metaTitle), description: c.metaDescription });
+  return pageMeta(key as PageKey, { title: key === "reconstructive" ? `${c.metaTitle} | Namokar` : withBrand(c.metaTitle), description: c.metaDescription });
 }
 
 /**
@@ -75,7 +106,7 @@ export default function ServiceLayout({
   children,
   hero, overview, afterEditorial, video, faq, closing, className,
 }: {
-  serviceKey: ServiceKey;
+  serviceKey: Exclude<ServiceKey, "retina" | "lasik">;
   children?: ReactNode;
   /** Page-specific slots override the default service composition. */
   hero?: ReactNode;
@@ -112,13 +143,17 @@ export default function ServiceLayout({
         ]}
       />
       {hero ?? (serviceKey === "cataract" ? (
-        <ServicePageHero />
+        <ServicePageHero
+          body={c.lead}
+          secondaryHref={online ? `${LINKS.contact}#request` : TEL_HREF}
+          secondaryLabel={online ? "Request a Consultation" : "Book a Consultation"}
+        />
       ) : serviceKey === "aesthetic" ? (
-        <AestheticPageHero />
+        <AestheticPageHero lead={c.lead} />
       ) : serviceKey === "eyelid" ? (
         <BlepharoplastyPageHero />
       ) : serviceKey === "reconstructive" ? (
-        <ReconstructivePageHero />
+        <ReconstructivePageHero lead={c.lead} />
       ) : serviceKey === "glaucoma" ? (
         <GlaucomaPageHero />
       ) : (
@@ -147,11 +182,11 @@ export default function ServiceLayout({
       ))}
 
       {overview ?? (serviceKey === "aesthetic" ? (
-        <WhatIsAestheticOculoplasty id="overview" />
+        <WhatIsAestheticOculoplasty id="overview" paragraphs={c.intro} />
       ) : serviceKey === "eyelid" ? (
-        <WhatIsBlepharoplasty id="overview" />
+        <WhatIsBlepharoplasty id="overview" paragraphs={c.intro} />
       ) : serviceKey === "reconstructive" ? (
-        <WhatIsReconstructiveOculoplasty id="overview" />
+        <WhatIsReconstructiveOculoplasty id="overview" intro={c.intro} />
       ) : (
         <section id="overview" className="section section--tight" aria-labelledby="overview-h">
           <div className="container about-grid">
@@ -212,7 +247,7 @@ export default function ServiceLayout({
       ) : null}
 
       {serviceKey === "reconstructive" ? (
-        <ReconstructiveAssessmentSection id="journey" />
+        <ReconstructiveAssessmentSection id="journey" lead={c.journeyLead} />
       ) : redesignedService ? (
         <AssessmentJourneySection
           id="journey"
@@ -249,7 +284,10 @@ export default function ServiceLayout({
       ) : serviceKey === "aesthetic" || serviceKey === "eyelid" ? (
         <AestheticVideosSection
           id="watch"
-          heading={<>Videos on <span className="title-secondary">this topic</span></>}
+          heading={serviceKey === "eyelid" ? <>Understanding Eyelid Surgery <span className="title-secondary">with Dr. Poonam Jain</span></> : <>Videos on <span className="title-secondary">this topic</span></>}
+          kicker={serviceKey === "eyelid" ? "Insights from Your Doctor" : undefined}
+          lead={serviceKey === "eyelid" ? "Explore functional and aesthetic eyelid concerns, blepharoplasty and the role of an oculoplastic assessment before considering surgery." : undefined}
+          note={serviceKey === "eyelid" ? "" : undefined}
           videos={vids}
         />
       ) : (
@@ -266,7 +304,7 @@ export default function ServiceLayout({
       {faq ?? (
         <ServicesFaqSection
           items={c.faqs}
-          heading={accentHeadings ? <>Questions <span className="title-secondary">patients often ask</span></> : "Questions patients often ask"}
+          heading={accentHeadings || serviceKey === "cataract" ? <>Questions <span className="title-secondary">patients often ask</span></> : "Questions patients often ask"}
           lead="This page is general information, not medical advice. Your own eyes need to be examined before anyone can advise you."
           serviceStyle
           topic={serviceKey}
@@ -280,15 +318,28 @@ export default function ServiceLayout({
         <ExpertEyeCareSection
           id="related"
           badge="Related Care"
-          heading="Related Services"
+          heading={serviceKey === "cataract" || serviceKey === "exams" ? <>Related <span className="title-secondary">Services</span></> : "Related Services"}
           subtitle="Explore eye care services related to this page."
           showBanner={false}
           serviceRelated
-          items={c.related.map((k) => {
+          responsiveCarousel
+          items={[...c.related.map((k) => {
             const r = serviceByKey(k);
-            const cardMeta = SERVICE_CARD_IMAGES[k];
-            return { title: r.title, desc: compactRelatedBlurb[k] ?? r.blurb, href: r.href, image: cardMeta.image, alt: cardMeta.alt, icon: <FaqIcon name={relatedIconByService[k]} /> };
-          })}
+            const cardMeta = k === "retina" && usable(ASSETS.examRetinaAi)
+              ? { image: srcOf(ASSETS.examRetinaAi), alt: ASSETS.examRetinaAi.alt }
+              : SERVICE_CARD_IMAGES[k] ?? SERVICE_CARD_IMAGES.exams;
+            const blurbs = serviceKey === "glaucoma" ? glaucomaRelatedBlurb
+              : serviceKey === "cataract" ? cataractRelatedBlurb : examsRelatedBlurb;
+            const blurb = blurbs[k];
+            return { title: r.title, desc: blurb ?? r.blurb, href: r.href, image: cardMeta.image, alt: cardMeta.alt, icon: <FaqIcon name={relatedIconByService[k]} /> };
+          }), ...(serviceKey === "exams" ? [{
+            title: PAGES.squint.label,
+            href: PAGES.squint.path,
+            desc: "Assessment of eye alignment, eye movements and binocular visual function, with personalised treatment recommendations.",
+            image: "/images/squint/squint-hero.webp",
+            alt: "Illustration of a child receiving an eye alignment assessment",
+            icon: <FaqIcon name="eye" />,
+          }] : [])]}
         />
       ) : !redesignedService && serviceKey !== "reconstructive" ? (
       <section id="related" className={`section section--tight${compactRelated ? " related--compact" : ""}`} aria-labelledby="related-h">
@@ -317,25 +368,44 @@ export default function ServiceLayout({
         </div>
       </section>
       ) : serviceKey === "aesthetic" ? (
-        <ExpertEyeCareSection id="related" showBanner={false} heading={<>Expert <span className="title-secondary">Eye Care</span> Services</>} />
+        <ExpertEyeCareSection
+          id="related"
+          badge="Related Care"
+          heading={<>Related <span className="title-secondary">Eye Care &amp; Oculoplasty Services</span></>}
+          subtitle="Explore complementary services that support eye health, eyelid function and individual aesthetic concerns."
+          showBanner={false}
+          responsiveCarousel
+          items={c.related.map((key) => {
+            const service = serviceByKey(key);
+            return {
+              title: service.title,
+              href: service.href,
+              desc: key === "eyelid"
+                ? "Functional and aesthetic eyelid surgery for excess eyelid skin, hooding and selected under-eye bag concerns."
+                : eyelidRelatedBlurb[key] ?? service.blurb,
+              ...SERVICE_CARD_IMAGES[key],
+            };
+          })}
+        />
       ) : serviceKey === "eyelid" || serviceKey === "reconstructive" ? (
         <ExpertEyeCareSection
           id="related"
           badge="Related Care"
           heading={
             <>
-              Related <span className={`${expertStyles.headingOrange} title-secondary`}>Eye Care Services</span>
+              Related <span className={`${expertStyles.headingOrange} title-secondary`}>Eye Care &amp; Oculoplasty Services</span>
             </>
           }
-          subtitle="Comprehensive assessments and specialized oculoplastic procedures tailored to support your eye health."
+          subtitle={serviceKey === "eyelid" ? "Explore complementary eye care and oculoplasty services for eyelid function, eye health and individual aesthetic concerns." : "Explore complementary ophthalmic and oculoplastic services that support eye health, eyelid function and individual treatment needs."}
           showBanner={false}
+          responsiveCarousel
           items={c.related.map((k) => {
             const r = serviceByKey(k);
             const cardMeta = SERVICE_CARD_IMAGES[k] ?? {
               image: "/images/services/aesthetic-oculoplasty-care.webp",
               alt: r.title,
             };
-            return { title: r.title, desc: r.blurb, href: r.href, image: cardMeta.image, alt: cardMeta.alt };
+            return { title: r.title, desc: (serviceKey === "eyelid" ? eyelidRelatedBlurb[k] : reconstructiveRelatedBlurb[k]) ?? r.blurb, href: r.href, image: cardMeta.image, alt: cardMeta.alt };
           })}
         />
       ) : (
@@ -349,6 +419,7 @@ export default function ServiceLayout({
           }
           subtitle="Comprehensive treatments and specialist assessments tailored to support your eye health."
           showBanner={false}
+          responsiveCarousel
           items={c.related.map((k) => {
             const r = serviceByKey(k);
             const cardMeta = SERVICE_CARD_IMAGES[k] ?? {
@@ -365,9 +436,9 @@ export default function ServiceLayout({
           online={online}
           id={`${serviceKey}-cta`}
           {...(serviceKey === "cataract" ? {
-            kicker: "Consultation",
-            heading: "Speak to the centre about your eyes.",
-            desc: "Contact the centre to plan your visit or arrange an eye consultation.",
+            heading: "Book Your Cataract Consultation",
+            desc: "Experiencing cloudy vision, glare or difficulty seeing clearly? Consult Dr. Poonam Jain for a detailed cataract assessment, personalised treatment recommendations and guidance on suitable intraocular lens options.",
+            onlineBookingLabel: "Request a Consultation",
           } : {
             heading: <>Book Your <span className="title-secondary">Consultation Today</span></>,
           })}

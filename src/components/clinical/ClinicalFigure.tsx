@@ -15,14 +15,16 @@ export default function ClinicalFigure({
   id,
   heading,
   intro,
+  eyebrow = "See it explained",
   className = "",
-  showNote = true,
+  note,
 }: {
   id: InteractiveKey;
   heading: ReactNode;
   intro?: string;
+  eyebrow?: string;
   className?: string;
-  showNote?: boolean;
+  note?: string;
 }) {
   if (!figureUsable(id)) return null;
   const hid = `fig-${id}-h`;
@@ -30,18 +32,13 @@ export default function ClinicalFigure({
     <section className={`section section--tight clin ${className}`} aria-labelledby={hid} data-figure={id}>
       <div className="container">
         <div className="clin-head reveal">
-          <p className="kicker">See it explained</p>
+          <p className="kicker">{eyebrow}</p>
           <h2 id={hid} className="h2"><HeadingText>{heading}</HeadingText></h2>
           {intro && <p className="lead">{intro}</p>}
         </div>
         <figure className="clin-fig">
           <FigureHost id={id} />
-          {/* {showNote && (
-            <figcaption className="clin-note">
-              Illustration, not to scale. General information to help you understand an examination or
-              a procedure; it is not a diagnosis, and your doctor explains what applies to your eyes.
-            </figcaption>
-          )} */}
+          {note && <figcaption className="clin-note">{note}</figcaption>}
         </figure>
       </div>
     </section>

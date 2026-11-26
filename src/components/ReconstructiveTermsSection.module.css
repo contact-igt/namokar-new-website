@@ -369,13 +369,14 @@
   }
 
   .rightCol {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
     row-gap: 16px;
   }
 
   .eyeCenterCol {
     grid-column: 1 / -1;
+    grid-row: 1;
     margin-bottom: 12px;
   }
 
@@ -389,6 +390,24 @@
   .cardColRight {
     grid-column: auto;
     gap: 16px;
+  }
+}
+
+@media (width < 992px) {
+  .eyeCenterCol {
+    display: none;
+  }
+}
+
+@media (640px < width <= 1040px) {
+  .cardColLeft,
+  .cardColRight {
+    display: grid;
+    grid-auto-rows: 1fr;
+  }
+
+  .cardContent {
+    align-self: stretch;
   }
 }
 

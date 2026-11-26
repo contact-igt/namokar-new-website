@@ -4,15 +4,15 @@ import { ASSETS, usable } from "@/config/assets";
 const STATES = [
   {
     asset: ASSETS.glaucomaDrainageNormalAi,
-    title: "Drains normally",
+    title: "Normal Fluid Drainage",
     heading: "Fluid drains as it is made",
-    text: "Clear fluid flows through the pupil and drains at the angle where the iris meets the cornea, helping pressure stay within a healthy range.",
+    text: "Aqueous humour circulates through the front of the eye and drains through specialised pathways, helping regulate pressure inside the eye.",
   },
   {
     asset: ASSETS.glaucomaDrainageSlowedAi,
-    title: "Drainage slowed",
+    title: "Reduced Fluid Drainage",
     heading: "Pressure can rise",
-    text: "When fluid drains too slowly, it can build up inside the eye and raise pressure, which may damage the optic nerve over time.",
+    text: "When fluid drainage is impaired, intraocular pressure may rise. Elevated pressure can increase the risk of optic nerve damage.",
   },
 ];
 

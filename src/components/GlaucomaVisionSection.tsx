@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { LINKS } from "@/config/site";
-import { CalendarIcon } from "./Icons";
+import { ArrowRightIcon, CalendarIcon } from "./Icons";
 import styles from "./GlaucomaVisionSection.module.css";
 
 /** Tunnel vision eye icon in Teal */
@@ -164,7 +164,7 @@ export default function GlaucomaVisionSection({
                 <CalendarIcon width={18} height={18} />
               </span>
               <span>{buttonLabel}</span>
-              <span aria-hidden="true">&rarr;</span>
+              <ArrowRightIcon width={18} height={18} />
             </Link>
           </div>
 

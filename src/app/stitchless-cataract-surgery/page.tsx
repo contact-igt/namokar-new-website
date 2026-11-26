@@ -1,14 +1,36 @@
 import HeadingText from "@/components/HeadingText";
 import ClinicalFigure from "@/components/clinical/ClinicalFigure";
-import ServiceLayout, { serviceMetadata } from "@/components/ServiceLayout";
+import { ArrowDownIcon } from "@/components/Icons";
+import ServiceLayout from "@/components/ServiceLayout";
+import { pageMeta } from "@/lib/seo";
 import Image from "next/image";
-import CataractVideoCard from "./CataractVideoCard";
+import CataractVideoCarousel from "./CataractVideoCarousel";
 import { SERVICE_CONTENT } from "@/content/services";
 import { CATEGORY_LABEL, videosFor } from "@/content/videos";
 import { playerProps } from "@/lib/videoProps";
 import styles from "./cataract.module.css";
 
-export const metadata = serviceMetadata("cataract");
+const content = SERVICE_CONTENT.cataract;
+
+export const metadata = pageMeta("cataract", {
+  title: `${content.metaTitle} | Namokar`,
+  description: content.metaDescription,
+});
+
+const VIDEO_COPY: Record<string, { title: string; description: string }> = {
+  kX04UgyjkWo: {
+    title: "Understanding Cataract Surgery",
+    description: "Dr. Poonam Jain explains cataracts and the role of surgical treatment.",
+  },
+  D5uIbXIihuc: {
+    title: "When Should You Consider Cataract Surgery?",
+    description: "Understand the factors that help determine whether cataract surgery may be appropriate.",
+  },
+  u3psA5Fu79U: {
+    title: "Returning to Exercise After Cataract Surgery",
+    description: "Learn about recovery considerations and returning to physical activities after surgery.",
+  },
+};
 
 const journeyImages = [
   "/images/aesthetic/assessment-slit-exam-hq.webp",
@@ -19,7 +41,6 @@ const journeyImages = [
 ];
 
 export default function Page() {
-  const content = SERVICE_CONTENT.cataract;
   const videos = videosFor("cataract");
   return (
     <ServiceLayout
@@ -36,8 +57,8 @@ export default function Page() {
                   <path d="M20 21.5 C21.5 25, 17.5 27.5, 13.5 26.5 C9.5 25.5, 7.5 22, 9 19 C9.8 17.5, 11.5 17.2, 12 17" strokeWidth="1.8" />
                 </svg>
                 <div className={styles.calloutText}>
-                  <strong>Intraocular</strong>
-                  <span>Lens (IOL)</span>
+                  <strong>Natural Lens</strong>
+                  <span>Lens clouding (cataract)</span>
                 </div>
                 <svg className={styles.calloutPointer} viewBox="0 0 172 74" fill="none" aria-hidden="true">
                   <line x1="172" y1="0" x2="6" y2="64" stroke="rgba(255, 255, 255, 0.95)" strokeWidth="1.8" strokeLinecap="round" />
@@ -47,17 +68,17 @@ export default function Page() {
               </div>
             </div>
             <div className={styles.overviewCopy}>
-              <p className="kicker">Comprehensive vision care</p>
-              <h2 id="overview-h" className="h2">What is <span className="title-secondary">a Cataract</span></h2>
+              <p className="kicker">Understanding Cataracts</p>
+              <h2 id="overview-h" className="h2">What Is <span className="title-secondary">a Cataract?</span></h2>
               <div className={styles.overviewDescription}>
                 {content.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               </div>
             </div>
           </div>
           <div className={`container ${styles.overviewFeatures}`}>
-            <article><span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M9 5c4 2 5 10 1 14"/></svg></span><strong>Natural lens clouding</strong><p>A cataract makes the eye’s natural lens cloudy.</p></article>
-            <article><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></span><strong>Blurred or dim vision</strong><p>Clarity can gradually reduce as the cataract develops.</p></article>
-            <article><span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v10m-5-5h10"/></svg></span><strong>Clear artificial lens</strong><p>Surgery usually replaces the clouded lens with an IOL.</p></article>
+            <article><span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M9 5c4 2 5 10 1 14"/></svg></span><strong>Natural Lens Clouding</strong><p>A cataract causes the normally transparent natural lens to become cloudy.</p></article>
+            <article><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></span><strong>Reduced Visual Clarity</strong><p>Cataracts can cause blurred vision, glare and difficulty seeing in low-light conditions.</p></article>
+            <article><span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v10m-5-5h10"/></svg></span><strong>Intraocular Lens Replacement</strong><p>Cataract surgery usually replaces the cloudy natural lens with a clear artificial lens.</p></article>
           </div>
         </section>
       }
@@ -66,7 +87,7 @@ export default function Page() {
           <section id="when" className={styles.signs} aria-labelledby="when-h">
             <div className="container">
               <div className={styles.centerHead}>
-                <p className="kicker">Know the signs</p>
+                <p className="kicker">Know the Symptoms</p>
                 <h2 id="when-h" className="h2"><HeadingText>{content.seekHelp.heading}</HeadingText></h2>
               </div>
               <ul className={styles.signGrid}>
@@ -81,7 +102,7 @@ export default function Page() {
                   </li>
                 ))}
                 <li className={styles.signWarning}>
-                  <strong>Urgent Medical Attention:</strong>
+                  <strong>When to Seek Urgent Medical Attention</strong>
                   <span>{content.seekHelp.note}</span>
                 </li>
               </ul>
@@ -90,8 +111,8 @@ export default function Page() {
           <section id="journey" className={styles.journey} aria-labelledby="journey-h">
             <div className="container">
               <div className={styles.centerHead}>
-                <p className="kicker">What to expect</p>
-                <h2 id="journey-h" className="h2">What an <span className="title-secondary">assessment involves</span></h2>
+                <p className="kicker">Your Cataract Care Journey</p>
+                <h2 id="journey-h" className="h2">From Cataract Assessment <span className="title-secondary">to Recovery</span></h2>
                 <p className="lead">{content.journeyLead}</p>
               </div>
               <ol className={styles.journeyGrid}>
@@ -103,9 +124,16 @@ export default function Page() {
                     </div>
                     <h3>{step.title}</h3>
                     <p>{step.text}</p>
+                    {index < content.journey.length - 1 && (
+                      <span className={styles.journeyConnector} aria-hidden="true">
+                        <ArrowDownIcon width={19} height={19} />
+                      </span>
+                    )}
                   </li>
                 ))}
               </ol>
+              <p className={styles.videoNote}>Please tell your doctor about existing medical conditions, allergies and medicines you take. Do not stop prescribed medicines without medical advice.</p>
+              <p className={styles.videoNote}><strong>After surgery, seek urgent ophthalmic assessment</strong> for increasing eye pain, worsening redness, reduced vision, or sudden flashes or floaters.</p>
             </div>
           </section>
         </>
@@ -114,47 +142,49 @@ export default function Page() {
         <section id="watch" className={styles.videos} aria-labelledby="watch-h">
           <div className="container">
             <div className={styles.centerHead}>
-              <p className="kicker">Watch</p>
-              <h2 id="watch-h" className="h2">Videos on <span className="title-secondary">this topic</span></h2>
-              <p className="lead">Dr. Poonam Jain&apos;s centre shares short videos on its YouTube channel and in its own footage.</p>
+              <p className="kicker">Insights from Your Doctor</p>
+              <h2 id="watch-h" className="h2">Understanding Cataract Surgery <span className="title-secondary">with Dr. Poonam Jain</span></h2>
+              <p className="lead">Learn about cataract symptoms, surgical treatment, intraocular lens options and postoperative care through educational videos from Dr. Poonam Jain.</p>
             </div>
-            <div className={styles.videoGrid}>
-              {videos.map((video) => {
-                const props = playerProps(video);
-                return (
-                  <CataractVideoCard
-                    key={video.id}
-                    videoId={props.videoId || ""}
-                    title={video.title}
-                    description={video.description}
-                    poster={props.poster || "/images/cataract-thumbnail1.jpg"}
-                    watchUrl={props.watchUrl || `https://www.youtube.com/watch?v=${props.videoId}`}
-                    language={video.language}
-                    category={CATEGORY_LABEL[video.category]}
-                  />
-                );
-              })}
-            </div>
-            <p className={styles.videoNote}>Videos are general information, not a substitute for an examination. They complement the written information on this page.</p>
+            <CataractVideoCarousel videos={videos.map((video) => {
+              const props = playerProps(video);
+              const copy = props.videoId ? VIDEO_COPY[props.videoId] : undefined;
+              return {
+                id: video.id,
+                videoId: props.videoId || "",
+                title: copy?.title ?? video.title,
+                description: copy?.description ?? video.description,
+                poster: props.poster || "/images/cataract-thumbnail1.jpg",
+                watchUrl: props.watchUrl || `https://www.youtube.com/watch?v=${props.videoId}`,
+                language: video.language,
+                category: CATEGORY_LABEL[video.category],
+              };
+            })} />
+            <p className={styles.videoNote}>These videos provide general educational information. Ask your ophthalmologist for individual treatment and recovery instructions.</p>
           </div>
         </section> : undefined}
     >
       <ClinicalFigure
         id="eyeCompare"
-        heading="A normal eye and an eye with a cataract"
-        intro="Compare a clear natural lens with one affected by a cataract."
+        eyebrow="Understanding Your Eye"
+        heading="A Normal Eye vs. an Eye with a Cataract"
+        intro="Understand how clouding of the natural lens can affect the quality of your vision."
+        note="Simplified educational diagrams showing differences in light transmission."
       />
 
       <ClinicalFigure
         id="cataractPatterns"
-        heading="Clear lens and common cataract patterns"
-        intro="Compare a clear natural lens with a lens affected by a cataract, then see where three common patterns of clouding can develop. Your examination determines what applies to your eye."
+        heading="Understanding Different Types of Cataracts"
+        intro="Cataracts are classified partly by where clouding develops within the natural lens. A person may have more than one type at the same time."
+        note="These illustrations show common sites of lens clouding. An eye examination is needed to determine cataract type and severity."
       />
 
       <ClinicalFigure
         id="lensCompare"
-        heading="How a clouded lens can change what you see"
-        intro="Drag across the picture to compare a clear view with an illustration of clouded vision."
+        eyebrow="Understanding Cataract Vision"
+        heading="How Cataracts Can Affect Your Vision"
+        intro="Explore how cataracts may affect visual clarity, colour perception, contrast and sensitivity to glare."
+        note="These images are simplified educational simulations. Actual symptoms vary between individuals and cataract types. A simulation cannot determine how severe your cataract is or whether you need surgery."
       />
 
       <section id="lenses" className="section section--graphite" aria-labelledby="lenses-h">
@@ -162,18 +192,14 @@ export default function Page() {
           <div className={styles.lensPanel}>
             <div className={styles.lensContent}>
               <div className="section-head">
-                <p className="kicker">Choosing a lens</p>
-                <h2 id="lenses-h" className="h2">About replacement <span className="title-secondary">lenses</span></h2>
+                <p className="kicker">Choosing Your Intraocular Lens</p>
+                <h2 id="lenses-h" className="h2">Understanding <span className="title-secondary">Intraocular Lenses (IOLs)</span></h2>
               </div>
               <div className="about-body">
-                <p>
-                  Artificial lenses come in different designs. Monofocal lenses usually have one main
-                  focus; multifocal and extended depth of focus (EDOF) designs aim to cover more than
-                  one distance. Toric designs address astigmatism and may overlap with these categories.
-                </p>
-                <p>
-                  Which design suits you depends on your eye measurements, daily activities and expectations. The doctor explains the limits of each option; spectacles may still be needed.
-                </p>
+                <p>During cataract surgery, the cloudy natural lens is usually replaced with an artificial intraocular lens (IOL).</p>
+                <p>Monofocal lenses provide one main focal distance. Multifocal and extended depth of focus (EDOF) lenses are designed to provide a broader range of vision. Toric lenses help correct suitable forms of corneal astigmatism and can be combined with different focal designs.</p>
+                <p>The most appropriate lens depends on your eye measurements, corneal and retinal health, existing eye conditions, lifestyle and visual expectations.</p>
+                <p>Your ophthalmologist will discuss the benefits, limitations and potential visual side effects of suitable lens options. No intraocular lens guarantees complete independence from spectacles.</p>
               </div>
             </div>
           </div>
@@ -182,15 +208,15 @@ export default function Page() {
 
       <ClinicalFigure
         id="lensDesigns"
-        heading="Understanding replacement lens designs"
-        intro="Explore four design terms. They are general categories, not a list of implants confirmed to be available at this centre."
+        heading="Understanding Replacement Lens Designs"
+        intro="Explore four general lens categories. Your ophthalmologist can confirm which options are suitable and available to you."
       />
 
       <ClinicalFigure
         id="cataractSteps"
-        heading="Cataract surgery in 4 simple steps"
-        intro="A simple visual guide to what happens in cataract surgery, one step at a time."
-        showNote={false}
+        eyebrow="Understanding the Procedure"
+        heading="How Cataract Surgery Works"
+        intro="A simplified overview of how the cloudy natural lens is removed and replaced with an artificial intraocular lens."
       />
     </ServiceLayout>
   );

@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import AssetImage from "@/components/AssetImage";
-import BookButton, { SecondaryContact } from "@/components/BookButton";
 import FacilityGallery from "@/components/FacilityGallery";
 import Hero from "@/components/Hero";
 import HomeCta from "@/components/HomeCta";
@@ -11,14 +10,13 @@ import HomeAppointmentPopup from "@/components/HomeAppointmentPopup";
 import TreatmentExplorer from "@/components/TreatmentExplorer";
 import { treatmentItems } from "@/lib/treatments";
 import JsonLd from "@/components/JsonLd";
-import { ArrowRightIcon, GraduationCapIcon, PhoneIcon, PinIcon, PlusIcon } from "@/components/Icons";
+import { ArrowRightIcon, GraduationCapIcon } from "@/components/Icons";
 import NamePlate from "@/components/NamePlate";
-import VisitPanel from "@/components/VisitPanel";
 import WalkthroughSection from "@/components/WalkthroughSection";
 import VideoShelf from "@/components/VideoShelf";
 import { ASSETS, usable } from "@/config/assets";
 import { PAGES } from "@/config/routes";
-import { HOME_DESCRIPTION, HOME_TITLE, LINKS, MAPS_LINK, SITE, TEL_HREF } from "@/config/site";
+import { HOME_DESCRIPTION, HOME_TITLE, LINKS, PRIVACY_URL, SITE, TEL_HREF } from "@/config/site";
 import { videosFor } from "@/content/videos";
 import { HOME_WHY } from "@/content/why";
 import { onlineBookingAvailable } from "@/lib/booking";
@@ -106,44 +104,54 @@ function AestheticConcernIcon({ className = "" }: { className?: string }) {
 }
 
 
-const faqs = (online: boolean) => [
+const faqs = [
   {
-    q: "Why is a comprehensive eye check-up important?",
-    a: "Some eye conditions, including glaucoma, can develop slowly without obvious symptoms. A full examination can find changes early, when they are easier to manage. Your doctor will advise how often you should be reviewed.",
+    q: "What eye care services does Namokar provide?",
+    a: "Namokar provides comprehensive eye examinations, cataract care, glaucoma management, retina care, squint assessment, LASIK and refractive surgery assessment, and specialised functional, reconstructive and aesthetic oculoplasty.",
   },
   {
-    q: "What can a drooping eyelid (ptosis) mean?",
-    a: "Ptosis means the upper eyelid sits lower than normal. It can be present from birth or develop with age, muscle weakness or other conditions, and it can sometimes affect vision. An examination is needed to find the cause and to decide whether treatment is suitable.",
+    q: "Why are regular eye examinations important?",
+    a: "Some eye conditions, including glaucoma and diabetic eye disease, may develop without noticeable symptoms. Regular eye examinations help detect changes early and support timely management. Your ophthalmologist can recommend an appropriate examination schedule.",
   },
   {
-    q: "Why do my eyes keep watering?",
-    a: "Watering can come from dryness or irritation, infection, or a blocked tear-drainage passage, among other causes. Because treatment depends on the cause, it is best to have persistent watering examined.",
+    q: "When should I consider cataract surgery?",
+    a: "Cataract surgery may be recommended when cataracts interfere with daily activities or when there is another clinical reason for treatment. Your ophthalmologist will assess your vision, eye health and individual needs before recommending surgery.",
   },
   {
-    q: "What is the difference between an ophthalmologist and an oculoplasty surgeon?",
-    a: "An ophthalmologist diagnoses and treats eye conditions. Oculoplasty is a specialised area within ophthalmology focused on the eyelids, tear passages, eye socket and surrounding structures. Dr. Poonam Jain practises comprehensive ophthalmology with a particular focus on oculoplasty.",
+    q: "Is LASIK suitable for everyone?",
+    a: "No. LASIK suitability depends on factors including age, prescription stability, corneal health, corneal thickness and overall eye health. A detailed assessment is necessary to determine whether LASIK or another vision correction option is appropriate.",
+  },
+  {
+    q: "When should I seek urgent eye care?",
+    a: "Sudden loss of vision, new flashes or a sudden increase in floaters, a dark curtain across your vision, severe eye pain or an eye injury require urgent medical assessment. Do not wait for a routine appointment.",
+  },
+  {
+    q: "What is oculoplasty?",
+    a: "Oculoplasty is a specialised branch of ophthalmology concerned with the eyelids, tear-drainage system, eye socket and surrounding structures. It includes functional, reconstructive and aesthetic procedures.",
+  },
+  {
+    q: "What causes drooping eyelids or ptosis?",
+    a: "Ptosis occurs when the upper eyelid sits lower than normal. It can be congenital or develop due to age-related changes, muscle or nerve disorders and other conditions. Sudden eyelid drooping requires urgent medical evaluation, especially if accompanied by double vision, severe headache or unequal pupils.",
   },
   {
     q: "Does every drooping eyelid require surgery?",
-    a: "No. A drooping eyelid can have different causes. Treatment depends on the cause, severity, effect on vision and individual circumstances. An examination is required before deciding whether treatment is appropriate.",
+    a: "No. Treatment depends on the underlying cause, severity, impact on vision and individual circumstances. Surgery is recommended only when clinically appropriate.",
+  },
+  {
+    q: "Why do my eyes keep watering?",
+    a: "Persistent watering can result from dry eyes, irritation, allergies, infection, eyelid abnormalities or tear-drainage obstruction. An eye examination helps identify the cause and determine suitable treatment.",
   },
   {
     q: "Are under-eye bags always treated with surgery?",
-    a: "No. Under-eye concerns vary from person to person. The doctor first evaluates the eyelids, skin, underlying tissues and your concerns before discussing suitable options.",
+    a: "No. Treatment depends on the cause of the under-eye concern, eyelid anatomy, skin changes and individual suitability. Surgical or non-surgical options may be discussed after assessment.",
   },
   {
-    q: "Can I come for a general eye check-up even if I don't need surgery?",
-    a: "Yes. Namokar provides comprehensive eye examinations as well as condition-specific and surgical eye care.",
+    q: "What should I bring to my first consultation?",
+    a: "Please bring previous eye reports, prescriptions, your current spectacles or contact lens details, and a list of medications you are taking.",
   },
   {
-    q: "What should I bring to my first visit?",
-    a: "Please bring any previous prescriptions and eye reports, your current spectacles, and a list of the medicines you take. After the examination, the doctor will explain the findings and whether any treatment is needed.",
-  },
-  {
-    q: "How do I arrange an appointment?",
-    a: online
-      ? `Call the centre on ${SITE.phone.display} or send a request from the Contact page. A request is not a confirmed appointment; the centre will arrange a time with you.`
-      : `Please call the centre on ${SITE.phone.display}. Tell us briefly what is troubling you and we will help you find a suitable time. Online requests are not available yet.`,
+    q: "How can I book an appointment at Namokar?",
+    a: `Call Namokar Eye & Oculoplasty Centre on ${SITE.phone.display}. Our team will help you arrange a suitable consultation time.`,
   },
 ];
 
@@ -154,24 +162,24 @@ export default function Home() {
   const gallery = compact([
     photoItem(ASSETS.archCataractExam, {
       title: "Consultation & Eye Examination",
-      caption: "Detailed and comfortable eye evaluation with advanced diagnostic equipment.",
+      caption: "Detailed eye assessments supported by appropriate diagnostic equipment.",
       position: "55% 50%",
     }),
     photoItem(ASSETS.archTeamDoctor, {
       title: "Our Team",
-      caption: "A dedicated and experienced team focused on your eye health.",
+      caption: "A dedicated clinical and support team focused on your eye health and care.",
       icon: "/images/multiple-users-silhouette.png",
       position: "50% 40%",
     }),
     photoItem(ASSETS.reception, {
       title: "Reception",
-      caption: "A warm and welcoming space for our patients.",
+      caption: "A welcoming space designed for patient comfort and convenience.",
       icon: "/images/reception-new.png",
       position: "50% 50%",
     }),
     photoItem(ASSETS.homeDiagnosticsNov, {
       title: "Caring Spaces",
-      caption: "Well-equipped, hygienic and patient-friendly treatment areas.",
+      caption: "Well-maintained clinical spaces supporting patient comfort, hygiene and care.",
       icon: "/images/microscope.png",
       position: "50% 50%",
     }),
@@ -184,16 +192,13 @@ export default function Home() {
           website(),
           clinic(),
           webPage({ path: PAGES.home.path, name: SITE.name, description: HOME_DESCRIPTION, mainEntityId: ids.clinic }),
-          faqPage(PAGES.home.path, faqs(online)),
+          faqPage(PAGES.home.path, faqs),
         ]}
       />
       <main id="main" className={styles.homeRedesign}>
-        <Hero
-          online={online}
-          panel={<VisitPanel />}
-        />
+        <Hero online={online} />
 
-        {/* Find care: the six treatments as real links with a picture and a short description */}
+        {/* Find care: service links with images and short descriptions */}
         <TreatmentExplorer items={treatmentItems()} />
 
         {/* Hospital introduction: only when at least one photograph is cleared */}
@@ -202,13 +207,12 @@ export default function Home() {
             <div className="container">
               <div className="centre-head reveal">
                 <div>
-                  <p className="kicker">The centre</p>
+                  <p className="kicker">Our Facilities</p>
                   <h2 id="centre-h" className="h2">Our <span className="title-secondary">Centre</span></h2>
                 </div>
                 <div className="centre-copy">
                 <p className="lead">
-                  Take a closer look at Namokar Eye &amp; Oculoplasty Centre &mdash; our welcoming spaces,
-                  advanced technology and the dedicated team behind your care.
+                  Discover Namokar Eye &amp; Oculoplasty Centre, where comprehensive ophthalmic care and specialised oculoplasty come together in a patient-focused clinical environment.
                 </p>
                 </div>
               </div>
@@ -219,6 +223,7 @@ export default function Home() {
 
         {/* Explore Namokar: the one clinic walkthrough video */}
         <WalkthroughSection
+          lead="Take a closer look at Namokar Eye & Oculoplasty Centre, from our reception and consultation rooms to our eye examination and diagnostic areas."
           video={videosFor("home").filter((v) => v.source === "local").map(playerProps)[0]}
         />
 
@@ -240,35 +245,37 @@ export default function Home() {
               <header className="doctor-showcase-head">
                 <p className="kicker">Meet your doctor</p>
                 <h2 id="doctor-h" className="h2 h2--xl">Dr. Poonam <span className="title-secondary">Jain</span></h2>
-                <p className="doctor-role">Medical Director &bull; Senior Ophthalmologist &bull; Oculoplasty Surgeon</p>
+                <p className="doctor-role">Medical Director | Senior Ophthalmologist &amp; Oculoplastic Surgeon</p>
               </header>
               <p className="lead">
-                With 25+ years of experience in eye care, Dr. Poonam Jain leads Namokar Eye &amp; Oculoplasty Centre, with a special focus on eyelids, tear passages and conditions around the eyes.
+                With over 28 years of clinical and surgical experience, Dr. Poonam Jain is an internationally trained ophthalmologist with specialised expertise in functional, reconstructive and aesthetic oculoplasty.
               </p>
+              <p className="lead">She leads Namokar Eye &amp; Oculoplasty Centre, bringing together comprehensive ophthalmic care, personalised treatment and specialised surgical care for the eyelids and surrounding eye structures.</p>
+              <p><strong>28+</strong> Years of Experience &nbsp;&bull;&nbsp; <strong>Internationally Trained</strong> Oculoplastic Surgeon</p>
               <div className="doctor-actions">
-                <Link href={LINKS.contact} className="btn btn--primary doctor-book">
-                  Book an Appointment <ArrowRightIcon width={18} height={18} />
+                <Link href={online ? `${LINKS.contact}#request` : TEL_HREF} className="btn btn--primary doctor-book">
+                  Book a Consultation <ArrowRightIcon width={18} height={18} />
                 </Link>
                 <Link href={LINKS.doctor} className="btn btn--secondary doctor-read-more">
-                  Read About Doctor <ArrowRightIcon width={18} height={18} />
+                  Know More About Dr. Poonam Jain <ArrowRightIcon width={18} height={18} />
                 </Link>
               </div>
               <div className="doctor-details">
                 <section className="doctor-focus" aria-labelledby="doctor-focus-h">
                   <h3 id="doctor-focus-h">Areas of Expertise</h3>
                   <ul>
-                    <li><Image className="doctor-clay-icon" src="/images/doctor-expertise-eyelid.webp" alt="" width={64} height={64} /><div><strong>Eyelid &amp; Oculoplasty</strong><span>Functional and aesthetic eyelid care</span></div></li>
-                    <li><Image className="doctor-clay-icon" src="/images/doctor-expertise-tear-passage.webp" alt="" width={64} height={64} /><div><strong>Tear Passage Care</strong><span>Tear-drainage problems and watering eyes</span></div></li>
-                    <li><Image className="doctor-clay-icon" src="/images/doctor-expertise-periocular.webp" alt="" width={64} height={64} /><div><strong>Periocular Conditions</strong><span>Conditions around the eyes</span></div></li>
-                    <li><Image className="doctor-clay-icon" src="/images/doctor-expertise-eye-care.webp" alt="" width={64} height={64} /><div><strong>Comprehensive Eye Care</strong><span>Comprehensive eye care as a senior ophthalmologist</span></div></li>
+                    <li><Image className="doctor-clay-icon" src="/images/doctor-expertise-eyelid.webp" alt="" width={64} height={64} /><div><strong>Comprehensive Ophthalmology</strong><span>Diagnosis and management of a wide range of eye conditions.</span></div></li>
+                    <li><Image className="doctor-clay-icon" src="/images/doctor-expertise-tear-passage.webp" alt="" width={64} height={64} /><div><strong>Cataract &amp; Vision Correction</strong><span>Individualised assessment and surgical treatment planning for cataracts and refractive concerns.</span></div></li>
+                    <li><Image className="doctor-clay-icon" src="/images/doctor-expertise-periocular.webp" alt="" width={64} height={64} /><div><strong>Functional &amp; Reconstructive Oculoplasty</strong><span>Specialised care for eyelid abnormalities, ptosis and tear-drainage disorders.</span></div></li>
+                    <li><Image className="doctor-clay-icon" src="/images/doctor-expertise-eye-care.webp" alt="" width={64} height={64} /><div><strong>Aesthetic Oculoplasty</strong><span>Aesthetic eyelid surgery and specialised care for the periocular region.</span></div></li>
                   </ul>
                 </section>
                 <section className="doctor-timeline" aria-labelledby="doctor-timeline-h">
-                  <h3 id="doctor-timeline-h"><span className="doctor-training-heading-icon" aria-hidden="true"><GraduationCapIcon width={22} height={22} /></span>Qualifications &amp; Training</h3>
+                  <h3 id="doctor-timeline-h"><span className="doctor-training-heading-icon" aria-hidden="true"><GraduationCapIcon width={22} height={22} /></span>Qualifications &amp; International Training</h3>
                   <ol>
-                    <li><strong>Fellowship</strong><span>Oculoplasty, Barraquer Institute, Barcelona</span></li>
-                    <li><strong>Observership</strong><span>Wilmer Eye Institute, Johns Hopkins, Baltimore</span></li>
-                    <li><strong>MS, Ophthalmology</strong><span>Safdarjung Hospital, New Delhi</span></li>
+                    <li><strong>Fellowship in Oculoplasty</strong><span>Barraquer Institute, Barcelona, Spain</span></li>
+                    <li><strong>Clinical Observership</strong><span>Wilmer Eye Institute, Johns Hopkins, Baltimore, USA</span></li>
+                    <li><strong>MS Ophthalmology</strong><span>Safdarjung Hospital, New Delhi</span></li>
                     <li><strong>MBBS</strong><span>Maulana Azad Medical College, New Delhi</span></li>
                   </ol>
                 </section>
@@ -280,19 +287,19 @@ export default function Home() {
         {/* Doctor-led video shelf: the clinic's own YouTube videos, one player at a time, click to load */}
         <VideoShelf
           videos={videosFor("home").filter((v) => v.source === "youtube").map(playerProps)}
+          featured={videosFor("exams").filter((v) => v.source === "youtube" && v.videoId === "82siQa3LgUY").map(playerProps)[0]}
         />
 
         {/* Oculoplasty */}
         <section id="oculoplasty" className="section oculo-section" aria-labelledby="oculo-h">
           <div className="container oculo-grid">
             <div className="oculo-copy">
-              <p className="kicker">Oculoplasty</p>
-              <h2 id="oculo-h" className="h2">Specialist Oculoplasty for <span className="title-secondary">Function &amp; Appearance</span></h2>
+              <p className="kicker">Specialised Oculoplasty Care</p>
+              <h2 id="oculo-h" className="h2">Advanced Oculoplasty for <span className="title-secondary">Function &amp; Appearance</span></h2>
               <p className="lead">
-                Oculoplasty is a branch of ophthalmology focused on the eyelids, tear
-                passages, eye socket and surrounding eye area. Some concerns affect
-                vision or eye comfort. Others affect appearance. Many involve both.
+                Oculoplasty is a specialised branch of ophthalmology that focuses on the eyelids, tear-drainage system, eye socket and surrounding structures.
               </p>
+              <p className="lead">At Namokar, functional, reconstructive and aesthetic oculoplasty combine attention to eye health, eyelid function and individual aesthetic concerns, with treatment planned according to each patient&rsquo;s needs.</p>
               <div className="oculo-cards">
                 <article className="oculo-card oculo-card--functional">
                   <div className="oculo-card-body">
@@ -301,15 +308,16 @@ export default function Home() {
                         <FunctionalConcernIcon />
                       </div>
                       <div className="oculo-card-title-group">
-                        <h3 className="oculo-card-title">Functional Concerns</h3>
+                        <h3 className="oculo-card-title">Functional &amp; Reconstructive Care</h3>
                         <div className="oculo-card-bar" aria-hidden="true" />
                       </div>
                     </div>
                     <ul className="oculo-check-list">
-                      <li>Drooping eyelids (ptosis) that make the eye look tired or affect vision</li>
-                      <li>Persistent watering or tear-drainage problems</li>
-                      <li>Eyelids turning inward or outward</li>
-                      <li>Other eyelid-position concerns</li>
+                      <li>Drooping eyelids (ptosis)</li>
+                      <li>Persistent watering and tear-drainage disorders</li>
+                      <li>Inward or outward turning eyelids</li>
+                      <li>Eyelid-position abnormalities</li>
+                      <li>Reconstructive eyelid concerns</li>
                     </ul>
                   </div>
                 </article>
@@ -320,15 +328,16 @@ export default function Home() {
                         <AestheticConcernIcon />
                       </div>
                       <div className="oculo-card-title-group">
-                        <h3 className="oculo-card-title">Aesthetic Concerns</h3>
+                        <h3 className="oculo-card-title">Aesthetic Oculoplasty</h3>
                         <div className="oculo-card-bar" aria-hidden="true" />
                       </div>
                     </div>
                     <ul className="oculo-check-list">
-                      <li>Heavy upper eyelids</li>
+                      <li>Excess upper eyelid skin</li>
                       <li>Loose eyelid skin</li>
                       <li>Under-eye bags</li>
-                      <li>Age-related changes around the eyes</li>
+                      <li>Age-related periocular changes</li>
+                      <li>Aesthetic eyelid concerns</li>
                     </ul>
                   </div>
                 </article>
@@ -342,20 +351,19 @@ export default function Home() {
                 </Link>
               </div>
               <p className="oculo-note">
-                Dr. Poonam Jain decides whether a procedure is suitable only after
-                examining your eyes and talking through what you hope to achieve.
+                Every treatment begins with a detailed assessment of your eye health, eyelid anatomy and individual concerns. Suitable treatment options, expected outcomes and potential risks are discussed before proceeding.
               </p>
             </div>
             <figure className="oculo-feature-art">
               <AssetImage asset={ASSETS.oculoplastyRealExam} fill sizes="(min-width: 960px) 42vw, 100vw" className="oculo-img" />
-              <figcaption>Specialist evaluation of the eyelids and surrounding eye area</figcaption>
+              <figcaption>Specialised assessment of the eyelids and surrounding eye structures.</figcaption>
             </figure>
           </div>
           <div className="container oculo-highlights" aria-label="Oculoplasty areas of care">
-            <span><DoctorIcon name="lid" />Eyelid care</span>
-            <span><DoctorIcon name="drop" />Tear passage care</span>
-            <span><DoctorIcon name="eye" />Eye socket care</span>
-            <span><DoctorIcon name="medical" />Aesthetic procedures</span>
+            <span><DoctorIcon name="lid" />Specialised Eyelid Care</span>
+            <span><DoctorIcon name="drop" />Tear Drainage Care</span>
+            <span><DoctorIcon name="eye" />Orbital Care</span>
+            <span><DoctorIcon name="medical" />Periocular Aesthetics</span>
           </div>
         </section>
 
@@ -368,7 +376,7 @@ export default function Home() {
             <header className="why-intro reveal">
               <p className="kicker why-kicker">Why Namokar</p>
               <h2 id="why-h" className="h2 why-h2">Why Patients <span className="title-secondary">Choose Namokar</span></h2>
-              <p className="why-foot">Doctor-led consultations in Ashok Vihar, New Delhi, with comprehensive eye care and specialist oculoplasty under one centre.</p>
+              <p className="why-foot">Comprehensive eye care and specialised oculoplasty, guided by clinical experience, international training and a personalised approach to every patient.</p>
             </header>
             <div className="why-cards">
                 {HOME_WHY.map((w, i) => {
@@ -388,12 +396,19 @@ export default function Home() {
         </section>
 
         {/* FAQ */}
-        <HomeFaqSection items={faqs(online)} />
+        <HomeFaqSection items={faqs} />
 
         {/* Final CTA: Consultation & Slit-lamp Section */}
-        <HomeCta online={online} />
+        <HomeCta
+          online={online}
+          kicker="Personalised Eye Care"
+          heading="See Better. Look Better."
+          subheading="Book Your Consultation Today"
+          desc="Whether you need a routine eye examination, specialised eye treatment or aesthetic eyelid care, begin with a personalised consultation at Namokar Eye & Oculoplasty Centre."
+          phoneBookingLabel="Book a Consultation"
+        />
       </main>
-      <HomeAppointmentPopup />
+      {online && PRIVACY_URL && <HomeAppointmentPopup privacyUrl={PRIVACY_URL} />}
     </>
   );
 }

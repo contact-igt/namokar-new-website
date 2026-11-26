@@ -12,6 +12,10 @@ export interface HomeCtaProps {
   kicker?: string;
   heading?: import("react").ReactNode;
   desc?: string;
+  note?: string;
+  subheading?: string;
+  onlineBookingLabel?: string;
+  phoneBookingLabel?: string;
   showContactDetails?: boolean;
   callLabel?: string;
 }
@@ -21,7 +25,11 @@ export default function HomeCta({
   id = "contact",
   kicker = "Take the first step",
   heading = "Book Your Consultation Today",
+  subheading,
+  onlineBookingLabel = "Book a Consultation",
+  phoneBookingLabel = "Call to Book",
   desc = "Take the first step towards clearer, healthier vision with doctor-led care at Namokar Eye & Oculoplasty Centre.",
+  note,
   showContactDetails = false,
   callLabel = "Call Us Now",
 }: HomeCtaProps) {
@@ -51,7 +59,9 @@ export default function HomeCta({
             <h2 id={`${id}-h`} className={`${styles.ctaTitle} cta-title`}>
               <HeadingText>{heading}</HeadingText>
             </h2>
+            {subheading && <h3>{subheading}</h3>}
             <p className={`${styles.ctaDesc} cta-desc`}>{desc}</p>
+            {note && <p className={styles.ctaDesc}><strong>{note}</strong></p>}
             {showContactDetails && (
               <div className={styles.contactDetails}>
                 <p><PinIcon /><span>{SITE.address.lines.join(", ")}</span></p>
@@ -61,11 +71,11 @@ export default function HomeCta({
             <div className={`${styles.ctaPanelActions} cta-panel-actions`}>
               {online ? (
                 <Link href={bookingHref} className="btn btn--primary">
-                  Book a Consultation <ArrowRightIcon width={18} height={18} />
+                  {onlineBookingLabel} <ArrowRightIcon width={18} height={18} />
                 </Link>
               ) : (
                 <a href={bookingHref} className="btn btn--primary">
-                  Call to Book <PhoneIcon width={18} height={18} />
+                  {phoneBookingLabel} <PhoneIcon width={18} height={18} />
                 </a>
               )}
               <a

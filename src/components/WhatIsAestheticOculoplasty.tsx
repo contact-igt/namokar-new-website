@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { LINKS } from "@/config/site";
-import { CalendarIcon } from "./Icons";
+import { ArrowRightIcon, CalendarIcon } from "./Icons";
 import styles from "./WhatIsAestheticOculoplasty.module.css";
 
 /**
@@ -152,8 +152,8 @@ export interface WhatIsAestheticOculoplastyProps {
   titleOrange?: string;
   /** Sub-headline text */
   subheading?: string;
-  /** Body paragraph text */
-  paragraph?: string;
+  /** Overview copy */
+  paragraphs: readonly string[];
   /** CTA button text */
   buttonLabel?: string;
   /** CTA button link destination */
@@ -179,11 +179,11 @@ export interface WhatIsAestheticOculoplastyProps {
 export default function WhatIsAestheticOculoplasty({
   showBreadcrumb = false,
   crumb = "Aesthetic Oculoplasty",
-  kicker = "WHAT IS AESTHETIC OCULOPLASTY?",
-  titleTeal = "Aesthetic",
-  titleOrange = "Oculoplasty",
-  subheading = "Enhancing both function and appearance around your eyes.",
-  paragraph = "Aesthetic oculoplasty focuses on improving the appearance of the eyelids, under-eye area and surrounding eye region while keeping eye safety and natural results as the priority.",
+  kicker = "UNDERSTANDING AESTHETIC OCULOPLASTY",
+  titleTeal = "What Is Aesthetic",
+  titleOrange = "Oculoplasty?",
+  subheading = "Specialised Care for the Eyelids & Surrounding Eye Area",
+  paragraphs,
   buttonLabel = "Book a Consultation",
   buttonHref = `${LINKS.contact}#request`,
   doctorImage = "/images/aesthetic/aesthetic-doctor-treatment-focused.webp",
@@ -192,7 +192,7 @@ export default function WhatIsAestheticOculoplasty({
   procedureAlt = "Delicate eyelid aesthetic evaluation and periocular contour care at Namokar Centre",
   procedureLabel = "Improve Appearance",
   eyeImage = "/images/aesthetic/aesthetic-eye-master.webp",
-  eyeAlt = "Close-up of refreshed aesthetic eyelid contour and natural eyelashes",
+  eyeAlt = "Close-up of an eyelid and eyelashes",
   id = "what-is-aesthetic-oculoplasty",
 }: WhatIsAestheticOculoplastyProps) {
   return (
@@ -243,7 +243,11 @@ export default function WhatIsAestheticOculoplasty({
             <p className={styles.subheading}>{subheading}</p>
 
             {/* Explanatory Paragraph */}
-            <p className={styles.paragraph}>{paragraph}</p>
+            <div className={styles.overviewCopy}>
+              {paragraphs.map((paragraph) => (
+                <p key={paragraph} className={styles.paragraph}>{paragraph}</p>
+              ))}
+            </div>
 
             {/* Action CTA Button */}
             <Link href={buttonHref} className={styles.ctaBtn}>
@@ -251,7 +255,7 @@ export default function WhatIsAestheticOculoplasty({
                 <CalendarIcon width={18} height={18} />
               </span>
               <span>{buttonLabel}</span>
-              <span className={styles.btnArrow} aria-hidden="true">&rarr;</span>
+              <span className={styles.btnArrow} aria-hidden="true"><ArrowRightIcon width={18} height={18} /></span>
             </Link>
           </div>
 
@@ -313,8 +317,8 @@ export default function WhatIsAestheticOculoplasty({
                   <ShieldCrossIcon />
                 </div>
                 <div className={styles.featureTextGroup}>
-                  <div className={styles.featureTitle}>Eye Health Comes First</div>
-                  <div className={styles.featureSubtitle}>A safe and careful approach.</div>
+                  <div className={styles.featureTitle}>Eye Health &amp; Function</div>
+                  <div className={styles.featureSubtitle}>Eye health is considered during assessment.</div>
                 </div>
               </div>
 
@@ -327,8 +331,8 @@ export default function WhatIsAestheticOculoplasty({
                   <LotusFlowerIcon />
                 </div>
                 <div className={styles.featureTextGroup}>
-                  <div className={styles.featureTitle}>Natural-looking Results</div>
-                  <div className={styles.featureSubtitle}>Subtle, refined and long-lasting.</div>
+                  <div className={styles.featureTitle}>Personalised Aesthetic Care</div>
+                  <div className={styles.featureSubtitle}>Discuss what treatment can change and how long changes may last.</div>
                 </div>
               </div>
             </div>

@@ -15,7 +15,6 @@
 /* Keep the anatomical Cataract illustration and its peach waves across the whole section. */
 .overview {
   padding-block: clamp(64px, 5vw, 84px);
-  scroll-margin-top: 88px;
   background: #fff9f5 url('/images/da6b3c44-eb16-4da2-8f3b-d8e36fe46080.png') left calc(50% - 195px) / cover no-repeat;
 }
 .overviewGrid {
@@ -150,15 +149,9 @@
 .journeyImage img { border-radius: 50%; object-fit: cover; }
 .journeyNumber { position: absolute; z-index: 1; top: -9px; left: -9px; display: grid; place-items: center; width: 42px; height: 42px; border: 3px solid #fff; border-radius: 50%; background: #c45110; color: #fff; font-family: var(--font-body); font-size: 1.05rem; font-weight: 800; }
 .journeyGrid li:not(:last-child)::after { position: absolute; top: 75px; right: -25px; content: '››'; color: #c45110; font-family: var(--font-body); font-size: 2.2rem; font-weight: 700; line-height: 1; }
+.journeyConnector { display: none; }
 .journeyGrid h3 { display: grid; place-items: center; min-height: 3.3em; margin: 0 0 10px; color: var(--cataract-ink); font-family: var(--font-heading); font-size: clamp(1.1rem, 1.5vw, 1.35rem); line-height: 1.3; }
 .journeyGrid p { max-width: 28ch; margin: 0 auto; color: #455d63; font-size: .9375rem; line-height: 1.6; }
-
-.videoGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  align-items: stretch;
-}
 
 .refVideoCard {
   display: flex;
@@ -319,6 +312,12 @@
 }
 
 .videoNote { max-width: 78ch; margin: 24px auto 0; color: #52656a; text-align: center; font-size: .9375rem; line-height: 1.6; }
+
+.page :global(.lens-comparison) { margin-block: 24px; overflow-x: auto; }
+.page :global(.lens-comparison table) { width: 100%; min-width: 500px; border-collapse: collapse; color: var(--cataract-ink); }
+.page :global(.lens-comparison caption) { padding-bottom: 10px; font-weight: 700; text-align: left; }
+.page :global(.lens-comparison th),
+.page :global(.lens-comparison td) { padding: 10px; border-bottom: 1px solid #e8d6ca; text-align: left; vertical-align: top; }
 
 .page :global(#faq), .page :global(#related) { min-height: 0; }
 .page :global(.cta-panel-image) { object-fit: cover; object-position: left center; }
@@ -631,8 +630,14 @@
 @media (min-width: 1120px) {
   .page :global([data-figure='cataractSteps'] .cataract-process) { gap: 22px; }
 }
-@media (max-width: 1119px) {
+@media (width < 1120px) {
+  .page :global([data-figure='cataractSteps'] .cataract-process) { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .page :global([data-figure='cataractSteps'] .cataract-process-eye) { height: auto; max-height: 205px; aspect-ratio: 16 / 9; }
+  .page :global([data-figure='cataractSteps'] .cataract-process-label) { min-height: 0; padding-bottom: 12px; }
   .page :global([data-figure='cataractSteps'] .cataract-process-arrow) { display: none; }
+}
+@media (640px <= width < 1120px) {
+  .page :global([data-figure='cataractSteps'] .cataract-process) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 1024px) {
   .page :global([data-figure='lensDesigns'] .lens-card-text) { min-height: 0; }
@@ -644,7 +649,6 @@
   .page :global([data-figure='lensDesigns'] .lens-card-fig) { aspect-ratio: 7 / 3; }
   .page :global([data-figure='lensDesigns'] .lens-arrow) { width: 40px; height: 40px; }
   .page :global([data-figure='lensDesigns'] .lens-arrow svg) { width: 18px; height: 18px; }
-  .page :global([data-figure='cataractSteps'] .cataract-process-label) { min-height: 0; padding-bottom: 16px; }
 }
 @media (min-width: 1100px) { .page :global(.cta-title) { font-size: clamp(1.9rem, 2.45vw, 2.35rem); white-space: nowrap; } }
 
@@ -732,7 +736,6 @@
   .overviewFeatures p {
     font-size: 0.88rem;
   }
-  .videoGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .journeyGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 24px; }
   .journeyGrid li:not(:last-child)::after { display: none; }
 }
@@ -740,9 +743,27 @@
 @media (max-width: 639px) {
   .page :global(.clin-head h2) { white-space: normal; }
   .lensPanel { padding: 42px 24px; }
-  .signGrid, .videoGrid { grid-template-columns: 1fr; }
+  .signGrid { grid-template-columns: 1fr; }
   .signGrid li { min-height: 0; }
-  .journeyGrid { grid-template-columns: 1fr; gap: 36px; }
+  .journeyGrid { grid-template-columns: minmax(0, 1fr); gap: 56px; }
+  .journeyGrid .journeyImage { width: min(100%, 156px); margin-bottom: 14px; }
+  .journeyGrid h3 { min-height: 0; margin-bottom: 8px; }
+  .journeyGrid p { max-width: 36ch; }
+  .journeyConnector {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: calc(100% + 28px);
+    left: 50%;
+    width: 34px;
+    height: 34px;
+    border: 2px solid #fff8f3;
+    border-radius: 50%;
+    background: #c45110;
+    color: #fff;
+    box-shadow: 0 4px 10px rgb(118 64 35 / 18%);
+    transform: translate(-50%, -50%);
+  }
 }
 
 /* Keep the heading accent visible on dark service panels. */

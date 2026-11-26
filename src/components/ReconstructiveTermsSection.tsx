@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LINKS } from "@/config/site";
+import { ArrowRightIcon } from "./Icons";
 import styles from "./ReconstructiveTermsSection.module.css";
 
 interface TermItem {
@@ -18,7 +19,7 @@ const LEFT_TERMS: TermItem[] = [
   {
     key: "ptosis",
     term: "Ptosis",
-    text: "An upper eyelid that sits lower than normal.",
+    text: "An abnormally low upper eyelid margin. It can be present from birth or develop later.",
     icon: "/images/reconstructive/term-ptosis.webp",
     href: "#lidMalposition",
     customClass: styles.cardPtosis,
@@ -26,7 +27,7 @@ const LEFT_TERMS: TermItem[] = [
   {
     key: "ectropion",
     term: "Ectropion",
-    text: "An eyelid that turns outwards, away from the eye.",
+    text: "An eyelid margin that turns outwards, exposing the eye surface or disrupting tear drainage.",
     icon: "/images/reconstructive/term-ectropion.webp",
     href: "#lidMalposition",
     customClass: styles.cardEctropion,
@@ -34,7 +35,7 @@ const LEFT_TERMS: TermItem[] = [
   {
     key: "tearduct",
     term: "Tear-duct blockage",
-    text: "A narrowing or block in the channel that drains tears.",
+    text: "A narrowing or obstruction within the system that drains tears from the eye into the nose.",
     icon: "/images/reconstructive/term-tearduct.webp",
     href: "#tearPathway",
     customClass: styles.cardTearDuct,
@@ -45,7 +46,7 @@ const RIGHT_TERMS: TermItem[] = [
   {
     key: "entropion",
     term: "Entropion",
-    text: "An eyelid that turns inwards, so the lashes rub the eye.",
+    text: "An eyelid margin that turns inwards, allowing lashes or skin to rub the eye surface.",
     icon: "/images/reconstructive/term-entropion.webp",
     href: "#lidMalposition",
     customClass: styles.cardEntropion,
@@ -53,7 +54,7 @@ const RIGHT_TERMS: TermItem[] = [
   {
     key: "epiphora",
     term: "Epiphora",
-    text: "Watering of the eye, often because tears are not draining.",
+    text: "Excessive watering of the eye. Causes include dry eye, irritation, allergies, eyelid abnormalities, excess tear production and impaired drainage.",
     icon: "/images/reconstructive/term-epiphora.webp",
     href: "#tearPathway",
     customClass: styles.cardEpiphora,
@@ -61,7 +62,7 @@ const RIGHT_TERMS: TermItem[] = [
   {
     key: "orbit",
     term: "Orbit",
-    text: "The bony socket that holds the eye.",
+    text: "The bony cavity containing the eye, eye muscles, optic nerve, blood vessels, fat and other supporting structures.",
     icon: "/images/reconstructive/term-orbit.webp",
     href: "#journey",
     customClass: styles.cardOrbit,
@@ -116,25 +117,24 @@ export default function ReconstructiveTermsSection({ id = "terms" }: { id?: stri
           <div className={styles.leftCol}>
             <div className={styles.kickerRow}>
               <span className={styles.kickerLine} aria-hidden="true" />
-              <span className={styles.kickerText}>In Plain Words</span>
+              <span className={styles.kickerText}>Understanding Oculoplasty</span>
             </div>
 
             <h2 id="terms-h" className={styles.heading}>
-              Terms you
+              Common Oculoplasty
               <br />
-              <span className="title-secondary">may hear</span>
+              <span className="title-secondary">Conditions &amp; Medical Terms</span>
             </h2>
 
             <p className={styles.lead}>
-              Oculoplasty uses some unfamiliar words. These are the common ones. The
-              doctor explains any others.
+              Understanding common eyelid, tear-drainage and orbital conditions can help you make informed decisions about your eye care.
             </p>
 
             <Link href={`${LINKS.contact}#request`} className={styles.bookButton}>
               <CalendarIcon />
               <span>Book a Consultation</span>
               <span className={styles.btnArrow} aria-hidden="true">
-                &gt;
+                <ArrowRightIcon width={18} height={18} />
               </span>
             </Link>
           </div>

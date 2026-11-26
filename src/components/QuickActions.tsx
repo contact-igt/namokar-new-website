@@ -1,23 +1,60 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { CHANNELS, LINKS, MAPS_LINK, TEL_HREF } from "@/config/site";
-import { CHANNEL } from "@/content/videos";
 import { CalendarIcon, PinIcon } from "./Icons";
 
-type Action = { label: string; href: string; icon: string; external?: boolean };
+type Action = { id: string; label: string; href: string; icon: ReactNode; external?: boolean; accessibleLabel?: string };
 
 const actions: Action[] = [
-  { label: "Phone", href: TEL_HREF, icon: "/images/mobile.png" },
   {
+    id: "whatsapp",
     label: "WhatsApp",
     href: `https://wa.me/${CHANNELS.whatsapp}`,
-    icon: "/images/whatsapp.png",
+    icon: <Image src="/images/whatsapp.png" alt="" width={28} height={28} />,
     external: true,
   },
-  { label: "YouTube", href: CHANNEL.url, icon: "/images/youtube.png", external: true },
-] as const;
+  {
+    id: "instagram",
+    label: "Instagram",
+    accessibleLabel: "Dr. Poonam Jain on Instagram",
+    href: CHANNELS.instagram,
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+    external: true,
+  },
+  {
+    id: "location",
+    label: "Location",
+    href: MAPS_LINK,
+    icon: <PinIcon width={28} height={28} aria-hidden="true" />,
+    external: true,
+  },
+  {
+    id: "call",
+    label: "Call",
+    accessibleLabel: "Call to book an appointment",
+    href: TEL_HREF,
+    icon: <Image src="/images/mobile.png" alt="" width={28} height={28} />,
+  },
+];
+
+const bookingAction: Action = {
+  id: "book",
+  label: "Book",
+  accessibleLabel: "Book an appointment",
+  href: `${LINKS.contact}#request`,
+  icon: <CalendarIcon aria-hidden="true" />,
+};
 
 function ActionLink({
+  id,
   label,
+  accessibleLabel = label,
   href,
   icon,
   external,
@@ -26,13 +63,14 @@ function ActionLink({
   return (
     <a
       className={compact ? "qa-mobile__item" : "qa-rail__item"}
+      data-action={id}
       href={href}
+      aria-label={external ? `${accessibleLabel} (opens in a new tab)` : accessibleLabel}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
     >
-      <Image src={icon} alt="" width="28" height="28" />
-      <span className={compact ? undefined : "sr-only"}>{label}</span>
-      {external && <span className="sr-only"> (opens in a new tab)</span>}
+      {icon}
+      {compact && <span>{label}</span>}
     </a>
   );
 }
@@ -42,21 +80,11 @@ export default function QuickActions() {
   return (
     <>
       <aside className="qa-rail" aria-label="Quick actions">
-        {actions.slice(1).map((action) => <ActionLink key={action.label} {...action} />)}
-        <ActionLink {...actions[0]} />
+        {actions.map((action) => <ActionLink key={action.id} {...action} />)}
       </aside>
       <nav className="qa-mobile" aria-label="Quick actions">
-        {actions.slice(0, 2).map((action) => <ActionLink key={action.label} {...action} compact />)}
-        <ActionLink {...actions[2]} compact />
-        <a href={LINKS.contact} className="qa-mobile__item">
-          <CalendarIcon width={25} height={25} />
-          <span>Book</span>
-        </a>
-        <a href={MAPS_LINK} className="qa-mobile__item" target="_blank" rel="noopener noreferrer">
-          <PinIcon width={25} height={25} />
-          <span>Address</span>
-          <span className="sr-only"> (opens in a new tab)</span>
-        </a>
+        <ActionLink {...bookingAction} compact />
+        {actions.map((action) => <ActionLink key={action.id} {...action} compact />)}
       </nav>
     </>
   );

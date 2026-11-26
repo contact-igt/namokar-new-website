@@ -1,3 +1,4 @@
+import { TriangleAlert } from "lucide-react";
 import ClinicalFigure from "@/components/clinical/ClinicalFigure";
 import ServiceLayout, { serviceMetadata } from "@/components/ServiceLayout";
 import ReconstructiveTermsSection from "@/components/ReconstructiveTermsSection";
@@ -15,8 +16,10 @@ export default function Page() {
       closing={
         <HomeCta
           id="reconstructive-cta"
-          heading={<>Speak to the centre <span className="title-secondary">about your eyes.</span></>}
-          desc="Contact the centre to plan your visit or arrange an eye consultation."
+          kicker="Specialised Reconstructive Eye Care"
+          heading={<>Book Your <span className="title-secondary">Reconstructive Oculoplasty Consultation</span></>}
+          desc="Experiencing drooping eyelids, persistent watering, inward or outward-turning eyelids, or other functional eye concerns? Consult Dr. Poonam Jain for a detailed oculoplastic assessment and personalised treatment guidance."
+          onlineBookingLabel="Request a Consultation"
           showContactDetails
           callLabel="Call the Centre"
         />
@@ -29,9 +32,21 @@ export default function Page() {
 
       <ClinicalFigure
         id="lidMalposition"
+        eyebrow="Understanding Eyelid Malposition"
         heading={<>When an eyelid turns <span className="title-secondary">inwards or outwards</span></>}
-        intro="A comparison of a typical eyelid, an inward-turning eyelid (entropion) and an outward-turning eyelid (ectropion)."
+        intro="The eyelids help protect the surface of the eye, distribute tears and maintain comfort. This comparison shows a typical eyelid, entropion and ectropion. An eye examination is needed to determine the cause, severity and appropriate treatment."
       />
+      <div className="container">
+        <aside className={styles.urgentCare} aria-labelledby="urgent-eye-care">
+          <span className={styles.urgentIcon}><TriangleAlert aria-hidden="true" /></span>
+          <div>
+            <h2 id="urgent-eye-care">When should you seek urgent eye care?</h2>
+            <p>Seek immediate emergency assessment for sudden eyelid drooping, sudden vision loss, new double vision, severe eye pain, rapidly increasing swelling or bulging of the eye, or fever with painful swelling around the eye.</p>
+            <p>Pain with eye movement or a significant eye or eyelid injury also needs urgent assessment.</p>
+            <p><strong>Do not wait for a routine appointment.</strong></p>
+          </div>
+        </aside>
+      </div>
     </ServiceLayout>
   );
 }

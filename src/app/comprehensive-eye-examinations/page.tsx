@@ -1,11 +1,15 @@
+import ServiceVideoCarousel from "@/components/ServiceVideoCarousel";
 import HeadingText from "@/components/HeadingText";
 import Image from "next/image";
+import { TriangleAlert } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
 import BookButton from "@/components/BookButton";
 import AssetImage from "@/components/AssetImage";
-import ServiceLayout, { serviceMetadata } from "@/components/ServiceLayout";
+import ServiceLayout from "@/components/ServiceLayout";
 import ServicesFaqSection from "@/components/ServicesFaqSection";
 import ExamVideoCard from "./ExamVideoCard";
+import ExamPartsCarousel from "./ExamPartsCarousel";
+import { pageMeta } from "@/lib/seo";
 import { LINKS } from "@/config/site";
 import { ASSETS } from "@/config/assets";
 import { SERVICE_CONTENT } from "@/content/services";
@@ -15,10 +19,34 @@ import { playerProps } from "@/lib/videoProps";
 import styles from "./exams.module.css";
 import HomeCta from "@/components/HomeCta";
 
-export const metadata = serviceMetadata("exams");
+const content = SERVICE_CONTENT.exams;
+
+export const metadata = pageMeta("exams", {
+  title: `${content.metaTitle} | Namokar`,
+  description: content.metaDescription,
+});
+
+const URGENT_SIGNS = [
+  "Sudden loss or significant reduction of vision",
+  "New flashes of light or a sudden increase in floaters",
+  "A dark curtain or shadow across your vision",
+  "Severe eye pain, especially with redness or nausea",
+  "Sudden double vision or new eye misalignment",
+  "Eye injury or chemical exposure",
+];
+
+const VIDEO_COPY: Record<string, { title: string; description: string }> = {
+  "82siQa3LgUY": {
+    title: "Do Your Eyes Feel Tired After Long Screen Time?",
+    description: "Understand common causes of digital eye strain and measures that may help reduce discomfort during prolonged screen use.",
+  },
+  wtk1RA5bJvk: {
+    title: "Blurry Distance Vision After Long Hours at a Computer?",
+    description: "Learn about temporary focusing difficulties and why persistent changes in vision should be assessed by an eye care professional.",
+  },
+};
 
 export default function Page() {
-  const content = SERVICE_CONTENT.exams;
   const online = onlineBookingAvailable();
   const videos = videosFor("exams");
 
@@ -31,7 +59,7 @@ export default function Page() {
           <p className={styles.eyebrow}>Comprehensive Eye Examinations</p>
           <h1 id="exams-hero-h"><HeadingText>{content.h1}</HeadingText></h1>
           <p>{content.lead}</p>
-          <BookButton online={online} />
+          <BookButton online={online} label={online ? "Request an Eye Examination" : "Book an Eye Examination"} />
         </div>
       </div>
     </section>
@@ -42,7 +70,7 @@ export default function Page() {
     <section id="overview" className={styles.overview} aria-labelledby="overview-h">
       <div className="container">
         <div className={styles.overviewCenterHead}>
-          <p className={styles.eyebrow}>Comprehensive Eye Examinations</p>
+          <p className={styles.eyebrow}>Understanding Comprehensive Eye Examinations</p>
           <h2 id="overview-h"><HeadingText>{content.introHeading}</HeadingText></h2>
         </div>
         <div className={styles.overviewContentWrap}>
@@ -56,10 +84,11 @@ export default function Page() {
           </figure>
           <div className={styles.overviewText}>
             <p>{content.intro[0]}</p>
+            {content.intro.slice(1).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             <div className={styles.overviewHighlight}>
-              <p>{content.intro[1]}</p>
+              <p><strong>Eye Health Goes Beyond Clear Vision</strong></p>
+              <p>Clear vision alone cannot rule out eye disease. Regular examinations can help detect glaucoma, diabetic retinopathy and other eye conditions before you notice changes.</p>
             </div>
-            <p>{content.intro[2]}</p>
           </div>
         </div>
       </div>
@@ -73,8 +102,9 @@ export default function Page() {
       <section id="when" className={styles.reasons} aria-labelledby="when-h">
         <div className="container">
           <div className={styles.reasonsCenterHead}>
-            <p className={styles.eyebrow}>Know the signs</p>
+            <p className={styles.eyebrow}>Know When to Get Your Eyes Checked</p>
             <h2 id="when-h"><HeadingText>{content.seekHelp.heading}</HeadingText></h2>
+            <p>Regular eye examinations help identify visual changes and detect conditions that may develop without noticeable symptoms.</p>
           </div>
           <div className={styles.reasonsGrid}>
             {content.seekHelp.items.map((item) => (
@@ -97,7 +127,16 @@ export default function Page() {
               </div>
             ))}
             <div className={styles.reasonsUrgent}>
-              <strong className={styles.reasonsUrgentTitle}>Urgent Medical Attention:</strong>
+              <strong className={styles.reasonsUrgentTitle}>When to Seek Urgent Medical Attention</strong>
+              <p>Seek immediate medical assessment for any of these symptoms or injuries.</p>
+              <ul role="list">
+                {URGENT_SIGNS.map((sign) => (
+                  <li key={sign}>
+                    <TriangleAlert className={styles.reasonsUrgentIcon} aria-hidden="true" />
+                    <span>{sign}</span>
+                  </li>
+                ))}
+              </ul>
               <p>{content.seekHelp.note}</p>
             </div>
           </div>
@@ -109,7 +148,7 @@ export default function Page() {
         <div className="container">
           <div className={styles.centerHeading}>
             <p className={styles.eyebrow}>What to expect</p>
-            <h2 id="journey-h">What an <span className="title-secondary">assessment involves</span></h2>
+            <h2 id="journey-h">Your Comprehensive <span className="title-secondary">Eye Examination Journey</span></h2>
             <p>{content.journeyLead}</p>
           </div>
           <ol className={styles.journeyGrid}>
@@ -121,6 +160,11 @@ export default function Page() {
               </li>
             ))}
           </ol>
+          <div className={styles.overviewHighlight}>
+            <p><strong>Will my eyes be dilated during the examination?</strong></p>
+            <p>Dilating drops may help your ophthalmologist examine the retina and optic nerve. They can temporarily blur vision and increase light sensitivity. How long the effects last depends on the drops used and your response.</p>
+            <p>Bring sunglasses and consider arranging a ride or asking someone to accompany you. Avoid driving until the effects have worn off and your vision is safe for driving.</p>
+          </div>
         </div>
       </section>
     </>
@@ -131,28 +175,31 @@ export default function Page() {
     <section id="watch" className={styles.videoSection} aria-labelledby="watch-h">
       <div className="container">
         <div className={styles.centerHeading}>
-          <p className={styles.eyebrow}>Watch</p>
-          <h2 id="watch-h">Videos on <span className="title-secondary">this topic</span></h2>
+          <p className={styles.eyebrow}>Insights from Your Doctor</p>
+          <h2 id="watch-h">Understanding Your Eye Health <span className="title-secondary">with Dr. Poonam Jain</span></h2>
           <p>
-            Dr. Poonam Jain&apos;s centre shares short videos on its YouTube channel and in its own footage. Videos are general information, not a substitute for an examination. They complement the written information on this page.
+            Explore educational videos from Dr. Poonam Jain about digital eye strain, screen-related discomfort and the importance of appropriate examinations. These videos provide general information. Persistent vision changes warrant an eye examination, and sudden changes require urgent assessment.
           </p>
         </div>
         <div className={styles.videoGrid}>
-          {videos.map((item) => {
-            const props = playerProps(item);
-            return (
-              <ExamVideoCard
-                key={item.id}
-                videoId={props.videoId || ""}
-                title={item.title}
-                description={item.description}
-                poster={props.poster || "/images/eye-examination-thumbnail1.jpg"}
-                watchUrl={props.watchUrl || `https://www.youtube.com/watch?v=${props.videoId}`}
-                language={item.language}
-                category={item.category ? CATEGORY_LABEL[item.category] : undefined}
-              />
-            );
-          })}
+          <ServiceVideoCarousel>
+            {videos.map((item) => {
+              const props = playerProps(item);
+              const copy = props.videoId ? VIDEO_COPY[props.videoId] : undefined;
+              return (
+                <ExamVideoCard
+                  key={item.id}
+                  videoId={props.videoId || ""}
+                  title={copy?.title ?? item.title}
+                  description={copy?.description ?? item.description}
+                  poster={props.poster || "/images/eye-examination-thumbnail1.jpg"}
+                  watchUrl={props.watchUrl || `https://www.youtube.com/watch?v=${props.videoId}`}
+                  language={item.language}
+                  category={item.category ? CATEGORY_LABEL[item.category] : undefined}
+                />
+              );
+            })}
+          </ServiceVideoCarousel>
         </div>
       </div>
     </section>
@@ -163,7 +210,7 @@ export default function Page() {
   const faq = (
     <ServicesFaqSection
       items={faqs}
-      heading="Questions patients often ask"
+      heading={<>Questions <span className="title-secondary">patients often ask</span></>}
       lead="This page is general information, not medical advice. Your own eyes need to be examined before anyone can advise you."
       serviceStyle
       topic="exams"
@@ -178,9 +225,9 @@ export default function Page() {
     <HomeCta
       online={online}
       id="exams-cta"
-      kicker="Consultation"
-      heading="Speak to the centre about your eyes."
-      desc="Contact the centre to plan your visit or arrange an eye consultation."
+      heading="Book Your Comprehensive Eye Examination"
+      desc="Whether you are experiencing visual changes, need a routine eye check or want to understand your overall eye health, consult Dr. Poonam Jain for a detailed assessment and personalised guidance."
+      onlineBookingLabel="Request an Eye Examination"
     />
   );
 
@@ -199,12 +246,12 @@ export default function Page() {
       <section id="examParts" className={styles.bentoSection} aria-labelledby="fig-examParts-h">
         <div className="container">
           <div className={styles.bentoCenterHead}>
-            <p className={styles.eyebrow}>See it explained</p>
-            <h2 id="fig-examParts-h">What happens during a <span className="title-secondary">comprehensive eye examination</span></h2>
-            <p className={styles.leadText}>Each step checks a different part of your vision and eye health.</p>
+            <p className={styles.eyebrow}>Understanding the Examination</p>
+            <h2 id="fig-examParts-h">What Happens During a <span className="title-secondary">Comprehensive Eye Examination?</span></h2>
+            <p className={styles.leadText}>Different tests assess different aspects of your vision and eye health. Your ophthalmologist determines which tests are appropriate for you.</p>
           </div>
 
-          <div className={styles.bentoGrid}>
+          <ExamPartsCarousel>
             {/* Card 01: Top Left */}
             <article className={`${styles.bentoCard} ${styles.card01}`}>
               <div className={styles.bentoImgWrap}>
@@ -217,8 +264,8 @@ export default function Page() {
               </div>
               <span className={styles.bentoNumber} aria-hidden="true">01</span>
               <div className={styles.bentoOverlay}>
-                <h3 className={styles.bentoTitle}>How well you see</h3>
-                <p className={styles.bentoText}>Your vision is checked with and without spectacles.</p>
+                <h3 className={styles.bentoTitle}>Visual Acuity Assessment</h3>
+                <p className={styles.bentoText}>Measures how clearly you see at different distances, with or without your usual spectacles or contact lenses as appropriate.</p>
               </div>
             </article>
 
@@ -234,9 +281,9 @@ export default function Page() {
               </div>
               <span className={styles.bentoNumber} aria-hidden="true">02</span>
               <div className={styles.bentoOverlay}>
-                <h3 className={styles.bentoTitle}>Spectacle needs</h3>
+                <h3 className={styles.bentoTitle}>Refraction &amp; Spectacle Assessment</h3>
                 <p className={styles.bentoText}>
-                  Your eyes are tested to see whether glasses would help, or whether your prescription has changed.
+                  Checks for short-sightedness, long-sightedness and astigmatism to determine whether corrective lenses may improve your vision.
                 </p>
               </div>
             </article>
@@ -253,9 +300,9 @@ export default function Page() {
               </div>
               <span className={styles.bentoNumber} aria-hidden="true">03</span>
               <div className={styles.bentoOverlay}>
-                <h3 className={styles.bentoTitle}>Eye pressure</h3>
+                <h3 className={styles.bentoTitle}>Eye Pressure Measurement (Tonometry)</h3>
                 <p className={styles.bentoText}>
-                  The pressure inside the eye may be measured as part of looking for conditions such as glaucoma.
+                  Measures pressure inside the eye when clinically indicated. Normal eye pressure does not rule out glaucoma.
                 </p>
               </div>
             </article>
@@ -272,9 +319,9 @@ export default function Page() {
               </div>
               <span className={styles.bentoNumber} aria-hidden="true">04</span>
               <div className={styles.bentoOverlay}>
-                <h3 className={styles.bentoTitle}>The front of the eye</h3>
+                <h3 className={styles.bentoTitle}>Anterior Eye Examination</h3>
                 <p className={styles.bentoText}>
-                  The eyelids, the surface of the eye and the lens are examined.
+                  Examines the eyelids, conjunctiva, cornea, iris, anterior chamber and natural lens.
                 </p>
               </div>
             </article>
@@ -291,16 +338,26 @@ export default function Page() {
               </div>
               <span className={styles.bentoNumber} aria-hidden="true">05</span>
               <div className={styles.bentoOverlay}>
-                <h3 className={styles.bentoTitle}>The back of the eye</h3>
+                <h3 className={styles.bentoTitle}>Retina &amp; Optic Nerve Examination</h3>
                 <p className={styles.bentoText}>
-                  The retina and optic nerve are looked at, sometimes after drops that widen the pupil.
+                  Evaluates the retina, macula and optic nerve. Pupil dilation may be recommended for a more detailed view.
                 </p>
               </div>
             </article>
-          </div>
+            <article className={`${styles.bentoCard} ${styles.card06}`}>
+              <div className={styles.bentoImgWrap}>
+                <Image src="/images/squint/squint-hero.webp" alt="" fill sizes="(min-width: 768px) 75vw, 100vw" className={styles.bentoImg} />
+              </div>
+              <span className={styles.bentoNumber} aria-hidden="true">06</span>
+              <div className={styles.bentoOverlay}>
+                <h3 className={styles.bentoTitle}>Eye Alignment &amp; Coordination Assessment</h3>
+                <p className={styles.bentoText}>Evaluates eye movements, alignment and how well the eyes work together, especially when assessing squint, double vision or binocular vision concerns.</p>
+              </div>
+            </article>
+          </ExamPartsCarousel>
 
           <p className={styles.bentoNote}>
-            The tests used depend on your symptoms and age and are chosen by the doctor.
+            <strong>Note:</strong> The tests you need depend on your clinical findings, age, symptoms and individual risk factors.
           </p>
         </div>
       </section>

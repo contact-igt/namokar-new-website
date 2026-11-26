@@ -45,3 +45,44 @@
   background-image: url("/images/reconstructive/backgrounds/videos.webp");
 }
 
+.urgentCare {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(12px, 2vw, 24px);
+  margin-block: clamp(24px, 3vw, 44px);
+  padding: clamp(16px, 2.5vw, 32px);
+  border: 1px solid #efcfb9;
+  border-inline-start: 4px solid #aa481d;
+  border-radius: 16px;
+  background: #fff1e7;
+  color: #592b17;
+}
+
+.urgentIcon {
+  display: grid;
+  width: clamp(36px, 4vw, 52px);
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: #f9dbc7;
+  color: #963d16;
+}
+
+.urgentCare h2 {
+  margin: 0 0 8px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  line-height: 1.25;
+}
+
+.urgentCare p {
+  max-width: 85ch;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.urgentCare p + p {
+  margin-top: 8px;
+}
+

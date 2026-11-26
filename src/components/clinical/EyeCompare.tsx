@@ -15,7 +15,7 @@ export default function EyeCompare() {
         />
         <figcaption>
           <strong>Normal eye</strong>
-          <span>The lens is clear, so light passes through and focuses on the retina.</span>
+          <span>The clear natural lens works with the cornea to focus light onto the retina, supporting clear vision.</span>
         </figcaption>
       </figure>
       <figure className="eyecmp-panel">
@@ -29,7 +29,7 @@ export default function EyeCompare() {
         />
         <figcaption>
           <strong>Eye with a cataract</strong>
-          <span>The lens has become cloudy, so light is scattered and vision can look blurred or dim.</span>
+          <span>The cloudy natural lens scatters light and reduces how much passes through it. Vision can look blurred, dim or hazy.</span>
         </figcaption>
       </figure>
     </div>

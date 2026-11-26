@@ -76,50 +76,60 @@ const COPY: Record<
   { name: string; tag: string; title: string; text: string; points: string[] }
 > = {
   distance: {
-    name: "Monofocal",
+    name: "Monofocal IOL",
     tag: "One main focus",
     title: "One main focal distance",
     text: "A monofocal lens has one main focus, often chosen for distance. Spectacles may still be needed for other distances.",
     points: [
-      "One main point of focus",
-      "Often chosen for distance",
-      "Spectacles may still be needed",
+      "One main focal distance",
+      "Often selected for distance vision",
+      "Reading glasses may be required",
     ],
   },
   near: {
-    name: "Multifocal",
+    name: "Multifocal IOL",
     tag: "More than one focus",
     title: "More than one focal distance",
-    text: "A multifocal design distributes light across more than one focus. It can involve visual trade-offs, which need an individual discussion.",
+    text: "Designed to support vision at multiple distances and potentially reduce dependence on spectacles.",
     points: [
-      "Light shared across more than one focus",
-      "May involve visual trade-offs",
-      "Needs an individual discussion",
+      "May support distance and near vision",
+      "Intermediate vision depends on the design",
+      "Glare, halos or reduced contrast may occur",
+      "Suitability depends on individual eye health",
     ],
   },
   astigmatism: {
-    name: "Toric",
+    name: "Toric IOL",
     tag: "For astigmatism",
     title: "Addresses astigmatism",
     text: "A toric lens is designed to address corneal astigmatism. Toric features can be combined with other lens designs.",
     points: [
       "Designed for corneal astigmatism",
       "Can be combined with other designs",
-      "Measurements of the eye guide the choice",
+      "Requires accurate measurements and alignment",
     ],
   },
   edof: {
-    name: "EDOF",
+    name: "EDOF IOL",
     tag: "Extended range of focus",
     title: "An extended range of focus",
-    text: "An extended depth of focus design aims to give a continuous range of useful vision. Reading glasses may still be needed.",
+    text: "An extended depth of focus (EDOF) lens is designed to provide a broader continuous range of vision, commonly for distance and intermediate activities.",
     points: [
-      "Aims for a continuous range of useful vision",
+      "Extended range of focus",
+      "May reduce dependence on spectacles",
       "Reading glasses may still be needed",
-      "Suitability is decided after examination",
+      "Visual disturbances can occur",
     ],
   },
 };
+
+const COMPARISON = [
+  ["Distance vision", "Usually targeted", "Designed to support", "Designed to support"],
+  ["Intermediate vision", "Variable", "Design-dependent", "Usually supported"],
+  ["Near vision", "Glasses often required", "Designed to support", "Glasses may be required"],
+  ["Glare and halos", "Can occur", "More likely than with monofocal lenses", "Can occur"],
+  ["Astigmatism correction", "Toric variant", "Toric variant", "Toric variant"],
+] as const;
 
 /**
  * Four common replacement lens design terms as cards. Pending medical review
@@ -227,7 +237,7 @@ export default function LensDesigns() {
                     ))}
                   </ul>
                   <Link href={LINKS.contact} className="lens-card-cta">
-                    Discuss lens options{" "}
+                    Discuss Lens Options{" "}
                     <ArrowRightIcon width={18} height={18} />
                   </Link>
                 </div>
@@ -236,12 +246,30 @@ export default function LensDesigns() {
           ))}
         </Slider>
       </div>
+      <div className="lens-comparison">
+        <table>
+          <caption>Practical lens comparison</caption>
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col">Monofocal</th>
+              <th scope="col">Multifocal</th>
+              <th scope="col">EDOF</th>
+            </tr>
+          </thead>
+          <tbody>
+            {COMPARISON.map(([feature, ...values]) => (
+              <tr key={feature}>
+                <th scope="row">{feature}</th>
+                {values.map((value, index) => <td key={index}>{value}</td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <p className="clin-fine lens-fine">
         <InfoIcon width={24} height={24} />
-        <span>Which design, if any, suits you depends on your eyes, your daily
-        activities and your expectations. These simplified diagrams do not
-        predict your vision. No lens can promise that you will never need
-        spectacles.</span>
+        <span>Lens performance varies between individuals. These simplified diagrams show general lens categories for education. They do not represent exact optical performance or predict your surgical outcome.</span>
       </p>
     </div>
   );

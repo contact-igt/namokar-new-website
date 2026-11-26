@@ -1,14 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
-import { footerMore } from "@/config/routes";
+import { contentReady, footerMore, PAGES } from "@/config/routes";
 import { ARTICLES } from "@/content/articles";
 import { REVIEWS_ALLOWED, TESTIMONIALS } from "@/content/testimonials";
 import { libraryAvailable } from "@/content/videos";
-import { LINKS, MAPS_LINK, SERVICES, SITE, TEL_HREF } from "@/config/site";
+import { LINKS, MAPS_LINK, HOURS, SERVICES, SITE, TEL_HREF } from "@/config/site";
 import { PhoneIcon, PinIcon } from "./Icons";
 
 export default function Footer() {
   const more = footerMore({ articles: ARTICLES.length > 0, testimonials: REVIEWS_ALLOWED && TESTIMONIALS.length > 0, videos: libraryAvailable() });
+  const serviceGroups = [
+    {
+      title: "Comprehensive Eye Care",
+      links: [
+        ...SERVICES.filter(({ group }) => group === "vision").map(({ title, href }) => ({ title, href })),
+        { title: PAGES.squint.label, href: PAGES.squint.path },
+      ],
+    },
+    {
+      title: "Specialised Oculoplasty",
+      links: SERVICES.filter(({ group }) => group === "oculoplasty"),
+    },
+  ];
   return (
     <footer className="site-footer">
       <div className="container footer-grid">
@@ -24,9 +37,10 @@ export default function Footer() {
             />
           </Link>
           <p>
-            Comprehensive eye care with specialist oculoplasty, led by Dr. Poonam Jain
-            in {SITE.area}.
+            {SITE.name} provides comprehensive ophthalmic care and specialised functional, reconstructive and aesthetic oculoplasty, led by Dr. Poonam Jain
+            in {SITE.area}, India.
           </p>
+          <p><strong>See Better. Look Better.</strong></p>
         </div>
 
         <nav aria-label="Footer" className="footer-col">
@@ -46,21 +60,29 @@ export default function Footer() {
 
         <nav aria-label="Services" className="footer-col">
           <h2 className="footer-h">Our Services</h2>
-          <ul>
-            {SERVICES.map((s) => (
-              <li key={s.key}><Link href={s.href}>{s.title}</Link></li>
-            ))}
-          </ul>
+          {serviceGroups.map(({ title, links }) => (
+            <div key={title}>
+              <h3>{title}</h3>
+              <ul>
+                {links.map((service) => (
+                  <li key={service.href}><Link href={service.href}>{service.title}</Link></li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </nav>
 
         <address className="footer-col footer-contact">
           <h2 className="footer-h">Contact Us</h2>
           <p>
+            <span>{SITE.name}<br /></span>
             {SITE.address.lines.map((l) => (
               <span key={l}>{l}<br /></span>
             ))}
+            <span>India</span>
             <span className="footer-landmark">{SITE.address.landmark}</span>
           </p>
+          {HOURS.approved && HOURS.text && <p>Consultation Hours: {HOURS.text}</p>}
           <ul>
             <li>
               <a href={TEL_HREF}><PhoneIcon width={18} height={18} />{SITE.phone.display}</a>
@@ -77,8 +99,8 @@ export default function Footer() {
       <div className="container footer-base">
         <p>© 2026 {SITE.name}. All rights reserved.</p>
         <nav aria-label="Legal" className="footer-legal">
-          <Link href={LINKS.privacy}>Privacy Policy</Link>
-          <Link href={LINKS.terms}>Terms of Use</Link>
+          {contentReady("privacy") && <Link href={LINKS.privacy}>Privacy Policy</Link>}
+          {contentReady("terms") && <Link href={LINKS.terms}>Terms of Use</Link>}
         </nav>
       </div>
     </footer>

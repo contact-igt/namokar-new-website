@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { pageMeta, withBrand } from "@/lib/seo";
+import { Suspense } from "react";
+import { pageMeta } from "@/lib/seo";
+import { SERVICE_OPTIONS } from "@/lib/appointment";
 import AppointmentForm from "@/components/AppointmentForm";
 import {
   CalendarIcon,
@@ -27,13 +29,11 @@ import { clinic, faqPage, ids, webPage } from "@/lib/schema";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = pageMeta("contact", {
-  title: withBrand("Contact Us"),
+  title: "Contact Namokar Eye & Oculoplasty Centre, Delhi",
   description:
-    "Contact Namokar Eye & Oculoplasty Centre in Ashok Vihar, New Delhi: call the centre, get directions and plan your visit or eye consultation.",
+    `Contact Namokar Eye & Oculoplasty Centre in Ashok Vihar, Delhi, to arrange an eye consultation with Dr. Poonam Jain. Call ${SITE.phone.display}.`,
 });
 
-// Server-side decision: needs APPOINTMENT_FORM_ENABLED=on and a delivery endpoint. No public flag.
-const formOn = onlineBookingAvailable();
 const hoursText = HOURS.approved && HOURS.text ? HOURS.text : null;
 
 const addressString = SITE.address.lines.join(", ");
@@ -41,46 +41,35 @@ const addressWithLandmark = SITE.address.landmark
   ? `${addressString}, ${SITE.address.landmark}`
   : addressString;
 
-const FAQS = [
-  {
-    q: "How can I request an appointment?",
-    a: formOn
-      ? `Call the centre on ${SITE.phone.display}, or send a request using the form on this page. A request is not a confirmed appointment.`
-      : `Please call the centre on ${SITE.phone.display} to ask about arranging an eye consultation. Online appointment requests are not available yet.`,
-  },
-  {
-    q: "Where is Namokar located?",
-    a: `Namokar Eye & Oculoplasty Centre is at ${addressString}, in ${SITE.area}.`,
-  },
-  {
-    q: "Can I call before visiting?",
-    a: `Yes. You can call the centre on ${SITE.phone.display} to ask about an appointment or about what to bring.`,
-  },
-  {
-    q: "How do I find the centre?",
-    a: `The address is ${addressWithLandmark}. Use the Get Directions button on this page to open the address in Google Maps.`,
-  },
+const CONFIRMATION = "Your appointment is confirmed once the centre provides the consultation date and time.";
+const HOURS_GUIDANCE = "Please contact our reception team to confirm consultation hours and Dr. Poonam Jain's availability before visiting.";
+const PRIVACY_GUIDANCE = "Ask reception for the approved way to share medical records. Avoid sending sensitive information through general enquiry forms or unverified channels.";
+
+const contactFaqs = (formOn: boolean) => [
+  { q: "How can I arrange an appointment at Namokar?", a: `Call ${SITE.name} on ${SITE.phone.display}. Our reception team will help arrange a suitable consultation.` },
+  { q: "Can I book an appointment online?", a: formOn ? `You can send a consultation request using the form on this page. ${CONFIRMATION}` : "Appointments are currently arranged by phone. Please call reception to confirm a date and time." },
+  ...(CHANNELS.whatsapp ? [{ q: "Can I contact the centre through WhatsApp?", a: `Use the WhatsApp link on this page for general enquiries. ${CONFIRMATION}` }] : []),
+  { q: "What are the consultation timings?", a: hoursText ? `${hoursText}. Call reception to confirm doctor availability.` : HOURS_GUIDANCE },
+  { q: "Where is Namokar Eye & Oculoplasty Centre located?", a: `The centre is at ${addressWithLandmark}. Use the Google Maps link on this page for directions.` },
+  { q: "What should I bring to my first consultation?", a: "Bring your current spectacles or contact lens details, previous eye reports, prescriptions, relevant medical records, and a list of medicines and eye drops." },
+  { q: "Can I consult Dr. Poonam Jain for general eye problems as well as oculoplasty?", a: "Yes. Namokar provides comprehensive ophthalmic care and specialised functional, reconstructive and aesthetic oculoplasty. Your assessment and treatment options depend on your clinical needs." },
+  { q: "Will I need someone to accompany me?", a: "A companion may help, particularly if pupil dilation, surgery or a procedure requiring assistance is planned. Ask the centre before visiting." },
+  { q: "Can patients from outside Delhi or overseas arrange a consultation?", a: "Yes. Contact the centre before travelling to discuss availability, consultation requirements and treatment arrangements." },
+  { q: "What are the consultation charges?", a: "Ask reception for current consultation charges and any additional examination or diagnostic costs." },
+  { q: "Does the centre accept health insurance or cashless payments?", a: "Check with the centre and your insurer about coverage, accepted payment methods and any cashless arrangements." },
+  { q: "Can I share previous medical reports before visiting?", a: PRIVACY_GUIDANCE },
+  { q: "What should I do if I have an eye emergency?", a: "Seek immediate emergency care for sudden vision loss, severe eye pain, significant injury, new flashes or a sudden increase in floaters. Do not wait for a routine appointment or a message response." },
 ];
 
-const VISIT = [
-  {
-    title: "Where we are",
-    text: `${addressWithLandmark}.`,
-  },
-  {
-    title: "Reaching reception",
-    text: `Call ${SITE.phone.display}. Opening hours are not listed on this page yet, so please call to ask about arranging a visit.`,
-  },
-  {
-    title: "Requesting an appointment",
-    text: formOn
-      ? "Call the centre or send a request using the form on this page. The centre will confirm a time with you; a request alone is not a booking."
-      : "Please call the centre. Online appointment requests are not available yet.",
-  },
-  {
-    title: "Before you come",
-    text: "It helps to bring previous prescriptions, eye reports, your current spectacles and a list of the medicines you take. A relative or friend can come with you if that makes the visit easier.",
-  },
+const PREPARATION = [
+  "Current spectacles or contact lens details",
+  "Previous spectacle prescriptions and eye examination reports",
+  "Details of previous eye or eyelid surgery and ongoing treatment",
+  "A list of medicines and eye drops",
+  "Relevant medical reports and details of existing conditions",
+  "Allergies or medication reactions",
+  "Questions or symptoms you want to discuss",
+  "Sunglasses if pupil dilation is anticipated",
 ];
 
 function ClockIcon() {
@@ -97,43 +86,6 @@ function ClockIcon() {
     >
       <circle cx="12" cy="12" r="9" />
       <path d="M12 7v5l3 3" />
-    </svg>
-  );
-}
-
-function TeamIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <circle cx="9" cy="8" r="3" />
-      <circle cx="17" cy="9" r="2.5" />
-      <path d="M3.5 20a5.5 5.5 0 0 1 11 0M14 20a4 4 0 0 1 7-1.5" />
-    </svg>
-  );
-}
-
-function DocumentIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <rect x="5" y="4" width="14" height="17" rx="2" />
-      <path d="M9 3h6v4H9zM9 11h6M9 15h6M9 18h3" />
     </svg>
   );
 }
@@ -157,75 +109,24 @@ function ChecklistIcon() {
   );
 }
 
-function CalendarVisual() {
+type ContactSearchParams = Promise<{ service?: string | string[] }>;
+
+async function ConsultationForm({ searchParams, preview }: { searchParams: ContactSearchParams; preview: boolean }) {
+  const { service } = await searchParams;
+  const initialService = SERVICE_OPTIONS.find(({ value }) => value === service)?.value;
   return (
-    <div className={styles.calendarVisualWrap} aria-hidden="true">
-      <div className={styles.calendarGlow} />
-      <svg
-        className={styles.calendarSvg}
-        viewBox="0 0 260 260"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        focusable="false"
-      >
-        <defs>
-          <filter id="calShadow" x="-15%" y="-10%" width="135%" height="135%">
-            <feDropShadow dx="0" dy="14" stdDeviation="16" floodColor="#84370a" floodOpacity="0.16" />
-          </filter>
-          <filter id="clockShadow" x="-25%" y="-25%" width="150%" height="150%">
-            <feDropShadow dx="0" dy="8" stdDeviation="10" floodColor="#84370a" floodOpacity="0.22" />
-          </filter>
-          <linearGradient id="calBg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#ffffff" />
-            <stop offset="100%" stopColor="#fffaf6" />
-          </linearGradient>
-          <linearGradient id="calHeader" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#e26a20" />
-            <stop offset="100%" stopColor="#c45110" />
-          </linearGradient>
-          <linearGradient id="clockRing" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#ea752c" />
-            <stop offset="100%" stopColor="#bf4c0c" />
-          </linearGradient>
-        </defs>
-
-        {/* Calendar Body */}
-        <g filter="url(#calShadow)">
-          {/* Card Base */}
-          <rect x="25" y="45" width="160" height="165" rx="28" fill="url(#calBg)" stroke="#f5e4d7" strokeWidth="2" />
-          {/* Calendar Header Band */}
-          <path
-            d="M 25 73 C 25 57.536 37.536 45 53 45 L 157 45 C 172.464 45 185 57.536 185 73 L 185 88 L 25 88 Z"
-            fill="url(#calHeader)"
-          />
-          {/* Binder Tabs */}
-          <rect x="62" y="34" width="16" height="22" rx="8" fill="#ffffff" stroke="#c45110" strokeWidth="3" />
-          <rect x="132" y="34" width="16" height="22" rx="8" fill="#ffffff" stroke="#c45110" strokeWidth="3" />
-
-          {/* Calendar Day Squares (3x3 grid) */}
-          <rect x="52" y="108" width="20" height="20" rx="6" fill="#fde5d4" />
-          <rect x="95" y="108" width="20" height="20" rx="6" fill="#fde5d4" />
-          <rect x="138" y="108" width="20" height="20" rx="6" fill="#fde5d4" />
-          <rect x="52" y="138" width="20" height="20" rx="6" fill="#fde5d4" />
-          <rect x="95" y="138" width="20" height="20" rx="6" fill="#df671b" />
-          <rect x="138" y="138" width="20" height="20" rx="6" fill="#fde5d4" />
-          <rect x="52" y="168" width="20" height="20" rx="6" fill="#fde5d4" />
-          <rect x="95" y="168" width="20" height="20" rx="6" fill="#fde5d4" />
-        </g>
-
-        {/* Clock Overlap at Bottom Right */}
-        <g filter="url(#clockShadow)">
-          <circle cx="180" cy="188" r="46" fill="#ffffff" stroke="url(#clockRing)" strokeWidth="9" />
-          <circle cx="180" cy="188" r="5" fill="#c45110" />
-          <line x1="180" y1="188" x2="194" y2="166" stroke="#c45110" strokeWidth="4.5" strokeLinecap="round" />
-          <line x1="180" y1="188" x2="204" y2="188" stroke="#c45110" strokeWidth="4" strokeLinecap="round" />
-        </g>
-      </svg>
-    </div>
+    <AppointmentForm
+      privacyUrl={PRIVACY_URL ?? undefined}
+      initialService={initialService}
+      preview={preview}
+    />
   );
 }
 
-export default function ContactPage() {
+export default function ContactPage({ searchParams }: { searchParams: ContactSearchParams }) {
+  const formOn = onlineBookingAvailable();
+  const previewForm = !formOn && process.env.NODE_ENV === "development";
+  const faqs = contactFaqs(formOn);
   return (
     <main id="main" className={styles.page}>
       <JsonLd
@@ -239,7 +140,7 @@ export default function ContactPage() {
             mainEntityId: ids.clinic,
           }),
           clinic(),
-          faqPage(PAGES.contact.path, FAQS),
+          faqPage(PAGES.contact.path, faqs),
         ]}
       />
 
@@ -252,11 +153,14 @@ export default function ContactPage() {
             <span className={styles.breadcrumbCurrent} aria-current="page">Contact Us</span>
           </nav>
           <div className={styles.heroCopy}>
-            <h1 id="contact-hero-h" className={styles.heroTitle}>We&apos;re Here <span className="title-secondary">to Help.</span></h1>
+            <p className={styles.eyebrow}>Contact Us</p>
+            <h1 id="contact-hero-h" className={styles.heroTitle}>Your Eye Care <span className="title-secondary">Journey Begins Here</span></h1>
             <div className={styles.heroTitleBar} aria-hidden="true" />
             <p className={styles.heroLead}>
-              Contact Namokar Eye &amp; Oculoplasty Centre to plan your visit or arrange an eye consultation.
+              Connect with Namokar Eye &amp; Oculoplasty Centre for comprehensive eye care, specialised oculoplasty and personalised treatment guidance.
             </p>
+            <p className={styles.heroLead}>Contact our team to arrange a consultation with Dr. Poonam Jain or plan your visit to Ashok Vihar, New Delhi.</p>
+            <p className={styles.heroLead}><strong>See Better. Look Better.</strong></p>
           </div>
         </div>
       </section>
@@ -270,7 +174,7 @@ export default function ContactPage() {
                 <PhoneIcon width={26} height={26} className={styles.actionIconPrimary} />
                 <span className={styles.actionText}>
                   <span className={styles.actionTitle}>Call the Centre</span>
-                  <span className={styles.actionSub}>{SITE.phone.display}</span>
+                  <span className={styles.actionSub}>{SITE.phone.display}<br />Appointments &amp; enquiries</span>
                 </span>
               </a>
             </li>
@@ -287,7 +191,7 @@ export default function ContactPage() {
                     Get Directions
                     <span className="sr-only"> (opens in a new tab)</span>
                   </span>
-                  <span className={styles.actionSub}>Opens Google Maps</span>
+                  <span className={styles.actionSub}>Find us in Ashok Vihar<br />Open Google Maps</span>
                 </span>
               </a>
             </li>
@@ -302,10 +206,10 @@ export default function ContactPage() {
                   <MessageIcon width={26} height={26} className={styles.actionIconSecondary} />
                   <span className={styles.actionText}>
                     <span className={styles.actionTitle}>
-                      WhatsApp
+                      WhatsApp Enquiry
                       <span className="sr-only"> (opens in a new tab)</span>
                     </span>
-                    <span className={styles.actionSub}>Message the centre</span>
+                    <span className={styles.actionSub}>Contact our team for general enquiries</span>
                   </span>
                 </a>
               </li>
@@ -315,7 +219,7 @@ export default function ContactPage() {
                 <a href="#request" className={`${styles.actionCard} ${styles.actionCardSecondary}`}>
                   <CalendarIcon width={26} height={26} className={styles.actionIconSecondary} />
                   <span className={styles.actionText}>
-                    <span className={styles.actionTitle}>Request Appointment</span>
+                    <span className={styles.actionTitle}>Request a Consultation</span>
                     <span className={styles.actionSub}>Send a short enquiry</span>
                   </span>
                 </a>
@@ -336,9 +240,10 @@ export default function ContactPage() {
           {!formOn && (
             <p className={styles.actionsNote}>
               <InfoIcon width={17} height={17} aria-hidden="true" />
-              <span>Appointments are arranged by phone. Online appointment requests are not available yet.</span>
+              <span>Appointments are currently arranged by phone. Please contact reception to confirm consultation availability and timings.</span>
             </p>
           )}
+          {CHANNELS.whatsapp && <p className={styles.actionsNote}>WhatsApp is for general enquiries. {CONFIRMATION} For an eye emergency, seek immediate medical care.</p>}
         </div>
       </section>
 
@@ -348,7 +253,8 @@ export default function ContactPage() {
           <div className={styles.findUsGrid}>
             <div className={styles.findUsInfo}>
               <p className={styles.eyebrow}>Find us</p>
-              <h2 id="loc-h" className={styles.findUsHeading}>Namokar Eye &amp; <span className="title-secondary">Oculoplasty Centre</span></h2>
+              <h2 id="loc-h" className={styles.findUsHeading}>Visit Namokar Eye &amp; <span className="title-secondary">Oculoplasty Centre</span></h2>
+              <p>Our Ashok Vihar centre provides comprehensive ophthalmic care and specialised functional, reconstructive and aesthetic oculoplasty. Confirm your consultation time before visiting.</p>
             </div>
             <div className={styles.mapCard}>
               <MapEmbed />
@@ -361,6 +267,7 @@ export default function ContactPage() {
                   <div className={styles.contactDetails}>
                     <span className={styles.contactLabel}>Address</span>
                     <address className={styles.contactText}>
+                      <strong>{SITE.name}</strong><br />
                       {SITE.address.lines.map((l) => (
                         <span key={l}>{l}<br /></span>
                       ))}
@@ -378,6 +285,7 @@ export default function ContactPage() {
                     <span className={styles.contactLabel}>Telephone</span>
                     <div className={styles.contactText}>
                       <a href={TEL_HREF}>{SITE.phone.display}</a>
+                      <p className={styles.contactNote}>For appointments and general enquiries.</p>
                     </div>
                   </div>
                 </li>
@@ -399,9 +307,9 @@ export default function ContactPage() {
                     <ClockIcon />
                   </div>
                   <div className={styles.contactDetails}>
-                    <span className={styles.contactLabel}>Opening hours</span>
+                    <span className={styles.contactLabel}>Consultation Timings</span>
                     <p className={styles.contactText}>
-                      {hoursText ?? "Not listed here yet. Please call the centre to ask."}
+                      {hoursText ?? HOURS_GUIDANCE}
                     </p>
                   </div>
                 </li>
@@ -417,13 +325,17 @@ export default function ContactPage() {
             <div className={styles.appointmentsCopy}>
               <p className={styles.eyebrow}>Appointments</p>
               <h2 id="request-h" className={styles.appointmentsTitle}>
-                {formOn ? "Request an appointment" : "Arranging an Appointment"}
+                {formOn ? "Request a Consultation" : "Book Your Eye Consultation"}
               </h2>
               <p className={styles.appointmentsLead}>
-                {formOn
-                  ? "Leave your name and number and the centre may contact you to discuss a suitable time. This is a request, not a confirmed appointment."
-                  : "At present, appointments are arranged by phone. Please call the centre and the team will help you."}
+                Arrange a consultation for routine eye examinations, specialised ophthalmic treatment or functional and aesthetic oculoplasty. Reception can help confirm availability and explain how to prepare.
               </p>
+              <ol>
+                <li><strong>Contact Our Centre.</strong> {formOn ? "Call reception or use the form to request a consultation." : "Call reception and briefly explain the purpose of your visit."}</li>
+                <li><strong>Confirm Your Appointment.</strong> Agree on a consultation date and time with the centre.</li>
+                <li><strong>Prepare for Your Visit.</strong> Bring relevant reports, prescriptions and medical information.</li>
+              </ol>
+              <p className={styles.appointmentsLead}>{CONFIRMATION}</p>
               <figure className={styles.appointmentPhoto}>
                 <Image
                   src="/images/ChatGPT Image Nov 13, 2026, 04_12_12 PM.png"
@@ -433,15 +345,22 @@ export default function ContactPage() {
                   className={styles.appointmentPhotoImage}
                 />
               </figure>
-              {!formOn && (
-                <a href={TEL_HREF} className={styles.callAppointmentBtn}>
-                  <PhoneIcon width={20} height={20} />
-                  Call {SITE.phone.display}
-                </a>
-              )}
             </div>
             <div className={styles.formCard}>
-              <AppointmentForm privacyUrl={PRIVACY_URL} />
+              {formOn || previewForm ? (
+                <Suspense fallback={<p>Loading consultation form…</p>}>
+                  <ConsultationForm searchParams={searchParams} preview={previewForm} />
+                </Suspense>
+              ) : (
+                <>
+                  <h3 className={styles.appointmentsTitle}>Book by Phone</h3>
+                  <p className={styles.appointmentsLead}>Call reception to check availability and arrange your consultation.</p>
+                  <a href={TEL_HREF} className={styles.callAppointmentBtn}>
+                    <PhoneIcon width={20} height={20} />
+                    {SITE.phone.display}
+                  </a>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -450,49 +369,25 @@ export default function ContactPage() {
       {/* 5. PLAN YOUR VISIT / BEFORE YOU VISIT */}
       <section id="visit" className={styles.visitSection} aria-labelledby="visit-h">
         <div className="container">
-          <div className={styles.visitLayout}>
-            <div className={styles.calendarVisualCol}>
-              <CalendarVisual />
+          <p className={styles.eyebrow}>Plan your visit</p>
+          <h2 id="visit-h" className={styles.visitHeading}>Preparing for Your <span className="title-secondary">Eye Consultation</span></h2>
+          <div className={styles.visitCardsGrid}>
+            <div className={styles.visitCard}>
+              <div className={styles.visitIconCircle} aria-hidden="true"><ChecklistIcon /></div>
+              <h3 className={styles.visitCardTitle}>What to Bring</h3>
+              <ul className={styles.visitList}>
+                {PREPARATION.map((item) => <li key={item}>{item}</li>)}
+              </ul>
             </div>
-            <div className={styles.visitContentCol}>
-              <p className={styles.eyebrow}>Plan your visit</p>
-              <h2 id="visit-h" className={styles.visitHeading}>Before you <span className="title-secondary">visit</span></h2>
-              <div className={styles.visitCardsGrid}>
-                <div className={styles.visitCard}>
-                  <div className={styles.visitIconCircle} aria-hidden="true">
-                    <PinIcon width={22} height={22} />
-                  </div>
-                  <h3 className={styles.visitCardTitle}>{VISIT[0].title}</h3>
-                  <p className={styles.visitCardText}>{VISIT[0].text}</p>
-                </div>
-                <div className={styles.visitCard}>
-                  <div className={styles.visitIconCircle} aria-hidden="true">
-                    <TeamIcon />
-                  </div>
-                  <h3 className={styles.visitCardTitle}>{VISIT[1].title}</h3>
-                  <p className={styles.visitCardText}>{VISIT[1].text}</p>
-                </div>
-                <div className={styles.visitCard}>
-                  <div className={styles.visitIconCircle} aria-hidden="true">
-                    <DocumentIcon />
-                  </div>
-                  <h3 className={styles.visitCardTitle}>{VISIT[2].title}</h3>
-                  <p className={styles.visitCardText}>{VISIT[2].text}</p>
-                </div>
-              </div>
-              {VISIT[3] && (
-                <div className={styles.visitCardSpan}>
-                  <div className={styles.visitIconCircle} aria-hidden="true">
-                    <ChecklistIcon />
-                  </div>
-                  <div className={styles.visitCardSpanContent}>
-                    <h3 className={styles.visitCardTitle}>{VISIT[3].title}</h3>
-                    <p className={styles.visitCardText}>{VISIT[3].text}</p>
-                  </div>
-                </div>
-              )}
+            <div className={styles.visitCard}>
+              <div className={styles.visitIconCircle} aria-hidden="true"><ClockIcon /></div>
+              <h3 className={styles.visitCardTitle}>What to Plan For</h3>
+              <p className={styles.visitCardText}>Allow time for your examination and any recommended tests. You may bring a companion if you need assistance.</p>
+              <p className={styles.visitCardText}>Continue prescribed medicines and eye drops unless your treating doctor advises a change.</p>
+              <p className={styles.visitCardText}>Pupil dilation can temporarily blur your vision and increase light sensitivity. Arrange a ride if needed, and wait until your vision is safe before driving.</p>
             </div>
           </div>
+          {PRIVACY_URL && <Link href={PRIVACY_URL} className="text-link">Privacy Policy</Link>}
         </div>
       </section>
 
@@ -505,7 +400,7 @@ export default function ContactPage() {
               <h2 id="faq-h" className={styles.faqHeading}>Contact and <span className="title-secondary">Visiting</span></h2>
             </div>
             <div className={styles.faqList}>
-              {FAQS.map((f) => (
+              {faqs.map((f) => (
                 <details key={f.q} className={styles.faqItem}>
                   <summary className={styles.faqSummary}>
                     <span>{f.q}</span>

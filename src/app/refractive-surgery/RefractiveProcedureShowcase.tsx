@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useId, useState } from "react";
+import { ChevronDownIcon } from "@/components/Icons";
 import RefractiveIcon, { type RefractiveIconName } from "./RefractiveIcon";
 import styles from "./RefractiveProcedureShowcase.module.css";
 
@@ -27,14 +28,18 @@ export default function RefractiveProcedureShowcase({ procedures }: { procedures
       }}><RefractiveIcon name={icons[index]} />{procedure.title}</button>)}
     </div>
     <div className={styles.stage}>
-      <button type="button" className={styles.arrow} aria-label="Previous procedure" onClick={() => select(active - 1)}>‹</button>
+      <button type="button" className={styles.arrow} aria-label="Previous procedure" onClick={() => select(active - 1)}>
+        <ChevronDownIcon aria-hidden="true" className={styles.previousIcon} />
+      </button>
       <div id={`${id}-panel`} role="tabpanel" aria-labelledby={`${id}-tab-${active}`} className={styles.panel}>
         <div key={current.title} className={styles.panelInner}>
-          <Image src={current.visual} alt={current.alt} width={960} height={640} sizes="(max-width: 767px) 90vw, 45vw" />
+          <Image src={current.visual} alt={current.alt} width={960} height={540} sizes="(max-width: 767px) 90vw, 45vw" />
           <div className={styles.copy}><span>{current.tag}</span><h3>{current.title}</h3><p>{current.desc}</p></div>
         </div>
       </div>
-      <button type="button" className={styles.arrow} aria-label="Next procedure" onClick={() => select(active + 1)}>›</button>
+      <button type="button" className={styles.arrow} aria-label="Next procedure" onClick={() => select(active + 1)}>
+        <ChevronDownIcon aria-hidden="true" className={styles.nextIcon} />
+      </button>
     </div>
   </div>;
 }

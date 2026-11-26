@@ -1,8 +1,11 @@
+import { PRIVACY_URL } from "@/config/site";
+
 /**
  * Server-side booking configuration. Import this only from server code (pages, layouts,
  * route handlers); it reads server-only environment variables.
  *
- * Online appointment requests exist only when the explicit release switch is on.
+ * Online appointment requests require a published Privacy Policy and the explicit
+ * release switch. Enable the switch after confirming that enquiry delivery works.
  * Delivery goes to PulseOS when INVICTUS_NAMOKAR_LEADS_URL is configured to its
  * /forms/website/<connectorId> intake URL, with the server-side Google Sheets
  * fallback used when that service is unavailable.
@@ -24,5 +27,5 @@ export function webhookTarget(): URL | null {
 }
 
 export function onlineBookingAvailable(): boolean {
-  return process.env.APPOINTMENT_FORM_ENABLED === "on";
+  return PRIVACY_URL !== null && process.env.APPOINTMENT_FORM_ENABLED === "on";
 }

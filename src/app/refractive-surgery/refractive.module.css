@@ -35,10 +35,8 @@
 }
 
 .heroCopy {
-  width: 54%;
-  max-width: 650px;
   width: 51%;
-  max-width: 640px;
+  max-width: 680px;
   padding-block: 16px;
   position: relative;
   z-index: 2;

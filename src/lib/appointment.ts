@@ -5,12 +5,16 @@
  */
 
 export const SERVICE_OPTIONS = [
-  { value: "", label: "Not sure / general consultation" },
+  { value: "", label: "Select a service" },
+  { value: "exams", label: "Comprehensive Eye Examination" },
   { value: "cataract", label: "Cataract Surgery" },
+  { value: "retina", label: "Retina Care & Surgery" },
+  { value: "lasik", label: "LASIK & Refractive Surgery" },
+  { value: "glaucoma", label: "Glaucoma Management" },
+  { value: "eyelid", label: "Eyelid Surgery" },
   { value: "aesthetic", label: "Aesthetic Oculoplasty" },
   { value: "reconstructive", label: "Reconstructive Oculoplasty" },
-  { value: "glaucoma", label: "Glaucoma Management" },
-  { value: "exams", label: "Comprehensive Eye Examination" },
+  { value: "other", label: "Not Sure / Other Concerns" },
 ] as const;
 
 export type FieldName = "name" | "phone" | "email" | "service" | "preferredDate" | "message" | "consent";

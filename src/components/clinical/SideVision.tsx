@@ -7,9 +7,9 @@ import Segmented from "./Segmented";
 type Stage = "typical" | "early" | "advanced";
 const R: Record<Stage, string> = { typical: "110%", early: "72%", advanced: "34%" };
 const COPY: Record<Stage, string> = {
-  typical: "The whole scene is in view, including its edges.",
-  early: "The outer edges begin to fade. Because the centre stays clear, this is often not noticed at first.",
-  advanced: "Much of the side vision has gone and the view narrows towards the centre.",
+  typical: "The surrounding scene is visible across a broad field of vision.",
+  early: "This view illustrates reduced sensitivity in part of the visual field. Early changes can go unnoticed.",
+  advanced: "This view illustrates how extensive peripheral vision loss can leave a narrower area of useful vision.",
 };
 
 /**
@@ -27,20 +27,16 @@ export default function SideVision() {
       </div>
       <div className="clin-row">
         <Segmented
-          label="Side vision over time"
+          label="Simulated visual field changes"
           value={stage}
           onChange={setStage}
           options={[
-            { value: "typical", label: "Typical view" },
-            { value: "early", label: "Early narrowing" },
-            { value: "advanced", label: "Advanced narrowing" },
+            { value: "typical", label: "Typical Vision" },
+            { value: "early", label: "Early Visual Field Changes" },
+            { value: "advanced", label: "Advanced Visual Field Loss" },
           ]}
         />
         <p className="clin-cue" aria-live="polite">{COPY[stage]}</p>
-        <p className="clin-fine">
-          Vision lost to glaucoma does not come back, and early on most people notice nothing.
-          Regular examination is how it is found, and how any change is caught.
-        </p>
       </div>
     </div>
   );

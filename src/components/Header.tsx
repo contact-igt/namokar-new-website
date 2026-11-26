@@ -9,7 +9,7 @@ import { SITE, TEL_HREF } from "@/config/site";
 import BookButton from "./BookButton";
 import { ChevronDownIcon, CloseIcon, MenuIcon, PhoneIcon } from "./Icons";
 
-const DESKTOP_QUERY = "(min-width: 960px)";
+const DESKTOP_QUERY = "(width > 1130px)";
 
 /**
  * Site header. Dropdowns are real buttons (tap, Enter, Space, Arrow keys, Escape), open on
@@ -139,6 +139,16 @@ export default function Header({ online, nav }: { online: boolean; nav: NavItem[
 
   return (
     <header className="site-header" ref={headerRef} onKeyDown={onKeyDown}>
+      {menuOpen && (
+        <div
+          className="nav-backdrop"
+          aria-hidden="true"
+          onClick={() => {
+            closeAll();
+            toggleRef.current?.focus();
+          }}
+        />
+      )}
       <div className="container">
         <div className="header-bar">
           <Link href="/" className="brand" aria-label={`${SITE.name}, home`}>
@@ -148,7 +158,7 @@ export default function Header({ online, nav }: { online: boolean; nav: NavItem[
               width={819}
               height={230}
               loading="eager"
-              sizes="160px"
+              sizes="(width > 1130px) clamp(196px, 14.75vw, 212px), clamp(156px, 47vw, 196px)"
             />
           </Link>
 

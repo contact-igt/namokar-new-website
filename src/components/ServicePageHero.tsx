@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import { LINKS } from "@/config/site";
-import { CalendarIcon } from "./Icons";
+import { ArrowRightIcon, CalendarIcon } from "./Icons";
 import styles from "./ServicePageHero.module.css";
 
 /** Eye icon matching reference */
@@ -80,9 +80,9 @@ interface ServicePageHeroProps {
 export default function ServicePageHero({
   crumb = "Cataract Surgery",
   kicker = "CATARACT SURGERY",
-  titleLine1 = "Clear Vision,",
-  titleLine2 = "Brighter Life.",
-  body = "Advanced cataract surgery with precision technology to help you see the world clearly again.",
+  titleLine1 = "Cataract Surgery",
+  titleLine2 = "for Clearer Vision",
+  body = "Personalised cataract assessment, with care planned around your eye health and visual needs.",
   primaryLabel = "Learn About Cataract Surgery",
   primaryHref = "#overview",
   secondaryLabel = "Book a Consultation",
@@ -124,20 +124,21 @@ export default function ServicePageHero({
 
               {/* Two-line heading with the shared secondary accent */}
               <h1 className={styles.heading}>
-                <span>{titleLine1}</span>
+                <span>{titleLine1}</span>{" "}
                 <span className="title-secondary">{titleLine2}</span>
               </h1>
 
               {/* Body lead description */}
-              <p className={styles.lead}>{body}</p>
+              <div className={styles.intro}>
+                <p className={styles.lead}>{body}</p>
+                <p className={styles.tagline}><strong>Clear Vision. Brighter Life.</strong></p>
+              </div>
 
               {/* CTA Action Buttons */}
               <div className={styles.actions}>
                 <a href={primaryHref} className={styles.btnPrimary}>
                   <span>{primaryLabel}</span>
-                  <span className={styles.btnArrow} aria-hidden="true">
-                    &rarr;
-                  </span>
+                  <ArrowRightIcon className={styles.btnArrow} width={18} height={18} aria-hidden="true" />
                 </a>
 
                 <Link href={secondaryHref} className={styles.btnSecondary}>
@@ -167,8 +168,8 @@ export default function ServicePageHero({
                   </span>
                   <span className={styles.badgeDivider} aria-hidden="true" />
                   <div className={styles.badgeText}>
-                    <strong>See Clearly Again</strong>
-                    <span>with Our Expert Cataract Care</span>
+                    <strong>Personalised Cataract Assessment</strong>
+                    <span>&amp; Surgical Care</span>
                   </div>
                 </div>
               </div>
@@ -181,25 +182,25 @@ export default function ServicePageHero({
               <span className={styles.trustIcon} aria-hidden="true">
                 <CalendarIcon width={28} height={28} />
               </span>
-              <strong>Trusted Eye Care Since 25+ Years</strong>
+              <strong>28+ Years of Clinical Experience</strong>
             </li>
             <li className={styles.trustCard}>
               <span className={styles.trustIcon} aria-hidden="true">
                 <EyeIcon width={28} height={28} />
               </span>
-              <strong>Advanced Technology</strong>
+              <strong>Modern Diagnostic Facilities</strong>
             </li>
             <li className={styles.trustCard}>
               <span className={styles.trustIcon} aria-hidden="true">
                 <ShieldCheckIcon width={28} height={28} />
               </span>
-              <strong>Expert Doctors</strong>
+              <strong>Internationally Trained Ophthalmologist</strong>
             </li>
             <li className={styles.trustCard}>
               <span className={styles.trustIcon} aria-hidden="true">
                 <HeartIcon width={28} height={28} />
               </span>
-              <strong>Compassionate Care</strong>
+              <strong>Personalised Patient Care</strong>
             </li>
           </ul>
         </div>

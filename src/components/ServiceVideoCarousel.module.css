@@ -1,0 +1,59 @@
+.videoSlide {
+  box-sizing: border-box;
+  padding: 0 10px 12px;
+}
+
+.videoContent {
+  display: grid;
+  height: 100%;
+}
+
+.videoCarousel { margin-inline: -10px; }
+
+.videoCarousel :global(.slick-track) {
+  display: flex;
+}
+
+.videoCarousel :global(.slick-track > .slick-slide) {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: auto;
+}
+
+.videoCarousel :global(.slick-slide > div) {
+  display: grid;
+  flex: 1;
+}
+
+.videoCarousel :global(.slick-dots) {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.videoCarousel :global(.slick-dots button) {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 0;
+  cursor: pointer;
+}
+
+.videoCarousel :global(.slick-dots button)::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #b89380;
+}
+
+.videoCarousel :global(.slick-dots .slick-active button)::before {
+  background: #a74918;
+}

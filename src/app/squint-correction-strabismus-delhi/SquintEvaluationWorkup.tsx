@@ -16,49 +16,49 @@ export const EVALUATION_STEPS: EvaluationStep[] = [
   {
     number: "01",
     title: "Detailed Clinical History",
-    shortDesc: "Review of when the turn was first noticed, whether it is constant or intermittent, family history, birth history, and any systemic medical conditions.",
+    shortDesc: "The doctor asks when the eye turn started, whether it comes and goes, and about double vision, previous treatment, general health, and relevant family or birth history.",
     image: "/images/squint/detailed-clinical-history.webp",
     alt: "Ophthalmologist discussing clinical eye-alignment history with patient"
   },
   {
     number: "02",
     title: "Visual Acuity Testing",
-    shortDesc: "Age-appropriate vision assessment using picture cards or letter charts to measure visual clarity and rule out amblyopia (lazy eye) in each eye.",
+    shortDesc: "Age-appropriate tests measure vision in each eye. Differences between the eyes help guide assessment for amblyopia or other causes of reduced vision.",
     image: "/images/squint/visual-acuity-testing.webp",
     alt: "Young patient undergoing age-appropriate visual acuity testing"
   },
   {
     number: "03",
     title: "Cycloplegic Refraction",
-    shortDesc: "Special dilating drops relax internal focusing muscles, unmasking hidden refractive errors like farsightedness that can cause crossed eyes.",
+    shortDesc: "Drops temporarily relax focusing so the doctor can measure the full spectacle prescription, including long-sightedness that may contribute to inward crossing.",
     image: "/images/squint/cycloplegic-refraction.webp",
     alt: "Pediatric eye care professional performing refraction assessment with trial lenses"
   },
   {
     number: "04",
     title: "Corneal Reflex & Cover Testing",
-    shortDesc: "Hirschberg light reflex and cover-uncover tests assess eye alignment, distinguishing between subtle latent tendencies and manifest squints.",
+    shortDesc: "The doctor observes light reflections and eye movement during cover testing to check for a visible or latent deviation, using tests suited to the patient's age and ability.",
     image: "/images/squint/corneal-reflex-cover-testing.webp",
     alt: "Clinician conducting corneal light reflex and cover test"
   },
   {
     number: "05",
     title: "Prism Bar Measurements (PCT)",
-    shortDesc: "Calibrated ophthalmic prism bars quantify the exact angle of deviation in prism diopters at distance, near, and in all gaze directions.",
+    shortDesc: "Prisms help measure the angle of misalignment at near and distance and, when useful, in different directions of gaze.",
     image: "/images/squint/prism-bar-measurements.webp",
     alt: "Eye alignment examination using an ophthalmic prism bar"
   },
   {
     number: "06",
     title: "Ocular Motility & Binocular Function",
-    shortDesc: "Evaluation of all twelve extraocular muscles across cardinal directions of gaze, alongside depth perception (stereopsis) and 3D coordination testing.",
+    shortDesc: "The doctor checks how each eye moves and how well the eyes work together. Binocular function testing may include stereopsis, or depth perception.",
     image: "/images/squint/ocular-motility-binocular-function.webp",
     alt: "Clinician evaluating extraocular eye movements and ocular motility"
   },
   {
     number: "07",
     title: "Dilated Eye Health Examination",
-    shortDesc: "A comprehensive biomicroscopic examination of the cornea, lens, retina, and optic nerve to confirm structural ocular health.",
+    shortDesc: "An examination of the cornea, lens, retina and optic nerve can help identify eye conditions that affect vision or contribute to misalignment.",
     image: "/images/squint/dilated-eye-health-examination.webp",
     alt: "Comprehensive slit-lamp and dilated retinal eye health examination"
   }
@@ -150,7 +150,7 @@ export default function SquintEvaluationWorkup() {
     <div className={styles.workupSection}>
       {/* PART A — INTRODUCTORY AREA (STATIC) */}
       <p className={styles.introText}>
-        Squint management begins with a comprehensive eye assessment. A series of simple and specialized tests help evaluate eye alignment, eye movement, vision, and the underlying cause, so that the right treatment can be planned for each individual.
+        A comprehensive assessment evaluates visual function, eye movements, alignment and eye health. The doctor selects tests based on age, symptoms and examination findings. Some patients may need additional investigations, such as blood tests, imaging or specialist assessment. The centre can discuss which tests or referrals are appropriate.
       </p>
 
       {/* PART B — INTERACTIVE EVALUATION CAROUSEL */}

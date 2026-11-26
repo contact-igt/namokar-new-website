@@ -19,7 +19,7 @@ export const SITE = {
     lines: [
       "13 A, Pocket A, Phase 3",
       "Ashok Vihar, near Satyawati College",
-      "Delhi 110052",
+      "Delhi – 110052, India",
     ],
     landmark: "",
     street: "13 A, Pocket A, Phase 3, Ashok Vihar, near Satyawati College",
@@ -30,11 +30,11 @@ export const SITE = {
 } as const;
 
 /** Home page title. */
-export const HOME_TITLE = `Eye Specialist & Oculoplasty Centre in Ashok Vihar, Delhi | Namokar`;
+export const HOME_TITLE = `Eye Care & Oculoplasty Centre in Delhi | Namokar`;
 
 /** Search and social description for the home page; the root layout and the home page both use it. */
 export const HOME_DESCRIPTION =
-  "Namokar Eye & Oculoplasty Centre in Ashok Vihar, New Delhi, offers comprehensive eye examinations, cataract and glaucoma care, and specialist oculoplasty led by Dr. Poonam Jain. Call to arrange a consultation.";
+  "Namokar in Ashok Vihar, Delhi, offers cataract, retina, LASIK, glaucoma and specialised oculoplasty care led by Dr. Poonam Jain.";
 
 /**
  * Email is deliberately unset: the current live site shows no email.
@@ -42,6 +42,7 @@ export const HOME_DESCRIPTION =
 export const CHANNELS = {
   email: null as string | null,
   whatsapp: "919810157258",
+  instagram: "https://www.instagram.com/itsdrpoonamjain/",
 } as const;
 
 /**
@@ -84,6 +85,7 @@ export const LINKS = {
   privacy: "/privacy-policy",
   terms: "/terms-and-conditions",
   cataract: "/stitchless-cataract-surgery",
+  retina: "/retina-care-surgery",
   eyelid: "/eyelid-surgery-blepharoplasty",
   glaucoma: "/glaucoma-management",
   aesthetic: "/aesthetic-oculofacial",
@@ -101,6 +103,8 @@ export const MAPS_LINK = MAP.verifiedPinUrl ?? DIRECTIONS_URL;
 export const TEL_HREF = `tel:${SITE.phone.tel}`;
 
 export type ServiceKey =
+  | "retina"
+  | "lasik"
   | "cataract"
   | "glaucoma"
   | "exams"
@@ -115,7 +119,7 @@ export const SERVICE_GROUPS: Record<ServiceGroupKey, { title: string; blurb: str
   vision: {
     title: "Comprehensive Vision Care",
     blurb:
-      "Examination, cataract and glaucoma care. A good place to start for a check-up, a change in your vision or a long-term eye condition.",
+      "Eye examinations, cataract, retina and glaucoma care, and refractive surgery assessment. A good place to start for a check-up, a change in your vision or a long-term eye condition.",
   },
   oculoplasty: {
     title: "Oculoplasty & Eye-Area Care",
@@ -140,17 +144,31 @@ export const SERVICES: ServiceSummary[] = [
     key: "cataract",
     title: "Cataract Surgery",
     short: "Cataract Surgery",
-    blurb:
-      "For a clouded lens: careful assessment of your vision, and a clear discussion of when surgery is considered and what your options are.",
+    blurb: "Assessment and surgical treatment of cataracts, with intraocular lens options selected according to your eye health, vision needs and lifestyle.",
     href: LINKS.cataract,
+    group: "vision",
+  },
+  {
+    key: "retina",
+    title: "Retina Care & Surgery",
+    short: "Retina Care",
+    blurb: "Evaluation and treatment of retinal conditions, with medical or surgical care recommended according to individual clinical findings.",
+    href: LINKS.retina,
+    group: "vision",
+  },
+  {
+    key: "lasik",
+    title: "LASIK & Refractive Surgery",
+    short: "LASIK & Refractive Surgery",
+    blurb: "Personalised assessment and suitable vision correction procedures designed to reduce dependence on spectacles or contact lenses.",
+    href: LINKS.refractive,
     group: "vision",
   },
   {
     key: "glaucoma",
     title: "Glaucoma Management",
     short: "Glaucoma",
-    blurb:
-      "Glaucoma often has no early symptoms. Assessment, tests chosen by the doctor and regular follow-up, because it needs long-term monitoring.",
+    blurb: "Detection, assessment and long-term management of glaucoma to help preserve vision and minimise the risk of further optic nerve damage.",
     href: LINKS.glaucoma,
     group: "vision",
   },
@@ -158,8 +176,7 @@ export const SERVICES: ServiceSummary[] = [
     key: "exams",
     title: "Comprehensive Eye Examinations",
     short: "Eye Examinations",
-    blurb:
-      "A thorough check of how well you see and how healthy your eyes are, from routine check-ups to examinations for specific concerns, explained in plain language.",
+    blurb: "Detailed assessment of your vision and overall eye health, supporting early detection and appropriate management of eye conditions.",
     href: LINKS.exams,
     group: "vision",
   },
@@ -167,8 +184,7 @@ export const SERVICES: ServiceSummary[] = [
     key: "eyelid",
     title: "Eyelid Surgery (Blepharoplasty)",
     short: "Eyelid Surgery",
-    blurb:
-      "Assessment of heavy or drooping eyelids and under-eye bags, for functional and cosmetic reasons, including whether surgery would help.",
+    blurb: "Functional and aesthetic eyelid surgery addressing excess eyelid skin and under-eye bags, with careful consideration of eye health and individual suitability.",
     href: LINKS.eyelid,
     group: "oculoplasty",
   },
@@ -176,8 +192,7 @@ export const SERVICES: ServiceSummary[] = [
     key: "aesthetic",
     title: "Aesthetic Oculoplasty",
     short: "Aesthetic Oculoplasty",
-    blurb:
-      "Considered care for heavy eyelids, under-eye bags and age-related changes around the eyes, planned with eye health in mind.",
+    blurb: "Specialised care for age-related changes and aesthetic concerns around the eyes, with surgical and non-surgical options based on individual assessment.",
     href: LINKS.aesthetic,
     group: "oculoplasty",
   },
@@ -185,8 +200,7 @@ export const SERVICES: ServiceSummary[] = [
     key: "reconstructive",
     title: "Reconstructive Oculoplasty",
     short: "Reconstructive Oculoplasty",
-    blurb:
-      "Assessment and treatment for drooping eyelids (ptosis), eyelid malposition and tear-drainage problems that affect comfort or function.",
+    blurb: "Specialised assessment and treatment of eyelid-position abnormalities, ptosis, tear-drainage disorders and other conditions affecting the structures around the eyes.",
     href: LINKS.reconstructive,
     group: "oculoplasty",
   },

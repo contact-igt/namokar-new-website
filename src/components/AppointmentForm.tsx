@@ -26,7 +26,15 @@ const SERVER_MESSAGES: Record<string, string> = {
  * Appointment enquiry. Shows confirmation only after the server reports that the
  * enquiry was accepted. Collects no medical details.
  */
-export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | null }) {
+export default function AppointmentForm({
+  privacyUrl,
+  initialService = "",
+  preview = false,
+}: {
+  privacyUrl?: string;
+  initialService?: string;
+  preview?: boolean;
+}) {
   const router = useRouter();
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -39,7 +47,7 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (status === "submitting") return;
+    if (preview || status === "submitting") return;
     const fd = new FormData(e.currentTarget);
     const raw = {
       name: String(fd.get("name") ?? ""),
@@ -102,7 +110,7 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
   if (status === "success") {
     return (
       <div className="form-note form-note--ok" role="status">
-        <h3 className="h3">Your request has been received</h3>
+        <h3 className="h3">Your Consultation Request Has Been Received</h3>
         <p>
           Thank you. This is a request only, <strong>not a confirmed appointment</strong>.
           The centre may contact you on the number you gave to discuss a suitable time.
@@ -144,9 +152,9 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
       </div>
 
       <div className="field">
-        <label htmlFor="service">Selected treatment <span aria-hidden="true">*</span></label>
-        <select id="service" name="service" defaultValue="" {...fieldProps("service")}>
-          <option value="" disabled>Select treatment option</option>
+        <label htmlFor="service">Select Service <span aria-hidden="true">*</span></label>
+        <select id="service" name="service" defaultValue={initialService} {...fieldProps("service")}>
+          <option value="" disabled>Select a service</option>
           {SERVICE_OPTIONS.slice(1).map((o) => (
             <option key={o.value} value={o.value}>{o.label}</option>
           ))}
@@ -181,14 +189,15 @@ export default function AppointmentForm({ privacyUrl }: { privacyUrl: string | n
         {privacyUrl && (
           <>
             {" "}
-            <a href={privacyUrl} className="text-link">Read the privacy notice</a>.
+            <a href={privacyUrl} className="text-link">Privacy Policy</a>.
           </>
         )}
       </p>
 
       {formError && <p className="field-error" role="alert">{formError}</p>}
-      <button type="submit" className="btn btn--primary" disabled={status === "submitting"}>
-        {status === "submitting" ? "Sending…" : status === "error" ? "Try again" : "Send message"}
+      {preview && <p className="hint">Local preview. Consultation requests cannot be sent from this form.</p>}
+      <button type="submit" className="btn btn--primary" disabled={preview || status === "submitting"}>
+        {status === "submitting" ? "Sending…" : status === "error" ? "Try again" : "Request Consultation"}
       </button>
     </form>
   );

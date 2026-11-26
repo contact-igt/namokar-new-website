@@ -147,35 +147,35 @@ export interface ReconstructiveAssessmentSectionProps {
 const ASSESSMENT_STEPS = [
   {
     stepNumber: "01",
-    title: "Detailed evaluation",
-    desc: "The doctor examines your eyelid position, eye-surface health, tear drainage, vision-related concerns and your symptoms.",
+    title: "Detailed Clinical Evaluation",
+    desc: "Your ophthalmologist reviews your symptoms, medical history, previous eye procedures and general health. Examination may include eyelid position and closure, eye movements, tear drainage and ocular surface assessment.",
     icon: <EvaluationMagnifierIcon />,
   },
   {
     stepNumber: "02",
-    title: "Diagnosis and planning",
-    desc: "The plan is based on whether the issue affects comfort, eye protection, vision, appearance or a combination of these.",
+    title: "Diagnosis & Personalised Treatment Planning",
+    desc: "Clinical findings guide the diagnosis. Depending on your symptoms, the doctor may check eyelid muscle function, side vision, tear drainage or the cornea, or request orbital imaging. The doctor discusses suitable options, potential benefits, risks and alternatives.",
     icon: <DiagnosisClipboardIcon />,
   },
   {
     stepNumber: "03",
     title: "Surgical or medical management",
-    desc: "Depending on the condition, the doctor may recommend a corrective procedure or another suitable treatment plan.",
+    desc: "Depending on the condition, the doctor may recommend medical treatment, supportive care or corrective surgery. Procedures are planned after discussing suitability and obtaining informed consent.",
     icon: <TreatmentScalpelIcon />,
   },
   {
     stepNumber: "04",
     title: "Recovery and follow-up",
-    desc: "Recovery depends on the condition and procedure performed. Follow-up visits help monitor healing and outcome.",
+    desc: "Individual aftercare instructions and follow-up examinations help assess healing, eyelid function, eye protection and treatment outcomes.",
     icon: <RecoveryShieldIcon />,
   },
 ];
 
 export default function ReconstructiveAssessmentSection({
   id = "journey",
-  kicker = "WHAT TO EXPECT",
-  headingTop = "What an",
-  headingMiddle = "assessment",
+  kicker = "YOUR RECONSTRUCTIVE EYE CARE JOURNEY",
+  headingTop = "What a Reconstructive",
+  headingMiddle = "Oculoplasty Assessment",
   headingAccent = "involves",
   lead = "Care is planned around eye protection, comfort, vision-related concerns and the cause of the condition.",
   imageSrc = "/images/reconstructive/assessment/clinical-assessment-exam.webp",

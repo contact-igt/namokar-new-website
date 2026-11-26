@@ -18,9 +18,6 @@
 
 @media (max-width: 959px) {
   .hero::after {
-    top: auto;
-    height: clamp(260px, 60vw, 420px);
-    background-size: 200% 100%;
-    background-position: right center;
+    display: none;
   }
 }

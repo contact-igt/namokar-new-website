@@ -10,7 +10,7 @@ Reviewed 15 Oct 2026. Source for everything below is the published site `namokar
 | MBBS (Maulana Azad Medical College), MS Ophthalmology (Safdarjung Hospital) | Doctor section | Live site only | Needs approval | Confirm |
 | Phone +91 98104 19720 | Header, hero, CTA, footer | Live site and the clinic signboard in the 21 July video (which also shows a second number, 7827455040). Internal notes mention a different common IVR | **Blocker** | Confirm which number is live before launch (edit `SITE.phone`) |
 | Two AI-generated conceptual images (iris macro in the Oculoplasty section, lens still life on the Cataract card) | Oculoplasty section, services | Generated 15 Oct 2026, see `assets-src/ai-generated/PROVENANCE.md` | Needs client approval; the iris image carries a "Conceptual image" label | Approve, or replace with licensed photography |
-| Address MIG Flats, Pocket C, near Satyawati College, opposite Madrina Restaurant, Pocket A, Phase 3, Ashok Vihar, Delhi 110052 | CTA, footer, JSON-LD | Project owner, 4 Nov 2026 | Selected | Applied in `src/config/site.ts` |
+| Address 13 A Pocket A , Phase 3 , Ashok Vihar , near Satyawati College , Delhi 110052 | CTA, footer, JSON-LD | Project owner, 4 Nov 2026 | Selected | Applied in `src/config/site.ts` |
 | Directions link | CTA, footer | Google Maps search built from the address text | Not a verified listing pin | Replace with the clinic's real Maps link |
 | Service links (cataract, aesthetic, reconstructive, glaucoma, all services), About, Contact | Nav, cards, CTAs | Live site URLs | Exist on the live site; not re-checked for content | None |
 | Comprehensive Eye Examinations link | Service card | No dedicated page found | Links to services overview | Provide page if one exists |
@@ -144,11 +144,13 @@ Applied to existing homepage sections only (hero, find care, centre, walkthrough
 
 Figures now shown on the homepage, supplied in the client report as already published on the client's own International Patients page (not yet recorded as signed off here):
 
-- "25+ years" of experience in eye care (hero facts, doctor, why). Earlier ledger entries record a 25+ / 28+ / 30+ conflict: confirm 25+ is the final figure.
-- "10,000+ patients treated" (hero facts, why). No surgery count is shown, by instruction.
-- "Oculoplasty Surgeon" as a descriptor of the doctor.
+- Use 28+ years of clinical and surgical experience in public website copy. Review the embedded experience caption in the retained walkthrough separately.
+- Withhold the previous 10,000+ patients treated figure pending advertising compliance verification. The clinic reports 20,000 surgeries performed individually by Dr. Poonam Jain. Keep this figure internal pending supporting records and advertising compliance clearance.
+- Use "Oculoplastic Surgeon" as the descriptor on the doctor profile.
 
-Open points: confirm both figures and the descriptor in writing; check them against the NMC advertising guidelines (`docs/launch/NMC_CONTENT_VERIFICATION.md`); keep them out of structured data until approved (they are not in `src/lib/schema.ts`). The client report also asks the SEO team to purge old cached copies that still show "28+ years", "500,000 eyes treated", "painless recovery" and old hours: that is a deployment task, not part of this codebase.
+Doctor profile verification: confirm the former Centre for Sight role, qualifications, scholarships, fellowship, clinical observership and workshop against Dr. Jain's CV and certificates. Confirm the 2005 workshop details, teaching, past professional appointments, publications and current procedure availability. Confirm Dr. Jain's individual responsibilities for retina, LASIK and squint care before adding them to her personal expertise.
+
+Open points for this content revision: obtain Dr. Jain?s final medical approval, verify medical council registration and exact designation, and confirm which retina and refractive procedures she personally performs. Confirm the clinic phone, WhatsApp, Maps pin and consultation hours with the clinic. Publish approved Privacy Policy and Terms, then verify end-to-end enquiry delivery before enabling online requests.
 
 ## Reconstructive eyelid comparison illustrations (21 Oct 2026)
 
@@ -167,3 +169,56 @@ The project owner requested and approved five original AI-generated educational 
 The project owner selected the existing public images for the independent homepage background slideshow in this order: `Modern Namokar Eye Clinic Facade.png`, `Modern Ophthalmology Exam Room 11.png`, `Modern Ophthalmology Clinic Waiting Room.png`, and `Modern Ophthalmology Exam Room.png`. The owner also selected `public/images/Copy of DSC06826.JPG` for the homepage Oculoplasty section, replacing the previous photograph registered as `ASSETS.oculoplastyRealExam`. The supplied image files are used without alteration.
 
 The owner subsequently requested removal of the foreground orange seat at the bottom of the waiting-room background. The Hero now uses `Modern Ophthalmology Clinic Waiting Room-clean.png`: an imagegen floor repair composited only into the original's x625–914, y730–878 region. Its original 1790×879 dimensions and every pixel outside that repair region are preserved. The source image is retained unchanged.
+
+## Cataract page content verification
+
+Confirm with Dr. Poonam Jain which cataract techniques are offered, including
+phacoemulsification, micro-incision, manual small-incision and laser-assisted
+surgery. Confirm available monofocal, multifocal, toric and EDOF lens designs,
+YAG capsulotomy arrangements, surgical facility location and the postoperative
+emergency contact. The public title uses general cataract wording pending
+confirmation of the stitchless technique. The lens categories and YAG treatment
+are described as general education. Review the original illustrations, video
+descriptions against the recordings, and updated patient guidance before release.
+
+## Glaucoma page content verification
+
+Confirm tonometry, OCT, automated visual field testing, gonioscopy and pachymetry
+availability with Dr. Poonam Jain. Confirm SLT, LPI, trabeculectomy, drainage
+devices and MIGS availability, the treating clinicians, surgical facility and
+emergency referral arrangements. The page describes tests and procedures as
+general clinical options. Obtain clinical sign-off on the revised copy and
+illustrations and verify the educational video descriptions against the recordings.
+
+## Comprehensive eye examination content verification
+
+Confirm paediatric examinations, cycloplegic refraction, binocular vision and
+squint assessment, tonometry, slit-lamp and dilated retinal examinations,
+fundus photography, OCT and visual field testing. Confirm any referral
+arrangements, including emergency eye care. Review the existing video recordings
+against the updated descriptions and obtain Dr. Poonam Jain's clinical approval.
+
+## Blepharoplasty page content verification
+
+Confirm upper and lower blepharoplasty techniques, fat removal or repositioning,
+combined ptosis repair, brow lifts, visual field and ocular surface assessments,
+anaesthesia and sedation, the surgical location and postoperative emergency support
+with Dr. Poonam Jain. Verify the videos and any before-and-after photography for
+consent and advertising compliance. Obtain final clinical approval before publication.
+
+## Aesthetic oculoplasty page content verification
+
+Confirm current eyelid surgery, brow and midface lifts, fat repositioning or
+transfer, botulinum toxin products and indications, filler products and treatment
+areas, thread procedures and dark-circle treatments with Dr. Poonam Jain. Confirm
+the surgical facility, complication-management protocol and emergency contact.
+Verify video claims and any before-and-after imagery for consent and advertising
+compliance. The procedure examples are educational pending clinical approval.
+
+## Contact page verification
+
+Confirm reception and doctor hours, Sunday and walk-in availability, telephone
+and monitored WhatsApp or email channels, the exact Google Maps pin, fees,
+payment and insurance arrangements, accessibility and parking. Confirm emergency
+and postoperative referral arrangements, the approved medical-record sharing
+process, and final Privacy Policy and Terms before enabling online requests.

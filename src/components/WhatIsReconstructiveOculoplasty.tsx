@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRightIcon } from "./Icons";
 import styles from "./WhatIsReconstructiveOculoplasty.module.css";
 
 /* ------------------------------------------------------------------
@@ -36,26 +37,6 @@ function EyeSocketIcon() {
       <path d="M2 10C5.5 4.5 14 4.5 14 4.5C14 4.5 22.5 4.5 26 10C22.5 15.5 14 15.5 14 15.5C14 15.5 5.5 15.5 2 10Z" />
       <circle cx="14" cy="10" r="4.6" stroke="#C85A17" strokeWidth="1.8" />
       <circle cx="14" cy="10" r="2.2" fill="#0C454B" />
-    </svg>
-  );
-}
-
-/** Crisp Modern SVG Right Arrow Icon */
-function ArrowRightSvg() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      width="18"
-      height="18"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <line x1="4" y1="12" x2="19" y2="12" />
-      <polyline points="13 6 19 12 13 18" />
     </svg>
   );
 }
@@ -103,7 +84,7 @@ export interface WhatIsReconstructiveOculoplastyProps {
 
 export default function WhatIsReconstructiveOculoplasty({
   id = "overview",
-  category = "OCULOPLASTY & EYE-AREA CARE",
+  category = "UNDERSTANDING RECONSTRUCTIVE OCULOPLASTY",
   titleTeal = "What is\nReconstructive",
   titleOrange = "Oculoplasty?",
   intro = [
@@ -176,7 +157,7 @@ export default function WhatIsReconstructiveOculoplasty({
                 alt={imageAlt}
                 fill
                 priority
-                sizes="(min-width: 1080px) 34vw, (min-width: 768px) 45vw, 90vw"
+                sizes="(max-width: 468px) calc(100vw - 48px), (max-width: 768px) 420px, (max-width: 1080px) 45vw, 34vw"
                 className={styles.macroImg}
               />
             </div>
@@ -190,12 +171,15 @@ export default function WhatIsReconstructiveOculoplasty({
                 <div className={styles.cardIconCircle} aria-hidden="true">
                   <EyelidIcon />
                 </div>
-                <h3 className={styles.cardTitle}>
-                  Eyelid<br />Reconstruction
-                </h3>
+                <div>
+                  <h3 className={styles.cardTitle}>
+                    Eyelid Reconstruction
+                  </h3>
+                  <p>Assessment of eyelid abnormalities, functional concerns and structural defects.</p>
+                </div>
               </div>
               <span className={styles.cardArrowBox} aria-hidden="true">
-                <ArrowRightSvg />
+                <ArrowRightIcon width={18} height={18} />
               </span>
             </Link>
 
@@ -205,12 +189,15 @@ export default function WhatIsReconstructiveOculoplasty({
                 <div className={styles.cardIconCircle} aria-hidden="true">
                   <TearDropIcon />
                 </div>
-                <h3 className={styles.cardTitle}>
-                  Tear Duct<br />Surgery
-                </h3>
+                <div>
+                  <h3 className={styles.cardTitle}>
+                    Tear Drainage &amp; Lacrimal Surgery
+                  </h3>
+                  <p>Evaluation and management of conditions affecting the normal drainage of tears.</p>
+                </div>
               </div>
               <span className={styles.cardArrowBox} aria-hidden="true">
-                <ArrowRightSvg />
+                <ArrowRightIcon width={18} height={18} />
               </span>
             </Link>
 
@@ -220,12 +207,15 @@ export default function WhatIsReconstructiveOculoplasty({
                 <div className={styles.cardIconCircle} aria-hidden="true">
                   <EyeSocketIcon />
                 </div>
-                <h3 className={styles.cardTitle}>
-                  Eye Socket<br />Reconstruction
-                </h3>
+                <div>
+                  <h3 className={styles.cardTitle}>
+                    Orbital &amp; Eye Socket Care
+                  </h3>
+                  <p>Assessment of selected conditions affecting the eye socket and surrounding tissues.</p>
+                </div>
               </div>
               <span className={styles.cardArrowBox} aria-hidden="true">
-                <ArrowRightSvg />
+                <ArrowRightIcon width={18} height={18} />
               </span>
             </Link>
           </div>
@@ -238,7 +228,7 @@ export default function WhatIsReconstructiveOculoplasty({
             <span className={styles.bottomIconBox} aria-hidden="true">
               <RestoreFunctionShieldIcon />
             </span>
-            <span className={styles.bottomItemText}>Restore Function</span>
+            <span className={styles.bottomItemText}>Improve Eyelid Function</span>
           </div>
 
           {/* Outcome 2 */}
@@ -246,7 +236,7 @@ export default function WhatIsReconstructiveOculoplasty({
             <span className={styles.bottomIconBox} aria-hidden="true">
               <ImproveAppearanceEyeIcon />
             </span>
-            <span className={styles.bottomItemText}>Improve Appearance</span>
+            <span className={styles.bottomItemText}>Restore Structure &amp; Appearance</span>
           </div>
 
           {/* Outcome 3 */}
@@ -254,7 +244,7 @@ export default function WhatIsReconstructiveOculoplasty({
             <span className={styles.bottomIconBox} aria-hidden="true">
               <QualityOfLifeHeartIcon />
             </span>
-            <span className={styles.bottomItemText}>Enhance Quality of Life</span>
+            <span className={styles.bottomItemText}>Support Eye Protection &amp; Comfort</span>
           </div>
         </div>
       </div>

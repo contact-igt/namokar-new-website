@@ -5,6 +5,8 @@ import HomeCta from "@/components/HomeCta";
 import ServicesFaqSection from "@/components/ServicesFaqSection";
 import ExpertEyeCareSection from "@/components/ExpertEyeCareSection";
 import JsonLd from "@/components/JsonLd";
+import HeadingText from "@/components/HeadingText";
+import { ArrowDownIcon, PhoneIcon } from "@/components/Icons";
 import { LINKS, TEL_HREF } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 import { webPage } from "@/lib/schema";
@@ -272,14 +274,14 @@ export default function RefractiveSurgeryPage() {
       <section className={styles.hero} aria-labelledby="refractive-hero-h">
         <div className="container">
           <Breadcrumb
-            current="Refractive Surgery"
+            current="LASIK & Refractive Surgery"
             trail={[{ label: "Services", href: LINKS.allServices }]}
           />
 
           <div className={styles.heroCopy}>
             <p className="kicker">{content[0].eyebrow}</p>
 
-            <h1 id="refractive-hero-h">{content[0].title}</h1>
+            <h1 id="refractive-hero-h"><HeadingText>{content[0].title}</HeadingText></h1>
 
             <div className={styles.heroMobileMedia}>
               <Image
@@ -296,10 +298,12 @@ export default function RefractiveSurgeryPage() {
 
             <div className={styles.actions}>
               <a className="btn btn--primary" href={TEL_HREF}>
+                <PhoneIcon width={18} height={18} aria-hidden="true" />
                 Call to Book an Appointment
               </a>
-              <a className="btn" href="#treatment-options">
+              <a className="btn btn--secondary" href="#treatment-options">
                 Explore Vision Correction Options
+                <ArrowDownIcon width={18} height={18} aria-hidden="true" />
               </a>
             </div>
 
@@ -320,7 +324,7 @@ export default function RefractiveSurgeryPage() {
         <div className="container">
           <header className={styles.heading}>
             <p className="kicker">{content[1].eyebrow}</p>
-            <h2 id="errors-h">{content[1].title}</h2>
+            <h2 id="errors-h"><HeadingText>{content[1].title}</HeadingText></h2>
           </header>
           <p className={styles.intro}>{content[1].paragraphs[0]}</p>
 
@@ -345,7 +349,7 @@ export default function RefractiveSurgeryPage() {
         <div className="container">
           <header className={styles.heading}>
             <p className="kicker">{content[2].eyebrow}</p>
-            <h2 id="pathways-h">{content[2].title}</h2>
+            <h2 id="pathways-h"><HeadingText>{content[2].title}</HeadingText></h2>
           </header>
           <p className={styles.intro}>{content[2].paragraphs[0]}</p>
 
@@ -396,7 +400,7 @@ export default function RefractiveSurgeryPage() {
         <div className="container">
           <header className={styles.heading}>
             <p className="kicker">{content[3].eyebrow}</p>
-            <h2 id="procedures-h">{content[3].title}</h2>
+            <h2 id="procedures-h"><HeadingText>{content[3].title}</HeadingText></h2>
           </header>
           <p className={styles.intro}>{content[3].paragraphs[0]}</p>
 
@@ -411,7 +415,7 @@ export default function RefractiveSurgeryPage() {
         <div className="container">
           <header className={styles.heading}>
             <p className="kicker">{content[4].eyebrow}</p>
-            <h2 id="comparison-h">{content[4].title}</h2>
+            <h2 id="comparison-h"><HeadingText>{content[4].title}</HeadingText></h2>
           </header>
           <p className={styles.intro}>{content[4].paragraphs[0]}</p>
 
@@ -457,7 +461,7 @@ export default function RefractiveSurgeryPage() {
         <div className="container">
           <header className={styles.heading}>
             <p className="kicker">{content[5].eyebrow}</p>
-            <h2 id="candidacy-h">{content[5].title}</h2>
+            <h2 id="candidacy-h"><HeadingText>{content[5].title}</HeadingText></h2>
           </header>
           <p className={styles.intro}>{content[5].paragraphs[0]}</p>
 
@@ -482,7 +486,7 @@ export default function RefractiveSurgeryPage() {
         <div className="container">
           <header className={styles.heading}>
             <p className="kicker">{content[6].eyebrow}</p>
-            <h2 id="workup-h">{content[6].title}</h2>
+            <h2 id="workup-h"><HeadingText>{content[6].title}</HeadingText></h2>
           </header>
           <RefractiveEvaluationWorkup />
         </div>
@@ -495,7 +499,7 @@ export default function RefractiveSurgeryPage() {
         <div className="container">
           <header className={styles.heading}>
             <p className="kicker">{content[7].eyebrow}</p>
-            <h2 id="journey-h">{content[7].title}</h2>
+            <h2 id="journey-h"><HeadingText>{content[7].title}</HeadingText></h2>
           </header>
           <p className={styles.intro}>{content[7].paragraphs[0]}</p>
 
@@ -510,7 +514,7 @@ export default function RefractiveSurgeryPage() {
         <div className="container">
           <header className={styles.heading}>
             <p className="kicker">{content[8].eyebrow}</p>
-            <h2 id="recovery-h">{content[8].title}</h2>
+            <h2 id="recovery-h"><HeadingText>{content[8].title}</HeadingText></h2>
           </header>
           <p className={styles.intro}>{content[8].paragraphs[0]}</p>
 
@@ -546,7 +550,7 @@ export default function RefractiveSurgeryPage() {
         <div className="container">
           <header className={styles.heading}>
             <p className="kicker">{content[9].eyebrow}</p>
-            <h2 id="risks-h">{content[9].title}</h2>
+            <h2 id="risks-h"><HeadingText>{content[9].title}</HeadingText></h2>
           </header>
           <p className={styles.intro}>{content[9].paragraphs[0]}</p>
 
@@ -581,7 +585,7 @@ export default function RefractiveSurgeryPage() {
         <div className="container">
           <header className={styles.heading}>
             <p className="kicker">{content[10].eyebrow}</p>
-            <h2 id="videos-h">{content[10].title}</h2>
+            <h2 id="videos-h"><HeadingText>{content[10].title}</HeadingText></h2>
             <p className={styles.intro}>Watch Dr. Poonam Jain’s featured contact lens care video, then explore third-party educational videos on refractive surgery options, implantable lenses and LASIK risks. Videos provide general information and do not replace an eye examination.</p>
           </header>
 
@@ -615,7 +619,7 @@ export default function RefractiveSurgeryPage() {
           ======================================================== */}
       <ExpertEyeCareSection
         id="related"
-        heading="Related Care"
+        heading={<HeadingText>{content[11].title}</HeadingText>}
         subtitle="Explore related eye care services at Namokar Eye & Oculoplasty Centre."
         showBanner={false}
         serviceRelated
@@ -627,7 +631,7 @@ export default function RefractiveSurgeryPage() {
           ======================================================== */}
       <ServicesFaqSection
         items={faqs}
-        heading="Frequently Asked Questions About Refractive Surgery"
+        heading={<HeadingText>{content[12].title}</HeadingText>}
         lead={content[12].paragraphs[0]}
         serviceStyle
         allClosed
@@ -640,7 +644,7 @@ export default function RefractiveSurgeryPage() {
       <HomeCta
         id="refractive-consultation"
         kicker="TAKE THE FIRST STEP"
-        heading="Arrange a Refractive Surgery Consultation"
+        heading={<HeadingText>{content[13].title}</HeadingText>}
         desc={content[13].paragraphs[0]}
       />
     </main>

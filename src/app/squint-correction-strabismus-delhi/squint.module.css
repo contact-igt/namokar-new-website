@@ -1,5 +1,9 @@
 .page { background: #fffaf6 url('/images/Soft Peach Wave Background.png') center top / 100% auto repeat-y; }
 .section, .hero { padding-block: 56px; scroll-margin-top: calc(var(--header-h) + 24px); }
+.section:global(#squint-5),
+.section:global(#squint-9) {
+  padding-block-start: clamp(48px, 6vw, 96px);
+}
 .hero { padding-top: 24px; background-color: #fff8f3; background-image: linear-gradient(to top,#fff8f3,transparent 22%), url('/images/squint/4d52a5f1-6735-4010-8077-5cf6ce6e4008.png'); background-position: right top; background-size: 100% 100%, 100% auto; background-repeat: no-repeat; }
 .heroCopy { width: 51%; padding-block: 24px; }
 .heroMobileMedia { display: none; }

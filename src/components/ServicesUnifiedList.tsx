@@ -4,15 +4,14 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon } from "@/components/Icons";
+import RelatedServicesCarousel from "./RelatedServicesCarousel";
 import styles from "./ServicesUnifiedList.module.css";
 
 export type ServiceCardItem = {
   key: string;
   title: string;
   category: "vision" | "oculoplasty";
-  categoryLabel: string;
   blurb: string;
-  topics?: readonly string[];
   href: string;
   image: string;
   alt: string;
@@ -54,7 +53,7 @@ export default function ServicesUnifiedList({ items }: ServicesUnifiedListProps)
           className={`${styles.tabBtn} ${activeTab === "vision" ? styles.tabBtnActive : ""}`}
           onClick={() => setActiveTab("vision")}
         >
-          <span>Comprehensive Vision Care</span>
+          <span>Comprehensive Eye Care</span>
           <span className={styles.tabCount}>{visionCount}</span>
         </button>
 
@@ -65,19 +64,18 @@ export default function ServicesUnifiedList({ items }: ServicesUnifiedListProps)
           className={`${styles.tabBtn} ${activeTab === "oculoplasty" ? styles.tabBtnActive : ""}`}
           onClick={() => setActiveTab("oculoplasty")}
         >
-          <span>Oculoplasty &amp; Eye-Area Care</span>
+          <span>Specialised Oculoplasty</span>
           <span className={styles.tabCount}>{oculoCount}</span>
         </button>
       </div>
 
-      {/* 3-Column Service Cards Grid */}
-      <div className={styles.cardsGrid}>
+      <RelatedServicesCarousel key={activeTab} className={styles.cardsGrid} mobileOnly>
         {filteredItems.map((item) => (
           <Link
             key={item.key}
             href={item.href}
             className={styles.card}
-            aria-label={`${item.title} - ${item.blurb}${item.topics ? ` Topics: ${item.topics.join(", ")}` : ""}`}
+            aria-label={`${item.title} - ${item.blurb}`}
           >
             {/* Visual Header with Photo & Floating Badge */}
             <div className={styles.photoContainer}>
@@ -85,7 +83,7 @@ export default function ServicesUnifiedList({ items }: ServicesUnifiedListProps)
                 src={item.image}
                 alt={item.alt}
                 fill
-                sizes="(min-width: 1024px) 31vw, (min-width: 640px) 46vw, 92vw"
+                sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 31vw"
                 className={styles.cardPhoto}
               />
               <div className={styles.photoOverlay} aria-hidden="true" />
@@ -99,13 +97,8 @@ export default function ServicesUnifiedList({ items }: ServicesUnifiedListProps)
             {/* Bottom Rounded Ice-Blue Bubble */}
             <div className={styles.bubble}>
               <p className={styles.bubbleText}>{item.blurb}</p>
-              {item.topics && (
-                <ul className={styles.bubbleTopics}>
-                  {item.topics.map((topic) => <li key={topic}>{topic}</li>)}
-                </ul>
-              )}
               <div className={styles.bubbleAction}>
-                <span className={styles.actionText}>Learn more</span>
+                <span className={styles.actionText}>Learn More</span>
                 <span className={styles.actionIcon} aria-hidden="true">
                   <ArrowRightIcon width={16} height={16} />
                 </span>
@@ -113,7 +106,7 @@ export default function ServicesUnifiedList({ items }: ServicesUnifiedListProps)
             </div>
           </Link>
         ))}
-      </div>
+      </RelatedServicesCarousel>
     </div>
   );
 }

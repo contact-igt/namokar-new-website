@@ -4,7 +4,7 @@ import { type ServiceKey, SERVICES, LINKS } from "@/config/site";
 import type { PlateName } from "@/components/clinical/Plates";
 
 /**
- * The six treatments as the homepage "Find care" explorer and the services index show them.
+ * The treatments as the homepage "Find care" explorer and the services index show them.
  * Titles, routes and summaries are the site's existing service entries (src/config/site.ts), so
  * nothing new is claimed. Each treatment names what best pictures it, in order of preference:
  * photographs of the centre (the first one cleared for use is shown, so approving or withholding
@@ -23,6 +23,20 @@ type Candidate =
     };
 
 const IMAGES: Record<ServiceKey, Candidate[]> = {
+  retina: [
+    { asset: ASSETS.examRetinaAi, position: "50% 42%" },
+  ],
+  lasik: [
+    {
+      image: {
+        src: "/images/refractive/corneal-topography.webp",
+        alt: "Corneal topography equipment used for refractive surgery assessment",
+        width: 949,
+        height: 748,
+      },
+      position: "50% 42%",
+    },
+  ],
   cataract: [
     { asset: ASSETS.homeTheatreNov, position: "50% 50%" },
     { asset: ASSETS.otModernA, position: "55% 50%" },

@@ -2,7 +2,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { LINKS } from "@/config/site";
-import { CalendarIcon } from "./Icons";
+import { ArrowRightIcon, CalendarIcon } from "./Icons";
+import RelatedServicesCarousel from "./RelatedServicesCarousel";
 import styles from "./ExpertEyeCareSection.module.css";
 
 /** Top kicker eye icon */
@@ -90,27 +91,27 @@ function ComprehensiveCardIcon() {
   );
 }
 
-/** Right arrow icon for enhanced action buttons */
-function ArrowRightIconComponent({ className }: { className?: string }) {
+function AestheticCardIcon() {
   return (
-    <svg
-      viewBox="0 0 16 16"
-      fill="none"
-      width="14"
-      height="14"
-      aria-hidden="true"
-      className={className}
-    >
+    <svg viewBox="0 0 32 26" fill="none" width="28" height="24" aria-hidden="true">
       <path
-        d="M3 8H13M13 8L8.8 3.8M13 8L8.8 12.2"
-        stroke="currentColor"
+        d="M2.5 17c3-4 6.5-6 11-6 4 0 7.5 2 10.5 6-3 4-6.5 6-10.5 6-4.5 0-8-2-11-6Z"
+        stroke="#C35626"
         strokeWidth="2"
-        strokeLinecap="round"
         strokeLinejoin="round"
       />
+      <circle cx="13.5" cy="17" r="2.8" stroke="#C35626" strokeWidth="2" />
+      <path d="M25 2v10M20 7h10" stroke="#C35626" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }
+
+const SERVICE_ICONS: Record<string, React.ReactNode> = {
+  [LINKS.eyelid]: <EyelidCardIcon />,
+  [LINKS.aesthetic]: <AestheticCardIcon />,
+  [LINKS.reconstructive]: <ReconstructiveCardIcon />,
+  [LINKS.exams]: <ComprehensiveCardIcon />,
+};
 
 export const SERVICE_CARD_IMAGES: Record<string, { image: string; alt: string }> = {
   eyelid: {
@@ -174,6 +175,7 @@ export default function ExpertEyeCareSection({
   subtitle,
   showBanner = true,
   serviceRelated = false,
+  responsiveCarousel = false,
 }: {
   id?: string;
   items?: { title: string; desc: string; href: string; image: string; alt: string; icon?: React.ReactNode }[];
@@ -182,7 +184,10 @@ export default function ExpertEyeCareSection({
   subtitle?: React.ReactNode;
   showBanner?: boolean;
   serviceRelated?: boolean;
+  responsiveCarousel?: boolean;
 }) {
+  const CardsContainer = responsiveCarousel ? RelatedServicesCarousel : "div";
+
   return (
     <section id={id} className={`${styles.sectionWrap} ${serviceRelated ? styles.serviceRelated : ""}`} aria-labelledby={`${id}-h`}>
       {/* Decorative Top-Left Soft Peach Wave */}
@@ -227,9 +232,8 @@ export default function ExpertEyeCareSection({
           <span className={styles.accentBar} aria-hidden="true" />
         </div>
 
-        {/* 3 Services Cards Grid */}
-        <div className={styles.cardsGrid}>
-          {(items ? items.map((item) => ({ ...item, icon: item.icon ?? <EyeBadgeIcon /> })) : SERVICES_DATA).map((card, idx) => (
+        <CardsContainer className={styles.cardsGrid}>
+          {(items ?? SERVICES_DATA).map((card, idx) => (
             <div key={idx} className={styles.serviceCard}>
               {/* Card Top Image */}
               <div className={styles.cardImageWrap}>
@@ -244,7 +248,7 @@ export default function ExpertEyeCareSection({
 
               {/* Floating Center Circular Icon Badge */}
               <div className={styles.iconCircleBadge} aria-hidden="true">
-                {card.icon}
+                {card.icon ?? SERVICE_ICONS[card.href] ?? <EyeBadgeIcon />}
               </div>
 
               {/* Card Body */}
@@ -262,14 +266,14 @@ export default function ExpertEyeCareSection({
                   <Link href={card.href} className={styles.learnMoreBtn}>
                     <span>Learn More</span>
                     <span className={styles.arrowCircle} aria-hidden="true">
-                      <ArrowRightIconComponent />
+                      <ArrowRightIcon width={16} height={16} />
                     </span>
                   </Link>
                 </div>
               </div>
             </div>
           ))}
-        </div>
+        </CardsContainer>
 
         {/* Bottom Banner Card: "Your Vision. Our Priority." */}
         {showBanner && <div className={styles.bottomBannerCard}>
@@ -304,7 +308,7 @@ export default function ExpertEyeCareSection({
               </span>
               <span>Book a Consultation</span>
               <span className={styles.bannerArrowCircle} aria-hidden="true">
-                <ArrowRightIconComponent />
+                <ArrowRightIcon width={16} height={16} />
               </span>
             </Link>
           </div>

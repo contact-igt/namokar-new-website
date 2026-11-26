@@ -1,3 +1,4 @@
+import ServiceVideoCarousel from "@/components/ServiceVideoCarousel";
 import HeadingText from "@/components/HeadingText";
 import type { ReactNode } from "react";
 import type { VideoItem } from "@/content/videos";
@@ -11,6 +12,7 @@ interface AestheticVideosSectionProps {
   kicker?: string;
   heading?: ReactNode;
   lead?: string;
+  note?: string;
   youtubeUrl?: string;
 }
 
@@ -25,6 +27,7 @@ export default function AestheticVideosSection({
   kicker = "WATCH",
   heading = "Videos on this topic",
   lead = "Dr. Poonam Jain's centre shares short videos on its YouTube channel and in its own footage.",
+  note = "Videos are general information, not a substitute for an examination. They complement the written information on this page.",
 }: AestheticVideosSectionProps) {
   const items = videos && videos.length >= 2
     ? videos.slice(0, 2).map((video, index) => ({
@@ -50,20 +53,22 @@ export default function AestheticVideosSection({
           <p className={styles.lead}>{lead}</p>
         </div>
         <div className={styles.grid}>
-          {items.map((item) => (
-            <CataractVideoCard
-              key={item.videoId}
-              videoId={item.videoId}
-              title={item.title}
-              description={item.description}
-              category={item.category}
-              poster={`https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg`}
-              watchUrl={`https://www.youtube.com/watch?v=${item.videoId}`}
-            />
-          ))}
+          <ServiceVideoCarousel>
+            {items.map((item) => (
+              <CataractVideoCard
+                key={item.videoId}
+                videoId={item.videoId}
+                title={item.title}
+                description={item.description}
+                category={item.category}
+                poster={`https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg`}
+                watchUrl={`https://www.youtube.com/watch?v=${item.videoId}`}
+              />
+            ))}
+          </ServiceVideoCarousel>
         </div>
         <p className={styles.note}>
-          Videos are general information, not a substitute for an examination. They complement the written information on this page.
+          {note}
         </p>
       </div>
     </section>

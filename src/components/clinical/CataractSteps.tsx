@@ -2,24 +2,24 @@ import { InfoIcon } from "../Icons";
 
 const STEPS = [
   {
-    title: "Before",
-    sub: "Clouded natural lens",
-    text: "A cloudy natural lens scatters light, making vision blurred, dull or hazy.",
+    title: "Before Surgery",
+    sub: "Cloudy Natural Lens",
+    text: "Clouding of the natural lens interferes with light transmission and can reduce visual clarity.",
   },
   {
-    title: "Small incision",
+    title: "Small Surgical Incision",
     sub: "A tiny opening is made",
-    text: "A small corneal opening lets the surgeon reach the lens. Stitches depend on the eye and surgical technique.",
+    text: "Following appropriate anaesthesia, the surgeon creates a small opening to access the cloudy lens.",
   },
   {
-    title: "Lens removed",
+    title: "Removal of the Cataract",
     sub: "The cloudy lens is taken out",
-    text: "The clouded lens is taken out of the eye.",
+    text: "The cloudy lens material is removed using the technique selected for your eye. In most routine procedures, the lens capsule is retained to support the artificial lens.",
   },
   {
-    title: "New lens",
+    title: "Intraocular Lens Implantation",
     sub: "A clear lens is placed",
-    text: "A clear intraocular lens (IOL) replaces the natural lens. Your doctor helps choose its design.",
+    text: "The selected artificial lens is implanted. Many small incisions seal without stitches, although stitches may be required in some cases.",
   },
 ] as const;
 
@@ -54,7 +54,7 @@ export default function CataractSteps() {
       <p className="clin-fine cataract-process-note">
         <InfoIcon width={22} height={22} />
         <span>
-          <strong>Note:</strong> a general outline. Your doctor explains how the operation is arranged for you, and what to do before and afterwards.
+          This is a simplified educational overview. The surgical technique, anaesthesia, incision size and recovery instructions depend on individual clinical requirements.
         </span>
       </p>
     </>

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LINKS } from "@/config/site";
+import { ArrowRightIcon } from "./Icons";
 import styles from "./TearPathwaySection.module.css";
 
 /* ============================================================
@@ -90,8 +91,8 @@ function AlertCircleIcon() {
 
 export default function TearPathwaySection({
   id = "tearPathway",
-  heading = "How tears drain, and what a blockage can mean",
-  intro = "Compare normal tear drainage with what can happen when the passage is blocked.",
+  heading = "How Tears Drain & What Happens When Drainage Is Blocked",
+  intro = "Tears help lubricate and protect the surface of the eye. Excess tears normally pass through a specialised drainage system into the nose.",
 }: {
   id?: string;
   heading?: string;
@@ -108,19 +109,17 @@ export default function TearPathwaySection({
             <div className={styles.copyWrapper}>
               <div className={styles.kickerRow}>
                 <span className={styles.kickerLine} aria-hidden="true" />
-                <span className={styles.kickerText}>See it explained</span>
+                <span className={styles.kickerText}>Understanding Tear Drainage</span>
               </div>
 
               <h2 id={`${id}-h`} className={styles.heading}>
-                {heading.includes("and what") ? (
+                {heading === "How Tears Drain & What Happens When Drainage Is Blocked" ? (
                   <>
-                    How tears drain,
+                    How Tears Drain &amp;
                     <br />
-                    and what a{" "}
+                    What Happens When{" "}
                     <span className={`${styles.headingSecondary} title-secondary`}>
-                      blockage
-                      <br />
-                      can mean
+                      Drainage Is Blocked
                     </span>
                   </>
                 ) : (
@@ -129,12 +128,13 @@ export default function TearPathwaySection({
               </h2>
 
               <p className={styles.lead}>{intro}</p>
+              <p className={styles.lead}>An examination can distinguish impaired drainage from other causes of watering, including dry eye, irritation, allergies and eyelid abnormalities.</p>
 
               <Link href={`${LINKS.contact}#request`} className={styles.ctaButton}>
                 <CalendarIcon />
                 <span>Book a Consultation</span>
                 <span className={styles.btnArrow} aria-hidden="true">
-                  &rarr;
+                  <ArrowRightIcon width={18} height={18} />
                 </span>
               </Link>
             </div>
@@ -152,7 +152,7 @@ export default function TearPathwaySection({
                 aria-label="Normal Drainage Explanation"
               >
                 <div className={styles.badgeContainer}>
-                  <span className={styles.badgeNormal}>Normal Drainage</span>
+                  <span className={styles.badgeNormal}>Normal Tear Drainage</span>
                 </div>
 
                 <div className={styles.cardImageFrame}>
@@ -172,7 +172,7 @@ export default function TearPathwaySection({
                       <CheckIcon />
                     </span>
                     <span className={styles.checkText}>
-                      Tears flow from the eye corner
+                      Blinking spreads tears across the eye. Excess tears enter the puncta near the inner corners of the eyelids.
                     </span>
                   </li>
                   <li className={styles.checkItem}>
@@ -180,14 +180,14 @@ export default function TearPathwaySection({
                       <CheckIcon />
                     </span>
                     <span className={styles.checkText}>
-                      Through the tear ducts
+                      The canaliculi are the small channels that carry tears from the puncta to the lacrimal sac.
                     </span>
                   </li>
                   <li className={styles.checkItem}>
                     <span className={styles.checkCircleNormal}>
                       <CheckIcon />
                     </span>
-                    <span className={styles.checkText}>Into the nose</span>
+                    <span className={styles.checkText}>The nasolacrimal duct carries tears from the sac into the nose.</span>
                   </li>
                 </ul>
 
@@ -196,7 +196,7 @@ export default function TearPathwaySection({
                     <LightbulbIcon />
                   </div>
                   <p className={styles.calloutTextNormal}>
-                    This keeps your eyes hydrated and clear.
+                    The tear film lubricates the eye. The drainage system removes excess tears.
                   </p>
                 </div>
               </div>
@@ -208,7 +208,7 @@ export default function TearPathwaySection({
                 aria-label="Blocked Passage Explanation"
               >
                 <div className={styles.badgeContainer}>
-                  <span className={styles.badgeBlocked}>Blocked Passage</span>
+                  <span className={styles.badgeBlocked}>Impaired Tear Drainage</span>
                 </div>
 
                 <div className={styles.cardImageFrame}>
@@ -228,7 +228,7 @@ export default function TearPathwaySection({
                       <CheckIcon />
                     </span>
                     <span className={styles.checkText}>
-                      Tears cannot drain properly
+                      Narrowing or blockage prevents tears from draining normally.
                     </span>
                   </li>
                   <li className={styles.checkItem}>
@@ -236,7 +236,7 @@ export default function TearPathwaySection({
                       <CheckIcon />
                     </span>
                     <span className={styles.checkText}>
-                      May lead to watery eyes
+                      The eye may water persistently, and tears may overflow onto the cheek.
                     </span>
                   </li>
                   <li className={styles.checkItem}>
@@ -244,7 +244,7 @@ export default function TearPathwaySection({
                       <CheckIcon />
                     </span>
                     <span className={styles.checkText}>
-                      Or recurrent infections
+                      Discharge or swelling near the inner corner of the eye may occur.
                     </span>
                   </li>
                 </ul>
@@ -254,7 +254,7 @@ export default function TearPathwaySection({
                     <AlertCircleIcon />
                   </div>
                   <p className={styles.calloutTextBlocked}>
-                    A blocked passage can cause excessive tearing.
+                    Painful redness or swelling near the inner corner of the eye, especially with fever or discharge, may indicate a tear-sac infection. Seek urgent medical assessment.
                   </p>
                 </div>
               </div>

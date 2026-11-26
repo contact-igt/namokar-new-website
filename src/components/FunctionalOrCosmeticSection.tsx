@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { LINKS } from "@/config/site";
-import { CalendarIcon } from "./Icons";
+import { ArrowRightIcon, CalendarIcon } from "./Icons";
 import styles from "./FunctionalOrCosmeticSection.module.css";
 
 /** Eye icon in terracotta for Functional Reasons */
@@ -63,19 +63,19 @@ function TealCheckIcon() {
 }
 
 const FUNCTIONAL_REASONS = [
-  "Excess skin that rests on the eyelashes or blocks part of the view",
-  "Eyelids that feel heavy or make the eyes tired",
-  "Difficulty keeping the eyes open comfortably",
-  "Tilting the head back or lifting the brows to see more clearly",
-  "Skin folds that irritate or rub on the lids",
+  "Excess upper eyelid skin obstructing vision",
+  "Skin folds resting on the eyelashes",
+  "Heavy or hooded upper eyelids",
+  "Raising the eyebrows to compensate for restricted vision",
+  "Irritation caused by excess skin folds",
 ];
 
 const COSMETIC_REASONS = [
-  "A tired or heavy look around the eyes",
-  "Bags or puffiness beneath the eyes",
-  "Loose skin on the upper or lower lids",
-  "Hooded lids that hide the natural eyelid crease",
-  "Eyelids that look uneven from one side to the other",
+  "Excess upper eyelid skin",
+  "Prominent under-eye bags",
+  "Loose lower eyelid skin",
+  "Hooded upper eyelids",
+  "Selected age-related changes around the eyes",
 ];
 
 export interface FunctionalOrCosmeticSectionProps {
@@ -88,8 +88,8 @@ export interface FunctionalOrCosmeticSectionProps {
 
 export default function FunctionalOrCosmeticSection({
   id = "reasons",
-  kicker = "WHY PEOPLE CONSIDER IT",
-  lead = "Many people have a mixture of reasons. The reason affects how any treatment is planned, so the doctor asks about both and examines the eyelids before suggesting anything.",
+  kicker = "UNDERSTANDING YOUR TREATMENT GOALS",
+  lead = "Blepharoplasty may be considered for functional reasons, aesthetic concerns or both. The appropriate treatment depends on the cause, eyelid anatomy, eye health and individual needs.",
   buttonLabel = "Book a Consultation",
   buttonHref = `${LINKS.contact}#request`,
 }: FunctionalOrCosmeticSectionProps) {
@@ -157,17 +157,18 @@ export default function FunctionalOrCosmeticSection({
 
             <h2 id="reasons-heading" className={styles.heading}>
               Functional or
-              <span className={`${styles.headingHighlight} title-secondary`}>Cosmetic?</span>
+              <span className={`${styles.headingHighlight} title-secondary`}>Aesthetic Eyelid Surgery?</span>
             </h2>
 
             <p className={styles.lead}>{lead}</p>
+            <p className={styles.lead}>Under-eye swelling can also be related to allergies, fluid retention or thyroid disease. Eyelid asymmetry may reflect ptosis, brow position or other medical conditions.</p>
 
             <Link href={buttonHref} className={styles.ctaBtn}>
               <span className={styles.ctaBtnIcon} aria-hidden="true">
                 <CalendarIcon width={18} height={18} />
               </span>
               <span>{buttonLabel}</span>
-              <span aria-hidden="true">&rarr;</span>
+              <ArrowRightIcon width={18} height={18} />
             </Link>
           </div>
 
@@ -186,13 +187,13 @@ export default function FunctionalOrCosmeticSection({
                     priority
                   />
                   <span className={`${styles.duoBadge} ${styles.badgeFunctional}`}>
-                    Functional Correction
+                    Functional Eyelid Concerns
                   </span>
                 </div>
                 <div className={styles.duoCardFooter}>
                   <h3 className={styles.duoCardTitle}>Impaired Field of View</h3>
                   <p className={styles.duoCardCaption}>
-                    Clears hooding resting on eyelashes and relieves brow-lifting strain.
+                    Excess upper eyelid skin may interfere with the upper visual field or contribute to functional difficulties.
                   </p>
                 </div>
               </div>
@@ -209,13 +210,13 @@ export default function FunctionalOrCosmeticSection({
                     priority
                   />
                   <span className={`${styles.duoBadge} ${styles.badgeCosmetic}`}>
-                    Cosmetic Rejuvenation
+                    Aesthetic Eyelid Concerns
                   </span>
                 </div>
                 <div className={styles.duoCardFooter}>
-                  <h3 className={styles.duoCardTitle}>Refreshed, Rested Look</h3>
+                  <h3 className={styles.duoCardTitle}>Changes in Eyelid Appearance</h3>
                   <p className={styles.duoCardCaption}>
-                    Smooths heavy bags, restores crease definition, and eliminates tired look.
+                    Under-eye bags, excess skin and age-related changes may be reasons to seek a specialist assessment.
                   </p>
                 </div>
               </div>
@@ -256,7 +257,7 @@ export default function FunctionalOrCosmeticSection({
                 <CosmeticEyeIcon />
               </div>
               <div className={styles.cardTitleWrap}>
-                <h3 className={styles.cardTitle}>Cosmetic Reasons</h3>
+                <h3 className={styles.cardTitle}>Aesthetic Reasons</h3>
                 <span className={styles.cardUnderlineCosmetic} aria-hidden="true" />
               </div>
             </div>

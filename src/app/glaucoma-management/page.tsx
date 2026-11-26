@@ -1,152 +1,91 @@
+import ServiceVideoCarousel from "@/components/ServiceVideoCarousel";
 import HeadingText from "@/components/HeadingText";
 import ClinicalFigure from "@/components/clinical/ClinicalFigure";
 import Image from "next/image";
 import Breadcrumb from "@/components/Breadcrumb";
-import BookButton from "@/components/BookButton";
-import ServiceLayout, { serviceMetadata } from "@/components/ServiceLayout";
-import { LINKS, SITE, TEL_HREF } from "@/config/site";
+import ServiceLayout from "@/components/ServiceLayout";
+import { pageMeta } from "@/lib/seo";
+import { LINKS, TEL_HREF } from "@/config/site";
 import { SERVICE_CONTENT } from "@/content/services";
 import { videosFor } from "@/content/videos";
 import { onlineBookingAvailable } from "@/lib/booking";
 import { playerProps } from "@/lib/videoProps";
-import VideoPlayer from "@/components/VideoPlayer";
 import HomeCta from "@/components/HomeCta";
 import GlaucomaVideoCard from "./GlaucomaVideoCard";
 import ServicesFaqSection from "@/components/ServicesFaqSection";
-import { PhoneIcon } from "@/components/Icons";
+import { ArrowDownIcon, CalendarIcon, InfoIcon, PhoneIcon } from "@/components/Icons";
 import styles from "./glaucoma.module.css";
 
-export const metadata = serviceMetadata("glaucoma");
+const c = SERVICE_CONTENT.glaucoma;
 
-type Item = { title: string; text: string };
+export const metadata = pageMeta("glaucoma", {
+  title: `${c.metaTitle} | Namokar`,
+  description: c.metaDescription,
+});
 
-const BGS = {
-  early: "/images/ChatGPT Image Nov 14, 2026, 12_34_33 PM.png",
-  signs: "/images/e4b58cbe-e728-4a38-b079-aedcd4cbe6d6.png",
-};
-
-const JOURNEY_DATA = [
-  {
-    num: "01",
-    img: "/images/glaucoma-journey-1.jpg",
-    title: "Examination",
-    text: "Your eyes are examined, including the optic nerve at the back of the eye.",
-  },
-  {
-    num: "02",
-    img: "/images/glaucoma-journey-2.jpg",
-    title: "Diagnostic Tests",
-    text: "Tests measure intraocular pressure and visual field to check nerve function.",
-  },
-  {
-    num: "03",
-    img: "/images/glaucoma-journey-3.jpg",
-    title: "Findings & Plan",
-    text: "The doctor explains what was found and formulates a personalised care plan.",
-  },
-  {
-    num: "04",
-    img: "/images/ChatGPT Image Nov 14, 2026, 03_48_23 PM.png",
-    title: "Targeted Treatment",
-    text: "Glaucoma is treated with eye drops, laser or surgery depending on your eyes.",
-  },
-  {
-    num: "05",
-    img: "/images/glaucoma-journey-5.jpg",
-    title: "Regular Follow-up",
-    text: "Ongoing monitoring keeps eye pressure controlled and preserves vision.",
-  },
+const JOURNEY_IMAGES = [
+  "/images/glaucoma-journey-1.jpg",
+  "/images/glaucoma-journey-2.jpg",
+  "/images/glaucoma-journey-3.jpg",
+  "/images/ChatGPT Image Nov 14, 2026, 03_48_23 PM.png",
+  "/images/glaucoma-journey-5.jpg",
 ];
 
-const SIGNS: Item[] = [
-  {
-    title: "Changing glasses often",
-    text: "Needing a new prescription again and again can be a sign worth mentioning to the doctor.",
-  },
-  {
-    title: "Narrowing side vision",
-    text: "Side (peripheral) vision can shrink slowly, sometimes described as tunnel vision.",
-  },
-  {
-    title: "Missing things at the edge",
-    text: "Bumping into objects or people, or tripping, because part of the view is missing.",
-  },
-  {
-    title: "Needing brighter light",
-    text: "Finding that you need much more light than before to see well.",
-  },
-  {
-    title: "Blurred or hazy vision",
-    text: "Vision that looks misty or less clear, without an obvious reason.",
-  },
-  {
-    title: "A vague ache around the eye",
-    text: "A dull ache or feeling of pressure in or around the eye.",
-  },
+const SIGNS = [
+  { title: "Gradual Loss of Side Vision", text: "Peripheral vision may become affected as glaucoma progresses." },
+  { title: "Blind Spots in Your Vision", text: "Areas of reduced visual sensitivity may develop without being immediately noticeable." },
+  { title: "Difficulty Noticing Surrounding Objects", text: "Visual field changes can make it harder to notice objects or people in parts of your surroundings." },
+  { title: "Difficulty Finding Your Way Around", text: "More advanced visual field loss may make it harder to move through familiar, crowded or unfamiliar places." },
+  { title: "Tunnel Vision in Advanced Glaucoma", text: "Extensive peripheral vision loss may leave a narrower area of useful vision." },
+  { title: "Central Vision Difficulties", text: "Some forms of glaucoma can affect areas near central vision, potentially interfering with reading and other daily activities." },
 ];
 
-const TYPES: Item[] = [
-  {
-    title: "Open-angle glaucoma",
-    text: "The most common type. The drainage channels of the eye stay open but drain too slowly, and damage builds up gradually. There is usually no pain and no early symptom.",
-  },
-  {
-    title: "Normal-tension glaucoma",
-    text: "The optic nerve is damaged even though the eye pressure measures within the normal range. It is one reason a full examination is needed and not a pressure reading alone.",
-  },
-  {
-    title: "Angle-closure glaucoma",
-    text: "The drainage angle of the eye becomes narrow or blocked. It can build up slowly or, in an acute attack, within hours.",
-  },
+const TYPES = [
+  { title: "Open-Angle Glaucoma", text: "The drainage angle remains open, but resistance to fluid outflow can raise eye pressure. Higher pressure increases the risk of optic nerve damage, though damage can also occur at normal measured pressure. Early stages usually have no noticeable symptoms." },
+  { title: "Normal-Tension Glaucoma", text: "A form of open-angle glaucoma in which characteristic optic nerve damage occurs despite eye pressure measurements being within the normal range." },
+  { title: "Angle-Closure Glaucoma", text: "The drainage angle becomes obstructed, affecting the outflow of fluid. Angle closure can develop gradually or occur suddenly as an acute medical emergency." },
 ];
 
-const TESTS: Item[] = [
-  {
-    title: "Eye pressure (tonometry)",
-    text: "Measures the pressure inside the eye, because raised pressure is a common factor in glaucoma.",
-  },
-  {
-    title: "Optic nerve examination",
-    text: "The nerve at the back of the eye is examined for thinning or other changes that glaucoma causes.",
-  },
-  {
-    title: "Visual field test",
-    text: "Maps your side vision and shows whether any part of it has been lost, often without the person noticing.",
-  },
-  {
-    title: "OCT scan",
-    text: "A scan that can show the thickness of the nerve fibre layer, which helps to pick up change over time.",
-  },
-  {
-    title: "Drainage angle (gonioscopy)",
-    text: "Looks at the drainage angle of the eye, which helps to tell the types of glaucoma apart.",
-  },
-  {
-    title: "Corneal thickness",
-    text: "The thickness of the front of the eye can affect how an eye pressure reading is interpreted.",
-  },
+const TESTS = [
+  { title: "Eye Pressure Measurement (Tonometry)", text: "Measures intraocular pressure, an important modifiable risk factor in glaucoma." },
+  { title: "Optic Nerve Examination", text: "Assesses the appearance of the optic nerve for changes associated with glaucoma." },
+  { title: "Visual Field Testing (Perimetry)", text: "Measures visual sensitivity at different points in central and peripheral vision to detect and monitor functional changes." },
+  { title: "OCT Scan", text: "Optical coherence tomography evaluates retinal nerve fibre and ganglion cell structures that may be affected by glaucoma." },
+  { title: "Drainage Angle Examination (Gonioscopy)", text: "Shows whether the drainage angle is open, narrow or closed and helps guide classification and treatment." },
+  { title: "Corneal Thickness Measurement (Pachymetry)", text: "Measures central corneal thickness to help interpret eye pressure readings and assess glaucoma risk." },
 ];
 
-const TREATMENTS: { title: string; text: string; img: string; kind: "drop" | "scan" | "check" }[] = [
+const TREATMENTS = [
   {
-    title: "Eye drops",
-    text: "Often the first step. Drops lower the pressure in the eye, and they only work when they are used regularly as prescribed.",
+    title: "Glaucoma Eye Drops",
+    text: "Prescription drops lower eye pressure by reducing fluid production or improving drainage. Use them as directed and attend regular monitoring.",
     img: "/images/glaucoma-treat-drops.jpg",
     kind: "drop",
   },
   {
-    title: "Laser treatment",
-    text: "In suitable eyes, a laser can help fluid drain more easily or open a narrow drainage angle.",
-    img: "/images/glaucoma-treat-laser.jpg",
+    title: "Laser Treatment",
+    text: "Different lasers can improve fluid outflow or address certain mechanisms of angle closure. Laser may be an initial or additional treatment for suitable patients.",
+    img: "/images/glaucoma-laser-treatment.webp",
     kind: "scan",
   },
   {
-    title: "Surgery",
-    text: "When drops or laser are not enough, surgery creates a new route for fluid to leave the eye. Options range from minimally invasive glaucoma surgery (MIGS) to conventional operations.",
+    title: "Glaucoma Surgery",
+    text: "Procedures lower pressure in different ways. Surgery may be considered earlier in selected cases, including some patients with advanced disease, or when other options are unsuitable or insufficient.",
     img: "/images/glaucoma-treat-surgery.jpg",
     kind: "check",
   },
-];
+] as const;
+
+const VIDEO_COPY: Record<string, { title: string; description: string }> = {
+  SqmpI_G8o5I: {
+    title: "Four Common Misconceptions About Glaucoma",
+    description: "Dr. Poonam Jain discusses common misunderstandings about glaucoma and its management.",
+  },
+  "0YHUAEUcM2g": {
+    title: "What Is Glaucoma?",
+    description: "Understand glaucoma, its effect on the optic nerve and the importance of timely diagnosis and ongoing care.",
+  },
+};
 
 function Mark({ kind = "eye" }: { kind?: "eye" | "drop" | "scan" | "check" }) {
   return (
@@ -185,8 +124,8 @@ function Mark({ kind = "eye" }: { kind?: "eye" | "drop" | "scan" | "check" }) {
 }
 
 export default function Page() {
-  const c = SERVICE_CONTENT.glaucoma;
   const online = onlineBookingAvailable();
+  const bookingHref = online ? `${LINKS.contact}#request` : TEL_HREF;
 
   // 1. HERO SECTION (Matches Cataract & Comprehensive Eye Exam UI)
   const hero = (
@@ -203,7 +142,6 @@ export default function Page() {
             className={styles.heroRightImg}
             unoptimized
           />
-          <div className={styles.mobileBgProtection} />
         </div>
 
         <div className={`container ${styles.container}`}>
@@ -226,8 +164,8 @@ export default function Page() {
 
               {/* Two-line heading */}
               <h1 id="glaucoma-hero-h" className={styles.heading}>
-                <span>Protecting your vision,</span>
-                <span className="title-secondary">from silent damage.</span>
+                <span>Glaucoma Detection,</span>{" "}
+                <span className="title-secondary">Treatment &amp; Vision Protection</span>
               </h1>
 
               {/* Body lead description */}
@@ -235,10 +173,13 @@ export default function Page() {
 
               {/* CTA Action Buttons */}
               <div className={styles.actions}>
-                <BookButton online={online} className={styles.btnPrimary} />
+                <a href={bookingHref} className={styles.btnPrimary}>
+                  {online ? <CalendarIcon width={18} height={18} /> : <PhoneIcon width={18} height={18} />}
+                  <span>{online ? "Request a Glaucoma Consultation" : "Book a Glaucoma Consultation"}</span>
+                </a>
                 <a href="#overview" className={styles.btnSecondary}>
                   <span>Learn About Glaucoma</span>
-                  <span className={styles.btnArrow} aria-hidden="true">&rarr;</span>
+                  <ArrowDownIcon className={styles.btnArrow} strokeWidth={2.5} aria-hidden="true" />
                 </a>
               </div>
             </div>
@@ -264,8 +205,8 @@ export default function Page() {
                   </span>
                   <span className={styles.badgeDivider} aria-hidden="true" />
                   <div className={styles.badgeText}>
-                    <strong>Preserving Your Sight</strong>
-                    <span>with Advanced Glaucoma Care</span>
+                    <strong>Personalised Glaucoma Assessment</strong>
+                    <span>&amp; Management</span>
                   </div>
                 </div>
               </div>
@@ -281,7 +222,7 @@ export default function Page() {
                   <circle cx="12" cy="12" r="3.2" strokeWidth="2" />
                 </svg>
               </span>
-              <strong>Early Detection & Pressure Checks</strong>
+              <strong>Early Detection &amp; Eye Assessment</strong>
             </li>
             <li className={styles.trustCard}>
               <span className={styles.trustIcon} aria-hidden="true">
@@ -290,7 +231,7 @@ export default function Page() {
                   <path d="M12 6v6l4 2" />
                 </svg>
               </span>
-              <strong>Advanced Optic Nerve OCT</strong>
+              <strong>Optic Nerve Evaluation</strong>
             </li>
             <li className={styles.trustCard}>
               <span className={styles.trustIcon} aria-hidden="true">
@@ -299,7 +240,7 @@ export default function Page() {
                   <path d="m9 12 2 2 4-4" />
                 </svg>
               </span>
-              <strong>Specialist Glaucoma Doctors</strong>
+              <strong>Personalised Glaucoma Management</strong>
             </li>
             <li className={styles.trustCard}>
               <span className={styles.trustIcon} aria-hidden="true">
@@ -307,7 +248,7 @@ export default function Page() {
                   <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
                 </svg>
               </span>
-              <strong>Long-term Vision Protection</strong>
+              <strong>Long-Term Monitoring &amp; Care</strong>
             </li>
           </ul>
         </div>
@@ -346,12 +287,8 @@ export default function Page() {
             <HeadingText>{c.introHeading}</HeadingText>
           </h2>
           <div className={styles.overviewText}>
-            <p>
-              Glaucoma is a group of eye conditions in which the{" "}
-              <strong>optic nerve</strong>, which carries what the eye sees to the brain, is{" "}
-              <strong>gradually damaged</strong>.{" "}
-              <strong>Raised pressure inside the eye</strong> is a common factor, but it is not the only one.
-            </p>
+            <p>{c.intro[0]}</p>
+            <p>{c.intro[1]}</p>
             <div className={styles.overviewCallout}>
               <span className={styles.calloutIconWrap} aria-hidden="true">
                 <svg
@@ -369,17 +306,9 @@ export default function Page() {
                   <path d="M7.5 18c1.3.8 2.8 1.2 4.5 1.2s3.2-.4 4.5-1.2" />
                 </svg>
               </span>
-              <p className={styles.calloutText}>
-                Glaucoma is often called the <strong>silent thief of sight</strong> because it can take{" "}
-                <strong>side vision slowly and without pain</strong>. Left untreated, it can lead to{" "}
-                <strong>permanent loss of vision</strong>.
-              </p>
+              <p className={styles.calloutText}>{c.intro[2]}</p>
             </div>
-            <p>
-              Glaucoma is usually a <strong>long-term condition</strong> that is managed rather than cured. Damage to the optic nerve cannot be reversed, so the aim of care is to{" "}
-              <strong>find glaucoma early</strong> and to{" "}
-              <strong>protect the vision that remains</strong>. Treatment and follow-up are planned for each person.
-            </p>
+            <p>{c.intro[3]}</p>
           </div>
         </div>
       </div>
@@ -403,8 +332,8 @@ export default function Page() {
             </svg>
           </span>
           <div className={styles.featureContent}>
-            <strong>Optic nerve &amp; pressure</strong>
-            <p>The nerve connecting eye to brain is gradually damaged, with raised pressure a common factor.</p>
+            <strong>Optic Nerve Damage</strong>
+            <p>Glaucoma damages the optic nerve and can permanently affect vision.</p>
           </div>
         </article>
         <article>
@@ -428,8 +357,8 @@ export default function Page() {
             </svg>
           </span>
           <div className={styles.featureContent}>
-            <strong>Painless side-vision loss</strong>
-            <p>Often called the silent thief of sight, taking side vision slowly and without pain.</p>
+            <strong>Often No Early Symptoms</strong>
+            <p>Common forms of glaucoma may progress without pain or noticeable visual changes.</p>
           </div>
         </article>
         <article>
@@ -449,8 +378,8 @@ export default function Page() {
             </svg>
           </span>
           <div className={styles.featureContent}>
-            <strong>Protecting remaining sight</strong>
-            <p>While damage cannot be reversed, finding it early and ongoing care protect the vision that remains.</p>
+            <strong>Protecting Remaining Vision</strong>
+            <p>Early detection and appropriate treatment can help reduce the risk of further vision loss.</p>
           </div>
         </article>
       </div>
@@ -464,8 +393,9 @@ export default function Page() {
       <section id="when" className={styles.awarenessSection} aria-labelledby="when-h">
         <div className="container">
           <div className={styles.centerHead}>
-            <p className={styles.eyebrow}>Know the signs</p>
+            <p className={styles.eyebrow}>Know Your Risk</p>
             <h2 id="when-h"><HeadingText>{c.seekHelp.heading}</HeadingText></h2>
+            <p className={styles.leadText}>Glaucoma can affect people of different ages. Regular examinations are particularly important if you have risk factors.</p>
           </div>
           <div className={styles.awarenessGrid}>
             {c.seekHelp.items.map((item) => (
@@ -487,9 +417,10 @@ export default function Page() {
                 <span>{item}</span>
               </div>
             ))}
+            <p className={styles.leadText}>Risk factors do not establish a diagnosis. Ask your ophthalmologist about an examination schedule based on your individual risk. Speak to the prescribing doctor before changing steroid medicines.</p>
             <div className={styles.awarenessAlertBox}>
               <div>
-                <strong>Urgent Medical Attention:</strong>
+                <strong>Acute Angle Closure Is a Medical Emergency</strong>
                 <span>{c.seekHelp.note}</span>
               </div>
             </div>
@@ -501,20 +432,20 @@ export default function Page() {
       <section id="journey" className={styles.journeySection} aria-labelledby="journey-h">
         <div className="container">
           <div className={styles.centerHead}>
-            <p className={styles.eyebrow}>What to expect</p>
-            <h2 id="journey-h">What an <span className="title-secondary">assessment involves</span></h2>
+            <p className={styles.eyebrow}>Your Glaucoma Care Journey</p>
+            <h2 id="journey-h">From Glaucoma Assessment <span className="title-secondary">to Long-Term Care</span></h2>
             <p className={styles.leadText}>
-              A general outline of long-term care. The doctor decides which tests you need and how often. Most people can maintain good vision and continue their usual activities.
+              {c.journeyLead}
             </p>
           </div>
 
           <div className={styles.journeyFlow}>
-            {JOURNEY_DATA.map((step, idx) => (
+            {c.journey.map((step, idx) => (
               <div key={step.title} className={styles.journeyStep}>
                 <div className={styles.journeyCircleWrap}>
-                  <span className={styles.journeyBadge}>{step.num}</span>
+                  <span className={styles.journeyBadge}>{String(idx + 1).padStart(2, "0")}</span>
                   <Image
-                    src={step.img}
+                    src={JOURNEY_IMAGES[idx]}
                     alt={step.title}
                     width={130}
                     height={130}
@@ -522,16 +453,24 @@ export default function Page() {
                     unoptimized
                   />
                 </div>
-                {idx < JOURNEY_DATA.length - 1 && (
+                {idx < c.journey.length - 1 && (
                   <span className={styles.journeyArrow} aria-hidden="true">
                     ❯❯❯
                   </span>
                 )}
                 <h3 className={styles.journeyTitle}>{step.title}</h3>
                 <p className={styles.journeyText}>{step.text}</p>
+                {idx < c.journey.length - 1 && (
+                  <span className={styles.journeyConnector} aria-hidden="true">
+                    <ArrowDownIcon width={19} height={19} />
+                  </span>
+                )}
               </div>
             ))}
           </div>
+          <p className={styles.sectionNote}>
+            <strong>Follow-up:</strong> Glaucoma may progress even when pressure appears controlled. Regular evaluation of optic nerve structure and visual function remains important.
+          </p>
         </div>
       </section>
     </>
@@ -542,28 +481,31 @@ export default function Page() {
     <section id="watch" className={styles.videoSection} aria-labelledby="watch-h">
       <div className="container">
         <div className={styles.centerHead}>
-          <p className={styles.eyebrow}>Watch</p>
-          <h2 id="watch-h">Videos on <span className="title-secondary">this topic</span></h2>
+          <p className={styles.eyebrow}>Insights from Your Doctor</p>
+          <h2 id="watch-h">Understanding Glaucoma <span className="title-secondary">with Dr. Poonam Jain</span></h2>
           <p className={styles.leadText}>
-            Dr. Poonam Jain&apos;s centre shares short videos on its YouTube channel and in its own footage. Videos are general information, not a substitute for an examination. They complement the written information on this page.
+            Learn about glaucoma, optic nerve health, common misconceptions, early detection and the importance of regular eye examinations through educational videos from Dr. Poonam Jain.
           </p>
         </div>
         <div className={styles.videoGrid}>
-          {videos.map((v) => {
-            const props = playerProps(v);
-            return (
-              <GlaucomaVideoCard
-                key={v.id}
-                videoId={props.videoId || ""}
-                title={v.title}
-                description={v.description}
-                poster={props.poster || "/images/glaucoma-thumbnail1-new.jpg"}
-                watchUrl={props.watchUrl || `https://www.youtube.com/watch?v=${props.videoId}`}
-                language={v.language}
-                category={v.category}
-              />
-            );
-          })}
+          <ServiceVideoCarousel>
+            {videos.map((v) => {
+              const props = playerProps(v);
+              const copy = props.videoId ? VIDEO_COPY[props.videoId] : undefined;
+              return (
+                <GlaucomaVideoCard
+                  key={v.id}
+                  videoId={props.videoId || ""}
+                  title={copy?.title ?? v.title}
+                  description={copy?.description ?? v.description}
+                  poster={props.poster || "/images/glaucoma-thumbnail1-new.jpg"}
+                  watchUrl={props.watchUrl || `https://www.youtube.com/watch?v=${props.videoId}`}
+                  language={v.language}
+                  category={v.category}
+                />
+              );
+            })}
+          </ServiceVideoCarousel>
         </div>
       </div>
     </section>
@@ -573,8 +515,8 @@ export default function Page() {
   const faq = (
     <ServicesFaqSection
       items={faqs}
-      heading="Questions patients often ask"
-      lead="This page is general information, not medical advice. Your own eyes need to be examined before anyone can advise you."
+      heading="Questions Patients Often Ask About Glaucoma"
+      lead="Find answers to common questions about glaucoma diagnosis, treatment, risk factors and long-term eye care."
       serviceStyle
       topic="glaucoma"
       online={online}
@@ -587,9 +529,10 @@ export default function Page() {
     <HomeCta
       online={online}
       id="glaucoma-cta"
-      kicker="Consultation"
-      heading="Speak to the centre about your eyes."
-      desc="Contact the centre to plan your visit or arrange an eye consultation."
+      heading="Book Your Glaucoma Consultation"
+      desc="Whether you have a family history of glaucoma, elevated eye pressure or require ongoing glaucoma management, consult Dr. Poonam Jain for a detailed eye assessment and personalised care plan."
+      onlineBookingLabel="Request a Consultation"
+      note="Experiencing sudden severe eye pain or sudden vision loss? Seek immediate emergency eye care."
     />
   );
 
@@ -613,14 +556,12 @@ export default function Page() {
         <div className="container">
           <div className={styles.earlyPanel}>
             <div className={styles.earlyContent}>
-              <p className={styles.eyebrow}>Why check-ups matter</p>
+              <p className={styles.eyebrow}>Why Regular Check-ups Matter</p>
               <h2 id="silent-h" className={styles.earlyHeading}>
-                Often no early symptoms. <span className="title-secondary">That is why an examination matters.</span>
+                Glaucoma Often Has No Early Symptoms. <span className="title-secondary">Early Detection Matters.</span>
               </h2>
               <p className={styles.earlyLead}>
-                Vision lost to glaucoma does not come back, and early on most people notice
-                nothing. Regular examination is how it is found, and how any change is
-                caught.
+                Vision lost due to glaucoma cannot usually be restored. Regular eye examinations can help identify optic nerve changes before noticeable vision loss occurs.
               </p>
             </div>
           </div>
@@ -631,11 +572,10 @@ export default function Page() {
       <section id="signs" className={styles.signsSection} aria-labelledby="signs-h">
         <div className="container">
           <div className={styles.centerHead}>
-            <p className={styles.eyebrow}>Signs to notice</p>
-            <h2 id="signs-h">Changes you <span className="title-secondary">may notice</span></h2>
+            <p className={styles.eyebrow}>Signs &amp; Symptoms</p>
+            <h2 id="signs-h">Understanding the <span className="title-secondary">Symptoms of Glaucoma</span></h2>
             <p className={styles.leadText}>
-              Early glaucoma often shows nothing at all. When changes do appear, they tend to
-              be slow, so they are easy to put down to age or tired eyes.
+              Most people with early open-angle glaucoma do not experience noticeable symptoms. As it progresses, changes in the field of vision may become apparent.
             </p>
           </div>
 
@@ -660,10 +600,17 @@ export default function Page() {
 
           {/* 5. SMALL WHITE NOTE BOX (INTEGRATED NATURALLY) */}
           <div className={styles.signsNote}>
+            <InfoIcon className={styles.emergencyIcon} aria-hidden="true" />
             <p>
-              <strong>Please note:</strong> None of these proves glaucoma, and glaucoma can be
-              present without any of them. Only an eye examination can tell.
+              These symptoms can occur with other eye conditions, and glaucoma can be present without noticeable symptoms. A comprehensive eye examination is needed for diagnosis.
             </p>
+          </div>
+          <div className={styles.emergencyWarning}>
+            <svg className={styles.emergencyIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M12 3 2 21h20L12 3Z" />
+              <path d="M12 9v4m0 4h.01" />
+            </svg>
+            <div className={styles.emergencyText}><strong>Acute Angle Closure Is a Medical Emergency.</strong> {c.seekHelp.note}</div>
           </div>
         </div>
       </section>
@@ -672,10 +619,10 @@ export default function Page() {
       <section id="types" className={styles.typesSection} aria-labelledby="types-h">
         <div className="container">
           <div className={styles.centerHead}>
-            <p className={styles.eyebrow}>Types</p>
-            <h2 id="types-h">Common types <span className="title-secondary">of glaucoma</span></h2>
+            <p className={styles.eyebrow}>Types of Glaucoma</p>
+            <h2 id="types-h">Common Types <span className="title-secondary">of Glaucoma</span></h2>
             <p className={styles.leadText}>
-              Knowing which type a person has helps the doctor choose the right care.
+              Glaucoma can develop through different mechanisms. Identifying the type helps your ophthalmologist recommend appropriate treatment and follow-up.
             </p>
           </div>
 
@@ -684,15 +631,15 @@ export default function Page() {
               <div className={styles.typesGlobeCard}>
                 <Image
                   src="/images/glaucoma-eye-pressure-globe.png"
-                  alt="3D cutaway of eye showing increased fluid pressure on optic nerve"
+                  alt="Illustrated eye cross-section showing the drainage angle and optic nerve"
                   width={520}
                   height={500}
                   className={styles.typesGlobeImg}
                   unoptimized
                 />
                 <div className={styles.typesGlobeCaption}>
-                  <strong>Fluid Pressure &amp; The Optic Nerve</strong>
-                  <span>Increased intraocular pressure gradually compresses nerve fibres at the optic disc.</span>
+                  <strong>Eye Pressure &amp; Optic Nerve Health</strong>
+                  <span>Raised intraocular pressure can contribute to optic nerve damage. Glaucoma can also develop at normal eye pressure, and multiple factors influence its progression.</span>
                 </div>
               </div>
             </div>
@@ -723,15 +670,9 @@ export default function Page() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div className={styles.emergencyWarning}>
-            <div className={styles.emergencyIcon}>⚠️</div>
-            <div className={styles.emergencyText}>
-              <strong>Emergency Note:</strong> A sudden attack of angle-closure glaucoma is an
-              emergency. Severe eye pain with redness, blurred vision, halos around lights,
-              headache or sickness needs urgent medical attention.
+              <p className={styles.sectionNote}>
+                <strong>Note:</strong> Other forms, including secondary and childhood glaucoma, also exist. These cards describe selected clinical presentations.
+              </p>
             </div>
           </div>
         </div>
@@ -742,12 +683,10 @@ export default function Page() {
         <div className="container">
           <div className={styles.monitoringHeaderWrap}>
             <div className={styles.monitoringCopy}>
-              <p className={styles.eyebrow}>Diagnosis and monitoring</p>
-              <h2 id="monitoring-h">How glaucoma is <span className="title-secondary">found and followed</span></h2>
+              <p className={styles.eyebrow}>Diagnosis &amp; Monitoring</p>
+              <h2 id="monitoring-h">How Glaucoma Is <span className="title-secondary">Diagnosed &amp; Monitored</span></h2>
               <p className={styles.leadText}>
-                Checking eye pressure alone is not enough. The doctor looks at the nerve, the
-                drainage angle and the field of vision together. These are tests a doctor may use;
-                which ones you need, and how often, is the doctor&rsquo;s decision.
+                A glaucoma assessment combines examination and appropriate tests to evaluate eye pressure, optic nerve health, the drainage angle and visual function. Eye pressure alone cannot confirm or rule out glaucoma.
               </p>
             </div>
             <figure className={styles.monitoringPhoto}>
@@ -771,25 +710,29 @@ export default function Page() {
               </li>
             ))}
           </ul>
+          <p className={styles.sectionNote}>
+            <strong>Testing and follow-up:</strong> Your ophthalmologist will decide which tests you need and how often to repeat them. OCT findings should be interpreted alongside the examination, visual field testing and other relevant investigations.
+          </p>
         </div>
       </section>
 
       <ClinicalFigure
         id="glaucomaFlow"
         className={styles.explained}
-        heading="How fluid drains, and how pressure can rise"
-        intro="Compare normal drainage with slowed drainage to see one common way pressure can rise inside the eye."
+        eyebrow="Understanding Eye Pressure"
+        heading="How Fluid Drainage Affects Eye Pressure"
+        intro="The eye produces a clear fluid called aqueous humour. A balance between production and drainage helps regulate eye pressure. Aqueous humour is inside the eye, while tears lubricate its surface."
+        note="These illustrations show one way eye pressure can rise. Glaucoma can also occur without elevated measured eye pressure."
       />
 
       {/* 8. “HOW GLAUCOMA IS TREATED” */}
       <section id="treatment" className={styles.treatmentSection} aria-labelledby="treatment-h">
         <div className="container">
           <div className={styles.centerHead}>
-            <p className={styles.eyebrow}>Treatment</p>
-            <h2 id="treatment-h">How glaucoma <span className="title-secondary">is treated</span></h2>
+            <p className={styles.eyebrow}>Glaucoma Treatment</p>
+            <h2 id="treatment-h">Glaucoma Treatment &amp; <span className="title-secondary">Long-Term Management</span></h2>
             <p className={styles.leadText}>
-              Treatment aims to lower the pressure in the eye and protect the vision that is
-              left. It cannot bring back vision that has already been lost.
+              Treatment aims to lower intraocular pressure and reduce the risk of further optic nerve damage. It cannot restore vision already lost due to glaucoma. Your options depend on glaucoma type, severity, pressure, examination findings and individual needs.
             </p>
           </div>
 
@@ -817,13 +760,22 @@ export default function Page() {
             ))}
           </ul>
 
-          <div className={styles.treatmentCallout}>
+          <div className={`${styles.sectionNote} ${styles.treatmentCallout}`}>
             <p>
-              The choice depends on the type of glaucoma, how far it has gone and the
-              person&rsquo;s health. The doctor explains the options and what each can and cannot
-              do. Check-ups continue after treatment, because glaucoma needs watching over the
-              long term.
+              Your ophthalmologist will discuss the benefits, risks and alternatives for suitable treatments. Regular monitoring remains important after medication, laser treatment or surgery.
             </p>
+            <p><strong>Keep using prescribed glaucoma medicines</strong> unless your ophthalmologist advises a change, even if your pressure improves or you have laser treatment or surgery.</p>
+            <details>
+              <summary>How different glaucoma procedures work</summary>
+              <p>These are general examples. Your ophthalmologist can explain which options are suitable and how treatment is arranged.</p>
+              <ul>
+                <li><strong>Selective laser trabeculoplasty (SLT)</strong> improves drainage through the trabecular meshwork in suitable open-angle glaucoma.</li>
+                <li><strong>Laser peripheral iridotomy (LPI)</strong> addresses pupillary block in suitable angle-closure conditions.</li>
+                <li><strong>Trabeculectomy and glaucoma drainage devices</strong> provide an alternative drainage route.</li>
+                <li><strong>Minimally invasive glaucoma surgery (MIGS)</strong> includes procedures that lower pressure through different mechanisms.</li>
+                <li><strong>Lens extraction</strong> may be appropriate in selected cases of angle closure.</li>
+              </ul>
+            </details>
           </div>
         </div>
       </section>
@@ -831,8 +783,10 @@ export default function Page() {
       <ClinicalFigure
         id="sideVision"
         className={styles.explained}
-        heading="How glaucoma can narrow side vision"
-        intro="The change is usually gradual, which is why regular examinations matter."
+        eyebrow="Understanding Visual Field Loss"
+        heading="How Glaucoma Can Affect Your Field of Vision"
+        intro="Glaucoma may cause changes in different areas of your visual field. They can develop gradually and may go unnoticed early on."
+        note="This simulation is for education. Visual field changes vary and may not look like darkened areas or uniform tunnel vision. A visual field test and clinical examination are needed to assess actual vision loss."
       />
     </ServiceLayout>
   );

@@ -21,6 +21,7 @@ export type PageKey =
   | "services"
   | "squint"
   | "refractive"
+  | "retina"
   | "cataract"
   | "glaucoma"
   | "exams"
@@ -44,8 +45,9 @@ export const PAGES: Record<PageKey, PageDef> = {
   about: { path: LINKS.about, label: "About Us", reviewed: true, blocker: "Released on the owner's confirmation" },
   doctor: { path: LINKS.doctor, label: "Dr. Poonam Jain", reviewed: true, blocker: "Released on the owner's confirmation; the registration number has not been supplied, so none is shown (see DOCTOR_REGISTRATION)" },
   services: { path: LINKS.allServices, label: "Our Services", reviewed: true, blocker: "Released on the owner's confirmation" },
-  squint: { path: LINKS.squint, label: "Squint Correction", reviewed: false, blocker: "Awaiting clinical and client approval" },
-  refractive: { path: LINKS.refractive, label: "Refractive Surgery", reviewed: true, blocker: "Awaiting clinical review" },
+  squint: { path: LINKS.squint, label: "Squint (Strabismus) Care", reviewed: false, blocker: "Awaiting clinical and client approval" },
+  refractive: { path: LINKS.refractive, label: "LASIK & Refractive Surgery", reviewed: true, blocker: "Awaiting clinical review" },
+  retina: { path: LINKS.retina, label: "Retina Care & Surgery", reviewed: false, blocker: "Pending final medical approval" },
   cataract: { path: LINKS.cataract, label: "Cataract Surgery", reviewed: true, blocker: "Released on the owner's confirmation" },
   glaucoma: { path: LINKS.glaucoma, label: "Glaucoma Management", reviewed: true, blocker: "Released on the owner's confirmation" },
   exams: { path: LINKS.exams, label: "Comprehensive Eye Examinations", reviewed: true, blocker: "Released on the owner's confirmation" },
@@ -84,8 +86,9 @@ export const contentReady = (key: PageKey): boolean => {
     case "blogs":
       return ARTICLES.length > 0;
     case "privacy":
+      return PRIVACY_URL !== null; // set only when the approved policy is published
     case "terms":
-      return PRIVACY_URL !== null; // set only when the legal adviser's text is approved
+      return PAGES.terms.reviewed;
     default:
       return true;
   }
@@ -99,6 +102,11 @@ export const robotsFor = (key: PageKey): Metadata["robots"] =>
 
 export type NavChild = { label: string; href: string };
 export type NavItem = { key: string; label: string; href?: string; children?: NavChild[] };
+
+export const SERVICE_LINKS: NavChild[] = [
+  ...SERVICES.map(({ title, href }) => ({ label: title, href })),
+  { label: PAGES.squint.label, href: PAGES.squint.path },
+];
 
 /** Primary navigation. Only implemented pages appear. Dropdown groups keep the bar uncrowded. */
 export function buildNav(): NavItem[] {
@@ -120,9 +128,7 @@ export function buildNav(): NavItem[] {
       label: "Services",
       href: PAGES.services.path,
       children: [
-        ...SERVICES.map((s) => ({ label: s.title, href: s.href })),
-        { label: "Squint", href: LINKS.squint },
-        { label: "Refractive Surgery", href: LINKS.refractive },
+        ...SERVICE_LINKS,
         { label: "View all services", href: PAGES.services.path },
       ],
     },

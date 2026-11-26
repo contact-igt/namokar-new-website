@@ -1,5 +1,6 @@
 "use client";
 
+import { useServiceVideoPlayback } from "@/components/serviceVideoPlayback";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./glaucoma.module.css";
@@ -23,6 +24,7 @@ export default function GlaucomaVideoCard({
   language,
   category,
 }: GlaucomaVideoCardProps) {
+  const onCarouselPlay = useServiceVideoPlayback();
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
@@ -40,7 +42,10 @@ export default function GlaucomaVideoCard({
           <button
             type="button"
             className={styles.refVideoPosterBtn}
-            onClick={() => setIsPlaying(true)}
+            onClick={() => {
+              setIsPlaying(true);
+              onCarouselPlay?.();
+            }}
             aria-label={`Play video: ${title}`}
           >
             <Image

@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { LINKS } from "@/config/site";
-import { CalendarIcon } from "./Icons";
+import { ArrowRightIcon, CalendarIcon } from "./Icons";
 import styles from "./RealisticExpectationsSection.module.css";
 
 /**
@@ -17,11 +16,15 @@ interface QuestionItem {
 }
 
 const ALL_QUESTIONS: QuestionItem[] = [
-  { id: "q1", text: "What are the options?" },
-  { id: "q2", text: "How long will it last?" },
-  { id: "q3", text: "What are the risks?" },
-  { id: "q4", text: "What is the recovery?" },
-  { id: "q5", text: "What happens if I am not happy with the result?", isExtra: true },
+  { id: "q1", text: "What is the underlying cause of my concern?" },
+  { id: "q2", text: "Which treatment is being recommended, and why?" },
+  { id: "q3", text: "Are there surgical or non-surgical alternatives?" },
+  { id: "q4", text: "What changes can I realistically expect?" },
+  { id: "q5", text: "What are the limitations and potential risks for me?", isExtra: true },
+  { id: "q6", text: "What does recovery involve for my work and daily life?", isExtra: true },
+  { id: "q7", text: "How long may the treatment effects last?", isExtra: true },
+  { id: "q8", text: "What follow-up or additional treatment might I need?", isExtra: true },
+  { id: "q9", text: "How would complications or unsatisfactory outcomes be managed?", isExtra: true },
 ];
 
 /**
@@ -94,10 +97,12 @@ function CheckSuccessIcon({ className = "" }: { className?: string }) {
 
 export interface RealisticExpectationsSectionProps {
   id?: string;
+  bookingHref?: string;
 }
 
 export default function RealisticExpectationsSection({
   id = "expectations",
+  bookingHref = `${LINKS.contact}#request`,
 }: RealisticExpectationsSectionProps) {
   // Checkbox state: start with questions ready to be ticked
   const [checkedMap, setCheckedMap] = useState<Record<string, boolean>>({
@@ -171,29 +176,27 @@ export default function RealisticExpectationsSection({
             {/* Kicker with rust-orange accent bar */}
             <div className={styles.kickerRow}>
               <span className={styles.kickerLine} aria-hidden="true" />
-              <p className={styles.kickerText}>REALISTIC EXPECTATIONS</p>
+              <p className={styles.kickerText}>REALISTIC TREATMENT EXPECTATIONS</p>
             </div>
 
             {/* Headline */}
             <h2 id="expectations-heading" className={styles.title}>
-              Changes are <span className={`${styles.highlight} title-secondary`}>personal</span>
+              Every Face Is Different. <span className={`${styles.highlight} title-secondary`}>Every Treatment Is Personal.</span>
             </h2>
 
             {/* Paragraph Description */}
             <p className={styles.lead}>
-              Faces are not perfectly symmetrical, and ageing affects each person
-              differently. A good consultation leaves you clear about what can be
-              improved, what cannot, how long a change may last and what the risks are.
+              Natural facial asymmetry, individual anatomy and ageing influence the appearance of the eyelids. Your consultation explores what changes are realistic, the potential risks and limitations, and options that consider facial harmony, personal preferences, eye health and eyelid function.
             </p>
 
             {/* CTA Button */}
-            <Link href={`${LINKS.contact}#request`} className={styles.ctaBtn}>
+            <Link href={bookingHref} className={styles.ctaBtn}>
               <span className={styles.ctaCalendarIcon} aria-hidden="true">
                 <CalendarIcon width={19} height={19} />
               </span>
               <span>Book a Consultation</span>
               <span className={styles.ctaArrow} aria-hidden="true">
-                →
+                <ArrowRightIcon width={18} height={18} />
               </span>
             </Link>
           </div>
@@ -207,13 +210,13 @@ export default function RealisticExpectationsSection({
                   <UserProfileIcon />
                 </div>
                 <h3 className={styles.cardTitle}>
-                  Questions worth asking at any consultation
+                  Questions to Ask During Your Consultation
                 </h3>
               </div>
 
               {/* Card Subtitle */}
               <p className={styles.cardSubtitle}>
-                Tick the ones you want to ask and copy your list, below.
+                Select the questions you would like to discuss with your doctor.
               </p>
 
               {/* Checkboxes List */}
@@ -264,7 +267,7 @@ export default function RealisticExpectationsSection({
                   className={styles.moreToggleBtn}
                   onClick={() => setShowExtra(true)}
                 >
-                  + 1 more question
+                  Show {ALL_QUESTIONS.filter((question) => question.isExtra).length} more questions
                 </button>
               )}
 
@@ -300,16 +303,6 @@ export default function RealisticExpectationsSection({
           <div className={styles.spacerCol} aria-hidden="true" />
         </div>
 
-        {/* Mobile Visual fallback to ensure patient visual is showcased on small screens */}
-        <div className={styles.mobileVisual}>
-          <Image
-            src="/images/aesthetic/realistic-expectations-bg-2x.webp"
-            alt="Natural aesthetic consultation patient profile"
-            fill
-            sizes="100vw"
-            className={styles.mobileImg}
-          />
-        </div>
       </div>
     </section>
   );

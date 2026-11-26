@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 
-function useQuery(query: string, server = false): boolean {
+export function useQuery(query: string, server = false): boolean {
   return useSyncExternalStore(
     (cb) => {
       const mq = window.matchMedia(query);

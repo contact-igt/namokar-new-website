@@ -1,5 +1,6 @@
 "use client";
 
+import { useServiceVideoPlayback } from "@/components/serviceVideoPlayback";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import type { PlayerProps } from "@/lib/videoProps";
@@ -30,6 +31,7 @@ export default function VideoPlayer({
   playing?: boolean;
   onPlay?: () => void;
 }) {
+  const onCarouselPlay = useServiceVideoPlayback();
   const ref = useRef<HTMLVideoElement>(null);
   const [own, setOwn] = useState(false);
   const started = playing ?? own;
@@ -40,6 +42,7 @@ export default function VideoPlayer({
   const start = () => {
     setOwn(true);
     onPlay?.();
+    onCarouselPlay?.();
     if (v.kind === "local") requestAnimationFrame(() => ref.current?.play().catch(() => {}));
   };
 

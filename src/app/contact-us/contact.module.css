@@ -113,10 +113,13 @@
 
 .heroTitle {
   margin: 0;
-  max-width: 9ch;
   font-size: clamp(3rem, 4.25vw, 4rem);
   line-height: 1.08;
   color: var(--teal);
+}
+
+.heroTitle > span {
+  display: block;
 }
 
 .heroTitleBar {
@@ -764,48 +767,6 @@
   background: radial-gradient(ellipse 35% 56% at 8% 75%, #fce6d9 0%, transparent 100%), #fff9f4;
 }
 
-.visitLayout {
-  display: grid;
-  grid-template-columns: clamp(235px, 22vw, 310px) minmax(0, 1fr);
-  gap: clamp(32px, 4vw, 60px);
-  align-items: center;
-}
-
-.calendarVisualCol {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 14px;
-}
-
-.calendarVisualWrap {
-  position: relative;
-  width: 100%;
-  max-width: 320px;
-}
-
-.calendarGlow {
-  position: absolute;
-  inset: -20%;
-  background: radial-gradient(circle, rgba(253, 228, 210, 0.8) 0%, transparent 70%);
-  filter: blur(20px);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.calendarSvg {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.visitContentCol {
-  min-width: 0;
-}
-
 .visitHeading {
   margin: 0 0 clamp(20px, 2.3vw, 30px);
   font-size: clamp(2rem, 3.2vw, 2.75rem);
@@ -815,7 +776,7 @@
 
 .visitCardsGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(18px, 2vw, 26px);
 }
 
@@ -863,27 +824,19 @@
   color: var(--ink-soft);
 }
 
-/* 4th visit card (Before you come) spanning cleanly below */
-.visitCardSpan {
-  margin-top: clamp(20px, 2.4vw, 30px);
-  padding: 18px 0 0;
-  border-top: 1px solid #efdbce;
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
+.visitCard > * + .visitCardText {
+  margin-top: 12px;
 }
 
-.visitCardSpan .visitIconCircle {
-  margin-bottom: 0;
-  margin-top: 2px;
-}
-
-.visitCardSpanContent {
-  flex: 1;
-}
-
-.visitCardSpanContent .visitCardTitle {
-  margin-bottom: 4px;
+.visitList {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-inline-start: 1.25em;
+  list-style: disc;
+  font-size: 0.92rem;
+  line-height: 1.58;
+  color: var(--ink-soft);
 }
 
 /* ==================================================
@@ -1027,20 +980,6 @@
     grid-column: 1 / -1;
   }
 
-  .visitLayout {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .calendarVisualCol {
-    display: flex;
-    justify-content: flex-start;
-  }
-
-  .calendarVisualWrap {
-    max-width: 220px;
-  }
-
   .faqHeadingCol {
     position: static;
   }
@@ -1072,10 +1011,6 @@
 
   .visitCard + .visitCard { border-left: 0; padding-left: 0; }
 
-  .visitCardSpan {
-    flex-direction: column;
-    gap: 12px;
-  }
 }
 
 /* Shared Home page typography. */
@@ -1084,7 +1019,7 @@
 .page h3 { font-family: var(--font-heading); font-size: var(--type-subsection-size); font-weight: 700; line-height: var(--type-subsection-line); letter-spacing: var(--type-subsection-tracking); }
 .page .eyebrow { font-family: var(--font-body); font-size: var(--type-eyebrow-size); font-weight: 700; letter-spacing: var(--type-eyebrow-tracking); }
 .page .heroLead, .page .appointmentsLead { font-size: var(--type-lead-size); line-height: var(--type-lead-line); }
-.page .faqAnswer, .page .visitCardDescription { font-size: var(--type-supporting-size); line-height: var(--type-supporting-line); }
+.page .faqAnswer, .page .visitCardText, .page .visitList { font-size: var(--type-supporting-size); line-height: var(--type-supporting-line); }
 .page .actionTitle { font-family: var(--font-heading); }
 .page :global(.btn) { font-family: var(--font-body); font-size: var(--type-button-size); font-weight: 600; line-height: 1.2; }
 

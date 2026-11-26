@@ -19,9 +19,9 @@ interface BlepharoplastyPageHeroProps {
 
 export default function BlepharoplastyPageHero({
   crumb = "Blepharoplasty",
-  kicker = "BLEPHAROPLASTY",
-  titleLine1 = "Eyelid surgery begins",
-  titleLine2 = "with an assessment.",
+  kicker = "EYELID SURGERY \u2013 BLEPHAROPLASTY",
+  titleLine1 = "Functional & Aesthetic",
+  titleLine2,
   lead = "Heavy, drooping or baggy eyelids can affect comfort and vision as well as appearance. The first step is a careful assessment to find out why.",
   image = "/images/blepharoplasty/blepharoplasty-hero-exam.webp",
   imageAlt = "Dr. Poonam Jain performing slit-lamp eye examination on a patient at Namokar Eye & Oculoplasty Centre",
@@ -61,18 +61,21 @@ export default function BlepharoplastyPageHero({
                 <span>{kicker}</span>
               </div>
 
-              {/* Two-line heading */}
               <h1 className={styles.heading}>
-                <span>{titleLine1}</span>
-                <span className="title-secondary">{titleLine2}</span>
+                <span className={styles.titleOpening}>{titleLine1}</span>{" "}
+                <span className="title-secondary">
+                  {titleLine2 ?? <>Eyelid Surgery{" "}<span className={styles.titleLocation}>in Delhi</span></>}
+                </span>
               </h1>
 
-              {/* Body lead description */}
-              <p className={styles.lead}>{lead}</p>
+              <div className={styles.description}>
+                <p className={styles.lead}>{lead}</p>
+                <p className={styles.doctorIntro}>Consult <strong>Dr. Poonam Jain</strong>, an internationally trained ophthalmologist and oculoplastic surgeon with over 28 years of clinical experience.</p>
+              </div>
 
               {/* CTA Booking Button */}
               <div className={styles.actions}>
-                <BookButton online={online} />
+                <BookButton online={online} label={online ? "Request an Eyelid Surgery Consultation" : "Book an Eyelid Surgery Consultation"} />
               </div>
             </div>
           </div>

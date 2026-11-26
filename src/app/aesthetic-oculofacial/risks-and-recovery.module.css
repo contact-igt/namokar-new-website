@@ -1,0 +1,220 @@
+.section {
+  --risks-teal: #073f4e;
+  --risks-orange: #b84608;
+  --risks-peach: #fcece2;
+  position: relative;
+  overflow: clip;
+  padding: clamp(48px, 4.2vw, 68px) 0 clamp(52px, 5vw, 80px);
+  background:
+    radial-gradient(ellipse 360px 340px at 3% 42%, #fff2e9 60%, transparent 60.5%),
+    radial-gradient(ellipse 520px 260px at 15% 78%, #f0f6f7 67%, transparent 67.5%),
+    radial-gradient(ellipse 660px 470px at 109% 19%, transparent 64%, #f2f7f8 64.5% 78%, transparent 78.5%),
+    #fcfcfc;
+}
+
+.container {
+  width: min(100% - clamp(32px, 5vw, 80px), 1460px);
+  margin-inline: auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: clamp(22px, 2.7vw, 42px);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.4vw, 22px);
+  max-width: 770px;
+  margin: 0 auto 12px;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #fac0a0;
+}
+
+.eyebrow span {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  border-radius: 100px;
+  background: var(--risks-peach);
+  color: var(--risks-orange);
+  font-size: clamp(0.95rem, 1.5vw, 1.35rem);
+  font-weight: 700;
+}
+
+.eyebrow svg {
+  width: clamp(24px, 2.5vw, 36px);
+  height: auto;
+}
+
+.header h2 {
+  margin: 0 0 8px;
+  color: var(--risks-teal);
+  font: 800 clamp(2.4rem, 4.2vw, 4rem)/1.08 var(--font-heading);
+  letter-spacing: -0.035em;
+}
+
+.header p {
+  max-width: 1000px;
+  margin: 0 auto;
+  color: #3e5571;
+  font-size: clamp(1rem, 1.55vw, 1.4rem);
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(18px, 1.6vw, 26px);
+}
+
+.visual {
+  position: relative;
+  align-self: stretch;
+  min-height: clamp(380px, 43vw, 660px);
+}
+
+.visual::before {
+  content: "";
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  width: 50%;
+  aspect-ratio: 1;
+  border: 2px solid #fac8ac;
+  border-radius: 50%;
+}
+
+.photo {
+  position: absolute;
+  inset: 0;
+  border-radius: 20% 9% 16% 15%;
+  overflow: hidden;
+  clip-path: polygon(0 0, 48% 3%, 100% 3%, 100% 100%, 0 88%);
+}
+
+.photo img {
+  object-fit: cover;
+  object-position: 54% center;
+}
+
+.photoBadge {
+  position: absolute;
+  left: 0;
+  bottom: 10%;
+  display: grid;
+  justify-items: center;
+  gap: 9px;
+  padding: clamp(12px, 1.55vw, 24px) clamp(14px, 2vw, 32px);
+  border-radius: 26% 24% 25% 23%;
+  background: #fff;
+  box-shadow: 0 12px 24px #073f4e16;
+  color: var(--risks-teal);
+  text-align: center;
+  font-size: clamp(0.82rem, 1.25vw, 1.2rem);
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.photoBadge svg {
+  width: clamp(42px, 5.2vw, 80px);
+  height: auto;
+}
+
+.photoBadge::after {
+  content: "";
+  width: 65%;
+  height: 2px;
+  background: #e96b29;
+}
+
+.card {
+  min-width: 0;
+  padding: clamp(20px, 3vw, 46px);
+  border-radius: clamp(24px, 3vw, 46px);
+  background: #fff;
+  box-shadow: 0 18px 42px #17395125;
+}
+
+.card h3 {
+  position: relative;
+  margin: 0 0 12px;
+  padding: 8px 0 8px clamp(16px, 2.1vw, 32px);
+  color: var(--risks-teal);
+  font: 750 clamp(1.25rem, 2vw, 1.9rem)/1.2 var(--font-heading);
+  letter-spacing: -0.025em;
+}
+
+.card h3::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: clamp(5px, 0.6vw, 9px);
+  border-radius: 10px;
+  background: #ed640f;
+}
+
+.signs {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(12px, 1.8vw, 28px);
+  margin: 0;
+  color: #16284d;
+  font-size: clamp(0.95rem, 1.42vw, 1.3rem);
+  line-height: 1.48;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: clamp(42px, 5.1vw, 78px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--risks-peach);
+  color: var(--risks-orange);
+}
+
+.icon svg {
+  width: 53%;
+  height: auto;
+  stroke-width: 1.65;
+}
+
+.rowText {
+  display: block;
+  align-content: center;
+  min-height: clamp(60px, 5.65vw, 87px);
+  padding-block: 10px;
+}
+
+.signs .rowText {
+  border-bottom: 1px solid #dce3e8;
+}
+
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .visual {
+    min-height: clamp(240px, 75vw, 460px);
+  }
+}

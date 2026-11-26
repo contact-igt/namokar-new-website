@@ -17,12 +17,12 @@ function ShelfFeatureIcon({ type }: { type: "tour" | "eye" | "care" }) {
 }
 
 /** One staged player with a responsive React Slick thumbnail rail. */
-export default function VideoShelf({ videos }: { videos: PlayerProps[] }) {
-  const [sel, setSel] = useState(0);
+export default function VideoShelf({ videos, featured }: { videos: PlayerProps[]; featured?: PlayerProps }) {
+  const [sel, setSel] = useState<number | null>(null);
   const [playing, setPlaying] = useState(false);
   const slider = useRef<Slider>(null);
   if (!videos.length) return null;
-  const cur = videos[Math.min(sel, videos.length - 1)];
+  const cur = sel === null ? featured ?? videos[0] : videos[sel];
   const settings: Settings = {
     arrows: false,
     infinite: videos.length > 3,
@@ -39,24 +39,24 @@ export default function VideoShelf({ videos }: { videos: PlayerProps[] }) {
     <section id="videos" className="section section--porcelain video-showcase" aria-labelledby="videos-h">
       <div className="container">
         <div className="vsec-text vsec-text--wide reveal">
-          <p className="kicker">From the doctor</p>
-          <h2 id="videos-h" className="h2">Eye Care, Explained by <span className="title-secondary">Dr. Poonam Jain.</span></h2>
-          <p className="lead">Clear, doctor-led videos about common eye concerns, treatments and life at Namokar. Choose one, then press Play.</p>
+          <p className="kicker">Insights from Your Doctor</p>
+          <h2 id="videos-h" className="h2">Eye Care, Explained by <span className="title-secondary">Dr. Poonam Jain</span></h2>
+          <p className="lead">Understand your eye health better through doctor-led videos covering common eye conditions, treatment options, surgical procedures and specialised oculoplasty.</p>
         </div>
         <div className="shelf video-showcase-main">
           <div className="shelf-stage" data-aspect={cur.aspect}>
             <VideoPlayer key={cur.id} v={cur} sizes="(min-width: 960px) 54vw, 100vw" playing={playing} onPlay={() => setPlaying(true)} />
           </div>
           <aside className="video-showcase-intro" aria-label="Video topics">
-            <h3>A closer look inside<br />Namokar Eye &amp; Oculoplasty Centre</h3>
-            <p>See how we examine, diagnose and care for our patients at our Delhi centre.</p>
+            <h3>{cur.title}</h3>
+            <p>{cur.description}</p>
             <div className="video-showcase-features">
-              <span><ShelfFeatureIcon type="tour" /><b>Clinic Tour</b><small>Our facilities</small></span>
-              <span><ShelfFeatureIcon type="eye" /><b>Eye Treatments</b><small>In simple terms</small></span>
-              <span><ShelfFeatureIcon type="care" /><b>Patient Care</b><small>Our approach</small></span>
+              <span><ShelfFeatureIcon type="tour" /><b>Our Facilities</b><small>Explore our centre</small></span>
+              <span><ShelfFeatureIcon type="eye" /><b>Eye Care Education</b><small>Understand eye conditions</small></span>
+              <span><ShelfFeatureIcon type="care" /><b>Personalised Treatment</b><small>Discover our approach to care</small></span>
             </div>
-            <a href={cur.watchUrl} target="_blank" rel="noopener noreferrer" className="video-youtube-link">
-              <span className="video-youtube-mark" aria-hidden="true" /> Visit Our Channel <ArrowRightIcon width={21} height={21} />
+            <a href={CHANNEL.url} target="_blank" rel="noopener noreferrer" className="video-youtube-link">
+              <span className="video-youtube-mark" aria-hidden="true" /> Visit Our YouTube Channel <ArrowRightIcon width={21} height={21} />
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
           </aside>
@@ -92,7 +92,10 @@ export default function VideoShelf({ videos }: { videos: PlayerProps[] }) {
                         <span className="shelf-card-play" aria-hidden="true" />
                       </span>
                     </button>
-                    <h3 className="shelf-title">{v.title}</h3>
+                    <div className="shelf-card-copy">
+                      <h3 className="shelf-title">{v.title}</h3>
+                      {v.description && <p className="shelf-card-description">{v.description}</p>}
+                    </div>
                   </div>
                 </div>
               ))}

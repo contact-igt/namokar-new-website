@@ -349,23 +349,15 @@
   }
 
   .rightCol {
-    padding-left: 0;
-    gap: 14px;
+    padding-left: 40px;
   }
 
   .stepRow::before {
-    display: none;
-  }
-
-  .stepRow {
-    flex-direction: column;
-    align-items: flex-start;
+    left: -27px;
   }
 
   .stepNode {
-    position: static;
-    transform: none;
-    margin-bottom: 8px;
+    left: -40px;
     width: 28px;
     height: 28px;
     font-size: 0.78rem;

@@ -148,36 +148,13 @@ function DroopingBrowsIcon() {
 }
 
 const CONDITIONS_DATA = [
-  {
-    id: "tired-eyelids",
-    text: "Heavy or tired-looking eyelids",
-    icon: HeavyEyelidsIcon,
-  },
-  {
-    id: "excess-skin",
-    text: "Excess upper eyelid skin",
-    icon: ExcessSkinIcon,
-  },
-  {
-    id: "under-eye-bags",
-    text: "Under-eye bags or puffiness around the eyes",
-    icon: UnderEyeBagsIcon,
-  },
-  {
-    id: "fine-lines",
-    text: "Fine lines and wrinkles around the eye area",
-    icon: WrinklesLinesIcon,
-  },
-  {
-    id: "facial-rejuvenation",
-    text: "Aesthetic oculofacial concerns and facial rejuvenation around the eyes",
-    icon: FacialRejuvenationIcon,
-  },
-  {
-    id: "drooping-brows",
-    text: "Drooping brows, under-eye hollowness or dark circles",
-    icon: DroopingBrowsIcon,
-  },
+  { icon: HeavyEyelidsIcon, title: "Heavy or Hooded Upper Eyelids", text: "Excess skin, a low eyelid margin (ptosis) or eyebrow descent can each contribute to heaviness." },
+  { icon: ExcessSkinIcon, title: "Excess Upper Eyelid Skin", text: "Age-related or inherited changes can cause loose skin to fold over the eyelid crease." },
+  { icon: UnderEyeBagsIcon, title: "Under-Eye Bags & Puffiness", text: "Protruding fat or excess skin can cause bags. Allergies, inflammation, fluid retention or medical conditions can also cause puffiness." },
+  { icon: WrinklesLinesIcon, title: "Fine Lines & Wrinkles", text: "Ageing, sun exposure and repeated facial movements may contribute to lines around the eyes." },
+  { icon: DroopingBrowsIcon, title: "Drooping Eyebrows", text: "A low eyebrow position may contribute to upper eyelid hooding." },
+  { icon: FacialRejuvenationIcon, title: "Under-Eye Hollowness", text: "Anatomy and changes in facial volume can create tear-trough shadows. An assessment determines whether any treatment is appropriate." },
+  { icon: UnderEyeBagsIcon, title: "Dark Circles", text: "Pigmentation, visible vessels, shadows, allergies and other factors can contribute to dark circles." },
 ];
 
 export interface AestheticConditionsSectionProps {
@@ -235,11 +212,11 @@ export default function AestheticConditionsSection({
             {CONDITIONS_DATA.map((item) => {
               const IconComp = item.icon;
               return (
-                <div key={item.id} className={styles.card}>
+                <div key={item.title} className={styles.card}>
                   <div className={styles.iconBadge} aria-hidden="true">
                     <IconComp />
                   </div>
-                  <p className={styles.cardText}>{item.text}</p>
+                  <p className={styles.cardText}><strong>{item.title}</strong><br />{item.text}</p>
                 </div>
               );
             })}
@@ -249,7 +226,7 @@ export default function AestheticConditionsSection({
               <div className={styles.alertIconBadge} aria-hidden="true">
                 !
               </div>
-              <p className={styles.alertText}>{note}</p>
+              <p className={styles.alertText}><strong>Sudden Eyelid Changes Require Medical Attention.</strong>{" "}{note}</p>
             </div>
           </div>
         </div>

@@ -1,74 +1,39 @@
 "use client";
 
+import { ArrowRightIcon } from "./Icons";
+
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Slider, { type Settings } from "react-slick";
-import { LINKS } from "@/config/site";
+import type { TreatmentItem } from "@/lib/treatments";
 import styles from "./DoctorCareCarousel.module.css";
 
-type ServiceCareItem = {
-  key: string;
-  title: string;
-  desc: string;
-  href: string;
-  image: string;
-  alt: string;
-};
+const CARD_COPY = {
+  cataract: "Detailed cataract assessment and surgical treatment planning, including suitable intraocular lens options.",
+  glaucoma: "Clinical assessment, diagnostic testing, treatment and regular monitoring to help preserve vision.",
+  exams: "Detailed evaluation of vision and overall eye health for routine and condition-specific concerns.",
+  eyelid: "Functional and aesthetic eyelid surgery addressing excess eyelid skin and under-eye bags, with consideration of eye health and individual suitability.",
+  aesthetic: "Personalised surgical and non-surgical care for aesthetic concerns involving the eyelids and surrounding eye area.",
+  reconstructive: "Assessment and treatment of ptosis, eyelid-position abnormalities, tear-drainage disorders and reconstructive concerns.",
+  retina: "Assessment and management of retinal disorders, with medical and surgical treatment options based on clinical findings.",
+  lasik: "Personalised vision correction assessment and suitable procedures to reduce dependence on spectacles or contact lenses.",
+  squint: "Evaluation of eye misalignment, double vision and binocular vision concerns, with treatment options based on the underlying cause and individual assessment.",
+} satisfies Record<TreatmentItem["id"], string>;
 
-const CARE_SERVICES: ServiceCareItem[] = [
-  {
-    key: "cataract",
-    title: "Cataract Surgery",
-    desc: "Careful assessment of your vision, with clear discussion of when surgery is considered and your lens choices.",
-    href: LINKS.cataract,
-    image: "/images/services/cataract-care.webp",
-    alt: "Cataract surgery consultation and slit-lamp eye assessment",
-  },
-  {
-    key: "glaucoma",
-    title: "Glaucoma Management",
-    desc: "Assessment, diagnostic tests and regular follow-up to monitor eye pressure and protect your long-term vision.",
-    href: LINKS.glaucoma,
-    image: "/images/services/glaucoma-care.webp",
-    alt: "Glaucoma diagnostic evaluation and eye pressure testing",
-  },
-  {
-    key: "exams",
-    title: "Comprehensive Eye Examinations",
-    desc: "A thorough check of how well you see and how healthy your eyes are, from routine check-ups to specific concerns.",
-    href: LINKS.exams,
-    image: "/images/services/eye-examination-care.webp",
-    alt: "Comprehensive eye examination with slit lamp technology",
-  },
-  {
-    key: "eyelid",
-    title: "Eyelid Surgery (Blepharoplasty)",
-    desc: "Assessment of heavy or drooping eyelids and under-eye bags, for functional comfort and cosmetic rejuvenation.",
-    href: LINKS.eyelid,
-    image: "/images/services/eyelid-blepharoplasty-care.webp",
-    alt: "Specialist blepharoplasty and eyelid evaluation",
-  },
-  {
-    key: "aesthetic",
-    title: "Aesthetic Oculoplasty",
-    desc: "Considered care for heavy eyelids, under-eye bags and age-related changes around the eyes, with eye health in mind.",
-    href: LINKS.aesthetic,
-    image: "/images/services/aesthetic-oculoplasty-care.webp",
-    alt: "Aesthetic oculoplasty consultation for delicate eye areas",
-  },
-  {
-    key: "reconstructive",
-    title: "Reconstructive Oculoplasty",
-    desc: "Assessment and treatment for drooping eyelids (ptosis), eyelid malposition and tear-drainage problems.",
-    href: LINKS.reconstructive,
-    image: "/images/services/reconstructive-oculoplasty-care.webp",
-    alt: "Reconstructive oculoplasty and tear drainage treatment",
-  },
-];
+const ORIGINAL_IMAGES: Partial<Record<TreatmentItem["id"], string>> = {
+  cataract: "/images/services/cataract-care.webp",
+  glaucoma: "/images/services/glaucoma-care.webp",
+  exams: "/images/services/eye-examination-care.webp",
+  eyelid: "/images/services/eyelid-blepharoplasty-care.webp",
+  aesthetic: "/images/services/aesthetic-oculoplasty-care.webp",
+  reconstructive: "/images/services/reconstructive-oculoplasty-care.webp",
+};
 
 function ServiceCareIcon({ name }: { name: string }) {
   switch (name) {
+    case "retina":
+    case "squint":
     case "cataract":
       return (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22" aria-hidden="true">
@@ -85,6 +50,7 @@ function ServiceCareIcon({ name }: { name: string }) {
           <path d="M12 7.5v9M7.5 12h9" />
         </svg>
       );
+    case "lasik":
     case "exams":
       return (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22" aria-hidden="true">
@@ -160,7 +126,7 @@ function NextArrow(props: ArrowProps) {
   );
 }
 
-export default function DoctorCareCarousel() {
+export default function DoctorCareCarousel({ services }: { services: TreatmentItem[] }) {
   const [isPlaying, setIsPlaying] = useState(true);
   const sliderRef = useRef<Slider>(null);
 
@@ -231,17 +197,16 @@ export default function DoctorCareCarousel() {
       </button>
 
       <Slider ref={sliderRef} {...settings}>
-        {CARE_SERVICES.map((s) => (
-          <div key={s.key}>
+        {services.map(({ id, title, href, image }) => (
+          <div key={id}>
             <Link
-              href={s.href}
+              href={href}
               className={styles.card}
-              aria-label={`${s.title} — ${s.desc}`}
             >
               <div className={styles.imageWrap}>
                 <Image
-                  src={s.image}
-                  alt={s.alt}
+                  src={ORIGINAL_IMAGES[id] ?? image?.src ?? "/images/services/eye-examination-care.webp"}
+                  alt=""
                   fill
                   sizes="(max-width: 580px) 100vw, (max-width: 860px) 50vw, (max-width: 1200px) 33vw, 25vw"
                   className={styles.image}
@@ -249,15 +214,13 @@ export default function DoctorCareCarousel() {
               </div>
               <div className={styles.cardBody}>
                 <div className={styles.iconWrap} aria-hidden="true">
-                  <ServiceCareIcon name={s.key} />
+                  <ServiceCareIcon name={id} />
                 </div>
-                <h3 className={styles.cardTitle}>{s.title}</h3>
-                <p className={styles.cardDesc}>{s.desc}</p>
+                <h3 className={styles.cardTitle}>{id === "squint" ? "Squint (Strabismus) Care" : title}</h3>
+                <p className={styles.cardDesc}>{CARD_COPY[id]}</p>
                 <div className={styles.actionRow}>
                   <span className={styles.arrowButton} aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
-                      <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
+                    <ArrowRightIcon width={18} height={18} />
                   </span>
                 </div>
               </div>

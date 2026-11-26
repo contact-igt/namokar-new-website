@@ -19,71 +19,71 @@ function TreatmentIcon({ id }: { id: TreatmentItem["id"] }) {
     reconstructive: <><circle cx="12" cy="12" r="8" /><path d="M4 12h16M12 4v16M7.2 7.2l9.6 9.6" /></>,
   };
 
-  return <svg className="tx-service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[id]}</svg>;
+  return <svg className="tx-service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[id === "retina" ? "cataract" : id === "lasik" ? "exams" : id]}</svg>;
 }
 
 /** Homepage service cards use the same routes, summaries and approved imagery as the services index. */
 export default function TreatmentExplorer({ items }: { items: TreatmentItem[] }) {
   const track = useRef<HTMLUListElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const move = (direction: 1 | -1) => {
-    if (!track.current) return;
-    const card = track.current.querySelector<HTMLElement>(".tx-service-item");
-    const step = card ? card.offsetWidth + 16 : track.current.clientWidth * 0.82;
-    track.current.scrollBy({ left: direction * step, behavior: "smooth" });
-  };
+  const [positions, setPositions] = useState([0]);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const activeIndex = positions.reduce(
+    (closest, position, index) =>
+      Math.abs(position - scrollLeft) < Math.abs(positions[closest] - scrollLeft)
+        ? index
+        : closest,
+    0,
+  );
 
   const scrollToIndex = (index: number) => {
-    if (!track.current) return;
-    const cards = track.current.querySelectorAll<HTMLElement>(".tx-service-item");
-    if (cards[index]) {
-      cards[index].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+    const position = positions[index];
+    if (position !== undefined) {
+      track.current?.scrollTo({ left: position });
     }
   };
+
+  const move = (direction: 1 | -1) => scrollToIndex(activeIndex + direction);
 
   useEffect(() => {
     const el = track.current;
     if (!el) return;
 
-    let rafId: number;
-    const handleScroll = () => {
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        if (!el) return;
-        const scrollLeft = el.scrollLeft;
-        const cards = el.querySelectorAll<HTMLElement>(".tx-service-item");
-        if (!cards.length) return;
+    const updateScroll = () => setScrollLeft(el.scrollLeft);
+    const measure = () => {
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      const padding = parseFloat(getComputedStyle(el).scrollPaddingLeft) || 0;
+      const origin = el.getBoundingClientRect().left + el.clientLeft + padding;
+      const stops = [0];
 
-        let closestIndex = 0;
-        let minDiff = Infinity;
-        cards.forEach((card, idx) => {
-          const diff = Math.abs(card.offsetLeft - el.offsetLeft - scrollLeft);
-          if (diff < minDiff) {
-            minDiff = diff;
-            closestIndex = idx;
-          }
-        });
-        setActiveIndex(closestIndex);
-      });
+      for (const card of el.children) {
+        const offset = card.getBoundingClientRect().left - origin + el.scrollLeft;
+        const stop = Math.min(maxScroll, offset);
+        if (stop - stops[stops.length - 1] > 1) stops.push(stop);
+      }
+
+      setPositions(stops);
+      updateScroll();
     };
 
-    el.addEventListener("scroll", handleScroll, { passive: true });
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    el.addEventListener("scroll", updateScroll, { passive: true });
+    measure();
+
     return () => {
-      cancelAnimationFrame(rafId);
-      el.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+      el.removeEventListener("scroll", updateScroll);
     };
-  }, []);
+  }, [items]);
 
   return (
     <section id="find-care" className="tx tx--cards" aria-labelledby="tx-h">
       <div className="container">
         <header className="tx-cards-head">
           <p className="tx-cards-kicker">Find care</p>
-          <h2 id="tx-h" className="tx-cards-title">What can we <span className="title-secondary">help you with?</span></h2>
+          <h2 id="tx-h" className="tx-cards-title">Comprehensive Eye Care &amp; <span className="title-secondary">Specialised Treatments</span></h2>
           <p className="tx-cards-lead">
-            Choose the area closest to your concern. If you&rsquo;re unsure where to begin, start
-            with a comprehensive eye examination and the doctor can guide you after assessment.
+            From routine eye examinations and vision correction to advanced ophthalmic treatments and specialised oculoplasty, explore personalised care for your eye health, function and appearance.
           </p>
         </header>
 
@@ -108,7 +108,7 @@ export default function TreatmentExplorer({ items }: { items: TreatmentItem[] })
                   <span className="tx-service-content">
                     <span className="tx-service-title">{t.title}</span>
                     <span className="tx-service-summary">{t.summary}</span>
-                    <span className="tx-service-link">Learn more <ArrowRightIcon width={17} height={17} /></span>
+                    <span className="tx-service-link">Learn More <ArrowRightIcon width={17} height={17} /></span>
                   </span>
                 </Link>
               </li>
@@ -119,7 +119,7 @@ export default function TreatmentExplorer({ items }: { items: TreatmentItem[] })
           </button>
         </div>
 
-        <div className="tx-carousel-nav" aria-label="Service carousel navigation">
+        <div className="tx-carousel-nav" hidden={positions.length < 2} aria-label="Service carousel navigation">
           <button
             type="button"
             className="tx-carousel-nav-btn tx-carousel-nav-btn--prev"
@@ -129,14 +129,13 @@ export default function TreatmentExplorer({ items }: { items: TreatmentItem[] })
           >
             <ArrowRightIcon width={18} height={18} />
           </button>
-          <div className="tx-carousel-dots" role="tablist" aria-label="Services pagination">
-            {items.map((t, idx) => (
+          <div className="tx-carousel-dots" role="group" aria-label="Services pagination">
+            {positions.map((position, idx) => (
               <button
-                key={t.id}
+                key={position}
                 type="button"
-                role="tab"
-                aria-selected={idx === activeIndex}
-                aria-label={`Go to ${t.title}`}
+                aria-current={idx === activeIndex ? "true" : undefined}
+                aria-label={`Show service group ${idx + 1} of ${positions.length}`}
                 className={`tx-carousel-dot${idx === activeIndex ? " is-active" : ""}`}
                 onClick={() => scrollToIndex(idx)}
               />
@@ -146,14 +145,14 @@ export default function TreatmentExplorer({ items }: { items: TreatmentItem[] })
             type="button"
             className="tx-carousel-nav-btn tx-carousel-nav-btn--next"
             aria-label="Next service"
-            disabled={activeIndex === items.length - 1}
+            disabled={activeIndex === positions.length - 1}
             onClick={() => move(1)}
           >
             <ArrowRightIcon width={18} height={18} />
           </button>
         </div>
 
-        <Link href={LINKS.allServices} className="tx-all-services">View all services <ArrowRightIcon width={22} height={22} /></Link>
+        <Link href={LINKS.allServices} className="tx-all-services">View All Services <ArrowRightIcon width={22} height={22} /></Link>
       </div>
     </section>
   );

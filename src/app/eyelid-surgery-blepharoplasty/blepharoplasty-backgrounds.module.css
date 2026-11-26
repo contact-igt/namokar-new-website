@@ -56,3 +56,193 @@
     background-size: auto 100%;
   }
 }
+.surgeryCare {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(48px, 6vw, 88px);
+  background-color: #fffaf6;
+  background-image:
+    radial-gradient(ellipse at 13% 8%, #ffede0, transparent 52%),
+    radial-gradient(ellipse at 100% 90%, #e7f2ef, transparent 56%),
+    radial-gradient(ellipse at 105% 5%, transparent 35%, #f8d8c5 35.3% 35.6%, transparent 36%);
+  color: #173c41;
+}
+
+.careHeader {
+  max-width: 900px;
+  margin: 0 auto clamp(24px, 3vw, 40px);
+  text-align: center;
+}
+
+.careEyebrow {
+  justify-content: center;
+}
+
+.careHeader p {
+  margin: 12px 0 0;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+}
+
+.careHeading {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.8vw, 3rem);
+  line-height: 1.15;
+}
+
+.careGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 24px);
+}
+
+.careCard {
+  padding: clamp(10px, 1.1vw, 16px);
+  border: 1px solid #efd8ca;
+  border-radius: clamp(22px, 2.4vw, 34px);
+  background: linear-gradient(155deg, #fff 24%, #fff4eb);
+  box-shadow: 0 18px 34px -22px rgb(109 56 25 / 30%);
+}
+
+.carePhoto {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1.85;
+  border-radius: clamp(16px, 1.8vw, 26px);
+}
+
+.carePhoto img {
+  object-fit: cover;
+  object-position: center 43%;
+}
+
+.careBody {
+  padding: 0 clamp(10px, 1.25vw, 24px) clamp(12px, 1.4vw, 22px);
+}
+
+.careIcon {
+  position: relative;
+  margin-top: -48px;
+}
+
+.careIcon, .warningIcon {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border-radius: 14px;
+  background: #e3f1ee;
+  color: #176268;
+}
+
+.careCard h3, .careWarning h3 {
+  margin: 16px 0 12px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+  line-height: 1.25;
+}
+
+.careCard .careIcon {
+  width: clamp(62px, 5.4vw, 84px);
+  height: clamp(62px, 5.4vw, 84px);
+  border: 3px solid #fffaf6;
+  border-radius: 50%;
+  background: #fbe8dd;
+  color: #a14215;
+}
+
+.careIcon svg {
+  width: 51%;
+  height: 51%;
+}
+
+.careCard h3 {
+  margin-top: 8px;
+}
+
+.careCard p, .careCard ul, .careWarning p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.careCard p + p, .careCard p + ul, .careCard ul + p, .careCard li + li, .careWarning p + p {
+  margin-top: 10px;
+}
+
+.careCard ul {
+  padding: 14px 0 0;
+  border-top: 1px solid #efd8ca;
+  list-style: none;
+}
+
+.careCard li {
+  position: relative;
+  padding-inline-start: 27px;
+}
+
+.careCard li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: .33em;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #a14215;
+}
+
+.careCard li::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 5px;
+  top: calc(.33em + 4px);
+  width: 7px;
+  height: 4px;
+  border: solid white;
+  border-width: 0 0 2px 2px;
+  transform: rotate(-45deg);
+}
+
+.careNote {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #fbe8dd;
+  font-weight: 600;
+}
+
+.careWarning {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 16px;
+  margin-block-start: 24px;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid #efcfb9;
+  border-inline-start: 4px solid #aa481d;
+  border-radius: 16px;
+  background: #fff1e7;
+  color: #592b17;
+}
+
+.warningIcon {
+  background: #f9dbc7;
+  color: #963d16;
+}
+
+.careWarning h3 {
+  margin-top: 0;
+}
+
+@media (max-width: 940px) {
+  .careGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+@media (max-width: 620px) {
+  .careGrid, .careWarning {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

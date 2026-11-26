@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Counts a figure such as "25+" or "10,000+" up from zero the first time it scrolls into view.
+ * Counts a figure such as "28+" up from zero the first time it scrolls into view.
  * Plain requestAnimationFrame, no library: it runs once, only while on screen, and not at all
  * for visitors who prefer reduced motion. The server and no-script render show the final
  * figure; text that holds no number (an institution name) is returned unchanged.

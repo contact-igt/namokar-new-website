@@ -2,79 +2,79 @@
 export const SQUINT_SECTIONS = [
   {
     "number": 1,
-    "title": "Squint Correction & Eye Alignment Care, Explained Clearly.",
+    "title": "Squint Correction & Eye Alignment Care in Delhi",
     "eyebrow": "STRABISMUS & BINOCULAR VISION CARE",
     "paragraphs": [
-      "When eyes do not point in the same direction, it affects more than appearance—it alters how the brain and eyes work together. An eye examination can help identify the cause and guide an individualized treatment plan for a child or adult."
+      "Squint, medically known as strabismus, is a condition in which the eyes do not align properly. It can affect visual development in children and cause double vision or difficulties with binocular vision in adults. An examination helps identify the cause and guide treatment or referral."
     ]
   },
   {
     "number": 2,
-    "title": "What is a Squint, and How Does it Affect Vision?",
-    "eyebrow": "THE BASICS OF EYE ALIGNMENT",
+    "title": "What Is Squint & How Does It Affect Vision?",
+    "eyebrow": "UNDERSTANDING STRABISMUS",
     "paragraphs": [
-      "A squint—medically termed strabismus—is a visual condition where the two eyes do not align simultaneously on the same object. While one eye looks straight ahead at the target, the other eye turns inward, outward, upward, or downward.",
+      "Squint, or strabismus, is a condition in which the two eyes are not aligned towards the same object. One eye may turn inward, outward, upward or downward. The turn may be constant or intermittent.",
       "How Normal Alignment Works: Each eye is moved by six delicate extraocular muscles working in precise harmony, coordinated by cranial nerves from the brain. In healthy vision, both eyes look at the same object simultaneously. The brain receives two slightly different images and fuses them into a single, three-dimensional picture. This process is known as binocular single vision and is the foundation of stereopsis (depth perception).",
       "What Happens When Eyes Are Misaligned: When strabismus occurs, the two eyes send conflicting visual signals to the brain:• In young children: The developing brain adapts to avoid confusion by ignoring (suppressing) the image from the misaligned eye. If left unaddressed during early childhood, this suppression leads to amblyopia (commonly known as a 'lazy eye'), where visual acuity in that eye fails to develop normally.• In adults and older children: Because the visual wiring of the brain is already mature, the adult brain cannot easily suppress the second image. Instead, the individual frequently experiences diplopia (double vision), visual disorientation, and eye fatigue.",
-      "Why Early Assessment Matters: A squint is rarely just a cosmetic concern. Proper alignment is necessary for balanced visual development, binocular coordination, and accurate depth perception. Identifying whether a squint is constant, intermittent, related to glasses, or linked to an underlying nerve condition is the crucial first step."
+      "Why Early Assessment Matters: Early assessment helps identify the cause of the turn, detect amblyopia in children and guide treatment to support visual development and eye coordination."
     ]
   },
   {
     "number": 3,
-    "title": "Recognizing the Signs in Children and Adults",
-    "eyebrow": "CLINICAL RECOGNITION",
+    "title": "Recognising the Signs of Squint in Children & Adults",
+    "eyebrow": "SIGNS & SYMPTOMS",
     "paragraphs": [
-      "Strabismus can present visibly, but it also causes subtle functional signs that patients or parents might not immediately connect to eye alignment.",
+      "Squint may appear differently depending on a person's age, type of misalignment and visual development. Some people have a visible turn without noticeable discomfort. Headache, eye rubbing and reading fatigue can have many causes.",
       "Observable Signs in Children:",
-      "Visible Eye Misalignment: One eye appears to wander, cross inward, or drift outward, particularly when the child is tired, daydreaming, or unwell.",
-      "Squinting in Bright Light: Frequently closing or shielding one eye in bright sunlight or outdoors.",
-      "Abnormal Head Posture: Tilting the head to one shoulder or turning the face to one side to compensate for misaligned vision and keep images single.",
-      "Depth Perception Difficulties: Clumsiness, difficulty catching balls, hesitation on stairs, or reaching inaccurately for toys.",
-      "Visual Avoidance: Rubbing the eyes often, holding books very close, or showing reluctance toward detailed visual tasks like reading or coloring.",
+      "Eye Misalignment: One eye may turn in a different direction from the other, either continuously or intermittently.",
+      "Closing One Eye: A child may close or cover one eye, especially in bright light.",
+      "Abnormal Head Posture: Tilting or turning the head may help compensate for an eye alignment or movement problem.",
+      "Difficulty Judging Depth: Some children have difficulty judging steps, catching a ball or reaching for objects.",
+      "Non-specific Visual Symptoms: Eye rubbing, holding books close or avoiding reading can have several causes and warrant assessment if persistent.",
       "Common Symptoms in Adults:",
-      "Double Vision (Diplopia): Seeing two overlapping or separated images of a single object (either side-by-side or one above the other).",
-      "Asthenopia & Eye Strain: Constant tension, frontal headaches, and heavy fatigue around the eyes after reading or screen work.",
+      "Double Vision (Diplopia): Some adults see two images of one object. Adults with longstanding strabismus may have no double vision.",
+      "Non-specific Eye Strain: Fatigue, headaches or discomfort during reading or screen use can have several causes.",
       "Loss of Spatial Depth: Difficulty judging distances while driving, parking, pouring liquids, or descending steps.",
       "Compensatory Eye Closure: Unconsciously closing one eye when reading or concentrating to eliminate double vision.",
-      "Cosmetic Misalignment: An eye that visibly drifts, which can impact social confidence, professional interaction, and eye contact."
+      "Visible Eye Misalignment: One eye may visibly drift, with or without visual symptoms."
     ]
   },
   {
     "number": 4,
     "title": "Understanding the Different Types of Strabismus",
-    "eyebrow": "CLINICAL CLASSIFICATIONS",
+    "eyebrow": "TYPES OF EYE MISALIGNMENT",
     "paragraphs": [
-      "Strabismus is classified by the direction in which the eye deviates, how often it occurs, and whether it involves one or both eyes.",
-      "1. Esotropia (Inward Turning / Crossed Eyes): The misaligned eye turns inward toward the nose. Infantile esotropia develops within the first 6 months of life. Accommodative esotropia occurs often between ages 2 and 5 due to uncorrected hyperopia (farsightedness), where excessive focusing effort causes the eyes to cross.",
-      "2. Exotropia (Outward Turning / Wall-Eyes): The misaligned eye drifts outward toward the temple. Intermittent exotropia is the most common form, where the eye drifts periodically when tired or looking into the distance, but remains straight during active near concentration. Constant exotropia occurs when the eye remains turned outward at all times.",
-      "3. Hypertropia & Hypotropia (Vertical Deviations): Hypertropia occurs when one eye sits or turns higher than the fellow eye; hypotropia occurs when one eye sits lower. These are frequently related to specific oblique muscle weakness, trochlear (4th cranial nerve) palsy, or socket trauma.",
-      "4. Pseudo-strabismus (False Squint in Infants): An optical illusion common in infants with a broad, flat nasal bridge or prominent inner eyelid skin folds (epicanthic folds). The eyes look crossed, but the visual axes and corneal light reflections are completely straight and healthy. Confirmed through careful clinical examination."
+      "Strabismus can be classified by the direction and frequency of the eye turn and by its underlying cause.",
+      "Esotropia (Inward Turn): One eye turns towards the nose. It may begin in infancy or develop later. In accommodative esotropia, focusing effort associated with long-sightedness contributes to the inward turn.",
+      "Exotropia (Outward Turn): One eye turns towards the temple. The turn may be constant or intermittent and may become more noticeable when tired or looking into the distance.",
+      "Hypertropia & Hypotropia (Vertical Misalignment): Hypertropia means one eye is higher than the other. Hypotropia means one eye is lower. Muscle, nerve or orbital conditions may affect vertical alignment.",
+      "Pseudostrabismus (Apparent Eye Turn): A broad nasal bridge or inner eyelid folds can make aligned eyes appear crossed. An eye examination can distinguish this appearance from true strabismus."
     ]
   },
   {
     "number": 5,
-    "title": "What Causes Eyes to Lose Their Alignment?",
-    "eyebrow": "UNDERLYING MECHANISMS",
+    "title": "What Causes Squint?",
+    "eyebrow": "CAUSES & RISK FACTORS",
     "paragraphs": [
-      "Because eye movement depends on complex interactions between the brain, cranial nerves, and eye muscles, strabismus can originate from multiple causes.",
+      "Eye alignment depends on coordinated interaction between the brain, nerves, eye muscles and visual system.",
       "Childhood Factors:",
-      "High Refractive Errors (Hyperopia): High farsightedness forces excessive focusing (accommodation), which triggers automatic convergence of the eyes.",
-      "Family History: A genetic predisposition to strabismus or amblyopia in parents, siblings, or close relatives.",
-      "Neuromuscular Imbalance: Unequal tone or physical pull among the six extraocular muscles.",
-      "Developmental Factors: Premature birth, low birth weight, developmental delay, or conditions affecting neurological development.",
-      "Sensory Deprivation: Conditions such as childhood cataract, severe corneal opacity, or drooping eyelid (ptosis) that obstruct clear vision and prevent normal fixation.",
+      "Refractive Error: Long-sightedness can contribute to accommodative esotropia in some children.",
+      "Family History: A family history of squint or amblyopia may increase risk.",
+      "Eye Movement Disorders: Differences in muscle or nerve function may affect alignment.",
+      "Developmental Factors: Premature birth and some developmental or neurological conditions are associated with a higher risk of strabismus.",
+      "Reduced Vision in One Eye: Cataract, corneal opacity or a drooping eyelid that obstructs vision may interfere with normal alignment.",
       "Adult-Onset Factors:",
-      "Microvascular Nerve Palsies: Compromised blood circulation from diabetes or high blood pressure affecting Cranial Nerves III, IV, or VI.",
-      "Thyroid Eye Disease (Graves' Orbitopathy): Autoimmune inflammation causing swelling, fibrosis, and tightening of the eye muscles (often the inferior and medial recti), restricting natural movement.",
-      "Head Trauma & Socket Injury: Direct injury to the eye socket, extraocular muscles, or cranial nerves.",
-      "Neurological Conditions: Myasthenia gravis, stroke, transient ischemic attack (TIA), multiple sclerosis, or intracranial lesions.",
-      "Decompensated Phoria: A latent eye muscle weakness that was controlled during youth through muscular effort, but breaks down into an overt squint with age and fatigue."
+      "Nerve Palsies: Nerves that control eye movement can be affected by vascular conditions such as diabetes or high blood pressure, among other causes.",
+      "Thyroid Eye Disease: Changes in muscles and tissues around the eye may restrict movement.",
+      "Head or Orbital Injury: Injury can affect eye muscles, nerves or surrounding structures.",
+      "Neurological Conditions: Myasthenia gravis, stroke and other neurological disorders can affect eye alignment or movement.",
+      "Decompensated Phoria: A previously controlled tendency for the eyes to drift can become noticeable over time."
     ]
   },
   {
     "number": 6,
-    "title": "How Squint Differs Across Age Groups",
-    "eyebrow": "TAILORED CONSIDERATIONS",
+    "title": "Squint Care for Children & Adults",
+    "eyebrow": "EYE ALIGNMENT ACROSS DIFFERENT AGES",
     "paragraphs": [
       "The clinical goals and physiological challenges of strabismus differ fundamentally between young children and mature adults:",
       "Squint in Children: The primary concern in young children is amblyopia ('lazy eye'). Because the brain can suppress the turned eye to prevent double vision, the suppressed eye fails to develop normal visual acuity. Treatment prioritizes establishing equal vision in both eyes first (through glasses and patching) before or alongside alignment correction. A squint is never outgrown.",
@@ -83,8 +83,8 @@ export const SQUINT_SECTIONS = [
   },
   {
     "number": 7,
-    "title": "How Squint is Evaluated",
-    "eyebrow": "THE CLINICAL WORKUP",
+    "title": "How Squint Is Evaluated",
+    "eyebrow": "DIAGNOSIS & CLINICAL ASSESSMENT",
     "paragraphs": [
       "Squint management begins with an ophthalmological assessment. The doctor selects the tests needed to evaluate alignment across distances and gaze angles. The following describes general assessment methods; the centre can confirm which tests and any referral you need.",
       "1. Detailed Clinical History: Review of when the turn was first noticed, whether it is constant or intermittent, family history, birth history, and systemic medical conditions.",
@@ -98,10 +98,10 @@ export const SQUINT_SECTIONS = [
   },
   {
     "number": 8,
-    "title": "Personalized Pathways for Squint Management",
-    "eyebrow": "TREATMENT PATHWAYS",
+    "title": "Personalised Treatment Pathways for Squint",
+    "eyebrow": "TREATMENT OPTIONS",
     "paragraphs": [
-      "Treatment depends entirely on the type of squint, its root cause, and the patient's visual maturity. Surgery is not always necessary; many cases are managed effectively through non-surgical interventions.",
+      "The appropriate treatment depends on the type and degree of eye misalignment, its underlying cause, visual development, binocular function and individual clinical needs. Options may include monitoring or treatment of an underlying condition.",
       "1. Optical Correction (Prescription Spectacles): In accommodative esotropia, farsightedness is the driving factor behind the crossing. When the child wears properly prescribed glasses, the excessive focusing relaxes, and the eyes often straighten completely without surgery. Regular wear and periodic prescription reviews are essential.",
       "2. Amblyopia Management (Occlusion / Patching Therapy): If one eye has become amblyopic ('lazy'), surgery alone will not restore its vision. The stronger eye is patched for prescribed intervals each day, compelling the brain to use and strengthen visual pathways in the weaker eye. In certain cases, penalization drops (such as atropine) are considered under medical supervision.",
       "3. Prism Spectacles: Prisms are specialized optical lenses that bend light before it enters the eye, directing the image onto the fovea of the turned eye. Prisms do not move the eye muscles, but they can effectively merge double images into a single picture for adults with small-angle deviations or nerve palsies.",
@@ -112,23 +112,23 @@ export const SQUINT_SECTIONS = [
   {
     "number": 9,
     "title": "How Extraocular Muscle Surgery Works",
-    "eyebrow": "SURGICAL PRECISION",
+    "eyebrow": "UNDERSTANDING SQUINT SURGERY",
     "paragraphs": [
-      "Squint surgery is a delicate, precise microsurgical procedure performed on the surface of the eye. Understanding what the procedure involves helps alleviate anxiety.",
-      "What Surgery Involves: The surgeon works strictly on the outside of the eyeball, beneath the conjunctiva (the transparent membrane covering the white of the eye). The eye is not removed from the socket; standard eye-muscle surgery does not enter its inner structures.",
-      "Muscle Recession (Weakening): If a muscle is pulling too tight, it is detached from its natural insertion on the sclera and reattached further back, relaxing its pull.",
-      "Muscle Resection or Plication (Strengthening): If a muscle is weak or slack, a small section is shortened or folded and secured, increasing its effective tension.",
-      "Anesthesia & Day-Care Care: In children, the procedure is carried out under general anesthesia to ensure complete stillness and comfort. In selected adults, it may be performed under local anesthesia with sedation. The surgeon and anesthetist determine the setting, anesthesia and discharge plan individually.",
-      "Realistic Expectations: Squint surgery aims to restore straight alignment, facilitate binocular cooperation, and improve aesthetic balance. However, surgery does not eliminate the need for glasses if refractive errors exist, nor does it automatically cure amblyopia. In complex or long-standing deviations, fine-tuning or secondary procedures may occasionally be discussed.",
-      "Suitability, surgical technique, anesthesia, risks and the place of surgery must be discussed with the treating team. This information does not confirm that squint surgery is performed at Namokar."
+      "Squint correction surgery adjusts the position or effective action of selected muscles that control eye movements.",
+      "What Surgery Involves: The surgeon works on eye muscles attached to the outside of the eyeball, beneath the conjunctiva, the thin membrane covering the white of the eye.",
+      "Muscle Recession (Reducing Pull): The surgeon moves the attachment of a selected muscle farther back on the outer wall of the eye to reduce its effect.",
+      "Muscle Resection or Plication (Increasing Pull): Resection shortens a muscle by removing a section. Plication shortens its effective length by folding it. The surgeon chooses the technique for the individual alignment problem.",
+      "Anaesthesia and Discharge: Children generally have general anaesthesia. Adults may have general or, in selected cases, local anaesthesia with sedation. The surgeon and anaesthetist determine the approach and discharge plan.",
+      "Realistic Expectations: Surgery aims to improve alignment and may support binocular vision or reduce double vision. Outcomes vary. Glasses and amblyopia treatment may still be needed, and residual or recurrent misalignment can require further treatment.",
+      "The treating team discusses suitability, surgical technique, anaesthesia, risks, the operating specialist, the place of surgery and any referral required."
     ]
   },
   {
     "number": 10,
-    "title": "What to Expect After Squint Treatment",
-    "eyebrow": "AFTERCARE & RECOVERY",
+    "title": "What to Expect After Squint Surgery",
+    "eyebrow": "RECOVERY & FOLLOW-UP",
     "paragraphs": [
-      "Recovery varies with the procedure and the individual. Follow the operating team’s instructions; the points below are general information.",
+      "Recovery varies according to the procedure, the patient's age, individual healing and the underlying eye condition. Follow the treating team's instructions.",
       "Initial Sensations: The white of the eye (sclera) will look red and bloodshot for a few weeks, which is a normal response as superficial blood vessels heal. Patients commonly experience a mild scratchy or gritty sensation, light sensitivity, and temporary mild swelling. Severe pain is uncommon and usually managed with mild prescribed pain relief.",
       "Temporary Vision Fluctuations: Adults and older children may notice temporary mild double vision or slight visual awkwardness in the first few days as the brain adapts to the new eye position.",
       "Care Guideline 1: Use prescribed antibiotic and anti-inflammatory eye drops precisely as directed.",
@@ -140,94 +140,105 @@ export const SQUINT_SECTIONS = [
   },
   {
     "number": 11,
-    "title": "When to Schedule an Eye-Alignment Consultation",
-    "eyebrow": "TIMELY EVALUATION",
+    "title": "When Should You Arrange an Eye-Alignment Assessment?",
+    "eyebrow": "KNOW WHEN TO SEEK CARE",
     "paragraphs": [
-      "Schedule a consultation if you notice:• An eye that turns inward, outward, or upward at any time.• A child who tilts their head, turns their face, or squints in sunny conditions.• A child who has reached 4 months of age with persistent or recurring eye misalignment.• Frequent complaints of double vision, unexplained headaches, or reading fatigue.• A family history of squint, lazy eye, or childhood spectacle use.",
-      "[RED-FLAG SYMPTOMS] Seek prompt medical evaluation for: (1) Sudden-onset squint appearing rapidly in an adult or older child; (2) Newly developed double vision (diplopia) accompanied by droopy eyelid, headache, numbness, or dizziness; (3) An unusual white or yellowish reflex in a child's pupil (leukocoria), often noticed in flash photos."
+      "Arrange an assessment if you notice: * One eye repeatedly turns inward, outward, upward or downward. * A child regularly closes one eye or tilts or turns their head to see. * You suspect a difference in vision between the two eyes. * Longstanding misalignment affects daily activities. * There is a family history of childhood squint or amblyopia."
     ]
   },
   {
     "number": 12,
-    "title": "Careful, Individualized Eye-Alignment Care in Ashok Vihar",
-    "eyebrow": "PATIENT-CENTERED OPHTHALMOLOGY",
+    "title": "Personalised Squint & Eye Alignment Care in Ashok Vihar",
+    "eyebrow": "EYE ALIGNMENT CARE AT NAMOKAR",
     "paragraphs": [
-      "Eye alignment needs a careful, individualized approach. Contact Namokar Eye & Oculoplasty Centre to discuss an eye consultation and the assessment or referral appropriate to your concern.",
-      "Doctor-led care: Dr. Poonam Jain is the Medical Director and Senior Ophthalmologist at Namokar, with a particular focus on oculoplasty.",
-      "Individual guidance: Discuss examination findings, possible treatments, limitations and any further specialist assessment with the doctor.",
-      "Accessible Ashok Vihar centre: 13 A, Pocket A, Phase 3, Ashok Vihar, near Satyawati College, Delhi 110052."
+      "Dr. Poonam Jain, an internationally trained ophthalmologist and oculoplastic surgeon with over 28 years of clinical and surgical experience, leads the centre's comprehensive ophthalmic care. Contact Namokar to discuss an appropriate eye-alignment assessment, treatment options and specialist referral when needed.",
+      "Experienced Doctor-Led Care: Comprehensive ophthalmic assessment led by Dr. Poonam Jain, with specialised expertise in oculoplasty.",
+      "Individualised Treatment Guidance: Clinical findings guide treatment recommendations, further investigations and specialist referral when necessary.",
+      "Convenient Location in Ashok Vihar: Namokar Eye & Oculoplasty Centre, 13 A, Pocket A, Phase 3, near Satyawati College, Delhi 110052."
     ]
   },
   {
     "number": 13,
     "title": "Frequently Asked Questions About Squint & Strabismus",
     "eyebrow": "COMMON INQUIRIES",
-    "paragraphs": [
-      "Q: Will my child grow out of a squint?",
-      "A: No. A true squint is not a developmental stage that resolves on its own. While newborns occasionally have brief uncoordinated eye movements during their first 2 to 3 months, any eye misalignment that persists past 3–4 months requires a thorough examination by an ophthalmologist. Delaying assessment can lead to permanent amblyopia (lazy eye).",
-      "Q: Can a squint be corrected with glasses alone?",
-      "A: In certain cases, yes. When a child has accommodative esotropia (inward crossing caused by high farsightedness), properly prescribed corrective spectacles relieve the excessive focusing effort, allowing the eyes to straighten naturally while wearing the glasses.",
-      "Q: Can adults undergo squint treatment, or is it only for children?",
-      "A: Adults can undergo squint treatment at any age. While restoring fine depth perception is most successful when treated in early childhood, adult squint treatment can significantly reduce or eliminate double vision, relieve abnormal head posture, expand comfortable field of view, and restore facial symmetry.",
-      "Q: Is squint surgery performed on the brain or inside the eyeball?",
-      "A: Neither. Squint surgery is performed exclusively on the extraocular muscles located on the outer surface of the eyeball, beneath the thin conjunctiva. The eye is never removed from the socket, and the delicate inner structures (lens, retina, optic nerve) are not entered.",
-      "Q: What is the difference between squint and a 'lazy eye'?",
-      "A: A squint (strabismus) is a physical misalignment of the eyes. A lazy eye (amblyopia) is a reduction in visual acuity that occurs when the brain does not process inputs from one eye normally. A squint can cause amblyopia because the brain ignores the turned eye to prevent double vision, but they are two distinct conditions.",
-      "Q: Can squint exercises cure a squint?",
-      "A: Eye exercises (orthoptic therapy) are effective for specific coordination problems, particularly convergence insufficiency (difficulty turning eyes inward for close work). However, exercises cannot realign eyes in cases of anatomical muscle imbalance, nerve paralysis, or significant accommodative squints.",
-      "Q: Can a squint return after surgery?",
-      "A: While squint surgery achieves stable, long-lasting alignment for many patients, eyes are dynamic organs controlled by the brain. Over time, changes in refractive error, muscle healing, or neurological control can occasionally lead to recurrence or under-correction, which may require monitoring, optical adjustment, or secondary touch-up.",
-      "Q: Does squint surgery improve vision?",
-      "A: Squint surgery primarily realigns the physical position of the eyes. In young children, straightening the eyes facilitates the development of binocular fusion. However, surgery alone does not correct refractive errors (glasses may still be needed) and does not cure amblyopia (patching therapy remains necessary).",
-      "Q: What should we bring to an initial squint consultation?",
-      "A: Please bring all current spectacles, previous optical prescriptions, past eye records or surgery summaries, and child health/birth immunization records. If you have photographs or short home videos showing the eye turn when it occurs intermittently, these are very helpful for the doctor."
-    ]
+    "paragraphs": []
   },
   {
     "number": 14,
-    "title": "Arrange an Eye-Alignment Consultation",
+    "title": "Arrange Your Squint & Eye-Alignment Consultation",
     "eyebrow": "TAKE THE FIRST STEP",
     "paragraphs": [
-      "Whether you are concerned about your child’s eye coordination or experiencing double vision as an adult, a comprehensive clinical evaluation provides clear answers and guidance. Contact Namokar Eye & Oculoplasty Centre in Ashok Vihar to plan your visit.",
-      "Actions & Location: Call to Book an Appointment  |  Telephone: +91 98104 19720Location: 13 A, Pocket A, Phase 3, Ashok Vihar, near Satyawati College, Delhi 110052"
+      "Concerned about your child's eye alignment or experiencing longstanding eye misalignment as an adult? Consult Namokar Eye & Oculoplasty Centre for a detailed ophthalmic assessment and personalised guidance on suitable treatment options."
     ]
   }
 ];
 export const SQUINT_FAQS = [
   {
+    "q": "What is squint or strabismus?",
+    "a": "Squint is a condition in which the eyes are not properly aligned towards the same object. One eye may turn inward, outward, upward or downward. The misalignment may be constant or intermittent."
+  },
+  {
     "q": "Will my child grow out of a squint?",
-    "a": "No. A true squint is not a developmental stage that resolves on its own. While newborns occasionally have brief uncoordinated eye movements during their first 2 to 3 months, any eye misalignment that persists past 3–4 months requires a thorough examination by an ophthalmologist. Delaying assessment can lead to permanent amblyopia (lazy eye)."
+    "a": "Occasional eye crossing may occur during early infancy. However, constant misalignment at any age or recurring eye crossing beyond approximately four months requires ophthalmic assessment. Persistent squint should not be left untreated in the hope that it will resolve on its own."
   },
   {
-    "q": "Can a squint be corrected with glasses alone?",
-    "a": "In certain cases, yes. When a child has accommodative esotropia (inward crossing caused by high farsightedness), properly prescribed corrective spectacles relieve the excessive focusing effort, allowing the eyes to straighten naturally while wearing the glasses."
+    "q": "What is the difference between squint and lazy eye?",
+    "a": "Squint refers to eye misalignment. Amblyopia, commonly called lazy eye, is reduced vision resulting from abnormal visual development during childhood. Squint can contribute to amblyopia, but the two conditions are not the same."
   },
   {
-    "q": "Can adults undergo squint treatment, or is it only for children?",
-    "a": "Adults can undergo squint treatment at any age. While restoring fine depth perception is most successful when treated in early childhood, adult squint treatment can significantly reduce or eliminate double vision, relieve abnormal head posture, expand comfortable field of view, and restore facial symmetry."
+    "q": "Can a squint be corrected with spectacles alone?",
+    "a": "In some cases, yes. Appropriate spectacles may help control accommodative esotropia associated with long-sightedness. Other forms of squint may require different treatment approaches."
   },
   {
-    "q": "Is squint surgery performed on the brain or inside the eyeball?",
-    "a": "Neither. Squint surgery is performed exclusively on the extraocular muscles located on the outer surface of the eyeball, beneath the thin conjunctiva. The eye is never removed from the socket, and the delicate inner structures (lens, retina, optic nerve) are not entered."
+    "q": "Does patching straighten the eyes?",
+    "a": "Patching primarily treats amblyopia by encouraging the brain to use the eye with reduced vision. It does not necessarily correct the underlying eye misalignment. Separate alignment treatment may still be required."
   },
   {
-    "q": "What is the difference between squint and a 'lazy eye'?",
-    "a": "A squint (strabismus) is a physical misalignment of the eyes. A lazy eye (amblyopia) is a reduction in visual acuity that occurs when the brain does not process inputs from one eye normally. A squint can cause amblyopia because the brain ignores the turned eye to prevent double vision, but they are two distinct conditions."
+    "q": "Can eye exercises cure a squint?",
+    "a": "Prescribed orthoptic exercises may help selected coordination disorders, particularly convergence insufficiency. They are not an effective universal treatment for all types of strabismus."
   },
   {
-    "q": "Can squint exercises cure a squint?",
-    "a": "Eye exercises (orthoptic therapy) are effective for specific coordination problems, particularly convergence insufficiency (difficulty turning eyes inward for close work). However, exercises cannot realign eyes in cases of anatomical muscle imbalance, nerve paralysis, or significant accommodative squints."
+    "q": "Can adults undergo squint treatment?",
+    "a": "Yes. Adults with childhood or newly developed strabismus may benefit from appropriate treatment. Depending on the underlying condition, management may improve alignment, reduce double vision or address abnormal head posture."
+  },
+  {
+    "q": "Does every patient with squint require surgery?",
+    "a": "No. Treatment depends on the type of misalignment, its cause, visual function and individual clinical needs. Spectacles, prisms, amblyopia treatment, monitoring or management of an underlying condition may be appropriate."
+  },
+  {
+    "q": "Is squint surgery performed inside the eye or on the brain?",
+    "a": "Standard squint surgery adjusts selected eye muscles attached to the outside of the eyeball, beneath the conjunctiva. It does not involve operating on the brain."
+  },
+  {
+    "q": "Does squint surgery improve eyesight?",
+    "a": "The primary objective is to improve eye alignment. Surgery may support binocular vision and reduce double vision in suitable patients, but it does not directly correct refractive errors or replace amblyopia treatment."
   },
   {
     "q": "Can a squint return after surgery?",
-    "a": "While squint surgery achieves stable, long-lasting alignment for many patients, eyes are dynamic organs controlled by the brain. Over time, changes in refractive error, muscle healing, or neurological control can occasionally lead to recurrence or under-correction, which may require monitoring, optical adjustment, or secondary touch-up."
+    "a": "Yes. Eye alignment may change over time. Some patients experience residual or recurrent misalignment and may require further monitoring, optical correction or additional surgery."
   },
   {
-    "q": "Does squint surgery improve vision?",
-    "a": "Squint surgery primarily realigns the physical position of the eyes. In young children, straightening the eyes facilitates the development of binocular fusion. However, surgery alone does not correct refractive errors (glasses may still be needed) and does not cure amblyopia (amblyopia treatment may still be needed)."
+    "q": "What are the risks of squint surgery?",
+    "a": "Potential risks include persistent misalignment, over-correction, under-correction, double vision, infection, bleeding, scarring and the need for further surgery. Rare serious complications may affect vision. Individual risks are discussed before treatment."
   },
   {
-    "q": "What should we bring to an initial squint consultation?",
-    "a": "Please bring all current spectacles, previous optical prescriptions, past eye records or surgery summaries, and child health/birth immunization records. If you have photographs or short home videos showing the eye turn when it occurs intermittently, these are very helpful for the doctor."
+    "q": "Will spectacles still be needed after squint surgery?",
+    "a": "Possibly. Squint surgery adjusts eye alignment but does not necessarily correct short-sightedness, long-sightedness or astigmatism. Continue wearing prescribed spectacles unless your doctor advises otherwise."
+  },
+  {
+    "q": "How long does recovery take after squint surgery?",
+    "a": "Recovery varies according to the procedure, age and individual healing response. Temporary redness, swelling and mild discomfort may occur. Your treating surgeon will provide personalised guidance on daily activities and follow-up."
+  },
+  {
+    "q": "When should sudden squint or double vision be assessed?",
+    "a": "Sudden-onset squint or new double vision requires urgent medical assessment. If accompanied by severe headache, unequal pupils, eyelid drooping, weakness, speech difficulties or other neurological symptoms, seek immediate emergency medical care."
+  },
+  {
+    "q": "What should we bring to a squint consultation?",
+    "a": "Bring current spectacles, previous prescriptions, eye reports, medical records and details of any earlier treatment or surgery. Photographs or short videos may help demonstrate an intermittent eye turn."
+  },
+  {
+    "q": "Is squint surgery available directly at Namokar?",
+    "a": "Contact Namokar Eye & Oculoplasty Centre to arrange an assessment. The treating team will discuss appropriate treatment options, the operating specialist, surgical arrangements and any referral requirements based on clinical findings."
   }
 ];

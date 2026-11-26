@@ -11,29 +11,28 @@ const LEVELS = {
 } as const;
 type Level = keyof typeof LEVELS;
 
+const DAILY_IMPACT =
+  "An eye examination can help determine whether updated spectacles, monitoring or surgery may be appropriate.";
+
 const LEVEL_DETAILS: Record<Level, {
   title: string;
   description: string;
-  impact: string;
   signs: [string, string][];
 }> = {
   mild: {
     title: "Mild Cataract",
-    description: "In the early stage, vision may still seem normal, but subtle changes begin to appear.",
-    impact: "Daily activities are usually unaffected, but regular eye examinations help detect cataracts before symptoms become significant.",
-    signs: [["≈", "Slight blurring of vision"], ["◐", "Colours appear slightly dull"], ["☼", "Mild glare at night"], ["▤", "Minor difficulty reading fine text"]],
+    description: "Early lens changes may cause subtle visual difficulties. Some people may not notice symptoms initially.",
+    signs: [["≈", "Slight blurring of vision"], ["◐", "Reduced contrast"], ["☼", "Mild glare at night"], ["▤", "Minor difficulty reading fine text"]],
   },
   moderate: {
     title: "Moderate Cataract",
-    description: "Clouding can make everyday tasks more difficult, especially in dim light or when facing bright lights.",
-    impact: "An eye examination can help you understand whether changes to glasses or treatment discussions are appropriate.",
-    signs: [["≈", "More noticeable blur"], ["◐", "Colours look less vivid"], ["☼", "Glare from headlights"], ["▤", "Reading needs brighter light"]],
+    description: "Lens clouding may increasingly interfere with everyday activities.",
+    signs: [["≈", "More noticeable blur"], ["◐", "Colours look less vivid"], ["☼", "Difficulty driving at night"], ["▤", "Difficulty reading"]],
   },
   advanced: {
     title: "Advanced Cataract",
-    description: "Clouding can substantially affect clarity, contrast and confidence with visual tasks.",
-    impact: "Please arrange an eye examination to discuss your symptoms and the options that may be suitable for you.",
-    signs: [["≈", "Marked blurring of vision"], ["◐", "Faded colours and contrast"], ["☼", "Strong glare sensitivity"], ["▤", "Difficulty with detailed tasks"]],
+    description: "Significant lens clouding may cause substantial visual impairment and difficulty with everyday tasks.",
+    signs: [["≈", "Marked blurring of vision"], ["◐", "Faded colours and contrast"], ["☼", "Strong glare sensitivity"], ["▤", "Difficulty recognising faces or doing everyday tasks"]],
   },
 };
 const LEVEL_ORDER: Level[] = ["mild", "moderate", "advanced"];
@@ -88,14 +87,14 @@ export default function LensCompare() {
         <span className="lc-line" aria-hidden="true">
           <span className="lc-knob" />
         </span>
-        <span className="lc-tag lc-tag--l">Clear lens</span>
-        <span className="lc-tag lc-tag--r">Clouded lens (illustration)</span>
+        <span className="lc-tag lc-tag--l">Clear Vision</span>
+        <span className="lc-tag lc-tag--r">Simulated Cataract Vision</span>
       </div>
       <label className="lc-range">
-        <span className="sr-only">Move to compare a clear lens with a clouded lens</span>
+        <span className="sr-only">Move to compare clear vision with simulated cataract vision</span>
         <input className="sr-only" type="range" min={0} max={100} value={cut} onChange={(e) => setCut(Number(e.target.value))} />
       </label>
-      <div className="lc-severity" role="group" aria-label="Choose cataract severity">
+      <div className="lc-severity" role="group" aria-label="Choose a simulated cataract level">
         <span className="lc-severity-track" aria-hidden="true"><span /></span>
         <div className="lc-severity-stops">
           {LEVEL_ORDER.map((option) => (
@@ -123,7 +122,7 @@ export default function LensCompare() {
         </div>
         <aside className="lc-impact">
           <h4><span aria-hidden="true">☼</span> Daily impact</h4>
-          <p>{detail.impact}</p>
+          <p>{DAILY_IMPACT}</p>
         </aside>
       </section>
     </div>

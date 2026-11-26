@@ -1,12 +1,28 @@
+"use client";
+
 import Image from "next/image";
+import Slider from "react-slick";
+import { usePrefersReducedMotion, useQuery } from "../motion/useMedia";
 
 const ITEMS = [
-  { title: "Nuclear sclerotic", detail: "Clouding develops in the central part of the natural lens.", image: "/images/cataract-pattern-nuclear.png", alt: "Lens with central nuclear clouding" },
-  { title: "Cortical", detail: "Clouding begins in the outer lens and can extend towards its centre.", image: "/images/cataract-pattern-cortical.png", alt: "Lens with wedge-like cortical clouding at the outer edge" },
-  { title: "Posterior subcapsular", detail: "Clouding develops near the back surface of the lens.", image: "/images/cataract-pattern-posterior.png", alt: "Lens with clouding near the back posterior capsule" },
+  { title: "Nuclear Cataract", detail: "Clouding develops in the central part of the natural lens. It is commonly associated with ageing.", image: "/images/cataract-pattern-nuclear.png", alt: "Lens with central nuclear clouding" },
+  { title: "Cortical Cataract", detail: "Clouding develops in the outer portion of the lens, often forming spoke-like patterns.", image: "/images/cataract-pattern-cortical.png", alt: "Lens with wedge-like cortical clouding at the outer edge" },
+  { title: "Posterior Subcapsular Cataract", detail: "Clouding develops near the back of the natural lens and may cause glare or difficulty with reading.", image: "/images/cataract-pattern-posterior.png", alt: "Lens with clouding near the back posterior capsule" },
 ];
 
 export default function CataractPatterns() {
+  const showCarousel = useQuery("(width < 960px)");
+  const slidesToShow = useQuery("(min-width: 640px)") ? 2 : 1;
+  const reducedMotion = usePrefersReducedMotion();
+  const cards = ITEMS.map((item) => (
+    <figure className="cat-card cat-card--pattern" key={item.title}>
+      <div className="cat-image">
+        <Image src={item.image} alt={item.alt} width={1086} height={1448} sizes="(min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw" />
+      </div>
+      <figcaption><h4>{item.title}</h4><p>{item.detail}</p></figcaption>
+    </figure>
+  ));
+
   return (
     <div className="cat-guide">
       <div className="cat-comparison-panel"><div className="cat-pair" aria-label="Clear and clouded natural lens comparison">
@@ -14,14 +30,14 @@ export default function CataractPatterns() {
           <div className="cat-image">
             <Image
               src="/images/clear-natural-lens.png"
-              alt="Clear natural lens with light passing through and focusing to a point"
+              alt="Clear Natural Lens with light passing through and focusing to a point"
               width={1448}
               height={1086}
               sizes="(min-width: 640px) 50vw, 100vw"
             />
             <span aria-hidden="true">Clear lens</span>
           </div>
-          <figcaption><h3>Clear natural lens</h3><p>Light passes through a transparent lens and focuses on the retina.</p></figcaption>
+          <figcaption><h3>Clear Natural Lens</h3><p>A transparent lens works with the cornea to focus light onto the retina.</p></figcaption>
         </figure>
         <figure className="cat-card cat-card--comparison">
           <div className="cat-image">
@@ -34,21 +50,28 @@ export default function CataractPatterns() {
             />
             <span aria-hidden="true">Clouded lens</span>
           </div>
-          <figcaption><h3>Lens with a cataract</h3><p>Clouding of the natural lens can scatter light and affect vision.</p></figcaption>
+          <figcaption><h3>Lens with a cataract</h3><p>Clouding within the natural lens interferes with light transmission and reduces visual quality.</p></figcaption>
         </figure>
       </div></div>
       <div className="cat-types cat-pattern-panel">
         <div className="cat-types-head"><h3>Three common patterns</h3><p>These describe where clouding sits in the lens. A person can have more than one pattern.</p></div>
-        <div className="cat-types-grid">
-          {ITEMS.map((item) => (
-            <figure className="cat-card cat-card--pattern" key={item.title}>
-              <div className="cat-image">
-                <Image src={item.image} alt={item.alt} width={1086} height={1448} sizes="(min-width: 900px) 33vw, (min-width: 640px) 50vw, 100vw" />
-              </div>
-              <figcaption><h4>{item.title}</h4><p>{item.detail}</p></figcaption>
-            </figure>
-          ))}
-        </div>
+        {showCarousel ? (
+          <Slider
+            key={slidesToShow}
+            className="cat-pattern-carousel"
+            slidesToShow={slidesToShow}
+            slidesToScroll={1}
+            infinite={false}
+            arrows={false}
+            dots
+            speed={reducedMotion ? 0 : 300}
+            customPaging={(index) => <button type="button" aria-label={`View cataract patterns starting with ${ITEMS[index].title}`} />}
+          >
+            {cards}
+          </Slider>
+        ) : (
+          <div className="cat-types-grid">{cards}</div>
+        )}
       </div>
     </div>
   );
