@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { LINKS, TEL_HREF } from "@/config/site";
 import { CalendarIcon, PhoneIcon } from "./Icons";
@@ -18,7 +19,7 @@ export default function BookButton({
   online: boolean;
   className?: string;
   onNavigate?: () => void;
-  label?: string;
+  label?: ReactNode;
 }) {
   if (online) {
     return (

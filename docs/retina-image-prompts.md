@@ -1,0 +1,24 @@
+# Retina Care image assets
+
+These nine educational images were created with the built-in imagegen tool and exported as local WebP files. Clinical scenes are illustrative.
+
+- `hero.webp` — Wide landscape 3:2 premium editorial photo of a retinal examination in a warm modern Indian eye clinic, photographed close from behind patient at oblique angle, an ophthalmologist using a small handheld condensing lens with slit lamp, focus on instrument and lens at right and the human interaction, faces obscured naturally, daylight, ivory and muted teal, realistic, no monitor no text no logos.
+- `eye.webp` — Wide landscape 3:2 editorial macro photograph of one naturally lit human brown eye from slightly oblique side, crisp pupil iris and lashes, realistic skin, amber and sand tones, framed only around eye, no medical effects, no text logos.
+- `conversation.webp` — Landscape 3:2 documentary editorial photograph, overhead view of a clinician's hands discussing a blank cream care plan with older patient's hands on a warm wooden table, a pen, partial sleeves only, soft natural warm daylight, no faces no readable writing no screens, premium healthcare.
+- `symptoms.webp` — Landscape 3:2 refined photographic illustration of a cream colonnade with a softly distorted and unfocused patch in the central field, subtly bent straight architectural lines near center, periphery remains sharp, visual illustration of wavy central vision only, natural quiet daylight, no graphics no text no eyes.
+- `risk.webp` — Square premium editorial still life on pale warm ivory table of a compact glucose meter with dark blank screen and coiled blood pressure cuff, with a pair of folded dark spectacles nearby, overhead diagonal view, three simple recognizable objects, uncluttered clinical natural light, no readings, no branding.
+- `diagnostics.webp` — Wide 3:2 tactile editorial detail photo of gloved clinician's hand on precisely machined dark joystick control of a retinal imaging instrument, side close angle, no face no monitor no retinal scan no labels, warm shadows and soft clinical lighting, realistic restrained photographic composition.
+- `treatment.webp` — Wide 3:2 editorial photograph of ophthalmic microscope objective and a pair of neatly folded sterile teal drapes in a quiet preparation room, side light, no people or procedure, no screens no labels, clean visually understated, close photographic perspective.
+- `diabetes.webp` — Landscape editorial close-up of an adult patient's hands holding a small glucose log notebook at home, notebook pages facing away, warm sun, ceramic mug, no device or readable text, photograph only.
+- `planning.webp` — Landscape professional editorial macro still life of a capped sterile syringe in a sealed transparent sterile pack on neutral linen paper, no sharp exposed parts, no labels, ivory and muted blue backdrop, visual for injection consultation, no treatment being performed.
+
+## Retina redesign additions
+
+Built-in imagegen produced the following 1200 × 800 WebP assets. The clinical scenes are illustrative.
+
+- `retinal-health-review.webp` — Oblique tabletop close-up of optometrist's hand holding an unbranded circular ophthalmic examination lens above an ivory examination tray in a warm eye clinic, lens reflections and a folded lens cloth, cinematic subtle shadows. An editorial still life for common retinal conditions, no patient, no scans, no screens.
+- `assessment-monitoring.webp` — Close-up of an ophthalmologist reviewing a patient's eye using a handheld indirect ophthalmoscope from the side in a softly lit exam room. Tight crop on device and gloved hand, patient shown from behind, physically plausible, no retinal scan or bright light effects.
+- `diabetic-retinal-care.webp` — Documentary healthcare photo of a clinician reviewing a compact glucose meter with an adult patient at an eye clinic, device held in foreground, out-of-focus ophthalmic equipment in background, dark unreadable screen, faces out of frame. Diabetes and eye care both apparent.
+- `medical-care-planning.webp` — Professional overhead still life of a clinician's hands arranging unlabelled medicine cartons and a blank care plan on a light clinical desk, uncluttered, skin and objects realistic, no other people.
+- `laser-assessment.webp` — Three quarter view of the compact console and slit lamp of an unbranded ophthalmic retinal photocoagulation laser system in a quiet clinical room, instrument idle, no people or glowing beams, clear distinct composition with warm ivory light.
+- `retina-follow-up.webp` — Natural over-the-shoulder clinical follow-up scene with an older patient's cropped shoulder and clinician pointing out the plan on a tablet held between them. Screen partially turned away, no visible data, faces entirely out of frame, soft window daylight.

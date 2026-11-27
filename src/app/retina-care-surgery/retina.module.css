@@ -1,0 +1,500 @@
+.page {
+  --retina-cream: #fbf7f2;
+  --retina-line: #ead8ca;
+  --retina-dark: #073f46;
+  --retina-shadow: 0 10px 24px -18px #69483455;
+  color: var(--ink);
+}
+
+.hero {
+  padding-block: clamp(24px, 3.5vw, 48px);
+  background: radial-gradient(ellipse at top right, #fae6da, transparent 62%), var(--retina-cream);
+}
+.heroGrid,
+.overview,
+.careGrid,
+.symptomGrid,
+.riskGrid,
+.conditionGrid,
+.diagnosticsGrid {
+  display: grid;
+  align-items: center;
+  gap: clamp(24px, 4vw, 60px);
+}
+.heroGrid {
+  grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr);
+  margin-block-start: clamp(20px, 3vw, 34px);
+}
+.page :global(.h2) {
+  color: var(--retina-dark);
+  font-family: var(--font-heading);
+  font-size: var(--type-section-size);
+  font-weight: 800;
+  line-height: var(--type-section-line);
+  letter-spacing: var(--type-section-tracking);
+}
+.hero .heroSubtitle { color: var(--retina-dark); margin: 0 0 12px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.actions :global(.btn) { white-space: normal; text-align: center; }
+.actions :global(.btn--secondary) { border-color: var(--retina-dark); color: var(--retina-dark); }
+.mobileAppointmentLabel { display: none; }
+
+.heroPhoto, .eyePhoto, .carePhoto, .symptomPhoto, .riskPhoto, .conditionPhoto { margin: 0; }
+.heroPhoto img, .eyePhoto img, .carePhoto img, .symptomPhoto img,
+.riskPhoto img, .conditionPhoto img, .pathways img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+.heroPhoto, .curvedPhoto {
+  position: relative;
+  isolation: isolate;
+}
+.heroPhoto::before, .heroPhoto::after, .curvedPhoto::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+.heroPhoto::before {
+  inset: -3% 2% -4% -3%;
+  background: #fbe7da;
+  border-radius: 39% 62% 27% 41% / 65% 24% 44% 34%;
+}
+.heroPhoto::after {
+  inset: 12% -2% -5% 8%;
+  background: #f5d6c3;
+  border-radius: 32% 44% 34% 52% / 32% 30% 62% 52%;
+  opacity: .5;
+}
+.heroPhoto img {
+  aspect-ratio: 1.53;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 39% 19% 27% 24% / 64% 20% 29% 24%;
+}
+.trustBadges {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(8px, 2vw, 28px);
+  padding: 0;
+  margin: clamp(24px, 4vw, 56px) 0 0;
+  list-style: none;
+}
+.trustBadges li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px clamp(10px, 2vw, 20px);
+  border-radius: 14px;
+  background: rgb(255 253 250 / 72%);
+  color: var(--retina-dark);
+  font-family: var(--font-heading);
+  font-size: var(--type-supporting-size);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.section, .care, .diagnostics { padding-block: clamp(36px, 5vw, 74px); }
+.peachWave {
+  --wave-base: #fffaf7;
+  background-color: var(--wave-base);
+  background-image:
+    linear-gradient(to bottom, var(--wave-base), transparent 70%),
+    url("/images/Soft Peach Wave Background.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  /* Fade the top of the image into the base color on taller, stacked layouts. */
+  background-size: 100% min(100%, 51vw), 100% auto;
+}
+.overview { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
+.curvedPhoto::before {
+  inset: -3% -2% -4% -3%;
+  border-radius: 55% 45% 51% 49% / 48% 58% 42% 52%;
+  background: #fae8db;
+}
+.eyePhoto img {
+  aspect-ratio: 1.4;
+  object-fit: cover;
+  object-position: 56% center;
+  border-radius: 53% 41% 53% 40% / 53% 48% 46% 42%;
+}
+.overviewHighlights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: clamp(16px, 2vw, 24px);
+}
+.overviewHighlights article {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: clamp(12px, 1.5vw, 20px);
+  background: var(--retina-cream);
+  border: 1px solid var(--retina-line);
+  border-radius: 16px;
+}
+.overviewHighlights h3 { margin: 0 0 6px; color: var(--retina-dark); }
+.overviewHighlights p, .overviewNote, .careCards dd, .symptoms dd, .symptomPhoto figcaption,
+.conditionList article > p, .pathways p {
+  color: var(--ink-soft);
+  font-size: var(--type-supporting-size);
+  line-height: var(--type-supporting-line);
+}
+.overviewHighlights p { margin: 0; }
+.overviewDetails .overviewNote { margin: 14px 0 0; }
+
+.care { --wave-base: var(--retina-cream); }
+.careGrid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: stretch; }
+.careGrid .carePhoto { margin-top: clamp(16px, 2vw, 24px); }
+.carePhoto img { aspect-ratio: 2 / 1; object-fit: cover; }
+.careCards, .symptoms, .diagnosticCards { display: grid; gap: 14px; margin: 0; }
+.careCards { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; }
+.careCards > div, .symptoms > div {
+  padding: clamp(14px, 1.7vw, 22px);
+  border: 1px solid #eee2d8;
+  border-radius: 16px;
+  background: #fffdfa;
+  box-shadow: var(--retina-shadow);
+}
+.riskGrid li {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--type-lead-size);
+  line-height: var(--type-subsection-line);
+}
+.careCards dt, .symptoms dt, .riskGrid li { color: var(--retina-dark); }
+.careCards dt { display: flex; align-items: center; gap: 10px; }
+.careCards dd, .symptoms dd, .diagnosticCards dd {
+  margin: 8px 0 0;
+}
+.diagnosticCards dd, .urgent p {
+  font-size: var(--type-supporting-size);
+  line-height: var(--type-supporting-line);
+}
+
+.symptomGrid { grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); }
+.symptomPhoto img {
+  aspect-ratio: 1.8;
+  object-fit: cover;
+  border-radius: 48% 35% 37% 20% / 63% 34% 38% 26%;
+}
+.symptomPhoto figcaption { margin-top: 9px; text-align: center; }
+.urgent {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  background: #fff0e5;
+  border: 1px solid #efd5c3;
+  border-inline-start: 4px solid var(--orange-dark);
+  border-radius: 12px;
+  padding: 16px clamp(14px, 3vw, 24px);
+  color: #653a28;
+}
+.urgent h3, .urgent p { margin: 0; }
+.urgent h3 { color: inherit; }
+.urgent p { margin-top: 5px; }
+.symptoms {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  margin-top: clamp(22px, 3vw, 38px);
+}
+.symptoms > div { padding: clamp(14px, 1.2vw, 18px); }
+.symptoms svg, .diagnosticCards svg { display: block; margin-bottom: 9px; }
+
+.risk { --wave-base: #f9eee5; padding-block: clamp(28px, 4vw, 54px); }
+.riskGrid { grid-template-columns: minmax(0, 1fr) minmax(0, .42fr); }
+.riskGrid h2 { margin-block: 12px 16px; }
+.riskPhoto { width: 100%; max-width: 315px; justify-self: end; }
+.riskPhoto img { border-radius: 27% 42% 25% 35% / 31% 23% 45% 23%; }
+.riskPhoto::before { background: #f5dfd0; }
+.riskGrid ul {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 10px;
+}
+.riskGrid li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fffdfa;
+}
+.trustBadges svg, .overviewHighlights svg, .careCards svg, .urgent svg,
+.symptoms svg, .riskGrid svg, .conditionLabel svg, .diagnosticCards svg {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--orange-dark);
+}
+
+.conditionGrid { grid-template-columns: minmax(0, .48fr) minmax(0, 1fr); align-items: start; }
+.conditions { --wave-base: #fffcf8; }
+.conditionGrid .conditionPhoto { margin-top: 22px; }
+.conditionList { display: grid; gap: 10px; }
+.conditionList article {
+  display: grid;
+  grid-template-columns: minmax(0, .76fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(12px, 1.8vw, 24px);
+}
+.conditionLabel {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  gap: 10px;
+  padding: 12px;
+  background: #fbefe5;
+  border-radius: 14px;
+}
+.conditionList h3 { margin: 0; color: var(--retina-dark); }
+.conditionLabel .area { margin: 3px 0 0; color: var(--orange-dark); font-size: var(--type-supporting-size); }
+.conditionList article > p { margin: 0; }
+
+.diagnostics { color: #fff8f4; background: var(--namokar-dark-section-background); }
+.diagnostics :is(h2, :global(.lead), dt) { color: #fff8f4; }
+.diagnostics :global(.kicker), .diagnosticCards svg { color: #ffc6a5; }
+.diagnosticsGrid { grid-template-columns: minmax(0, .36fr) minmax(0, 1fr); }
+.diagnosticCards { grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: 1fr; }
+.diagnosticCards > div {
+  grid-column: span 2;
+  padding: clamp(14px, 1.2vw, 18px);
+  border-radius: 14px;
+  background: rgb(255 255 255 / 9%);
+}
+.diagnosticCards > div:nth-last-child(-n+2) { grid-column: span 3; }
+.pathways h3 { margin: 0 0 6px; color: var(--retina-dark); }
+.pathways p { margin: 0; }
+.treatmentIntro {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.treatmentIntro :global(.kicker) { justify-content: center; }
+.treatmentIntro :global(.lead) {
+  max-width: 88ch;
+  margin-inline: auto;
+  text-wrap: balance;
+}
+.treatment { background: var(--retina-cream); }
+.treatmentCarousel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(6px, 1vw, 14px);
+}
+.pathways {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 48px) / 4);
+  gap: 16px;
+  min-width: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.pathways::-webkit-scrollbar { display: none; }
+.pathways article {
+  min-width: 0;
+  overflow: hidden;
+  scroll-snap-align: start;
+  border: 1px solid var(--retina-line);
+  border-radius: 18px;
+  background: var(--white);
+}
+.pathways article > div { padding: clamp(16px, 2vw, 24px); }
+.pathways img { aspect-ratio: 3 / 2; object-fit: cover; border-radius: 0; }
+.treatmentArrow {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 1px solid var(--retina-line);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--orange-dark);
+  box-shadow: var(--retina-shadow);
+  cursor: pointer;
+}
+.treatmentArrow:not(:disabled):hover { background: var(--orange-mist); }
+.treatmentArrow:disabled { opacity: .45; cursor: default; }
+.treatmentArrow:focus-visible, .pathways:focus-visible {
+  outline: 2px solid var(--orange-dark);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pathways { scroll-behavior: auto; }
+}
+.benefits {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 16px clamp(24px, 3vw, 44px);
+  padding: clamp(16px, 2vw, 28px) clamp(16px, 3.5vw, 48px);
+  border: 1px solid var(--retina-line);
+  border-radius: 18px;
+  background: #fceee4;
+}
+.benefitsHeading {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(12px, 2vw, 28px);
+}
+.benefitsHeading h2 {
+  padding-inline-start: clamp(12px, 2vw, 28px);
+  border-inline-start: 1px solid var(--retina-line);
+}
+.benefitsIcon {
+  display: grid;
+  place-items: center;
+  inline-size: clamp(58px, 9vw, 128px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #fff4eb;
+  color: var(--orange-dark);
+  box-shadow: 0 5px 16px rgb(122 63 30 / 8%);
+}
+.benefitsIcon svg { width: 68%; height: auto; }
+.benefits :is(h2,p) { margin: 0; }
+.singleVideo { max-width: 760px; margin-inline: auto; }
+/* Use the same fitting and focal position as the Cataract consultation. */
+.page :global(#retina-consultation .cta-panel-image) { object-fit: cover; object-position: left center; }
+@media (min-width: 1100px) {
+  /* Match the Cataract consultation title scale and allow the Retina copy to wrap. */
+  .page :global(#retina-consultation .cta-title) { font-size: clamp(1.9rem, 2.45vw, 2.35rem); }
+}
+
+@media (min-width: 960px) {
+  .hero { min-height: calc(100svh - var(--header-h) - 1px); display: grid; align-items: center; }
+}
+@media (min-width: 681px) {
+  /* Center the image and the complete text column independently. */
+  .heroGrid, .overview, .riskGrid {
+    grid-template-rows: minmax(0, 1fr) auto auto minmax(0, 1fr);
+    row-gap: 0;
+  }
+  .heroGrid > :first-child, .riskGrid > :first-child { grid-area: 2 / 1; }
+  .heroGrid .actions, .riskGrid ul { grid-area: 3 / 1; }
+  .heroPhoto, .riskPhoto { grid-area: 1 / 2 / -1; }
+  .overview > :first-child { grid-area: 2 / 2; }
+  .overviewDetails { grid-area: 3 / 2; }
+  .eyePhoto { grid-area: 1 / 1 / -1; }
+}
+@media (min-width: 1200px) {
+  .symptoms { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+@media (min-width: 1380px) {
+  .diagnosticCards { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .diagnosticCards > div:nth-child(n) { grid-column: auto; }
+}
+@media (max-width: 959px) {
+  .heroGrid { grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); }
+  .riskGrid { grid-template-columns: minmax(0, 1fr) minmax(0, .36fr); }
+  .riskGrid ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .conditionGrid, .diagnosticsGrid { grid-template-columns: 1fr; }
+  .conditionPhoto { max-width: 420px; }
+  .symptomPhoto figcaption { max-width: 30ch; margin-inline: auto; }
+  .pathways { grid-auto-columns: calc((100% - 16px) / 2); }
+}
+@media (max-width: 640px) {
+  .treatmentCarousel { margin-inline: -10px; }
+  .treatmentArrow { width: 36px; }
+  .pathways { gap: 10px; grid-auto-columns: calc(100% - 24px); }
+}
+@media (max-width: 680px) {
+  .heroGrid, .overview, .careGrid, .symptomGrid, .riskGrid, .benefits { grid-template-columns: 1fr; }
+  .hero h1 { display: block; }
+  .hero h1 span { display: inline; }
+  .heroGrid, .overview, .riskGrid { row-gap: 18px; }
+  .heroGrid .heroIntro { margin-bottom: 0; }
+  .actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .actions :global(.btn) {
+    min-width: 0;
+    padding: 8px;
+    gap: 6px;
+  }
+  .actions svg { flex: none; width: 18px; height: 18px; }
+  .appointmentLabel { display: none; }
+  .mobileAppointmentLabel { display: inline; }
+  .trustBadges {
+    gap: 0;
+    margin-top: 14px;
+    padding: 6px 10px;
+    border: 1px solid var(--retina-line);
+    border-radius: 14px;
+    background: rgb(255 253 250 / 72%);
+  }
+  .trustBadges li {
+    background: transparent;
+    border-radius: 0;
+    padding: 6px 8px;
+  }
+  .careCards { gap: 10px; grid-auto-rows: auto; }
+  .careCards > div {
+    display: grid;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+    row-gap: 8px;
+    padding: 10px;
+  }
+  .careCards dt {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    text-wrap: wrap;
+  }
+  .careCards dd { margin: 0; }
+  .overviewHighlights, .riskGrid ul { margin-top: 0; }
+  .eyePhoto { max-width: 450px; }
+  .riskPhoto { max-width: 240px; justify-self: center; }
+  .symptoms, .diagnosticCards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .diagnosticCards > div:nth-child(n) { grid-column: auto; }
+  .diagnosticCards > div:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 759px) {
+  .page :global(#retina-consultation .cta-panel) {
+    padding-block: 28px;
+    grid-template-columns: 28px minmax(0, 1fr) 28px;
+  }
+  .page :global(#retina-consultation .cta-panel-copy) { display: contents; }
+  .page :global(#retina-consultation .cta-panel-copy > *) { grid-column: 2; }
+  .page :global(#retina-consultation .cta-visual) {
+    grid-column: 1 / -1;
+    order: 1;
+    min-height: 0;
+    aspect-ratio: 2 / 1;
+    margin-top: 18px;
+  }
+  .page :global(#retina-consultation .cta-panel-actions) { order: 2; margin-top: 18px; }
+}
+@media (max-width: 540px) {
+  .trustBadges { grid-template-columns: 1fr; }
+  .trustBadges li { justify-content: flex-start; gap: 8px; }
+  .trustBadges li + li { border-top: 1px solid var(--retina-line); }
+  .trustBadges svg { width: 18px; height: 18px; }
+  .conditionList article { grid-template-columns: 1fr; gap: 8px; }
+  .conditionList article > p { padding-inline: 10px; }
+  .conditionList { gap: 16px; }
+}
+@media (max-width: 420px) {
+  .overviewHighlights, .symptoms, .riskGrid ul, .diagnosticCards {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+}
+@media (max-width: 359px) {
+  .actions :global(.btn) { flex-direction: column; }
+  .careCards { grid-template-columns: 1fr; }
+  .careCards > div { display: block; grid-row: auto; padding: 12px; }
+  .careCards dd { margin-top: 8px; }
+}
